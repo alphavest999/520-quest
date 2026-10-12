@@ -56,6 +56,15 @@ button { cursor: pointer; }
 .pill svg { width: 15px; height: 15px; }
 .pill.streak { color: var(--heat); }
 .pill.goal { color: var(--good); }
+.hudpro { flex: none; display: inline-flex; align-items: center; gap: 5px; font: 700 13px/1 var(--display); letter-spacing: .06em; padding: 8px 11px; border-radius: 99px; border: 0; cursor: pointer; color: #1a0610; background: linear-gradient(135deg, #fb7185, #facc15); box-shadow: 0 0 0 0 rgba(251,113,133,.6); animation: proPulse 2.4s ease-in-out infinite; }
+.hudpro svg { width: 14px; height: 14px; }
+@keyframes proPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(251,113,133,.55); } 50% { box-shadow: 0 0 0 7px rgba(251,113,133,0); } }
+.card.promo { background: radial-gradient(circle at 85% 10%, rgba(250,204,21,.28), transparent 45%), linear-gradient(160deg, rgba(251,113,133,.30), var(--panel) 70%); border-color: #fb7185; }
+.card.promo .bigtext { margin: 0; }
+.btn.pro { background: linear-gradient(135deg, #fb7185, #facc15); color: #1a0610; border: 0; font-weight: 800; text-decoration: none; justify-content: center; }
+.probanner { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--r); background: linear-gradient(135deg, rgba(251,113,133,.25), rgba(250,204,21,.18)); border: 1px solid #fb7185; }
+.probanner p { margin: 0; flex: 1; font-size: 14px; }
+.probanner b { font-family: var(--display); letter-spacing: .03em; }
 
 /* Views */
 .views { position: relative; min-height: 0; }
@@ -214,6 +223,7 @@ a { color: var(--volt); }
     </div>
     <span class="pill goal" id="hudGoal" title="Today's goal"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg><span id="hudGoalTxt">0/25</span></span>
     <span class="pill streak" id="hudStreak" title="Day streak"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8.6 1c.4 2.4-1.3 3.4-2.3 4.8C5.4 7 5 8 5 9.2 5 11.9 6.6 15 8 15c2.6 0 4-2.3 4-4.9 0-2-1-3.1-1.7-4-.2 1-.7 1.7-1.4 2C9.8 5.9 9.7 3 8.6 1Z"/></svg><span id="hudStreakTxt">0</span></span>
+    <button class="hudpro" id="hudPro" data-pro hidden><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg>PRO</button>
   </header>
 
   <div class="views">
@@ -1187,7 +1197,7 @@ const CONFIG = {
   productName: "520 Quest Pro",
   price: "$39 one-time",
   // Your Gumroad or Lemon Squeezy checkout link:
-  checkoutUrl: "../pro/",
+  checkoutUrl: "https://alphavest.gumroad.com/l/520quest?wanted=true",
   // SHA-256 hashes of unlock codes (uppercase). The code you put in the product's receipt unlocks Pro.
     unlockCodeHashes: ["dc0b3e3e3aed783131957d2c79b7dca52954b12d15d657aca671d57ee3078658"],
   // Optional: Gumroad product ID to verify individual license keys (works when the app is on your own site).
@@ -1369,7 +1379,9 @@ function renderHUD() {
   $("#hudXp").style.width = Math.min(100, (S.xp - lo) / (hi - lo) * 100) + "%";
   $("#hudGoalTxt").textContent = Math.min(S.today.answered, S.goal) + "/" + S.goal;
   $("#hudStreakTxt").textContent = streakAlive();
+  $("#hudPro").hidden = !!S.pro;
 }
+document.addEventListener("click", e => { if (e.target.closest("#hudPro, .promo [data-pro], .probanner [data-pro]")) showPro(); });
 
 /* ---------- feed engine ---------- */
 const feed = $("#feed");
@@ -1405,6 +1417,7 @@ function nextCard() {
   const sec = S.focus ? CAT[S.focus].s : S.filter;
   if (sec === "CARS") return passageCard(PASSAGES[passI++ % PASSAGES.length]);
   if (!S.focus && sec === "ALL" && cardN % 9 === 0) return passageCard(PASSAGES[passI++ % PASSAGES.length]);
+  if (!S.pro && cardN % 12 === 0) return promoCard();
   if (!S.focus && cardN % 5 === 0) return (cardN / 5) % 2 ? factCard() : trapCard();
   const [q, rev] = pickQuestion(); sessionSeen.add(q.id);
   return questionCard(q, rev);
@@ -1520,11 +1533,19 @@ function trapCard() {
   $("[data-got]", el).addEventListener("click", ev => { S.traps[i] = 1; addXP(3); save(); ev.target.replaceWith(Object.assign(document.createElement("span"), { className: "muted small", textContent: "+3 XP. Watch for it today." })); });
   return el;
 }
+function promoCard() {
+  const left = Math.max(0, CONFIG.freeDailyQuestions - S.today.answered);
+  const el = document.createElement("article"); el.className = "card promo";
+  el.innerHTML = `<div class="eyebrow" style="color:#fb7185">520 Quest Pro</div><p class="bigtext">Go unlimited. ${left} free question${left === 1 ? "" : "s"} left today.</p>
+    <p class="muted" style="margin:0">Pro removes the daily cap and unlocks unlimited boss battles, your section score estimate, the full-length tracker and Anki export.</p>
+    <div class="row"><button class="btn pro" data-pro>Get Pro, ${esc(CONFIG.price)}</button></div>${SWIPE}`;
+  return el;
+}
 function gateCard() {
   const el = document.createElement("article"); el.className = "card gate";
   el.innerHTML = `<div class="eyebrow">Free limit reached</div><p class="bigtext">You answered ${CONFIG.freeDailyQuestions} questions today. That is a strong session.</p>
     <p class="muted" style="margin:0">Free players get ${CONFIG.freeDailyQuestions} a day, refilled tomorrow. Pro removes the cap and adds unlimited boss battles, Anki export, the score estimate, and the full-length tracker.</p>
-    <div class="row"><button class="btn primary" data-pro>See Pro, ${esc(CONFIG.price)}</button></div>`;
+    <div class="row"><button class="btn pro" data-pro>Get Pro, ${esc(CONFIG.price)}</button></div>`;
   $("[data-pro]", el).addEventListener("click", showPro);
   return el;
 }
@@ -1558,7 +1579,7 @@ async function sha(s) { const b = await crypto.subtle.digest("SHA-256", new Text
 function showPro() {
   sheet(`<div class="eyebrow">${esc(CONFIG.productName)}</div><h2>Unlimited play, one price, yours forever</h2>
     <ul class="muted" style="margin:0;padding-left:18px;display:grid;gap:4px"><li>Unlimited daily scrolling and boss battles</li><li>Export your misses to Anki or Quizlet</li><li>Section score estimate from your answers</li><li>Full-length score tracker with a 520 line</li><li>No subscription. No renewal. Updates included.</li></ul>
-    <div class="row"><a class="btn primary" href="${esc(CONFIG.checkoutUrl)}" target="_blank" rel="noopener">Get Pro, ${esc(CONFIG.price)}</a></div>
+    <div class="row"><a class="btn pro" href="${esc(CONFIG.checkoutUrl)}" target="_blank" rel="noopener" style="flex:1;font-size:18px;padding:16px">Get Pro, ${esc(CONFIG.price)}</a></div>
     <label class="field" for="unlockCode">Already bought it? Enter your unlock code<input type="text" id="unlockCode" autocomplete="off" placeholder="Code from your receipt"></label>
     <div class="row"><button class="btn" data-unlock>Unlock</button><button class="btn ghost" data-close>Not now</button></div><p class="small muted" id="unlockMsg"></p>`,
     s => $("[data-unlock]", s).addEventListener("click", async () => {
@@ -1588,7 +1609,8 @@ let B = null;
 function renderBossLobby() {
   const left = S.pro ? "Unlimited battles" : Math.max(0, CONFIG.freeDailyBosses - S.today.bosses) + " free battle left today";
   $("#view-boss").innerHTML = `<h2 class="title">Boss battles</h2><p class="sub">10 questions at exam pace, 95 seconds each. Deal 70 damage before you lose 4 hearts. ${esc(left)}.</p>
-    <div class="bosses">${BOSSES.map(b => `<button class="boss ${S.bossWins[b.id] ? "done" : ""}" data-boss="${b.id}"><span class="face" style="background:${b.col}">${b.face}</span><strong>${esc(b.name)}</strong><small>${esc(b.blurb)}${S.bossWins[b.id] ? " · Defeated" : ""}</small></button>`).join("")}</div>`;
+    ${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PRO</b> Unlimited boss battles every day, plus your score estimate.</p><button class="btn small pro" data-pro>Get Pro</button></div>`}
+    <div class="bosses" style="margin-top:14px">${BOSSES.map(b => `<button class="boss ${S.bossWins[b.id] ? "done" : ""}" data-boss="${b.id}"><span class="face" style="background:${b.col}">${b.face}</span><strong>${esc(b.name)}</strong><small>${esc(b.blurb)}${S.bossWins[b.id] ? " · Defeated" : ""}</small></button>`).join("")}</div>`;
 }
 $("#view-boss").addEventListener("click", e => {
   const b = e.target.closest("[data-boss]"); if (b) return startBoss(BOSSES.find(x => x.id === b.dataset.boss));
@@ -1650,7 +1672,7 @@ function bossEnd() {
 /* ---------- map ---------- */
 function renderMap() {
   const groups = ["CP", "CARS", "BB", "PS"];
-  $("#view-map").innerHTML = `<h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll.</p>
+  $("#view-map").innerHTML = `<h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll.</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PRO</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>Get Pro</button></div>`}
   <div class="stack">${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
     const c = S.cat[code] || { a: 0, c: 0 }, m = c.a ? c.c / c.a : 0, col = !c.a ? "var(--line)" : m >= .8 ? "var(--good)" : m >= .6 ? "var(--volt)" : "var(--bad)";
     const drill = s !== "CARS" && QUESTIONS.some(q => q.c === code);
@@ -1722,7 +1744,7 @@ function renderMe() {
     <div class="panel"><h3>Settings</h3>
       <label class="field" for="goalSel">Daily goal<select id="goalSel">${[15, 25, 40, 60].map(n => `<option value="${n}" ${S.goal === n ? "selected" : ""}>${n} questions</option>`).join("")}</select></label>
       <label class="row small" for="soundChk"><input type="checkbox" id="soundChk" ${S.sound ? "checked" : ""}> Sound and vibration</label>
-      <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button>${S.pro ? "" : '<button class="btn small primary" data-pro>Get Pro</button>'}</div><div id="backupOut"></div></div>
+      <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button>${S.pro ? "" : '<button class="btn small pro" data-pro>Get Pro</button>'}</div><div id="backupOut"></div></div>
     ${CONFIG.resources.length ? `<div class="panel links"><h3>Resources</h3>${CONFIG.resources.map(r => `<p class="small"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a><br><span class="muted">${esc(r.note || "")}</span></p>`).join("")}</div>` : ""}
     <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app. Progress is saved on this device only.</p>
   </div>`;
