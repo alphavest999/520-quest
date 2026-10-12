@@ -58,6 +58,7 @@ button { cursor: pointer; }
 .pill.goal { color: var(--good); }
 .hudpro { flex: none; display: inline-flex; align-items: center; gap: 5px; font: 700 13px/1 var(--display); letter-spacing: .06em; padding: 8px 11px; border-radius: 99px; border: 0; cursor: pointer; color: #1a0610; background: linear-gradient(135deg, #fb7185, #facc15); box-shadow: 0 0 0 0 rgba(251,113,133,.6); animation: proPulse 2.4s ease-in-out infinite; }
 .hudpro svg { width: 14px; height: 14px; }
+.hudpro[hidden] { display: none; }
 @keyframes proPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(251,113,133,.55); } 50% { box-shadow: 0 0 0 7px rgba(251,113,133,0); } }
 .card.promo { background: radial-gradient(circle at 85% 10%, rgba(250,204,21,.28), transparent 45%), linear-gradient(160deg, rgba(251,113,133,.30), var(--panel) 70%); border-color: #fb7185; }
 .card.promo .bigtext { margin: 0; }
@@ -1578,6 +1579,7 @@ function copy(txt, done, area) {
 }
 async function sha(s) { const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s)); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join(""); }
 function showPro() {
+  if (S.pro) { toast("<b>You're Pro.</b> Everything is unlocked on this device."); return; }
   sheet(`<div class="eyebrow">${esc(CONFIG.productName)}</div><h2>Unlimited play, one price, yours forever</h2>
     <ul class="muted" style="margin:0;padding-left:18px;display:grid;gap:4px"><li>Unlimited daily scrolling and boss battles</li><li>Export your misses to Anki or Quizlet</li><li>Section score estimate from your answers</li><li>Full-length score tracker with a 520 line</li><li>No subscription. No renewal. Updates included.</li></ul>
     <div class="row"><a class="btn pro${CONFIG.lemonUrl ? " lemonsqueezy-button" : ""}" href="${esc(CONFIG.checkoutUrl)}" target="_blank" rel="noopener" style="flex:1;font-size:18px;padding:16px">Get Pro, ${esc(CONFIG.price)}</a></div>
