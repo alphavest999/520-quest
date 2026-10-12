@@ -1,0 +1,1794 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+<title>520 Quest</title>
+<meta name="theme-color" content="#11100c">
+<meta name="description" content="A free, game-style MCAT study app: swipe questions, beat bosses, fix your traps, aim for 520+.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Figtree:wght@400;500;600;800&display=swap">
+<style>
+/* Layout: a phone-first game shell. HUD on top, one swipe feed in the middle, tab bar at the bottom. Dark arcade cabinet in the 520+ brand yellow. */
+:root {
+  --ink: #11100c;        /* page */
+  --panel: #1c1a14;      /* cards */
+  --panel-2: #29261d;    /* raised controls */
+  --line: #3a352a;       /* hairlines */
+  --text: #f6f1e3;
+  --muted: #aaa38f;
+  --volt: #facc15;       /* brand yellow */
+  --volt-ink: #1a1500;   /* text on yellow */
+  --good: #4ade80;
+  --bad: #fb7185;
+  --cool: #67e8f9;       /* xp + info */
+  --heat: #fb923c;       /* streak */
+  --display: "Chakra Petch", "Arial Narrow", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --r: 14px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--ink); color: var(--text); font: 16px/1.5 var(--body); -webkit-tap-highlight-color: transparent; overflow: hidden; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--volt); outline-offset: 2px; }
+.app { height: 100%; display: grid; grid-template-rows: auto 1fr auto; max-width: 560px; margin: 0 auto; position: relative; }
+
+/* HUD */
+.hud { display: flex; align-items: center; gap: 12px; padding: 10px 16px 8px; border-bottom: 1px solid var(--line); background: var(--ink); }
+.lvl { font: 700 13px/1 var(--display); background: var(--volt); color: var(--volt-ink); border-radius: 8px; padding: 7px 8px; min-width: 46px; text-align: center; letter-spacing: .04em; }
+.xpwrap { flex: 1; min-width: 0; display: grid; gap: 4px; }
+.rank { font: 600 12px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar { height: 7px; border-radius: 99px; background: var(--panel-2); overflow: hidden; }
+.bar > i { display: block; height: 100%; width: 0; background: var(--cool); border-radius: inherit; transition: width .5s ease; }
+.pill { display: inline-flex; align-items: center; gap: 5px; font: 700 14px/1 var(--display); font-variant-numeric: tabular-nums; padding: 6px 9px; border-radius: 99px; background: var(--panel); border: 1px solid var(--line); }
+.pill svg { width: 15px; height: 15px; }
+.pill.streak { color: var(--heat); }
+.pill.goal { color: var(--good); }
+
+/* Views */
+.views { position: relative; min-height: 0; }
+.view { position: absolute; inset: 0; overflow-y: auto; padding: 14px 16px 24px; }
+.view[hidden] { display: none !important; }
+#view-scroll { padding: 0; display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
+.filters { display: flex; gap: 6px; padding: 10px 16px; overflow-x: auto; scrollbar-width: none; }
+.filters::-webkit-scrollbar { display: none; }
+.chipbtn { flex: none; border: 1px solid var(--line); background: var(--panel); color: var(--muted); border-radius: 99px; padding: 6px 12px; font: 600 13px/1 var(--display); letter-spacing: .05em; }
+.chipbtn[aria-pressed="true"] { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); }
+.chipbtn.focus { color: var(--cool); border-color: var(--cool); }
+.feed { overflow-y: auto; scroll-snap-type: y proximity; padding: 0 16px 40px; display: flex; flex-direction: column; gap: 14px; overscroll-behavior: contain; }
+.card { flex: none; scroll-snap-align: start; scroll-margin-top: 8px; min-height: calc(100% - 14px); background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 18px 16px 16px; display: flex; flex-direction: column; gap: 14px; position: relative; }
+.card-top { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.tag { font: 600 11px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; padding: 5px 8px; border-radius: 6px; background: var(--panel-2); color: var(--muted); }
+.tag.sec { color: var(--volt); }
+.tag.rev { background: color-mix(in srgb, var(--bad) 18%, transparent); color: var(--bad); }
+.tag.star { color: var(--volt); }
+.diff { margin-left: auto; display: flex; gap: 3px; }
+.diff i { width: 7px; height: 7px; border-radius: 2px; background: var(--panel-2); }
+.diff i.on { background: var(--heat); }
+.stem { font: 600 clamp(18px, 4.6vw, 21px)/1.4 var(--body); margin: 0; text-wrap: pretty; }
+.opts { display: grid; gap: 8px; }
+.opt { display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: start; text-align: left; padding: 12px; background: var(--panel-2); border: 1.5px solid transparent; border-radius: 12px; transition: transform .08s, border-color .15s, background .15s; }
+.opt:active { transform: scale(.985); }
+.opt b { font: 700 14px/30px var(--display); text-align: center; border-radius: 8px; background: var(--ink); color: var(--muted); height: 30px; }
+.opt span { padding-top: 4px; min-width: 0; }
+.opt small { display: block; color: var(--muted); font-size: 13.5px; margin-top: 4px; line-height: 1.4; }
+.opt.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--panel-2)); }
+.opt.right b { background: var(--good); color: var(--ink); }
+.opt.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 12%, var(--panel-2)); }
+.opt.wrong b { background: var(--bad); color: var(--ink); }
+.opt.gone { opacity: .3; pointer-events: none; }
+.opt:disabled { cursor: default; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.btn { border: 1px solid var(--line); background: var(--panel-2); border-radius: 12px; padding: 10px 14px; font: 600 14px/1.2 var(--body); }
+.btn.primary { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); font-weight: 800; }
+.btn.ghost { background: transparent; }
+.btn.small { padding: 7px 10px; font-size: 13px; }
+.btn:disabled { opacity: .45; cursor: default; }
+.verdict { font: 700 18px/1.2 var(--display); letter-spacing: .03em; }
+.verdict.ok { color: var(--good); }
+.verdict.no { color: var(--bad); }
+.note { border-left: 3px solid var(--volt); padding: 4px 0 4px 10px; color: var(--text); font-size: 14.5px; }
+.dna { display: grid; gap: 8px; padding: 12px; border-radius: 12px; background: var(--ink); border: 1px dashed var(--line); }
+.dna p { margin: 0; font-size: 14px; color: var(--muted); }
+.dna .row .btn[aria-pressed="true"] { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); }
+.swipe { margin-top: auto; text-align: center; font: 600 12px/1 var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding-top: 6px; }
+.swipe svg { display: block; margin: 0 auto 6px; width: 18px; height: 18px; animation: bob 1.6s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-5px); } }
+.passage { font-size: 15.5px; line-height: 1.65; display: grid; gap: 10px; }
+.passage p { margin: 0; }
+.pq { display: grid; gap: 10px; padding-top: 14px; border-top: 1px solid var(--line); }
+.qhead { font: 700 13px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--volt); padding: 12px 0 0; border-top: 2px solid var(--volt); }
+.card { position: relative; }
+.pq h3 { margin: 0; font: 600 16.5px/1.4 var(--body); }
+.bigtext { font: 600 clamp(20px, 5.4vw, 25px)/1.35 var(--body); margin: 0; text-wrap: pretty; }
+.eyebrow { font: 700 12px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--volt); }
+.card.fact { background: linear-gradient(160deg, color-mix(in srgb, var(--cool) 10%, var(--panel)), var(--panel) 60%); }
+.card.fact .eyebrow { color: var(--cool); }
+.card.trap { background: linear-gradient(160deg, color-mix(in srgb, var(--bad) 12%, var(--panel)), var(--panel) 60%); }
+.card.trap .eyebrow { color: var(--bad); }
+.card.gate { background: linear-gradient(160deg, color-mix(in srgb, var(--volt) 14%, var(--panel)), var(--panel) 65%); }
+.example { background: var(--ink); border-radius: 12px; padding: 12px; font-size: 14.5px; color: var(--muted); }
+.example b { color: var(--text); }
+.float { position: absolute; right: 16px; top: 14px; font: 700 20px/1 var(--display); color: var(--cool); pointer-events: none; animation: rise 1.3s ease-out forwards; text-shadow: 0 2px 10px var(--ink); }
+.float.crit { color: var(--volt); font-size: 24px; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px) scale(.9); } 15% { opacity: 1; transform: translateY(0) scale(1.08); } to { opacity: 0; transform: translateY(-40px); } }
+.combo { position: absolute; left: 50%; top: 8px; transform: translateX(-50%); font: 700 12px/1 var(--display); letter-spacing: .12em; background: var(--heat); color: var(--ink); padding: 5px 10px; border-radius: 99px; z-index: 3; pointer-events: none; }
+
+/* Tab bar */
+.tabs { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); background: var(--ink); padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)); }
+.tab { background: none; border: 0; display: grid; justify-items: center; gap: 3px; padding: 6px 0; color: var(--muted); font: 600 11px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; border-radius: 10px; }
+.tab svg { width: 22px; height: 22px; }
+.tab[aria-selected="true"] { color: var(--volt); }
+
+/* Panels in Boss / Map / Me */
+h2.title { font: 700 26px/1.1 var(--display); letter-spacing: .02em; margin: 4px 0 4px; text-wrap: balance; }
+.sub { color: var(--muted); margin: 0 0 16px; font-size: 14.5px; }
+.stack { display: grid; gap: 14px; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; display: grid; gap: 10px; min-width: 0; }
+.panel h3 { margin: 0; font: 700 15px/1.2 var(--display); letter-spacing: .08em; text-transform: uppercase; }
+.panel p { margin: 0; }
+.muted { color: var(--muted); }
+.small { font-size: 13.5px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.stat b { display: block; font: 700 24px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.stat span { font-size: 12.5px; color: var(--muted); }
+
+.bosses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.boss { text-align: left; border: 1px solid var(--line); background: var(--panel); border-radius: var(--r); padding: 14px; display: grid; gap: 8px; min-width: 0; }
+.boss .face { font: 700 30px/1 var(--display); width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; color: var(--ink); }
+.boss strong { font: 700 16px/1.15 var(--display); }
+.boss small { color: var(--muted); font-size: 12.5px; }
+.boss.done { border-color: var(--good); }
+.arena { display: grid; gap: 12px; }
+.hpline { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; }
+.hp { height: 14px; border-radius: 99px; background: var(--panel-2); overflow: hidden; }
+.hp > i { display: block; height: 100%; background: var(--bad); transition: width .45s ease; }
+.hearts { display: flex; gap: 4px; }
+.hearts i { width: 16px; height: 16px; background: var(--bad); clip-path: path("M8 15 L1.5 8.5 A3.6 3.6 0 0 1 8 3.4 A3.6 3.6 0 0 1 14.5 8.5 Z"); }
+.hearts i.lost { background: var(--panel-2); }
+.timer { font: 700 18px/1 var(--display); font-variant-numeric: tabular-nums; }
+.timer.low { color: var(--bad); }
+.shake { animation: shake .35s; }
+@keyframes shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+
+.catgroup { display: grid; gap: 2px; }
+.cat { display: grid; grid-template-columns: 40px 1fr 64px; gap: 10px; align-items: center; padding: 9px 4px; border: 0; background: none; text-align: left; border-bottom: 1px solid var(--line); }
+.cat:last-child { border-bottom: 0; }
+.cat code { font: 700 14px/1 var(--display); color: var(--volt); }
+.cat .t { font-size: 14px; line-height: 1.3; min-width: 0; }
+.cat .t small { display: block; color: var(--muted); font-size: 12px; }
+.meter { height: 8px; border-radius: 99px; background: var(--panel-2); overflow: hidden; }
+.meter i { display: block; height: 100%; border-radius: inherit; }
+
+.donut { display: grid; grid-template-columns: 120px 1fr; gap: 14px; align-items: center; }
+.legend { display: grid; gap: 6px; font-size: 14px; }
+.legend span { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; }
+.badges { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px; }
+.badge { border: 1px solid var(--line); border-radius: 12px; padding: 10px 8px; text-align: center; font-size: 12px; color: var(--muted); display: grid; gap: 6px; justify-items: center; }
+.badge i { width: 34px; height: 34px; border-radius: 10px; background: var(--panel-2); display: grid; place-items: center; font: 700 14px/1 var(--display); font-style: normal; color: var(--muted); }
+.badge.got { color: var(--text); border-color: color-mix(in srgb, var(--volt) 50%, var(--line)); }
+.badge.got i { background: var(--volt); color: var(--volt-ink); }
+.teaser { position: relative; border-radius: 12px; overflow: hidden; }
+.blurred { filter: blur(5px); opacity: .75; pointer-events: none; user-select: none; padding: 6px; }
+.teaser-cta { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 8px; text-align: center; background: color-mix(in srgb, var(--panel) 35%, transparent); }
+.locked { position: relative; }
+.locked > .lockveil { position: absolute; inset: 0; background: color-mix(in srgb, var(--panel) 80%, transparent); backdrop-filter: blur(3px); border-radius: inherit; display: grid; place-items: center; text-align: center; padding: 14px; gap: 8px; align-content: center; }
+input[type=text], input[type=number], select, textarea { background: var(--ink); border: 1px solid var(--line); border-radius: 10px; padding: 9px 10px; min-width: 0; }
+textarea { width: 100%; min-height: 110px; font: 12.5px/1.45 ui-monospace, Menlo, monospace; resize: vertical; }
+label.field { display: grid; gap: 5px; font-size: 13.5px; color: var(--muted); }
+.ring { position: relative; width: 74px; height: 74px; flex: none; }
+.ring svg { transform: rotate(-90deg); }
+.ring b { position: absolute; inset: 0; display: grid; place-items: center; font: 700 16px/1 var(--display); font-variant-numeric: tabular-nums; }
+.links a { color: var(--volt); }
+a { color: var(--volt); }
+
+/* Sheet + toasts */
+.scrim { position: absolute; inset: 0; background: color-mix(in srgb, var(--ink) 70%, transparent); display: grid; align-items: end; z-index: 20; }
+.sheet { background: var(--panel); border: 1px solid var(--line); border-radius: 22px 22px 0 0; padding: 20px 16px calc(20px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 12px; max-height: 88%; overflow-y: auto; animation: up .25s ease-out; }
+@keyframes up { from { transform: translateY(30px); opacity: 0; } }
+.sheet h2 { margin: 0; font: 700 24px/1.15 var(--display); text-wrap: balance; }
+.toasts { position: absolute; left: 16px; right: 16px; bottom: calc(76px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 8px; z-index: 30; pointer-events: none; }
+.toast { background: var(--panel-2); border: 1px solid var(--line); border-left: 4px solid var(--volt); border-radius: 12px; padding: 10px 12px; font-size: 14px; animation: up .2s ease-out; box-shadow: 0 8px 24px rgb(0 0 0 / .35); }
+#fx { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="app" id="app">
+  <header class="hud">
+    <div class="lvl" id="hudLvl" aria-label="Level">LV 1</div>
+    <div class="xpwrap">
+      <div class="rank" id="hudRank">Pre-Med Rookie</div>
+      <div class="bar" aria-label="XP to next level"><i id="hudXp"></i></div>
+    </div>
+    <span class="pill goal" id="hudGoal" title="Today's goal"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg><span id="hudGoalTxt">0/25</span></span>
+    <span class="pill streak" id="hudStreak" title="Day streak"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8.6 1c.4 2.4-1.3 3.4-2.3 4.8C5.4 7 5 8 5 9.2 5 11.9 6.6 15 8 15c2.6 0 4-2.3 4-4.9 0-2-1-3.1-1.7-4-.2 1-.7 1.7-1.4 2C9.8 5.9 9.7 3 8.6 1Z"/></svg><span id="hudStreakTxt">0</span></span>
+  </header>
+
+  <div class="views">
+    <section class="view" id="view-scroll" aria-label="Scroll">
+      <div class="filters" id="filters"></div>
+      <div class="feed" id="feed" aria-live="polite"></div>
+    </section>
+    <section class="view" id="view-boss" hidden aria-label="Boss battles"></section>
+    <section class="view" id="view-map" hidden aria-label="Skill map"></section>
+    <section class="view" id="view-me" hidden aria-label="Profile"></section>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab" role="tab" data-tab="scroll" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="3" width="12" height="18" rx="3"/><path d="M12 8v6M9.5 11.5 12 14l2.5-2.5"/></svg>Scroll</button>
+    <button class="tab" role="tab" data-tab="boss" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 15 9M14 4l6 6M9 9l6 6M5 15l4 4"/></svg>Boss</button>
+    <button class="tab" role="tab" data-tab="map" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>Map</button>
+    <button class="tab" role="tab" data-tab="me" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Me</button>
+  </nav>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <div id="sheetHost"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+</div>
+
+<script>
+/* ===== CONTENT: original questions written for 520 Quest. Not AAMC material. ===== */
+const SECTIONS = {
+  CP: { name: "Chem/Phys", long: "Chemical & Physical Foundations" },
+  CARS: { name: "CARS", long: "Critical Analysis & Reasoning Skills" },
+  BB: { name: "Bio/Biochem", long: "Biological & Biochemical Foundations" },
+  PS: { name: "Psych/Soc", long: "Psychological, Social & Biological Foundations" }
+};
+
+/* The 31 official AAMC content categories (1A-10A), plus skill buckets. hy = our high-yield pick. */
+const CATS = [
+  ["1A","Structure and function of proteins and their constituent amino acids","BB",1],
+  ["1B","Transmission of genetic information from the gene to the protein","BB",0],
+  ["1C","Transmission of heritable information and processes that increase genetic diversity","BB",0],
+  ["1D","Principles of bioenergetics and fuel molecule metabolism","BB",1],
+  ["2A","Assemblies of molecules, cells, and groups of cells","BB",0],
+  ["2B","Structure, growth, physiology, and genetics of prokaryotes and viruses","BB",0],
+  ["2C","Processes of cell division, differentiation, and specialization","BB",0],
+  ["3A","Nervous and endocrine systems and how they coordinate organ systems","BB",1],
+  ["3B","Structure and integrative functions of the main organ systems","BB",1],
+  ["4A","Translational motion, forces, work, energy, and equilibrium in living systems","CP",1],
+  ["4B","Fluids in circulation of blood, gas movement, and gas exchange","CP",0],
+  ["4C","Electrochemistry and electrical circuits and their elements","CP",0],
+  ["4D","How light and sound interact with matter","CP",0],
+  ["4E","Atoms, nuclear decay, electronic structure, and atomic chemical behavior","CP",0],
+  ["5A","Unique nature of water and its solutions","CP",1],
+  ["5B","Nature of molecules and intermolecular interactions","CP",0],
+  ["5C","Separation and purification methods","CP",0],
+  ["5D","Structure, function, and reactivity of biologically relevant molecules","CP",1],
+  ["5E","Principles of chemical thermodynamics and kinetics","CP",1],
+  ["6A","Sensing the environment","PS",0],
+  ["6B","Making sense of the environment","PS",1],
+  ["6C","Responding to the world","PS",0],
+  ["7A","Individual influences on behavior","PS",1],
+  ["7B","Social processes that influence human behavior","PS",0],
+  ["7C","Attitude and behavior change","PS",1],
+  ["8A","Self-identity","PS",0],
+  ["8B","Social thinking","PS",1],
+  ["8C","Social interactions","PS",0],
+  ["9A","Understanding social structure","PS",1],
+  ["9B","Demographic characteristics and processes","PS",0],
+  ["10A","Social inequality","PS",0],
+  ["SK","Research design and data reasoning (all science sections)","PS",1],
+  ["CF","Foundations of comprehension","CARS",1],
+  ["CW","Reasoning within the text","CARS",1],
+  ["CB","Reasoning beyond the text","CARS",1]
+];
+
+const QUESTIONS = [];
+let _qn = 0;
+function Q(s, c, d, q, o, a, note) { QUESTIONS.push({ id: "q" + (++_qn), s, c, d, q, o, a, note: note || "" }); }
+
+/* ---------- BIO / BIOCHEM ---------- */
+Q("BB","1A",2,"At pH 7.4, what is the net charge of free aspartate (side-chain pKa ≈ 3.9)?",[
+ ["+1","Only the α-amino group is positive; two carboxylates outweigh it."],
+ ["0","Ignores the deprotonated side-chain carboxylate."],
+ ["−1","α-NH₃⁺ (+1), α-COO⁻ (−1), side-chain COO⁻ (−1): net −1."],
+ ["−2","The α-amino group (pKa ≈ 9.6) is still protonated at 7.4."]],2,"Compare each group's pKa to the pH: below pKa means protonated.");
+Q("BB","1A",2,"A competitive inhibitor is added to an enzyme assay. What happens to the apparent Km and Vmax?",[
+ ["Km increases; Vmax unchanged","Enough substrate outcompetes the inhibitor, so Vmax is still reachable, but more substrate is needed for half of it."],
+ ["Km unchanged; Vmax decreases","That is pure noncompetitive inhibition."],
+ ["Both Km and Vmax decrease","That is uncompetitive inhibition."],
+ ["Km decreases; Vmax unchanged","Apparent affinity would rise, the opposite of what an inhibitor does."]],0);
+Q("BB","1A",3,"On a Lineweaver–Burk plot, an inhibitor produces a line parallel to the uninhibited line. Which inhibition type is this?",[
+ ["Competitive","Competitive lines cross on the y-axis (same 1/Vmax)."],
+ ["Pure noncompetitive","Noncompetitive lines cross on the x-axis (same −1/Km)."],
+ ["Uncompetitive","Km and Vmax drop by the same factor, so the slope Km/Vmax is unchanged: parallel lines."],
+ ["Mixed","Mixed inhibition lines cross off both axes."]],2);
+Q("BB","1A",1,"Why is proline often called an α-helix breaker?",[
+ ["Its ring locks the backbone angle and its nitrogen has no H to donate for helix H-bonds","Correct: rigid ring plus no amide N–H."],
+ ["It forms disulfide bonds that kink the chain","Disulfides come from cysteine."],
+ ["Its side chain carries a full positive charge","Proline's side chain is nonpolar."],
+ ["It can only exist in β-sheets","Proline disrupts β-sheets too; it is common in turns."]],0);
+Q("BB","1A",1,"Which amino acid can form covalent cross-links that stabilize tertiary structure through oxidation?",[
+ ["Methionine","Its sulfur is a thioether and cannot form disulfides."],
+ ["Cysteine","Two cysteine thiols oxidize to form a disulfide bond."],
+ ["Serine","Serine has an –OH, not an –SH."],
+ ["Tyrosine","Tyrosine is aromatic with a phenol group; no disulfides."]],1);
+Q("BB","1A",2,"Total enzyme concentration is doubled while everything else is held constant. What happens?",[
+ ["Vmax doubles; Km unchanged","Vmax = kcat[E]total, while Km is a property of the enzyme–substrate pair."],
+ ["Km halves","Km does not depend on how much enzyme is present."],
+ ["Both Vmax and Km double","Km stays the same."],
+ ["Nothing changes","More enzyme means more catalytic sites, so Vmax rises."]],0,"Trap: Km is intrinsic. It never changes with enzyme amount.");
+Q("BB","1B",1,"In which direction does DNA polymerase synthesize a new strand?",[
+ ["3′→5′, adding to the 5′ end","No replicative polymerase builds this way."],
+ ["5′→3′, adding nucleotides to the 3′-OH","Correct. It reads the template 3′→5′."],
+ ["Either direction on the leading strand","Both strands are built 5′→3′; that is why Okazaki fragments exist."],
+ ["5′→3′ with no primer needed","DNA polymerase needs an RNA primer with a free 3′-OH."]],1);
+Q("BB","1B",2,"Which enzyme relieves the positive supercoiling that builds ahead of a replication fork?",[
+ ["Helicase","Helicase unwinds the strands and causes the supercoiling; it does not relieve it."],
+ ["Topoisomerase","Correct: it cuts and rejoins DNA to release torsional strain."],
+ ["DNA ligase","Ligase seals nicks between Okazaki fragments."],
+ ["Primase","Primase lays down RNA primers."]],1,"Trap: helicase is the cause, topoisomerase is the fix.");
+Q("BB","1B",1,"A mutation changes a codon from UAC (Tyr) to UAG. What type of mutation is this?",[
+ ["Silent","A silent mutation keeps the same amino acid."],
+ ["Missense","Missense swaps in a different amino acid."],
+ ["Nonsense","UAG is a stop codon, so the protein is truncated."],
+ ["Frameshift","A frameshift needs an insertion or deletion not divisible by 3."]],2);
+Q("BB","1B",2,"In E. coli, when is lac operon transcription highest?",[
+ ["Glucose present, lactose absent","Repressor is bound; transcription is off."],
+ ["Glucose and lactose both present","Repressor is off, but low cAMP leaves CAP inactive: low transcription."],
+ ["Lactose present, glucose absent","Allolactose releases the repressor and high cAMP activates CAP."],
+ ["Neither sugar present","Repressor stays bound."]],2);
+Q("BB","1C",2,"In a population in Hardy–Weinberg equilibrium, 16% show a recessive phenotype. What percentage are carriers?",[
+ ["16%","That is q², the affected homozygotes."],
+ ["24%","That is pq; carriers are 2pq."],
+ ["48%","q = 0.4, p = 0.6, so 2pq = 2(0.6)(0.4) = 0.48."],
+ ["36%","That is p², the homozygous dominant group."]],2,"Start with q² from the phenotype, then take the square root.");
+Q("BB","1C",1,"When does crossing over between homologous chromosomes occur?",[
+ ["Prophase I","Homologs pair as tetrads and exchange segments."],
+ ["Metaphase II","Homologs already separated in meiosis I."],
+ ["Anaphase I","Homologs separate here; exchange already happened."],
+ ["Prophase of mitosis","Homologs do not pair in mitosis."]],0);
+Q("BB","1C",2,"Genetic drift changes allele frequencies most strongly in which population?",[
+ ["A very large population","Random sampling error shrinks as population size grows."],
+ ["A small, isolated population","Chance events matter most when few individuals breed."],
+ ["A population with high gene flow","Gene flow tends to homogenize frequencies."],
+ ["A population under strong directional selection","That is selection, not drift."]],1);
+Q("BB","1D",1,"Which enzyme catalyzes the committed, rate-limiting step of glycolysis?",[
+ ["Hexokinase","It catalyzes the first step, but G6P has other fates."],
+ ["Phosphofructokinase-1","Correct: F6P → F1,6BP, regulated by ATP, AMP, and F2,6BP."],
+ ["Pyruvate kinase","Regulated, but it is the last step."],
+ ["Glucose-6-phosphate dehydrogenase","That is the pentose phosphate pathway."]],1);
+Q("BB","1D",1,"What is the net yield of glycolysis per glucose?",[
+ ["2 ATP and 2 NADH","4 ATP made minus 2 invested, plus 2 NADH."],
+ ["4 ATP and 2 NADH","4 ATP is the gross yield."],
+ ["About 30–32 ATP","That is complete aerobic oxidation."],
+ ["2 ATP and 2 FADH₂","Glycolysis makes NADH, not FADH₂."]],0);
+Q("BB","1D",2,"Cyanide poisoning stops cellular O₂ consumption. Which component does it inhibit?",[
+ ["Complex I","Rotenone blocks complex I."],
+ ["Complex IV (cytochrome c oxidase)","Correct: it blocks electron transfer to O₂."],
+ ["ATP synthase","Oligomycin blocks ATP synthase."],
+ ["Complex II","Malonate inhibits succinate dehydrogenase."]],1);
+Q("BB","1D",3,"A drug makes the inner mitochondrial membrane leaky to protons. Which outcome is expected?",[
+ ["O₂ use rises, ATP synthesis falls, heat rises","Uncoupling: the ETC runs faster to rebuild the gradient, and the energy is released as heat."],
+ ["O₂ use falls and ATP synthesis falls","That pattern fits an ETC inhibitor."],
+ ["O₂ use and ATP synthesis both rise","ATP synthase loses its driving gradient."],
+ ["No change, because glycolysis compensates","The ETC and gradient are directly affected."]],0,"Trap: uncouplers speed up O₂ use, they don't stop it.");
+Q("BB","1D",2,"Which molecule carries long-chain fatty acyl groups across the inner mitochondrial membrane?",[
+ ["Coenzyme A","Acyl-CoA cannot cross the inner membrane itself."],
+ ["Carnitine","The carnitine shuttle moves acyl groups into the matrix for β-oxidation."],
+ ["Albumin","Albumin carries fatty acids in blood."],
+ ["Chylomicrons","Chylomicrons carry dietary lipid in lymph and blood."]],1);
+Q("BB","1D",2,"After about three days of fasting, which liver product lets the brain cut its glucose need?",[
+ ["Glycogen","Liver glycogen is largely gone within about a day."],
+ ["Ketone bodies","Acetoacetate and β-hydroxybutyrate cross the blood-brain barrier and fuel the brain."],
+ ["Free fatty acids","Long-chain fatty acids are a poor brain fuel."],
+ ["Lactate","Lactate is recycled through the Cori cycle, not a fasting adaptation for the brain."]],1);
+Q("BB","2A",1,"What does one cycle of the Na⁺/K⁺-ATPase move?",[
+ ["3 Na⁺ out and 2 K⁺ in","Correct, using one ATP; the pump is electrogenic."],
+ ["2 Na⁺ out and 3 K⁺ in","Reversed stoichiometry."],
+ ["3 Na⁺ in and 2 K⁺ out","Reversed direction."],
+ ["1 Na⁺ out for each K⁺ in","The ratio is 3:2."]],0,"Trap: reversal. Right ions, wrong numbers or direction.");
+Q("BB","2A",1,"Which organelle makes proteins destined for secretion or the plasma membrane?",[
+ ["Smooth ER","Smooth ER makes lipids and detoxifies."],
+ ["Rough ER","Ribosomes on the rough ER translate into the lumen for the secretory pathway."],
+ ["Mitochondrion","Mitochondria make ATP."],
+ ["Lysosome","Lysosomes digest material."]],1);
+Q("BB","2A",2,"Which junction blocks fluid from leaking between epithelial cells?",[
+ ["Gap junction","Gap junctions let ions pass from cell to cell."],
+ ["Tight junction","Tight junctions seal the paracellular path."],
+ ["Desmosome","Desmosomes anchor cells mechanically."],
+ ["Hemidesmosome","Hemidesmosomes anchor cells to the basement membrane."]],1);
+Q("BB","2B",1,"Which feature describes Gram-positive bacteria?",[
+ ["Thick peptidoglycan wall and no outer membrane","That is why they hold crystal violet and stain purple."],
+ ["Thin peptidoglycan plus an outer membrane with LPS","That describes Gram-negative bacteria."],
+ ["No cell wall at all","That describes Mycoplasma."],
+ ["They stain pink after the Gram procedure","Gram-negative cells stain pink."]],0);
+Q("BB","2B",2,"A bacteriophage carries a fragment of one bacterium's DNA into another. What is this process?",[
+ ["Transformation","Transformation is uptake of free DNA from the environment."],
+ ["Transduction","Correct: a virus is the vector."],
+ ["Conjugation","Conjugation uses a sex pilus between two bacteria."],
+ ["Binary fission","That is asexual reproduction."]],1);
+Q("BB","2B",2,"Which enzyme lets a retrovirus copy its RNA genome into DNA?",[
+ ["Reverse transcriptase","Correct: an RNA-dependent DNA polymerase."],
+ ["Integrase","Integrase inserts the DNA copy into the host genome; it does not make the copy."],
+ ["RNA replicase","Replicase copies RNA into RNA."],
+ ["DNA polymerase I","It removes primers in bacteria."]],0);
+Q("BB","2C",2,"What does p53 do after DNA damage?",[
+ ["Halts the cycle at G1/S for repair, or triggers apoptosis","p53 is a tumor suppressor."],
+ ["Drives cells into S phase as an oncogene","p53 restrains division."],
+ ["Is a cyclin destroyed every M phase","Cyclins are cyclically degraded; p53 is a transcription factor."],
+ ["Lengthens telomeres","That is telomerase."]],0);
+Q("BB","2C",1,"Which structures come from embryonic ectoderm?",[
+ ["Nervous system and epidermis","Correct: the outer layer becomes skin and neural tissue."],
+ ["Heart and kidneys","Those come from mesoderm."],
+ ["Gut lining and lungs","Those come from endoderm."],
+ ["Bone and skeletal muscle","Those come from mesoderm."]],0);
+Q("BB","2C",1,"In which mitotic phase do sister chromatids separate?",[
+ ["Prophase","Chromatin condenses and the spindle forms."],
+ ["Metaphase","Chromosomes line up at the plate."],
+ ["Anaphase","Cohesin is cleaved and chromatids move to opposite poles."],
+ ["Telophase","Nuclear envelopes re-form."]],2);
+Q("BB","3A",1,"What causes the rising phase of a neuronal action potential?",[
+ ["Opening of voltage-gated Na⁺ channels","Na⁺ rushes in and depolarizes the membrane."],
+ ["Opening of voltage-gated K⁺ channels","K⁺ efflux repolarizes."],
+ ["Cl⁻ influx","Cl⁻ influx usually hyperpolarizes."],
+ ["The Na⁺/K⁺ pump speeding up","The pump keeps gradients but is too slow to make spikes."]],0);
+Q("BB","3A",1,"How does myelin change signal conduction?",[
+ ["It lets action potentials jump between nodes of Ranvier, speeding conduction","Saltatory conduction."],
+ ["It increases ion leakage across the axon","Myelin insulates and reduces leakage."],
+ ["It makes action potentials larger","Action potentials are all-or-none."],
+ ["It lowers the threshold voltage","Threshold is not what myelin changes."]],0);
+Q("BB","3A",2,"How does cortisol change target-cell behavior?",[
+ ["It binds an intracellular receptor that acts as a transcription factor","Steroids are lipid-soluble and change gene expression."],
+ ["It binds a G-protein-coupled receptor and raises cAMP","That is typical of peptide hormones."],
+ ["It activates a receptor tyrosine kinase","That is insulin's route."],
+ ["It opens a ligand-gated ion channel","That fits fast neurotransmitters."]],0);
+Q("BB","3A",1,"Which hormone raises blood calcium?",[
+ ["Calcitonin","Calcitonin lowers blood Ca²⁺ ('tones down' calcium)."],
+ ["Parathyroid hormone","PTH increases bone resorption, renal reabsorption, and calcitriol."],
+ ["Insulin","Insulin lowers blood glucose."],
+ ["Aldosterone","Aldosterone handles Na⁺ and K⁺."]],1);
+Q("BB","3A",1,"Which is a parasympathetic effect?",[
+ ["Increased GI motility","Rest and digest."],
+ ["Pupil dilation","Sympathetic."],
+ ["Bronchodilation","Sympathetic."],
+ ["Increased heart rate","Sympathetic."]],0);
+Q("BB","3B",2,"Which change shifts the oxyhemoglobin curve to the right?",[
+ ["Increased CO₂ and H⁺ in exercising muscle","Bohr effect: lower affinity, more O₂ unloaded."],
+ ["Lower body temperature","That shifts it left."],
+ ["Replacing adult Hb with fetal Hb","Fetal Hb binds O₂ more tightly: left shift."],
+ ["Carbon monoxide exposure","CO shifts the curve left and blocks binding."]],0);
+Q("BB","3B",2,"What does aldosterone do in the distal nephron?",[
+ ["Increases Na⁺ reabsorption and K⁺ secretion","Water follows Na⁺, so volume rises."],
+ ["Inserts aquaporins to reabsorb water only","That is ADH."],
+ ["Decreases Na⁺ reabsorption","That is ANP."],
+ ["Increases glucose reabsorption","Glucose is reabsorbed in the proximal tubule."]],0);
+Q("BB","3B",2,"What converts trypsinogen to trypsin?",[
+ ["Pepsin","Pepsin works in the stomach."],
+ ["Enteropeptidase (enterokinase) in the duodenum","Correct; trypsin then activates other zymogens."],
+ ["HCl in the stomach","HCl activates pepsinogen."],
+ ["Bile salts","Bile emulsifies fats."]],1);
+Q("BB","3B",1,"Which cells secrete antibodies?",[
+ ["Helper T cells","They coordinate the response but do not secrete antibodies."],
+ ["Plasma cells","Differentiated B cells."],
+ ["Macrophages","They phagocytose and present antigen."],
+ ["Natural killer cells","They kill infected cells directly."]],1);
+Q("BB","3B",1,"Where are most nutrients absorbed?",[
+ ["Stomach","Little absorption except alcohol and some drugs."],
+ ["Small intestine","Villi and microvilli give huge surface area."],
+ ["Large intestine","Mainly water and electrolytes."],
+ ["Esophagus","Transport only."]],1);
+Q("BB","3B",3,"During skeletal muscle contraction, what does Ca²⁺ bind to start cross-bridge cycling?",[
+ ["Troponin, shifting tropomyosin off myosin-binding sites","Correct."],
+ ["Myosin heads directly","Ca²⁺ does not bind skeletal myosin heads."],
+ ["Actin directly","Ca²⁺ acts through the troponin–tropomyosin complex."],
+ ["Calmodulin in the sarcomere","Calmodulin is the smooth muscle pathway."]],0,"Bonus trap: ATP binding releases myosin; Pi release drives the power stroke.");
+Q("BB","5D",1,"Lactose is a disaccharide of which two monosaccharides?",[
+ ["Glucose + fructose","That is sucrose."],
+ ["Glucose + galactose","Joined by a β-1,4 bond."],
+ ["Glucose + glucose","That is maltose (or cellobiose)."],
+ ["Galactose + fructose","Not a common dietary disaccharide."]],1);
+Q("BB","5D",1,"Why do saturated fatty acids have higher melting points than unsaturated ones of the same length?",[
+ ["Straight chains pack tightly with more van der Waals contact","cis double bonds kink chains and loosen packing."],
+ ["They form more hydrogen bonds","Hydrocarbon tails do not hydrogen-bond."],
+ ["They are more polar","Both are mostly nonpolar."],
+ ["They have more double bonds","Saturated means no C=C bonds."]],0);
+
+/* ---------- CHEM / PHYS ---------- */
+Q("CP","4A",1,"A ball is dropped from rest. Using g = 10 m/s², how far does it fall and how fast is it moving after 2 s?",[
+ ["20 m and 20 m/s","d = ½gt² = 20 m; v = gt = 20 m/s."],
+ ["40 m and 20 m/s","40 m multiplies final speed by time; average speed is only 10 m/s."],
+ ["20 m and 10 m/s","10 m/s is the average speed."],
+ ["10 m and 20 m/s","10 m is the distance after about 1.4 s."]],0);
+Q("CP","4A",1,"A box slides across a horizontal floor. How much work does the normal force do?",[
+ ["Zero","The normal force is perpendicular to the displacement."],
+ ["mgd","Normal force is perpendicular; cos 90° = 0."],
+ ["−mgd","Only a force with a component along the motion does work."],
+ ["−μmgd","That is the work done by friction."]],0);
+Q("CP","4A",1,"On level ground with no air resistance, which launch angle gives the longest range?",[
+ ["30°","30° and 60° give equal, shorter ranges."],
+ ["45°","Range ∝ sin 2θ, which peaks at 2θ = 90°."],
+ ["60°","Same range as 30°."],
+ ["90°","Straight up gives zero range."]],1);
+Q("CP","4A",1,"A 20 N force is applied perpendicular to a 0.5 m wrench. What torque results?",[
+ ["40 N·m","Divided instead of multiplied."],
+ ["10 N·m","τ = rF sin θ = 0.5 × 20 × 1."],
+ ["20 N·m","Ignores the lever arm."],
+ ["5 N·m","Arithmetic slip."]],1);
+Q("CP","4A",2,"A 50 kg patient is lifted 2 m in 4 s at constant speed (g = 10 m/s²). What is the average power?",[
+ ["1000 W","That is the work (J); divide by time."],
+ ["250 W","W = mgh = 1000 J; P = 1000/4."],
+ ["25 W","Check the decimal."],
+ ["100 W","Multiplied mass by height only."]],1);
+Q("CP","4A",2,"A car rounds a flat curve at constant speed. What is its acceleration?",[
+ ["Zero, because speed is constant","Direction changes, so velocity changes."],
+ ["Directed toward the center of the curve","Centripetal acceleration, v²/r."],
+ ["Tangent to the path","Tangential acceleration would change speed."],
+ ["Directed outward","Centrifugal force is a fictitious, rotating-frame effect."]],1,"Trap: constant speed is not constant velocity.");
+Q("CP","4B",1,"Blood flows from a vessel into a section with half the cross-sectional area. What happens to flow speed?",[
+ ["It doubles","Continuity: A₁v₁ = A₂v₂."],
+ ["It halves","Speed and area are inversely related."],
+ ["It quadruples","That would be halving the radius, not the area."],
+ ["It stays the same","Flow rate is conserved, so speed must change."]],0,"Trap: read whether the stem gives area or radius.");
+Q("CP","4B",2,"According to Bernoulli's equation, where flow speeds up in a horizontal pipe, what happens to pressure?",[
+ ["It decreases","P + ½ρv² stays constant, so higher v means lower P."],
+ ["It increases","That is the reverse."],
+ ["It is unchanged","Kinetic energy term changed, so pressure must too."],
+ ["It drops to zero","Pressure decreases, but not to zero."]],0);
+Q("CP","4B",2,"An object of density 800 kg/m³ floats in water (1000 kg/m³). What fraction is submerged?",[
+ ["20%","That is the fraction above the water."],
+ ["80%","Fraction submerged = ρobject/ρfluid."],
+ ["100%","It would sink only if denser than water."],
+ ["It sinks","800 < 1000, so it floats."]],1);
+Q("CP","4B",3,"By Poiseuille's law, if a vessel's radius doubles with everything else constant, flow becomes:",[
+ ["2× larger","Flow scales with r⁴, not r."],
+ ["4× larger","That is r²."],
+ ["16× larger","2⁴ = 16."],
+ ["8× larger","That is r³."]],2);
+Q("CP","4B",2,"A sealed rigid container of ideal gas is heated from 300 K to 600 K. What happens to the pressure?",[
+ ["It doubles","At constant V and n, P ∝ T in kelvin."],
+ ["It halves","Pressure rises with temperature."],
+ ["It quadruples","Linear, not squared."],
+ ["It is unchanged","Rigid container; pressure must rise."]],0,"Trap: gas laws need kelvin. Going from 20 °C to 40 °C does not double pressure.");
+Q("CP","4C",1,"A 6 Ω and a 3 Ω resistor are connected in parallel. What is the equivalent resistance?",[
+ ["9 Ω","That is series."],
+ ["2 Ω","1/R = 1/6 + 1/3 = 1/2."],
+ ["4.5 Ω","That is the average."],
+ ["18 Ω","That is the product."]],1,"Parallel resistance is always smaller than the smallest branch.");
+Q("CP","4C",2,"A dielectric with constant κ is inserted between a capacitor's plates. What happens to capacitance?",[
+ ["It increases by a factor of κ","C = κε₀A/d."],
+ ["It decreases by a factor of κ","Dielectrics increase capacitance."],
+ ["It is unchanged","Capacitance depends on the material between plates."],
+ ["It increases by κ²","The relation is linear."]],0);
+Q("CP","4C",2,"Which statement is true of a galvanic cell?",[
+ ["Oxidation occurs at the anode and electrons flow anode → cathode","And ΔG < 0, E°cell > 0."],
+ ["Reduction occurs at the anode","Reduction is at the cathode (Red Cat)."],
+ ["Electrons flow cathode → anode","Electrons always flow anode to cathode."],
+ ["E°cell is negative","Negative E°cell means a non-spontaneous (electrolytic) cell."]],0);
+Q("CP","4C",1,"12 V is applied across a 4 Ω resistor. What are the current and power?",[
+ ["3 A and 36 W","I = V/R = 3 A; P = IV = 36 W."],
+ ["48 A and 576 W","Multiplied V by R."],
+ ["3 A and 12 W","P = IV, not V alone."],
+ ["0.33 A and 4 W","Divided R by V."]],0);
+Q("CP","4D",2,"An object is placed beyond 2f of a converging lens. What image forms?",[
+ ["Real, inverted, smaller","Object beyond 2f gives an image between f and 2f."],
+ ["Virtual, upright, larger","That needs the object inside f."],
+ ["Real, inverted, larger","That needs the object between f and 2f."],
+ ["No image","That happens with the object at f."]],0);
+Q("CP","4D",1,"An ambulance drives toward you. Compared with the emitted siren, the pitch you hear is:",[
+ ["Higher","Approaching source compresses wavefronts."],
+ ["Lower","That happens when the source moves away."],
+ ["The same pitch but louder","Loudness changes, but so does frequency."],
+ ["Higher because sound speeds up","Sound speed depends on the medium, not the source."]],0);
+Q("CP","4D",1,"Which photon carries the most energy?",[
+ ["Ultraviolet","Highest frequency of these options, E = hf."],
+ ["Red visible","Lower frequency than UV."],
+ ["Infrared","Lower than visible."],
+ ["Microwave","Lowest of these."]],0);
+Q("CP","4D",2,"Sound intensity increases by a factor of 100. How does the sound level change?",[
+ ["+100 dB","Decibels are logarithmic."],
+ ["+20 dB","β = 10 log(I/I₀); log 100 = 2."],
+ ["+2 dB","Forgot the factor of 10."],
+ ["×100 dB","Decibels add, they don't multiply."]],1);
+Q("CP","4D",2,"An IR spectrum shows a strong, sharp peak near 1710 cm⁻¹ and no broad peak at 3200–3550 cm⁻¹. Which group is present?",[
+ ["Carbonyl (C=O)","Strong and sharp near 1700 cm⁻¹."],
+ ["Alcohol O–H","That gives a broad peak near 3300 cm⁻¹."],
+ ["Nitrile C≡N","Near 2250 cm⁻¹."],
+ ["Alkyne C–H","Sharp near 3300 cm⁻¹."]],0);
+Q("CP","4D",1,"In which medium does sound travel fastest?",[
+ ["Air","Gases are least stiff."],
+ ["Water","Faster than air, slower than steel."],
+ ["Steel","Stiff solids carry sound fastest."],
+ ["Vacuum","Sound needs a medium."]],2);
+Q("CP","4E",1,"What does alpha decay do to a nucleus?",[
+ ["Mass number −4, atomic number −2","An α particle is a ⁴He nucleus."],
+ ["Mass number −4, atomic number +2","Losing protons lowers Z."],
+ ["Mass unchanged, atomic number +1","That is β⁻ decay."],
+ ["Mass unchanged, atomic number −1","That is β⁺ decay or electron capture."]],0);
+Q("CP","4E",1,"What fraction of a radioisotope remains after three half-lives?",[
+ ["12.5%","(½)³ = 1/8."],
+ ["33%","Half-lives are not linear thirds."],
+ ["25%","That is two half-lives."],
+ ["6.25%","That is four half-lives."]],0);
+Q("CP","4E",1,"Which element has the highest first ionization energy?",[
+ ["Lithium","Alkali metals lose an electron easily."],
+ ["Sodium","Lower still; farther down the group."],
+ ["Carbon","Higher than Li, lower than F."],
+ ["Fluorine","Top right of the period: smallest radius, highest Zeff."]],3);
+Q("CP","4E",3,"What is the ground-state electron configuration of Fe²⁺?",[
+ ["[Ar] 3d⁶","Transition metals lose 4s electrons first."],
+ ["[Ar] 4s² 3d⁴","Electrons leave 4s before 3d."],
+ ["[Ar] 4s² 3d⁶","That is neutral Fe."],
+ ["[Ar] 3d⁴ 4s²","Same error, reordered."]],0,"Trap: 4s fills first and empties first.");
+Q("CP","5A",1,"What is the pH of 0.01 M HCl?",[
+ ["1","That is 0.1 M."],
+ ["2","Strong acid: [H⁺] = 10⁻² M."],
+ ["12","That is the pOH."],
+ ["0.01","That is the concentration."]],1);
+Q("CP","5A",2,"A buffer has [A⁻]/[HA] = 10. What is its pH?",[
+ ["pKa − 1","The ratio is above 1, so pH is above pKa."],
+ ["pKa + 1","pH = pKa + log 10."],
+ ["pKa","Only when the ratio is 1."],
+ ["pKa + 10","It is a log scale."]],1);
+Q("CP","5A",2,"Which aqueous solution has the lowest freezing point?",[
+ ["0.1 m glucose","i = 1, so ΔTf ∝ 0.1."],
+ ["0.1 m NaCl","i = 2, so ∝ 0.2."],
+ ["0.1 m CaCl₂","i = 3, so ∝ 0.3: the largest depression."],
+ ["0.05 m MgSO₄","i = 2, so ∝ 0.1."]],2,"Multiply molality by the number of particles (i).");
+Q("CP","5A",1,"NaCl is added to a saturated AgCl solution. What happens to AgCl solubility?",[
+ ["It decreases","Common-ion effect: extra Cl⁻ pushes the equilibrium toward solid."],
+ ["It increases","The shared ion suppresses dissolving."],
+ ["It is unchanged","Ksp is constant, but solubility shifts."],
+ ["Ksp increases","Ksp changes only with temperature."]],0);
+Q("CP","5A",2,"A weak acid is titrated with a strong base. What is the pH at the equivalence point?",[
+ ["Above 7","The conjugate base hydrolyzes water and makes OH⁻."],
+ ["Exactly 7","That is a strong acid + strong base."],
+ ["Below 7","That is a weak base titrated with strong acid."],
+ ["Equal to pKa","That is the half-equivalence point."]],0);
+Q("CP","5B",1,"Which substance has the highest boiling point?",[
+ ["H₂O","Extensive hydrogen bonding."],
+ ["H₂S","S is not electronegative enough for strong H-bonds."],
+ ["CH₄","London forces only."],
+ ["Ne","London forces only, very weak."]],0);
+Q("CP","5B",2,"What is the molecular geometry of NH₃?",[
+ ["Trigonal planar","Ignores the lone pair."],
+ ["Tetrahedral","That is the electron geometry."],
+ ["Trigonal pyramidal","Four electron domains, one lone pair."],
+ ["Bent","That is H₂O (two lone pairs)."]],2,"Trap: electron geometry vs molecular shape.");
+Q("CP","5B",1,"What is the hybridization of each carbon in ethyne (HC≡CH)?",[
+ ["sp","Two electron domains, linear, 180°."],
+ ["sp²","That is ethene."],
+ ["sp³","That is ethane."],
+ ["sp³d","Carbon cannot expand its octet."]],0);
+Q("CP","5B",2,"How do two enantiomers differ?",[
+ ["They rotate plane-polarized light in opposite directions","Otherwise they share physical properties in an achiral environment."],
+ ["They have different boiling points","Identical."],
+ ["They have different solubility in water","Identical in achiral solvents."],
+ ["They have different molecular formulas","Same formula and connectivity."]],0);
+Q("CP","5B",3,"A molecule has two stereocenters but an internal mirror plane. What is it?",[
+ ["A meso compound, achiral","Internal symmetry cancels optical activity."],
+ ["A racemic mixture","A racemate is a 50:50 mixture of two compounds."],
+ ["Chiral and optically active","The mirror plane makes it achiral."],
+ ["A pair of diastereomers","One molecule cannot be a pair."]],0);
+Q("CP","5C",2,"On silica TLC with a nonpolar eluent, which compound travels farthest?",[
+ ["The least polar","It binds the polar silica least, so it has the highest Rf."],
+ ["The most polar","It sticks to silica."],
+ ["The heaviest","TLC separates mainly by polarity here."],
+ ["All travel equally","Then TLC would be useless."]],0);
+Q("CP","5C",2,"Washing an ether solution with aqueous NaHCO₃ pulls which compound into the water layer?",[
+ ["A carboxylic acid","Bicarbonate deprotonates it to a water-soluble carboxylate."],
+ ["A phenol","Phenols usually need a stronger base such as NaOH."],
+ ["An amine","Amines are extracted with aqueous acid."],
+ ["A neutral alcohol","It is not ionized by bicarbonate."]],0);
+Q("CP","5C",1,"In SDS-PAGE, proteins separate by:",[
+ ["Mass, with smaller proteins moving farther","SDS gives uniform charge per length."],
+ ["Native charge","SDS masks native charge."],
+ ["Isoelectric point","That is isoelectric focusing."],
+ ["Mass, with larger proteins moving farther","Large proteins move slowest through the gel."]],0);
+Q("CP","5C",1,"When is fractional distillation preferred over simple distillation?",[
+ ["When boiling points differ by less than about 25 °C","The column gives many vaporization cycles."],
+ ["When boiling points differ by more than 100 °C","Simple distillation is enough."],
+ ["When the compounds are solids","Distillation separates liquids."],
+ ["When separating enantiomers","Enantiomers have identical boiling points."]],0);
+Q("CP","5D",2,"Which conditions favor an SN2 reaction, and what is the stereochemical outcome?",[
+ ["Primary substrate, strong nucleophile, polar aprotic solvent: inversion","Backside attack in one concerted step."],
+ ["Tertiary substrate, polar protic solvent: racemization","That describes SN1."],
+ ["Any substrate: retention","SN2 inverts the stereocenter."],
+ ["A carbocation intermediate","SN2 has no intermediate."]],0);
+Q("CP","5D",1,"An aldehyde is treated with NaBH₄. What is the product?",[
+ ["Primary alcohol","Hydride adds to the carbonyl carbon."],
+ ["Secondary alcohol","That comes from a ketone."],
+ ["Carboxylic acid","That is oxidation."],
+ ["Ester","No alcohol or acid partner is present."]],0);
+Q("CP","5D",1,"How is a peptide bond formed?",[
+ ["Condensation that releases water","Amine attacks the carboxyl carbon; H₂O is lost."],
+ ["Hydrolysis that consumes water","Hydrolysis breaks peptide bonds."],
+ ["Oxidation of two thiols","That forms a disulfide."],
+ ["A phosphodiester linkage","That links nucleotides."]],0);
+Q("CP","5E",1,"What does a catalyst do to a reaction?",[
+ ["Lowers activation energy without changing ΔG or K","It speeds both directions equally."],
+ ["Shifts the equilibrium toward products","Equilibrium position is unchanged."],
+ ["Makes ΔG more negative","ΔG is a state function."],
+ ["Is consumed as the reaction proceeds","Catalysts are regenerated."]],0);
+Q("CP","5E",2,"A reaction has ΔH < 0 and ΔS > 0. When is it spontaneous?",[
+ ["At all temperatures","ΔG = ΔH − TΔS is always negative."],
+ ["Only at high temperature","That is ΔH > 0, ΔS > 0."],
+ ["Only at low temperature","That is ΔH < 0, ΔS < 0."],
+ ["Never","That is ΔH > 0, ΔS < 0."]],0);
+Q("CP","5E",2,"For N₂(g) + 3H₂(g) ⇌ 2NH₃(g), the container volume is halved. Which way does equilibrium shift?",[
+ ["Toward NH₃","Higher pressure favors fewer gas moles (4 → 2)."],
+ ["Toward N₂ and H₂","That side has more moles."],
+ ["No shift","Mole counts differ, so it shifts."],
+ ["K increases","K changes only with temperature."]],0);
+Q("CP","5E",2,"Doubling [A] quadruples the initial rate. What is the order with respect to A?",[
+ ["First","Rate would double."],
+ ["Second","2² = 4."],
+ ["Zero","Rate would not change."],
+ ["Fourth","Rate would increase 16-fold."]],1);
+Q("CP","5E",2,"For an endothermic reaction, raising the temperature does what to K?",[
+ ["Increases K","Heat acts like a reactant, so products are favored."],
+ ["Decreases K","That is true for exothermic reactions."],
+ ["Leaves K unchanged","K depends on temperature."],
+ ["Only changes the rate","It changes both rate and K."]],0);
+
+/* ---------- PSYCH / SOC ---------- */
+Q("PS","6A",2,"The just-noticeable difference for a 100 g weight is 2 g. By Weber's law, what is it for 500 g?",[
+ ["2 g","The JND scales with the stimulus."],
+ ["10 g","Constant ratio of 2%."],
+ ["5 g","Wrong ratio."],
+ ["50 g","That is 10%."]],1);
+Q("PS","6A",1,"In signal detection theory, what is a false alarm?",[
+ ["Reporting a signal when none is present","Yes response, no signal."],
+ ["Missing a signal that is present","That is a miss."],
+ ["Correctly saying no signal is present","That is a correct rejection."],
+ ["Correctly detecting a signal","That is a hit."]],0);
+Q("PS","6A",1,"Which describes rods?",[
+ ["Sensitive in dim light, concentrated in the periphery, no color","Rods drive night and peripheral vision."],
+ ["Packed in the fovea for color vision","That describes cones."],
+ ["Responsible for high visual acuity","Cones give acuity."],
+ ["Three types tuned to different wavelengths","That describes cones."]],0);
+Q("PS","6A",1,"You stop noticing your watch a few minutes after putting it on. What is this?",[
+ ["Sensory adaptation","Receptors reduce firing to a constant stimulus."],
+ ["Habituation of a learned response","Close, but this is receptor-level adaptation."],
+ ["Selective attention","Attention is a cognitive filter, not receptor change."],
+ ["Absolute threshold","The watch is still above threshold."]],0);
+Q("PS","6B",1,"You read a misspelled word correctly because of the sentence around it. Which processing is this?",[
+ ["Top-down","Expectations and context guide perception."],
+ ["Bottom-up","Bottom-up builds from raw features."],
+ ["Parallel processing","That is handling many features at once."],
+ ["Feature detection","That is the bottom-up piece."]],0);
+Q("PS","6B",1,"Dots that are close together are seen as a group. Which Gestalt principle is this?",[
+ ["Proximity","Nearness drives grouping."],
+ ["Similarity","Grouping by shared features."],
+ ["Closure","Filling in gaps."],
+ ["Continuity","Following smooth lines."]],0);
+Q("PS","6B",2,"At a noisy party you suddenly hear your name in a conversation you weren't following. What does this show?",[
+ ["Unattended input is still partly processed for meaning","The cocktail party effect challenges strict early-selection models."],
+ ["Divided attention is perfect","You were not following that conversation."],
+ ["Inattentional blindness","That is failing to notice something visible."],
+ ["Change blindness","That is missing changes in a scene."]],0);
+Q("PS","6B",1,"Which sleep stage involves vivid dreams, muscle atonia, and a wake-like EEG?",[
+ ["REM","Paradoxical sleep."],
+ ["NREM stage 3","Slow-wave delta sleep."],
+ ["NREM stage 1","Light sleep with theta waves."],
+ ["NREM stage 2","Sleep spindles and K-complexes."]],0);
+Q("PS","6B",2,"After learning a new phone number, you can't recall your old one. What is this?",[
+ ["Retroactive interference","New learning disrupts old memories."],
+ ["Proactive interference","Old learning disrupting new."],
+ ["Decay","Loss over time with disuse."],
+ ["Source amnesia","Forgetting where you learned something."]],0,"Retro = backward: the new reaches back.");
+Q("PS","6B",1,"A child understands that pouring water into a taller glass doesn't change the amount. Which Piaget stage?",[
+ ["Concrete operational","Conservation appears around 7–11 years."],
+ ["Preoperational","Children in this stage fail conservation tasks."],
+ ["Sensorimotor","Object permanence develops here."],
+ ["Formal operational","Abstract reasoning."]],0);
+Q("PS","6B",1,"People best recall the first and last items of a list. What is this?",[
+ ["Serial position effect","Primacy plus recency."],
+ ["Spacing effect","Distributed practice improves retention."],
+ ["Chunking","Grouping items."],
+ ["Priming","Earlier exposure influences later response."]],0);
+Q("PS","6C",2,"Participants given an arousing drug feel happy beside a cheerful confederate and angry beside an irritated one. Which theory fits?",[
+ ["Schachter–Singer two-factor","Arousal plus a cognitive label from context."],
+ ["James–Lange","Emotion comes from body changes alone."],
+ ["Cannon–Bard","Arousal and emotion happen simultaneously and independently."],
+ ["Yerkes–Dodson","That is about arousal and performance."]],0);
+Q("PS","6C",1,"What are the stages of Selye's general adaptation syndrome, in order?",[
+ ["Alarm, resistance, exhaustion","Correct order."],
+ ["Resistance, alarm, exhaustion","Alarm comes first."],
+ ["Appraisal, coping, recovery","Those are cognitive stress models."],
+ ["Exhaustion, alarm, resistance","Exhaustion comes last."]],0);
+Q("PS","7A",1,"After being criticized by their boss, a person yells at their dog. Which defense mechanism?",[
+ ["Displacement","Redirecting an impulse to a safer target."],
+ ["Projection","Attributing one's own feelings to others."],
+ ["Reaction formation","Acting opposite to one's feelings."],
+ ["Sublimation","Channeling impulses into acceptable outlets."]],0);
+Q("PS","7A",1,"According to the Yerkes–Dodson law, performance is best at what arousal level?",[
+ ["Moderate, especially for complex tasks","An inverted-U relationship."],
+ ["As high as possible","Very high arousal hurts performance."],
+ ["As low as possible","Low arousal leads to disengagement."],
+ ["Arousal has no effect","There is a clear effect."]],0);
+Q("PS","7A",2,"A smoker who knows smoking is harmful says the studies are exaggerated. What is this?",[
+ ["Reducing cognitive dissonance","Changing a belief to fit the behavior."],
+ ["Fundamental attribution error","That is about judging others."],
+ ["Confirmation bias only","Possible, but the core is resolving a belief–behavior conflict."],
+ ["Self-efficacy","That is belief in one's ability."]],0);
+Q("PS","7A",1,"Which statement shows an internal locus of control?",[
+ ["I failed because I didn't study enough","Outcome attributed to own actions."],
+ ["I failed because I was unlucky","External."],
+ ["I failed because the professor is unfair","External."],
+ ["I failed because the test was too hard","External."]],0);
+Q("PS","7A",2,"Identical twins raised apart score very similarly on a trait. What does this mainly suggest?",[
+ ["A substantial genetic contribution","Shared genes, different environments."],
+ ["The trait is entirely environmental","Different environments, yet similar scores."],
+ ["The trait is fully determined by genes","Heritability is never 100% from one finding."],
+ ["Shared environment explains it","They did not share environments."]],0);
+Q("PS","7B",2,"An expert pianist plays better with an audience; a beginner plays worse. What is this?",[
+ ["Social facilitation","Audiences boost dominant responses: good for simple or well-learned tasks."],
+ ["Social loafing","Less effort in groups."],
+ ["Deindividuation","Loss of self-awareness in crowds."],
+ ["Group polarization","Groups shift to extreme views."]],0);
+Q("PS","7B",1,"As the number of bystanders increases, the chance any one person helps tends to:",[
+ ["Decrease","Diffusion of responsibility."],
+ ["Increase","The reverse of the bystander effect."],
+ ["Stay the same","Group size matters."],
+ ["Depend only on the victim's age","Group size is the classic factor."]],0);
+Q("PS","7B",1,"Participants give wrong answers about line lengths to match a group. Which study?",[
+ ["Asch's conformity experiment","Pressure from peers."],
+ ["Milgram's obedience experiment","Obedience to authority."],
+ ["Zimbardo's prison study","Roles and situational power."],
+ ["Bandura's Bobo doll study","Observational learning."]],0);
+Q("PS","7B",2,"A tight-knit team suppresses doubts to keep harmony and makes a poor decision. What is this?",[
+ ["Groupthink","Consensus pressure over critical evaluation."],
+ ["Group polarization","Opinions become more extreme after discussion."],
+ ["Social loafing","Reduced effort."],
+ ["Deindividuation","Anonymity reducing self-restraint."]],0,"Trap: polarization is about extremity; groupthink is about suppressed dissent.");
+Q("PS","7C",2,"A person takes aspirin, the headache goes away, and they take aspirin more often. What is this?",[
+ ["Negative reinforcement","An aversive stimulus is removed, so the behavior increases."],
+ ["Positive punishment","Punishment decreases behavior."],
+ ["Negative punishment","That removes something pleasant to decrease behavior."],
+ ["Positive reinforcement","Nothing pleasant was added."]],0,"Trap: negative reinforcement is not punishment.");
+Q("PS","7C",1,"Which reinforcement schedule is most resistant to extinction?",[
+ ["Variable ratio","Unpredictable rewards, as in slot machines."],
+ ["Fixed ratio","Pauses after reward; extinguishes faster."],
+ ["Fixed interval","Scalloped responding."],
+ ["Continuous","Extinguishes fastest."]],0);
+Q("PS","7C",1,"After repeated pairing with food, a bell alone makes a dog salivate. What is the bell now?",[
+ ["Conditioned stimulus","A neutral stimulus that gained meaning."],
+ ["Unconditioned stimulus","That is the food."],
+ ["Conditioned response","That is the salivation to the bell."],
+ ["Unconditioned response","That is salivation to food."]],0);
+Q("PS","7C",2,"By the elaboration likelihood model, when does attitude change last longest?",[
+ ["When motivated, able people weigh strong arguments (central route)","Deep processing produces durable change."],
+ ["When an attractive celebrity endorses the message","Peripheral cue, short-lived change."],
+ ["When the message is very long","Length is a peripheral cue."],
+ ["When the audience is distracted","Distraction blocks central processing."]],0);
+Q("PS","7C",1,"Children who watched an adult hit a doll later hit it themselves. What is this?",[
+ ["Observational learning","Bandura's modeling."],
+ ["Classical conditioning","No stimulus pairing."],
+ ["Operant conditioning","No reinforcement of the child."],
+ ["Habituation","Reduced response to repetition."]],0);
+Q("PS","8A",1,"Which of Erikson's stages defines adolescence?",[
+ ["Identity vs. role confusion","Exploring who you are."],
+ ["Intimacy vs. isolation","Young adulthood."],
+ ["Industry vs. inferiority","School age."],
+ ["Generativity vs. stagnation","Middle adulthood."]],0);
+Q("PS","8A",1,"A student believes they can master organic chemistry if they practice. What is this?",[
+ ["Self-efficacy","Belief in ability for a specific task."],
+ ["Self-esteem","Overall sense of worth."],
+ ["Self-concept","The whole set of beliefs about oneself."],
+ ["Locus of control","Where outcomes are attributed."]],0);
+Q("PS","8A",2,"A teenager says stealing is wrong because good people follow the law. Which Kohlberg level?",[
+ ["Conventional","Rules and social approval guide morality."],
+ ["Preconventional","Focus on punishment or reward."],
+ ["Postconventional","Universal principles above laws."],
+ ["Formal operational","That is a Piaget stage."]],0);
+Q("PS","8B",1,"You think a stranger cut you off because they're rude, ignoring that they may be rushing to a hospital. What is this?",[
+ ["Fundamental attribution error","Overweighting disposition for others' behavior."],
+ ["Self-serving bias","That concerns your own outcomes."],
+ ["Actor–observer bias","Related, but the pure stranger case is FAE."],
+ ["Halo effect","One good trait coloring others."]],0);
+Q("PS","8B",1,"You credit an A to your intelligence and a C to an unfair test. What is this?",[
+ ["Self-serving bias","Success internal, failure external."],
+ ["Fundamental attribution error","That is about others."],
+ ["Optimism bias","Expecting good outcomes."],
+ ["Just-world hypothesis","Belief that people get what they deserve."]],0);
+Q("PS","8B",2,"Women reminded of a stereotype about math ability score lower on a math test. What is this?",[
+ ["Stereotype threat","Anxiety about confirming a negative stereotype."],
+ ["Self-fulfilling prophecy","Close, but this is about the target's own anxiety."],
+ ["Prejudice","An attitude, not a performance effect."],
+ ["Discrimination","Behavior toward others."]],0);
+Q("PS","8B",2,"Someone says a crime victim must have done something to deserve it. What bias is this?",[
+ ["Just-world hypothesis","Belief that outcomes are deserved."],
+ ["Fundamental attribution error","Related, but the deserved-outcome belief is the key."],
+ ["Hindsight bias","Believing you knew it all along."],
+ ["In-group bias","Favoring your own group."]],0);
+Q("PS","8C",1,"A landlord refuses to rent to applicants of a certain ethnicity. What is this?",[
+ ["Discrimination","Behavior."],
+ ["Prejudice","The attitude behind it."],
+ ["Stereotype","The belief about the group."],
+ ["Ethnocentrism","Judging others by one's own culture."]],0,"Stereotype = thought, prejudice = feeling, discrimination = action.");
+Q("PS","8C",1,"A server is warm with customers but vents in the kitchen. Which framework explains this?",[
+ ["Goffman's dramaturgical approach","Front stage vs back stage."],
+ ["Cognitive dissonance","Not a belief–behavior conflict."],
+ ["Role strain","Tension within one role; partial fit."],
+ ["Symbolic interactionism in general","Broader; dramaturgy is the specific model."]],0);
+Q("PS","8C",1,"Which is an ascribed status?",[
+ ["Age","Assigned, not earned."],
+ ["Physician","Achieved."],
+ ["College graduate","Achieved."],
+ ["Team captain","Achieved."]],0);
+Q("PS","9A",2,"College creates marriage and business networks, though that's not its stated goal. A functionalist calls this a:",[
+ ["Latent function","Unintended but useful outcome."],
+ ["Manifest function","Intended goal, like education."],
+ ["Dysfunction","Harmful consequence."],
+ ["Social fact","Too broad."]],0);
+Q("PS","9A",1,"Which perspective studies how people build meaning through everyday symbols and interactions?",[
+ ["Symbolic interactionism","Micro-level meaning-making."],
+ ["Functionalism","Macro: how parts keep society stable."],
+ ["Conflict theory","Macro: competition over resources."],
+ ["Rational choice theory","Cost–benefit decisions."]],0);
+Q("PS","9A",1,"Which perspective sees society as groups competing for scarce resources and power?",[
+ ["Conflict theory","Marx and successors."],
+ ["Functionalism","Emphasizes stability."],
+ ["Symbolic interactionism","Micro-level meaning."],
+ ["Social constructionism","Shared meanings of social things."]],0);
+Q("PS","9A",2,"Efficiency, calculability, predictability, and control describe what?",[
+ ["McDonaldization","Ritzer's extension of Weber's rationalization."],
+ ["Anomie","Normlessness."],
+ ["Iron law of oligarchy","Rule by a few in organizations."],
+ ["Cultural lag","Culture trailing technology."]],0);
+Q("PS","9B",1,"Which stage of the demographic transition has low birth and death rates?",[
+ ["The final (post-industrial) stage","Population growth slows or stops."],
+ ["The first (pre-industrial) stage","High birth and death rates."],
+ ["The second stage","Death rates fall, births stay high."],
+ ["The third stage","Birth rates begin to fall."]],0);
+Q("PS","9B",1,"Civil war leads families to leave their country. In migration terms, war is a:",[
+ ["Push factor","Drives people away."],
+ ["Pull factor","Pull factors attract people to a place."],
+ ["Gentrification factor","Unrelated."],
+ ["Fertility factor","Unrelated."]],0);
+Q("PS","10A",1,"A factory worker's child becomes a surgeon. What is this?",[
+ ["Upward intergenerational mobility","Across generations."],
+ ["Intragenerational mobility","Within one person's lifetime."],
+ ["Horizontal mobility","Same class level."],
+ ["Social reproduction","The opposite: class stays the same."]],0);
+Q("PS","10A",2,"In Bourdieu's terms, familiarity with fine art, and the right accent and manners, are forms of:",[
+ ["Cultural capital","Knowledge and tastes that signal class."],
+ ["Social capital","Networks of relationships."],
+ ["Economic capital","Money and assets."],
+ ["Symbolic interaction","A theory, not a form of capital."]],0);
+Q("PS","10A",1,"Being poor compared with the typical living standard of your own society is:",[
+ ["Relative poverty","Judged against others nearby."],
+ ["Absolute poverty","Lacking basic needs."],
+ ["Social exclusion","Related but broader."],
+ ["Intergenerational poverty","Poverty across generations."]],0);
+Q("PS","SK",2,"Ice cream sales and drownings rise together. What is the best explanation?",[
+ ["A confound, hot weather, drives both","Correlation is not causation."],
+ ["Ice cream causes drowning","No causal evidence."],
+ ["Drowning increases ice cream sales","Reverse causation without support."],
+ ["The correlation must be a calculation error","Real correlations can be non-causal."]],0);
+Q("PS","SK",1,"Researchers assign participants to 4, 6, or 8 hours of sleep and measure word recall. What is the independent variable?",[
+ ["Hours of sleep","The variable the researchers manipulate."],
+ ["Word recall","That is the dependent variable."],
+ ["Participants' age","Possible confound, not the IV."],
+ ["Time of testing","Control variable."]],0);
+Q("PS","SK",2,"What is a Type I error?",[
+ ["Rejecting a null hypothesis that is true","A false positive."],
+ ["Failing to reject a false null","That is Type II."],
+ ["Using the wrong statistical test","Not the definition."],
+ ["Having too small a sample","That raises Type II risk."]],0);
+Q("PS","SK",3,"A study reports p = 0.03. What does this mean?",[
+ ["If the null were true, data this extreme would occur about 3% of the time","Correct definition."],
+ ["There is a 3% chance the hypothesis is true","p is not the probability a hypothesis is true."],
+ ["The effect is large","p says nothing about effect size."],
+ ["The result will replicate 97% of the time","p does not give replication probability."]],0,"Trap: p is about the data, not the hypothesis.");
+
+/* ---------- CARS: original passages ---------- */
+const PASSAGES = [
+ { id:"p1", title:"The Restorer's Brush", text:[
+  "When a museum cleans a centuries-old painting, visitors are told they are finally seeing it as the artist intended. The claim is comforting and almost always unprovable. Varnish yellows, pigments shift, and earlier restorers have already repainted what they believed was there. Every cleaning is a guess layered on guesses.",
+  "This does not mean restoration should stop. A painting left under grime is no more authentic than one brightened by solvents; it is simply a record of different accidents. What restorers owe the public is candor. A label reading 'restored to its original state' should read 'restored to our best current reading of it.'",
+  "Some curators object that such honesty will make visitors trust museums less. I suspect the opposite. People forgive uncertainty far more readily than they forgive being told a story that later collapses."],
+  qs:[
+  {c:"CF",d:2,q:"Which statement best captures the author's main point?",o:[
+   ["Restoration should be halted until it can be proven accurate","The author says restoration should not stop."],
+   ["Restoration is legitimate but museums should describe it as interpretation","Paragraphs 2–3: keep restoring, be candid."],
+   ["Grimy paintings are the most authentic version","The author rejects this too: grime is another set of accidents."],
+   ["Visitors distrust museums that restore paintings","The author predicts honesty builds trust; nothing says visitors distrust restoration."]],a:1},
+  {c:"CW",d:2,q:"The author's attitude toward curators who fear honest labels is best described as:",o:[
+   ["Respectful disagreement","'I suspect the opposite' disagrees without contempt."],
+   ["Complete agreement","The author argues the opposite."],
+   ["Open hostility","Too extreme for the measured tone."],
+   ["Indifference","The author engages with the objection directly."]],a:0},
+  {c:"CB",d:3,q:"Which new situation most closely matches the author's recommendation?",o:[
+   ["A historian labels a reconstructed ancient melody as one plausible version","Candid about interpretation, which the author favors."],
+   ["A zoo refuses to rebuild a damaged exhibit","The author does not oppose restoring."],
+   ["A publisher prints a novel with no edits","No interpretation is being disclosed."],
+   ["A chef claims a dish tastes exactly as in 1700","That is the overclaiming the author criticizes."]],a:0}]},
+ { id:"p2", title:"Desire Paths", text:[
+  "Walk across almost any campus lawn and you will find a dirt track cutting the corner the architects left square. Planners call these desire paths. For decades the standard response was a fence or a sign. A few designers took the opposite approach: they waited a year after opening a site, watched where the grass died, and paved those lines.",
+  "The appeal of this method is that it treats people's feet as data rather than defiance. Its limits are less discussed. Paths record where people already go, not where they might go if the space offered something better. A park built only from desire paths would efficiently serve today's habits and nothing else.",
+  "The wiser lesson is not that users are always right, but that a plan which ignores observed behavior will be quietly redrawn by it."],
+  qs:[
+  {c:"CW",d:2,q:"According to the passage, the main limitation of paving desire paths is that it:",o:[
+   ["Encourages people to ignore signs","Not discussed."],
+   ["Captures existing habits but not better possibilities","Paragraph 2: paths record where people already go."],
+   ["Costs more than fencing","Cost is not mentioned."],
+   ["Requires waiting too long after opening","The year of waiting is described, not criticized."]],a:1},
+  {c:"CB",d:3,q:"Which finding would most weaken the author's final claim?",o:[
+   ["Sites that ignored observed walking patterns kept their original layouts intact for decades with no worn paths","Directly contradicts 'will be quietly redrawn by it'."],
+   ["Students prefer paved paths to grass","Consistent with the author."],
+   ["Some desire paths are very short","Irrelevant to the claim."],
+   ["Planners in other countries also use fences","Does not test the outcome the author predicts."]],a:0},
+  {c:"CF",d:1,q:"As used in the passage, 'defiance' most nearly means:",o:[
+   ["Deliberate resistance to rules","People cutting corners were treated as rule-breakers."],
+   ["Physical damage to property","Too narrow."],
+   ["Careful planning","Opposite sense."],
+   ["Public protest","Too extreme for walking on grass."]],a:0}]},
+ { id:"p3", title:"The Tyranny of the Metronome", text:[
+  "Before the metronome, a tempo marking such as allegro described a character as much as a speed. Two performers could differ widely and both be faithful. Once composers began writing precise beats per minute, a new kind of error became possible: being measurably wrong.",
+  "Some historians celebrate this as progress, arguing that composers finally gained control over their works. Yet several composers' own metronome markings are now widely considered unplayable or simply mistaken, and performers routinely ignore them. If the people who wrote the numbers could not agree with them, the numbers may have promised more precision than music can bear.",
+  "None of this makes tempo arbitrary. It suggests that a score is closer to an argument than a blueprint, and that a performance answers it rather than executes it."],
+  qs:[
+  {c:"CW",d:3,q:"The author's argument assumes that:",o:[
+   ["A composer's own markings would be accurate if precise markings suited music","Unplayable markings by composers themselves are offered as evidence that precision does not fit music."],
+   ["All metronome markings are wrong","'Several', not all."],
+   ["Tempo does not matter","The author says tempo is not arbitrary."],
+   ["Historians dislike metronomes","Historians are described as celebrating them."]],a:0},
+  {c:"CF",d:2,q:"The comparison between an 'argument' and a 'blueprint' suggests that a score:",o:[
+   ["Invites interpretation rather than exact replication","An argument is answered; a blueprint is executed."],
+   ["Should be ignored by performers","Too extreme."],
+   ["Is less valuable than a recording","Not discussed."],
+   ["Must be followed precisely","That is the blueprint view the author rejects."]],a:0}]},
+ { id:"p4", title:"Faithful Betrayals", text:[
+  "Translators are often asked whether they were faithful. The question hides a choice. A translation can stay close to the original words and sound stiff, or it can sound natural and drift from the words. Each is faithful to something and unfaithful to something else.",
+  "Readers tend to praise whichever translation they read first, which suggests that familiarity, not accuracy, shapes much of our judgment. A more useful question than 'Is it faithful?' is 'Faithful to what, and at what cost?' A translator who can answer that clearly has done the real work, even if critics disagree with the answer."],
+  qs:[
+  {c:"CB",d:2,q:"The author would most likely agree that a translation should be judged by:",o:[
+   ["How clearly the translator's priorities and trade-offs are reasoned","'Faithful to what, and at what cost?'"],
+   ["How literally it matches the original words","Only one kind of faithfulness."],
+   ["Whether critics approve of it","The author allows that critics may disagree."],
+   ["Whether it was the first translation published","The author doubts first-read judgments."]],a:0},
+  {c:"CW",d:2,q:"The claim about readers praising the first translation they read is used to:",o:[
+   ["Show that familiarity may bias judgments of accuracy","It explains why praise is unreliable."],
+   ["Prove first translations are best","The author implies the opposite."],
+   ["Argue against translating classics","Not argued."],
+   ["Show readers are careless","Too strong; the point is bias, not carelessness."]],a:0}]},
+ { id:"p5", title:"The Lone Genius", text:[
+  "Popular histories of science love a solitary hero: the scientist who, ignored by peers, sees what no one else can. The story flatters readers, who imagine themselves in the role, and it flatters institutions, which can hand one person a prize.",
+  "The record is messier. Many celebrated discoveries were reached almost simultaneously by rivals working from the same published results, the same instruments, and often the same dead ends. When several people arrive at an idea within months of one another, it is hard to argue that the idea depended on one exceptional mind.",
+  "This is not a case for dismissing talent. Some individuals clearly see further. But the lone-genius story hides the shared groundwork that makes seeing further possible, and a public that believes in lone geniuses may be less willing to pay for that groundwork."],
+  qs:[
+  {c:"CF",d:2,q:"The author's main purpose is to:",o:[
+   ["Argue that the lone-genius story distorts how discoveries actually happen","The passage contrasts the story with the 'messier' record."],
+   ["Prove that talent plays no role in science","The author says 'This is not a case for dismissing talent.'"],
+   ["Criticize scientific prizes as corrupt","Prizes are mentioned once, not argued against."],
+   ["Explain how instruments are built","Instruments are an example, not the topic."]],a:0},
+  {c:"CW",d:2,q:"Near-simultaneous discoveries are used as evidence that:",o:[
+   ["Ideas often depend on shared conditions more than on one mind","Paragraph 2's conclusion."],
+   ["Scientists frequently copy one another","Copying is never alleged."],
+   ["Most discoveries are accidents","Not claimed."],
+   ["Rivals rarely publish their results","The opposite: they work from published results."]],a:0},
+  {c:"CB",d:3,q:"Which policy would the author most likely support?",o:[
+   ["Steady funding for shared labs, data sets, and instruments","Supports the 'groundwork' the author says the public undervalues."],
+   ["Larger cash prizes for single famous scientists","Reinforces the story the author questions."],
+   ["Ending all science prizes","Too extreme; the author doesn't attack prizes outright."],
+   ["Teaching only biographies in science class","The author warns against hero-centered narratives."]],a:0}]},
+ { id:"p6", title:"In Praise of Noise", text:[
+  "Libraries once enforced silence as a moral rule. Today many have cafes, maker spaces, and children's programs that fill the building with sound, and some longtime patrons mourn the change as a loss of seriousness.",
+  "Their grief is understandable but rests on a narrow idea of what a library is for. Silence served readers who already had books at home and quiet rooms to read them in. For people whose homes are crowded, a library may be the only place to print a job application, use a fast connection, or let a child learn among other children.",
+  "A good library can still protect quiet. The mistake is treating quiet as the whole mission rather than one service among several."],
+  qs:[
+  {c:"CW",d:2,q:"The author's attitude toward patrons who mourn the change is best described as:",o:[
+   ["Sympathetic but unconvinced","'Understandable but rests on a narrow idea.'"],
+   ["Scornful","The author calls their grief understandable."],
+   ["Fully persuaded","The author disagrees."],
+   ["Indifferent","The author engages their view directly."]],a:0},
+  {c:"CF",d:2,q:"Which assumption underlies the claim in paragraph 2?",o:[
+   ["Libraries should serve people with the fewest resources elsewhere","The argument rests on who lacks other options."],
+   ["Silence harms reading","Never claimed."],
+   ["Cafes increase book borrowing","Not discussed."],
+   ["Children cannot learn in quiet spaces","Not claimed."]],a:0},
+  {c:"CB",d:3,q:"A library adds soundproof study rooms alongside its busy children's area. How would the author view this?",o:[
+   ["As consistent with treating quiet as one service among several","Matches the final paragraph."],
+   ["As a betrayal of the library's mission","The author supports mixed uses."],
+   ["As proof silence should be the whole mission","The author rejects that."],
+   ["As irrelevant to the argument","It directly applies."]],a:0}]},
+ { id:"p7", title:"Why Ruins Move Us", text:[
+  "A complete temple impresses; a broken one moves us. Writers have long tried to explain the difference. One account says ruins remind us of our own mortality. Another says they invite the imagination to finish what time has erased.",
+  "Both accounts treat the viewer as passive, struck by a feeling the stones produce. Yet the feeling depends heavily on what the viewer brings. A visitor who knows nothing of the people who built a ruin may see only rubble. The emotion we credit to the ruin is partly a story we tell about it.",
+  "That is why restoring a ruin too fully can disappoint. It does not simply add stone; it removes the space our stories filled."],
+  qs:[
+  {c:"CW",d:2,q:"The author's objection to the two traditional accounts is that they:",o:[
+   ["Ignore what the viewer contributes to the feeling","'Both accounts treat the viewer as passive.'"],
+   ["Are historically inaccurate","Accuracy is not challenged."],
+   ["Overstate the beauty of complete temples","Not argued."],
+   ["Apply only to ancient ruins","Not argued."]],a:0},
+  {c:"CF",d:1,q:"In the last paragraph, 'the space our stories filled' most likely refers to:",o:[
+   ["The gaps that invited viewers to imagine and interpret","Restoration removes room for imagination."],
+   ["Physical rooms inside the temple","Too literal."],
+   ["Museum display cases","Not mentioned."],
+   ["Written histories of the site","Stories here are the viewer's own."]],a:0},
+  {c:"CB",d:3,q:"Which finding would best support the author's view?",o:[
+   ["Visitors who first hear a site's history report stronger emotions at the ruin than those who don't","Shows the feeling depends on what the viewer brings."],
+   ["Most visitors photograph ruins","Irrelevant to the emotion's source."],
+   ["Restored temples attract more tourists","If anything, cuts against the last paragraph."],
+   ["Ruins are older than restored sites","Irrelevant."]],a:0}]},
+ { id:"p8", title:"Counting What Counts", text:[
+  "Hospitals now measure almost everything: wait times, readmissions, patient ratings. Measurement has caught real failures that intuition missed. But a number, once tied to rewards, starts to change the behavior it was meant to describe.",
+  "A clinic judged on short waits may rush visits. A surgeon judged on survival rates may avoid the sickest patients, whose operations are riskiest but most needed. In each case the measure improves while the thing it stood for may get worse.",
+  "The answer is not to stop counting. It is to remember that every metric is a proxy, and to keep asking what it was a proxy for."],
+  qs:[
+  {c:"CF",d:2,q:"The central claim of the passage is that:",o:[
+   ["Metrics tied to rewards can distort the care they are meant to track","Paragraphs 1–2."],
+   ["Hospitals should stop measuring performance","'The answer is not to stop counting.'"],
+   ["Patient ratings are the most reliable metric","Not argued."],
+   ["Surgeons are dishonest","The author describes incentives, not dishonesty."]],a:0},
+  {c:"CW",d:2,q:"The surgeon example mainly illustrates:",o:[
+   ["A measure improving while the underlying goal suffers","Avoiding sick patients raises survival rates but harms care."],
+   ["That surgery is too dangerous","Not the point."],
+   ["That wait times matter most","Different example."],
+   ["That intuition beats measurement","The author credits measurement with catching failures."]],a:0},
+  {c:"CB",d:3,q:"Which practice best follows the author's advice?",o:[
+   ["Adjusting surgical survival rates for how sick each patient was","Keeps the metric tied to what it stands for."],
+   ["Paying bonuses for the shortest visits","Repeats the distortion described."],
+   ["Abolishing all hospital metrics","The author rejects this."],
+   ["Publishing only patient ratings","Swaps one proxy for another without the check."]],a:0}]}
+
+];
+
+/* High-yield facts: tap Knew it or New to me. */
+const FACTS = [
+ ["BB","Km is the [S] at half of Vmax. Lower Km means higher affinity."],
+ ["CP","Henderson–Hasselbalch: pH = pKa + log([A⁻]/[HA]). Equal amounts means pH = pKa."],
+ ["CP","ΔG° = −RT ln K. K > 1 means ΔG° < 0."],
+ ["CP","Thin lens: 1/f = 1/o + 1/i. Positive i means a real image on the far side."],
+ ["BB","Hardy–Weinberg holds with no selection, mutation, migration, or drift, and random mating."],
+ ["BB","Right shift of the O₂ curve: more CO₂, acid, 2,3-BPG, exercise, temperature."],
+ ["BB","Aldosterone raises Na⁺ reabsorption, so volume rises. ADH adds water only, so osmolarity falls."],
+ ["BB","Purines (A, G) have two rings. Pyrimidines (C, T, U) have one."],
+ ["CP","P = IV = I²R = V²/R."],
+ ["CP","10× intensity = +10 dB. 100× = +20 dB."],
+ ["CP","Electrons always flow anode → cathode. Oxidation at the anode, reduction at the cathode."],
+ ["CP","Bernoulli: P + ½ρv² + ρgh is constant along a streamline."],
+ ["PS","Piaget: sensorimotor (0–2), preoperational (2–7), concrete operational (7–11), formal operational (12+)."],
+ ["PS","Reinforcement increases behavior; punishment decreases it. Positive adds, negative removes."],
+ ["PS","Stereotype = thought, prejudice = feeling, discrimination = action."],
+ ["BB","Glycolysis control points: hexokinase, PFK-1 (rate-limiting), pyruvate kinase."],
+ ["CP","1 atm = 760 torr = 101.3 kPa. STP is 0 °C and 1 atm."],
+ ["PS","Manifest functions are intended; latent functions are unintended side effects."],
+ ["CARS","Answer from the passage, not from what you know. Outside knowledge is a trap."],
+ ["CP","Strong acid/strong base equivalence: pH 7. Weak acid/strong base: above 7."]
+];
+
+/* AAMC-style answer traps */
+const TRAPS = [
+ ["Extreme language","Choices with always, never, proves, or only are rarely supported. Passages usually make qualified claims.","'The author proves restoration is impossible' vs 'The author doubts restorations are exact.'"],
+ ["True but irrelevant","The statement is a correct fact, but it doesn't answer the question in the stem.","Asked why the curve shifts right; the choice correctly describes fetal hemoglobin."],
+ ["Reversal","Right concepts, wrong direction or ratio.","3 K⁺ in and 2 Na⁺ out. The pump does the opposite."],
+ ["Keyword echo","The choice reuses passage words but changes their meaning.","The passage says 'pavement records habits'; the choice says 'pavement creates habits.'"],
+ ["Out of scope","The choice goes beyond what the passage supports, even if it sounds reasonable.","Concluding cost when the passage never mentions money."],
+ ["Half right","The first half is perfect; the second half is wrong. Read every choice to the end.","'Km increases and Vmax decreases' for a competitive inhibitor."],
+ ["Kelvin trap","Gas laws and ΔG need kelvin. Doubling °C does not double T.","20 °C to 40 °C raises T from 293 K to 313 K, about 7%."],
+ ["Shape vs electron geometry","Lone pairs count for electron geometry but not for molecular shape.","NH₃: tetrahedral electron geometry, trigonal pyramidal shape."],
+ ["Reinforcement mix-up","Negative reinforcement removes something bad to increase behavior. It is not punishment.","Seatbelt chime stops when you buckle up."],
+ ["Time sink","Every question is worth the same. Past about 2 minutes with no progress, eliminate, guess, flag, move.","Spending 4 minutes on one CARS question costs you two easier ones."],
+ ["Correlation ≠ causation","Observational data cannot show cause without manipulation or controls.","Coffee drinkers live longer; maybe healthier people drink coffee."],
+ ["Misread stem","Weakens vs strengthens, EXCEPT, NOT, LEAST. Rephrase the stem before reading choices.","An EXCEPT question has three true choices and one false."]
+];
+
+</script>
+<script>
+/* ================= OWNER SETTINGS: edit these lines to start selling ================= */
+const CONFIG = {
+  productName: "520 Quest Pro",
+  price: "$39 one-time",
+  // Your Gumroad or Lemon Squeezy checkout link:
+  checkoutUrl: "../pro/",
+  // SHA-256 hashes of unlock codes (uppercase). The code you put in the product's receipt unlocks Pro.
+    unlockCodeHashes: ["dc0b3e3e3aed783131957d2c79b7dca52954b12d15d657aca671d57ee3078658"],
+  // Optional: Gumroad product ID to verify individual license keys (works when the app is on your own site).
+  gumroadProductId: "",
+  freeDailyQuestions: 40,
+  freeDailyBosses: 1,
+  // Affiliate or partner links shown under Resources. Leave empty to hide.
+  resources: [
+    { name: "AAMC official practice exams", url: "https://students-residents.aamc.org/prepare-mcat-exam/prepare-mcat-exam", note: "The most realistic full-lengths. Take them in your last 6 weeks." }
+  ],
+  appUrl: "https://alphavest999.github.io/520-quest/" // your public link, used in Share text
+};
+/* ===================================================================================== */
+
+const KEY = "quest520.v1";
+const DAY = 86400000;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const todayKey = (t = Date.now()) => new Date(t).toLocaleDateString("en-CA");
+const daysBetween = (a, b) => Math.round((new Date(b + "T12:00") - new Date(a + "T12:00")) / DAY);
+const CAT = Object.fromEntries(CATS.map(([code, title, s, hy]) => [code, { code, title, s, hy }]));
+const QBYID = Object.fromEntries(QUESTIONS.map(q => [q.id, q]));
+const PQ = {};
+PASSAGES.forEach(p => p.qs.forEach((q, i) => { q.id = p.id + "_" + i; q.s = "CARS"; q.pid = p.id; PQ[q.id] = q; }));
+const anyQ = id => QBYID[id] || PQ[id];
+
+/* ---------- state ---------- */
+function fresh() {
+  return { v: 1, xp: 0, combo: 0, bestCombo: 0, chest: 0, hints: 1, freezes: 1, pro: false, sound: true, goal: 25,
+    streak: { count: 0, last: null }, today: { date: todayKey(), answered: 0, correct: 0, bosses: 0, goalShown: false },
+    stats: {}, cat: {}, recent: { CP: [], CARS: [], BB: [], PS: [] }, revenge: {}, errors: [], facts: {}, traps: {},
+    fl: [], badges: {}, bossWins: {}, retired: 0, total: 0, totalCorrect: 0, filter: "ALL", focus: null };
+}
+let S = fresh();
+try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(fresh(), JSON.parse(raw)); } catch (e) {}
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+function rollDay() {
+  const t = todayKey();
+  if (S.today.date !== t) S.today = { date: t, answered: 0, correct: 0, bosses: 0, goalShown: false };
+}
+rollDay();
+
+/* ---------- levels ---------- */
+const RANKS = [[1, "Pre-Med Rookie"], [3, "Flashcard Fiend"], [5, "Passage Ranger"], [8, "Trap Spotter"], [12, "Boss Hunter"], [16, "Percentile Climber"], [20, "515 Contender"], [25, "520 Club"], [32, "528 Legend"]];
+const need = L => 50 * L * (L - 1);
+const levelOf = xp => { let L = 1; while (xp >= need(L + 1)) L++; return L; };
+const rankOf = L => RANKS.filter(r => L >= r[0]).pop()[1];
+
+/* ---------- sound + fx ---------- */
+let AC = null;
+function beep(type) {
+  if (!S.sound) return;
+  try {
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    const notes = { good: [660, 990], bad: [220, 160], level: [523, 659, 784, 1047], chest: [880, 1320, 1760] }[type] || [440];
+    notes.forEach((f, i) => {
+      const o = AC.createOscillator(), g = AC.createGain();
+      o.type = type === "bad" ? "sawtooth" : "triangle"; o.frequency.value = f;
+      const t = AC.currentTime + i * 0.08;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.12, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
+      o.connect(g).connect(AC.destination); o.start(t); o.stop(t + 0.2);
+    });
+  } catch (e) {}
+  try { navigator.vibrate && navigator.vibrate(type === "bad" ? [40, 40, 40] : 18); } catch (e) {}
+}
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function confetti() {
+  if (reduce) return;
+  const c = $("#fx"), app = $("#app"), ctx = c.getContext("2d");
+  c.width = app.clientWidth; c.height = app.clientHeight;
+  const cols = ["#facc15", "#4ade80", "#67e8f9", "#fb923c", "#fb7185"];
+  const ps = Array.from({ length: 110 }, () => ({ x: c.width / 2, y: c.height / 3, vx: (Math.random() - .5) * 11, vy: Math.random() * -11 - 3, s: Math.random() * 6 + 4, c: cols[Math.random() * 5 | 0], r: Math.random() * 6 }));
+  let n = 0;
+  (function tick() {
+    ctx.clearRect(0, 0, c.width, c.height);
+    ps.forEach(p => { p.x += p.vx; p.y += p.vy; p.vy += .35; p.r += .2; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2); ctx.restore(); });
+    if (++n < 110) requestAnimationFrame(tick); else ctx.clearRect(0, 0, c.width, c.height);
+  })();
+}
+function toast(html, ms = 2600) {
+  const t = document.createElement("div"); t.className = "toast"; t.innerHTML = html;
+  $("#toasts").appendChild(t); setTimeout(() => t.remove(), ms);
+}
+
+/* ---------- xp + rewards ---------- */
+function addXP(n) {
+  const before = levelOf(S.xp); S.xp += Math.round(n); const after = levelOf(S.xp);
+  if (after > before) {
+    beep("level"); confetti();
+    toast(`<b>Level ${after}!</b> ${rankOf(after) !== rankOf(before) ? "New rank: <b>" + esc(rankOf(after)) + "</b>" : "Keep climbing."}`, 3400);
+  }
+  renderHUD();
+}
+const comboMult = c => c >= 10 ? 3 : c >= 5 ? 2 : c >= 3 ? 1.5 : 1;
+function openChest() {
+  const r = Math.random(); let msg;
+  if (r < .1) { addXP(120); msg = "Golden chest: <b>+120 XP</b>"; }
+  else if (r < .3) { S.freezes = Math.min(3, S.freezes + 1); msg = "Chest: <b>Streak freeze</b> (protects one missed day)"; }
+  else if (r < .6) { S.hints++; msg = "Chest: <b>Hint token</b> (removes two wrong answers)"; }
+  else { addXP(40); msg = "Chest: <b>+40 XP</b>"; }
+  beep("chest"); toast(msg, 3200);
+}
+
+/* ---------- badges ---------- */
+const BADGES = [
+  ["first", "1", "First correct", s => s.totalCorrect >= 1],
+  ["c5", "x5", "5 combo", s => s.bestCombo >= 5],
+  ["c10", "x10", "10 combo", s => s.bestCombo >= 10],
+  ["s3", "3d", "3-day streak", s => s.streak.count >= 3],
+  ["s7", "7d", "7-day streak", s => s.streak.count >= 7],
+  ["s30", "30d", "30-day streak", s => s.streak.count >= 30],
+  ["b1", "B", "First boss", s => Object.keys(s.bossWins).length >= 1],
+  ["b4", "B4", "All bosses", s => Object.keys(s.bossWins).length >= 4],
+  ["t100", "100", "100 answered", s => s.total >= 100],
+  ["t500", "500", "500 answered", s => s.total >= 500],
+  ["dna", "DNA", "20 errors logged", s => s.errors.length >= 20],
+  ["rev", "R", "10 revenge wins", s => s.retired >= 10],
+  ["map", "31", "All 31 tried", s => CATS.filter(c => /^\d/.test(c[0])).every(c => (s.cat[c[0]] || {}).a > 0)]
+];
+function checkBadges() {
+  BADGES.forEach(([id, ic, name, fn]) => {
+    if (!S.badges[id] && fn(S)) { S.badges[id] = todayKey(); toast(`Badge unlocked: <b>${esc(name)}</b>`, 3000); }
+  });
+}
+
+/* ---------- streak + goal ---------- */
+function goalHit() {
+  const t = todayKey(), last = S.streak.last;
+  if (last === t) return;
+  const gap = last ? daysBetween(last, t) : 99;
+  if (gap === 1) S.streak.count++;
+  else if (gap === 2 && S.freezes > 0) { S.freezes--; S.streak.count++; toast("A streak freeze covered yesterday."); }
+  else S.streak.count = 1;
+  S.streak.last = t;
+}
+function streakAlive() {
+  if (!S.streak.last) return 0;
+  const gap = daysBetween(S.streak.last, todayKey());
+  return gap <= 1 || (gap === 2 && S.freezes > 0) ? S.streak.count : 0;
+}
+
+/* ---------- recording answers ---------- */
+function record(q, correct, secs) {
+  rollDay();
+  const st = S.stats[q.id] || (S.stats[q.id] = { a: 0, c: 0 });
+  st.a++; if (correct) st.c++; st.last = Date.now();
+  const cs = S.cat[q.c] || (S.cat[q.c] = { a: 0, c: 0 }); cs.a++; if (correct) cs.c++;
+  const rec = S.recent[q.s]; rec.push([correct ? 1 : 0, q.d]); if (rec.length > 60) rec.shift();
+  S.total++; S.today.answered++;
+  if (correct) { S.totalCorrect++; S.today.correct++; }
+  const rv = S.revenge[q.id];
+  if (!correct) S.revenge[q.id] = { box: 0, due: Date.now() + 20 * 3600000 };
+  else if (rv) {
+    rv.box++;
+    if (rv.box >= 3) { delete S.revenge[q.id]; S.retired++; toast("Revenge complete. That one is <b>mastered</b>."); }
+    else rv.due = Date.now() + [1, 3, 7][rv.box] * DAY;
+  }
+  let gain = 0, crit = false;
+  if (correct) {
+    S.combo++; S.bestCombo = Math.max(S.bestCombo, S.combo);
+    gain = (10 + 5 * q.d) * comboMult(S.combo);
+    if (secs < 60) gain += 3;
+    const r = Math.random();
+    if (r < .02) { gain += 50; crit = "JACKPOT"; } else if (r < .14) { gain *= 2; crit = "CRIT"; }
+    S.chest++; if (S.chest >= 8) { S.chest = 0; setTimeout(openChest, 700); }
+  } else { S.combo = 0; gain = 2; }
+  addXP(gain);
+  if (S.today.answered >= S.goal && !S.today.goalShown) { S.today.goalShown = true; goalHit(); setTimeout(showDone, 900); }
+  checkBadges(); save(); renderHUD();
+  return { gain: Math.round(gain), crit };
+}
+
+/* ---------- HUD ---------- */
+function renderHUD() {
+  const L = levelOf(S.xp), lo = need(L), hi = need(L + 1);
+  $("#hudLvl").textContent = "LV " + L;
+  $("#hudRank").textContent = rankOf(L) + " · " + S.xp.toLocaleString() + " XP";
+  $("#hudXp").style.width = Math.min(100, (S.xp - lo) / (hi - lo) * 100) + "%";
+  $("#hudGoalTxt").textContent = Math.min(S.today.answered, S.goal) + "/" + S.goal;
+  $("#hudStreakTxt").textContent = streakAlive();
+}
+
+/* ---------- feed engine ---------- */
+const feed = $("#feed");
+let cardN = 0, sessionSeen = new Set(), factI = 0, trapI = 0, passI = 0, gateShown = false;
+const FILTERS = [["ALL", "All"], ["CP", "C/P"], ["CARS", "CARS"], ["BB", "B/B"], ["PS", "P/S"]];
+function renderFilters() {
+  $("#filters").innerHTML = FILTERS.map(([k, n]) => `<button class="chipbtn" data-f="${k}" aria-pressed="${S.filter === k && !S.focus}">${n}</button>`).join("") +
+    (S.focus ? `<button class="chipbtn focus" data-f="clear" aria-pressed="false">Drilling ${esc(S.focus)} ✕</button>` : "");
+}
+$("#filters").addEventListener("click", e => {
+  const b = e.target.closest("[data-f]"); if (!b) return;
+  if (b.dataset.f === "clear") S.focus = null; else { S.filter = b.dataset.f; S.focus = null; }
+  save(); resetFeed();
+});
+function mastery(code) { const c = S.cat[code] || { a: 0, c: 0 }; return (c.c + 1) / (c.a + 2); }
+function pickQuestion() {
+  const sec = S.focus ? CAT[S.focus].s : S.filter;
+  let pool = QUESTIONS.filter(q => (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus));
+  const now = Date.now();
+  const due = pool.filter(q => S.revenge[q.id] && S.revenge[q.id].due <= now && !sessionSeen.has(q.id));
+  if (due.length) return [due[0], true];
+  let fresh = pool.filter(q => !sessionSeen.has(q.id));
+  if (!fresh.length) { pool.forEach(q => sessionSeen.delete(q.id)); fresh = pool; }
+  const w = fresh.map(q => { const st = S.stats[q.id]; let x = !st ? 3 : st.c === st.a ? .5 : 1.5; return x * (1 + (1 - mastery(q.c)) * 2); });
+  let r = Math.random() * w.reduce((a, b) => a + b, 0);
+  for (let i = 0; i < fresh.length; i++) { r -= w[i]; if (r <= 0) return [fresh[i], false]; }
+  return [fresh[fresh.length - 1], false];
+}
+function overFree() { return !S.pro && S.today.answered >= CONFIG.freeDailyQuestions; }
+function nextCard() {
+  if (overFree()) { if (gateShown) return null; gateShown = true; return gateCard(); }
+  cardN++;
+  const sec = S.focus ? CAT[S.focus].s : S.filter;
+  if (sec === "CARS") return passageCard(PASSAGES[passI++ % PASSAGES.length]);
+  if (!S.focus && sec === "ALL" && cardN % 9 === 0) return passageCard(PASSAGES[passI++ % PASSAGES.length]);
+  if (!S.focus && cardN % 5 === 0) return (cardN / 5) % 2 ? factCard() : trapCard();
+  const [q, rev] = pickQuestion(); sessionSeen.add(q.id);
+  return questionCard(q, rev);
+}
+function fill(n = 3) { for (let i = 0; i < n; i++) { const c = nextCard(); if (!c) break; feed.appendChild(c); io.observe(c); } watchEnd(); }
+function resetFeed() { feed.innerHTML = ""; cardN = 0; gateShown = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && !e.target._shown) e.target._shown = Date.now(); }), { threshold: .55 });
+const endObs = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) fill(3); }, { root: feed, threshold: .1 });
+function watchEnd() { endObs.disconnect(); const k = feed.children; if (k.length > 1) endObs.observe(k[k.length - 2]); }
+
+const SWIPE = `<div class="swipe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 14l6-6 6 6"/></svg>Swipe up</div>`;
+const diffDots = d => `<span class="diff" title="Difficulty ${d} of 3">${[1, 2, 3].map(i => `<i class="${i <= d ? "on" : ""}"></i>`).join("")}</span>`;
+function scrollToEl(t) { feed.scrollTo({ top: feed.scrollTop + t.getBoundingClientRect().top - feed.getBoundingClientRect().top - 8, behavior: reduce ? "auto" : "smooth" }); }
+function shuf(q) {
+  const order = q.o.map((_, i) => i).sort(() => Math.random() - .5);
+  return Object.assign({}, q, { o: order.map(i => q.o[i]), a: order.indexOf(q.a) });
+}
+function optsHTML(q) { return q.o.map((o, i) => `<button class="opt" data-i="${i}"><b>${"ABCD"[i]}</b><span>${o[0]}</span></button>`).join(""); }
+
+function questionCard(q, rev) {
+  q = shuf(q);
+  const el = document.createElement("article"); el.className = "card q"; el.dataset.id = q.id;
+  const cat = CAT[q.c];
+  el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[q.s].name}</span><span class="tag">${q.c}${cat.hy ? " ★" : ""}</span>${rev ? '<span class="tag rev">Revenge</span>' : ""}${diffDots(q.d)}</div>
+    <h2 class="stem">${q.q}</h2><div class="opts">${optsHTML(q)}</div>
+    <div class="row tools"><button class="btn small ghost" data-hint ${S.hints ? "" : "disabled"}>Hint (${S.hints})</button><span class="muted small">${esc(cat.title)}</span></div>
+    <div class="reveal stack" hidden></div>${SWIPE}`;
+  wireQuestion(el, q, el);
+  return el;
+}
+function wireQuestion(scope, q, card) {
+  const optsBox = $(".opts", scope);
+  optsBox.addEventListener("click", e => {
+    const b = e.target.closest(".opt"); if (!b || optsBox.dataset.done) return;
+    optsBox.dataset.done = 1;
+    const i = +b.dataset.i, ok = i === q.a, secs = ((Date.now() - (card._shown || card._made || Date.now())) / 1000);
+    $$(".opt", optsBox).forEach((o, j) => {
+      o.disabled = true;
+      if (j === q.a) o.classList.add("right"); else if (j === i) o.classList.add("wrong");
+      o.querySelector("span").insertAdjacentHTML("beforeend", `<small>${q.o[j][1]}</small>`);
+    });
+    const { gain, crit } = record(q, ok, secs);
+    beep(ok ? "good" : "bad"); if (!ok && !reduce) { card.classList.add("shake"); setTimeout(() => card.classList.remove("shake"), 400); }
+    const f = document.createElement("div"); f.className = "float" + (crit ? " crit" : "");
+    f.textContent = (crit ? crit + " " : "") + "+" + gain + " XP" + (ok && comboMult(S.combo) > 1 ? " ×" + comboMult(S.combo) : "");
+    card.appendChild(f); setTimeout(() => f.remove(), 1400);
+    if (ok && S.combo >= 3) { const c = document.createElement("div"); c.className = "combo"; c.textContent = S.combo + " COMBO"; card.appendChild(c); setTimeout(() => c.remove(), 1400); }
+    const rv = $(".reveal", scope); rv.hidden = false;
+    rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` +
+      (q.note ? `<div class="note">${q.note}</div>` : "") + (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next card</button></div>`;
+    const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
+    const nb = $("[data-next]", rv); if (sib) nb.textContent = "Next question";
+    nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
+    if (!ok) wireDNA(rv, q, secs);
+    const h = $("[data-hint]", scope); if (h) h.disabled = true;
+  });
+  const hint = $("[data-hint]", scope);
+  if (hint) hint.addEventListener("click", () => {
+    if (!S.hints || optsBox.dataset.done) return;
+    S.hints--; save();
+    const wrong = q.o.map((_, j) => j).filter(j => j !== q.a).sort(() => Math.random() - .5).slice(0, 2);
+    wrong.forEach(j => $$(".opt", optsBox)[j].classList.add("gone"));
+    hint.disabled = true; hint.textContent = "Hint used";
+  });
+}
+function dnaHTML(secs) {
+  const slow = secs > 95;
+  return `<div class="dna"><p><b>Error DNA:</b> why did you miss it?${slow ? " You took " + Math.round(secs) + " s, so Time is pre-selected." : ""}</p>
+    <div class="row"><button class="btn small" data-dna="Content">Content: didn't know it</button><button class="btn small" data-dna="Trap">Trap: got tricked</button><button class="btn small" data-dna="Time" ${slow ? 'aria-pressed="true"' : ""}>Time: too slow</button></div></div>`;
+}
+function wireDNA(rv, q, secs) {
+  const box = $(".dna", rv);
+  const log = type => {
+    const prev = S.errors.find(e => e.id === q.id && e.date === todayKey());
+    if (prev) prev.type = type; else { S.errors.push({ id: q.id, s: q.s, type, date: todayKey() }); addXP(2); }
+    $$("[data-dna]", box).forEach(b => b.setAttribute("aria-pressed", b.dataset.dna === type));
+    save();
+  };
+  box.addEventListener("click", e => { const b = e.target.closest("[data-dna]"); if (b) { log(b.dataset.dna); toast(`Logged as <b>${b.dataset.dna}</b>. It comes back in your Revenge queue tomorrow.`); } });
+  if (secs > 95) log("Time");
+}
+
+function passageCard(p) {
+  p = Object.assign({}, p, { qs: p.qs.map(shuf) });
+  const el = document.createElement("article"); el.className = "card"; el._made = Date.now();
+  const n = p.qs.length;
+  el.innerHTML = `<div class="card-top"><span class="tag sec">CARS</span><span class="tag">Passage + ${n} questions</span><button class="btn small primary qjump" data-jump style="margin-left:auto">Jump to questions ↓</button></div>
+    <h2 class="stem">${esc(p.title)}</h2><p class="muted small" style="margin:0">Read the passage, then answer the ${n} questions below it.</p><div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>
+    <div class="qhead" data-qhead>Questions 1–${n}</div>` +
+    p.qs.map((q, i) => `<div class="pq" data-q="${i}"><div class="card-top"><span class="tag sec">Q${i + 1} of ${n}</span><span class="tag">${{ CF: "Comprehension", CW: "Reasoning within", CB: "Reasoning beyond" }[q.c]}</span>${diffDots(q.d)}</div><h3>${q.q}</h3><div class="opts">${optsHTML(q)}</div><div class="reveal stack" hidden></div></div>`).join("") + SWIPE;
+  p.qs.forEach((q, i) => wireQuestion($(`[data-q="${i}"]`, el), q, el));
+  $("[data-jump]", el).addEventListener("click", () => scrollToEl($("[data-qhead]", el)));
+  return el;
+}
+function factCard() {
+  const i = factI++ % FACTS.length, [s, t] = FACTS[i];
+  const el = document.createElement("article"); el.className = "card fact";
+  el.innerHTML = `<div class="eyebrow">High-yield · ${s === "CARS" ? "CARS" : SECTIONS[s].name}</div><p class="bigtext">${t}</p>
+    <div class="row"><button class="btn" data-k="1">Knew it</button><button class="btn primary" data-k="0">New to me</button></div>${SWIPE}`;
+  el.addEventListener("click", e => {
+    const b = e.target.closest("[data-k]"); if (!b) return;
+    S.facts[i] = +b.dataset.k; addXP(3); save();
+    $(".row", el).innerHTML = `<span class="muted small">${b.dataset.k === "1" ? "Nice. +3 XP" : "Saved. It will come around again. +3 XP"}</span>`;
+  });
+  return el;
+}
+function trapCard() {
+  const i = trapI++ % TRAPS.length, [name, desc, ex] = TRAPS[i];
+  const el = document.createElement("article"); el.className = "card trap";
+  el.innerHTML = `<div class="eyebrow">Trap alert</div><p class="bigtext">${esc(name)}</p><p style="margin:0">${esc(desc)}</p>
+    <div class="example"><b>Looks like:</b> ${esc(ex)}</div><div class="row"><button class="btn primary" data-got>Got it</button></div>${SWIPE}`;
+  $("[data-got]", el).addEventListener("click", ev => { S.traps[i] = 1; addXP(3); save(); ev.target.replaceWith(Object.assign(document.createElement("span"), { className: "muted small", textContent: "+3 XP. Watch for it today." })); });
+  return el;
+}
+function gateCard() {
+  const el = document.createElement("article"); el.className = "card gate";
+  el.innerHTML = `<div class="eyebrow">Free limit reached</div><p class="bigtext">You answered ${CONFIG.freeDailyQuestions} questions today. That is a strong session.</p>
+    <p class="muted" style="margin:0">Free players get ${CONFIG.freeDailyQuestions} a day, refilled tomorrow. Pro removes the cap and adds unlimited boss battles, Anki export, the score estimate, and the full-length tracker.</p>
+    <div class="row"><button class="btn primary" data-pro>See Pro, ${esc(CONFIG.price)}</button></div>`;
+  $("[data-pro]", el).addEventListener("click", showPro);
+  return el;
+}
+
+/* ---------- sheets ---------- */
+function sheet(html, onMount) {
+  const host = $("#sheetHost");
+  host.innerHTML = `<div class="scrim"><div class="sheet" role="dialog" aria-modal="true">${html}</div></div>`;
+  const scrim = $(".scrim", host);
+  scrim.addEventListener("click", e => { if (e.target === scrim || e.target.closest("[data-close]")) host.innerHTML = ""; });
+  onMount && onMount($(".sheet", host));
+}
+function showDone() {
+  const acc = S.today.answered ? Math.round(S.today.correct / S.today.answered * 100) : 0;
+  confetti(); beep("level");
+  sheet(`<div class="eyebrow">Daily goal complete</div><h2>Done for today. Go live your life.</h2>
+    <p class="muted">${S.today.answered} questions at ${acc}% accuracy. Streak: <b style="color:var(--heat)">${streakAlive()} day${streakAlive() === 1 ? "" : "s"}</b>. Short daily sessions beat long cramming sessions, so stopping here is a win.</p>
+    <div class="row"><button class="btn primary" data-close>Close for today</button><button class="btn" data-close data-more>Bonus round</button><button class="btn ghost" data-share>Share streak</button></div>`,
+    s => { $("[data-share]", s).addEventListener("click", share); });
+}
+function share() {
+  const txt = `Day ${streakAlive()} streak in 520 Quest, level ${levelOf(S.xp)} (${rankOf(levelOf(S.xp))}). Free MCAT game${CONFIG.appUrl ? ": " + CONFIG.appUrl : ""}`;
+  const done = () => toast("Copied. Paste it into your story or group chat.");
+  if (navigator.share) navigator.share({ text: txt }).catch(() => copy(txt, done)); else copy(txt, done);
+}
+function copy(txt, done, area) {
+  const fallback = () => { if (area) { area.focus(); area.select(); toast("Select-all done. Press copy on your keyboard."); } else toast(esc(txt)); };
+  try { navigator.clipboard.writeText(txt).then(done, fallback); } catch (e) { fallback(); }
+}
+async function sha(s) { const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s)); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join(""); }
+function showPro() {
+  sheet(`<div class="eyebrow">${esc(CONFIG.productName)}</div><h2>Unlimited play, one price, yours forever</h2>
+    <ul class="muted" style="margin:0;padding-left:18px;display:grid;gap:4px"><li>Unlimited daily scrolling and boss battles</li><li>Export your misses to Anki or Quizlet</li><li>Section score estimate from your answers</li><li>Full-length score tracker with a 520 line</li><li>No subscription. No renewal. Updates included.</li></ul>
+    <div class="row"><a class="btn primary" href="${esc(CONFIG.checkoutUrl)}" target="_blank" rel="noopener">Get Pro, ${esc(CONFIG.price)}</a></div>
+    <label class="field" for="unlockCode">Already bought it? Enter your unlock code<input type="text" id="unlockCode" autocomplete="off" placeholder="Code from your receipt"></label>
+    <div class="row"><button class="btn" data-unlock>Unlock</button><button class="btn ghost" data-close>Not now</button></div><p class="small muted" id="unlockMsg"></p>`,
+    s => $("[data-unlock]", s).addEventListener("click", async () => {
+      const code = $("#unlockCode", s).value.trim(), msg = $("#unlockMsg", s);
+      if (!code) { msg.textContent = "Enter the code from your purchase receipt."; return; }
+      let ok = false;
+      try { ok = CONFIG.unlockCodeHashes.includes(await sha(code.toUpperCase())); } catch (e) {}
+      if (!ok && CONFIG.gumroadProductId) {
+        try {
+          const r = await fetch("https://api.gumroad.com/v2/licenses/verify", { method: "POST", body: new URLSearchParams({ product_id: CONFIG.gumroadProductId, license_key: code }) });
+          const j = await r.json(); ok = !!(j.success && !(j.purchase && (j.purchase.refunded || j.purchase.chargebacked)));
+        } catch (e) {}
+      }
+      if (ok) { S.pro = true; save(); $("#sheetHost").innerHTML = ""; confetti(); toast("<b>Pro unlocked.</b> Thanks for supporting 520 Quest."); renderAll(); }
+      else msg.textContent = "That code didn't work. Check for typos, or copy it straight from your receipt email.";
+    }));
+}
+
+/* ---------- boss battles ---------- */
+const BOSSES = [
+  { id: "BB", name: "The Krebs Kraken", sec: "BB", face: "K", col: "var(--good)", blurb: "Biochem and organ systems" },
+  { id: "CP", name: "Captain Torque", sec: "CP", face: "T", col: "var(--cool)", blurb: "Physics and chemistry" },
+  { id: "PS", name: "The Bias Hydra", sec: "PS", face: "H", col: "var(--heat)", blurb: "Psych and sociology" },
+  { id: "MX", name: "Overlord Omni", sec: "ALL", face: "Ω", col: "var(--volt)", blurb: "Everything, mixed" }
+];
+let B = null;
+function renderBossLobby() {
+  const left = S.pro ? "Unlimited battles" : Math.max(0, CONFIG.freeDailyBosses - S.today.bosses) + " free battle left today";
+  $("#view-boss").innerHTML = `<h2 class="title">Boss battles</h2><p class="sub">10 questions at exam pace, 95 seconds each. Deal 70 damage before you lose 4 hearts. ${esc(left)}.</p>
+    <div class="bosses">${BOSSES.map(b => `<button class="boss ${S.bossWins[b.id] ? "done" : ""}" data-boss="${b.id}"><span class="face" style="background:${b.col}">${b.face}</span><strong>${esc(b.name)}</strong><small>${esc(b.blurb)}${S.bossWins[b.id] ? " · Defeated" : ""}</small></button>`).join("")}</div>`;
+}
+$("#view-boss").addEventListener("click", e => {
+  const b = e.target.closest("[data-boss]"); if (b) return startBoss(BOSSES.find(x => x.id === b.dataset.boss));
+  if (e.target.closest("[data-lobby]")) { clearInterval(B && B.tick); B = null; renderBossLobby(); }
+});
+function startBoss(boss) {
+  rollDay();
+  if (!S.pro && S.today.bosses >= CONFIG.freeDailyBosses) return showPro();
+  S.today.bosses++; save();
+  const pool = QUESTIONS.filter(q => boss.sec === "ALL" || q.s === boss.sec).sort(() => Math.random() - .5);
+  pool.sort((a, b) => mastery(a.c) - mastery(b.c) + (Math.random() - .5) * .6);
+  B = { boss, qs: pool.slice(0, 10), i: 0, hp: 70, hearts: 4, xp: 0, right: 0 };
+  bossTurn();
+}
+function bossTurn() {
+  clearInterval(B.tick);
+  const v = $("#view-boss");
+  if (B.hp <= 0 || B.hearts <= 0 || B.i >= B.qs.length) return bossEnd();
+  const q = shuf(B.qs[B.i]); B.t = 95; B.start = Date.now();
+  v.innerHTML = `<div class="arena"><div class="row" style="justify-content:space-between"><button class="btn small ghost" data-lobby>Retreat</button><span class="timer" id="bt">1:35</span></div>
+    <div class="hpline"><span class="face" style="font:700 22px/1 var(--display);color:${B.boss.col}">${B.boss.face}</span><div class="hp"><i style="width:${B.hp / 70 * 100}%"></i></div><span class="small muted">${esc(B.boss.name)}</span></div>
+    <div class="row" style="justify-content:space-between"><div class="hearts">${[0, 1, 2, 3].map(i => `<i class="${i < B.hearts ? "" : "lost"}"></i>`).join("")}</div><span class="small muted">Question ${B.i + 1} of 10</span></div>
+    <article class="card" id="bcard" style="min-height:0"><div class="card-top"><span class="tag sec">${SECTIONS[q.s].name}</span><span class="tag">${q.c}</span>${diffDots(q.d)}</div><h2 class="stem">${q.q}</h2><div class="opts">${optsHTML(q)}</div><div class="reveal stack" hidden></div></article></div>`;
+  const card = $("#bcard"); card._shown = Date.now();
+  const box = $(".opts", card);
+  const finish = (i) => {
+    if (box.dataset.done) return; box.dataset.done = 1; clearInterval(B.tick);
+    const secs = (Date.now() - B.start) / 1000, ok = i === q.a;
+    $$(".opt", box).forEach((o, j) => { o.disabled = true; if (j === q.a) o.classList.add("right"); else if (j === i) o.classList.add("wrong"); o.querySelector("span").insertAdjacentHTML("beforeend", `<small>${q.o[j][1]}</small>`); });
+    const r = record(q, ok, secs); B.xp += r.gain;
+    if (ok) { B.right++; const dmg = 10 + (secs < 45 ? 2 : 0); B.hp = Math.max(0, B.hp - dmg); beep("good"); }
+    else { B.hearts--; beep("bad"); if (!reduce) { card.classList.add("shake"); } }
+    $(".hp i").style.width = B.hp / 70 * 100 + "%";
+    $$(".hearts i").forEach((h, k) => h.classList.toggle("lost", k >= B.hearts));
+    const rv = $(".reveal", card); rv.hidden = false;
+    rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${i < 0 ? "Time's up" : ok ? "Hit! −" + (10 + (secs < 45 ? 2 : 0)) + " HP" : "Ouch. Answer: " + "ABCD"[q.a]}</div>${q.note ? `<div class="note">${q.note}</div>` : ""}<div class="row"><button class="btn primary" id="bnext">${B.hp <= 0 || B.hearts <= 0 || B.i >= 9 ? "See result" : "Next question"}</button></div>`;
+    if (!ok) { S.errors.push({ id: q.id, s: q.s, type: i < 0 || secs > 95 ? "Time" : "Trap", date: todayKey() }); save(); }
+    $("#bnext").addEventListener("click", () => { B.i++; bossTurn(); });
+  };
+  box.addEventListener("click", e => { const b = e.target.closest(".opt"); if (b) finish(+b.dataset.i); });
+  B.tick = setInterval(() => {
+    const left = Math.max(0, 95 - Math.floor((Date.now() - B.start) / 1000)), t = $("#bt");
+    if (!t) return clearInterval(B.tick);
+    t.textContent = Math.floor(left / 60) + ":" + String(left % 60).padStart(2, "0"); t.classList.toggle("low", left <= 15);
+    if (left <= 0) finish(-1);
+  }, 250);
+}
+function bossEnd() {
+  const won = B.hp <= 0;
+  if (won) { S.bossWins[B.boss.id] = (S.bossWins[B.boss.id] || 0) + 1; addXP(100); confetti(); beep("level"); }
+  checkBadges(); save();
+  $("#view-boss").innerHTML = `<div class="stack"><div class="eyebrow">${won ? "Victory" : "Defeated"}</div><h2 class="title">${won ? esc(B.boss.name) + " falls." : esc(B.boss.name) + " survives this time."}</h2>
+    <div class="grid2"><div class="panel stat"><b>${B.right}/${B.i}</b><span>correct</span></div><div class="panel stat"><b>+${B.xp + (won ? 100 : 0)}</b><span>XP earned${won ? " incl. 100 victory bonus" : ""}</span></div></div>
+    <p class="muted">${won ? "Your misses were added to the Revenge queue." : "Every miss is now in your Revenge queue. Clear those, then rematch."}</p>
+    <div class="row"><button class="btn primary" data-lobby>Back to bosses</button></div></div>`;
+  B = null;
+}
+
+/* ---------- map ---------- */
+function renderMap() {
+  const groups = ["CP", "CARS", "BB", "PS"];
+  $("#view-map").innerHTML = `<h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll.</p>
+  <div class="stack">${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
+    const c = S.cat[code] || { a: 0, c: 0 }, m = c.a ? c.c / c.a : 0, col = !c.a ? "var(--line)" : m >= .8 ? "var(--good)" : m >= .6 ? "var(--volt)" : "var(--bad)";
+    const drill = s !== "CARS" && QUESTIONS.some(q => q.c === code);
+    return `<button class="cat" ${drill ? `data-drill="${code}"` : "disabled"}><code>${code}</code><span class="t">${esc(title)}${hy ? ' <span style="color:var(--volt)">★</span>' : ""}<small>${c.a ? Math.round(m * 100) + "% of " + c.a : "Not tried yet"}</small></span><span class="meter"><i style="width:${c.a ? Math.max(6, m * 100) : 0}%;background:${col}"></i></span></button>`;
+  }).join("")}</div></div>`).join("")}</div>`;
+}
+$("#view-map").addEventListener("click", e => {
+  const b = e.target.closest("[data-drill]"); if (!b) return;
+  S.focus = b.dataset.drill; save(); go("scroll"); resetFeed(); toast(`Drilling <b>${S.focus}</b>. Clear the chip to go back to the mix.`);
+});
+
+/* ---------- me ---------- */
+function estimate(sec) {
+  const r = S.recent[sec]; if (r.length < 15) return null;
+  let w = 0, s = 0; r.forEach(([c, d]) => { const k = d === 3 ? 1.5 : d === 1 ? .8 : 1; w += k; s += c * k; });
+  return Math.round(118 + 14 * Math.min(1, Math.max(0, (s / w - .3) / .65)));
+}
+function donut(counts) {
+  const tot = counts.reduce((a, b) => a + b[1], 0); if (!tot) return `<p class="muted small">Miss a question and tag why. Your breakdown shows up here.</p>`;
+  let a = 0; const R = 46, C = 2 * Math.PI * R;
+  const arcs = counts.map(([n, v, col]) => { const len = v / tot * C, s = `<circle r="${R}" cx="60" cy="60" fill="none" stroke="${col}" stroke-width="18" stroke-dasharray="${len} ${C - len}" stroke-dashoffset="${-a}"/>`; a += len; return s; }).join("");
+  const top = counts.slice().sort((x, y) => y[1] - x[1])[0][0];
+  const tip = { Content: "Mostly content gaps. Drill the red rows on the Map, starting with starred categories.", Trap: "Mostly traps. You know the material; slow down on answer choices and review the Trap Alert cards.", Time: "Mostly time. Run boss battles to train the 95-second pace, and flag anything past 2 minutes." }[top];
+  return `<div class="donut"><svg viewBox="0 0 120 120" width="120" height="120" style="transform:rotate(-90deg)" role="img" aria-label="Error breakdown">${arcs}</svg>
+    <div class="legend">${counts.map(([n, v, col]) => `<div><span style="background:${col}"></span>${n}: <b>${v}</b> (${Math.round(v / tot * 100)}%)</div>`).join("")}</div></div><p class="small">${tip}</p>`;
+}
+function flChart(fl = S.fl) {
+  if (!fl.length) return `<p class="muted small">Add your first full-length score to start the line.</p>`;
+  const W = 320, H = 150, pad = 30, lo = Math.min(495, ...fl.map(f => f.score)), hi = 528;
+  const x = i => pad + (fl.length === 1 ? (W - pad * 2) / 2 : i * (W - pad * 2) / (fl.length - 1)), y = v => H - 20 - (v - lo) / (hi - lo) * (H - 34);
+  const pts = fl.map((f, i) => `${x(i)},${y(f.score)}`).join(" ");
+  return `<div style="overflow-x:auto"><svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W * 1.4}px" role="img" aria-label="Full-length scores">
+    ${[lo, 510, 520, 528].filter((v, i, a) => a.indexOf(v) === i && v >= lo).map(v => `<line x1="${pad}" x2="${W - 8}" y1="${y(v)}" y2="${y(v)}" stroke="${v === 520 ? "var(--volt)" : "var(--line)"}" ${v === 520 ? 'stroke-dasharray="5 4"' : ""}/><text x="2" y="${y(v) + 4}" font-size="10" fill="${v === 520 ? "var(--volt)" : "var(--muted)"}">${v}</text>`).join("")}
+    <polyline points="${pts}" fill="none" stroke="var(--cool)" stroke-width="2.5"/>
+    ${fl.map((f, i) => `<circle cx="${x(i)}" cy="${y(f.score)}" r="${i === fl.length - 1 ? 5 : 3.5}" fill="var(--cool)"/><text x="${x(i)}" y="${H - 4}" font-size="10" text-anchor="middle" fill="var(--muted)">${esc(f.label)}</text>`).join("")}
+  </svg></div>`;
+}
+function proPanel(title, pitch, real, teaser) {
+  if (S.pro) return `<div class="panel"><h3>${title}</h3>${real}</div>`;
+  return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>${title}</h3><span class="tag sec">Pro</span></div><p class="small">${pitch}</p>
+    <div class="teaser"><div class="blurred" aria-hidden="true" inert>${teaser}</div><div class="teaser-cta"><span class="small muted">Preview with sample numbers</span><button class="btn primary small" data-pro>Unlock, ${esc(CONFIG.price)}</button></div></div></div>`;
+}
+const SAMPLE_FL = [{ label: "FL 1", score: 506 }, { label: "FL 2", score: 510 }, { label: "FL 3", score: 513 }, { label: "FL 4", score: 517 }, { label: "FL 5", score: 521 }];
+function renderMe() {
+  const L = levelOf(S.xp), acc = S.total ? Math.round(S.totalCorrect / S.total * 100) : 0;
+  const ests = ["CP", "CARS", "BB", "PS"].map(s => [s, estimate(s)]);
+  const tot = ests.every(e => e[1]) ? ests.reduce((a, e) => a + e[1], 0) : null;
+  const dnaCounts = ["Content", "Trap", "Time"].map((t, i) => [t, S.errors.filter(e => e.type === t).length, ["var(--cool)", "var(--bad)", "var(--heat)"][i]]);
+  const revN = Object.keys(S.revenge).length, dueN = Object.values(S.revenge).filter(r => r.due <= Date.now()).length;
+  const C = 2 * Math.PI * 31, pct = Math.min(1, S.today.answered / S.goal);
+  $("#view-me").innerHTML = `<h2 class="title">${esc(rankOf(L))}</h2><p class="sub">Level ${L} · ${S.xp.toLocaleString()} XP · ${S.total} answered at ${acc}%${S.pro ? " · Pro" : ""}</p>
+  <div class="stack">
+    <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
+      <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
+    <div class="panel"><h3>Error DNA</h3>${donut(dnaCounts)}</div>
+    ${proPanel("Score estimate", "See your estimated score for each section, based on your recent answers.",
+      `<p class="small muted">A rough practice estimate from your last 60 answers per section. It is not an AAMC prediction; your full-lengths are the real test.</p>
+      <div class="grid2">${ests.map(([s, v]) => `<div class="stat"><b>${v || "–"}</b><span>${SECTIONS[s].name}${v ? "" : ": answer " + (15 - S.recent[s].length) + " more"}</span></div>`).join("")}</div>
+      <p><b style="font:700 22px var(--display);color:var(--volt)">${tot || "–"}</b> <span class="muted small">${tot ? "estimated total (472–528)" : "total appears once every section has 15 answers"}</span></p>`,
+      `<div class="grid2">${[["CP", 129], ["CARS", 128], ["BB", 131], ["PS", 130]].map(([s, v]) => `<div class="stat"><b>${v}</b><span>${SECTIONS[s].name}</span></div>`).join("")}</div><p><b style="font:700 22px var(--display);color:var(--volt)">518</b> <span class="muted small">estimated total</span></p>`)}
+    ${proPanel("Full-length tracker", "Log every practice exam and watch your line climb toward the 520 mark.",
+      `${flChart()}<div class="row"><input type="text" id="flLabel" placeholder="FL ${S.fl.length + 1}" style="width:90px"><input type="number" id="flScore" min="472" max="528" placeholder="Score" style="width:100px"><button class="btn" data-addfl>Add</button>${S.fl.length ? '<button class="btn ghost small" data-popfl>Remove last</button>' : ""}</div>`,
+      flChart(SAMPLE_FL))}
+    ${proPanel("Export misses to Anki", "Turn every question you missed into a flashcard deck in one tap. Works with Anki and Quizlet.",
+      `<p class="small muted">Only your missed questions, one card each. In Anki: File, Import, choose Tab as the separator, allow HTML.</p>
+      <div class="row"><button class="btn" data-anki>Build my deck (${new Set(S.errors.map(e => e.id)).size} cards)</button></div><div id="ankiOut"></div>`,
+      `<div class="example" style="font:12px/1.6 ui-monospace,Menlo,monospace">Which enzyme relieves supercoiling…  →  Topoisomerase  ·  MCAT520::BB::Trap<br>Fe²⁺ configuration…  →  [Ar] 3d⁶  ·  MCAT520::CP::Content<br>Aspirin removes headache…  →  Negative reinforcement  ·  MCAT520::PS::Trap</div>`)}
+    <div class="panel"><h3>Badges</h3><div class="badges">${BADGES.map(([id, ic, name]) => `<div class="badge ${S.badges[id] ? "got" : ""}"><i>${ic}</i>${esc(name)}</div>`).join("")}</div></div>
+    <div class="panel"><h3>Settings</h3>
+      <label class="field" for="goalSel">Daily goal<select id="goalSel">${[15, 25, 40, 60].map(n => `<option value="${n}" ${S.goal === n ? "selected" : ""}>${n} questions</option>`).join("")}</select></label>
+      <label class="row small" for="soundChk"><input type="checkbox" id="soundChk" ${S.sound ? "checked" : ""}> Sound and vibration</label>
+      <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button>${S.pro ? "" : '<button class="btn small primary" data-pro>Get Pro</button>'}</div><div id="backupOut"></div></div>
+    ${CONFIG.resources.length ? `<div class="panel links"><h3>Resources</h3>${CONFIG.resources.map(r => `<p class="small"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a><br><span class="muted">${esc(r.note || "")}</span></p>`).join("")}</div>` : ""}
+    <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app. Progress is saved on this device only.</p>
+  </div>`;
+}
+$("#view-me").addEventListener("click", e => {
+  const t = e.target;
+  if (t.closest("[data-pro]")) return showPro();
+  if (t.closest("[data-share]")) return share();
+  if (t.closest("[data-addfl]")) {
+    const sc = +$("#flScore").value; if (!(sc >= 472 && sc <= 528)) return toast("Enter a total score from 472 to 528.");
+    S.fl.push({ label: ($("#flLabel").value.trim() || "FL " + (S.fl.length + 1)).slice(0, 8), score: sc }); save(); return renderMe();
+  }
+  if (t.closest("[data-popfl]")) { S.fl.pop(); save(); return renderMe(); }
+  if (t.closest("[data-anki]")) {
+    const ids = [...new Set(S.errors.map(e => e.id))].map(anyQ).filter(Boolean);
+    if (!ids.length) return toast("No misses logged yet. That is a good problem to have.");
+    const typeOf = id => (S.errors.filter(e => e.id === id).pop() || {}).type || "Content";
+    const txt = ids.map(q => `${q.q}<br>${q.o.map((o, i) => "ABCD"[i] + ") " + o[0]).join("<br>")}\t${"ABCD"[q.a]}) ${q.o[q.a][0]}<br>${q.o[q.a][1]}${q.note ? "<br><i>" + q.note + "</i>" : ""}\tMCAT520::${q.s}::${typeOf(q.id)}`.replace(/\n/g, " ")).join("\n");
+    $("#ankiOut").innerHTML = `<textarea id="ankiTxt" readonly aria-label="Anki deck text"></textarea><div class="row"><button class="btn small primary" data-copyanki>Copy deck</button></div>`;
+    $("#ankiTxt").value = txt; return;
+  }
+  if (t.closest("[data-copyanki]")) return copy($("#ankiTxt").value, () => toast("Deck copied. Paste into a .txt file and import into Anki."), $("#ankiTxt"));
+  if (t.closest("[data-backup]")) {
+    const code = btoa(unescape(encodeURIComponent(JSON.stringify(S))));
+    $("#backupOut").innerHTML = `<p class="small muted">Copy this code to keep a backup. On a new device, paste a code here and press Restore.</p><textarea id="bk" aria-label="Backup code"></textarea><div class="row"><button class="btn small" data-copybk>Copy code</button><button class="btn small" data-restore>Restore from pasted code</button></div>`;
+    $("#bk").value = code; return;
+  }
+  if (t.closest("[data-copybk]")) return copy($("#bk").value, () => toast("Backup code copied."), $("#bk"));
+  if (t.closest("[data-restore]")) {
+    try { const o = JSON.parse(decodeURIComponent(escape(atob($("#bk").value.trim())))); if (o.v !== 1) throw 0; S = Object.assign(fresh(), o); save(); renderAll(); toast("Progress restored."); }
+    catch (err) { toast("That code isn't a valid 520 Quest backup. Paste the whole code and try again."); }
+  }
+});
+$("#view-me").addEventListener("change", e => {
+  if (e.target.id === "goalSel") { S.goal = +e.target.value; S.today.goalShown = S.today.answered >= S.goal; save(); renderHUD(); renderMe(); }
+  if (e.target.id === "soundChk") { S.sound = e.target.checked; save(); }
+});
+
+/* ---------- tabs ---------- */
+function go(tab) {
+  $$(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.tab === tab));
+  ["scroll", "boss", "map", "me"].forEach(v => $("#view-" + v).hidden = v !== tab);
+  if (tab === "boss" && !B) renderBossLobby();
+  if (tab === "map") renderMap();
+  if (tab === "me") renderMe();
+  if (tab !== "boss" && B) { clearInterval(B.tick); B = null; }
+  const h = { scroll: "", boss: "boss", map: "map", me: "me" }[tab]; try { history.replaceState(null, "", h ? "#" + h : location.pathname); } catch (e) {}
+}
+$(".tabs").addEventListener("click", e => { const t = e.target.closest(".tab"); if (t) go(t.dataset.tab); });
+document.addEventListener("keydown", e => {
+  if ($("#view-scroll").hidden || /input|textarea|select/i.test(e.target.tagName)) return;
+  if (["1", "2", "3", "4"].includes(e.key)) {
+    const card = [...feed.children].find(c => { const r = c.getBoundingClientRect(); return r.top >= -40 && r.top < innerHeight / 2; });
+    const box = card && [...card.querySelectorAll(".opts")].find(b => !b.dataset.done);
+    if (box) box.querySelectorAll(".opt")[+e.key - 1].click();
+  }
+  if (e.key === "j" || e.key === "ArrowDown") { feed.scrollBy({ top: feed.clientHeight * .9, behavior: reduce ? "auto" : "smooth" }); e.preventDefault(); }
+  if (e.key === "k" || e.key === "ArrowUp") { feed.scrollBy({ top: -feed.clientHeight * .9, behavior: reduce ? "auto" : "smooth" }); e.preventDefault(); }
+});
+
+function renderAll() { renderHUD(); resetFeed(); if (!$("#view-me").hidden) renderMe(); if (!$("#view-map").hidden) renderMap(); }
+renderAll();
+const startTab = (location.hash || "").slice(1); if (["boss", "map", "me"].includes(startTab)) go(startTab);
+if ("serviceWorker" in navigator && location.protocol === "https:" && !/claude\.ai|claudeusercontent/.test(location.hostname)) { navigator.serviceWorker.register("sw.js").catch(() => {}); }
+
+</script>
+
+</body>
+</html>
