@@ -2,7 +2,7 @@
 window.SITE = {
   // Lemon Squeezy checkout link (Share > Checkout link). When set, it replaces Gumroad
   // and opens as a pop-up on this page. e.g. "https://520quest.lemonsqueezy.com/buy/xxxx"
-  lemonUrl: "https://unprocrastinate.lemonsqueezy.com/checkout/buy/8edb3384-9e65-4fbf-9b08-4fdce2f022d8",
+  lemonUrl: "",
   gumroadUrl: "https://alphavest.gumroad.com/l/520quest",          // e.g. "https://yourname.gumroad.com/l/520quest"
   price: "$39"
 };
