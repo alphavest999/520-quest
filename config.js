@@ -1,6 +1,6 @@
 /* ===== Site settings. Paste your Gumroad product link here once it exists. ===== */
 window.SITE = {
-  gumroadUrl: "",          // e.g. "https://yourname.gumroad.com/l/520quest"
+  gumroadUrl: "https://alphavest.gumroad.com/l/520quest",          // e.g. "https://yourname.gumroad.com/l/520quest"
   price: "$39"
 };
 /* =============================================================================== */
