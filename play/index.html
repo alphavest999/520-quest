@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icon.svg">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-title" content="520 Quest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
@@ -1280,6 +1281,32 @@ function confetti() {
     if (++n < 110) requestAnimationFrame(tick); else ctx.clearRect(0, 0, c.width, c.height);
   })();
 }
+/* ---------- install as an app ---------- */
+let installEvt = null;
+const installed = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEvt = e; });
+addEventListener("appinstalled", () => { installEvt = null; toast("<b>Installed.</b> Open 520 Quest from your home screen."); });
+async function installApp() {
+  if (installEvt) { installEvt.prompt(); try { await installEvt.userChoice; } catch (e) {} installEvt = null; return; }
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const safari = ios && !/crios|fxios|edgios|gsa|fban|fbav|instagram/i.test(navigator.userAgent);
+  const steps = ios
+    ? (safari ? "<li>Tap the <b>Share</b> button (the square with an arrow) in Safari's toolbar.</li><li>Scroll down and tap <b>Add to Home Screen</b>, then <b>Add</b>.</li>"
+              : "<li>Open <b>520quest.com/play</b> in <b>Safari</b>. iPhone only installs apps from Safari.</li><li>Tap <b>Share</b>, then <b>Add to Home Screen</b>.</li>")
+    : "<li>Open the browser menu (<b>⋮</b> at the top right in Chrome).</li><li>Tap <b>Install app</b> or <b>Add to Home screen</b>.</li>";
+  sheet(`<div class="eyebrow">Install</div><h2>Put 520 Quest on your home screen</h2>
+    <ol class="muted" style="margin:0;padding-left:20px;display:grid;gap:6px">${steps}<li>Open it from the new icon. It works offline.</li></ol>
+    ${S.pro ? '<p class="small muted">On iPhone, enter your unlock code once more inside the installed app.</p>' : ""}
+    <div class="row"><button class="btn ghost" data-close>Got it</button></div>`);
+}
+function installCard() {
+  const el = document.createElement("article"); el.className = "card promo";
+  el.innerHTML = `<div class="eyebrow" style="color:#facc15">Make it an app</div><p class="bigtext">Install 520 Quest on your home screen.</p>
+    <p class="muted" style="margin:0">One tap to open, full screen, and it works offline. Free, no app store needed.</p>
+    <div class="row"><button class="btn" data-install>Install app</button></div>${SWIPE}`;
+  return el;
+}
+document.addEventListener("click", e => { if (e.target.closest("[data-install]")) installApp(); });
 function toast(html, ms = 2600) {
   const t = document.createElement("div"); t.className = "toast"; t.innerHTML = html;
   $("#toasts").appendChild(t); setTimeout(() => t.remove(), ms);
@@ -1419,6 +1446,7 @@ function nextCard() {
   const sec = S.focus ? CAT[S.focus].s : S.filter;
   if (sec === "CARS") return passageCard(PASSAGES[passI++ % PASSAGES.length]);
   if (!S.focus && sec === "ALL" && cardN % 9 === 0) return passageCard(PASSAGES[passI++ % PASSAGES.length]);
+  if (cardN === 4 && !installed()) return installCard();
   if (!S.pro && cardN % 12 === 0) return promoCard();
   if (!S.focus && cardN % 5 === 0) return (cardN / 5) % 2 ? factCard() : trapCard();
   const [q, rev] = pickQuestion(); sessionSeen.add(q.id);
@@ -1756,7 +1784,7 @@ function renderMe() {
     <div class="panel"><h3>Settings</h3>
       <label class="field" for="goalSel">Daily goal<select id="goalSel">${[15, 25, 40, 60].map(n => `<option value="${n}" ${S.goal === n ? "selected" : ""}>${n} questions</option>`).join("")}</select></label>
       <label class="row small" for="soundChk"><input type="checkbox" id="soundChk" ${S.sound ? "checked" : ""}> Sound and vibration</label>
-      <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button>${S.pro ? "" : '<button class="btn small pro" data-pro>Get Pro</button>'}</div><div id="backupOut"></div></div>
+      <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button>${installed() ? "" : '<button class="btn small" data-install>Install app</button>'}${S.pro ? "" : '<button class="btn small pro" data-pro>Get Pro</button>'}</div><div id="backupOut"></div></div>
     ${CONFIG.resources.length ? `<div class="panel links"><h3>Resources</h3>${CONFIG.resources.map(r => `<p class="small"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a><br><span class="muted">${esc(r.note || "")}</span></p>`).join("")}</div>` : ""}
     <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app. Progress is saved on this device only.</p>
   </div>`;
