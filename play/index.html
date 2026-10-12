@@ -1198,6 +1198,7 @@ const CONFIG = {
   price: "$39 one-time",
   // Your Gumroad or Lemon Squeezy checkout link:
   checkoutUrl: "https://alphavest.gumroad.com/l/520quest?wanted=true",
+  lemonUrl: "",            // Lemon Squeezy checkout link; when set it replaces checkoutUrl and opens as a pop-up
   // SHA-256 hashes of unlock codes (uppercase). The code you put in the product's receipt unlocks Pro.
     unlockCodeHashes: ["dc0b3e3e3aed783131957d2c79b7dca52954b12d15d657aca671d57ee3078658"],
   // Optional: Gumroad product ID to verify individual license keys (works when the app is on your own site).
@@ -1579,7 +1580,7 @@ async function sha(s) { const b = await crypto.subtle.digest("SHA-256", new Text
 function showPro() {
   sheet(`<div class="eyebrow">${esc(CONFIG.productName)}</div><h2>Unlimited play, one price, yours forever</h2>
     <ul class="muted" style="margin:0;padding-left:18px;display:grid;gap:4px"><li>Unlimited daily scrolling and boss battles</li><li>Export your misses to Anki or Quizlet</li><li>Section score estimate from your answers</li><li>Full-length score tracker with a 520 line</li><li>No subscription. No renewal. Updates included.</li></ul>
-    <div class="row"><a class="btn pro" href="${esc(CONFIG.checkoutUrl)}" target="_blank" rel="noopener" style="flex:1;font-size:18px;padding:16px">Get Pro, ${esc(CONFIG.price)}</a></div>
+    <div class="row"><a class="btn pro${CONFIG.lemonUrl ? " lemonsqueezy-button" : ""}" href="${esc(CONFIG.checkoutUrl)}" target="_blank" rel="noopener" style="flex:1;font-size:18px;padding:16px">Get Pro, ${esc(CONFIG.price)}</a></div>
     <label class="field" for="unlockCode">Already bought it? Enter your unlock code<input type="text" id="unlockCode" autocomplete="off" placeholder="Code from your receipt"></label>
     <div class="row"><button class="btn" data-unlock>Unlock</button><button class="btn ghost" data-close>Not now</button></div><p class="small muted" id="unlockMsg"></p>`,
     s => $("[data-unlock]", s).addEventListener("click", async () => {
@@ -1596,6 +1597,15 @@ function showPro() {
       if (ok) { S.pro = true; save(); $("#sheetHost").innerHTML = ""; confetti(); toast("<b>Pro unlocked.</b> Thanks for supporting 520 Quest."); renderAll(); }
       else msg.textContent = "That code didn't work. Check for typos, or copy it straight from your receipt email.";
     }));
+  window.createLemonSqueezy && window.createLemonSqueezy();
+}
+
+// Lemon Squeezy pop-up checkout (stays inside the app). Offline, the link opens checkout normally.
+if (CONFIG.lemonUrl) {
+  CONFIG.checkoutUrl = CONFIG.lemonUrl + (CONFIG.lemonUrl.includes("?") ? "&" : "?") + "embed=1&dark=1&media=0&desc=0&button_color=%23fb7185";
+  if (!S.pro && navigator.onLine) {
+    const ls = document.createElement("script"); ls.src = "https://assets.lemonsqueezy.com/lemon.js"; ls.defer = true; document.head.appendChild(ls);
+  }
 }
 
 /* ---------- boss battles ---------- */
