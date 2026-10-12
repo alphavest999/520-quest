@@ -1614,7 +1614,10 @@ function showPro() {
     <label class="field" for="unlockCode">Already bought it? Enter your unlock code<input type="text" id="unlockCode" autocomplete="off" placeholder="Code from your receipt"></label>
     <div class="row"><button class="btn" data-unlock>Unlock</button><button class="btn ghost" data-close>Not now</button></div><p class="small muted" id="unlockMsg"></p>`,
     s => $("[data-unlock]", s).addEventListener("click", async () => {
-      const code = $("#unlockCode", s).value.trim(), msg = $("#unlockMsg", s);
+      const raw = $("#unlockCode", s).value, msg = $("#unlockMsg", s);
+      // Forgive line breaks, spaces and missing dashes from copying out of an email.
+      const bare = raw.toUpperCase().replace(/[^A-Z0-9]/g, "");
+      const code = bare.length === 12 ? bare.match(/.{4}/g).join("-") : raw.trim();
       if (!code) { msg.textContent = "Enter the code from your purchase receipt."; return; }
       let ok = false;
       try { ok = CONFIG.unlockCodeHashes.includes(await sha(code.toUpperCase())); } catch (e) {}
