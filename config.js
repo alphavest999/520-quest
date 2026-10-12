@@ -5,18 +5,19 @@ window.SITE = {
 };
 /* =============================================================================== */
 const SITE_ROOT = document.currentScript.src.replace(/config\.js.*$/, "");
+// Gumroad's pop-up checkout: buyers stay on this page, and the pop-up only appears
+// once it has fully loaded, so there's no white flash. Start loading it right away.
+if (SITE.gumroadUrl) {
+  for (const h of ["https://gumroad.com", "https://assets.gumroad.com", "https://alphavest.gumroad.com"]) {
+    const l = document.createElement("link"); l.rel = "preconnect"; l.href = h; document.head.appendChild(l);
+  }
+  const s = document.createElement("script"); s.src = "https://gumroad.com/js/gumroad.js"; document.head.appendChild(s);
+}
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-price]").forEach(el => el.textContent = SITE.price);
   document.querySelectorAll("[data-buy]").forEach(a => {
-    // ?wanted=true skips the Gumroad product page and opens checkout directly
-    if (SITE.gumroadUrl) a.href = SITE.gumroadUrl + "?wanted=true";
+    // If the pop-up script can't load, this link still opens the Gumroad page normally.
+    if (SITE.gumroadUrl) a.href = SITE.gumroadUrl;
     else { a.href = SITE_ROOT + "play/"; a.textContent = "Pro opens soon. Play free now"; }
   });
-  // Gumroad's overlay opens checkout on top of this page instead of leaving the site.
-  // If the script can't load, the links above still go to Gumroad normally.
-  if (SITE.gumroadUrl && document.querySelector("[data-buy]")) {
-    const s = document.createElement("script");
-    s.src = "https://gumroad.com/js/gumroad.js";
-    document.body.appendChild(s);
-  }
 });

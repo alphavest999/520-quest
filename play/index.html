@@ -1197,7 +1197,7 @@ const CONFIG = {
   productName: "520 Quest Pro",
   price: "$39 one-time",
   // Your Gumroad or Lemon Squeezy checkout link:
-  checkoutUrl: "https://alphavest.gumroad.com/l/520quest?wanted=true",
+  checkoutUrl: "https://alphavest.gumroad.com/l/520quest",
   // SHA-256 hashes of unlock codes (uppercase). The code you put in the product's receipt unlocks Pro.
     unlockCodeHashes: ["dc0b3e3e3aed783131957d2c79b7dca52954b12d15d657aca671d57ee3078658"],
   // Optional: Gumroad product ID to verify individual license keys (works when the app is on your own site).
@@ -1596,6 +1596,11 @@ function showPro() {
       if (ok) { S.pro = true; save(); $("#sheetHost").innerHTML = ""; confetti(); toast("<b>Pro unlocked.</b> Thanks for supporting 520 Quest."); renderAll(); }
       else msg.textContent = "That code didn't work. Check for typos, or copy it straight from your receipt email.";
     }));
+}
+
+// Gumroad's pop-up checkout (opens over the app, appears only once loaded). Offline, links open Gumroad normally.
+if (!S.pro && navigator.onLine && /^https:/.test(CONFIG.checkoutUrl)) {
+  const gs = document.createElement("script"); gs.src = "https://gumroad.com/js/gumroad.js"; document.head.appendChild(gs);
 }
 
 /* ---------- boss battles ---------- */
