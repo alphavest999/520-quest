@@ -1400,7 +1400,13 @@ function record(q, correct, secs) {
     S.chest++; if (S.chest >= 8) { S.chest = 0; setTimeout(openChest, 700); }
   } else { S.combo = 0; gain = 2; }
   addXP(gain);
-  if (S.today.answered >= S.goal && !S.today.goalShown) { S.today.goalShown = true; goalHit(); setTimeout(showDone, 900); }
+  // Daily goal first, then a checkpoint after every extra round of 10.
+  if (S.today.answered >= (S.today.next || S.goal)) {
+    const t = S.today, round = { a: t.answered - (t.rs ? t.rs.a : 0), c: t.correct - (t.rs ? t.rs.c : 0) };
+    const first = !t.goalShown;
+    t.goalShown = true; t.next = t.answered + ROUND; t.rs = { a: t.answered, c: t.correct };
+    if (first) { goalHit(); setTimeout(showDone, 900); } else setTimeout(() => showRound(round), 900);
+  }
   checkBadges(); save(); renderHUD();
   return { gain: Math.round(gain), crit };
 }
@@ -1411,7 +1417,8 @@ function renderHUD() {
   $("#hudLvl").textContent = "LV " + L;
   $("#hudRank").textContent = rankOf(L) + " · " + S.xp.toLocaleString() + " XP";
   $("#hudXp").style.width = Math.min(100, (S.xp - lo) / (hi - lo) * 100) + "%";
-  $("#hudGoalTxt").textContent = Math.min(S.today.answered, S.goal) + "/" + S.goal;
+  const tgt = S.today.goalShown && S.today.next ? S.today.next : S.goal;
+  $("#hudGoalTxt").textContent = Math.min(S.today.answered, tgt) + "/" + tgt;
   $("#hudStreakTxt").textContent = streakAlive();
   $("#hudPro").hidden = !!S.pro;
   $("#hudInstall").hidden = installed();
@@ -1594,12 +1601,20 @@ function sheet(html, onMount) {
   scrim.addEventListener("click", e => { if (e.target === scrim || e.target.closest("[data-close]")) host.innerHTML = ""; });
   onMount && onMount($(".sheet", host));
 }
+const ROUND = 10;
+function showRound(r) {
+  const acc = S.today.answered ? Math.round(S.today.correct / S.today.answered * 100) : 0;
+  beep("level");
+  sheet(`<div class="eyebrow">Round complete</div><h2>${r.c} of ${r.a} right this round.</h2>
+    <p class="muted">${S.today.answered} questions today at ${acc}% accuracy. Keep going while you're sharp, or stop here and come back tomorrow.</p>
+    <div class="row"><button class="btn primary" data-close>Another ${ROUND}</button><button class="btn" data-close>Done for today</button></div>`);
+}
 function showDone() {
   const acc = S.today.answered ? Math.round(S.today.correct / S.today.answered * 100) : 0;
   confetti(); beep("level");
   sheet(`<div class="eyebrow">Daily goal complete</div><h2>Done for today. Go live your life.</h2>
     <p class="muted">${S.today.answered} questions at ${acc}% accuracy. Streak: <b style="color:var(--heat)">${streakAlive()} day${streakAlive() === 1 ? "" : "s"}</b>. Short daily sessions beat long cramming sessions, so stopping here is a win.</p>
-    <div class="row"><button class="btn primary" data-close>Close for today</button><button class="btn" data-close data-more>Bonus round</button><button class="btn ghost" data-share>Share streak</button></div>`,
+    <div class="row"><button class="btn primary" data-close>Close for today</button><button class="btn" data-close data-more>Another ${ROUND}</button><button class="btn ghost" data-share>Share streak</button></div>`,
     s => { $("[data-share]", s).addEventListener("click", share); });
 }
 function share() {
@@ -1828,7 +1843,7 @@ $("#view-me").addEventListener("click", e => {
   }
 });
 $("#view-me").addEventListener("change", e => {
-  if (e.target.id === "goalSel") { S.goal = +e.target.value; S.today.goalShown = S.today.answered >= S.goal; save(); renderHUD(); renderMe(); }
+  if (e.target.id === "goalSel") { S.goal = +e.target.value; S.today.goalShown = S.today.answered >= S.goal; S.today.next = S.today.goalShown ? S.today.answered + ROUND : 0; S.today.rs = { a: S.today.answered, c: S.today.correct }; save(); renderHUD(); renderMe(); }
   if (e.target.id === "soundChk") { S.sound = e.target.checked; save(); }
 });
 
