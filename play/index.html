@@ -1793,7 +1793,7 @@ function renderMe() {
     <div class="panel"><h3>Settings</h3>
       <label class="field" for="goalSel">Daily goal<select id="goalSel">${[15, 25, 40, 60].map(n => `<option value="${n}" ${S.goal === n ? "selected" : ""}>${n} questions</option>`).join("")}</select></label>
       <label class="row small" for="soundChk"><input type="checkbox" id="soundChk" ${S.sound ? "checked" : ""}> Sound and vibration</label>
-      <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button>${installed() ? "" : '<button class="btn small" data-install>Install app</button>'}${S.pro ? "" : '<button class="btn small pro" data-pro>Get Pro</button>'}</div><div id="backupOut"></div></div>
+      <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button><a class="btn small" href="../guide/" target="_blank" rel="noopener">How to use</a>${installed() ? "" : '<button class="btn small" data-install>Install app</button>'}${S.pro ? "" : '<button class="btn small pro" data-pro>Get Pro</button>'}</div><div id="backupOut"></div></div>
     ${CONFIG.resources.length ? `<div class="panel links"><h3>Resources</h3>${CONFIG.resources.map(r => `<p class="small"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a><br><span class="muted">${esc(r.note || "")}</span></p>`).join("")}</div>` : ""}
     <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app. Progress is saved on this device only.</p>
   </div>`;
