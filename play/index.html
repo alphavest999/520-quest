@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="manifest" href="manifest.webmanifest">
+<script src="gen.js"></script>
+<script src="music.js"></script>
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-180.png">
 <meta name="apple-mobile-web-app-title" content="520 Quest">
@@ -114,6 +116,11 @@ button { cursor: pointer; }
 .verdict { font: 700 18px/1.2 var(--display); letter-spacing: .03em; }
 .verdict.ok { color: var(--good); }
 .verdict.no { color: var(--bad); }
+.explain { display: grid; gap: 6px; padding: 14px; border-radius: 12px; background: var(--ink); border: 1px solid var(--line); border-left: 4px solid var(--good); }
+.explain h4 { margin: 0; font: 700 15px/1.3 var(--display); letter-spacing: .02em; color: var(--good); }
+.explain h4.miss { color: var(--bad); margin-top: 6px; }
+.explain p { margin: 0; font-size: 15px; line-height: 1.5; }
+.btn.added { border-color: var(--good); color: var(--good); }
 .note { border-left: 3px solid var(--volt); padding: 4px 0 4px 10px; color: var(--text); font-size: 14.5px; }
 .dna { display: grid; gap: 8px; padding: 12px; border-radius: 12px; background: var(--ink); border: 1px dashed var(--line); }
 .dna p { margin: 0; font-size: 14px; color: var(--muted); }
@@ -1231,14 +1238,23 @@ const CAT = Object.fromEntries(CATS.map(([code, title, s, hy]) => [code, { code,
 const QBYID = Object.fromEntries(QUESTIONS.map(q => [q.id, q]));
 const PQ = {};
 PASSAGES.forEach(p => p.qs.forEach((q, i) => { q.id = p.id + "_" + i; q.s = "CARS"; q.pid = p.id; PQ[q.id] = q; }));
-const anyQ = id => QBYID[id] || PQ[id];
+const anyQ = id => QBYID[id] || PQ[id] || (window.GEN && id.startsWith("g_") ? GEN.fromId(id) : null);
+/* ---------- question bank: thousands of extra questions load from bank/ after start ---------- */
+function addBank(b) {
+  (b.questions || []).forEach(q => { if (QBYID[q.id] || !CAT[q.c]) return; q.note = q.note || ""; QUESTIONS.push(q); QBYID[q.id] = q; });
+  (b.passages || []).forEach(p => { if (PASSAGES.some(x => x.id === p.id)) return; p.qs.forEach((q, i) => { q.id = p.id + "_" + i; q.s = "CARS"; q.pid = p.id; PQ[q.id] = q; }); PASSAGES.push(p); });
+}
+const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.json())
+  .then(ix => Promise.all(ix.files.map(f => fetch("bank/" + f).then(r => r.json()).then(addBank).catch(() => {}))))
+  .then(() => { passI = Math.floor(Math.random() * PASSAGES.length); if (!$("#view-map").hidden) renderMap(); })
+  .catch(() => {});
 
 /* ---------- state ---------- */
 function fresh() {
-  return { v: 1, xp: 0, combo: 0, bestCombo: 0, chest: 0, hints: 1, freezes: 1, pro: false, sound: true, goal: 25,
+  return { v: 1, xp: 0, combo: 0, bestCombo: 0, chest: 0, hints: 1, freezes: 1, pro: false, sound: true, music: "boss", goal: 25,
     streak: { count: 0, last: null }, today: { date: todayKey(), answered: 0, correct: 0, bosses: 0, goalShown: false },
     stats: {}, cat: {}, recent: { CP: [], CARS: [], BB: [], PS: [] }, revenge: {}, errors: [], facts: {}, traps: {},
-    fl: [], badges: {}, bossWins: {}, retired: 0, total: 0, totalCorrect: 0, filter: "ALL", focus: null };
+    fl: [], anki: [], badges: {}, bossWins: {}, retired: 0, total: 0, totalCorrect: 0, filter: "ALL", focus: null };
 }
 let S = fresh();
 try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(fresh(), JSON.parse(raw)); } catch (e) {}
@@ -1255,6 +1271,14 @@ const need = L => 50 * L * (L - 1);
 const levelOf = xp => { let L = 1; while (xp >= need(L + 1)) L++; return L; };
 const rankOf = L => RANKS.filter(r => L >= r[0]).pop()[1];
 
+/* ---------- music ---------- */
+// Battle track during boss fights; a lighter groove elsewhere when music is set to always on.
+function syncMusic(user) {
+  if (!window.MUSIC) return;
+  const want = !S.sound || S.music === "off" ? null : (typeof B !== "undefined" && B) ? "battle" : S.music === "on" ? "feed" : null;
+  if (!want) MUSIC.stop(); else if (MUSIC.playing !== want) MUSIC.play(want);
+  const mb = document.getElementById("hudMusic"); if (mb) { mb.setAttribute("aria-pressed", S.music !== "off" && S.sound); mb.textContent = S.music !== "off" && S.sound ? "♪" : "♪̸"; }
+}
 /* ---------- sound + fx ---------- */
 let AC = null;
 function beep(type) {
@@ -1445,6 +1469,14 @@ function pickQuestion() {
   const now = Date.now();
   const due = pool.filter(q => S.revenge[q.id] && S.revenge[q.id].due <= now && !sessionSeen.has(q.id));
   if (due.length) return [due[0], true];
+  // Generated questions: missed ones come back like any other, and fresh ones mix in at random.
+  if (window.GEN && sec !== "CARS") {
+    const g = Object.keys(S.revenge).filter(id => id.startsWith("g_") && S.revenge[id].due <= now && !sessionSeen.has(id)).map(GEN.fromId)
+      .find(q => q && (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus));
+    if (g) return [g, true];
+    const fits = GEN.templates.some(t => (sec === "ALL" || t.s === sec) && (!S.focus || t.c === S.focus));
+    if (fits && Math.random() < (S.focus ? 0.4 : 0.15)) { const q = GEN.fresh(sec, S.focus); if (q) return [q, false]; }
+  }
   let fresh = pool.filter(q => !sessionSeen.has(q.id));
   if (!fresh.length) { pool.forEach(q => sessionSeen.delete(q.id)); fresh = pool; }
   const w = fresh.map(q => { const st = S.stats[q.id]; let x = !st ? 3 : st.c === st.a ? .5 : 1.5; return x * (1 + (1 - mastery(q.c)) * 2); });
@@ -1511,11 +1543,13 @@ function wireQuestion(scope, q, card) {
     if (ok && S.combo >= 3) { const c = document.createElement("div"); c.className = "combo"; c.textContent = S.combo + " COMBO"; card.appendChild(c); setTimeout(() => c.remove(), 1400); }
     const rv = $(".reveal", scope); rv.hidden = false;
     rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` +
-      (q.note ? `<div class="note">${q.note}</div>` : "") + (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next card</button></div>`;
+      (ok ? (q.x ? `<div class="note">${q.x}</div>` : "") + (q.note ? `<div class="note">${q.note}</div>` : "") : explainHTML(q, i)) +
+      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next card</button>${ok ? "" : ankiBtn(q)}</div>`;
     const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
     const nb = $("[data-next]", rv); if (sib) nb.textContent = "Next question";
     nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
     if (!ok) wireDNA(rv, q, secs);
+    const ab = $("[data-addanki]", rv); if (ab) ab.addEventListener("click", () => addAnki(q, ab));
     const h = $("[data-hint]", scope); if (h) h.disabled = true;
   });
   const hint = $("[data-hint]", scope);
@@ -1527,6 +1561,46 @@ function wireQuestion(scope, q, card) {
     hint.disabled = true; hint.textContent = "Hint used";
   });
 }
+function explainHTML(q, i) {
+  const L = "ABCD";
+  return `<div class="explain"><h4>Correct answer: ${L[q.a]}. ${q.o[q.a][0]}</h4><p>${q.o[q.a][1].replace(/^Correct[:.]?\s*/i, "")}</p>${q.x ? `<p>${q.x}</p>` : ""}
+    ${i >= 0 && i !== q.a ? `<h4 class="miss">Your answer: ${L[i]}. ${q.o[i][0]}</h4><p>${q.o[i][1]}</p>` : ""}${q.note ? `<p class="muted"><b>Takeaway:</b> ${q.note}</p>` : ""}</div>`;
+}
+/* ---------- Anki queue: save missed questions, export them as a deck after a session ---------- */
+const inAnki = id => S.anki.includes(id);
+const ankiBtn = q => `<button class="btn small ${inAnki(q.id) ? "added" : ""}" data-addanki>${inAnki(q.id) ? "✓ In Anki queue" : "+ Add to Anki"}</button>`;
+function addAnki(q, btn) {
+  if (inAnki(q.id)) { S.anki = S.anki.filter(x => x !== q.id); toast("Removed from your Anki queue."); }
+  else { S.anki.push(q.id); toast(`Added. <b>${S.anki.length}</b> card${S.anki.length === 1 ? "" : "s"} in your Anki queue.`); }
+  save(); if (btn) { btn.classList.toggle("added", inAnki(q.id)); btn.textContent = inAnki(q.id) ? "✓ In Anki queue" : "+ Add to Anki"; }
+}
+function ankiCard(q) {
+  const L = "ABCD", h = s => String(s).replace(/[\t\n]/g, " ");
+  const front = `${q.q}<br><br>${q.o.map((o, i) => L[i] + ") " + o[0]).join("<br>")}`;
+  const back = `<b>${L[q.a]}) ${q.o[q.a][0]}</b><br>${q.o[q.a][1]}${q.x ? "<br><br>" + q.x : ""}${q.note ? "<br><br><i>" + q.note + "</i>" : ""}`;
+  const tag = `MCAT520::${q.s}${q.c ? "::" + q.c : ""}`;
+  return [front, back, tag].map(h).join("\t");
+}
+function exportAnki() {
+  if (!S.pro) return showPro();
+  const qs = S.anki.map(anyQ).filter(Boolean);
+  if (!qs.length) return toast("Your Anki queue is empty. Tap <b>+ Add to Anki</b> after a miss to add one.");
+  const txt = "#separator:tab\n#html:true\n#tags column:3\n" + qs.map(ankiCard).join("\n") + "\n";
+  try {
+    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([txt], { type: "text/plain" }));
+    a.download = `520quest-anki-${todayKey()}.txt`; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  } catch (e) { return copy(txt, () => toast("Deck copied. Paste it into a .txt file and import it into Anki.")); }
+  S.anki = []; save();
+  $("#sheetHost").innerHTML = "";
+  sheet(`<div class="eyebrow">Anki export</div><h2>${qs.length} card${qs.length === 1 ? "" : "s"} downloaded</h2>
+    <ol class="muted" style="margin:0;padding-left:20px;display:grid;gap:6px"><li>Open Anki on your computer.</li><li>Click <b>File</b>, then <b>Import</b>, and choose <b>520quest-anki-${todayKey()}.txt</b>.</li><li>Check that the separator is <b>Tab</b> and <b>Allow HTML</b> is on, then click <b>Import</b>.</li></ol>
+    <p class="small muted">Your queue is now empty and ready for the next session. On a phone, the file is in Downloads or Files; AnkiMobile and AnkiDroid can import it too.</p>
+    <div class="row"><button class="btn" data-close>Done</button></div>`);
+  if (!$("#view-me").hidden) renderMe();
+}
+const ankiRow = () => S.anki.length ? `<div class="explain" style="border-left-color:var(--cool)"><p><b>${S.anki.length}</b> card${S.anki.length === 1 ? "" : "s"} in your Anki queue.</p><div class="row"><button class="btn small primary" data-exportanki>Export to Anki</button></div></div>` : "";
+document.addEventListener("click", e => { if (e.target.closest("[data-exportanki]")) exportAnki(); });
 function dnaHTML(secs) {
   const slow = secs > 95;
   return `<div class="dna"><p><b>Error DNA:</b> why did you miss it?${slow ? " You took " + Math.round(secs) + " s, so Time is pre-selected." : ""}</p>
@@ -1606,14 +1680,14 @@ function showRound(r) {
   const acc = S.today.answered ? Math.round(S.today.correct / S.today.answered * 100) : 0;
   beep("level");
   sheet(`<div class="eyebrow">Round complete</div><h2>${r.c} of ${r.a} right this round.</h2>
-    <p class="muted">${S.today.answered} questions today at ${acc}% accuracy. Keep going while you're sharp, or stop here and come back tomorrow.</p>
+    <p class="muted">${S.today.answered} questions today at ${acc}% accuracy. Keep going while you're sharp, or stop here and come back tomorrow.</p>${ankiRow()}
     <div class="row"><button class="btn primary" data-close>Another ${ROUND}</button><button class="btn" data-close>Done for today</button></div>`);
 }
 function showDone() {
   const acc = S.today.answered ? Math.round(S.today.correct / S.today.answered * 100) : 0;
   confetti(); beep("level");
   sheet(`<div class="eyebrow">Daily goal complete</div><h2>Done for today. Go live your life.</h2>
-    <p class="muted">${S.today.answered} questions at ${acc}% accuracy. Streak: <b style="color:var(--heat)">${streakAlive()} day${streakAlive() === 1 ? "" : "s"}</b>. Short daily sessions beat long cramming sessions, so stopping here is a win.</p>
+    <p class="muted">${S.today.answered} questions at ${acc}% accuracy. Streak: <b style="color:var(--heat)">${streakAlive()} day${streakAlive() === 1 ? "" : "s"}</b>. Short daily sessions beat long cramming sessions, so stopping here is a win.</p>${ankiRow()}
     <div class="row"><button class="btn primary" data-close>Close for today</button><button class="btn" data-close data-more>Another ${ROUND}</button><button class="btn ghost" data-share>Share streak</button></div>`,
     s => { $("[data-share]", s).addEventListener("click", share); });
 }
@@ -1672,13 +1746,13 @@ const BOSSES = [
 let B = null;
 function renderBossLobby() {
   const left = S.pro ? "Unlimited battles" : Math.max(0, CONFIG.freeDailyBosses - S.today.bosses) + " free battle left today";
-  $("#view-boss").innerHTML = `<h2 class="title">Boss battles</h2><p class="sub">10 questions at exam pace, 95 seconds each. Deal 70 damage before you lose 4 hearts. ${esc(left)}.</p>
+  $("#view-boss").innerHTML = `<div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h2 class="title">Boss battles</h2><button class="btn small ghost" data-musictoggle>${S.sound && S.music !== "off" ? "♪ Music on" : "♪ Music off"}</button></div><p class="sub">10 questions at exam pace, 95 seconds each. Deal 70 damage before you lose 4 hearts. ${esc(left)}.</p>
     ${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PRO</b> Unlimited boss battles every day, plus your score estimate.</p><button class="btn small pro" data-pro>Get Pro</button></div>`}
     <div class="bosses" style="margin-top:14px">${BOSSES.map(b => `<button class="boss ${S.bossWins[b.id] ? "done" : ""}" data-boss="${b.id}"><span class="face" style="background:${b.col}">${b.face}</span><strong>${esc(b.name)}</strong><small>${esc(b.blurb)}${S.bossWins[b.id] ? " · Defeated" : ""}</small></button>`).join("")}</div>`;
 }
 $("#view-boss").addEventListener("click", e => {
   const b = e.target.closest("[data-boss]"); if (b) return startBoss(BOSSES.find(x => x.id === b.dataset.boss));
-  if (e.target.closest("[data-lobby]")) { clearInterval(B && B.tick); B = null; renderBossLobby(); }
+  if (e.target.closest("[data-lobby]")) { clearInterval(B && B.tick); B = null; syncMusic(); renderBossLobby(); }
 });
 function startBoss(boss) {
   rollDay();
@@ -1687,7 +1761,7 @@ function startBoss(boss) {
   const pool = QUESTIONS.filter(q => boss.sec === "ALL" || q.s === boss.sec).sort(() => Math.random() - .5);
   pool.sort((a, b) => mastery(a.c) - mastery(b.c) + (Math.random() - .5) * .6);
   B = { boss, qs: pool.slice(0, 10), i: 0, hp: 70, hearts: 4, xp: 0, right: 0 };
-  bossTurn();
+  syncMusic(); bossTurn();
 }
 function bossTurn() {
   clearInterval(B.tick);
@@ -1730,7 +1804,7 @@ function bossEnd() {
     <div class="grid2"><div class="panel stat"><b>${B.right}/${B.i}</b><span>correct</span></div><div class="panel stat"><b>+${B.xp + (won ? 100 : 0)}</b><span>XP earned${won ? " incl. 100 victory bonus" : ""}</span></div></div>
     <p class="muted">${won ? "Your misses were added to the Revenge queue." : "Every miss is now in your Revenge queue. Clear those, then rematch."}</p>
     <div class="row"><button class="btn primary" data-lobby>Back to bosses</button></div></div>`;
-  B = null;
+  B = null; syncMusic();
 }
 
 /* ---------- map ---------- */
@@ -1800,14 +1874,15 @@ function renderMe() {
     ${proPanel("Full-length tracker", "Log every practice exam and watch your line climb toward the 520 mark.",
       `${flChart()}<div class="row"><input type="text" id="flLabel" placeholder="FL ${S.fl.length + 1}" style="width:90px"><input type="number" id="flScore" min="472" max="528" placeholder="Score" style="width:100px"><button class="btn" data-addfl>Add</button>${S.fl.length ? '<button class="btn ghost small" data-popfl>Remove last</button>' : ""}</div>`,
       flChart(SAMPLE_FL))}
-    ${proPanel("Export misses to Anki", "Turn every question you missed into a flashcard deck in one tap. Works with Anki and Quizlet.",
-      `<p class="small muted">Only your missed questions, one card each. In Anki: File, Import, choose Tab as the separator, allow HTML.</p>
-      <div class="row"><button class="btn" data-anki>Build my deck (${new Set(S.errors.map(e => e.id)).size} cards)</button></div><div id="ankiOut"></div>`,
-      `<div class="example" style="font:12px/1.6 ui-monospace,Menlo,monospace">Which enzyme relieves supercoiling…  →  Topoisomerase  ·  MCAT520::BB::Trap<br>Fe²⁺ configuration…  →  [Ar] 3d⁶  ·  MCAT520::CP::Content<br>Aspirin removes headache…  →  Negative reinforcement  ·  MCAT520::PS::Trap</div>`)}
+    <div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Anki queue</h3>${S.pro ? "" : '<span class="tag sec">Pro export</span>'}</div>
+      <p class="small">Tap <b>+ Add to Anki</b> after any miss to save it here, then export the batch as a deck after your session. Each card has the question, the answer and the full explanation.</p>
+      <p><b style="font:700 22px var(--display);color:var(--volt)">${S.anki.length}</b> <span class="muted small">card${S.anki.length === 1 ? "" : "s"} waiting</span></p>
+      <div class="row"><button class="btn primary" data-exportanki ${S.anki.length ? "" : "disabled"}>Export to Anki</button><button class="btn small" data-ankiall>Add all my misses</button>${S.anki.length ? '<button class="btn small ghost" data-ankiclear>Clear queue</button>' : ""}</div></div>
     <div class="panel"><h3>Badges</h3><div class="badges">${BADGES.map(([id, ic, name]) => `<div class="badge ${S.badges[id] ? "got" : ""}"><i>${ic}</i>${esc(name)}</div>`).join("")}</div></div>
     <div class="panel"><h3>Settings</h3>
       <label class="field" for="goalSel">Daily goal<select id="goalSel">${[15, 25, 40, 60].map(n => `<option value="${n}" ${S.goal === n ? "selected" : ""}>${n} questions</option>`).join("")}</select></label>
       <label class="row small" for="soundChk"><input type="checkbox" id="soundChk" ${S.sound ? "checked" : ""}> Sound and vibration</label>
+      <label class="row small" for="musicSel">Music <select id="musicSel">${[["boss", "Boss battles only"], ["on", "Always on"], ["off", "Off"]].map(([v, n]) => `<option value="${v}" ${S.music === v ? "selected" : ""}>${n}</option>`).join("")}</select></label>
       <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button><a class="btn small" href="../guide/" target="_blank" rel="noopener">How to use</a>${installed() ? "" : '<button class="btn small" data-install>Install app</button>'}${S.pro ? "" : '<button class="btn small pro" data-pro>Get Pro</button>'}</div><div id="backupOut"></div></div>
     ${CONFIG.resources.length ? `<div class="panel links"><h3>Resources</h3>${CONFIG.resources.map(r => `<p class="small"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a><br><span class="muted">${esc(r.note || "")}</span></p>`).join("")}</div>` : ""}
     <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app. Progress is saved on this device only.</p>
@@ -1822,15 +1897,12 @@ $("#view-me").addEventListener("click", e => {
     S.fl.push({ label: ($("#flLabel").value.trim() || "FL " + (S.fl.length + 1)).slice(0, 8), score: sc }); save(); return renderMe();
   }
   if (t.closest("[data-popfl]")) { S.fl.pop(); save(); return renderMe(); }
-  if (t.closest("[data-anki]")) {
-    const ids = [...new Set(S.errors.map(e => e.id))].map(anyQ).filter(Boolean);
-    if (!ids.length) return toast("No misses logged yet. That is a good problem to have.");
-    const typeOf = id => (S.errors.filter(e => e.id === id).pop() || {}).type || "Content";
-    const txt = ids.map(q => `${q.q}<br>${q.o.map((o, i) => "ABCD"[i] + ") " + o[0]).join("<br>")}\t${"ABCD"[q.a]}) ${q.o[q.a][0]}<br>${q.o[q.a][1]}${q.note ? "<br><i>" + q.note + "</i>" : ""}\tMCAT520::${q.s}::${typeOf(q.id)}`.replace(/\n/g, " ")).join("\n");
-    $("#ankiOut").innerHTML = `<textarea id="ankiTxt" readonly aria-label="Anki deck text"></textarea><div class="row"><button class="btn small primary" data-copyanki>Copy deck</button></div>`;
-    $("#ankiTxt").value = txt; return;
+  if (t.closest("[data-ankiall]")) {
+    const before = S.anki.length;
+    [...new Set(S.errors.map(e => e.id))].forEach(id => { if (!inAnki(id) && anyQ(id)) S.anki.push(id); });
+    save(); renderMe(); return toast(S.anki.length > before ? `Added <b>${S.anki.length - before}</b> missed question${S.anki.length - before === 1 ? "" : "s"}.` : "Every logged miss is already in your queue.");
   }
-  if (t.closest("[data-copyanki]")) return copy($("#ankiTxt").value, () => toast("Deck copied. Paste into a .txt file and import into Anki."), $("#ankiTxt"));
+  if (t.closest("[data-ankiclear]")) { S.anki = []; save(); renderMe(); return toast("Anki queue cleared."); }
   if (t.closest("[data-backup]")) {
     const code = btoa(unescape(encodeURIComponent(JSON.stringify(S))));
     $("#backupOut").innerHTML = `<p class="small muted">Copy this code to keep a backup. On a new device, paste a code here and press Restore.</p><textarea id="bk" aria-label="Backup code"></textarea><div class="row"><button class="btn small" data-copybk>Copy code</button><button class="btn small" data-restore>Restore from pasted code</button></div>`;
@@ -1844,7 +1916,8 @@ $("#view-me").addEventListener("click", e => {
 });
 $("#view-me").addEventListener("change", e => {
   if (e.target.id === "goalSel") { S.goal = +e.target.value; S.today.goalShown = S.today.answered >= S.goal; S.today.next = S.today.goalShown ? S.today.answered + ROUND : 0; S.today.rs = { a: S.today.answered, c: S.today.correct }; save(); renderHUD(); renderMe(); }
-  if (e.target.id === "soundChk") { S.sound = e.target.checked; save(); }
+  if (e.target.id === "soundChk") { S.sound = e.target.checked; save(); syncMusic(); }
+  if (e.target.id === "musicSel") { S.music = e.target.value; save(); syncMusic(true); }
 });
 
 /* ---------- tabs ---------- */
@@ -1854,7 +1927,7 @@ function go(tab) {
   if (tab === "boss" && !B) renderBossLobby();
   if (tab === "map") renderMap();
   if (tab === "me") renderMe();
-  if (tab !== "boss" && B) { clearInterval(B.tick); B = null; }
+  if (tab !== "boss" && B) { clearInterval(B.tick); B = null; syncMusic(); }
   const h = { scroll: "", boss: "boss", map: "map", me: "me" }[tab]; try { history.replaceState(null, "", h ? "#" + h : location.pathname); } catch (e) {}
 }
 $(".tabs").addEventListener("click", e => { const t = e.target.closest(".tab"); if (t) go(t.dataset.tab); });
@@ -1869,6 +1942,13 @@ document.addEventListener("keydown", e => {
   if (e.key === "k" || e.key === "ArrowUp") { feed.scrollBy({ top: -feed.clientHeight * .9, behavior: reduce ? "auto" : "smooth" }); e.preventDefault(); }
 });
 
+document.addEventListener("pointerdown", () => syncMusic(), { once: true });
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-musictoggle]"); if (!b) return;
+  S.music = S.sound && S.music !== "off" ? "off" : "boss"; if (S.music !== "off") S.sound = true; save(); syncMusic(true);
+  b.textContent = S.music !== "off" ? "♪ Music on" : "♪ Music off";
+  if (S.music !== "off" && window.MUSIC) { MUSIC.play("battle"); setTimeout(() => { if (!B) syncMusic(); }, 4000); } // short preview from the lobby
+});
 function renderAll() { renderHUD(); resetFeed(); if (!$("#view-me").hidden) renderMe(); if (!$("#view-map").hidden) renderMap(); }
 renderAll();
 const startTab = (location.hash || "").slice(1); if (["boss", "map", "me"].includes(startTab)) go(startTab);
