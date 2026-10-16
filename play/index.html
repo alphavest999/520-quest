@@ -121,6 +121,42 @@ button { cursor: pointer; }
 .explain h4 { margin: 0; font: 700 15px/1.3 var(--display); letter-spacing: .02em; color: var(--good); }
 .explain h4.miss { color: var(--bad); margin-top: 6px; }
 .explain p { margin: 0; font-size: 15px; line-height: 1.5; }
+/* Mastery Sheets viewer */
+.sheets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin-top: 10px; }
+.shbtn { text-align: left; border: 1px solid var(--line); background: var(--ink); color: var(--text); border-radius: 12px; padding: 10px; font: 600 13px/1.3 var(--body); display: grid; gap: 4px; cursor: pointer; }
+.shbtn code { font: 700 13px/1 var(--display); color: var(--volt); }
+.shbtn.locked { opacity: .6; }
+.shbtn small { color: var(--muted); font-weight: 400; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+#sheetView { position: fixed; inset: 0; z-index: 60; background: var(--ink); display: flex; flex-direction: column; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+#sheetView[hidden] { display: none; }
+.sv-top { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.sv-top h2 { margin: 0; font: 700 16px/1.25 var(--display); flex: 1; min-width: 0; }
+.sv-body { flex: 1; overflow-y: auto; padding: 16px 16px 60px; position: relative; }
+.sv-doc { max-width: 760px; margin: 0 auto; position: relative; font-size: 15px; line-height: 1.55; }
+.sv-doc h3 { font: 700 18px/1.3 var(--display); color: var(--volt); margin: 26px 0 8px; }
+.sv-doc h4 { font: 700 15px/1.3 var(--display); margin: 18px 0 6px; }
+.sv-doc p, .sv-doc ul, .sv-doc ol { margin: 8px 0; }
+.sv-doc ul, .sv-doc ol { padding-left: 22px; }
+.sv-doc li { margin: 4px 0; }
+.sv-doc blockquote { margin: 0 0 10px; padding: 10px 12px; border-left: 3px solid var(--line); color: var(--muted); font-size: 13px; }
+.sv-doc blockquote p { margin: 0; }
+.sv-doc code { font: 600 13px ui-monospace, monospace; }
+.sv-doc .tw { overflow-x: auto; margin: 10px 0; }
+.sv-doc table { border-collapse: collapse; font-size: 13px; min-width: 100%; }
+.sv-doc th, .sv-doc td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+.sv-doc th { background: var(--panel); }
+.sv-doc .flow { overflow-x: auto; margin: 12px 0; padding: 6px; border-radius: 12px; background: var(--panel); }
+.sv-doc .flow svg { display: block; max-width: 100%; height: auto; }
+.sv-doc .flow.light { background: #fff; }
+.sv-doc .flow .nb { fill: var(--ink); stroke: var(--line); stroke-width: 1.5; }
+.sv-doc .flow .nt { fill: var(--text); font: 600 14px var(--body); text-anchor: middle; }
+.sv-doc .flow .el { fill: var(--muted); font: 12px var(--body); text-anchor: middle; paint-order: stroke; stroke: var(--panel); stroke-width: 4px; }
+.sv-doc .flow .arw { stroke: #94a3b8; stroke-width: 1.6; }
+.sv-doc .flow .inh { stroke: var(--bad); stroke-width: 2; stroke-dasharray: 5 4; }
+.sv-doc .qref { border: 0; background: none; padding: 0; color: var(--volt); font: inherit; text-decoration: underline; cursor: pointer; }
+.sv-doc .wmline { font-weight: 700; color: var(--text); }
+.sv-wm { position: absolute; inset: 0; pointer-events: none; opacity: .07; background-repeat: repeat; z-index: 1; }
+@media print { #sheetView { display: none !important; } }
 .explain h5 { margin: 8px 0 0; font: 700 13px/1.3 var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .exfig { margin: 6px 0; display: grid; gap: 4px; }
 .exfig img { width: 100%; height: auto; display: block; background: #fff; border-radius: 10px; }
@@ -287,6 +323,7 @@ a { color: var(--volt); }
     </section>
     <section class="view" id="view-boss" hidden aria-label="Boss battles"></section>
     <section class="view" id="view-map" hidden aria-label="Skill map"></section>
+    <div id="sheetView" hidden role="dialog" aria-modal="true" aria-label="Mastery Sheet"></div>
     <section class="view" id="view-me" hidden aria-label="Profile"></section>
     <section class="view" id="view-results" hidden aria-label="Session results"></section>
   </div>
@@ -2118,16 +2155,56 @@ function bossEnd() {
 function renderMap() {
   const groups = ["CP", "CARS", "BB", "PS"];
   $("#view-map").innerHTML = `<h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll.</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PRO</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>Get Pro</button></div>`}
-  <div class="stack">${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
+  <div class="stack">${sheetsPanel()}${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
     const c = S.cat[code] || { a: 0, c: 0 }, m = c.a ? c.c / c.a : 0, col = !c.a ? "var(--line)" : m >= .8 ? "var(--good)" : m >= .6 ? "var(--volt)" : "var(--bad)";
     const drill = s !== "CARS" && QUESTIONS.some(q => q.c === code);
     return `<button class="cat" ${drill ? `data-drill="${code}"` : "disabled"}><code>${code}</code><span class="t">${esc(title)}${hy ? ' <span style="color:var(--volt)">★</span>' : ""}<small>${c.a ? Math.round(m * 100) + "% of " + c.a : "Not tried yet"}</small></span><span class="meter"><i style="width:${c.a ? Math.max(6, m * 100) : 0}%;background:${col}"></i></span></button>`;
   }).join("")}</div></div>`).join("")}</div>`;
 }
 $("#view-map").addEventListener("click", e => {
+  const sb = e.target.closest("[data-sheet]"); if (sb) return openSheet(sb.dataset.sheet);
   const b = e.target.closest("[data-drill]"); if (!b) return;
   S.focus = b.dataset.drill; save(); go("scroll"); resetFeed(); toast(`Drilling <b>${S.focus}</b>. Clear the chip to go back to the mix.`);
 });
+
+/* ---------- Mastery Sheets: view-only, watermarked. Free preview sheets ship with the site; the rest wait for paid plans. ---------- */
+let SHEETS = null;
+const sheetsReady = fetch("sheets/index.json").then(r => r.json()).then(d => { SHEETS = d.sheets || []; if (!$("#view-map").hidden) renderMap(); }).catch(() => { SHEETS = []; });
+function sheetsPanel() {
+  if (!SHEETS || !SHEETS.length) return "";
+  const free = SHEETS.filter(x => x.free).length;
+  return `<div class="panel"><details ${S.sheetsOpen ? "open" : ""} id="sheetsBox"><summary><h3 style="display:inline">Mastery Sheets</h3> <span class="muted small">${SHEETS.length} sheets · ${free} free previews</span></summary>
+    <p class="small muted" style="margin:8px 0 0">One-page reviews for every content category: high-yield summary, formulas and pathways, common traps and 3 practice questions.</p>
+    <div class="sheets-grid">${SHEETS.map(x => `<button class="shbtn ${x.free ? "" : "locked"}" data-sheet="${esc(x.id)}"><code>${x.free ? "" : "🔒 "}${esc(x.id)}</code><small>${esc(x.title)}</small></button>`).join("")}</div></details></div>`;
+}
+document.addEventListener("toggle", e => { if (e.target.id === "sheetsBox") { S.sheetsOpen = e.target.open; save(); } }, true);
+function wmImage(text) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="260" height="140"><text x="10" y="80" transform="rotate(-24 130 70)" font-family="sans-serif" font-size="14" fill="#fff">${esc(text)}</text></svg>`;
+  return `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
+}
+function openSheet(id) {
+  const meta = (SHEETS || []).find(x => x.id === id); if (!meta) return;
+  if (!meta.free) return sheet(`<h3>${esc(meta.id)}: ${esc(meta.title)}</h3><p>This Mastery Sheet unlocks with the Yearly and Lifetime plans, which open soon. Monthly and 6-month plans include a preview set.</p><p class="muted small">Free sheets you can read now: ${SHEETS.filter(x => x.free).map(x => esc(x.id)).join(", ")}.</p><div class="row"><button class="btn" data-close>OK</button></div>`);
+  const v = $("#sheetView"), mark = `520quest.com · ${S.pro ? "Pro" : "Preview"} copy · ${new Date().toISOString().slice(0, 10)}`;
+  v.innerHTML = `<div class="sv-top"><h2>${esc(meta.id)}: ${esc(meta.title)}</h2><button class="btn small" data-svclose>Close</button></div><div class="sv-body"><div class="sv-doc"><p class="muted">Loading…</p></div></div>`;
+  v.hidden = false; document.body.style.overflow = "hidden";
+  fetch("sheets/" + encodeURIComponent(id) + ".json").then(r => { if (!r.ok) throw 0; return r.json(); }).then(d => {
+    if (v.hidden) return;
+    const doc = $(".sv-doc", v); doc.innerHTML = d.html + `<div class="sv-wm" style="background-image:${wmImage(mark)}"></div>`;
+    $$("[data-wm]", doc).forEach(x => x.textContent = mark);
+  }).catch(() => { $(".sv-doc", v).innerHTML = `<p>This sheet couldn't load. Check your connection and try again.</p>`; });
+}
+function closeSheet() { const v = $("#sheetView"); v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; }
+$("#sheetView").addEventListener("click", e => {
+  if (e.target.closest("[data-svclose]")) return closeSheet();
+  const q = e.target.closest("[data-q]"); if (!q) return;
+  const item = anyQ(q.dataset.q); if (!item) return toast("That question is still loading. Try again in a moment.");
+  closeSheet(); go("scroll"); sessionSeen.add(item.id);
+  const c = questionCard(item, false); feed.prepend(c); io.observe(c); feed.scrollTop = 0;
+});
+$("#sheetView").addEventListener("contextmenu", e => e.preventDefault());
+$("#sheetView").addEventListener("copy", e => e.preventDefault());
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#sheetView").hidden) closeSheet(); });
 
 /* ---------- me ---------- */
 function estimate(sec) {
