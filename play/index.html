@@ -1584,7 +1584,9 @@ function record(q, correct, secs) {
     const t = S.today, round = { a: t.answered - (t.rs ? t.rs.a : 0), c: t.correct - (t.rs ? t.rs.c : 0) };
     const first = !t.goalShown;
     t.goalShown = true; t.next = t.answered + ROUND; t.rs = { a: t.answered, c: t.correct };
-    if (first) { goalHit(); setTimeout(showResults, 900); } else setTimeout(() => showRound(round), 900);
+    if (first) { goalHit(); setTimeout(showResults, 900); }
+    else if (t.bonusAt && t.answered >= t.bonusAt) { t.bonusAt = 0; addXP(50); setTimeout(() => { toast(`Bonus round done: <b>+50 XP</b>. ${round.c} of ${round.a} right.`, 3200); doneDay(); }, 900); }
+    else setTimeout(() => showRound(round), 900);
   }
   checkBadges(); save(); renderHUD();
   return { gain: Math.round(gain), crit };
@@ -1598,7 +1600,7 @@ function renderHUD() {
   $("#hudRank").innerHTML = acc === null ? esc(tierName(L)) : `${acc}% acc<span class="rk-tier"> · ${esc(tierName(L))}</span>`;
   $("#hudRank").title = `Live accuracy ${acc === null ? "–" : acc + "%"} · ${n} of ${EVAL_N} questions to the next level evaluation`;
   $("#hudXp").style.width = n / EVAL_N * 100 + "%"; $("#hudXp").style.background = "var(--volt)";
-  const tgt = S.today.goalShown && S.today.next ? S.today.next : S.goal;
+  const tgt = S.today.doneDay && !extraRound ? S.goal : S.today.goalShown && S.today.next ? S.today.next : S.goal;
   $("#hudGoalTxt").textContent = Math.min(S.today.answered, tgt) + "/" + tgt;
   $("#hudStreakTxt").textContent = streakAlive();
   $("#hudPro").hidden = !!S.pro;
@@ -1921,7 +1923,7 @@ function showRound(r) {
   beep("level");
   sheet(`<div class="eyebrow">Round complete</div><h2>${r.c} of ${r.a} right this round.</h2>
     <p class="muted">${S.today.answered} questions today at ${acc}% accuracy. Keep going while you're sharp, or stop here and come back tomorrow.</p>${ankiRow()}
-    <div class="row"><button class="btn primary" data-close>Another ${ROUND}</button><button class="btn" data-close>Done for today</button></div>`);
+    <div class="row"><button class="btn primary" data-close>Another ${ROUND}</button><button class="btn" data-close data-doneday>Done for the Day</button></div>`);
 }
 function showDone() {
   const acc = S.today.answered ? Math.round(S.today.correct / S.today.answered * 100) : 0;
@@ -1964,7 +1966,7 @@ function showResults() {
     <div class="grid2"><div class="panel stat"><b>${acc}%</b><span>session accuracy (${t.correct} of ${t.answered})</span></div><div class="panel stat"><b>${revCount()}</b><span>in your Revenge Queue (${miss} from today)</span></div></div>
     <div class="panel"><div class="row" style="justify-content:space-between"><h3>Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h3>${S.lv.pending ? `<button class="btn small primary" data-gate>Gatekeeper ready</button>` : ""}</div>${levelBarHTML()}</div>
     <div class="panel"><h3>Time per question</h3><p class="small muted">Today: <b style="color:var(--text)">${nowAvg} s</b> average.${pace}</p>${timeTrendSVG()}</div>
-    <div class="pair"><button class="btn review" data-review ${miss ? "" : "disabled"}>${miss ? `Review mistakes (${miss})` : "No mistakes today"}</button><button class="btn" data-exit>Exit</button></div>
+    <div class="pair"><button class="btn review" data-review ${miss ? "" : "disabled"}>${miss ? `Review mistakes (${miss})` : "No mistakes today"}</button><button class="btn" data-doneday>Done for the Day</button></div>
     ${ankiRow()}
     <div class="subacts"><button class="linkbtn" data-more10>Not tired? Play another ${ROUND}</button><button class="linkbtn" data-share>Share my streak</button></div>
   </div>`;
@@ -1984,7 +1986,7 @@ function reviewDoneCard() {
   const el = document.createElement("article"); el.className = "card gate";
   el.innerHTML = `<div class="eyebrow">Revenge Queue complete</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
     <p class="muted" style="margin:0">Anything you missed again comes back in your Revenge Queue on a 1, 3 and 7 day schedule.</p>
-    <div class="row"><button class="btn primary" data-exit style="flex:1">Exit</button></div>`;
+    <div class="row"><button class="btn primary" data-doneday style="flex:1">Done for the Day</button></div>`;
   return el;
 }
 function exitApp() {
@@ -1996,11 +1998,47 @@ function exitApp() {
     $("#view-results").innerHTML = `<div class="bye"><div class="lvbig"><div class="badge-lv ${S.lv.level === 5 ? "t5" : ""}">${S.lv.level === 5 ? "GM" : "L" + S.lv.level}</div></div><h2 class="title">See you tomorrow.</h2><p class="muted" style="margin:0">Your progress is saved. You can close 520 Quest now.</p><button class="linkbtn" data-back>Back to the app</button></div>`;
   }, 150);
 }
+/* ---------- Done for the Day: land on Me with today's summary; same-day return opens Me ---------- */
+function doneDay() {
+  S.today.doneDay = true; S.today.bonusAt = 0; S.review = null; S.resume = null; extraRound = false; save();
+  go("me"); $("#view-me").scrollTop = 0;
+}
+function todaySummaryHTML() {
+  const t = S.today; if (!t.doneDay) return "";
+  const acc = t.answered ? Math.round(t.correct / t.answered * 100) : 0;
+  return `<div class="panel" id="todaySum"><div class="eyebrow">Done for the Day 🎉</div><h3>Today's summary</h3>
+    <div class="grid2"><div class="stat"><b>${acc}%</b><span>accuracy today (${t.correct} of ${t.answered})</span></div><div class="stat"><b>${revCount()}</b><span>in your Revenge Queue</span></div></div>
+    <h4 style="margin:12px 0 4px">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h4>${levelBarHTML()}
+    <h4 style="margin:12px 0 4px">Time per question</h4><p class="small muted" style="margin:0">Today: <b style="color:var(--text)">${avgSecs(t.secs)} s</b> average.</p>${timeTrendSVG()}
+    <p class="small muted" style="margin:8px 0 0">See you tomorrow. Want more today? <button class="linkbtn" data-more10>Do ${ROUND} more for +50 XP</button></p></div>`;
+}
+var extraRound = false, morePromptOpen = false; // var: renderHUD can run before this line
+function morePrompt() {
+  if (morePromptOpen || $("#sheetHost .scrim")) return;
+  morePromptOpen = true;
+  sheet(`<div class="eyebrow">Done for the Day 🎉</div><h2>Want to do another ${ROUND} for +50 XP?</h2>
+    <div class="row"><button class="btn primary" data-more10 data-close>Do ${ROUND} More</button><button class="btn" data-close>Stay in Me</button></div>`);
+  const host = $("#sheetHost"), obs = new MutationObserver(() => { if (!host.innerHTML) { morePromptOpen = false; obs.disconnect(); } }); obs.observe(host, { childList: true });
+}
+function startExtra() {
+  const t = S.today; extraRound = true; t.goalShown = true; t.next = t.answered + ROUND; t.bonusAt = t.next; t.rs = { a: t.answered, c: t.correct }; save();
+  go("scroll"); resetFeed(); renderHUD();
+}
+// After Done for the Day, trying to keep scrolling (swipe up past the end of Me, or opening Scroll or Boss) asks first.
+(function () {
+  const me = $("#view-me"); let y0 = null;
+  const atEnd = () => me.scrollTop + me.clientHeight >= me.scrollHeight - 4;
+  const lock = () => S.today.doneDay && !extraRound;
+  me.addEventListener("touchstart", e => { y0 = atEnd() ? e.touches[0].clientY : null; }, { passive: true });
+  me.addEventListener("touchend", e => { if (y0 !== null && lock() && y0 - e.changedTouches[0].clientY > 60) morePrompt(); y0 = null; }, { passive: true });
+  me.addEventListener("wheel", e => { if (e.deltaY > 30 && atEnd() && lock()) morePrompt(); }, { passive: true });
+})();
 document.addEventListener("click", e => {
   const t = e.target;
   if (t.closest("[data-review]")) return startReview();
+  if (t.closest("[data-doneday]")) { $("#sheetHost").innerHTML = ""; return doneDay(); }
   if (t.closest("[data-exit]")) return exitApp();
-  if (t.closest("[data-more10]")) { go("scroll"); resetFeed(); return; }
+  if (t.closest("[data-more10]")) { $("#sheetHost").innerHTML = ""; return startExtra(); }
   if (t.closest("[data-back]")) { go("scroll"); resetFeed(); return; }
   if (t.closest("#view-results [data-share]")) return share();
 });
@@ -2008,7 +2046,7 @@ document.addEventListener("click", e => {
 /* ---------- welcome back: once a day, on the first open ---------- */
 function welcomeBack() {
   const t = todayKey();
-  if (S.welcome === t) return;
+  if (S.welcome === t || S.today.doneDay) return;
   const returning = S.total > 0; S.welcome = t; save();
   if (!returning) return;
   const L = S.lv.level;
@@ -2272,7 +2310,7 @@ function renderMe() {
   const dnaCounts = ["Content", "Trap", "Time"].map((t, i) => [t, S.errors.filter(e => e.type === t).length, ["var(--cool)", "var(--bad)", "var(--heat)"][i]]);
   const revN = Object.keys(S.revenge).length, dueN = Object.values(S.revenge).filter(r => r.due <= Date.now()).length;
   const C = 2 * Math.PI * 31, pct = Math.min(1, S.today.answered / S.goal);
-  $("#view-me").innerHTML = `<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Pro" : ""}</p>
+  $("#view-me").innerHTML = `${todaySummaryHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Pro" : ""}</p>
   <div class="stack">
     <div class="panel">${levelBarHTML()}</div>
     ${analyticsHTML()}
@@ -2351,7 +2389,11 @@ function go(tab) {
   if (tab !== "boss" && B) { clearInterval(B.tick); B = null; syncMusic(); }
   const h = { scroll: "", boss: "boss", map: "map", me: "me", results: "" }[tab]; try { history.replaceState(null, "", h ? "#" + h : location.pathname); } catch (e) {}
 }
-$(".tabs").addEventListener("click", e => { const t = e.target.closest(".tab"); if (t) go(t.dataset.tab); });
+$(".tabs").addEventListener("click", e => {
+  const t = e.target.closest(".tab"); if (!t) return;
+  if (S.today.doneDay && !extraRound && (t.dataset.tab === "scroll" || t.dataset.tab === "boss")) { if ($("#view-me").hidden) go("me"); return morePrompt(); }
+  go(t.dataset.tab);
+});
 document.addEventListener("keydown", e => {
   if ($("#view-scroll").hidden || /input|textarea|select/i.test(e.target.tagName)) return;
   if (["1", "2", "3", "4"].includes(e.key)) {
@@ -2372,7 +2414,7 @@ document.addEventListener("click", e => {
 });
 function renderAll() { renderHUD(); resetFeed(); if (!$("#view-me").hidden) renderMe(); if (!$("#view-map").hidden) renderMap(); }
 renderAll();
-const startTab = (location.hash || "").slice(1) || (S.review ? "scroll" : S.lastTab); if (["boss", "map", "me"].includes(startTab)) go(startTab);
+const startTab = S.today.doneDay ? "me" : (location.hash || "").slice(1) || (S.review ? "scroll" : S.lastTab); if (["boss", "map", "me"].includes(startTab)) go(startTab);
 bankReady.finally(() => welcomeBack());
 if ("serviceWorker" in navigator && location.protocol === "https:" && !/claude\.ai|claudeusercontent/.test(location.hostname)) { navigator.serviceWorker.register("sw.js").catch(() => {}); }
 
