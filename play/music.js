@@ -83,6 +83,21 @@
     master.gain.setTargetAtTime(0.0001, ctx.currentTime, 0.25);
     clearInterval(timer); timer = null; mode = null; // already-scheduled notes fade out with the master gain
   }
+  // Level-up fanfare: an original rising D-major figure over a held chord, about four seconds long.
+  function fanfare() {
+    if (!init()) return;
+    if (ctx.state === "suspended") ctx.resume();
+    const t0 = ctx.currentTime + 0.05, was = master.gain.value;
+    master.gain.cancelScheduledValues(t0); master.gain.setValueAtTime(0.6, t0);
+    const beat = 0.14, run = [62, 66, 69, 74, 69, 74, 78, 81];
+    run.forEach((m, i) => { tone("square", mtof(m), t0 + i * beat, beat * 0.9, 0.09, 3400); tone("sawtooth", mtof(m - 12), t0 + i * beat, beat * 0.9, 0.05, 1800); });
+    const hold = t0 + run.length * beat + 0.05;
+    [74, 78, 81, 86].forEach(m => tone("sawtooth", mtof(m), hold, 1.6, 0.07, 2600));
+    [50, 62].forEach(m => tone("square", mtof(m), hold, 1.6, 0.08, 900));
+    [0, 2, 4, 6].forEach(i => kick(t0 + i * beat * 2, 0.7));
+    kick(hold, 0.9); hit(hold, 0.3, true, 1.2);
+    if (timer) master.gain.setTargetAtTime(was || 0.3, hold + 1.8, 0.3); else master.gain.setTargetAtTime(0.0001, hold + 1.8, 0.3);
+  }
   document.addEventListener("visibilitychange", () => { if (!ctx) return; if (document.hidden) ctx.suspend(); else if (timer) ctx.resume(); });
-  window.MUSIC = { play, stop, get playing() { return mode; } };
+  window.MUSIC = { play, stop, fanfare, get playing() { return mode; } };
 })();

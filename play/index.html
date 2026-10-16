@@ -52,6 +52,7 @@ button { cursor: pointer; }
 .hud { display: flex; align-items: center; gap: 12px; padding: 10px 16px 8px; border-bottom: 1px solid var(--line); background: var(--ink); }
 .lvl { font: 700 13px/1 var(--display); background: var(--volt); color: var(--volt-ink); border-radius: 8px; padding: 7px 8px; min-width: 46px; text-align: center; letter-spacing: .04em; }
 .xpwrap { flex: 1; min-width: 0; display: grid; gap: 4px; }
+@media (max-width: 430px) { .rk-tier { display: none; } }
 .rank { font: 600 12px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .bar { height: 7px; border-radius: 99px; background: var(--panel-2); overflow: hidden; }
 .bar > i { display: block; height: 100%; width: 0; background: var(--cool); border-radius: inherit; transition: width .5s ease; }
@@ -120,6 +121,18 @@ button { cursor: pointer; }
 .explain h4 { margin: 0; font: 700 15px/1.3 var(--display); letter-spacing: .02em; color: var(--good); }
 .explain h4.miss { color: var(--bad); margin-top: 6px; }
 .explain p { margin: 0; font-size: 15px; line-height: 1.5; }
+.explain h5 { margin: 8px 0 0; font: 700 13px/1.3 var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.exfig { margin: 6px 0; display: grid; gap: 4px; }
+.exfig img { width: 100%; height: auto; display: block; background: #fff; border-radius: 10px; }
+.exfig figcaption { font-size: 12px; line-height: 1.4; color: var(--muted); }
+.exfig .credit { opacity: .8; }
+.exmore summary { cursor: pointer; font-weight: 700; padding: 4px 0; }
+.exmore p { margin-top: 6px; }
+.explain .fx { display: grid; gap: 2px; padding: 8px 10px; border-radius: 8px; background: var(--panel); }
+.explain .fx code { font: 600 15px/1.4 ui-monospace, monospace; }
+.explain .fx span { font-size: 13px; color: var(--muted); }
+.explain .steps, .explain .refs { margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.5; }
+.explain .trapline { border-left: 3px solid var(--bad); padding-left: 8px; }
 .btn.added { border-color: var(--good); color: var(--good); }
 .note { border-left: 3px solid var(--volt); padding: 4px 0 4px 10px; color: var(--text); font-size: 14.5px; }
 .dna { display: grid; gap: 8px; padding: 12px; border-radius: 12px; background: var(--ink); border: 1px dashed var(--line); }
@@ -224,6 +237,33 @@ a { color: var(--volt); }
 .toasts { position: absolute; left: 16px; right: 16px; bottom: calc(76px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 8px; z-index: 30; pointer-events: none; }
 .toast { background: var(--panel-2); border: 1px solid var(--line); border-left: 4px solid var(--volt); border-radius: 12px; padding: 10px 12px; font-size: 14px; animation: up .2s ease-out; box-shadow: 0 8px 24px rgb(0 0 0 / .35); }
 #fx { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
+/* Mastery levels, results screen, analytics */
+.lvl.t5 { background: linear-gradient(135deg, #facc15, #fb7185); }
+.lvbig { display: grid; justify-items: center; gap: 6px; text-align: center; padding: 6px 0; }
+.lvbig .badge-lv { font: 700 44px/1 var(--display); width: 96px; height: 96px; border-radius: 26px; display: grid; place-items: center; background: var(--volt); color: var(--volt-ink); box-shadow: 0 0 0 6px color-mix(in srgb, var(--volt) 22%, transparent); }
+.lvbig .badge-lv.t5 { background: linear-gradient(135deg, #facc15, #fb7185); }
+.lvbig strong { font: 700 22px/1.1 var(--display); letter-spacing: .03em; }
+.lvbar { display: grid; gap: 5px; }
+.lvbar .bar { height: 10px; }
+.lvbar .bar > i { background: var(--volt); }
+.lvbar small { color: var(--muted); font-size: 12.5px; display: flex; justify-content: space-between; gap: 8px; }
+.ladder { display: grid; gap: 4px; }
+.ladder div { display: grid; grid-template-columns: 34px 1fr auto; gap: 8px; align-items: center; font-size: 13.5px; padding: 6px 8px; border-radius: 8px; color: var(--muted); }
+.ladder div.on { background: color-mix(in srgb, var(--volt) 14%, transparent); color: var(--text); }
+.ladder b { font: 700 13px/1 var(--display); }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pair .btn { padding: 16px 10px; font-size: 16px; text-align: center; justify-content: center; }
+.btn.review { background: linear-gradient(135deg, #fb7185, #facc15); color: #1a0610; border: 0; font-weight: 800; }
+.linkbtn { background: none; border: 0; color: var(--muted); text-decoration: underline; font-size: 13.5px; padding: 4px; }
+.subacts { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.chart { width: 100%; height: auto; display: block; }
+.assess { display: grid; gap: 6px; font-size: 14px; }
+.assess p { margin: 0; }
+.secrow { display: grid; grid-template-columns: 74px 1fr 52px 46px; gap: 8px; align-items: center; font-size: 13.5px; }
+.secrow .meter { height: 8px; }
+.tag.target { background: color-mix(in srgb, var(--cool) 16%, transparent); color: var(--cool); }
+#view-results { display: grid; align-content: start; }
+.bye { min-height: 100%; display: grid; place-content: center; justify-items: center; text-align: center; gap: 12px; padding: 24px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
 
@@ -232,7 +272,7 @@ a { color: var(--volt); }
     <div class="lvl" id="hudLvl" aria-label="Level">LV 1</div>
     <div class="xpwrap">
       <div class="rank" id="hudRank">Pre-Med Rookie</div>
-      <div class="bar" aria-label="XP to next level"><i id="hudXp"></i></div>
+      <div class="bar" aria-label="Progress to next level evaluation"><i id="hudXp"></i></div>
     </div>
     <span class="pill goal" id="hudGoal" title="Today's goal"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg><span id="hudGoalTxt">0/25</span></span>
     <span class="pill streak" id="hudStreak" title="Day streak"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8.6 1c.4 2.4-1.3 3.4-2.3 4.8C5.4 7 5 8 5 9.2 5 11.9 6.6 15 8 15c2.6 0 4-2.3 4-4.9 0-2-1-3.1-1.7-4-.2 1-.7 1.7-1.4 2C9.8 5.9 9.7 3 8.6 1Z"/></svg><span id="hudStreakTxt">0</span></span>
@@ -248,6 +288,7 @@ a { color: var(--volt); }
     <section class="view" id="view-boss" hidden aria-label="Boss battles"></section>
     <section class="view" id="view-map" hidden aria-label="Skill map"></section>
     <section class="view" id="view-me" hidden aria-label="Profile"></section>
+    <section class="view" id="view-results" hidden aria-label="Session results"></section>
   </div>
 
   <nav class="tabs" role="tablist">
@@ -1223,10 +1264,25 @@ const CONFIG = {
   resources: [
     { name: "AAMC official practice exams", url: "https://students-residents.aamc.org/prepare-mcat-exam/prepare-mcat-exam", note: "The most realistic full-lengths. Take them in your last 6 weeks." }
   ],
+  // Yearly refresh: set theme to a year below to switch palettes ("auto" follows the calendar year).
+  // 2027 is a ready-made alternative; add a new year's colors here to restyle the whole app.
+  theme: 2026,
+  themes: {
+    2026: { volt: "#facc15", "volt-ink": "#1a1500", ink: "#11100c", panel: "#1c1a14", "panel-2": "#29261d", line: "#3a352a", cool: "#67e8f9" },
+    2027: { volt: "#38bdf8", "volt-ink": "#03131c", ink: "#0b0f14", panel: "#141b23", "panel-2": "#1e2833", line: "#2c3a47", cool: "#a78bfa" }
+  },
+  supportEmail: "info@unprocrastinatehub.com",
+  supportUrl: "https://520quest.com/support/",
   appUrl: "https://520quest.com/" // your public link, used in Share text
 };
 /* ===================================================================================== */
 
+(function applyTheme() {
+  const y = CONFIG.theme === "auto" ? new Date().getFullYear() : CONFIG.theme;
+  const th = CONFIG.themes[y] || CONFIG.themes[Math.max(...Object.keys(CONFIG.themes).map(Number).filter(k => k <= y))];
+  if (th) Object.entries(th).forEach(([k, v]) => document.documentElement.style.setProperty("--" + k, v));
+  const m = document.querySelector('meta[name="theme-color"]'); if (m && th) m.content = th.ink;
+})();
 const KEY = "quest520.v1";
 const DAY = 86400000;
 const $ = (s, r = document) => r.querySelector(s);
@@ -1246,22 +1302,30 @@ function addBank(b) {
 }
 const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.json())
   .then(ix => Promise.all(ix.files.map(f => fetch("bank/" + f).then(r => r.json()).then(addBank).catch(() => {}))))
-  .then(() => { passI = Math.floor(Math.random() * PASSAGES.length); if (!$("#view-map").hidden) renderMap(); })
-  .catch(() => {});
+  .then(() => {
+    passI = Math.floor(Math.random() * PASSAGES.length); if (!$("#view-map").hidden) renderMap();
+    if (resumeLate) S.resume = resumeLate;
+    const q = resumeLate && resumeQ();
+    if (q && !S.review && !$$("#feed .opts").some(b => b.dataset.done)) { sessionSeen.add(q.id); const c = questionCard(q, !!S.revenge[q.id]); feed.prepend(c); io.observe(c); feed.scrollTop = 0; }
+    resumeLate = null;
+  })
+  .catch(() => { resumeLate = null; });
 
 /* ---------- state ---------- */
 function fresh() {
   return { v: 1, xp: 0, combo: 0, bestCombo: 0, chest: 0, hints: 1, freezes: 1, pro: false, sound: true, music: "boss", goal: 25,
     streak: { count: 0, last: null }, today: { date: todayKey(), answered: 0, correct: 0, bosses: 0, goalShown: false },
     stats: {}, cat: {}, recent: { CP: [], CARS: [], BB: [], PS: [] }, revenge: {}, errors: [], facts: {}, traps: {},
-    fl: [], anki: [], badges: {}, bossWins: {}, retired: 0, total: 0, totalCorrect: 0, filter: "ALL", focus: null };
+    fl: [], anki: [], badges: {}, bossWins: {}, retired: 0, total: 0, totalCorrect: 0, filter: "ALL", focus: null,
+    lv: { level: 1, block: [], evals: [], qual: 1, pending: 0 }, tlog: {}, welcome: null, resume: null, lastTab: "scroll", review: null, fanfare: true };
 }
 let S = fresh();
 try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(fresh(), JSON.parse(raw)); } catch (e) {}
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 function rollDay() {
   const t = todayKey();
-  if (S.today.date !== t) S.today = { date: t, answered: 0, correct: 0, bosses: 0, goalShown: false };
+  if (S.today.date !== t) { S.today = { date: t, answered: 0, correct: 0, bosses: 0, goalShown: false, secs: [], missed: [] }; S.review = null; }
+  S.today.secs = S.today.secs || []; S.today.missed = S.today.missed || [];
 }
 rollDay();
 
@@ -1270,6 +1334,54 @@ const RANKS = [[1, "Pre-Med Rookie"], [3, "Flashcard Fiend"], [5, "Passage Range
 const need = L => 50 * L * (L - 1);
 const levelOf = xp => { let L = 1; while (xp >= need(L + 1)) L++; return L; };
 const rankOf = L => RANKS.filter(r => L >= r[0]).pop()[1];
+
+/* ---------- mastery levels: 5 tiers, evaluated every 200 questions, boss-gated ---------- */
+// Each evaluation scores the last 200 answers, weighting hard questions more (easy 0.8, medium 1, hard 1.3).
+// Qualifying for a higher tier opens a Gatekeeper boss; beating it promotes you one level. Levels never drop.
+const TIERS = [
+  { n: 1, name: "Rookie", min: 0 },
+  { n: 2, name: "Contender", min: 41 },
+  { n: 3, name: "Challenger", min: 61 },
+  { n: 4, name: "Elite", min: 76 },
+  { n: 5, name: "Grand Master", min: 86 }
+];
+const EVAL_N = 200;
+const tierOf = pct => TIERS.filter(t => pct >= t.min).pop().n;
+const tierName = n => TIERS[n - 1].name;
+const dW = d => d === 3 ? 1.3 : d === 1 ? 0.8 : 1;
+function weightedPct(block) {
+  let w = 0, c = 0; block.forEach(([ok, d]) => { const k = dW(d); w += k; c += ok * k; });
+  return w ? Math.round(c / w * 100) : 0;
+}
+const liveAcc = () => S.lv.block.length ? Math.round(S.lv.block.reduce((a, b) => a + b[0], 0) / S.lv.block.length * 100) : null;
+function levelTick(q, ok) {
+  const L = S.lv; L.block.push([ok ? 1 : 0, q.d || 2]);
+  if (L.block.length < EVAL_N) return;
+  const pct = weightedPct(L.block), t = tierOf(pct);
+  L.evals.push({ date: todayKey(), pct, tier: t }); if (L.evals.length > 50) L.evals.shift();
+  L.block = []; L.qual = Math.max(L.qual || 1, t);
+  if (L.qual > L.level) {
+    L.pending = L.level + 1;
+    setTimeout(() => sheet(`<div class="eyebrow">Level evaluation</div><h2>${pct}% weighted accuracy. You qualify for Level ${t}.</h2>
+      <p class="muted">Beat the <b>Gatekeeper of Level ${L.pending}</b> to move up. It's a 10-question boss battle at exam pace.</p>
+      <div class="row"><button class="btn primary" data-gate>Fight the Gatekeeper</button><button class="btn ghost" data-close>Later</button></div>`), 1200);
+  } else setTimeout(() => toast(`<b>Evaluation:</b> ${pct}% weighted accuracy. You hold Level ${L.level}, ${esc(tierName(L.level))}. Next check in ${EVAL_N} questions.`, 4200), 1200);
+}
+function celebrateLevel(n) {
+  confetti(); setTimeout(confetti, 700); setTimeout(confetti, 1400);
+  if (S.sound && S.fanfare && window.MUSIC) MUSIC.fanfare(); else beep("level");
+  const next = TIERS[n];
+  sheet(`<div class="lvbig"><div class="eyebrow">Level up</div><div class="badge-lv ${n === 5 ? "t5" : ""}">${n === 5 ? "GM" : "L" + n}</div><strong>Level ${n}: ${esc(tierName(n))}</strong>
+    <p class="muted" style="margin:0">${n === 5 ? "You reached the top. The Grand Master Level is yours." : `Next stop: Level ${n + 1}, ${esc(next.name)}, at ${next.min}% weighted accuracy.`}</p></div>
+    <div class="row" style="justify-content:center"><button class="btn primary" data-close>Keep going</button><button class="btn ghost" data-sharelevel>Share it</button></div>`,
+    s => $("[data-sharelevel]", s).addEventListener("click", share));
+}
+function gateBoss() { const n = S.lv.pending; return { id: "GK" + n, name: "Gatekeeper of Level " + n, sec: "ALL", face: "L" + n, col: "var(--volt)", blurb: "Beat it to reach Level " + n, gate: n }; }
+document.addEventListener("click", e => { if (e.target.closest("[data-gate]")) { $("#sheetHost").innerHTML = ""; go("boss"); if (S.lv.pending) startBoss(gateBoss()); } });
+function levelBarHTML() {
+  const n = S.lv.block.length, acc = liveAcc();
+  return `<div class="lvbar"><div class="bar"><i style="width:${n / EVAL_N * 100}%"></i></div><small><span>${n} of ${EVAL_N} to next evaluation</span><span>${acc === null ? "No answers yet" : "Live accuracy " + acc + "%"}</span></small></div>`;
+}
 
 /* ---------- music ---------- */
 // Battle track during boss fights; a lighter groove elsewhere when music is set to always on.
@@ -1344,10 +1456,7 @@ function toast(html, ms = 2600) {
 /* ---------- xp + rewards ---------- */
 function addXP(n) {
   const before = levelOf(S.xp); S.xp += Math.round(n); const after = levelOf(S.xp);
-  if (after > before) {
-    beep("level"); confetti();
-    toast(`<b>Level ${after}!</b> ${rankOf(after) !== rankOf(before) ? "New rank: <b>" + esc(rankOf(after)) + "</b>" : "Keep climbing."}`, 3400);
-  }
+  if (after > before && rankOf(after) !== rankOf(before)) toast(`XP title unlocked: <b>${esc(rankOf(after))}</b>`, 3000);
   renderHUD();
 }
 const comboMult = c => c >= 10 ? 3 : c >= 5 ? 2 : c >= 3 ? 1.5 : 1;
@@ -1404,6 +1513,15 @@ function record(q, correct, secs) {
   const st = S.stats[q.id] || (S.stats[q.id] = { a: 0, c: 0 });
   st.a++; if (correct) st.c++; st.last = Date.now();
   const cs = S.cat[q.c] || (S.cat[q.c] = { a: 0, c: 0 }); cs.a++; if (correct) cs.c++;
+  const sec = Math.min(600, Math.max(1, secs || 0)); cs.t = (cs.t || 0) + sec;
+  const tl = S.tlog[todayKey()] || (S.tlog[todayKey()] = { n: 0, s: 0, c: 0 }); tl.n++; tl.s += sec; if (correct) tl.c++;
+  S.today.secs.push(Math.round(sec)); if (S.today.secs.length > 300) S.today.secs.shift();
+  if (!correct && !S.today.missed.includes(q.id)) S.today.missed.push(q.id);
+  if (S.review && S.review.ids.includes(q.id) && !S.review.done.includes(q.id)) {
+    S.review.done.push(q.id); if (correct) S.review.right++; else S.review.wrong++;
+    const rd = document.getElementById("revDone"); if (rd) rd.textContent = reviewDoneText();
+  }
+  levelTick(q, correct);
   const rec = S.recent[q.s]; rec.push([correct ? 1 : 0, q.d]); if (rec.length > 60) rec.shift();
   S.total++; S.today.answered++;
   if (correct) { S.totalCorrect++; S.today.correct++; }
@@ -1425,11 +1543,11 @@ function record(q, correct, secs) {
   } else { S.combo = 0; gain = 2; }
   addXP(gain);
   // Daily goal first, then a checkpoint after every extra round of 10.
-  if (S.today.answered >= (S.today.next || S.goal)) {
+  if (!S.review && !B && S.today.answered >= (S.today.next || S.goal)) {
     const t = S.today, round = { a: t.answered - (t.rs ? t.rs.a : 0), c: t.correct - (t.rs ? t.rs.c : 0) };
     const first = !t.goalShown;
     t.goalShown = true; t.next = t.answered + ROUND; t.rs = { a: t.answered, c: t.correct };
-    if (first) { goalHit(); setTimeout(showDone, 900); } else setTimeout(() => showRound(round), 900);
+    if (first) { goalHit(); setTimeout(showResults, 900); } else setTimeout(() => showRound(round), 900);
   }
   checkBadges(); save(); renderHUD();
   return { gain: Math.round(gain), crit };
@@ -1437,10 +1555,12 @@ function record(q, correct, secs) {
 
 /* ---------- HUD ---------- */
 function renderHUD() {
-  const L = levelOf(S.xp), lo = need(L), hi = need(L + 1);
-  $("#hudLvl").textContent = "LV " + L;
-  $("#hudRank").textContent = rankOf(L) + " · " + S.xp.toLocaleString() + " XP";
-  $("#hudXp").style.width = Math.min(100, (S.xp - lo) / (hi - lo) * 100) + "%";
+  const L = S.lv.level, n = S.lv.block.length, acc = liveAcc();
+  $("#hudLvl").textContent = L === 5 ? "GM" : "LV " + L; $("#hudLvl").classList.toggle("t5", L === 5);
+  $("#hudLvl").title = "Level " + L + ": " + tierName(L);
+  $("#hudRank").innerHTML = acc === null ? esc(tierName(L)) : `${acc}% acc<span class="rk-tier"> · ${esc(tierName(L))}</span>`;
+  $("#hudRank").title = `Live accuracy ${acc === null ? "–" : acc + "%"} · ${n} of ${EVAL_N} questions to the next level evaluation`;
+  $("#hudXp").style.width = n / EVAL_N * 100 + "%"; $("#hudXp").style.background = "var(--volt)";
   const tgt = S.today.goalShown && S.today.next ? S.today.next : S.goal;
   $("#hudGoalTxt").textContent = Math.min(S.today.answered, tgt) + "/" + tgt;
   $("#hudStreakTxt").textContent = streakAlive();
@@ -1455,14 +1575,22 @@ let cardN = 0, sessionSeen = new Set(), factI = 0, trapI = 0, passI = 0, gateSho
 const FILTERS = [["ALL", "All"], ["CP", "C/P"], ["CARS", "CARS"], ["BB", "B/B"], ["PS", "P/S"]];
 function renderFilters() {
   $("#filters").innerHTML = FILTERS.map(([k, n]) => `<button class="chipbtn" data-f="${k}" aria-pressed="${S.filter === k && !S.focus}">${n}</button>`).join("") +
-    (S.focus ? `<button class="chipbtn focus" data-f="clear" aria-pressed="false">Drilling ${esc(S.focus)} ✕</button>` : "");
+    (S.focus ? `<button class="chipbtn focus" data-f="clear" aria-pressed="false">Drilling ${esc(S.focus)} ✕</button>` : "") +
+    (S.review ? `<button class="chipbtn focus" data-f="endreview" aria-pressed="false">Reviewing today's mistakes ✕</button>` : "");
 }
 $("#filters").addEventListener("click", e => {
   const b = e.target.closest("[data-f]"); if (!b) return;
-  if (b.dataset.f === "clear") S.focus = null; else { S.filter = b.dataset.f; S.focus = null; }
+  if (b.dataset.f === "endreview") S.review = null;
+  else if (b.dataset.f === "clear") S.focus = null; else { S.filter = b.dataset.f; S.focus = null; S.review = null; }
   save(); resetFeed();
 });
 function mastery(code) { const c = S.cat[code] || { a: 0, c: 0 }; return (c.c + 1) / (c.a + 2); }
+/* Adaptive engine: find the weakest content categories (enough answers to judge, mastery under 75%)
+   and serve about half of new questions from them, weighted by how weak each one is. */
+function weakAreas(sec = "ALL", k = 3) {
+  return CATS.filter(c => (sec === "ALL" || c[2] === sec) && c[2] !== "CARS" && (S.cat[c[0]] || {}).a >= 4 && mastery(c[0]) < .75)
+    .sort((a, b) => mastery(a[0]) - mastery(b[0])).slice(0, k).map(c => c[0]);
+}
 function pickQuestion() {
   const sec = S.focus ? CAT[S.focus].s : S.filter;
   let pool = QUESTIONS.filter(q => (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus));
@@ -1479,14 +1607,40 @@ function pickQuestion() {
   }
   let fresh = pool.filter(q => !sessionSeen.has(q.id));
   if (!fresh.length) { pool.forEach(q => sessionSeen.delete(q.id)); fresh = pool; }
+  const weak = S.focus ? [] : weakAreas(sec);
+  if (weak.length && Math.random() < .5) {
+    const tp = fresh.filter(q => weak.includes(q.c));
+    if (tp.length) {
+      const tw = tp.map(q => (1 - mastery(q.c)) * (S.stats[q.id] && S.stats[q.id].c === S.stats[q.id].a ? .3 : 1));
+      let r = Math.random() * tw.reduce((a, b) => a + b, 0);
+      for (let i = 0; i < tp.length; i++) { r -= tw[i]; if (r <= 0) return [tp[i], false, true]; }
+      return [tp[0], false, true];
+    }
+  }
   const w = fresh.map(q => { const st = S.stats[q.id]; let x = !st ? 3 : st.c === st.a ? .5 : 1.5; return x * (1 + (1 - mastery(q.c)) * 2); });
   let r = Math.random() * w.reduce((a, b) => a + b, 0);
   for (let i = 0; i < fresh.length; i++) { r -= w[i]; if (r <= 0) return [fresh[i], false]; }
   return [fresh[fresh.length - 1], false];
 }
 function overFree() { return !S.pro && S.today.answered >= CONFIG.freeDailyQuestions; }
+let resumeOnce = true, reviewEnded = false, resumeLate = null;
+function resumeQ() {
+  const q = S.resume && anyQ(S.resume), sec = S.focus ? CAT[S.focus].s : S.filter;
+  return q && q.s !== "CARS" && !q.pid && (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus) ? q : null;
+}
 function nextCard() {
+  if (S.review) {
+    const R = S.review, id = R.ids.find(x => !R.done.includes(x) && !R.queued.includes(x));
+    if (id && anyQ(id)) { R.queued.push(id); return questionCard(anyQ(id), true); }
+    if (reviewEnded) return null; reviewEnded = true; return reviewDoneCard();
+  }
   if (overFree()) { if (gateShown) return null; gateShown = true; return gateCard(); }
+  if (resumeOnce) {
+    resumeOnce = false;
+    const q = resumeQ();
+    if (q) { sessionSeen.add(q.id); cardN++; return questionCard(q, !!S.revenge[q.id]); }
+    if (S.resume && !anyQ(S.resume)) resumeLate = S.resume; // a bank question: add it once the bank finishes loading
+  }
   cardN++;
   const sec = S.focus ? CAT[S.focus].s : S.filter;
   if (sec === "CARS") return passageCard(PASSAGES[passI++ % PASSAGES.length]);
@@ -1494,13 +1648,19 @@ function nextCard() {
   if (cardN === 4 && !installed()) return installCard();
   if (!S.pro && cardN % 12 === 0) return promoCard();
   if (!S.focus && cardN % 5 === 0) return (cardN / 5) % 2 ? factCard() : trapCard();
-  const [q, rev] = pickQuestion(); sessionSeen.add(q.id);
-  return questionCard(q, rev);
+  const [q, rev, tgt] = pickQuestion(); sessionSeen.add(q.id);
+  return questionCard(q, rev, tgt);
 }
 function fill(n = 3) { for (let i = 0; i < n; i++) { const c = nextCard(); if (!c) break; feed.appendChild(c); io.observe(c); } watchEnd(); }
-function resetFeed() { feed.innerHTML = ""; cardN = 0; gateShown = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
+function resetFeed() { feed.innerHTML = ""; cardN = 0; gateShown = false; reviewEnded = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
 
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && !e.target._shown) e.target._shown = Date.now(); }), { threshold: .55 });
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  if (!e.target._shown) e.target._shown = Date.now();
+  // Remember the question on screen so Continue reopens it after the app is closed.
+  const id = e.target.dataset.id, box = id && $(".opts", e.target);
+  if (box && !box.dataset.done && !S.review && !resumeLate && S.resume !== id) { S.resume = id; save(); }
+}), { threshold: .55 });
 const endObs = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) fill(3); }, { root: feed, threshold: .1 });
 function watchEnd() { endObs.disconnect(); const k = feed.children; if (k.length > 1) endObs.observe(k[k.length - 2]); }
 
@@ -1509,15 +1669,15 @@ const diffDots = d => `<span class="diff" title="Difficulty ${d} of 3">${[1, 2, 
 function scrollToEl(t) { feed.scrollTo({ top: feed.scrollTop + t.getBoundingClientRect().top - feed.getBoundingClientRect().top - 8, behavior: reduce ? "auto" : "smooth" }); }
 function shuf(q) {
   const order = q.o.map((_, i) => i).sort(() => Math.random() - .5);
-  return Object.assign({}, q, { o: order.map(i => q.o[i]), a: order.indexOf(q.a) });
+  return Object.assign({}, q, { o: order.map(i => q.o[i]), a: order.indexOf(q.a), ord: order });
 }
 function optsHTML(q) { return q.o.map((o, i) => `<button class="opt" data-i="${i}"><b>${"ABCD"[i]}</b><span>${o[0]}</span></button>`).join(""); }
 
-function questionCard(q, rev) {
+function questionCard(q, rev, tgt) {
   q = shuf(q);
   const el = document.createElement("article"); el.className = "card q"; el.dataset.id = q.id;
   const cat = CAT[q.c];
-  el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[q.s].name}</span><span class="tag">${q.c}${cat.hy ? " ★" : ""}</span>${rev ? '<span class="tag rev">Revenge</span>' : ""}${diffDots(q.d)}</div>
+  el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[q.s].name}</span><span class="tag">${q.c}${cat.hy ? " ★" : ""}</span>${rev ? '<span class="tag rev">Revenge</span>' : ""}${tgt ? '<span class="tag target" title="The adaptive engine picked this from one of your weakest areas">Weak area</span>' : ""}${diffDots(q.d)}</div>
     <h2 class="stem">${q.q}</h2><div class="opts">${optsHTML(q)}</div>
     <div class="row tools"><button class="btn small ghost" data-hint ${S.hints ? "" : "disabled"}>Hint (${S.hints})</button><span class="muted small">${esc(cat.title)}</span></div>
     <div class="reveal stack" hidden></div>${SWIPE}`;
@@ -1533,8 +1693,9 @@ function wireQuestion(scope, q, card) {
     $$(".opt", optsBox).forEach((o, j) => {
       o.disabled = true;
       if (j === q.a) o.classList.add("right"); else if (j === i) o.classList.add("wrong");
-      o.querySelector("span").insertAdjacentHTML("beforeend", `<small>${q.o[j][1]}</small>`);
+      o.querySelector("span").insertAdjacentHTML("beforeend", `<small>${esc(q.o[j][1])}</small>`);
     });
+    if (S.resume === q.id) S.resume = null;
     const { gain, crit } = record(q, ok, secs);
     beep(ok ? "good" : "bad"); if (!ok && !reduce) { card.classList.add("shake"); setTimeout(() => card.classList.remove("shake"), 400); }
     const f = document.createElement("div"); f.className = "float" + (crit ? " crit" : "");
@@ -1543,12 +1704,13 @@ function wireQuestion(scope, q, card) {
     if (ok && S.combo >= 3) { const c = document.createElement("div"); c.className = "combo"; c.textContent = S.combo + " COMBO"; card.appendChild(c); setTimeout(() => c.remove(), 1400); }
     const rv = $(".reveal", scope); rv.hidden = false;
     rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` +
-      (ok ? (q.x ? `<div class="note">${q.x}</div>` : "") + (q.note ? `<div class="note">${q.note}</div>` : "") : explainHTML(q, i)) +
+      (ok ? (q.x ? `<div class="note">${esc(q.x)}</div>` : "") + (q.note ? `<div class="note">${esc(q.note)}</div>` : "") : explainHTML(q, i)) +
       (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next card</button>${ok ? "" : ankiBtn(q)}</div>`;
     const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
     const nb = $("[data-next]", rv); if (sib) nb.textContent = "Next question";
     nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
     if (!ok) wireDNA(rv, q, secs);
+    upgradeExplain(rv, q, i, ok);
     const ab = $("[data-addanki]", rv); if (ab) ab.addEventListener("click", () => addAnki(q, ab));
     const h = $("[data-hint]", scope); if (h) h.disabled = true;
   });
@@ -1562,9 +1724,50 @@ function wireQuestion(scope, q, card) {
   });
 }
 function explainHTML(q, i) {
-  const L = "ABCD";
-  return `<div class="explain"><h4>Correct answer: ${L[q.a]}. ${q.o[q.a][0]}</h4><p>${q.o[q.a][1].replace(/^Correct[:.]?\s*/i, "")}</p>${q.x ? `<p>${q.x}</p>` : ""}
-    ${i >= 0 && i !== q.a ? `<h4 class="miss">Your answer: ${L[i]}. ${q.o[i][0]}</h4><p>${q.o[i][1]}</p>` : ""}${q.note ? `<p class="muted"><b>Takeaway:</b> ${q.note}</p>` : ""}</div>`;
+  const L = "ABCD", e = esc;
+  return `<div class="explain" data-exq="${e(q.id)}"><h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4><p>${e(q.o[q.a][1].replace(/^Correct[:.]?\s*/i, ""))}</p>${q.x ? `<p>${e(q.x)}</p>` : ""}
+    ${i >= 0 && i !== q.a ? `<h4 class="miss">Your answer: ${L[i]}. ${e(q.o[i][0])}</h4><p>${e(q.o[i][1])}</p>` : ""}${q.note ? `<p class="muted"><b>Takeaway:</b> ${e(q.note)}</p>` : ""}</div>`;
+}
+/* ---------- Rich explanations: bank/ex/<CAT>.json, fetched the first time a category's explanation opens ---------- */
+const EX = {};
+const exCat = q => q.s === "CARS" || q.pid ? "CARS" : q.c;
+function loadEx(cat) {
+  if (!cat || !/^[\w-]+$/.test(cat)) return Promise.resolve({});
+  return EX[cat] || (EX[cat] = fetch("bank/ex/" + cat + ".json").then(r => r.ok ? r.json() : {}).catch(() => { delete EX[cat]; return {}; }));
+}
+// ox follows the bank's choice order; q.ord maps each shuffled position back to it.
+function exEntry(q) {
+  return loadEx(exCat(q)).then(m => {
+    const x = m && m[q.id]; if (!x || !Array.isArray(x.ox) || x.ox.length !== q.o.length) return null;
+    return Object.assign({}, x, { ox: q.o.map((_, j) => x.ox[q.ord ? q.ord[j] : j]) });
+  });
+}
+function figHTML(g) {
+  if (!g || typeof g.f !== "string" || !/^[\w-]+(\/[\w.-]+)*\.(svg|png|jpe?g|webp)$/i.test(g.f) || g.f.includes("..")) return "";
+  return `<figure class="exfig"><img src="fig/${esc(g.f)}" alt="${esc(g.alt || "")}" loading="lazy">${g.cap || g.credit ? `<figcaption>${g.cap ? esc(g.cap) : ""}${g.credit ? ` <span class="credit">${esc(g.credit)}</span>` : ""}</figcaption>` : ""}</figure>`;
+}
+function richExplainHTML(q, i, x) {
+  const L = "ABCD", e = esc, picked = i >= 0 && i !== q.a, arr = a => Array.isArray(a) ? a : [];
+  const others = q.o.map((_, j) => j).filter(j => j !== q.a && j !== i);
+  const fx = arr(x.fx).filter(f => f && f.f), steps = arr(x.steps), refs = arr(x.ref).filter(r => r && /^https?:\/\//i.test(r.u || ""));
+  return `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4><p>${e(x.ox[q.a])}</p>` +
+    (picked ? `<h4 class="miss">Your answer: ${L[i]}. ${e(q.o[i][0])}</h4><p>${e(x.ox[i])}</p>` : "") +
+    arr(x.fig).map(figHTML).join("") +
+    (others.length ? `<details class="exmore"><summary>Why the other choices are wrong</summary>${others.map(j => `<p><b>${L[j]}. ${e(q.o[j][0])}</b><br>${e(x.ox[j])}</p>`).join("")}</details>` : "") +
+    (x.concept ? `<h5>The concept${x.concept.t ? `: ${e(x.concept.t)}` : ""}</h5>${arr(x.concept.p).map(p => `<p>${e(p)}</p>`).join("")}` : "") +
+    (fx.length ? `<h5>Formula</h5>${fx.map(f => `<div class="fx"><code>${e(f.f)}</code>${f.w ? `<span>${e(f.w)}</span>` : ""}</div>`).join("")}` : "") +
+    (steps.length ? `<h5>Worked solution</h5><ol class="steps">${steps.map(t => `<li>${e(t)}</li>`).join("")}</ol>` : "") +
+    (x.trap ? `<p class="trapline"><b>The trap:</b> ${e(x.trap)}</p>` : "") +
+    (refs.length ? `<h5>Learn more</h5><ul class="refs">${refs.map(r => `<li><a href="${e(r.u)}" target="_blank" rel="noopener">${e(r.t || r.u)}</a></li>`).join("")}</ul>` : "");
+}
+// Upgrade a revealed explanation in place once its category file arrives.
+function upgradeExplain(rv, q, i, ok) {
+  exEntry(q).then(x => {
+    if (!x || !rv.isConnected) return;
+    const box = $(".explain", rv);
+    if (box) { box.classList.add("rich"); box.innerHTML = richExplainHTML(q, i, x); return; }
+    if (ok) { const d = document.createElement("details"); d.className = "exmore explain rich"; d.innerHTML = `<summary>Full explanation</summary>${richExplainHTML(q, i, x)}`; const row = $(".row", rv); if (row) rv.insertBefore(d, row); else rv.appendChild(d); }
+  });
 }
 /* ---------- Anki queue: save missed questions, export them as a deck after a session ---------- */
 const inAnki = id => S.anki.includes(id);
@@ -1691,8 +1894,104 @@ function showDone() {
     <div class="row"><button class="btn primary" data-close>Close for today</button><button class="btn" data-close data-more>Another ${ROUND}</button><button class="btn ghost" data-share>Share streak</button></div>`,
     s => { $("[data-share]", s).addEventListener("click", share); });
 }
+/* ---------- end of session: one results screen, then Exit or Review Mistakes ---------- */
+const revCount = () => Object.keys(S.revenge).length;
+function timeTrendSVG(days = 14) {
+  const keys = Array.from({ length: days }, (_, i) => todayKey(Date.now() - (days - 1 - i) * DAY));
+  const pts = keys.map(k => { const t = S.tlog[k]; return t && t.n ? { k, v: t.s / t.n, a: t.c / t.n } : { k, v: null }; });
+  const vals = pts.filter(p => p.v !== null).map(p => p.v);
+  if (!vals.length) return `<p class="muted small">Answer a few questions and your time per question shows up here.</p>`;
+  const W = 320, H = 120, pl = 28, pr = 8, top = 10, bot = 22, hi = Math.max(120, ...vals) * 1.1;
+  const x = i => pl + i * (W - pl - pr) / (days - 1), y = v => top + (1 - v / hi) * (H - top - bot);
+  const line = pts.map((p, i) => p.v === null ? null : `${x(i)},${y(p.v)}`).filter(Boolean).join(" ");
+  const target = 95;
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Average seconds per question over the last ${days} days">
+    <line x1="${pl}" x2="${W - pr}" y1="${y(target)}" y2="${y(target)}" stroke="var(--volt)" stroke-dasharray="4 4"/><text x="${W - pr}" y="${y(target) - 4}" font-size="10" text-anchor="end" fill="var(--volt)">95 s exam pace</text>
+    ${[0, Math.round(hi / 2)].map(v => `<text x="2" y="${y(v) + 3}" font-size="10" fill="var(--muted)">${v}s</text>`).join("")}
+    <polyline points="${line}" fill="none" stroke="var(--cool)" stroke-width="2.5" stroke-linejoin="round"/>
+    ${pts.map((p, i) => p.v === null ? "" : `<circle cx="${x(i)}" cy="${y(p.v)}" r="${i === days - 1 ? 4.5 : 3}" fill="var(--cool)"/>`).join("")}
+    ${[0, Math.floor(days / 2), days - 1].map(i => `<text x="${x(i)}" y="${H - 6}" font-size="10" text-anchor="middle" fill="var(--muted)">${i === days - 1 ? "Today" : new Date(keys[i] + "T12:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })}</text>`).join("")}
+  </svg>`;
+}
+function avgSecs(arr) { return arr.length ? Math.round(arr.reduce((a, b) => a + b, 0) / arr.length) : 0; }
+function showResults() {
+  const t = S.today, acc = t.answered ? Math.round(t.correct / t.answered * 100) : 0, miss = t.missed.filter(id => anyQ(id)).length;
+  const prev = Object.keys(S.tlog).filter(k => k < t.date).sort().slice(-7).map(k => S.tlog[k]), pn = prev.reduce((a, b) => a + b.n, 0);
+  const prevAvg = pn ? Math.round(prev.reduce((a, b) => a + b.s, 0) / pn) : null, nowAvg = avgSecs(t.secs);
+  const pace = prevAvg === null ? "" : nowAvg < prevAvg ? ` ${prevAvg - nowAvg} s faster than your last week.` : nowAvg > prevAvg ? ` ${nowAvg - prevAvg} s slower than your last week.` : " Same as your last week.";
+  $("#sheetHost").innerHTML = "";
+  go("results");
+  confetti(); beep("level");
+  $("#view-results").innerHTML = `<div class="stack">
+    <div><div class="eyebrow">Daily mission complete</div><h2 class="title">Done for today.</h2><p class="sub">Streak: <b style="color:var(--heat)">${streakAlive()} day${streakAlive() === 1 ? "" : "s"}</b>. Short daily sessions beat long cramming days.</p></div>
+    <div class="grid2"><div class="panel stat"><b>${acc}%</b><span>session accuracy (${t.correct} of ${t.answered})</span></div><div class="panel stat"><b>${revCount()}</b><span>in your Revenge Queue (${miss} from today)</span></div></div>
+    <div class="panel"><div class="row" style="justify-content:space-between"><h3>Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h3>${S.lv.pending ? `<button class="btn small primary" data-gate>Gatekeeper ready</button>` : ""}</div>${levelBarHTML()}</div>
+    <div class="panel"><h3>Time per question</h3><p class="small muted">Today: <b style="color:var(--text)">${nowAvg} s</b> average.${pace}</p>${timeTrendSVG()}</div>
+    <div class="pair"><button class="btn review" data-review ${miss ? "" : "disabled"}>${miss ? `Review mistakes (${miss})` : "No mistakes today"}</button><button class="btn" data-exit>Exit</button></div>
+    ${ankiRow()}
+    <div class="subacts"><button class="linkbtn" data-more10>Not tired? Play another ${ROUND}</button><button class="linkbtn" data-share>Share my streak</button></div>
+  </div>`;
+}
+function startReview() {
+  const ids = S.today.missed.filter(id => anyQ(id));
+  if (!ids.length) return toast("No mistakes to review today.");
+  S.review = { ids, done: [], queued: [], right: 0, wrong: 0 }; save();
+  go("scroll"); resetFeed();
+}
+function reviewDoneText() {
+  const R = S.review; if (!R) return "";
+  const left = R.ids.length - R.done.length;
+  return left ? `${left} question${left === 1 ? "" : "s"} above still to answer.` : `${R.right} question${R.right === 1 ? "" : "s"} mastered, ${R.wrong} still in queue. See you tomorrow.`;
+}
+function reviewDoneCard() {
+  const el = document.createElement("article"); el.className = "card gate";
+  el.innerHTML = `<div class="eyebrow">Revenge Queue complete</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
+    <p class="muted" style="margin:0">Anything you missed again comes back in your Revenge Queue on a 1, 3 and 7 day schedule.</p>
+    <div class="row"><button class="btn primary" data-exit style="flex:1">Exit</button></div>`;
+  return el;
+}
+function exitApp() {
+  S.review = null; S.resume = null; save();
+  try { window.close(); } catch (e) {}
+  // Browsers only let a page close itself in some cases, so fall back to a goodbye screen.
+  setTimeout(() => {
+    go("results");
+    $("#view-results").innerHTML = `<div class="bye"><div class="lvbig"><div class="badge-lv ${S.lv.level === 5 ? "t5" : ""}">${S.lv.level === 5 ? "GM" : "L" + S.lv.level}</div></div><h2 class="title">See you tomorrow.</h2><p class="muted" style="margin:0">Your progress is saved. You can close 520 Quest now.</p><button class="linkbtn" data-back>Back to the app</button></div>`;
+  }, 150);
+}
+document.addEventListener("click", e => {
+  const t = e.target;
+  if (t.closest("[data-review]")) return startReview();
+  if (t.closest("[data-exit]")) return exitApp();
+  if (t.closest("[data-more10]")) { go("scroll"); resetFeed(); return; }
+  if (t.closest("[data-back]")) { go("scroll"); resetFeed(); return; }
+  if (t.closest("#view-results [data-share]")) return share();
+});
+
+/* ---------- welcome back: once a day, on the first open ---------- */
+function welcomeBack() {
+  const t = todayKey();
+  if (S.welcome === t) return;
+  const returning = S.total > 0; S.welcome = t; save();
+  if (!returning) return;
+  const L = S.lv.level;
+  sheet(`<div class="lvbig"><div class="eyebrow">Welcome back</div><div class="badge-lv ${L === 5 ? "t5" : ""}">${L === 5 ? "GM" : "L" + L}</div><strong>Level ${L}: ${esc(tierName(L))}</strong></div>
+    ${levelBarHTML()}
+    <p class="small muted" style="margin:0;text-align:center">Today's goal: <b style="color:var(--text)">${S.goal} questions</b> · ${streakAlive()}-day streak · ${revCount()} in Revenge Queue${S.lv.pending ? ` · <b style="color:var(--volt)">Gatekeeper of Level ${S.lv.pending} is ready</b>` : ""}</p>
+    <button class="btn primary" data-close style="font-size:18px;padding:16px">Continue</button>
+    <div class="subacts"><button class="linkbtn" data-adjgoal>Adjust today's goal</button><button class="linkbtn" data-welboss>Boss battle</button></div>
+    <div id="adjBox" hidden><div class="row" style="justify-content:center">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n ? "primary" : ""}" data-setgoal="${n}">${n}</button>`).join("")}</div></div>`,
+    s => s.addEventListener("click", e => {
+      if (e.target.closest("[data-adjgoal]")) $("#adjBox", s).hidden = false;
+      const g = e.target.closest("[data-setgoal]");
+      if (g) { setGoal(+g.dataset.setgoal); $$("[data-setgoal]", s).forEach(b => b.classList.toggle("primary", b === g)); toast(`Today's goal: <b>${S.goal} questions</b>.`); }
+      if (e.target.closest("[data-welboss]")) { $("#sheetHost").innerHTML = ""; go("boss"); if (S.lv.pending) startBoss(gateBoss()); }
+    }));
+}
+function setGoal(n) { S.goal = n; S.today.goalShown = S.today.answered >= S.goal; S.today.next = S.today.goalShown ? S.today.answered + ROUND : 0; S.today.rs = { a: S.today.answered, c: S.today.correct }; save(); renderHUD(); }
+
 function share() {
-  const txt = `Day ${streakAlive()} streak in 520 Quest, level ${levelOf(S.xp)} (${rankOf(levelOf(S.xp))}). Free MCAT game${CONFIG.appUrl ? ": " + CONFIG.appUrl : ""}`;
+  const txt = `Level ${S.lv.level} (${tierName(S.lv.level)}) and a ${streakAlive()}-day streak in 520 Quest. MCAT game${CONFIG.appUrl ? ": " + CONFIG.appUrl : ""}`;
   const done = () => toast("Copied. Paste it into your story or group chat.");
   if (navigator.share) navigator.share({ text: txt }).catch(() => copy(txt, done)); else copy(txt, done);
 }
@@ -1748,6 +2047,10 @@ function renderBossLobby() {
   const left = S.pro ? "Unlimited battles" : Math.max(0, CONFIG.freeDailyBosses - S.today.bosses) + " free battle left today";
   $("#view-boss").innerHTML = `<div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h2 class="title">Boss battles</h2><button class="btn small ghost" data-musictoggle>${S.sound && S.music !== "off" ? "♪ Music on" : "♪ Music off"}</button></div><p class="sub">10 questions at exam pace, 95 seconds each. Deal 70 damage before you lose 4 hearts. ${esc(left)}.</p>
     ${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PRO</b> Unlimited boss battles every day, plus your score estimate.</p><button class="btn small pro" data-pro>Get Pro</button></div>`}
+    <div class="panel"><div class="row" style="justify-content:space-between"><h3>Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h3>${S.lv.pending ? `<button class="btn small primary" data-gate>Fight Gatekeeper ${S.lv.pending}</button>` : ""}</div>
+      ${levelBarHTML()}
+      <p class="small muted">${S.lv.pending ? `Your last evaluation qualifies you for Level ${S.lv.qual}. Beat the Gatekeeper to move up one level.` : `Every ${EVAL_N} questions your weighted accuracy is checked. Qualify for a higher level and a Gatekeeper boss appears here.`}</p>
+      <div class="ladder">${TIERS.slice().reverse().map(t => `<div class="${t.n === S.lv.level ? "on" : ""}"><b>${t.n === 5 ? "GM" : "L" + t.n}</b><span>${esc(t.name)}</span><span>${t.n === 5 ? "86–100%" : t.n === 1 ? "0–40%" : t.min + "–" + (TIERS[t.n].min - 1) + "%"}</span></div>`).join("")}</div></div>
     <div class="bosses" style="margin-top:14px">${BOSSES.map(b => `<button class="boss ${S.bossWins[b.id] ? "done" : ""}" data-boss="${b.id}"><span class="face" style="background:${b.col}">${b.face}</span><strong>${esc(b.name)}</strong><small>${esc(b.blurb)}${S.bossWins[b.id] ? " · Defeated" : ""}</small></button>`).join("")}</div>`;
 }
 $("#view-boss").addEventListener("click", e => {
@@ -1756,9 +2059,11 @@ $("#view-boss").addEventListener("click", e => {
 });
 function startBoss(boss) {
   rollDay();
-  if (!S.pro && S.today.bosses >= CONFIG.freeDailyBosses) return showPro();
-  S.today.bosses++; save();
-  const pool = QUESTIONS.filter(q => boss.sec === "ALL" || q.s === boss.sec).sort(() => Math.random() - .5);
+  // Gatekeeper fights are part of level progression, so they never count against the free daily boss.
+  if (!boss.gate && !S.pro && S.today.bosses >= CONFIG.freeDailyBosses) return showPro();
+  if (!boss.gate) S.today.bosses++; save();
+  const minD = boss.gate >= 4 ? 2 : 1;
+  const pool = QUESTIONS.filter(q => (boss.sec === "ALL" || q.s === boss.sec) && (q.d || 2) >= minD).sort(() => Math.random() - .5);
   pool.sort((a, b) => mastery(a.c) - mastery(b.c) + (Math.random() - .5) * .6);
   B = { boss, qs: pool.slice(0, 10), i: 0, hp: 70, hearts: 4, xp: 0, right: 0 };
   syncMusic(); bossTurn();
@@ -1777,7 +2082,7 @@ function bossTurn() {
   const finish = (i) => {
     if (box.dataset.done) return; box.dataset.done = 1; clearInterval(B.tick);
     const secs = (Date.now() - B.start) / 1000, ok = i === q.a;
-    $$(".opt", box).forEach((o, j) => { o.disabled = true; if (j === q.a) o.classList.add("right"); else if (j === i) o.classList.add("wrong"); o.querySelector("span").insertAdjacentHTML("beforeend", `<small>${q.o[j][1]}</small>`); });
+    $$(".opt", box).forEach((o, j) => { o.disabled = true; if (j === q.a) o.classList.add("right"); else if (j === i) o.classList.add("wrong"); o.querySelector("span").insertAdjacentHTML("beforeend", `<small>${esc(q.o[j][1])}</small>`); });
     const r = record(q, ok, secs); B.xp += r.gain;
     if (ok) { B.right++; const dmg = 10 + (secs < 45 ? 2 : 0); B.hp = Math.max(0, B.hp - dmg); beep("good"); }
     else { B.hearts--; beep("bad"); if (!reduce) { card.classList.add("shake"); } }
@@ -1797,12 +2102,14 @@ function bossTurn() {
   }, 250);
 }
 function bossEnd() {
-  const won = B.hp <= 0;
-  if (won) { S.bossWins[B.boss.id] = (S.bossWins[B.boss.id] || 0) + 1; addXP(100); confetti(); beep("level"); }
+  clearInterval(B.tick);
+  const won = B.hp <= 0, gate = B.boss.gate;
+  if (won && gate) { S.lv.level = Math.max(S.lv.level, gate); S.lv.pending = S.lv.qual > S.lv.level ? S.lv.level + 1 : 0; addXP(100); setTimeout(() => celebrateLevel(S.lv.level), 400); }
+  else if (won) { S.bossWins[B.boss.id] = (S.bossWins[B.boss.id] || 0) + 1; addXP(100); confetti(); beep("level"); }
   checkBadges(); save();
   $("#view-boss").innerHTML = `<div class="stack"><div class="eyebrow">${won ? "Victory" : "Defeated"}</div><h2 class="title">${won ? esc(B.boss.name) + " falls." : esc(B.boss.name) + " survives this time."}</h2>
     <div class="grid2"><div class="panel stat"><b>${B.right}/${B.i}</b><span>correct</span></div><div class="panel stat"><b>+${B.xp + (won ? 100 : 0)}</b><span>XP earned${won ? " incl. 100 victory bonus" : ""}</span></div></div>
-    <p class="muted">${won ? "Your misses were added to the Revenge queue." : "Every miss is now in your Revenge queue. Clear those, then rematch."}</p>
+    <p class="muted">${gate ? (won ? `You are now Level ${S.lv.level}, ${esc(tierName(S.lv.level))}.${S.lv.pending ? " Your accuracy qualifies you for more: the next Gatekeeper is ready." : ""}` : "The Gatekeeper holds. Clear your Revenge Queue and try again; your qualification doesn't expire.") : won ? "Your misses were added to the Revenge queue." : "Every miss is now in your Revenge queue. Clear those, then rematch."}</p>
     <div class="row"><button class="btn primary" data-lobby>Back to bosses</button></div></div>`;
   B = null; syncMusic();
 }
@@ -1854,6 +2161,33 @@ function proPanel(title, pitch, real, teaser) {
     <div class="teaser"><div class="blurred" aria-hidden="true" inert>${teaser}</div><div class="teaser-cta"><span class="small muted">Preview with sample numbers</span><button class="btn primary small" data-pro>Unlock, ${esc(CONFIG.price)}</button></div></div></div>`;
 }
 const SAMPLE_FL = [{ label: "FL 1", score: 506 }, { label: "FL 2", score: 510 }, { label: "FL 3", score: 513 }, { label: "FL 4", score: 517 }, { label: "FL 5", score: 521 }];
+/* ---------- analytics: performance assessment, accuracy and pace by section, trends ---------- */
+function analyticsHTML() {
+  if (S.total < 5) return `<div class="panel"><h3>Performance</h3><p class="small muted">Answer 5 questions and your performance report starts here: accuracy and pace by section, your weakest areas, and 14-day trends.</p></div>`;
+  const secs = ["CP", "CARS", "BB", "PS"].map(sec => {
+    const cs = CATS.filter(c => c[2] === sec).map(c => S.cat[c[0]] || {}), a = cs.reduce((x, c) => x + (c.a || 0), 0), cc = cs.reduce((x, c) => x + (c.c || 0), 0), t = cs.reduce((x, c) => x + (c.t || 0), 0);
+    return { sec, a, acc: a ? Math.round(cc / a * 100) : null, avg: a && t ? Math.round(t / a) : null };
+  });
+  const tried = CATS.filter(c => (S.cat[c[0]] || {}).a >= 4).map(c => [c, S.cat[c[0]].c / S.cat[c[0]].a]);
+  const best = tried.slice().sort((a, b) => b[1] - a[1])[0], weak = weakAreas();
+  const keys = Object.keys(S.tlog).sort(), last7 = keys.slice(-7).map(k => S.tlog[k]), n7 = last7.reduce((a, b) => a + b.n, 0);
+  const pace7 = n7 ? Math.round(last7.reduce((a, b) => a + b.s, 0) / n7) : null, acc7 = n7 ? Math.round(last7.reduce((a, b) => a + b.c, 0) / n7 * 100) : null;
+  const evals = S.lv.evals.slice(-1)[0];
+  const lines = [];
+  if (acc7 !== null) lines.push(`Last 7 study days: <b>${acc7}%</b> accuracy over ${n7} questions at <b>${pace7} s</b> a question${pace7 > 95 ? ", slower than the 95 s exam pace. Boss battles train speed." : ", inside exam pace."}`);
+  if (best) lines.push(`Strongest area: <b>${best[0][0]}</b> ${esc(best[0][1])} at ${Math.round(best[1] * 100)}%.`);
+  lines.push(weak.length ? `Weakest areas: ${weak.map(c => `<b>${c}</b> (${Math.round(S.cat[c].c / S.cat[c].a * 100)}%)`).join(", ")}. The adaptive engine is serving about half your new questions from these until they climb past 75%.`
+    : "No weak areas flagged yet. Areas need at least 4 answers before the adaptive engine judges them.");
+  if (evals) lines.push(`Last level evaluation: <b>${evals.pct}%</b> weighted accuracy on ${evals.date}.`);
+  const days = 14, ks = Array.from({ length: days }, (_, i) => todayKey(Date.now() - (days - 1 - i) * DAY));
+  const W = 320, H = 90, bw = (W - 20) / days;
+  const accBars = ks.map((k, i) => { const t = S.tlog[k]; if (!t || !t.n) return ""; const v = t.c / t.n, h = Math.max(3, v * (H - 24)); return `<rect x="${10 + i * bw + 2}" y="${H - 16 - h}" width="${bw - 4}" height="${h}" rx="3" fill="${v >= .76 ? "var(--good)" : v >= .61 ? "var(--volt)" : "var(--bad)"}"><title>${k}: ${Math.round(v * 100)}% of ${t.n}</title></rect>`; }).join("");
+  return `<div class="panel"><h3>Performance</h3><div class="assess">${lines.map(l => `<p>${l}</p>`).join("")}</div>
+    <div class="stack" style="gap:6px">${secs.map(r => `<div class="secrow"><span>${SECTIONS[r.sec].name}</span><span class="meter"><i style="width:${r.acc || 0}%;background:${r.acc === null ? "var(--line)" : r.acc >= 76 ? "var(--good)" : r.acc >= 61 ? "var(--volt)" : "var(--bad)"}"></i></span><b>${r.acc === null ? "–" : r.acc + "%"}</b><span class="muted">${r.avg ? r.avg + " s" : ""}</span></div>`).join("")}</div>
+    <p class="small muted" style="margin-top:4px">Accuracy by day, last 14 days</p>
+    <svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Daily accuracy, last 14 days">${accBars}<line x1="10" x2="${W - 10}" y1="${H - 16}" y2="${H - 16}" stroke="var(--line)"/><text x="10" y="${H - 3}" font-size="10" fill="var(--muted)">${new Date(ks[0] + "T12:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })}</text><text x="${W - 10}" y="${H - 3}" font-size="10" text-anchor="end" fill="var(--muted)">Today</text></svg>
+    <p class="small muted" style="margin-top:4px">Seconds per question, last 14 days</p>${timeTrendSVG()}</div>`;
+}
 function renderMe() {
   const L = levelOf(S.xp), acc = S.total ? Math.round(S.totalCorrect / S.total * 100) : 0;
   const ests = ["CP", "CARS", "BB", "PS"].map(s => [s, estimate(s)]);
@@ -1861,8 +2195,10 @@ function renderMe() {
   const dnaCounts = ["Content", "Trap", "Time"].map((t, i) => [t, S.errors.filter(e => e.type === t).length, ["var(--cool)", "var(--bad)", "var(--heat)"][i]]);
   const revN = Object.keys(S.revenge).length, dueN = Object.values(S.revenge).filter(r => r.due <= Date.now()).length;
   const C = 2 * Math.PI * 31, pct = Math.min(1, S.today.answered / S.goal);
-  $("#view-me").innerHTML = `<h2 class="title">${esc(rankOf(L))}</h2><p class="sub">Level ${L} · ${S.xp.toLocaleString()} XP · ${S.total} answered at ${acc}%${S.pro ? " · Pro" : ""}</p>
+  $("#view-me").innerHTML = `<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Pro" : ""}</p>
   <div class="stack">
+    <div class="panel">${levelBarHTML()}</div>
+    ${analyticsHTML()}
     <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
     <div class="panel"><h3>Error DNA</h3>${donut(dnaCounts)}</div>
@@ -1882,10 +2218,16 @@ function renderMe() {
     <div class="panel"><h3>Settings</h3>
       <label class="field" for="goalSel">Daily goal<select id="goalSel">${[15, 25, 40, 60].map(n => `<option value="${n}" ${S.goal === n ? "selected" : ""}>${n} questions</option>`).join("")}</select></label>
       <label class="row small" for="soundChk"><input type="checkbox" id="soundChk" ${S.sound ? "checked" : ""}> Sound and vibration</label>
+      <label class="row small" for="fanChk"><input type="checkbox" id="fanChk" ${S.fanfare ? "checked" : ""}> Level-up fanfare</label>
       <label class="row small" for="musicSel">Music <select id="musicSel">${[["boss", "Boss battles only"], ["on", "Always on"], ["off", "Off"]].map(([v, n]) => `<option value="${v}" ${S.music === v ? "selected" : ""}>${n}</option>`).join("")}</select></label>
       <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button><a class="btn small" href="../guide/" target="_blank" rel="noopener">How to use</a>${installed() ? "" : '<button class="btn small" data-install>Install app</button>'}${S.pro ? "" : '<button class="btn small pro" data-pro>Get Pro</button>'}</div><div id="backupOut"></div></div>
     ${CONFIG.resources.length ? `<div class="panel links"><h3>Resources</h3>${CONFIG.resources.map(r => `<p class="small"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a><br><span class="muted">${esc(r.note || "")}</span></p>`).join("")}</div>` : ""}
-    <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app. Progress is saved on this device only.</p>
+    <div class="panel"><h3>Help</h3>
+      <p class="small">Questions about 520 Quest or your purchase? We reply within 24 to 48 hours.</p>
+      <div class="row"><a class="btn small primary" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20support">Contact Support</a><a class="btn small" href="${esc(CONFIG.supportUrl)}" target="_blank" rel="noopener">FAQ</a><a class="btn small" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20feedback">Send feedback</a></div>
+      <p class="small muted">${esc(CONFIG.supportEmail)}</p></div>
+    <div class="panel"><h3>Privacy</h3><p class="small"><b>We help you get into medical school without selling your data.</b> Your progress stays on this device. 520 Quest has no ads, no trackers and no account.</p></div>
+    <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app.</p>
   </div>`;
 }
 $("#view-me").addEventListener("click", e => {
@@ -1915,20 +2257,22 @@ $("#view-me").addEventListener("click", e => {
   }
 });
 $("#view-me").addEventListener("change", e => {
-  if (e.target.id === "goalSel") { S.goal = +e.target.value; S.today.goalShown = S.today.answered >= S.goal; S.today.next = S.today.goalShown ? S.today.answered + ROUND : 0; S.today.rs = { a: S.today.answered, c: S.today.correct }; save(); renderHUD(); renderMe(); }
+  if (e.target.id === "goalSel") { setGoal(+e.target.value); renderMe(); }
   if (e.target.id === "soundChk") { S.sound = e.target.checked; save(); syncMusic(); }
+  if (e.target.id === "fanChk") { S.fanfare = e.target.checked; save(); if (S.fanfare && S.sound && window.MUSIC) MUSIC.fanfare(); }
   if (e.target.id === "musicSel") { S.music = e.target.value; save(); syncMusic(true); }
 });
 
 /* ---------- tabs ---------- */
 function go(tab) {
   $$(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.tab === tab));
-  ["scroll", "boss", "map", "me"].forEach(v => $("#view-" + v).hidden = v !== tab);
+  ["scroll", "boss", "map", "me", "results"].forEach(v => $("#view-" + v).hidden = v !== tab);
+  if (tab !== "results") { S.lastTab = tab; save(); }
   if (tab === "boss" && !B) renderBossLobby();
   if (tab === "map") renderMap();
   if (tab === "me") renderMe();
   if (tab !== "boss" && B) { clearInterval(B.tick); B = null; syncMusic(); }
-  const h = { scroll: "", boss: "boss", map: "map", me: "me" }[tab]; try { history.replaceState(null, "", h ? "#" + h : location.pathname); } catch (e) {}
+  const h = { scroll: "", boss: "boss", map: "map", me: "me", results: "" }[tab]; try { history.replaceState(null, "", h ? "#" + h : location.pathname); } catch (e) {}
 }
 $(".tabs").addEventListener("click", e => { const t = e.target.closest(".tab"); if (t) go(t.dataset.tab); });
 document.addEventListener("keydown", e => {
@@ -1951,7 +2295,8 @@ document.addEventListener("click", e => {
 });
 function renderAll() { renderHUD(); resetFeed(); if (!$("#view-me").hidden) renderMe(); if (!$("#view-map").hidden) renderMap(); }
 renderAll();
-const startTab = (location.hash || "").slice(1); if (["boss", "map", "me"].includes(startTab)) go(startTab);
+const startTab = (location.hash || "").slice(1) || (S.review ? "scroll" : S.lastTab); if (["boss", "map", "me"].includes(startTab)) go(startTab);
+bankReady.finally(() => welcomeBack());
 if ("serviceWorker" in navigator && location.protocol === "https:" && !/claude\.ai|claudeusercontent/.test(location.hostname)) { navigator.serviceWorker.register("sw.js").catch(() => {}); }
 
 </script>
