@@ -165,6 +165,8 @@ button { cursor: pointer; }
 .goldbtn { width: 100%; min-height: 56px; border: 0; border-radius: 16px; padding: 10px 14px; background: linear-gradient(135deg, #ffd700, #ffa500); color: #1a1200; font: 800 16px/1.25 var(--body); display: grid; gap: 4px; justify-items: center; text-align: center; cursor: pointer; animation: goldglow 2s ease-in-out infinite; }
 .goldbtn small { font: 700 11px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; background: rgba(26, 18, 0, .14); border-radius: 99px; padding: 4px 8px; }
 @keyframes goldglow { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 196, 0, .55); } 50% { box-shadow: 0 0 22px 4px rgba(255, 196, 0, .55); } }
+#goalPanel.flash { animation: goalflash 1.6s ease-out; }
+@keyframes goalflash { 0%, 40% { box-shadow: 0 0 0 3px var(--volt); } 100% { box-shadow: 0 0 0 0 transparent; } }
 .card.goldcard { display: grid; gap: 10px; align-content: center; }
 .sheetlink { display: flex; gap: 8px; align-items: center; width: 100%; text-align: left; margin-top: 6px; padding: 10px 12px; border-radius: 12px; border: 1px solid #b8860b; background: color-mix(in srgb, #ffd700 10%, var(--panel)); color: var(--text); font: 600 14px/1.3 var(--body); cursor: pointer; }
 .sheetlink b { color: #ffd700; }
@@ -1392,7 +1394,7 @@ const hasKey = () => !!(window.acctHasKey && acctHasKey());
 const sheetOpen = x => x.free || hasKey();
 function rollDay() {
   const t = todayKey();
-  if (S.today.date !== t) { S.today = { date: t, answered: 0, correct: 0, bosses: 0, goalShown: false, secs: [], missed: [] }; S.review = null; }
+  if (S.today.date !== t) { S.prevDone = !!(S.today.doneDay || S.today.answered >= S.goal); S.today = { date: t, answered: 0, correct: 0, bosses: 0, goalShown: false, secs: [], missed: [] }; S.review = null; }
   S.today.secs = S.today.secs || []; S.today.missed = S.today.missed || [];
 }
 rollDay();
@@ -1701,7 +1703,7 @@ function freeReview() {
   const id = Object.keys(S.revenge).find(id => S.stats[id] && S.revenge[id].due <= now && !sessionSeen.has(id) && anyQ(id) && !PQ[id]);
   return id ? anyQ(id) : null;
 }
-let resumeOnce = true, reviewEnded = false, resumeLate = null, goldOnce = true;
+let resumeOnce = true, reviewEnded = false, resumeLate = null;
 function resumeQ() {
   const q = S.resume && anyQ(S.resume), sec = S.focus ? CAT[S.focus].s : S.filter;
   return q && q.s !== "CARS" && !q.pid && (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus) ? q : null;
@@ -1713,7 +1715,6 @@ function nextCard() {
     if (reviewEnded) return null; reviewEnded = true; return reviewDoneCard();
   }
   if (overFree()) { const q = freeReview(); if (q) { sessionSeen.add(q.id); cardN++; return questionCard(q, true); } if (gateShown) return null; gateShown = true; return gateCard(); }
-  if (goldOnce && CONFIG.flags.MASTERY_SHEETS_CONSPICUOUS && !S.review && !S.resume) { goldOnce = false; const el = document.createElement("article"); el.className = "card goldcard"; el.innerHTML = `<div class="eyebrow">Today's quest</div><h2 class="title" style="margin:0">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><button class="btn primary" data-startq style="width:100%;min-height:56px;font-size:17px">Start today's quest · ${S.goal} Qs</button><div data-goldslot>${goldBtnHTML()}</div><p class="small muted" style="margin:0;text-align:center">Or swipe up to start.</p>`; return el; }
   if (resumeOnce) {
     resumeOnce = false;
     const q = resumeQ();
@@ -2057,11 +2058,12 @@ function todaySummaryHTML() {
     <p class="small muted" style="margin:8px 0 0">See you tomorrow. Want more today? <button class="linkbtn" data-more10>Do ${ROUND} more for +50 XP</button></p></div>`;
 }
 var extraRound = false, morePromptOpen = false; // var: renderHUD can run before this line
-function morePrompt() {
+// From Me the second choice is "Stay in Me"; from anywhere else it is "Done for the day".
+function morePrompt(fromMe = true) {
   if (morePromptOpen || $("#sheetHost .scrim")) return;
   morePromptOpen = true;
   sheet(`<div class="eyebrow">Done for the Day 🎉</div><h2>Want to do another ${ROUND} for +50 XP?</h2>
-    <div class="row"><button class="btn primary" data-more10 data-close>Do ${ROUND} More</button><button class="btn" data-close>Stay in Me</button></div>`);
+    <div class="row"><button class="btn primary" data-more10 data-close>Do ${ROUND} more questions</button>${fromMe ? `<button class="btn" data-close>Stay in Me</button>` : `<button class="btn" data-close data-doneday>Done for the day</button>`}</div>`);
   const host = $("#sheetHost"), obs = new MutationObserver(() => { if (!host.innerHTML) { morePromptOpen = false; obs.disconnect(); } }); obs.observe(host, { childList: true });
 }
 function startExtra() {
@@ -2088,24 +2090,29 @@ document.addEventListener("click", e => {
 });
 
 /* ---------- welcome back: once a day, on the first open ---------- */
+// Shown on the first open of a day when the previous day's goal was met.
 function welcomeBack() {
   const t = todayKey();
   if (S.welcome === t || S.today.doneDay) return;
-  const returning = S.total > 0; S.welcome = t; save();
-  if (!returning) return;
+  const show = S.total > 0 && S.prevDone; S.welcome = t; save();
+  if (!show) return;
   const L = S.lv.level;
   sheet(`<div class="lvbig"><div class="eyebrow">Welcome back</div><div class="badge-lv ${L === 5 ? "t5" : ""}">${L === 5 ? "GM" : "L" + L}</div><strong>Level ${L}: ${esc(tierName(L))}</strong></div>
     ${levelBarHTML()}
     <p class="small muted" style="margin:0;text-align:center">Today's goal: <b style="color:var(--text)">${S.goal} questions</b> · ${streakAlive()}-day streak · ${revCount()} in Revenge Queue${S.lv.pending ? ` · <b style="color:var(--volt)">Gatekeeper of Level ${S.lv.pending} is ready</b>` : ""}</p>
-    <button class="btn primary" data-close style="font-size:18px;padding:16px">Continue</button>
-    ${CONFIG.flags.MASTERY_SHEETS_CONSPICUOUS ? goldBtnHTML() : ""}
-    <div class="panel" style="padding:12px"><h3 style="margin:0 0 8px;text-align:center;font-size:16px">Adjust goals for the day</h3><div class="row" style="justify-content:center">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n ? "primary" : ""}" data-setgoal="${n}">${n} Qs</button>`).join("")}</div></div>
-    <div class="subacts"><button class="linkbtn" data-welboss>Boss battle</button></div>`,
+    <button class="btn primary" data-welstart style="font-size:18px;padding:16px">Start today's quest</button>
+    <button class="btn" data-welgoal>Adjust goals for the day</button>
+    ${CONFIG.flags.MASTERY_SHEETS_CONSPICUOUS ? goldBtnHTML() : ""}`,
     s => s.addEventListener("click", e => {
-      const g = e.target.closest("[data-setgoal]");
-      if (g) { setGoal(+g.dataset.setgoal); $$("[data-setgoal]", s).forEach(b => b.classList.toggle("primary", b === g)); toast(`Today's goal: <b>${S.goal} questions</b>.`); }
-      if (e.target.closest("[data-welboss]")) { $("#sheetHost").innerHTML = ""; go("boss"); if (S.lv.pending) startBoss(gateBoss()); }
+      if (e.target.closest("[data-welstart]")) { $("#sheetHost").innerHTML = ""; go("scroll"); }
+      if (e.target.closest("[data-welgoal]")) { $("#sheetHost").innerHTML = ""; showGoals(); }
     }));
+}
+// Me tab, scrolled to the daily goal picker.
+function showGoals() {
+  go("me");
+  const g = $("#goalPanel"); if (!g) return;
+  $("#view-me").scrollTop = g.offsetTop - 12; g.classList.remove("flash"); void g.offsetWidth; g.classList.add("flash");
 }
 function setGoal(n) { S.goal = n; S.today.goalShown = S.today.answered >= S.goal; S.today.next = S.today.goalShown ? S.today.answered + ROUND : 0; S.today.rs = { a: S.today.answered, c: S.today.correct }; save(); renderHUD(); }
 
@@ -2151,8 +2158,9 @@ function renderBossLobby() {
       ${levelBarHTML()}
       <p class="small muted">${S.lv.pending ? `Your last evaluation qualifies you for Level ${S.lv.qual}. Beat the Gatekeeper to move up one level.` : `Every ${EVAL_N} questions your weighted accuracy is checked. Qualify for a higher level and a Gatekeeper boss appears here.`}</p>
       <div class="ladder">${TIERS.slice().reverse().map(t => `<div class="${t.n === S.lv.level ? "on" : ""}"><b>${t.n === 5 ? "GM" : "L" + t.n}</b><span>${esc(t.name)}</span><span>${t.n === 5 ? "86–100%" : t.n === 1 ? "0–40%" : t.min + "–" + (TIERS[t.n].min - 1) + "%"}</span></div>`).join("")}</div></div>
-    ${window.duelPanelHTML ? duelPanelHTML() : ""}
-    <div class="bosses" style="margin-top:14px">${BOSSES.map(b => `<button class="boss ${S.bossWins[b.id] ? "done" : ""}" data-boss="${b.id}"><span class="face" style="background:${b.col}">${b.face}</span><strong>${esc(b.name)}</strong><small>${esc(b.blurb)}${S.bossWins[b.id] ? " · Defeated" : ""}</small></button>`).join("")}</div>`;
+
+    <div class="bosses" style="margin-top:14px">${BOSSES.map(b => `<button class="boss ${S.bossWins[b.id] ? "done" : ""}" data-boss="${b.id}"><span class="face" style="background:${b.col}">${b.face}</span><strong>${esc(b.name)}</strong><small>${esc(b.blurb)}${S.bossWins[b.id] ? " · Defeated" : ""}</small></button>`).join("")}</div>
+    ${window.duelPanelHTML ? `<div style="margin-top:14px">${duelPanelHTML()}</div>` : ""}`;
 }
 $("#view-boss").addEventListener("click", e => {
   const b = e.target.closest("[data-boss]"); if (b) return startBoss(BOSSES.find(x => x.id === b.dataset.boss));
@@ -2214,7 +2222,7 @@ function bossEnd() {
   $("#view-boss").innerHTML = `<div class="stack"><div class="eyebrow">${won ? "Victory" : "Defeated"}</div><h2 class="title">${won ? esc(B.boss.name) + " falls." : esc(B.boss.name) + " survives this time."}</h2>
     <div class="grid2"><div class="panel stat"><b>${B.right}/${B.i}</b><span>correct</span></div><div class="panel stat"><b>+${B.xp + (won ? 100 : 0)}</b><span>XP earned${won ? " incl. 100 victory bonus" : ""}</span></div></div>
     <p class="muted">${gate ? (won ? `You are now Level ${S.lv.level}, ${esc(tierName(S.lv.level))}.${S.lv.pending ? " Your accuracy qualifies you for more: the next Gatekeeper is ready." : ""}` : "The Gatekeeper holds. Clear your Revenge Queue and try again; your qualification doesn't expire.") : won ? "Your misses were added to the Revenge queue." : "Every miss is now in your Revenge queue. Clear those, then rematch."}</p>
-    <div class="row"><button class="btn primary" data-lobby>Back to bosses</button></div></div>`;
+    <div class="row"><button class="btn primary" data-lobby>Back to Bosses</button><button class="btn" data-doneday>Done for the day</button></div></div>`;
   B = null; syncMusic();
 }
 
@@ -2222,7 +2230,7 @@ function bossEnd() {
 function renderMap() {
   const groups = ["CP", "CARS", "BB", "PS"];
   $("#view-map").innerHTML = `<h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll.</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
-  <div class="stack">${SHEETS && SHEETS.length ? `<button class="goldbtn" data-gocourse>📚 Open the Course: ${SHEETS.length} Mastery Sheets</button>` : ""}${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
+  <div class="stack">${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
     const c = S.cat[code] || { a: 0, c: 0 }, m = c.a ? c.c / c.a : 0, col = !c.a ? "var(--line)" : m >= .8 ? "var(--good)" : m >= .6 ? "var(--volt)" : "var(--bad)";
     const drill = s !== "CARS" && QUESTIONS.some(q => q.c === code);
     return `<button class="cat" ${drill ? `data-drill="${code}"` : "disabled"}><code>${code}</code><span class="t">${esc(title)}${hy ? ' <span style="color:var(--volt)">★</span>' : ""}<small>${c.a ? Math.round(m * 100) + "% of " + c.a : "Not tried yet"}</small></span><span class="meter"><i style="width:${c.a ? Math.max(6, m * 100) : 0}%;background:${col}"></i></span></button>`;
@@ -2293,7 +2301,7 @@ const mnReady = CONFIG.flags.MNEMONICS_ENABLED ? fetch("mnem/index.json").then(r
 const mnVotes = id => (S.mnUp || {})[id] ? 1 : 0;
 const mnScore = m => (m.upvotes || 0) + mnVotes(m.id);
 function mnItemHTML(m) {
-  return `<button class="mn-item ${m.locked ? "locked" : ""}" data-mn="${esc(m.id)}"><span class="row" style="justify-content:space-between;flex-wrap:nowrap;gap:8px"><b>${m.locked ? "🔒 " : ""}${esc(m.concept)}</b><span class="mt">😂 ${mnScore(m)}</span></span>${m.locked ? "" : `<span class="mt">${esc(m.mnemonic_text)}</span>${m.funny_version ? `<span><span class="pill funny">Funny version</span></span>` : ""}`}</button>`;
+  return `<button class="mn-item ${m.locked ? "locked" : ""}" data-mn="${esc(m.id)}"><span class="row" style="justify-content:space-between;flex-wrap:nowrap;gap:8px"><b>${esc(m.concept)}</b>${m.locked ? `<span class="tag">Locked</span>` : ""}</span>${m.locked ? "" : `<span class="mt">${esc(m.mnemonic_text)}</span>${m.funny_version ? `<span><span class="pill funny">Funny version</span></span>` : ""}`}</button>`;
 }
 function renderCourse() {
   const v = $("#view-course"), free = SHEETS ? SHEETS.filter(x => x.free).length : 0, locked = SHEETS ? SHEETS.filter(x => !sheetOpen(x)).length : 0;
@@ -2305,16 +2313,16 @@ function renderCourse() {
     ${CONFIG.flags.MNEMONICS_ENABLED ? mnHomeHTML() : ""}</div>`;
 }
 function mnHomeHTML() {
-  if (!MN) return `<div class="panel"><h3>🧠 Mnemonics Vault</h3><p class="muted small">Loading…</p></div>`;
-  if (!MN.length) return `<div class="panel"><h3>🧠 Mnemonics Vault</h3><p class="muted small">150 funny MCAT mnemonics are on the way.</p></div>`;
+  if (!MN) return `<div class="panel"><h3>Mnemonics Vault</h3><p class="muted small">Loading…</p></div>`;
+  if (!MN.length) return `<div class="panel"><h3>Mnemonics Vault</h3><p class="muted small">150 funny MCAT mnemonics are on the way.</p></div>`;
   const top = MN.filter(m => !m.locked).sort((a, b) => mnScore(b) - mnScore(a)).slice(0, 5);
-  return `<div class="panel"><h3>🧠 Mnemonics Vault <span class="muted small">${MN.length}</span></h3>
+  return `<div class="panel"><h3>Mnemonics Vault <span class="muted small">${MN.length}</span></h3>
     <input class="mn-search" type="search" placeholder="Search mnemonics, e.g. Krebs" id="mnSearch" aria-label="Search mnemonics">
     <div class="mn-cats" style="margin-top:10px">${MN_CATS.map(c => `<button class="mn-cat" data-mncat="${esc(c)}">${esc(c)}<small>${MN.filter(m => mnKey(m.category) === mnKey(c)).length} mnemonics</small></button>`).join("")}</div>
-    <h4 style="margin:14px 0 6px">Most upvoted</h4><div class="mn-list">${top.map(mnItemHTML).join("")}</div></div>`;
+    <h4 style="margin:14px 0 6px">Featured</h4><div class="mn-list">${top.map(mnItemHTML).join("")}</div></div>`;
 }
 function renderMn(v) {
-  const back = `<button class="btn small ghost" data-mnback>← ${mnView.s === "mn" && mnView.from ? "Back" : "Course"}</button>`;
+  const back = `<button class="btn small pro" data-mnback>← ${mnView.s === "mn" && mnView.from ? "Back" : "Course"}</button>`;
   if (mnView.s === "cat" || mnView.s === "search") {
     const list = mnView.s === "cat" ? MN.filter(m => mnKey(m.category) === mnKey(mnView.cat)) : MN.filter(m => (m.concept + " " + (m.mnemonic_text || "") + " " + (m.funny_version || "")).toLowerCase().includes(mnView.q.toLowerCase()));
     const lockedN = list.filter(m => m.locked).length;
@@ -2330,7 +2338,7 @@ function renderMn(v) {
     ${m.funny_version ? `<div class="mn-funny"><span class="pill funny">Funny version</span><p class="mn-big" style="font-size:19px;margin-top:8px">${esc(m.funny_version)}</p></div>` : ""}
     ${m.explanation ? `<p>${esc(m.explanation)}</p>` : ""}
     ${m.image_url && /^[\w\/.-]+\.(svg|png|jpe?g|webp)$/i.test(m.image_url) && !m.image_url.includes("..") ? `<figure class="exfig"><img src="${esc(m.image_url)}" alt="${esc(m.doodle_prompt || m.concept)}" loading="lazy"></figure>` : ""}
-    <div class="row">${sh ? `<button class="btn small" data-sheet="${esc(sh.id)}">📚 See Sheet ${esc(sh.id)}</button>` : ""}${qs.length ? `<button class="btn small" data-mnq="${esc(qs.join(","))}">Practice ${qs.length} question${qs.length === 1 ? "" : "s"}</button>` : ""}</div>
+    <div class="row">${sh ? `<button class="btn small" data-sheet="${esc(sh.id)}">See Sheet ${esc(sh.id)}</button>` : ""}${qs.length ? `<button class="btn small" data-mnq="${esc(qs.join(","))}">Practice ${qs.length} question${qs.length === 1 ? "" : "s"}</button>` : ""}</div>
     <div class="row"><button class="btn small pro" data-mnshare="${esc(m.id)}">Share</button></div></div>`;
 }
 function mnShare(m) {
@@ -2362,7 +2370,7 @@ $("#view-course").addEventListener("click", e => {
   const c = t.closest("[data-mncat]"); if (c) { mnView = { s: "cat", cat: c.dataset.mncat }; renderCourse(); v0(); return; }
   const it = t.closest("[data-mn]"); if (it) {
     const m = MN.find(x => String(x.id) === it.dataset.mn); if (!m) return;
-    if (m.locked) return lockedSheet(`🧠 ${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 5,180 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
+    if (m.locked) return lockedSheet(`${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 5,180 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
     mnView = { s: "mn", id: m.id, from: mnView.s !== "home" ? mnView : null }; renderCourse(); v0(); return;
   }
   if (t.closest("[data-mnback]")) { mnView = mnView.s === "mn" && mnView.from ? mnView.from : { s: "home" }; renderCourse(); return; }
@@ -2445,6 +2453,7 @@ function renderMe() {
   $("#view-me").innerHTML = `${todaySummaryHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Subscriber" : ""}</p>
   <div class="stack">
     <div class="panel">${levelBarHTML()}</div>
+    <div class="panel" id="goalPanel"><h3>Adjust goals for the day</h3><p class="small muted" style="margin:0 0 8px">How many questions do you want to do each day?</p><div class="row">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n ? "primary" : ""}" data-setgoal="${n}">${n} questions</button>`).join("")}</div></div>
     ${window.acctPanelHTML ? acctPanelHTML() : ""}
     ${analyticsHTML()}
     <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
@@ -2464,7 +2473,6 @@ function renderMe() {
       <div class="row"><button class="btn primary" data-exportanki ${S.anki.length ? "" : "disabled"}>Export to Anki</button><button class="btn small" data-ankiall>Add all my misses</button>${S.anki.length ? '<button class="btn small ghost" data-ankiclear>Clear queue</button>' : ""}</div></div>
     <div class="panel"><h3>Badges</h3><div class="badges">${BADGES.map(([id, ic, name]) => `<div class="badge ${S.badges[id] ? "got" : ""}"><i>${ic}</i>${esc(name)}</div>`).join("")}</div></div>
     <div class="panel"><h3>Settings</h3>
-      <label class="field" for="goalSel">Daily goal<select id="goalSel">${[15, 25, 40, 60].map(n => `<option value="${n}" ${S.goal === n ? "selected" : ""}>${n} questions</option>`).join("")}</select></label>
       <label class="row small" for="soundChk"><input type="checkbox" id="soundChk" ${S.sound ? "checked" : ""}> Sound and vibration</label>
       <label class="row small" for="fanChk"><input type="checkbox" id="fanChk" ${S.fanfare ? "checked" : ""}> Level-up fanfare</label>
       <label class="row small" for="musicSel">Music <select id="musicSel">${[["boss", "Boss battles only"], ["on", "Always on"], ["off", "Off"]].map(([v, n]) => `<option value="${v}" ${S.music === v ? "selected" : ""}>${n}</option>`).join("")}</select></label>
@@ -2480,6 +2488,7 @@ function renderMe() {
 }
 $("#view-me").addEventListener("click", e => {
   const t = e.target;
+  const sg = t.closest("[data-setgoal]"); if (sg) { setGoal(+sg.dataset.setgoal); const y = $("#view-me").scrollTop; renderMe(); $("#view-me").scrollTop = y; return toast(`Daily goal: <b>${S.goal} questions</b>.`); }
   if (t.closest("[data-pro]")) return showPro();
   if (t.closest("[data-share]")) return share();
   if (t.closest("[data-addfl]")) {
@@ -2505,7 +2514,6 @@ $("#view-me").addEventListener("click", e => {
   }
 });
 $("#view-me").addEventListener("change", e => {
-  if (e.target.id === "goalSel") { setGoal(+e.target.value); renderMe(); }
   if (e.target.id === "soundChk") { S.sound = e.target.checked; save(); syncMusic(); }
   if (e.target.id === "fanChk") { S.fanfare = e.target.checked; save(); if (S.fanfare && S.sound && window.MUSIC) MUSIC.fanfare(); }
   if (e.target.id === "musicSel") { S.music = e.target.value; save(); syncMusic(true); }
@@ -2525,7 +2533,9 @@ function go(tab) {
 }
 $(".tabs").addEventListener("click", e => {
   const t = e.target.closest(".tab"); if (!t) return;
-  if (S.today.doneDay && !extraRound && (t.dataset.tab === "scroll" || t.dataset.tab === "boss")) { if ($("#view-me").hidden) go("me"); return morePrompt(); }
+  // Opening Scroll after the day's goal asks first; every other tab opens directly.
+  const goalDone = S.today.doneDay || S.today.answered >= S.goal;
+  if (t.dataset.tab === "scroll" && goalDone && !extraRound && !S.review && $("#view-scroll").hidden) return morePrompt(!$("#view-me").hidden);
   go(t.dataset.tab);
 });
 document.addEventListener("keydown", e => {
@@ -2548,7 +2558,8 @@ document.addEventListener("click", e => {
 });
 function renderAll() { renderHUD(); resetFeed(); if (!$("#view-me").hidden) renderMe(); if (!$("#view-map").hidden) renderMap(); }
 renderAll();
-const startTab = S.today.doneDay ? "me" : (location.hash || "").slice(1) || (S.review ? "scroll" : S.lastTab); if (["boss", "course", "map", "me"].includes(startTab)) go(startTab);
+// Reopening: Course or Map reopen where you were; otherwise Me after Done for the Day, else Scroll at your last question.
+const startTab = ["course", "map"].includes(S.lastTab) ? S.lastTab : S.today.doneDay ? "me" : "scroll"; if (startTab !== "scroll") go(startTab);
 bankReady.finally(() => welcomeBack());
 if ("serviceWorker" in navigator && location.protocol === "https:" && !/claude\.ai|claudeusercontent/.test(location.hostname)) { navigator.serviceWorker.register("sw.js").catch(() => {}); }
 
