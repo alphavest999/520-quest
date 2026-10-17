@@ -337,7 +337,7 @@ a { color: var(--volt); }
     <span class="pill goal" id="hudGoal" title="Today's goal"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg><span id="hudGoalTxt">0/25</span></span>
     <span class="pill streak" id="hudStreak" title="Day streak"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8.6 1c.4 2.4-1.3 3.4-2.3 4.8C5.4 7 5 8 5 9.2 5 11.9 6.6 15 8 15c2.6 0 4-2.3 4-4.9 0-2-1-3.1-1.7-4-.2 1-.7 1.7-1.4 2C9.8 5.9 9.7 3 8.6 1Z"/></svg><span id="hudStreakTxt">0</span></span>
     <button class="hudinst" id="hudInstall" data-install hidden aria-label="Install app"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.5 8 10l3.5-3.5M3 13.5h10"/></svg>APP</button>
-    <button class="hudpro" id="hudPro" data-pro hidden><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg>PRO</button>
+    <button class="hudpro" id="hudPro" data-pro hidden><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg>PLANS</button>
   </header>
 
   <div class="views">
@@ -1312,16 +1312,16 @@ const TRAPS = [
 <script>
 /* ================= OWNER SETTINGS: edit these lines to start selling ================= */
 const CONFIG = {
-  productName: "520 Quest Pro",
-  price: "$39 one-time",
-  // Your Gumroad or Lemon Squeezy checkout link:
-  checkoutUrl: "https://alphavest.gumroad.com/l/520quest?wanted=true",
-  lemonUrl: "",            // Lemon Squeezy checkout link; when set it replaces checkoutUrl and opens as a pop-up
-  // SHA-256 hashes of unlock codes (uppercase). The code you put in the product's receipt unlocks Pro.
-    unlockCodeHashes: ["dc0b3e3e3aed783131957d2c79b7dca52954b12d15d657aca671d57ee3078658"],
-  // Optional: Gumroad product ID to verify individual license keys (works when the app is on your own site).
-  gumroadProductId: "",
-  freeDailyQuestions: 40,
+  // Plans: paste each plan's Lemon Squeezy checkout link once the store is live. Empty links show "Opening soon".
+  plans: [
+    { id: "monthly", name: "Monthly", price: "$14.99", per: "/ month", url: "" },
+    { id: "sixmonth", name: "6 Months", price: "$44.99", per: "/ 6 months", url: "" },
+    { id: "yearly", name: "Yearly", price: "$79.99", per: "/ year", url: "", best: true }
+  ],
+  fromPrice: "$14.99/month",
+  // SHA-256 hashes of unlock codes (uppercase) from earlier purchases. A matching code unlocks everything.
+  unlockCodeHashes: ["dc0b3e3e3aed783131957d2c79b7dca52954b12d15d657aca671d57ee3078658"],
+  freeQuestions: 100,      // free players can open this many different questions in total
   freeDailyBosses: 1,
   // Affiliate or partner links shown under Resources. Leave empty to hide.
   resources: [
@@ -1341,7 +1341,6 @@ const CONFIG = {
   // Supabase project for accounts, sync, devices, paid content and duels. The publishable key is safe to ship.
   supabaseUrl: "https://cbiwsrzmqipkminixulv.supabase.co",
   supabaseKey: "sb_publishable_mZUgXs_0Pdxo3U8flAifYw_QxOO_D5o",
-  yearlyPrice: "$79.99/yr"
 };
 /* ===================================================================================== */
 
@@ -1694,7 +1693,15 @@ function pickQuestion() {
   for (let i = 0; i < fresh.length; i++) { r -= w[i]; if (r <= 0) return [fresh[i], false]; }
   return [fresh[fresh.length - 1], false];
 }
-function overFree() { return !S.pro && S.today.answered >= CONFIG.freeDailyQuestions; }
+// Free players get CONFIG.freeQuestions different questions in total; misses among them keep coming back for review.
+const seenCount = () => Object.keys(S.stats).length;
+function overFree() { return !S.pro && seenCount() >= CONFIG.freeQuestions; }
+const canOpen = q => S.pro || !!S.stats[q.id] || !overFree();
+function freeReview() {
+  const now = Date.now();
+  const id = Object.keys(S.revenge).find(id => S.stats[id] && S.revenge[id].due <= now && !sessionSeen.has(id) && anyQ(id) && !PQ[id]);
+  return id ? anyQ(id) : null;
+}
 let resumeOnce = true, reviewEnded = false, resumeLate = null, goldOnce = true;
 function resumeQ() {
   const q = S.resume && anyQ(S.resume), sec = S.focus ? CAT[S.focus].s : S.filter;
@@ -1706,7 +1713,7 @@ function nextCard() {
     if (id && anyQ(id)) { R.queued.push(id); return questionCard(anyQ(id), true); }
     if (reviewEnded) return null; reviewEnded = true; return reviewDoneCard();
   }
-  if (overFree()) { if (gateShown) return null; gateShown = true; return gateCard(); }
+  if (overFree()) { const q = freeReview(); if (q) { sessionSeen.add(q.id); cardN++; return questionCard(q, true); } if (gateShown) return null; gateShown = true; return gateCard(); }
   if (goldOnce && CONFIG.flags.MASTERY_SHEETS_CONSPICUOUS && !S.review && !S.resume) { goldOnce = false; const el = document.createElement("article"); el.className = "card goldcard"; el.innerHTML = `<div class="eyebrow">Today's quest</div><h2 class="title" style="margin:0">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><button class="btn primary" data-startq style="width:100%;min-height:56px;font-size:17px">Start today's quest · ${S.goal} Qs</button><div data-goldslot>${goldBtnHTML()}</div><p class="small muted" style="margin:0;text-align:center">Or swipe up to start.</p>`; return el; }
   if (resumeOnce) {
     resumeOnce = false;
@@ -1716,12 +1723,15 @@ function nextCard() {
   }
   cardN++;
   const sec = S.focus ? CAT[S.focus].s : S.filter;
-  if (sec === "CARS") return passageCard(PASSAGES[passI++ % PASSAGES.length]);
-  if (!S.focus && sec === "ALL" && cardN % 9 === 0) return passageCard(PASSAGES[passI++ % PASSAGES.length]);
+  // A passage only appears when all its questions fit inside the free limit.
+  const nextP = PASSAGES[passI % PASSAGES.length], pFits = S.pro || seenCount() + nextP.qs.filter(q => !S.stats[q.id]).length <= CONFIG.freeQuestions;
+  if (sec === "CARS") { if (!pFits) { if (gateShown) return null; gateShown = true; return gateCard(); } passI++; return passageCard(nextP); }
+  if (!S.focus && sec === "ALL" && cardN % 9 === 0 && pFits) { passI++; return passageCard(nextP); }
   if (cardN === 4 && !installed()) return installCard();
   if (!S.pro && cardN % 12 === 0) return promoCard();
   if (!S.focus && cardN % 5 === 0) return (cardN / 5) % 2 ? factCard() : trapCard();
   const [q, rev, tgt] = pickQuestion(); sessionSeen.add(q.id);
+  if (!canOpen(q)) { if (gateShown) return null; gateShown = true; return gateCard(); }
   return questionCard(q, rev, tgt);
 }
 function fill(n = 3) { for (let i = 0; i < n; i++) { const c = nextCard(); if (!c) break; feed.appendChild(c); io.observe(c); } watchEnd(); }
@@ -1928,18 +1938,18 @@ function trapCard() {
   return el;
 }
 function promoCard() {
-  const left = Math.max(0, CONFIG.freeDailyQuestions - S.today.answered);
+  const left = Math.max(0, CONFIG.freeQuestions - seenCount());
   const el = document.createElement("article"); el.className = "card promo";
-  el.innerHTML = `<div class="eyebrow" style="color:#fb7185">520 Quest Pro</div><p class="bigtext">Go unlimited. ${left} free question${left === 1 ? "" : "s"} left today.</p>
-    <p class="muted" style="margin:0">Pro removes the daily cap and unlocks unlimited boss battles, your section score estimate, the full-length tracker and Anki export.</p>
-    <div class="row"><button class="btn pro" data-pro>Get Pro, ${esc(CONFIG.price)}</button></div>${SWIPE}`;
+  el.innerHTML = `<div class="eyebrow" style="color:#fb7185">520 Quest plans</div><p class="bigtext">${left} of ${CONFIG.freeQuestions} free questions left.</p>
+    <p class="muted" style="margin:0">Every plan unlocks all 5,180 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles and duels, the score estimate and Anki export.</p>
+    <div class="row"><button class="btn pro" data-pro>See plans, from ${esc(CONFIG.fromPrice)}</button></div>${SWIPE}`;
   return el;
 }
 function gateCard() {
   const el = document.createElement("article"); el.className = "card gate";
-  el.innerHTML = `<div class="eyebrow">Free limit reached</div><p class="bigtext">You answered ${CONFIG.freeDailyQuestions} questions today. That is a strong session.</p>
-    <p class="muted" style="margin:0">Free players get ${CONFIG.freeDailyQuestions} a day, refilled tomorrow. Pro removes the cap and adds unlimited boss battles, Anki export, the score estimate, and the full-length tracker.</p>
-    <div class="row"><button class="btn pro" data-pro>Get Pro, ${esc(CONFIG.price)}</button></div>`;
+  el.innerHTML = `<div class="eyebrow">Free questions used</div><p class="bigtext">You've opened all ${CONFIG.freeQuestions} free questions. Nice work.</p>
+    <p class="muted" style="margin:0">Your misses still come back here for review. Pick a plan to unlock all 5,180 questions, all 33 Mastery Sheets and all 150 mnemonics.</p>
+    <div class="row"><button class="btn pro" data-pro>See plans, from ${esc(CONFIG.fromPrice)}</button></div>`;
   $("[data-pro]", el).addEventListener("click", showPro);
   return el;
 }
@@ -1984,7 +1994,7 @@ function timeTrendSVG(days = 14) {
     ${[0, Math.round(hi / 2)].map(v => `<text x="2" y="${y(v) + 3}" font-size="10" fill="var(--muted)">${v}s</text>`).join("")}
     <polyline points="${line}" fill="none" stroke="var(--cool)" stroke-width="2.5" stroke-linejoin="round"/>
     ${pts.map((p, i) => p.v === null ? "" : `<circle cx="${x(i)}" cy="${y(p.v)}" r="${i === days - 1 ? 4.5 : 3}" fill="var(--cool)"/>`).join("")}
-    ${[0, Math.floor(days / 2), days - 1].map(i => `<text x="${x(i)}" y="${H - 6}" font-size="10" text-anchor="middle" fill="var(--muted)">${i === days - 1 ? "Today" : new Date(keys[i] + "T12:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })}</text>`).join("")}
+    ${[0, Math.floor(days / 2), days - 1].map(i => `<text x="${x(i)}" y="${H - 6}" font-size="10" text-anchor="${i === 0 ? "start" : i === days - 1 ? "end" : "middle"}" fill="var(--muted)">${i === days - 1 ? "Today" : new Date(keys[i] + "T12:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })}</text>`).join("")}
   </svg>`;
 }
 function avgSecs(arr) { return arr.length ? Math.round(arr.reduce((a, b) => a + b, 0) / arr.length) : 0; }
@@ -2090,10 +2100,9 @@ function welcomeBack() {
     <p class="small muted" style="margin:0;text-align:center">Today's goal: <b style="color:var(--text)">${S.goal} questions</b> · ${streakAlive()}-day streak · ${revCount()} in Revenge Queue${S.lv.pending ? ` · <b style="color:var(--volt)">Gatekeeper of Level ${S.lv.pending} is ready</b>` : ""}</p>
     <button class="btn primary" data-close style="font-size:18px;padding:16px">Continue</button>
     ${CONFIG.flags.MASTERY_SHEETS_CONSPICUOUS ? goldBtnHTML() : ""}
-    <div class="subacts"><button class="linkbtn" data-adjgoal>Adjust today's goal</button><button class="linkbtn" data-welboss>Boss battle</button></div>
-    <div id="adjBox" hidden><div class="row" style="justify-content:center">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n ? "primary" : ""}" data-setgoal="${n}">${n}</button>`).join("")}</div></div>`,
+    <div class="panel" style="padding:12px"><h3 style="margin:0 0 8px;text-align:center;font-size:16px">Adjust goals for the day</h3><div class="row" style="justify-content:center">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n ? "primary" : ""}" data-setgoal="${n}">${n} Qs</button>`).join("")}</div></div>
+    <div class="subacts"><button class="linkbtn" data-welboss>Boss battle</button></div>`,
     s => s.addEventListener("click", e => {
-      if (e.target.closest("[data-adjgoal]")) $("#adjBox", s).hidden = false;
       const g = e.target.closest("[data-setgoal]");
       if (g) { setGoal(+g.dataset.setgoal); $$("[data-setgoal]", s).forEach(b => b.classList.toggle("primary", b === g)); toast(`Today's goal: <b>${S.goal} questions</b>.`); }
       if (e.target.closest("[data-welboss]")) { $("#sheetHost").innerHTML = ""; go("boss"); if (S.lv.pending) startBoss(gateBoss()); }
@@ -2111,39 +2120,35 @@ function copy(txt, done, area) {
   try { navigator.clipboard.writeText(txt).then(done, fallback); } catch (e) { fallback(); }
 }
 async function sha(s) { const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s)); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join(""); }
+const planUrl = u => u + (u.includes("?") ? "&" : "?") + "embed=1&dark=1&media=0&desc=0&button_color=%23fb7185";
 function showPro() {
-  if (S.pro) { toast("<b>You're Pro.</b> Everything is unlocked on this device."); return; }
-  sheet(`<div class="eyebrow">${esc(CONFIG.productName)}</div><h2>Unlimited play, one price, yours forever</h2>
-    <ul class="muted" style="margin:0;padding-left:18px;display:grid;gap:4px"><li>Unlimited daily scrolling and boss battles</li><li>Export your misses to Anki or Quizlet</li><li>Section score estimate from your answers</li><li>Full-length score tracker with a 520 line</li><li>No subscription. No renewal. Updates included.</li></ul>
-    <div class="row"><a class="btn pro${CONFIG.lemonUrl ? " lemonsqueezy-button" : ""}" href="${esc(CONFIG.checkoutUrl)}" target="_blank" rel="noopener" style="flex:1;font-size:18px;padding:16px">Get Pro, ${esc(CONFIG.price)}</a></div>
-    <label class="field" for="unlockCode">Already bought it? Enter your unlock code<input type="text" id="unlockCode" autocomplete="off" placeholder="Code from your receipt"></label>
-    <div class="row"><button class="btn" data-unlock>Unlock</button><button class="btn ghost" data-close>Not now</button></div><p class="small muted" id="unlockMsg"></p>`,
+  if (S.pro) { toast("<b>Your plan is active.</b> Everything is unlocked."); return; }
+  const open = CONFIG.plans.some(p => p.url);
+  sheet(`<div class="eyebrow">520 Quest plans</div><h2>Unlock everything</h2>
+    <p class="muted" style="margin:0">Every plan includes all 5,180 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles and duels, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
+    <div class="stack" style="gap:8px">${CONFIG.plans.map(p => `<div class="panel row" style="justify-content:space-between;flex-wrap:nowrap;gap:10px${p.best ? ";border-color:var(--volt)" : ""}"><div><b>${esc(p.name)}</b>${p.best ? ' <span class="tag sec">Best value</span>' : ""}<div class="small muted">${esc(p.price)} ${esc(p.per)}</div></div>${p.url ? `<a class="btn pro small lemonsqueezy-button" href="${esc(planUrl(p.url))}" target="_blank" rel="noopener">Choose</a>` : `<button class="btn small" disabled>Opening soon</button>`}</div>`).join("")}</div>
+    <p class="small muted" style="margin:0">${open ? "Plans renew automatically and can be cancelled anytime. After you subscribe, sign in with the same email in the Me tab." : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions, 5 Mastery Sheets and 1 mnemonic."}</p>
+    <details><summary class="small muted">Have an unlock code?</summary>
+    <label class="field" for="unlockCode">Unlock code<input type="text" id="unlockCode" autocomplete="off" placeholder="Code from your receipt"></label>
+    <div class="row"><button class="btn small" data-unlock>Unlock</button></div><p class="small muted" id="unlockMsg"></p></details>
+    <div class="row"><button class="btn ghost" data-close>Not now</button></div>`,
     s => $("[data-unlock]", s).addEventListener("click", async () => {
       const raw = $("#unlockCode", s).value, msg = $("#unlockMsg", s);
       // Forgive line breaks, spaces and missing dashes from copying out of an email.
       const bare = raw.toUpperCase().replace(/[^A-Z0-9]/g, "");
       const code = bare.length === 12 ? bare.match(/.{4}/g).join("-") : raw.trim();
-      if (!code) { msg.textContent = "Enter the code from your purchase receipt."; return; }
+      if (!code) { msg.textContent = "Enter the code from your receipt."; return; }
       let ok = false;
       try { ok = CONFIG.unlockCodeHashes.includes(await sha(code.toUpperCase())); } catch (e) {}
-      if (!ok && CONFIG.gumroadProductId) {
-        try {
-          const r = await fetch("https://api.gumroad.com/v2/licenses/verify", { method: "POST", body: new URLSearchParams({ product_id: CONFIG.gumroadProductId, license_key: code }) });
-          const j = await r.json(); ok = !!(j.success && !(j.purchase && (j.purchase.refunded || j.purchase.chargebacked)));
-        } catch (e) {}
-      }
-      if (ok) { S.pro = true; S.proBy = "code"; save(); window.redeem && redeem(code); $("#sheetHost").innerHTML = ""; confetti(); toast("<b>Pro unlocked.</b> Thanks for supporting 520 Quest."); renderAll(); }
+      if (ok) { S.pro = true; S.proBy = "code"; save(); window.redeem && redeem(code); $("#sheetHost").innerHTML = ""; confetti(); toast("<b>Unlocked.</b> Sign in on the Me tab to open every Mastery Sheet and mnemonic."); renderAll(); }
       else msg.textContent = "That code didn't work. Check for typos, or copy it straight from your receipt email.";
     }));
   window.createLemonSqueezy && window.createLemonSqueezy();
 }
 
 // Lemon Squeezy pop-up checkout (stays inside the app). Offline, the link opens checkout normally.
-if (CONFIG.lemonUrl) {
-  CONFIG.checkoutUrl = CONFIG.lemonUrl + (CONFIG.lemonUrl.includes("?") ? "&" : "?") + "embed=1&dark=1&media=0&desc=0&button_color=%23fb7185";
-  if (!S.pro && navigator.onLine) {
-    const ls = document.createElement("script"); ls.src = "https://assets.lemonsqueezy.com/lemon.js"; ls.defer = true; document.head.appendChild(ls);
-  }
+if (CONFIG.plans.some(p => p.url) && !S.pro && navigator.onLine) {
+  const ls = document.createElement("script"); ls.src = "https://assets.lemonsqueezy.com/lemon.js"; ls.defer = true; document.head.appendChild(ls);
 }
 
 /* ---------- boss battles ---------- */
@@ -2157,7 +2162,7 @@ let B = null;
 function renderBossLobby() {
   const left = S.pro ? "Unlimited battles" : Math.max(0, CONFIG.freeDailyBosses - S.today.bosses) + " free battle left today";
   $("#view-boss").innerHTML = `<div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h2 class="title">Boss battles</h2><button class="btn small ghost" data-musictoggle>${S.sound && S.music !== "off" ? "♪ Music on" : "♪ Music off"}</button></div><p class="sub">10 questions at exam pace, 95 seconds each. Deal 70 damage before you lose 4 hearts. ${esc(left)}.</p>
-    ${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PRO</b> Unlimited boss battles every day, plus your score estimate.</p><button class="btn small pro" data-pro>Get Pro</button></div>`}
+    ${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> Unlimited boss battles every day, plus your score estimate.</p><button class="btn small pro" data-pro>See plans</button></div>`}
     <div class="panel"><div class="row" style="justify-content:space-between"><h3>Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h3>${S.lv.pending ? `<button class="btn small primary" data-gate>Fight Gatekeeper ${S.lv.pending}</button>` : ""}</div>
       ${levelBarHTML()}
       <p class="small muted">${S.lv.pending ? `Your last evaluation qualifies you for Level ${S.lv.qual}. Beat the Gatekeeper to move up one level.` : `Every ${EVAL_N} questions your weighted accuracy is checked. Qualify for a higher level and a Gatekeeper boss appears here.`}</p>
@@ -2177,7 +2182,10 @@ function startBoss(boss) {
   const minD = boss.gate >= 4 ? 2 : 1;
   const pool = QUESTIONS.filter(q => (boss.sec === "ALL" || q.s === boss.sec) && (q.d || 2) >= minD).sort(() => Math.random() - .5);
   pool.sort((a, b) => mastery(a.c) - mastery(b.c) + (Math.random() - .5) * .6);
-  B = { boss, qs: pool.slice(0, 10), i: 0, hp: 70, hearts: 4, xp: 0, right: 0 };
+  let left = CONFIG.freeQuestions - seenCount(); // free players: questions they've seen, plus new ones up to the free limit
+  const allowed = S.pro ? pool : pool.filter(q => S.stats[q.id] || left-- > 0);
+  if (allowed.length < 10 && !S.pro) { if (!boss.gate) S.today.bosses--; save(); return showPro(); }
+  B = { boss, qs: allowed.slice(0, 10), i: 0, hp: 70, hearts: 4, xp: 0, right: 0 };
   syncMusic(); bossTurn();
 }
 function bossTurn() {
@@ -2229,7 +2237,7 @@ function bossEnd() {
 /* ---------- map ---------- */
 function renderMap() {
   const groups = ["CP", "CARS", "BB", "PS"];
-  $("#view-map").innerHTML = `<h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll.</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PRO</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>Get Pro</button></div>`}
+  $("#view-map").innerHTML = `<h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll.</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
   <div class="stack">${SHEETS && SHEETS.length ? `<button class="goldbtn" data-gocourse>📚 Open the Course: ${SHEETS.length} Mastery Sheets</button>` : ""}${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
     const c = S.cat[code] || { a: 0, c: 0 }, m = c.a ? c.c / c.a : 0, col = !c.a ? "var(--line)" : m >= .8 ? "var(--good)" : m >= .6 ? "var(--volt)" : "var(--bad)";
     const drill = s !== "CARS" && QUESTIONS.some(q => q.c === code);
@@ -2251,8 +2259,8 @@ function wmImage(text) {
 }
 function openSheet(id) {
   const meta = (SHEETS || []).find(x => x.id === id); if (!meta) return;
-  if (!sheetOpen(meta)) return lockedSheet(`${esc(meta.id)}: ${esc(meta.title)}`, `Unlock ${SHEETS.filter(x => !x.free).length} more sheets + all 5,180 questions with Yearly, ${esc(CONFIG.yearlyPrice)}.`);
-  const v = $("#sheetView"), mark = `520quest.com · ${S.pro ? "Pro" : "Preview"} copy · ${new Date().toISOString().slice(0, 10)}`;
+  if (!sheetOpen(meta)) return lockedSheet(`${esc(meta.id)}: ${esc(meta.title)}`, `Unlock ${SHEETS.filter(x => !x.free).length} more sheets + all 5,180 questions with any plan, from ${esc(CONFIG.fromPrice)}.`);
+  const v = $("#sheetView"), mark = `520quest.com · ${S.pro ? "Subscriber" : "Preview"} copy · ${new Date().toISOString().slice(0, 10)}`;
   v.innerHTML = `<div class="sv-top"><h2>${esc(meta.id)}: ${esc(meta.title)}</h2><button class="btn small" data-svclose>Close</button></div><div class="sv-body"><div class="sv-doc"><p class="muted">Loading…</p></div></div>`;
   v.hidden = false; document.body.style.overflow = "hidden";
   (meta.free ? fetch("sheets/" + encodeURIComponent(id) + ".json").then(r => { if (!r.ok) throw 0; return r.json(); }) : openSealed(id)).then(d => {
@@ -2266,6 +2274,7 @@ $("#sheetView").addEventListener("click", e => {
   if (e.target.closest("[data-svclose]")) return closeSheet();
   const q = e.target.closest("[data-q]"); if (!q) return;
   const item = anyQ(q.dataset.q); if (!item) return toast("That question is still loading. Try again in a moment.");
+  if (!canOpen(item)) { closeSheet(); return showPro(); }
   closeSheet(); go("scroll"); sessionSeen.add(item.id);
   const c = questionCard(item, false); feed.prepend(c); io.observe(c); feed.scrollTop = 0;
 });
@@ -2277,15 +2286,15 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#sheet
 const sheetFor = q => !q ? null : q.s === "CARS" || q.pid || ["CF", "CW", "CB"].includes(q.c) ? "CARS" : q.c === "SK" ? "SIRS" : q.c;
 function goldBtnHTML() {
   const n = SHEETS && SHEETS.length ? SHEETS.filter(x => !["CARS", "SIRS"].includes(x.id)).length : 31;
-  return `<button class="goldbtn" data-gocourse>📚 ${n} MCAT Mastery Sheets · Full content review<small>${S.pro ? "" : "🔒 "}Included in ${esc(CONFIG.yearlyPrice)}</small></button>`;
+  return `<button class="goldbtn" data-gocourse>📚 ${n} MCAT Mastery Sheets · Full content review<small>${S.pro ? "" : "🔒 "}Included in every plan</small></button>`;
 }
 function sheetLinkHTML(q) {
   const id = sheetFor(q), meta = id && SHEETS && SHEETS.find(x => x.id === id);
   return meta ? `<button class="sheetlink" data-sheet="${esc(meta.id)}">📚 <span>Related: <b>Mastery Sheet ${esc(meta.id)}</b> · ${esc(meta.title)}${sheetOpen(meta) ? "" : " 🔒"}</span></button>` : "";
 }
 function lockedSheet(title, line) {
-  sheet(`<div class="eyebrow">Locked</div><h3>${title}</h3><p><b>${line}</b></p><p class="muted small">Yearly opens soon. Today, the $39 launch offer unlocks Pro and upgrades to Lifetime free when the new plans open.</p>
-    <div class="row"><button class="btn pro" data-close data-pro2>See the launch offer</button><button class="btn ghost" data-close>Not now</button></div>`);
+  sheet(`<div class="eyebrow">Locked</div><h3>${title}</h3><p><b>${line}</b></p><p class="muted small">Monthly ${esc(CONFIG.plans[0].price)}, 6 Months ${esc(CONFIG.plans[1].price)} or Yearly ${esc(CONFIG.plans[2].price)}. Every plan unlocks everything.${S.pro ? " Already subscribed? Sign in on the Me tab." : ""}</p>
+    <div class="row"><button class="btn pro" data-close data-pro2>See plans</button><button class="btn ghost" data-close>Not now</button></div>`);
 }
 document.addEventListener("click", e => {
   if (e.target.closest("[data-pro2]")) return setTimeout(showPro, 50);
@@ -2308,7 +2317,7 @@ function renderCourse() {
   v.innerHTML = `<h2 class="title">Course</h2><p class="sub">Mastery Sheets for every MCAT content category, plus the Mnemonics Vault.</p>
     <div class="stack"><div class="panel"><h3>Mastery Sheets</h3><p class="small muted" style="margin:4px 0 0">One-page reviews: high-yield summary, formulas and pathways, common traps and 3 practice questions.${S.pro || hasKey() ? "" : ` ${free} free previews.`}</p>
       ${SHEETS ? `<div class="sheets-grid">${SHEETS.map(x => `<button class="shbtn ${sheetOpen(x) ? "" : "locked"}" data-sheet="${esc(x.id)}"><code>${sheetOpen(x) ? "" : "🔒 "}${esc(x.id)}</code><small>${esc(x.title)}</small></button>`).join("")}</div>` : `<p class="muted small">Loading…</p>`}
-      ${locked ? `<div class="lockcta">Unlock ${locked} more sheets + 5,180 Qs for ${esc(CONFIG.yearlyPrice)}<div class="small muted" style="font-weight:400;margin-top:4px">Yearly opens soon. <button class="linkbtn" data-pro2>See today's launch offer</button></div></div>` : ""}</div>
+      ${locked ? `<div class="lockcta">Unlock ${locked} more sheets + all 5,180 Qs with any plan, from ${esc(CONFIG.fromPrice)}<div class="small muted" style="font-weight:400;margin-top:4px"><button class="linkbtn" data-pro2>See plans</button></div></div>` : ""}</div>
     ${CONFIG.flags.MNEMONICS_ENABLED ? mnHomeHTML() : ""}</div>`;
 }
 function mnHomeHTML() {
@@ -2326,7 +2335,7 @@ function renderMn(v) {
     const list = mnView.s === "cat" ? MN.filter(m => mnKey(m.category) === mnKey(mnView.cat)) : MN.filter(m => (m.concept + " " + (m.mnemonic_text || "") + " " + (m.funny_version || "")).toLowerCase().includes(mnView.q.toLowerCase()));
     const lockedN = list.filter(m => m.locked).length;
     v.innerHTML = `${back}<h2 class="title" style="margin-top:10px">${mnView.s === "cat" ? esc(mnView.cat) : `Results for “${esc(mnView.q)}”`}</h2><p class="sub">${list.length} mnemonic${list.length === 1 ? "" : "s"}${lockedN ? ` · ${lockedN} locked` : ""}</p>
-      <div class="mn-list">${list.map(mnItemHTML).join("") || `<p class="muted">No matches.</p>`}</div>${lockedN ? `<div class="lockcta">Unlock ${MN.filter(m => m.locked).length} more mnemonics + 5,180 Qs + all Mastery Sheets for ${esc(CONFIG.yearlyPrice)}<div class="small muted" style="font-weight:400;margin-top:4px">Yearly opens soon. <button class="linkbtn" data-pro2>See today's launch offer</button></div></div>` : ""}`;
+      <div class="mn-list">${list.map(mnItemHTML).join("") || `<p class="muted">No matches.</p>`}</div>${lockedN ? `<div class="lockcta">Unlock ${MN.filter(m => m.locked).length} more mnemonics + all 5,180 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}<div class="small muted" style="font-weight:400;margin-top:4px"><button class="linkbtn" data-pro2>See plans</button></div></div>` : ""}`;
     return;
   }
   const m = MN.find(x => String(x.id) === String(mnView.id)); if (!m) { mnView = { s: "home" }; return renderCourse(); }
@@ -2369,14 +2378,14 @@ $("#view-course").addEventListener("click", e => {
   const c = t.closest("[data-mncat]"); if (c) { mnView = { s: "cat", cat: c.dataset.mncat }; renderCourse(); v0(); return; }
   const it = t.closest("[data-mn]"); if (it) {
     const m = MN.find(x => String(x.id) === it.dataset.mn); if (!m) return;
-    if (m.locked) return lockedSheet(`🧠 ${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 5,180 Qs + all Mastery Sheets with Yearly, ${esc(CONFIG.yearlyPrice)}.`);
+    if (m.locked) return lockedSheet(`🧠 ${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 5,180 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
     mnView = { s: "mn", id: m.id, from: mnView.s !== "home" ? mnView : null }; renderCourse(); v0(); return;
   }
   if (t.closest("[data-mnback]")) { mnView = mnView.s === "mn" && mnView.from ? mnView.from : { s: "home" }; renderCourse(); return; }
   const up = t.closest("[data-mnup]"); if (up) { S.mnUp = S.mnUp || {}; const id = up.dataset.mnup; if (S.mnUp[id]) delete S.mnUp[id]; else S.mnUp[id] = 1; save(); renderCourse(); return; }
   const sh = t.closest("[data-mnshare]"); if (sh) { const m = MN.find(x => String(x.id) === sh.dataset.mnshare); if (m) mnShare(m); return; }
   const pq = t.closest("[data-mnq]"); if (pq) {
-    const ids = pq.dataset.mnq.split(","); go("scroll"); ids.slice().reverse().forEach(id => { const q = anyQ(id); if (!q) return; sessionSeen.add(q.id); const card = questionCard(q, false); feed.prepend(card); io.observe(card); }); feed.scrollTop = 0; return;
+    const ids = pq.dataset.mnq.split(",").filter(id => anyQ(id) && canOpen(anyQ(id))); if (!ids.length) return showPro(); go("scroll"); ids.slice().reverse().forEach(id => { const q = anyQ(id); if (!q) return; sessionSeen.add(q.id); const card = questionCard(q, false); feed.prepend(card); io.observe(card); }); feed.scrollTop = 0; return;
   }
 });
 function v0() { $("#view-course").scrollTop = 0; }
@@ -2411,8 +2420,8 @@ function flChart(fl = S.fl) {
 }
 function proPanel(title, pitch, real, teaser) {
   if (S.pro) return `<div class="panel"><h3>${title}</h3>${real}</div>`;
-  return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>${title}</h3><span class="tag sec">Pro</span></div><p class="small">${pitch}</p>
-    <div class="teaser"><div class="blurred" aria-hidden="true" inert>${teaser}</div><div class="teaser-cta"><span class="small muted">Preview with sample numbers</span><button class="btn primary small" data-pro>Unlock, ${esc(CONFIG.price)}</button></div></div></div>`;
+  return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>${title}</h3><span class="tag sec">Plans</span></div><p class="small">${pitch}</p>
+    <div class="teaser"><div class="blurred" aria-hidden="true" inert>${teaser}</div><div class="teaser-cta"><span class="small muted">Preview with sample numbers</span><button class="btn primary small" data-pro>See plans</button></div></div></div>`;
 }
 const SAMPLE_FL = [{ label: "FL 1", score: 506 }, { label: "FL 2", score: 510 }, { label: "FL 3", score: 513 }, { label: "FL 4", score: 517 }, { label: "FL 5", score: 521 }];
 /* ---------- analytics: performance assessment, accuracy and pace by section, trends ---------- */
@@ -2449,7 +2458,7 @@ function renderMe() {
   const dnaCounts = ["Content", "Trap", "Time"].map((t, i) => [t, S.errors.filter(e => e.type === t).length, ["var(--cool)", "var(--bad)", "var(--heat)"][i]]);
   const revN = Object.keys(S.revenge).length, dueN = Object.values(S.revenge).filter(r => r.due <= Date.now()).length;
   const C = 2 * Math.PI * 31, pct = Math.min(1, S.today.answered / S.goal);
-  $("#view-me").innerHTML = `${todaySummaryHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Pro" : ""}</p>
+  $("#view-me").innerHTML = `${todaySummaryHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Subscriber" : ""}</p>
   <div class="stack">
     <div class="panel">${levelBarHTML()}</div>
     ${window.acctPanelHTML ? acctPanelHTML() : ""}
@@ -2465,7 +2474,7 @@ function renderMe() {
     ${proPanel("Full-length tracker", "Log every practice exam and watch your line climb toward the 520 mark.",
       `${flChart()}<div class="row"><input type="text" id="flLabel" placeholder="FL ${S.fl.length + 1}" style="width:90px"><input type="number" id="flScore" min="472" max="528" placeholder="Score" style="width:100px"><button class="btn" data-addfl>Add</button>${S.fl.length ? '<button class="btn ghost small" data-popfl>Remove last</button>' : ""}</div>`,
       flChart(SAMPLE_FL))}
-    <div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Anki queue</h3>${S.pro ? "" : '<span class="tag sec">Pro export</span>'}</div>
+    <div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Anki queue</h3>${S.pro ? "" : '<span class="tag sec">Plans</span>'}</div>
       <p class="small">Tap <b>+ Add to Anki</b> after any miss to save it here, then export the batch as a deck after your session. Each card has the question, the answer and the full explanation.</p>
       <p><b style="font:700 22px var(--display);color:var(--volt)">${S.anki.length}</b> <span class="muted small">card${S.anki.length === 1 ? "" : "s"} waiting</span></p>
       <div class="row"><button class="btn primary" data-exportanki ${S.anki.length ? "" : "disabled"}>Export to Anki</button><button class="btn small" data-ankiall>Add all my misses</button>${S.anki.length ? '<button class="btn small ghost" data-ankiclear>Clear queue</button>' : ""}</div></div>
@@ -2475,7 +2484,7 @@ function renderMe() {
       <label class="row small" for="soundChk"><input type="checkbox" id="soundChk" ${S.sound ? "checked" : ""}> Sound and vibration</label>
       <label class="row small" for="fanChk"><input type="checkbox" id="fanChk" ${S.fanfare ? "checked" : ""}> Level-up fanfare</label>
       <label class="row small" for="musicSel">Music <select id="musicSel">${[["boss", "Boss battles only"], ["on", "Always on"], ["off", "Off"]].map(([v, n]) => `<option value="${v}" ${S.music === v ? "selected" : ""}>${n}</option>`).join("")}</select></label>
-      <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button><a class="btn small" href="../guide/" target="_blank" rel="noopener">How to use</a>${installed() ? "" : '<button class="btn small" data-install>Install app</button>'}${S.pro ? "" : '<button class="btn small pro" data-pro>Get Pro</button>'}</div><div id="backupOut"></div></div>
+      <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button><a class="btn small" href="../guide/" target="_blank" rel="noopener">How to use</a>${installed() ? "" : '<button class="btn small" data-install>Install app</button>'}${S.pro ? "" : '<button class="btn small pro" data-pro>See plans</button>'}</div><div id="backupOut"></div></div>
     ${CONFIG.resources.length ? `<div class="panel links"><h3>Resources</h3>${CONFIG.resources.map(r => `<p class="small"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a><br><span class="muted">${esc(r.note || "")}</span></p>`).join("")}</div>` : ""}
     <div class="panel"><h3>Help</h3>
       <p class="small">Questions about 520 Quest or your purchase? We reply within 24 to 48 hours.</p>

@@ -5,7 +5,7 @@ const SB_URL = CONFIG.supabaseUrl, SB_KEY = CONFIG.supabaseKey;
 const SB_LIB = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js";
 const SB_STORE = SB_URL ? "sb-" + new URL(SB_URL).hostname.split(".")[0] + "-auth-token" : "";
 const CK_STORE = "quest520.ck", DEV_STORE = "quest520.dev";
-const PLAN_NAME = { free: "Free", pro: "Pro (launch)", monthly: "Monthly", sixmonth: "6 Months", yearly: "Yearly", lifetime: "Lifetime" };
+const PLAN_NAME = { free: "Free", monthly: "Monthly", sixmonth: "6 Months", yearly: "Yearly" };
 const ACCT = { state: SB_URL ? "out" : "off", sb: null, user: null, profile: null, key: null, limit: 0, synced: 0, loading: null };
 const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
 const lsSet = (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} };
@@ -130,7 +130,7 @@ function refreshViews() {
 
 /* ---------- plans ---------- */
 const isPaid = () => !!(ACCT.profile && ACCT.profile.plan !== "free");
-const fullAccess = () => !!(ACCT.profile && ["yearly", "lifetime", "pro"].includes(ACCT.profile.plan));
+const fullAccess = isPaid; // every plan unlocks all sheets and mnemonics
 function applyPlan() {
   if (isPaid() && !S.pro) { S.pro = true; S.proBy = "account"; save(); toast(`<b>${esc(PLAN_NAME[ACCT.profile.plan])}</b> is active on this device.`); }
   else if (!isPaid() && S.proBy === "account") { S.pro = false; delete S.proBy; save(); }
@@ -140,7 +140,7 @@ async function redeem(code, quiet) {
   if (ACCT.state !== "in") { S.pendingCode = code; save(); return; }
   try {
     const r = await rpc("redeem_code", { p_code: code });
-    if (r && r.ok) { ACCT.profile.plan = r.plan; applyPlan(); await loadKey(); if (!quiet) toast("Pro is linked to your account. Sign in on your other devices to use it there."); }
+    if (r && r.ok) { ACCT.profile.plan = r.plan; applyPlan(); await loadKey(); if (!quiet) toast("Your unlock is linked to your account. Sign in on your other devices to use it there."); }
   } catch (e) { S.pendingCode = code; save(); }
   refreshViews();
 }
@@ -233,7 +233,7 @@ window.acctPanelHTML = () => {
   return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Account</h3><span class="tag sec">${esc(PLAN_NAME[p.plan] || "Free")}</span></div>
     <p class="small" style="overflow-wrap:anywhere">${esc(email)}${p.name ? ` · duel name <b>${esc(p.name)}</b>` : ""}</p>
     ${ACCT.state === "blocked" ? `<p class="small" style="color:var(--bad)">This device isn't syncing: your account is already on ${ACCT.limit} device${ACCT.limit === 1 ? "" : "s"}.</p>` : `<p class="small muted">${ACCT.synced ? "Progress saved to your account " + new Date(ACCT.synced).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) + "." : "Progress saves to your account after each question."}${fullAccess() ? " All Mastery Sheets and mnemonics are unlocked." : ""}</p>`}
-    ${linkCode ? `<p class="small">Pro is unlocked on this device only. Enter your unlock code to link it to your account:</p><div class="row"><input type="text" id="acLink" autocomplete="off" placeholder="Code from your receipt" style="flex:1;min-width:0"><button class="btn small" data-aclink>Link</button></div>` : ""}
+    ${linkCode ? `<p class="small">Your unlock code works on this device only. Enter it again to link it to your account and open every sheet and mnemonic:</p><div class="row"><input type="text" id="acLink" autocomplete="off" placeholder="Code from your receipt" style="flex:1;min-width:0"><button class="btn small" data-aclink>Link</button></div>` : ""}
     <div class="row"><button class="btn small" data-acdevices>Manage devices</button><button class="btn small" data-acname>Change duel name</button><button class="btn small ghost" data-acout>Sign out</button></div></div>`;
 };
 async function signOut() {
@@ -252,7 +252,7 @@ document.addEventListener("click", async e => {
     const code = bare.length === 12 ? bare.match(/.{4}/g).join("-") : raw.trim().toUpperCase();
     if (!code) return toast("Enter the code from your receipt.");
     const r = await rpc("redeem_code", { p_code: code }).catch(() => null);
-    if (r && r.ok) { ACCT.profile.plan = r.plan; applyPlan(); await loadKey(); toast("<b>Linked.</b> Pro now follows your account."); refreshViews(); }
+    if (r && r.ok) { ACCT.profile.plan = r.plan; applyPlan(); await loadKey(); toast("<b>Linked.</b> Your unlock now follows your account."); refreshViews(); }
     else toast("That code didn't work. Copy it straight from your receipt email.");
     return;
   }

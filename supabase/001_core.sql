@@ -7,12 +7,16 @@ create table if not exists public.profiles (
   id uuid primary key references auth.users (id) on delete cascade,
   email text,
   name text,
-  plan text not null default 'free' check (plan in ('free', 'pro', 'monthly', 'sixmonth', 'yearly', 'lifetime')),
+  plan text not null default 'free' check (plan in ('free', 'monthly', 'sixmonth', 'yearly')),
   plan_since timestamptz,
   level int not null default 1,
   acc int not null default 0,
   created_at timestamptz not null default now()
 );
+-- Plans are Free, Monthly, 6 Months and Yearly. Any other plan name from an older setup moves to yearly.
+alter table public.profiles drop constraint if exists profiles_plan_check;
+update public.profiles set plan = 'yearly' where plan not in ('free', 'monthly', 'sixmonth', 'yearly');
+alter table public.profiles add constraint profiles_plan_check check (plan in ('free', 'monthly', 'sixmonth', 'yearly'));
 alter table public.profiles enable row level security;
 drop policy if exists "read own profile" on public.profiles;
 create policy "read own profile" on public.profiles for select to authenticated using (id = auth.uid());
@@ -39,8 +43,8 @@ language sql stable security definer set search_path = public as $$
 $$;
 create or replace function public.has_full_access(uid uuid default auth.uid()) returns boolean
 language sql stable security definer set search_path = public as $$
-  -- Yearly and Lifetime get every sheet and mnemonic; $39 launch buyers ('pro') are upgraded to Lifetime.
-  select exists (select 1 from public.profiles where id = uid and plan in ('yearly', 'lifetime', 'pro'));
+  -- Every paid plan (Monthly, 6 Months, Yearly) gets every sheet and mnemonic.
+  select exists (select 1 from public.profiles where id = uid and plan in ('monthly', 'sixmonth', 'yearly'));
 $$;
 
 -- ---------- progress: the app's saved state, synced after every question ----------
@@ -94,10 +98,13 @@ grant execute on function public.register_device(text, text, text) to authentica
 -- ---------- unlock codes: only hashes are stored; redeeming upgrades the account ----------
 create table if not exists public.unlock_codes (
   code_hash text primary key,
-  plan text not null default 'pro'
+  plan text not null default 'yearly'
 );
 alter table public.unlock_codes enable row level security; -- no policies: never readable from the app
-insert into public.unlock_codes (code_hash, plan) values ('dc0b3e3e3aed783131957d2c79b7dca52954b12d15d657aca671d57ee3078658', 'pro') on conflict do nothing;
+alter table public.unlock_codes alter column plan set default 'yearly';
+-- Code from earlier purchases: unlocks the same access as a plan.
+insert into public.unlock_codes (code_hash, plan) values ('dc0b3e3e3aed783131957d2c79b7dca52954b12d15d657aca671d57ee3078658', 'yearly') on conflict (code_hash) do update set plan = 'yearly';
+update public.unlock_codes set plan = 'yearly' where plan not in ('monthly', 'sixmonth', 'yearly');
 
 create or replace function public.redeem_code(p_code text) returns jsonb
 language plpgsql security definer set search_path = public, extensions as $$
@@ -106,7 +113,7 @@ begin
   if uid is null then raise exception 'sign in first'; end if;
   select plan into p from unlock_codes where code_hash = encode(digest(upper(trim(p_code)), 'sha256'), 'hex');
   if p is null then return jsonb_build_object('ok', false); end if;
-  update profiles set plan = case when plan in ('lifetime', 'yearly') then plan else p end, plan_since = coalesce(plan_since, now()) where id = uid;
+  update profiles set plan = case when plan <> 'free' then plan else p end, plan_since = coalesce(plan_since, now()) where id = uid;
   return jsonb_build_object('ok', true, 'plan', (select plan from profiles where id = uid));
 end $$;
 grant execute on function public.redeem_code(text) to authenticated;

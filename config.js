@@ -1,31 +1,22 @@
-/* ===== Site settings. Paste your Gumroad product link here once it exists. ===== */
+/* ===== Site settings: paste each plan's Lemon Squeezy checkout link once the store is live. ===== */
 window.SITE = {
-  // Lemon Squeezy checkout link (Share > Checkout link). When set, it replaces Gumroad
-  // and opens as a pop-up on this page. e.g. "https://520quest.lemonsqueezy.com/buy/xxxx"
-  lemonUrl: "",
-  gumroadUrl: "https://alphavest.gumroad.com/l/520quest",          // e.g. "https://yourname.gumroad.com/l/520quest"
-  price: "$39"
+  // Lemon Squeezy checkout links (Product > Share > Checkout link), e.g. "https://520quest.lemonsqueezy.com/buy/xxxx".
+  // While a link is empty, its button shows "Opening soon".
+  plans: { monthly: "", sixmonth: "", yearly: "" }
 };
-/* =============================================================================== */
-const SITE_ROOT = document.currentScript.src.replace(/config\.js.*$/, "");
-// Checkout link with the pop-up look: dark, pink Pay button, no extra product text.
-SITE.buyUrl = SITE.lemonUrl
-  ? SITE.lemonUrl + (SITE.lemonUrl.includes("?") ? "&" : "?") + "embed=1&dark=1&media=0&desc=0&button_color=%23fb7185"
-  : SITE.gumroadUrl ? SITE.gumroadUrl + "?wanted=true" : "";
-// Warm up the connection to the checkout so it opens faster.
-if (SITE.buyUrl) {
-  const l = document.createElement("link"); l.rel = "preconnect"; l.href = new URL(SITE.buyUrl).origin; document.head.appendChild(l);
-}
-if (SITE.lemonUrl) {
+/* ============================================================================================= */
+// Checkout opens as a pop-up: dark, pink Pay button, no extra product text.
+const popup = u => u + (u.includes("?") ? "&" : "?") + "embed=1&dark=1&media=0&desc=0&button_color=%23fb7185";
+if (Object.values(SITE.plans).some(Boolean)) {
   const s = document.createElement("script"); s.src = "https://assets.lemonsqueezy.com/lemon.js"; s.defer = true;
   s.onload = () => window.createLemonSqueezy && window.createLemonSqueezy();
   document.head.appendChild(s);
 }
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("[data-price]").forEach(el => el.textContent = SITE.price);
-  document.querySelectorAll("[data-buy]").forEach(a => {
-    if (SITE.buyUrl) { a.href = SITE.buyUrl; if (SITE.lemonUrl) a.classList.add("lemonsqueezy-button"); }
-    else { a.href = SITE_ROOT + "play/"; a.textContent = "Pro opens soon. Play free now"; }
+  document.querySelectorAll("[data-plan]").forEach(a => {
+    const u = SITE.plans[a.dataset.plan]; if (!u) return;
+    a.href = popup(u); a.classList.add("lemonsqueezy-button"); a.removeAttribute("aria-disabled"); a.removeAttribute("tabindex");
+    a.textContent = a.textContent.replace(/\s*·?\s*opening soon/i, "").replace(/^Opening soon$/i, "Choose this plan") || "Choose this plan";
   });
   window.createLemonSqueezy && window.createLemonSqueezy();
 });
