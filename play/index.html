@@ -162,8 +162,6 @@ button { cursor: pointer; }
 @media print { #sheetView { display: none !important; } }
 /* Course tab, gold Mastery Sheets button, Mnemonics Vault */
 .tabs.five { grid-template-columns: repeat(5, 1fr); }
-.tab[data-tab="course"] { position: relative; color: #e8b923; }
-.tab[data-tab="course"][aria-selected="true"] { color: #ffd700; }
 .tab .tbadge { position: absolute; top: 0; left: 50%; margin-left: 6px; font: 700 9px/1 var(--display); background: linear-gradient(135deg, #ffd700, #ffa500); color: #1a1200; border-radius: 99px; padding: 2px 4px; letter-spacing: 0; }
 .goldbtn { width: 100%; min-height: 56px; border: 0; border-radius: 16px; padding: 10px 14px; background: linear-gradient(135deg, #ffd700, #ffa500); color: #1a1200; font: 800 16px/1.25 var(--body); display: grid; gap: 4px; justify-items: center; text-align: center; cursor: pointer; animation: goldglow 2s ease-in-out infinite; }
 .goldbtn small { font: 700 11px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; background: rgba(26, 18, 0, .14); border-radius: 99px; padding: 4px 8px; }
@@ -361,7 +359,7 @@ a { color: var(--volt); }
   <nav class="tabs five" role="tablist">
     <button class="tab" role="tab" data-tab="scroll" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="3" width="12" height="18" rx="3"/><path d="M12 8v6M9.5 11.5 12 14l2.5-2.5"/></svg>Scroll</button>
     <button class="tab" role="tab" data-tab="boss" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 15 9M14 4l6 6M9 9l6 6M5 15l4 4"/></svg>Boss</button>
-    <button class="tab" role="tab" data-tab="course" aria-selected="false"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A1.5 1.5 0 0 0 5 19.5 1.5 1.5 0 0 0 6.5 21H20v1H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M8 6h8v1.6H8zM8 9h6v1.6H8z" fill="#1a1200"/></svg><span class="tbadge">31</span>Course</button>
+    <button class="tab" role="tab" data-tab="course" aria-selected="false"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A1.5 1.5 0 0 0 5 19.5 1.5 1.5 0 0 0 6.5 21H20v1H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M8 6h8v1.6H8zM8 9h6v1.6H8z" fill="var(--ink)"/></svg>Course</button>
     <button class="tab" role="tab" data-tab="map" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>Map</button>
     <button class="tab" role="tab" data-tab="me" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Me</button>
   </nav>
