@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MCAT duel challenge | 520 Quest</title>
+<meta name="description" content="Your friend challenged you to a MCAT duel - Accept with 100 free Qs">
+<meta property="og:title" content="Your friend challenged you to a MCAT duel">
+<meta property="og:description" content="Accept with 100 free Qs. 10 questions, 60 seconds each, on 520 Quest.">
+<link rel="icon" href="/play/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Figtree:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="/site.css">
+<script>
+  // 520quest.com/duel/1234 opens the duel inside the app.
+  var m = location.pathname.match(/^\/duel\/(\d{4})\/?$/);
+  if (m) location.replace("/play/#duel=" + m[1]);
+</script>
+</head>
+<body>
+<main class="wrap" style="max-width:640px;padding-block:72px;display:grid;gap:18px;text-align:center">
+  <h1 id="h" style="font-size:36px">Page not found</h1>
+  <p class="lede" id="t">That page doesn't exist. The game is one tap away.</p>
+  <p><a class="btn primary" id="go" href="/play/">Play 520 Quest</a> <a class="btn" href="/">Home</a></p>
+</main>
+<script>
+  if (/^\/duel\//.test(location.pathname)) {
+    document.getElementById("h").textContent = "Your friend challenged you to a MCAT duel";
+    document.getElementById("t").textContent = "Accept with 100 free Qs.";
+    document.getElementById("go").textContent = "Accept the duel";
+  }
+</script>
+</body>
+</html>

@@ -1337,7 +1337,10 @@ const CONFIG = {
   supportEmail: "info@unprocrastinatehub.com",
   supportUrl: "https://520quest.com/support/",
   appUrl: "https://520quest.com/", // your public link, used in Share text
-  flags: { MASTERY_SHEETS_CONSPICUOUS: true, MNEMONICS_ENABLED: true },
+  flags: { MASTERY_SHEETS_CONSPICUOUS: true, MNEMONICS_ENABLED: true, DUEL_ENABLED: true },
+  // Supabase project for accounts, sync, devices, paid content and duels. The publishable key is safe to ship.
+  supabaseUrl: "https://cbiwsrzmqipkminixulv.supabase.co",
+  supabaseKey: "sb_publishable_mZUgXs_0Pdxo3U8flAifYw_QxOO_D5o",
   yearlyPrice: "$79.99/yr"
 };
 /* ===================================================================================== */
@@ -1386,7 +1389,9 @@ function fresh() {
 }
 let S = fresh();
 try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(fresh(), JSON.parse(raw)); } catch (e) {}
-function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} window.acctSync && acctSync(); }
+const hasKey = () => !!(window.acctHasKey && acctHasKey());
+const sheetOpen = x => x.free || hasKey();
 function rollDay() {
   const t = todayKey();
   if (S.today.date !== t) { S.today = { date: t, answered: 0, correct: 0, bosses: 0, goalShown: false, secs: [], missed: [] }; S.review = null; }
@@ -1623,7 +1628,7 @@ function record(q, correct, secs) {
 /* ---------- HUD ---------- */
 function renderHUD() {
   const L = S.lv.level, n = S.lv.block.length, acc = liveAcc();
-  $("#hudLvl").textContent = L === 5 ? "GM" : "LV " + L; $("#hudLvl").classList.toggle("t5", L === 5);
+  $("#hudLvl").textContent = ((S.crownUntil || 0) > Date.now() ? "👑 " : "") + (L === 5 ? "GM" : "LV " + L); $("#hudLvl").classList.toggle("t5", L === 5);
   $("#hudLvl").title = "Level " + L + ": " + tierName(L);
   $("#hudRank").innerHTML = acc === null ? esc(tierName(L)) : `${acc}% acc<span class="rk-tier"> · ${esc(tierName(L))}</span>`;
   $("#hudRank").title = `Live accuracy ${acc === null ? "–" : acc + "%"} · ${n} of ${EVAL_N} questions to the next level evaluation`;
@@ -2127,7 +2132,7 @@ function showPro() {
           const j = await r.json(); ok = !!(j.success && !(j.purchase && (j.purchase.refunded || j.purchase.chargebacked)));
         } catch (e) {}
       }
-      if (ok) { S.pro = true; save(); $("#sheetHost").innerHTML = ""; confetti(); toast("<b>Pro unlocked.</b> Thanks for supporting 520 Quest."); renderAll(); }
+      if (ok) { S.pro = true; S.proBy = "code"; save(); window.redeem && redeem(code); $("#sheetHost").innerHTML = ""; confetti(); toast("<b>Pro unlocked.</b> Thanks for supporting 520 Quest."); renderAll(); }
       else msg.textContent = "That code didn't work. Check for typos, or copy it straight from your receipt email.";
     }));
   window.createLemonSqueezy && window.createLemonSqueezy();
@@ -2157,6 +2162,7 @@ function renderBossLobby() {
       ${levelBarHTML()}
       <p class="small muted">${S.lv.pending ? `Your last evaluation qualifies you for Level ${S.lv.qual}. Beat the Gatekeeper to move up one level.` : `Every ${EVAL_N} questions your weighted accuracy is checked. Qualify for a higher level and a Gatekeeper boss appears here.`}</p>
       <div class="ladder">${TIERS.slice().reverse().map(t => `<div class="${t.n === S.lv.level ? "on" : ""}"><b>${t.n === 5 ? "GM" : "L" + t.n}</b><span>${esc(t.name)}</span><span>${t.n === 5 ? "86–100%" : t.n === 1 ? "0–40%" : t.min + "–" + (TIERS[t.n].min - 1) + "%"}</span></div>`).join("")}</div></div>
+    ${window.duelPanelHTML ? duelPanelHTML() : ""}
     <div class="bosses" style="margin-top:14px">${BOSSES.map(b => `<button class="boss ${S.bossWins[b.id] ? "done" : ""}" data-boss="${b.id}"><span class="face" style="background:${b.col}">${b.face}</span><strong>${esc(b.name)}</strong><small>${esc(b.blurb)}${S.bossWins[b.id] ? " · Defeated" : ""}</small></button>`).join("")}</div>`;
 }
 $("#view-boss").addEventListener("click", e => {
@@ -2245,11 +2251,11 @@ function wmImage(text) {
 }
 function openSheet(id) {
   const meta = (SHEETS || []).find(x => x.id === id); if (!meta) return;
-  if (!meta.free) return lockedSheet(`${esc(meta.id)}: ${esc(meta.title)}`, `Unlock ${SHEETS.filter(x => !x.free).length} more sheets + all 5,180 questions with Yearly, ${esc(CONFIG.yearlyPrice)}.`);
+  if (!sheetOpen(meta)) return lockedSheet(`${esc(meta.id)}: ${esc(meta.title)}`, `Unlock ${SHEETS.filter(x => !x.free).length} more sheets + all 5,180 questions with Yearly, ${esc(CONFIG.yearlyPrice)}.`);
   const v = $("#sheetView"), mark = `520quest.com · ${S.pro ? "Pro" : "Preview"} copy · ${new Date().toISOString().slice(0, 10)}`;
   v.innerHTML = `<div class="sv-top"><h2>${esc(meta.id)}: ${esc(meta.title)}</h2><button class="btn small" data-svclose>Close</button></div><div class="sv-body"><div class="sv-doc"><p class="muted">Loading…</p></div></div>`;
   v.hidden = false; document.body.style.overflow = "hidden";
-  fetch("sheets/" + encodeURIComponent(id) + ".json").then(r => { if (!r.ok) throw 0; return r.json(); }).then(d => {
+  (meta.free ? fetch("sheets/" + encodeURIComponent(id) + ".json").then(r => { if (!r.ok) throw 0; return r.json(); }) : openSealed(id)).then(d => {
     if (v.hidden) return;
     const doc = $(".sv-doc", v); doc.innerHTML = d.html + `<div class="sv-wm" style="background-image:${wmImage(mark)}"></div>`;
     $$("[data-wm]", doc).forEach(x => x.textContent = mark);
@@ -2275,7 +2281,7 @@ function goldBtnHTML() {
 }
 function sheetLinkHTML(q) {
   const id = sheetFor(q), meta = id && SHEETS && SHEETS.find(x => x.id === id);
-  return meta ? `<button class="sheetlink" data-sheet="${esc(meta.id)}">📚 <span>Related: <b>Mastery Sheet ${esc(meta.id)}</b> · ${esc(meta.title)}${meta.free ? "" : " 🔒"}</span></button>` : "";
+  return meta ? `<button class="sheetlink" data-sheet="${esc(meta.id)}">📚 <span>Related: <b>Mastery Sheet ${esc(meta.id)}</b> · ${esc(meta.title)}${sheetOpen(meta) ? "" : " 🔒"}</span></button>` : "";
 }
 function lockedSheet(title, line) {
   sheet(`<div class="eyebrow">Locked</div><h3>${title}</h3><p><b>${line}</b></p><p class="muted small">Yearly opens soon. Today, the $39 launch offer unlocks Pro and upgrades to Lifetime free when the new plans open.</p>
@@ -2297,11 +2303,11 @@ function mnItemHTML(m) {
   return `<button class="mn-item ${m.locked ? "locked" : ""}" data-mn="${esc(m.id)}"><span class="row" style="justify-content:space-between;flex-wrap:nowrap;gap:8px"><b>${m.locked ? "🔒 " : ""}${esc(m.concept)}</b><span class="mt">😂 ${mnScore(m)}</span></span>${m.locked ? "" : `<span class="mt">${esc(m.mnemonic_text)}</span>${m.funny_version ? `<span><span class="pill funny">Funny version</span></span>` : ""}`}</button>`;
 }
 function renderCourse() {
-  const v = $("#view-course"), free = SHEETS ? SHEETS.filter(x => x.free).length : 0, locked = SHEETS ? SHEETS.length - free : 0;
+  const v = $("#view-course"), free = SHEETS ? SHEETS.filter(x => x.free).length : 0, locked = SHEETS ? SHEETS.filter(x => !sheetOpen(x)).length : 0;
   if (mnView.s === "cat" || mnView.s === "mn" || mnView.s === "search") return renderMn(v);
   v.innerHTML = `<h2 class="title">Course</h2><p class="sub">Mastery Sheets for every MCAT content category, plus the Mnemonics Vault.</p>
-    <div class="stack"><div class="panel"><h3>Mastery Sheets</h3><p class="small muted" style="margin:4px 0 0">One-page reviews: high-yield summary, formulas and pathways, common traps and 3 practice questions.${S.pro ? "" : ` ${free} free previews.`}</p>
-      ${SHEETS ? `<div class="sheets-grid">${SHEETS.map(x => `<button class="shbtn ${x.free ? "" : "locked"}" data-sheet="${esc(x.id)}"><code>${x.free ? "" : "🔒 "}${esc(x.id)}</code><small>${esc(x.title)}</small></button>`).join("")}</div>` : `<p class="muted small">Loading…</p>`}
+    <div class="stack"><div class="panel"><h3>Mastery Sheets</h3><p class="small muted" style="margin:4px 0 0">One-page reviews: high-yield summary, formulas and pathways, common traps and 3 practice questions.${S.pro || hasKey() ? "" : ` ${free} free previews.`}</p>
+      ${SHEETS ? `<div class="sheets-grid">${SHEETS.map(x => `<button class="shbtn ${sheetOpen(x) ? "" : "locked"}" data-sheet="${esc(x.id)}"><code>${sheetOpen(x) ? "" : "🔒 "}${esc(x.id)}</code><small>${esc(x.title)}</small></button>`).join("")}</div>` : `<p class="muted small">Loading…</p>`}
       ${locked ? `<div class="lockcta">Unlock ${locked} more sheets + 5,180 Qs for ${esc(CONFIG.yearlyPrice)}<div class="small muted" style="font-weight:400;margin-top:4px">Yearly opens soon. <button class="linkbtn" data-pro2>See today's launch offer</button></div></div>` : ""}</div>
     ${CONFIG.flags.MNEMONICS_ENABLED ? mnHomeHTML() : ""}</div>`;
 }
@@ -2332,7 +2338,7 @@ function renderMn(v) {
     ${m.explanation ? `<p>${esc(m.explanation)}</p>` : ""}
     ${m.image_url && /^[\w\/.-]+\.(svg|png|jpe?g|webp)$/i.test(m.image_url) && !m.image_url.includes("..") ? `<figure class="exfig"><img src="${esc(m.image_url)}" alt="${esc(m.doodle_prompt || m.concept)}" loading="lazy"></figure>` : ""}
     <div class="row">${sh ? `<button class="btn small" data-sheet="${esc(sh.id)}">📚 See Sheet ${esc(sh.id)}</button>` : ""}${qs.length ? `<button class="btn small" data-mnq="${esc(qs.join(","))}">Practice ${qs.length} question${qs.length === 1 ? "" : "s"}</button>` : ""}</div>
-    <div class="row"><button class="btn small ${mnVotes(m.id) ? "primary" : ""}" data-mnup="${esc(m.id)}">😂 ${mnScore(m)}</button><button class="btn small pro" data-mnshare="${esc(m.id)}">Share</button></div></div>`;
+    <div class="row"><button class="btn small pro" data-mnshare="${esc(m.id)}">Share</button></div></div>`;
 }
 function mnShare(m) {
   const c = document.createElement("canvas"); c.width = 1080; c.height = 1080; const g = c.getContext("2d");
@@ -2446,6 +2452,7 @@ function renderMe() {
   $("#view-me").innerHTML = `${todaySummaryHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Pro" : ""}</p>
   <div class="stack">
     <div class="panel">${levelBarHTML()}</div>
+    ${window.acctPanelHTML ? acctPanelHTML() : ""}
     ${analyticsHTML()}
     <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
@@ -2474,7 +2481,7 @@ function renderMe() {
       <p class="small">Questions about 520 Quest or your purchase? We reply within 24 to 48 hours.</p>
       <div class="row"><a class="btn small primary" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20support">Contact Support</a><a class="btn small" href="${esc(CONFIG.supportUrl)}" target="_blank" rel="noopener">FAQ</a><a class="btn small" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20feedback">Send feedback</a></div>
       <p class="small muted">${esc(CONFIG.supportEmail)}</p></div>
-    <div class="panel"><h3>Privacy</h3><p class="small"><b>We help you get into medical school without selling your data.</b> Your progress stays on this device. 520 Quest has no ads, no trackers and no account.</p></div>
+    <div class="panel"><h3>Privacy</h3><p class="small"><b>We help you get into medical school without selling your data.</b> Your progress stays on this device unless you sign in; then it's saved to your 520 Quest account so it follows you to your other devices. No ads, no trackers.</p></div>
     <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app.</p>
   </div>`;
 }
@@ -2553,6 +2560,7 @@ bankReady.finally(() => welcomeBack());
 if ("serviceWorker" in navigator && location.protocol === "https:" && !/claude\.ai|claudeusercontent/.test(location.hostname)) { navigator.serviceWorker.register("sw.js").catch(() => {}); }
 
 </script>
+<script src="account.js"></script>
 
 </body>
 </html>
