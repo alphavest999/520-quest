@@ -20,7 +20,7 @@ alter table public.profiles add constraint profiles_plan_check check (plan in ('
 alter table public.profiles enable row level security;
 drop policy if exists "read own profile" on public.profiles;
 create policy "read own profile" on public.profiles for select to authenticated using (id = auth.uid());
--- Users may change only their display name, level and accuracy; plan changes go through redeem_code or the payment webhook.
+-- Users may change only their display name, level and accuracy; plan changes go through the payment webhook only.
 drop policy if exists "update own profile" on public.profiles;
 create policy "update own profile" on public.profiles for update to authenticated using (id = auth.uid()) with check (id = auth.uid());
 revoke update on public.profiles from authenticated, anon;
@@ -95,28 +95,9 @@ begin
 end $$;
 grant execute on function public.register_device(text, text, text) to authenticated;
 
--- ---------- unlock codes: only hashes are stored; redeeming upgrades the account ----------
-create table if not exists public.unlock_codes (
-  code_hash text primary key,
-  plan text not null default 'yearly'
-);
-alter table public.unlock_codes enable row level security; -- no policies: never readable from the app
-alter table public.unlock_codes alter column plan set default 'yearly';
--- Code from earlier purchases: unlocks the same access as a plan.
-insert into public.unlock_codes (code_hash, plan) values ('dc0b3e3e3aed783131957d2c79b7dca52954b12d15d657aca671d57ee3078658', 'yearly') on conflict (code_hash) do update set plan = 'yearly';
-update public.unlock_codes set plan = 'yearly' where plan not in ('monthly', 'sixmonth', 'yearly');
-
-create or replace function public.redeem_code(p_code text) returns jsonb
-language plpgsql security definer set search_path = public, extensions as $$
-declare uid uuid := auth.uid(); p text;
-begin
-  if uid is null then raise exception 'sign in first'; end if;
-  select plan into p from unlock_codes where code_hash = encode(digest(upper(trim(p_code)), 'sha256'), 'hex');
-  if p is null then return jsonb_build_object('ok', false); end if;
-  update profiles set plan = case when plan <> 'free' then plan else p end, plan_since = coalesce(plan_since, now()) where id = uid;
-  return jsonb_build_object('ok', true, 'plan', (select plan from profiles where id = uid));
-end $$;
-grant execute on function public.redeem_code(text) to authenticated;
+-- No unlock codes: plans are set only by the payment webhook. Remove the older code tables if present.
+drop function if exists public.redeem_code(text);
+drop table if exists public.unlock_codes;
 
 -- ---------- paid content: locked sheets and mnemonics ship encrypted; this key unlocks them ----------
 create table if not exists public.content_keys (
@@ -341,7 +322,7 @@ language sql stable security definer set search_path = public as $$
 $$;
 
 -- ---------- lock down: the app may call only the functions meant for it ----------
-revoke all on public.unlock_codes, public.content_keys, public.admin_alerts from anon, authenticated;
+revoke all on public.content_keys, public.admin_alerts from anon, authenticated;
 revoke insert, delete, truncate, references, trigger on public.profiles from anon, authenticated;
 revoke all on public.profiles, public.progress, public.devices from anon;
 revoke insert, update, truncate, references, trigger on public.devices from authenticated;
@@ -349,10 +330,10 @@ revoke delete, truncate, references, trigger on public.progress from authenticat
 revoke execute on function public.handle_new_user(), public.check_paid_count(), public.is_paid(uuid), public.has_full_access(uuid),
   public.mask_duel(public.duels, uuid), public.duel_quota_ok(uuid, text), public.settle_duel(public.duels)
   from public, anon, authenticated;
-revoke execute on function public.register_device(text, text, text), public.redeem_code(text), public.get_content_key(), public.my_duels(),
+revoke execute on function public.register_device(text, text, text), public.get_content_key(), public.my_duels(),
   public.create_duel(text[], text, uuid), public.join_duel(text), public.duel_random(text[], text), public.submit_duel(uuid, jsonb, int, int)
   from public, anon;
-grant execute on function public.register_device(text, text, text), public.redeem_code(text), public.get_content_key(), public.my_duels(),
+grant execute on function public.register_device(text, text, text), public.get_content_key(), public.my_duels(),
   public.create_duel(text[], text, uuid), public.join_duel(text), public.duel_random(text[], text), public.submit_duel(uuid, jsonb, int, int),
   public.mnemonic_vote_counts() to authenticated;
 revoke execute on function public.mnemonic_vote_counts() from public;

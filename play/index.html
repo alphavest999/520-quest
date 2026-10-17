@@ -1319,8 +1319,6 @@ const CONFIG = {
     { id: "yearly", name: "Yearly", price: "$79.99", per: "/ year", url: "", best: true }
   ],
   fromPrice: "$14.99/month",
-  // SHA-256 hashes of unlock codes (uppercase) from earlier purchases. A matching code unlocks everything.
-  unlockCodeHashes: ["dc0b3e3e3aed783131957d2c79b7dca52954b12d15d657aca671d57ee3078658"],
   freeQuestions: 100,      // free players can open this many different questions in total
   freeDailyBosses: 1,
   // Affiliate or partner links shown under Resources. Leave empty to hide.
@@ -1388,6 +1386,7 @@ function fresh() {
 }
 let S = fresh();
 try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(fresh(), JSON.parse(raw)); } catch (e) {}
+if (S.pro && S.proBy !== "account") { S.pro = false; delete S.proBy; } // plans come only from a signed-in account
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} window.acctSync && acctSync(); }
 const hasKey = () => !!(window.acctHasKey && acctHasKey());
 const sheetOpen = x => x.free || hasKey();
@@ -2119,7 +2118,6 @@ function copy(txt, done, area) {
   const fallback = () => { if (area) { area.focus(); area.select(); toast("Select-all done. Press copy on your keyboard."); } else toast(esc(txt)); };
   try { navigator.clipboard.writeText(txt).then(done, fallback); } catch (e) { fallback(); }
 }
-async function sha(s) { const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s)); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join(""); }
 const planUrl = u => u + (u.includes("?") ? "&" : "?") + "embed=1&dark=1&media=0&desc=0&button_color=%23fb7185";
 function showPro() {
   if (S.pro) { toast("<b>Your plan is active.</b> Everything is unlocked."); return; }
@@ -2128,21 +2126,7 @@ function showPro() {
     <p class="muted" style="margin:0">Every plan includes all 5,180 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles and duels, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
     <div class="stack" style="gap:8px">${CONFIG.plans.map(p => `<div class="panel row" style="justify-content:space-between;flex-wrap:nowrap;gap:10px${p.best ? ";border-color:var(--volt)" : ""}"><div><b>${esc(p.name)}</b>${p.best ? ' <span class="tag sec">Best value</span>' : ""}<div class="small muted">${esc(p.price)} ${esc(p.per)}</div></div>${p.url ? `<a class="btn pro small lemonsqueezy-button" href="${esc(planUrl(p.url))}" target="_blank" rel="noopener">Choose</a>` : `<button class="btn small" disabled>Opening soon</button>`}</div>`).join("")}</div>
     <p class="small muted" style="margin:0">${open ? "Plans renew automatically and can be cancelled anytime. After you subscribe, sign in with the same email in the Me tab." : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions, 5 Mastery Sheets and 1 mnemonic."}</p>
-    <details><summary class="small muted">Have an unlock code?</summary>
-    <label class="field" for="unlockCode">Unlock code<input type="text" id="unlockCode" autocomplete="off" placeholder="Code from your receipt"></label>
-    <div class="row"><button class="btn small" data-unlock>Unlock</button></div><p class="small muted" id="unlockMsg"></p></details>
-    <div class="row"><button class="btn ghost" data-close>Not now</button></div>`,
-    s => $("[data-unlock]", s).addEventListener("click", async () => {
-      const raw = $("#unlockCode", s).value, msg = $("#unlockMsg", s);
-      // Forgive line breaks, spaces and missing dashes from copying out of an email.
-      const bare = raw.toUpperCase().replace(/[^A-Z0-9]/g, "");
-      const code = bare.length === 12 ? bare.match(/.{4}/g).join("-") : raw.trim();
-      if (!code) { msg.textContent = "Enter the code from your receipt."; return; }
-      let ok = false;
-      try { ok = CONFIG.unlockCodeHashes.includes(await sha(code.toUpperCase())); } catch (e) {}
-      if (ok) { S.pro = true; S.proBy = "code"; save(); window.redeem && redeem(code); $("#sheetHost").innerHTML = ""; confetti(); toast("<b>Unlocked.</b> Sign in on the Me tab to open every Mastery Sheet and mnemonic."); renderAll(); }
-      else msg.textContent = "That code didn't work. Check for typos, or copy it straight from your receipt email.";
-    }));
+    <div class="row"><button class="btn ghost" data-close>Not now</button></div>`);
   window.createLemonSqueezy && window.createLemonSqueezy();
 }
 

@@ -109,7 +109,6 @@ async function signedIn(user) {
     ACCT.profile = p.data;
     if (!reg.ok) { ACCT.state = "blocked"; ACCT.limit = reg.limit; refreshViews(); return deviceLimitSheet(); }
     applyPlan();
-    if (S.pendingCode) { const c = S.pendingCode; delete S.pendingCode; save(); await redeem(c, true); }
     await pullProgress();
     await loadKey();
     flushDuelLink();
@@ -135,16 +134,6 @@ function applyPlan() {
   if (isPaid() && !S.pro) { S.pro = true; S.proBy = "account"; save(); toast(`<b>${esc(PLAN_NAME[ACCT.profile.plan])}</b> is active on this device.`); }
   else if (!isPaid() && S.proBy === "account") { S.pro = false; delete S.proBy; save(); }
 }
-// Called by the unlock box after a code checks out locally: link it to the account so it works on every device.
-async function redeem(code, quiet) {
-  if (ACCT.state !== "in") { S.pendingCode = code; save(); return; }
-  try {
-    const r = await rpc("redeem_code", { p_code: code });
-    if (r && r.ok) { ACCT.profile.plan = r.plan; applyPlan(); await loadKey(); if (!quiet) toast("Your unlock is linked to your account. Sign in on your other devices to use it there."); }
-  } catch (e) { S.pendingCode = code; save(); }
-  refreshViews();
-}
-
 /* ---------- paid content: sealed sheets and mnemonics ---------- */
 async function loadKey() {
   if (!fullAccess()) { ACCT.key = null; lsSet(CK_STORE, null); return; }
@@ -171,7 +160,7 @@ window.openSealed = id => fetch("sheets/" + encodeURIComponent(id) + ".enc.json"
 
 /* ---------- progress sync ---------- */
 let syncTimer = 0;
-const PREFS = ["sound", "music", "fanfare", "pro", "proBy", "pendingCode"];
+const PREFS = ["sound", "music", "fanfare", "pro", "proBy"];
 async function pullProgress() {
   const r = await ACCT.sb.from("progress").select("state,total").eq("user_id", ACCT.user.id).maybeSingle();
   if (r.error) throw r.error;
@@ -229,11 +218,9 @@ window.acctPanelHTML = () => {
   if (ACCT.state === "off") return "";
   if (ACCT.state === "out") return `<div class="panel"><h3>Account</h3><p class="small">Sign in to save your progress, use 520 Quest on up to 3 devices and play 1v1 duels.</p><div class="row"><button class="btn primary small" data-acin>Sign in with email</button></div></div>`;
   const p = ACCT.profile || {}, email = (ACCT.user && ACCT.user.email) || "";
-  const linkCode = S.pro && S.proBy !== "account" && !isPaid();
   return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Account</h3><span class="tag sec">${esc(PLAN_NAME[p.plan] || "Free")}</span></div>
     <p class="small" style="overflow-wrap:anywhere">${esc(email)}${p.name ? ` · duel name <b>${esc(p.name)}</b>` : ""}</p>
     ${ACCT.state === "blocked" ? `<p class="small" style="color:var(--bad)">This device isn't syncing: your account is already on ${ACCT.limit} device${ACCT.limit === 1 ? "" : "s"}.</p>` : `<p class="small muted">${ACCT.synced ? "Progress saved to your account " + new Date(ACCT.synced).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) + "." : "Progress saves to your account after each question."}${fullAccess() ? " All Mastery Sheets and mnemonics are unlocked." : ""}</p>`}
-    ${linkCode ? `<p class="small">Your unlock code works on this device only. Enter it again to link it to your account and open every sheet and mnemonic:</p><div class="row"><input type="text" id="acLink" autocomplete="off" placeholder="Code from your receipt" style="flex:1;min-width:0"><button class="btn small" data-aclink>Link</button></div>` : ""}
     <div class="row"><button class="btn small" data-acdevices>Manage devices</button><button class="btn small" data-acname>Change duel name</button><button class="btn small ghost" data-acout>Sign out</button></div></div>`;
 };
 async function signOut() {
@@ -247,15 +234,6 @@ document.addEventListener("click", async e => {
   if (t.closest("[data-acin]")) return signIn();
   if (t.closest("[data-acout]")) return signOut();
   if (t.closest("[data-acdevices]")) return devicesSheet();
-  if (t.closest("[data-aclink]")) {
-    const raw = ($("#acLink") || {}).value || "", bare = raw.toUpperCase().replace(/[^A-Z0-9]/g, "");
-    const code = bare.length === 12 ? bare.match(/.{4}/g).join("-") : raw.trim().toUpperCase();
-    if (!code) return toast("Enter the code from your receipt.");
-    const r = await rpc("redeem_code", { p_code: code }).catch(() => null);
-    if (r && r.ok) { ACCT.profile.plan = r.plan; applyPlan(); await loadKey(); toast("<b>Linked.</b> Your unlock now follows your account."); refreshViews(); }
-    else toast("That code didn't work. Copy it straight from your receipt email.");
-    return;
-  }
   if (t.closest("[data-acname]")) {
     sheet(`<div class="eyebrow">Duels</div><h2>Your duel name</h2><p class="muted">Opponents see this name. Keep it friendly; no email addresses.</p><label class="field" for="acNm">Name<input type="text" id="acNm" maxlength="20" value="${esc((ACCT.profile || {}).name || "")}"></label><div class="row"><button class="btn primary" data-acnmsave>Save</button><button class="btn ghost" data-close>Cancel</button></div>`, s => {
       $("[data-acnmsave]", s).addEventListener("click", async () => {
