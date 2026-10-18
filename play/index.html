@@ -2266,9 +2266,10 @@ function openSheet(id) {
   }).catch(() => { $(".sv-doc", v).innerHTML = `<p>This sheet couldn't load. Check your connection and try again.</p>`; });
 }
 function closeSheet() { const v = $("#sheetView"); v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; }
-$("#sheetView").addEventListener("click", e => {
+$("#sheetView").addEventListener("click", async e => {
   if (e.target.closest("[data-svclose]")) return closeSheet();
   const q = e.target.closest("[data-q]"); if (!q) return;
+  if (!PASSAGES.some(p => p.id === q.dataset.q) && !anyQ(q.dataset.q)) await bankReady.catch(() => {}); // extra questions and passages may still be loading
   const psg = PASSAGES.find(p => p.id === q.dataset.q);
   if (psg) {
     if (!(S.pro || psg.qs.some(x => S.stats[x.id]) || !overFree())) { closeSheet(); return showPro(); }
@@ -2570,7 +2571,13 @@ renderAll();
 // Reopening: Course or Map reopen where you were; otherwise Me after Done for the Day, else Scroll at your last question.
 const startTab = ["course", "map"].includes(S.lastTab) ? S.lastTab : S.today.doneDay ? "me" : "scroll"; if (startTab !== "scroll") go(startTab);
 bankReady.finally(() => welcomeBack());
-if ("serviceWorker" in navigator && location.protocol === "https:" && !/claude\.ai|claudeusercontent/.test(location.hostname)) { navigator.serviceWorker.register("sw.js").catch(() => {}); }
+if ("serviceWorker" in navigator && location.protocol === "https:" && !/claude\.ai|claudeusercontent/.test(location.hostname)) { 
+  navigator.serviceWorker.register("sw.js").then(reg => document.addEventListener("visibilitychange", () => { if (!document.hidden) reg.update().catch(() => {}); })).catch(() => {});
+  // A new release took over while this page was open: reload into it now if just opened, else the next time the app comes back to the front.
+  let swReload = false; const hadSW = !!navigator.serviceWorker.controller, t0 = Date.now();
+  navigator.serviceWorker.addEventListener("controllerchange", () => { if (!hadSW || swReload) return; swReload = true; if (Date.now() - t0 < 8000) location.reload(); });
+  document.addEventListener("visibilitychange", () => { if (swReload && !document.hidden && !B) location.reload(); });
+}
 
 </script>
 <script src="account.js"></script>
