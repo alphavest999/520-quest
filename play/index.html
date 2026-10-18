@@ -2269,6 +2269,11 @@ function closeSheet() { const v = $("#sheetView"); v.hidden = true; v.innerHTML 
 $("#sheetView").addEventListener("click", e => {
   if (e.target.closest("[data-svclose]")) return closeSheet();
   const q = e.target.closest("[data-q]"); if (!q) return;
+  const psg = PASSAGES.find(p => p.id === q.dataset.q);
+  if (psg) {
+    if (!(S.pro || psg.qs.some(x => S.stats[x.id]) || !overFree())) { closeSheet(); return showPro(); }
+    closeSheet(); go("scroll"); const c = passageCard(psg); feed.prepend(c); io.observe(c); feed.scrollTop = 0; return;
+  }
   const item = anyQ(q.dataset.q); if (!item) return toast("That question is still loading. Try again in a moment.");
   if (!canOpen(item)) { closeSheet(); return showPro(); }
   closeSheet(); go("scroll"); sessionSeen.add(item.id);
