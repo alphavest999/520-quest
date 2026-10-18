@@ -169,6 +169,10 @@ button { cursor: pointer; }
 .goldbtn { width: 100%; min-height: 56px; border: 0; border-radius: 16px; padding: 10px 14px; background: linear-gradient(135deg, #ffd700, #ffa500); color: #1a1200; font: 800 16px/1.25 var(--body); display: grid; gap: 4px; justify-items: center; text-align: center; cursor: pointer; animation: goldglow 2s ease-in-out infinite; }
 .goldbtn small { font: 700 11px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; background: rgba(26, 18, 0, .14); border-radius: 99px; padding: 4px 8px; }
 @keyframes goldglow { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 196, 0, .55); } 50% { box-shadow: 0 0 22px 4px rgba(255, 196, 0, .55); } }
+.backsheet { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(80px + env(safe-area-inset-bottom, 0px)); z-index: 40; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; max-width: calc(100% - 32px); padding: 10px 18px; border: 0; border-radius: 99px; cursor: pointer; font: 800 15px/1.1 var(--display); color: var(--volt-ink); background: var(--volt); box-shadow: 0 0 0 3px rgba(250,204,21,.3), 0 6px 20px rgb(0 0 0 / .45); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); }
+.sv-doc .qref.flash { animation: qflash 2s ease-out; border-radius: 4px; }
+@keyframes qflash { 0%, 50% { background: rgba(250,204,21,.35); box-shadow: 0 0 0 4px rgba(250,204,21,.35); } 100% { background: none; box-shadow: none; } }
 #goalPanel.flash { animation: goalflash 1.6s ease-out; }
 @keyframes goalflash { 0%, 40% { box-shadow: 0 0 0 3px var(--volt); } 100% { box-shadow: 0 0 0 0 transparent; } }
 .card.goldcard { display: grid; gap: 10px; align-content: center; }
@@ -2253,16 +2257,35 @@ function wmImage(text) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="260" height="140"><text x="10" y="80" transform="rotate(-24 130 70)" font-family="sans-serif" font-size="14" fill="#fff">${esc(text)}</text></svg>`;
   return `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
 }
-function openSheet(id) {
+/* After a sheet link opens a question or passage, a gold pill leads back to the same spot in the sheet. */
+let sheetReturn = null;
+function dropBackPill() { const b = $("#backSheet"); if (b) b.remove(); document.body.classList.remove("has-back"); }
+function showBackPill() {
+  dropBackPill(); if (!sheetReturn) return;
+  const b = document.createElement("button"); b.id = "backSheet"; b.className = "backsheet"; b.dataset.backsheet = "";
+  b.innerHTML = `<span aria-hidden="true">←</span> Back to Mastery Sheet ${esc(sheetReturn.id)}`;
+  document.body.appendChild(b); document.body.classList.add("has-back");
+}
+document.addEventListener("click", e => { if (e.target.closest("[data-backsheet]") && sheetReturn) { const r = sheetReturn; sheetReturn = null; openSheet(r.id, r); } });
+function openSheet(id, ret) {
+  dropBackPill();
   const meta = (SHEETS || []).find(x => x.id === id); if (!meta) return;
   if (!sheetOpen(meta)) return lockedSheet(`${esc(meta.id)}: ${esc(meta.title)}`, `Unlock ${SHEETS.filter(x => !x.free).length} more sheets + all 5,180 questions with any plan, from ${esc(CONFIG.fromPrice)}.`);
   const v = $("#sheetView"), mark = `520quest.com · ${S.pro ? "Subscriber" : "Preview"} copy · ${new Date().toISOString().slice(0, 10)}`;
   v.innerHTML = `<div class="sv-top"><h2>${esc(meta.id)}: ${esc(meta.title)}</h2><button class="svclose" data-svclose aria-label="Close sheet"><span aria-hidden="true">✕</span> Close</button></div><div class="sv-body"><div class="sv-doc"><p class="muted">Loading…</p></div></div>`;
-  v.hidden = false; document.body.style.overflow = "hidden";
+  v.hidden = false; v.dataset.id = id; document.body.style.overflow = "hidden";
   (meta.free ? fetch("sheets/" + encodeURIComponent(id) + ".json").then(r => { if (!r.ok) throw 0; return r.json(); }) : openSealed(id)).then(d => {
     if (v.hidden) return;
     const doc = $(".sv-doc", v); doc.innerHTML = d.html + `<div class="sv-wm" style="background-image:${wmImage(mark)}"></div>`;
     $$("[data-wm]", doc).forEach(x => x.textContent = mark);
+    if (ret) {
+      // Put the tapped link back where it was on screen (re-applied once layout settles).
+      const body = $(".sv-body", v), links = $$(`.qref[data-q="${CSS.escape(ret.q)}"]`, doc);
+      const link = links[ret.n] || links[0];
+      const place = () => { body.scrollTop = link ? link.offsetTop - ret.dy : ret.top; };
+      place(); requestAnimationFrame(place); setTimeout(place, 250);
+      if (link) { link.classList.add("flash"); setTimeout(() => link.classList.remove("flash"), 2100); }
+    }
   }).catch(() => { $(".sv-doc", v).innerHTML = `<p>This sheet couldn't load. Check your connection and try again.</p>`; });
 }
 function closeSheet() { const v = $("#sheetView"); v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; }
@@ -2270,15 +2293,17 @@ $("#sheetView").addEventListener("click", async e => {
   if (e.target.closest("[data-svclose]")) return closeSheet();
   const q = e.target.closest("[data-q]"); if (!q) return;
   if (!PASSAGES.some(p => p.id === q.dataset.q) && !anyQ(q.dataset.q)) await bankReady.catch(() => {}); // extra questions and passages may still be loading
+  const sb = $(".sv-body"), top = sb ? sb.scrollTop : 0, same = $$(`.sv-doc .qref[data-q="${CSS.escape(q.dataset.q)}"]`);
+  const ret = { id: $("#sheetView").dataset.id, top, q: q.dataset.q, n: same.indexOf(q), dy: q.offsetTop - top };
   const psg = PASSAGES.find(p => p.id === q.dataset.q);
   if (psg) {
     if (!(S.pro || psg.qs.some(x => S.stats[x.id]) || !overFree())) { closeSheet(); return showPro(); }
-    closeSheet(); go("scroll"); const c = passageCard(psg); feed.prepend(c); io.observe(c); feed.scrollTop = 0; return;
+    closeSheet(); go("scroll"); const c = passageCard(psg); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill(); return;
   }
   const item = anyQ(q.dataset.q); if (!item) return toast("That question is still loading. Try again in a moment.");
   if (!canOpen(item)) { closeSheet(); return showPro(); }
   closeSheet(); go("scroll"); sessionSeen.add(item.id);
-  const c = questionCard(item, false); feed.prepend(c); io.observe(c); feed.scrollTop = 0;
+  const c = questionCard(item, false); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill();
 });
 $("#sheetView").addEventListener("contextmenu", e => e.preventDefault());
 $("#sheetView").addEventListener("copy", e => e.preventDefault());
@@ -2531,6 +2556,7 @@ $("#view-me").addEventListener("change", e => {
 
 /* ---------- tabs ---------- */
 function go(tab) {
+  if (tab !== "scroll") { sheetReturn = null; dropBackPill(); }
   $$(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.tab === tab));
   ["scroll", "boss", "course", "map", "me", "results"].forEach(v => $("#view-" + v).hidden = v !== tab);
   if (tab !== "results") { S.lastTab = tab; save(); }
