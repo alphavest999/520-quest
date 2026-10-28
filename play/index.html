@@ -217,6 +217,14 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 .qhead { font: 700 13px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--volt); padding: 12px 0 0; border-top: 2px solid var(--volt); }
 .card { position: relative; }
 .pq h3 { margin: 0; font: 600 16.5px/1.4 var(--body); }
+.pgraph { margin: 2px 0; } .pgraph svg { width: 100%; height: auto; display: block; background: #fff; border-radius: 10px; } .pgraph .gcap { font-weight: 700; font-size: 14px; padding-bottom: 6px; }
+.ptbl { overflow-x: auto; margin: 2px 0; }
+.ptbl table { border-collapse: collapse; width: 100%; font-size: 14px; }
+.ptbl caption { text-align: left; font-weight: 700; padding-bottom: 6px; }
+.ptbl th, .ptbl td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+.ptbl th { background: var(--panel-2); }
+.ptbl.vt caption { color: var(--volt); }
+.mnlink { display: flex; gap: 8px; align-items: center; width: 100%; text-align: left; margin-top: 6px; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel-2); color: var(--text); font: 600 14px/1.3 var(--body); cursor: pointer; }
 .bigtext { font: 600 clamp(20px, 5.4vw, 25px)/1.35 var(--body); margin: 0; text-wrap: pretty; }
 .eyebrow { font: 700 12px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--volt); }
 .card.fact { background: linear-gradient(160deg, color-mix(in srgb, var(--cool) 10%, var(--panel)), var(--panel) 60%); }
@@ -359,15 +367,17 @@ a { color: var(--volt); }
     <section class="view" id="view-map" hidden aria-label="Skill map"></section>
     <div id="sheetView" hidden role="dialog" aria-modal="true" aria-label="Mastery Sheet"></div>
     <section class="view" id="view-course" hidden aria-label="Course"></section>
+    <section class="view" id="view-exam" hidden aria-label="Timed exams"></section>
     <section class="view" id="view-me" hidden aria-label="Profile"></section>
     <section class="view" id="view-results" hidden aria-label="Session results"></section>
   </div>
 
-  <nav class="tabs five" role="tablist">
+  <nav class="tabs six" role="tablist">
     <button class="tab" role="tab" data-tab="scroll" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="3" width="12" height="18" rx="3"/><path d="M12 8v6M9.5 11.5 12 14l2.5-2.5"/></svg>Scroll</button>
     <button class="tab" role="tab" data-tab="boss" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 15 9M14 4l6 6M9 9l6 6M5 15l4 4"/></svg>Boss</button>
     <button class="tab" role="tab" data-tab="course" aria-selected="false"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A1.5 1.5 0 0 0 5 19.5 1.5 1.5 0 0 0 6.5 21H20v1H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M8 6h8v1.6H8zM8 9h6v1.6H8z" fill="var(--ink)"/></svg>Course</button>
     <button class="tab" role="tab" data-tab="map" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>Map</button>
+    <button class="tab" role="tab" data-tab="exam" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>Exams</button>
     <button class="tab" role="tab" data-tab="me" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Me</button>
   </nav>
 
@@ -1373,7 +1383,7 @@ const anyQ = id => QBYID[id] || PQ[id] || (window.GEN && id.startsWith("g_") ? G
 /* ---------- question bank: thousands of extra questions load from bank/ after start ---------- */
 function addBank(b) {
   (b.questions || []).forEach(q => { if (QBYID[q.id] || !CAT[q.c]) return; q.note = q.note || ""; QUESTIONS.push(q); QBYID[q.id] = q; });
-  (b.passages || []).forEach(p => { if (PASSAGES.some(x => x.id === p.id)) return; p.qs.forEach((q, i) => { q.id = p.id + "_" + i; q.s = "CARS"; q.pid = p.id; PQ[q.id] = q; }); PASSAGES.push(p); });
+  (b.passages || []).forEach(p => { if (PASSAGES.some(x => x.id === p.id)) return; p.s = p.s || "CARS"; p.qs.forEach((q, i) => { q.id = p.id + "_" + i; q.s = p.s; q.pid = p.id; PQ[q.id] = q; }); PASSAGES.push(p); });
 }
 const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.json())
   .then(ix => Promise.all(ix.files.map(f => fetch("bank/" + f).then(r => r.json()).then(addBank).catch(() => {}))))
@@ -1732,15 +1742,24 @@ function nextCard() {
   cardN++;
   const sec = S.focus ? CAT[S.focus].s : S.filter;
   // A passage only appears when all its questions fit inside the free limit.
-  const nextP = PASSAGES[passI % PASSAGES.length], pFits = S.pro || seenCount() + nextP.qs.filter(q => !S.stats[q.id]).length <= CONFIG.freeQuestions;
+  const fits = p => S.pro || seenCount() + p.qs.filter(q => !S.stats[q.id]).length <= CONFIG.freeQuestions;
+  const cars = PASSAGES.filter(p => p.s === "CARS"), nextP = cars[passI % cars.length], pFits = fits(nextP);
   if (sec === "CARS") { if (!pFits) { if (gateShown) return null; gateShown = true; return gateCard(); } passI++; return passageCard(nextP); }
   if (!S.focus && sec === "ALL" && cardN % 9 === 0 && pFits) { passI++; return passageCard(nextP); }
+  if (cardN % 3 === 0) { const sp = nextSciPassage(sec); if (sp && fits(sp)) return passageCard(sp); }
   if (cardN === 4 && !installed()) return installCard();
   if (!S.pro && cardN % 12 === 0) return promoCard();
   if (!S.focus && cardN % 5 === 0) return (cardN / 5) % 2 ? factCard() : trapCard();
   const [q, rev, tgt] = pickQuestion(); sessionSeen.add(q.id);
   if (!canOpen(q)) { if (gateShown) return null; gateShown = true; return gateCard(); }
   return questionCard(q, rev, tgt);
+}
+// Science passages: an unanswered one from the current section or sheet, shown once per session.
+function nextSciPassage(sec) {
+  const ok = p => p.s !== "CARS" && !sessionSeen.has(p.id) && (S.focus ? p.c === S.focus : sec === "ALL" || p.s === sec);
+  const list = PASSAGES.filter(ok), p = list.find(p => !p.qs.some(q => S.stats[q.id])) || list[0];
+  if (p) sessionSeen.add(p.id);
+  return p;
 }
 function fill(n = 3) { for (let i = 0; i < n; i++) { const c = nextCard(); if (!c) break; feed.appendChild(c); io.observe(c); } watchEnd(); }
 function resetFeed() { feed.innerHTML = ""; cardN = 0; gateShown = false; reviewEnded = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
@@ -1802,7 +1821,7 @@ function wireQuestion(scope, q, card) {
     nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
     if (!ok) wireDNA(rv, q, secs);
     upgradeExplain(rv, q, i, ok);
-    const sl = sheetLinkHTML(q); if (sl) $(".row", rv).insertAdjacentHTML("beforebegin", sl);
+    const sl = sheetLinkHTML(q) + mnLinkHTML(q); if (sl) $(".row", rv).insertAdjacentHTML("beforebegin", sl);
     const ab = $("[data-addanki]", rv); if (ab) ab.addEventListener("click", () => addAnki(q, ab));
     const h = $("[data-hint]", scope); if (h) h.disabled = true;
   });
@@ -1822,14 +1841,14 @@ function explainHTML(q, i) {
 }
 /* ---------- Rich explanations: bank/ex/<CAT>.json, fetched the first time a category's explanation opens ---------- */
 const EX = {};
-const exCat = q => q.s === "CARS" || q.pid ? "CARS" : q.c;
+const exCat = q => q.s === "CARS" ? "CARS" : q.c;
 function loadEx(cat) {
   if (!cat || !/^[\w-]+$/.test(cat)) return Promise.resolve({});
   return EX[cat] || (EX[cat] = fetch("bank/ex/" + cat + ".json").then(r => r.ok ? r.json() : {}).catch(() => { delete EX[cat]; return {}; }));
 }
 // ox follows the bank's choice order; q.ord maps each shuffled position back to it.
 function exEntry(q) {
-  return loadEx(exCat(q)).then(m => {
+  return (q.ex ? Promise.resolve({ [q.id]: q.ex }) : loadEx(exCat(q))).then(m => {
     const x = m && m[q.id]; if (!x || !Array.isArray(x.ox) || x.ox.length !== q.o.length) return null;
     return Object.assign({}, x, { ox: q.o.map((_, j) => x.ox[q.ord ? q.ord[j] : j]) });
   });
@@ -1913,14 +1932,50 @@ function wireDNA(rv, q, secs) {
   if (secs > 95) log("Time");
 }
 
+const QKIND = { CF: "Comprehension", CW: "Reasoning within", CB: "Reasoning beyond", data: "Data reading", design: "Experimental design", calc: "Calculation", trap: "Trap check", link: "High-yield link" };
+// t = { cap, h: header cells, r: rows of cells }
+const tableHTML = (t, cls = "") => t && Array.isArray(t.h) && Array.isArray(t.r) ? `<div class="ptbl ${cls}"><table>${t.cap ? `<caption>${esc(t.cap)}</caption>` : ""}<thead><tr>${t.h.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${t.r.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : "";
+// g = { type: line|bar|scatter, title, x_label, y_label, series: [{ name, points: [[x, y], ...] }] }
+const graphHTML = g => {
+  if (!g || !Array.isArray(g.series) || !g.series.length) return "";
+  const W = 560, H = 300, L = 58, R = 16, T = 14, B = 52, col = ["#2563eb", "#dc2626", "#059669", "#d97706"];
+  const pts = g.series.flatMap(s => (s.points || []).filter(p => Array.isArray(p) && isFinite(+p[1])));
+  if (!pts.length) return "";
+  const cat = g.type === "bar" || pts.some(p => !isFinite(+p[0]));
+  const cats = cat ? [...new Set(g.series.flatMap(s => (s.points || []).map(p => String(p[0]))))] : [];
+  const ys = pts.map(p => +p[1]), xs = cat ? [] : pts.map(p => +p[0]);
+  let y0 = Math.min(0, ...ys), y1 = Math.max(...ys); if (y1 === y0) y1 = y0 + 1;
+  const ex = cat ? [0, 1] : [Math.min(...xs), Math.max(...xs)]; if (ex[1] === ex[0]) ex[1] = ex[0] + 1;
+  const px = cat ? (i => L + (i + .5) * (W - L - R) / cats.length) : (x => L + (x - ex[0]) / (ex[1] - ex[0]) * (W - L - R));
+  const py = y => T + (1 - (y - y0) / (y1 - y0)) * (H - T - B);
+  const nt = v => +v.toPrecision(3);
+  let o = `<line x1="${L}" y1="${T}" x2="${L}" y2="${H - B}" stroke="#444"/><line x1="${L}" y1="${H - B}" x2="${W - R}" y2="${H - B}" stroke="#444"/>`;
+  for (let i = 0; i <= 4; i++) { const v = y0 + (y1 - y0) * i / 4, y = py(v); o += `<line x1="${L}" y1="${y}" x2="${W - R}" y2="${y}" stroke="#e5e7eb"/><text x="${L - 6}" y="${y + 4}" font-size="11" text-anchor="end" fill="#333">${nt(v)}</text>`; }
+  if (cat) cats.forEach((c, i) => o += `<text x="${px(i)}" y="${H - B + 16}" font-size="11" text-anchor="middle" fill="#333">${esc(c.length > 14 ? c.slice(0, 13) + "…" : c)}</text>`);
+  else for (let i = 0; i <= 4; i++) { const v = ex[0] + (ex[1] - ex[0]) * i / 4; o += `<text x="${px(v)}" y="${H - B + 16}" font-size="11" text-anchor="middle" fill="#333">${nt(v)}</text>`; }
+  const ns = g.series.length, bw = cat ? (W - L - R) / cats.length / (ns + 1) : 0;
+  g.series.forEach((s, k) => {
+    const c = col[k % col.length], P = (s.points || []).filter(p => Array.isArray(p) && isFinite(+p[1]));
+    if (g.type === "bar") P.forEach(p => { const i = cats.indexOf(String(p[0])), x = px(i) - bw * ns / 2 + k * bw, y = py(+p[1]), z = py(0); o += `<rect x="${x}" y="${Math.min(y, z)}" width="${bw * .9}" height="${Math.abs(z - y)}" fill="${c}"/>`; });
+    else {
+      const xy = p => [cat ? px(cats.indexOf(String(p[0]))) : px(+p[0]), py(+p[1])];
+      if (g.type !== "scatter" && P.length > 1) o += `<polyline fill="none" stroke="${c}" stroke-width="2" points="${P.map(p => xy(p).join(",")).join(" ")}"/>`;
+      P.forEach(p => { const [x, y] = xy(p); o += `<circle cx="${x}" cy="${y}" r="3.5" fill="${c}"/>`; });
+    }
+  });
+  if (ns > 1) g.series.forEach((s, k) => o += `<rect x="${L + 8 + k * 120}" y="${H - 14}" width="10" height="10" fill="${col[k % col.length]}"/><text x="${L + 22 + k * 120}" y="${H - 5}" font-size="11" fill="#333">${esc(s.name || "")}</text>`);
+  if (g.x_label) o += `<text x="${(L + W - R) / 2}" y="${H - 20}" font-size="12" text-anchor="middle" fill="#111">${esc(g.x_label)}</text>`;
+  if (g.y_label) o += `<text transform="translate(14 ${(T + H - B) / 2}) rotate(-90)" font-size="12" text-anchor="middle" fill="#111">${esc(g.y_label)}</text>`;
+  return `<figure class="pgraph" style="margin:0">${g.title ? `<div class="gcap">${esc(g.title)}</div>` : ""}<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(g.title || "Graph")}">${o}</svg></figure>`;
+};
 function passageCard(p) {
   p = Object.assign({}, p, { qs: p.qs.map(shuf) });
-  const el = document.createElement("article"); el.className = "card"; el._made = Date.now();
-  const n = p.qs.length;
-  el.innerHTML = `<div class="card-top"><span class="tag sec">CARS</span><span class="tag">Passage + ${n} questions</span><button class="btn small primary qjump" data-jump style="margin-left:auto">Jump to questions ↓</button></div>
-    <h2 class="stem">${esc(p.title)}</h2><p class="muted small" style="margin:0">Read the passage, then answer the ${n} questions below it.</p><div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>
+  const el = document.createElement("article"); el.className = "card"; el._made = Date.now(); el.dataset.pid = p.id;
+  const n = p.qs.length, sci = p.s !== "CARS";
+  el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[p.s].name}</span>${sci ? `<span class="tag">${esc(p.c)}${CAT[p.c] && CAT[p.c].hy ? " ★" : ""}</span>` : ""}<span class="tag">Passage + ${n} questions</span><button class="btn small primary qjump" data-jump style="margin-left:auto">Jump to questions ↓</button></div>
+    <h2 class="stem">${esc(p.title)}</h2><p class="muted small" style="margin:0">Read the passage, then answer the ${n} questions below it.</p><div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}
     <div class="qhead" data-qhead>Questions 1–${n}</div>` +
-    p.qs.map((q, i) => `<div class="pq" data-q="${i}"><div class="card-top"><span class="tag sec">Q${i + 1} of ${n}</span><span class="tag">${{ CF: "Comprehension", CW: "Reasoning within", CB: "Reasoning beyond" }[q.c]}</span>${diffDots(q.d)}</div><h3>${q.q}</h3><div class="opts">${optsHTML(q)}</div><div class="reveal stack" hidden></div></div>`).join("") + SWIPE;
+    p.qs.map((q, i) => `<div class="pq" data-q="${i}"><div class="card-top"><span class="tag sec">Q${i + 1} of ${n}</span><span class="tag">${QKIND[q.k || q.c] || ""}</span>${diffDots(q.d)}${q.t ? `<span class="muted small" style="margin-left:auto">Avg solve time: ${+q.t} sec</span>` : ""}</div><h3>${q.q}</h3>${tableHTML(q.vt, "vt")}<div class="opts">${optsHTML(q)}</div><div class="reveal stack" hidden></div></div>`).join("") + SWIPE;
   p.qs.forEach((q, i) => wireQuestion($(`[data-q="${i}"]`, el), q, el));
   $("[data-jump]", el).addEventListener("click", () => scrollToEl($("[data-qhead]", el)));
   return el;
@@ -1949,14 +2004,14 @@ function promoCard() {
   const left = Math.max(0, CONFIG.freeQuestions - seenCount());
   const el = document.createElement("article"); el.className = "card promo";
   el.innerHTML = `<div class="eyebrow" style="color:#fb7185">520 Quest plans</div><p class="bigtext">${left} of ${CONFIG.freeQuestions} free questions left.</p>
-    <p class="muted" style="margin:0">Every plan unlocks all 5,180 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles and duels, the score estimate and Anki export.</p>
+    <p class="muted" style="margin:0">Every plan unlocks all 9,092 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles and duels, the score estimate and Anki export.</p>
     <div class="row"><button class="btn pro" data-pro>See plans, from ${esc(CONFIG.fromPrice)}</button></div>${SWIPE}`;
   return el;
 }
 function gateCard() {
   const el = document.createElement("article"); el.className = "card gate";
   el.innerHTML = `<div class="eyebrow">Free questions used</div><p class="bigtext">You've opened all ${CONFIG.freeQuestions} free questions. Nice work.</p>
-    <p class="muted" style="margin:0">Your misses still come back here for review. Pick a plan to unlock all 5,180 questions, all 33 Mastery Sheets and all 150 mnemonics.</p>
+    <p class="muted" style="margin:0">Your misses still come back here for review. Pick a plan to unlock all 9,092 questions, all 33 Mastery Sheets and all 150 mnemonics.</p>
     <div class="row"><button class="btn pro" data-pro>See plans, from ${esc(CONFIG.fromPrice)}</button></div>`;
   $("[data-pro]", el).addEventListener("click", showPro);
   return el;
@@ -2138,7 +2193,7 @@ function showPro() {
   if (S.pro) { toast("<b>Your plan is active.</b> Everything is unlocked."); return; }
   const open = CONFIG.plans.some(p => p.url);
   sheet(`<div class="eyebrow">520 Quest plans</div><h2>Unlock everything</h2>
-    <p class="muted" style="margin:0">Every plan includes all 5,180 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles and duels, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
+    <p class="muted" style="margin:0">Every plan includes all 9,092 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles and duels, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
     <div class="stack" style="gap:8px">${CONFIG.plans.map(p => `<div class="panel row" style="justify-content:space-between;flex-wrap:nowrap;gap:10px${p.best ? ";border-color:var(--volt)" : ""}"><div><b>${esc(p.name)}</b>${p.best ? ' <span class="tag sec">Best value</span>' : ""}<div class="small muted">${esc(p.price)} ${esc(p.per)}</div></div>${p.url ? `<a class="btn pro small lemonsqueezy-button" href="${esc(planUrl(p.url))}" target="_blank" rel="noopener">Choose</a>` : `<button class="btn small" disabled>Opening soon</button>`}</div>`).join("")}</div>
     <p class="small muted" style="margin:0">${open ? "Plans renew automatically and can be cancelled anytime. After you subscribe, sign in with the same email in the Me tab." : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions, 5 Mastery Sheets and 1 mnemonic."}</p>
     <div class="row"><button class="btn ghost" data-close>Not now</button></div>`);
@@ -2270,7 +2325,7 @@ document.addEventListener("click", e => { if (e.target.closest("[data-backsheet]
 function openSheet(id, ret) {
   dropBackPill();
   const meta = (SHEETS || []).find(x => x.id === id); if (!meta) return;
-  if (!sheetOpen(meta)) return lockedSheet(`${esc(meta.id)}: ${esc(meta.title)}`, `Unlock ${SHEETS.filter(x => !x.free).length} more sheets + all 5,180 questions with any plan, from ${esc(CONFIG.fromPrice)}.`);
+  if (!sheetOpen(meta)) return lockedSheet(`${esc(meta.id)}: ${esc(meta.title)}`, `Unlock ${SHEETS.filter(x => !x.free).length} more sheets + all 9,092 questions with any plan, from ${esc(CONFIG.fromPrice)}.`);
   const v = $("#sheetView"), mark = `520quest.com · ${S.pro ? "Subscriber" : "Preview"} copy · ${new Date().toISOString().slice(0, 10)}`;
   v.innerHTML = `<div class="sv-top"><h2>${esc(meta.id)}: ${esc(meta.title)}</h2><button class="svclose" data-svclose aria-label="Close sheet"><span aria-hidden="true">✕</span> Close</button></div><div class="sv-body"><div class="sv-doc"><p class="muted">Loading…</p></div></div>`;
   v.hidden = false; v.dataset.id = id; document.body.style.overflow = "hidden";
@@ -2310,7 +2365,7 @@ $("#sheetView").addEventListener("copy", e => e.preventDefault());
 document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#sheetView").hidden) closeSheet(); });
 
 /* ---------- Course tab: Mastery Sheets vault + Mnemonics Vault ---------- */
-const sheetFor = q => !q ? null : q.s === "CARS" || q.pid || ["CF", "CW", "CB"].includes(q.c) ? "CARS" : q.c === "SK" ? "SIRS" : q.c;
+const sheetFor = q => !q ? null : q.s === "CARS" || ["CF", "CW", "CB"].includes(q.c) ? "CARS" : q.c === "SK" ? "SIRS" : q.c;
 function goldBtnHTML() {
   const n = SHEETS && SHEETS.length ? SHEETS.filter(x => !["CARS", "SIRS"].includes(x.id)).length : 31;
   return `<button class="goldbtn" data-gocourse>📚 ${n} MCAT Mastery Sheets · Full content review<small>${S.pro ? "" : "🔒 "}Included in every plan</small></button>`;
@@ -2319,6 +2374,15 @@ function sheetLinkHTML(q) {
   const id = sheetFor(q), meta = id && SHEETS && SHEETS.find(x => x.id === id);
   return meta ? `<button class="sheetlink" data-sheet="${esc(meta.id)}">📚 <span>Related: <b>Mastery Sheet ${esc(meta.id)}</b> · ${esc(meta.title)}${sheetOpen(meta) ? "" : " 🔒"}</span></button>` : "";
 }
+function mnLinkHTML(q) {
+  const p = q.pid && PASSAGES.find(x => x.id === q.pid), ids = [].concat(q.mn || (p && p.mn) || []);
+  return ids.map(id => { const m = MN && MN.find(x => String(x.id) === String(id)); return m ? `<button class="mnlink" data-mnlink="${esc(m.id)}">🧠 <span>Mnemonic Vault #${esc(m.id)}: <b>${esc(m.concept)}</b>${m.locked && !S.pro ? " 🔒" : ""}</span></button>` : ""; }).join("");
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-mnlink]"), m = b && MN && MN.find(x => String(x.id) === b.dataset.mnlink); if (!m) return;
+  if (m.locked) return lockedSheet(`${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 9,092 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
+  mnView = { s: "mn", id: m.id }; go("course");
+});
 function lockedSheet(title, line) {
   sheet(`<div class="eyebrow">Locked</div><h3>${title}</h3><p><b>${line}</b></p><p class="muted small">Monthly ${esc(CONFIG.plans[0].price)}, 6 Months ${esc(CONFIG.plans[1].price)} or Yearly ${esc(CONFIG.plans[2].price)}. Every plan unlocks everything.${S.pro ? " Already subscribed? Sign in on the Me tab." : ""}</p>
     <div class="row"><button class="btn pro" data-close data-pro2>See plans</button><button class="btn ghost" data-close>Not now</button></div>`);
@@ -2344,7 +2408,7 @@ function renderCourse() {
   v.innerHTML = `<h2 class="title">Course</h2><p class="sub">Mastery Sheets for every MCAT content category, plus the Mnemonics Vault.</p>
     <div class="stack"><div class="panel"><h3>Mastery Sheets</h3><p class="small muted" style="margin:4px 0 0">One-page reviews: high-yield summary, formulas and pathways, common traps and 3 practice questions.${S.pro || hasKey() ? "" : ` ${free} free previews.`}</p>
       ${SHEETS ? `<div class="sheets-grid">${SHEETS.map(x => `<button class="shbtn ${sheetOpen(x) ? "" : "locked"}" data-sheet="${esc(x.id)}"><code>${sheetOpen(x) ? "" : "🔒 "}${esc(x.id)}</code><small>${esc(x.title)}</small></button>`).join("")}</div>` : `<p class="muted small">Loading…</p>`}
-      ${locked ? `<div class="lockcta">Unlock ${locked} more sheets + all 5,180 Qs with any plan, from ${esc(CONFIG.fromPrice)}<div class="small muted" style="font-weight:400;margin-top:4px"><button class="linkbtn" data-pro2>See plans</button></div></div>` : ""}</div>
+      ${locked ? `<div class="lockcta">Unlock ${locked} more sheets + all 9,092 Qs with any plan, from ${esc(CONFIG.fromPrice)}<div class="small muted" style="font-weight:400;margin-top:4px"><button class="linkbtn" data-pro2>See plans</button></div></div>` : ""}</div>
     ${CONFIG.flags.MNEMONICS_ENABLED ? mnHomeHTML() : ""}</div>`;
 }
 function mnHomeHTML() {
@@ -2362,7 +2426,7 @@ function renderMn(v) {
     const list = mnView.s === "cat" ? MN.filter(m => mnKey(m.category) === mnKey(mnView.cat)) : MN.filter(m => (m.concept + " " + (m.mnemonic_text || "") + " " + (m.funny_version || "")).toLowerCase().includes(mnView.q.toLowerCase()));
     const lockedN = list.filter(m => m.locked).length;
     v.innerHTML = `${back}<h2 class="title" style="margin-top:10px">${mnView.s === "cat" ? esc(mnView.cat) : `Results for “${esc(mnView.q)}”`}</h2><p class="sub">${list.length} mnemonic${list.length === 1 ? "" : "s"}${lockedN ? ` · ${lockedN} locked` : ""}</p>
-      <div class="mn-list">${list.map(mnItemHTML).join("") || `<p class="muted">No matches.</p>`}</div>${lockedN ? `<div class="lockcta">Unlock ${MN.filter(m => m.locked).length} more mnemonics + all 5,180 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}<div class="small muted" style="font-weight:400;margin-top:4px"><button class="linkbtn" data-pro2>See plans</button></div></div>` : ""}`;
+      <div class="mn-list">${list.map(mnItemHTML).join("") || `<p class="muted">No matches.</p>`}</div>${lockedN ? `<div class="lockcta">Unlock ${MN.filter(m => m.locked).length} more mnemonics + all 9,092 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}<div class="small muted" style="font-weight:400;margin-top:4px"><button class="linkbtn" data-pro2>See plans</button></div></div>` : ""}`;
     return;
   }
   const m = MN.find(x => String(x.id) === String(mnView.id)); if (!m) { mnView = { s: "home" }; return renderCourse(); }
@@ -2405,7 +2469,7 @@ $("#view-course").addEventListener("click", e => {
   const c = t.closest("[data-mncat]"); if (c) { mnView = { s: "cat", cat: c.dataset.mncat }; renderCourse(); v0(); return; }
   const it = t.closest("[data-mn]"); if (it) {
     const m = MN.find(x => String(x.id) === it.dataset.mn); if (!m) return;
-    if (m.locked) return lockedSheet(`${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 5,180 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
+    if (m.locked) return lockedSheet(`${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 9,092 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
     mnView = { s: "mn", id: m.id, from: mnView.s !== "home" ? mnView : null }; renderCourse(); v0(); return;
   }
   if (t.closest("[data-mnback]")) { mnView = mnView.s === "mn" && mnView.from ? mnView.from : { s: "home" }; renderCourse(); return; }
@@ -2558,14 +2622,16 @@ $("#view-me").addEventListener("change", e => {
 function go(tab) {
   if (tab !== "scroll") { sheetReturn = null; dropBackPill(); }
   $$(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.tab === tab));
-  ["scroll", "boss", "course", "map", "me", "results"].forEach(v => $("#view-" + v).hidden = v !== tab);
+  ["scroll", "boss", "course", "map", "exam", "me", "results"].forEach(v => $("#view-" + v).hidden = v !== tab);
   if (tab !== "results") { S.lastTab = tab; save(); }
   if (tab === "boss" && !B) renderBossLobby();
   if (tab === "map") renderMap();
   if (tab === "course") renderCourse();
   if (tab === "me") renderMe();
+  if (tab === "exam" && window.renderExam) renderExam();
+  document.body.classList.remove("examing");
   if (tab !== "boss" && B) { clearInterval(B.tick); B = null; syncMusic(); }
-  const h = { scroll: "", boss: "boss", course: "course", map: "map", me: "me", results: "" }[tab]; try { history.replaceState(null, "", h ? "#" + h : location.pathname); } catch (e) {}
+  const h = { scroll: "", boss: "boss", course: "course", map: "map", exam: "exam", me: "me", results: "" }[tab]; try { history.replaceState(null, "", h ? "#" + h : location.pathname); } catch (e) {}
 }
 $(".tabs").addEventListener("click", e => {
   const t = e.target.closest(".tab"); if (!t) return;
@@ -2606,6 +2672,7 @@ if ("serviceWorker" in navigator && location.protocol === "https:" && !/claude\.
 }
 
 </script>
+<script src="exam.js"></script>
 <script src="account.js"></script>
 
 </body>
