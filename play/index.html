@@ -1378,16 +1378,25 @@ const daysBetween = (a, b) => Math.round((new Date(b + "T12:00") - new Date(a + 
 const CAT = Object.fromEntries(CATS.map(([code, title, s, hy]) => [code, { code, title, s, hy }]));
 const QBYID = Object.fromEntries(QUESTIONS.map(q => [q.id, q]));
 const PQ = {};
-PASSAGES.forEach(p => p.qs.forEach((q, i) => { q.id = p.id + "_" + i; q.s = "CARS"; q.pid = p.id; PQ[q.id] = q; }));
+PASSAGES.forEach(p => { p.s = p.s || "CARS"; p.qs.forEach((q, i) => { q.id = p.id + "_" + i; q.s = "CARS"; q.pid = p.id; PQ[q.id] = q; }); });
 const anyQ = id => QBYID[id] || PQ[id] || (window.GEN && id.startsWith("g_") ? GEN.fromId(id) : null);
 /* ---------- question bank: thousands of extra questions load from bank/ after start ---------- */
 function addBank(b) {
   (b.questions || []).forEach(q => { if (QBYID[q.id] || !CAT[q.c]) return; q.note = q.note || ""; QUESTIONS.push(q); QBYID[q.id] = q; });
   (b.passages || []).forEach(p => { if (PASSAGES.some(x => x.id === p.id)) return; p.s = p.s || "CARS"; p.qs.forEach((q, i) => { q.id = p.id + "_" + i; q.s = p.s; q.pid = p.id; PQ[q.id] = q; }); PASSAGES.push(p); });
 }
+// Saved answers for questions that are no longer in the bank would otherwise count against the free limit.
+function pruneStats() {
+  if (QUESTIONS.length + PASSAGES.length < 200) return;
+  let n = 0;
+  Object.keys(S.stats).forEach(id => { if (!anyQ(id)) { delete S.stats[id]; n++; } });
+  Object.keys(S.revenge).forEach(id => { if (!anyQ(id)) { delete S.revenge[id]; n++; } });
+  if (n) save();
+}
 const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.json())
   .then(ix => Promise.all(ix.files.map(f => fetch("bank/" + f).then(r => r.json()).then(addBank).catch(() => {}))))
   .then(() => {
+    pruneStats();
     passI = Math.floor(Math.random() * PASSAGES.length); if (!$("#view-map").hidden) renderMap();
     if (resumeLate) S.resume = resumeLate;
     const q = resumeLate && resumeQ();
@@ -1406,9 +1415,10 @@ function fresh() {
 }
 let S = fresh();
 try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(fresh(), JSON.parse(raw)); } catch (e) {}
-if (S.pro && S.proBy !== "account") { S.pro = false; delete S.proBy; } // plans come only from a signed-in account
+if (S.pro && S.proBy !== "account" && !S.admin) { S.pro = false; delete S.proBy; } // plans come only from a signed-in account
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} window.acctSync && acctSync(); }
-const hasKey = () => !!(window.acctHasKey && acctHasKey());
+const hasKey = () => !!(S.admin || (window.acctHasKey && acctHasKey()));
+if (S.admin) CONFIG.freeQuestions = 99999;
 const sheetOpen = x => x.free || hasKey();
 function rollDay() {
   const t = todayKey();
@@ -2663,6 +2673,20 @@ renderAll();
 // Reopening: Course or Map reopen where you were; otherwise Me after Done for the Day, else Scroll at your last question.
 const startTab = ["course", "map"].includes(S.lastTab) ? S.lastTab : S.today.doneDay ? "me" : "scroll"; if (startTab !== "scroll") go(startTab);
 bankReady.finally(() => welcomeBack());
+/* Owner-only unlock: ?admin=<pass> is checked (as a SHA-256) against play/admin-private.json, which is git-ignored and never deployed. Without that file this does nothing. ?admin=off turns it off. */
+(async () => {
+  const q = new URLSearchParams(location.search).get("admin"); if (q === null) return;
+  try { history.replaceState(null, "", location.pathname + location.hash); } catch (e) {}
+  const sha = async t => [...new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)))].map(b => b.toString(16).padStart(2, "0")).join("");
+  try {
+    if (q === "off") { S.admin = false; if (S.proBy === "admin") { S.pro = false; delete S.proBy; } CONFIG.freeQuestions = 100; save(); return renderAll(); }
+    const r = await fetch("admin-private.json", { cache: "no-store" }); if (!r.ok) return;
+    const j = await r.json(), want = j.sha256 || (j.admin_code ? await sha(String(j.admin_code)) : "");
+    if (!want || await sha(q) !== want) return;
+    S.admin = true; S.pro = true; S.proBy = "admin"; CONFIG.freeQuestions = 99999; save(); renderAll(); toast("Admin unlocked.");
+  } catch (e) {}
+})();
+
 if ("serviceWorker" in navigator && location.protocol === "https:" && !/claude\.ai|claudeusercontent/.test(location.hostname)) { 
   navigator.serviceWorker.register("sw.js").then(reg => document.addEventListener("visibilitychange", () => { if (!document.hidden) reg.update().catch(() => {}); })).catch(() => {});
   // A new release took over while this page was open: reload into it now if just opened, else the next time the app comes back to the front.
