@@ -1,0 +1,117 @@
+[
+  {
+    "id": "bp002_Q1",
+    "type": "passage",
+    "passage_id": "bp002",
+    "passage_text": "Researchers performed a stepwise titration of the tripeptide Gly‑Lys‑Asp (GKD) to study how its net charge changes with pH. The peptide contains four ionizable groups: the N‑terminus (pKa ≈ 8.0), the C‑terminus (pKa ≈ 3.1), the Lys side chain (pKa ≈ 10.5), and the Asp side chain (pKa ≈ 3.9). Table 1 shows the net charge at selected pH values, with each group's charge rounded to the nearest whole unit. The experiment was conducted at 25 °C in 0.1 M phosphate buffer, and the charge was determined by capillary electrophoresis. The data illustrate the classic sigmoidal titration curve and provide a basis for calculating the isoelectric point (pI) of the peptide.",
+    "table_data": "| pH | N‑terminus | Lys side chain | Asp side chain | C‑terminus | Net charge |\n|---|---|---|---|---|---|\n| 2 | +1 | +1 | 0 | 0 | +2 |\n| 5 | +1 | +1 | –1 | –1 | 0 |\n| 6 | +1 | +1 | –1 | –1 | 0 |\n| 9 | 0 | +1 | –1 | –1 | –1 |\n| 12 | 0 | 0 | –1 | –1 | –2 |",
+    "stem": "What is the independent variable in Table 1?",
+    "options": {
+      "A": "Net charge of the peptide",
+      "B": "pH of the titration solution",
+      "C": "Charge state of the Lys side chain",
+      "D": "Charge state of the Asp side chain"
+    },
+    "correct": "B",
+    "explanation": "Correct: B) The researchers set the pH of the titration solution; net charge and the individual group charges are measured responses. Why the others are wrong: A) net charge is the measured outcome, not the variable that was set. C) the Lys side-chain charge is a dependent quantity determined by pH. D) the Asp side-chain charge is likewise determined by pH.",
+    "trap": "Confusing outcome (net charge) with the variable you control (pH).",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp002_Q2",
+    "type": "passage",
+    "passage_id": "bp002",
+    "passage_text": "To determine the isoelectric point (pI) of GKD, the researchers could design an experiment that systematically varies the pH of the solution and measures the net charge of the peptide at each point. By plotting net charge versus pH, the pH at which the curve crosses zero gives the pI. An alternative approach would be to run the peptide on an isoelectric focusing gel and identify the band that migrates to the pH where it stops moving. The key is to keep all other conditions constant (temperature, ionic strength) so that the only changing factor is the proton concentration.",
+    "table_data": "",
+    "stem": "Which experimental design would best allow the researchers to determine the pI of GKD?",
+    "options": {
+      "A": "Measure the peptide’s melting temperature at various pH values.",
+      "B": "Titrate the peptide while recording its net charge and plot the curve.",
+      "C": "Vary the peptide concentration while keeping pH constant.",
+      "D": "Use mass spectrometry to measure the peptide’s mass at different pH levels."
+    },
+    "correct": "B",
+    "explanation": "Correct: B) Titrating while recording the net charge gives a charge-versus-pH curve, and the pH at which the net charge crosses zero is the pI. Why the others are wrong: A) a melting temperature reports stability, not charge. C) changing the peptide concentration at fixed pH cannot locate the pH of zero net charge. D) mass spectrometry measures mass-to-charge of gas-phase ions and does not report the net charge in solution at a given pH.",
+    "trap": "Choosing an unrelated measurement (melting temp, concentration, mass) instead of charge vs. pH.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp002_Q3",
+    "type": "passage",
+    "passage_id": "bp002",
+    "passage_text": "Using the data in Table 1, the isoelectric point (pI) of GKD can be calculated by averaging the pKa values of the groups that change charge around the neutral net charge. The C‑terminus (pKa 3.1) deprotonates from neutral to –1, and the N‑terminus (pKa 8.0) protonates from 0 to +1. The pI is the mean of these two pKa’s:",
+    "table_data": "",
+    "stem": "Calculate the pI of GKD using the pKa values given in the passage.",
+    "options": {
+      "A": "3.5",
+      "B": "6.0",
+      "C": "7.2",
+      "D": "10.5"
+    },
+    "correct": "B",
+    "explanation": "Correct: The net charge is +2 at pH 2 and falls by one unit as each group deprotonates: C-terminus (3.1) → +1, Asp side chain (3.9) → 0, N-terminus (8.0) → −1, Lys side chain (10.5) → −2. The neutral species exists between 3.9 and 8.0, so pI = (3.9 + 8.0)/2 = 5.95 ≈ 6.0. Why the others are wrong: A) 3.5 averages the two acidic pKa values (3.1 and 3.9), which bracket the +1 species, not the neutral one. C) 7.2 averages the Asp side chain and Lys side chain (3.9 and 10.5), skipping the N-terminus. D) 10.5 is the Lys side-chain pKa alone.",
+    "trap": "Averaging the wrong pair of pKa values; the pI is the average of the two pKa values on either side of the neutral species.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  },
+  {
+    "id": "bp002_Q4",
+    "type": "passage",
+    "passage_id": "bp002",
+    "passage_text": "Students sometimes confuse the definition of pI with that of a pKa. The pI is the pH at which a molecule carries no net charge, whereas a pKa is the pH at which a specific ionizable group is half protonated. Understanding this distinction is crucial for interpreting titration curves and predicting protein behavior.",
+    "table_data": "",
+    "stem": "Which statement correctly distinguishes pI from pKa?",
+    "options": {
+      "A": "pI is the pH where a specific side chain is 50 % protonated.",
+      "B": "pI is the average of all pKa values of the molecule.",
+      "C": "pI is the pH at which the net charge of the molecule is zero.",
+      "D": "pKa values are irrelevant for calculating pI."
+    },
+    "correct": "C",
+    "explanation": "Correct: C) The pI is the pH at which the net charge of the molecule is zero. Why the others are wrong: A) the pH at which one group is 50% protonated is that group's pKa, not the pI. B) the pI is the average of the two pKa values that bracket the neutral species, not of all pKa values. D) pKa values are needed to calculate the pI.",
+    "trap": "Mixing up the definitions of pI and pKa.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  },
+  {
+    "id": "bp002_Q5",
+    "type": "passage",
+    "passage_id": "bp002",
+    "passage_text": "The isoelectric point of a protein has practical implications in biotechnology. At its pI, a protein is least soluble in aqueous solution and migrates slowly in an electric field during isoelectric focusing. This property is exploited in protein purification and in predicting how a protein will behave under different pH conditions.",
+    "table_data": "",
+    "stem": "A protein is least soluble in water at which pH?",
+    "options": {
+      "A": "A pH well below its pI",
+      "B": "A pH equal to its pI",
+      "C": "A pH well above its pI",
+      "D": "A pH at which it carries its maximum net charge"
+    },
+    "correct": "B",
+    "explanation": "Correct: At the pI the net charge is zero, so electrostatic repulsion between molecules is minimal and aggregation/precipitation is greatest. Why the others are wrong: A) Far below the pI the protein carries a large net positive charge, and repulsion keeps it dissolved. C) Far above the pI it carries a large net negative charge, and repulsion keeps it dissolved. D) Maximum net charge means maximal repulsion, which favors solubility, not precipitation.",
+    "trap": "Thinking that the pH where the protein is most charged (or farthest from neutral) gives lowest solubility.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  }
+]

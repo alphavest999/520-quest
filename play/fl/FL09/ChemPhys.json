@@ -1,0 +1,1749 @@
+{
+ "exam": "FL09",
+ "section": "CP",
+ "passages": [
+  {
+   "passage_id": "FL09_CP_P1",
+   "passage_text": "An engineer tests a traction elevator motor on a loaded car. In each trial the car starts from rest, rises a height h, and reaches its final speed v at the top, with the motor supplying the necessary work. Rail friction is negligible except where noted, and g = 10 m/s². Motor work was computed from the work-energy theorem, W(motor) + W(gravity) = ΔKE, and agreed with a power meter reading. Table 1 lists four trials, including one with a lighter 800 kg car. In Figure 1, the engineer compared motor work for the 1,000 kg car as a function of rise height, first with negligible rail friction and then with a constant friction force of unknown magnitude opposing the motion; the final speed was 2 m/s in both series. In Trial C, the motor operated for 20.0 s. In a separate check, the 1,000 kg car descended 10 m at constant speed with the motor connected.",
+   "table_data": "| Trial | Car mass (kg) | Rise h (m) | Final speed v (m/s) | Motor work (kJ) |\n|---|---|---|---|---|\n| A | 800 | 10 | 2 | 81.6 |\n| B | 1,000 | 10 | 2 | 102.0 |\n| C | 1,000 | 30 | 2 | 302.0 |\n| D | 1,000 | 30 | 4 | 308.0 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Motor work versus rise height (1,000 kg car, v = 2 m/s)",
+    "x_label": "Rise height (m)",
+    "y_label": "Motor work (kJ)",
+    "series": [
+     {
+      "name": "Negligible friction",
+      "points": [
+       [
+        10,
+        102
+       ],
+       [
+        20,
+        202
+       ],
+       [
+        30,
+        302
+       ],
+       [
+        40,
+        402
+       ]
+      ]
+     },
+     {
+      "name": "With constant friction",
+      "points": [
+       [
+        10,
+        107
+       ],
+       [
+        20,
+        212
+       ],
+       [
+        30,
+        317
+       ],
+       [
+        40,
+        422
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_CP_P1_Q1",
+     "stem": "In Trial B, what is the net work done on the car during the rise?",
+     "options": {
+      "A": "102.0 kJ, equal to the work supplied by the motor over the whole rise",
+      "B": "2.0 kJ, equal to the gain in kinetic energy of the car",
+      "C": "100 kJ, equal to the gain in gravitational potential energy of the car",
+      "D": "98 kJ, equal to the motor work minus twice the kinetic energy gained"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Net work equals ΔKE = ½(1,000)(2)² = 2,000 J = 2.0 kJ (motor +102.0 kJ, gravity -100 kJ). Why the others are wrong: A) 102.0 kJ is the motor work alone; gravity does negative work, so the net is far smaller. C) 100 kJ is the magnitude of the work done by gravity (mgh), not the net work. D) The net work is not obtained by subtracting kinetic energy twice; W(net) = ΔKE exactly.",
+     "trap": "Confusing the work done by the motor with the net work on the car; net work equals only the change in kinetic energy.",
+     "topic": "Work-energy theorem",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P1_Q2",
+     "stem": "Trial D requires 6.0 kJ more motor work than Trial C. This difference is best explained by:",
+     "options": {
+      "A": "the greater gravitational potential energy gained, since the faster car ends at a greater height",
+      "B": "a larger friction force on the rails at the higher speed, which the motor must also overcome",
+      "C": "the larger car mass in Trial D, which raises the weight that the motor must lift through 30 m",
+      "D": "the greater final kinetic energy, ½(1,000)(4² - 2²) = 6,000 J"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Both trials have the same mass and height, so mgh is identical (300 kJ); the extra work is ΔKE = ½(1,000)(16 - 4) = 6.0 kJ. Why the others are wrong: A) Both trials rise 30 m, so the potential energy gain is the same (300 kJ). B) The passage states friction is negligible in Table 1, so friction cannot account for the difference. C) Both trials use a 1,000 kg car, so the weight lifted is identical.",
+     "trap": "Attributing the extra work to height or mass when only the final speed changed between the two trials.",
+     "topic": "Kinetic energy change",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P1_Q3",
+     "stem": "According to Figure 1, the constant friction force on the car is approximately:",
+     "options": {
+      "A": "5,000 N",
+      "B": "10,500 N",
+      "C": "500 N",
+      "D": "50 N"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The friction series lies above the frictionless series by 5 kJ per 10 m of rise; f = 5,000 J / 10 m = 500 N (the gap grows 5, 10, 15, 20 kJ). Why the others are wrong: A) 5,000 N would result from reading the 5 kJ gap as a force without dividing by the 10 m distance. B) 10,500 N is the slope of the friction series (mg + f), not the friction force alone. D) 50 N would require a gap of only 0.5 kJ over 10 m.",
+     "trap": "Reading the vertical gap as a force; force is the gap divided by distance, i.e. the difference in slopes.",
+     "topic": "Work done by friction",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P1_Q4",
+     "stem": "In Trial C, what is the average power delivered by the motor?",
+     "options": {
+      "A": "15.1 kW",
+      "B": "15.1 W",
+      "C": "30.2 kW",
+      "D": "7.55 kW"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) P = W/t = 302,000 J / 20.0 s = 15,100 W = 15.1 kW. Why the others are wrong: B) 15.1 W has the right digits but is off by a factor of 1,000 because the work is in kilojoules. C) 30.2 kW would result from dividing by 10 s rather than 20.0 s. D) 7.55 kW would result from dividing by 40 s.",
+     "trap": "Forgetting that the table lists work in kilojoules, giving an answer in watts that is 1,000 times too small.",
+     "topic": "Power",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_CP_P1_Q5",
+     "stem": "In the separate check, the 1,000 kg car descends 10 m at constant speed. The work done by the motor is closest to:",
+     "options": {
+      "A": "+100 kJ",
+      "B": "0 J, because the net work on the car is zero",
+      "C": "-2.0 kJ",
+      "D": "-100 kJ"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) With constant speed, ΔKE = 0 so W(motor) = -W(gravity) = -mgh = -100 kJ; the motor holds the car back. Why the others are wrong: A) +100 kJ would mean the motor adds energy while the car loses potential energy, violating energy balance. B) The net work is zero, but the motor work is not zero; it cancels the +100 kJ done by gravity. C) -2.0 kJ is a kinetic energy value; no speed change occurs here.",
+     "trap": "Equating zero net work with zero motor work, ignoring that gravity does positive work on the descending car.",
+     "topic": "Work-energy theorem",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_CP_P2",
+   "passage_text": "A student examines the entropy changes that accompany phase transitions using thermodynamic data for three liquids at 1 atm. Table 1 lists each substance's melting temperature, enthalpy of fusion, boiling temperature, and enthalpy of vaporization. At a phase transition temperature the two phases are at equilibrium, so ΔG = 0 and ΔS = ΔH/T. Figure 1 shows the molar entropy of water as it is warmed from 250 K to 400 K at constant pressure; the vertical segments are the transitions at 273 K and 373 K. The student also considers supercooled liquid water at 263 K, assuming that ΔH and ΔS for freezing (the negatives of the fusion values at 273 K) are independent of temperature. All measurements were made at 1 atm, and each liquid is treated as pure. Because entropy is a state function, the entropy of the vapor at 373 K can be found by summing the changes along the heating path. A second part of the study compares the vaporization entropies of the three liquids to the roughly constant value expected when a liquid with little molecular association becomes a gas.",
+   "table_data": "| Substance | Melting T (K) | ΔH fusion (kJ/mol) | Boiling T (K) | ΔH vaporization (kJ/mol) |\n|---|---|---|---|---|\n| Water | 273 | 6.01 | 373 | 40.7 |\n| Ethanol | 159 | 4.93 | 352 | 38.6 |\n| Benzene | 279 | 9.87 | 353 | 30.8 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Molar entropy of water versus temperature at 1 atm",
+    "x_label": "Temperature (K)",
+    "y_label": "Molar entropy (J/(mol·K))",
+    "series": [
+     {
+      "name": "Water",
+      "points": [
+       [
+        250,
+        38.0
+       ],
+       [
+        273,
+        41.3
+       ],
+       [
+        273,
+        63.3
+       ],
+       [
+        300,
+        70.4
+       ],
+       [
+        373,
+        86.8
+       ],
+       [
+        373,
+        195.9
+       ],
+       [
+        400,
+        198.2
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_CP_P2_Q1",
+     "stem": "Based on Table 1, the entropy change for the melting of one mole of ice at 273 K is closest to:",
+     "options": {
+      "A": "+109 J/(mol·K)",
+      "B": "+22.0 J/(mol·K)",
+      "C": "+2.20 J/(mol·K)",
+      "D": "-22.0 J/(mol·K)"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) ΔS = ΔH/T = 6,010 J/mol / 273 K = +22.0 J/(mol·K). Why the others are wrong: A) 109 J/(mol·K) is the vaporization value (40,700/373), not fusion. C) 2.20 J/(mol·K) results from dividing 6.01 kJ (not 6,010 J) by 273 and mis-scaling the units. D) A negative value would describe freezing; melting increases the disorder of the system.",
+     "trap": "Using kilojoules directly with kelvin, or choosing the vaporization or freezing value instead of the fusion value.",
+     "topic": "Entropy of fusion",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_CP_P2_Q2",
+     "stem": "In Figure 1, the jump in molar entropy at 373 K is much larger than the jump at 273 K. Which statement best explains this?",
+     "options": {
+      "A": "Vaporization takes place at a higher temperature, and entropy change is directly proportional to temperature",
+      "B": "Melting breaks all intermolecular attractions while vaporization breaks only a few of them",
+      "C": "Heat absorbed during vaporization is smaller, so the surroundings gain less entropy at 373 K",
+      "D": "Vaporization frees molecules into a far larger volume with many more accessible microstates than melting does"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Gas molecules occupy a much larger volume and have translational freedom, so ΔS(vap) = 109 J/(mol·K) greatly exceeds ΔS(fus) = 22.0. Why the others are wrong: A) Since ΔS = ΔH/T, a higher T actually lowers ΔS for a given ΔH; the larger ΔH(vap) is the cause. B) Melting only loosens the lattice; vaporization breaks essentially all attractions, the opposite of this statement. C) The heat absorbed in vaporization (40.7 kJ/mol) is larger than in fusion (6.01 kJ/mol).",
+     "trap": "Reasoning that a higher temperature means a larger entropy change, when ΔS = ΔH/T decreases with T.",
+     "topic": "Entropy and phase change",
+     "mastery_sheet_id": "5E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P2_Q3",
+     "stem": "From Table 1, the vaporization entropy of water (about 109 J/(mol·K)) exceeds that of benzene (about 87 J/(mol·K)). The most reasonable explanation is that:",
+     "options": {
+      "A": "liquid water is more ordered because of extensive hydrogen bonding, so it gains more entropy on vaporizing",
+      "B": "water has a lower molar mass than benzene, so its gas-phase molecules are more disordered",
+      "C": "water boils at a higher temperature than benzene, which makes its vaporization entropy larger",
+      "D": "benzene forms hydrogen bonds in the gas phase, which lowers its entropy on vaporizing"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) ΔS(vap) = ΔH/T: benzene 30,800/353 = 87 J/(mol·K); water 109. Hydrogen bonding lowers the entropy of liquid water, so the liquid-to-gas gain is larger. Why the others are wrong: B) Molar mass is not the determinant here; both gases have large entropies and the difference lies in the liquid. C) The boiling temperatures (373 K and 353 K) are nearly equal and T is in the denominator of ΔS. D) Benzene cannot hydrogen bond, and association in the gas would be negligible at 1 atm.",
+     "trap": "Attributing the difference to the gas phase when the ordering of the liquid phase is what differs.",
+     "topic": "Entropy and intermolecular forces",
+     "mastery_sheet_id": "5E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P2_Q4",
+     "stem": "For supercooled water freezing at 263 K, using the stated assumptions, which of the following is true?",
+     "options": {
+      "A": "ΔG ≈ +0.22 kJ/mol, so freezing is nonspontaneous because the system's entropy decreases on freezing at this temperature",
+      "B": "ΔG = 0 kJ/mol, so supercooled water and ice are at equilibrium because ΔH and ΔS share a sign, as at 273 K",
+      "C": "ΔG ≈ -0.22 kJ/mol, so freezing is spontaneous because the enthalpy term outweighs the entropy term",
+      "D": "ΔG ≈ -6.01 kJ/mol, so freezing is spontaneous because the entropy term is negligible at low temperature"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) ΔG = ΔH - TΔS = -6,010 - (263)(-22.0) = -6,010 + 5,786 ≈ -224 J/mol; negative, so freezing is spontaneous below 273 K. Why the others are wrong: A) The sign is wrong: -TΔS = +5.79 kJ is smaller in magnitude than ΔH = -6.01 kJ, so ΔG is negative. B) ΔG = 0 only at 273 K, the melting point; at 263 K the temperature differs from equilibrium. D) The entropy term (+5.79 kJ/mol) is not negligible; it nearly cancels ΔH, leaving only about -0.22 kJ/mol.",
+     "trap": "Believing a decrease in system entropy always makes a process nonspontaneous, ignoring the temperature-dependent balance with ΔH.",
+     "topic": "Gibbs free energy and spontaneity",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chem.libretexts.org/Courses/University_of_Kentucky/UK:_General_Chemistry/16:_Thermodynamics/16.4:_Gibbs_Energy"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_CP_P3",
+   "passage_text": "A technician characterizes a small hydraulic lift consisting of two cylindrical pistons connected by an incompressible oil. A force F(in) is applied to the small input piston, and the force F(out) that the large output piston can support is measured with a load cell. In an ideal lift, the pressure applied to the enclosed fluid is transmitted undiminished, so F(out)/F(in) equals the ratio of the piston areas. Table 1 gives the piston radii, applied input force, and measured output force for three configurations. In Figure 1, F(out) is plotted against F(in) for Configuration 1 along with the ideal prediction. Seals and the fluid itself introduce a small friction loss. Heights of the two pistons are equal, so hydrostatic pressure differences can be ignored. In Configuration 2, the input piston is pushed down 25 cm. Take π ≈ 3.14, and treat the car in the final trial as having weight 10,000 N.",
+   "table_data": "| Configuration | Input radius (cm) | Output radius (cm) | F(in) (N) | F(out) measured (N) |\n|---|---|---|---|---|\n| 1 | 2.0 | 10.0 | 200 | 4,800 |\n| 2 | 2.0 | 5.0 | 200 | 1,200 |\n| 3 | 4.0 | 10.0 | 400 | 2,400 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Output force versus input force, Configuration 1",
+    "x_label": "Input force (N)",
+    "y_label": "Output force (N)",
+    "series": [
+     {
+      "name": "Measured",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        100,
+        2400
+       ],
+       [
+        200,
+        4800
+       ],
+       [
+        300,
+        7200
+       ],
+       [
+        400,
+        9600
+       ]
+      ]
+     },
+     {
+      "name": "Ideal",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        100,
+        2500
+       ],
+       [
+        200,
+        5000
+       ],
+       [
+        300,
+        7500
+       ],
+       [
+        400,
+        10000
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_CP_P3_Q1",
+     "stem": "In Configuration 1, the pressure that the 200 N input force applies to the fluid is closest to:",
+     "options": {
+      "A": "4.0 × 10⁴ Pa",
+      "B": "1.0 × 10⁴ Pa",
+      "C": "6.4 × 10⁵ Pa",
+      "D": "1.6 × 10⁵ Pa"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) P = F/A = 200 N / [3.14 × (0.020 m)²] = 200 / 1.256 × 10⁻³ = 1.6 × 10⁵ Pa. Why the others are wrong: A) 4.0 × 10⁴ Pa uses the diameter (0.040 m) as if it were the radius in the area formula. B) 1.0 × 10⁴ Pa divides force by radius instead of by area. C) 6.4 × 10⁵ Pa uses a radius of 1.0 cm, which is half the actual value.",
+     "trap": "Using diameter in place of radius in A = πr², or dividing force by a length instead of an area.",
+     "topic": "Pascal's principle",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_CP_P3_Q2",
+     "stem": "In Configuration 2, how far does the output piston rise when the input piston moves down 25 cm?",
+     "options": {
+      "A": "25 cm",
+      "B": "4.0 cm",
+      "C": "156 cm",
+      "D": "10 cm"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Incompressible fluid conserves volume: A(in)d(in) = A(out)d(out). The area ratio is (5.0/2.0)² = 6.25, so d(out) = 25/6.25 = 4.0 cm. Why the others are wrong: A) 25 cm would be correct only if the two pistons had equal areas. C) 156 cm multiplies by 6.25; the larger piston moves less, not more. D) 10 cm divides by the radius ratio 2.5 rather than the area ratio 6.25.",
+     "trap": "Using the ratio of radii instead of the ratio of areas when relating distances moved by the pistons.",
+     "topic": "Fluid volume conservation",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://oer.xyzhomework.com/ebooks/html/university-physics-volume-1/ch14/14-3-pascal-s-principle-and-hydraulics.html",
+       "https://www.grc.nasa.gov/www/K-12/WindTunnel/Activities/Pascals_principle.html"
+      ]
+     }
+    },
+    {
+     "id": "FL09_CP_P3_Q3",
+     "stem": "In Configuration 3, what is the ratio of output work to input work?",
+     "options": {
+      "A": "6.00",
+      "B": "0.96",
+      "C": "1.00",
+      "D": "0.16"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Force ratio = 2,400/400 = 6.00; the distance ratio is d(out)/d(in) = 1/6.25. Work ratio = 6.00/6.25 = 0.96, so 4% of the work is lost to friction. Why the others are wrong: A) 6.00 is the measured force ratio; work also depends on the distance ratio. C) 1.00 would describe an ideal lift; the measured force (2,400 N) is below the ideal 2,500 N. D) 0.16 is the inverse of the area ratio, not the energy efficiency.",
+     "trap": "Treating the force ratio as the work ratio; a lift multiplies force but divides distance.",
+     "topic": "Work and efficiency of a hydraulic system",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P3_Q4",
+     "stem": "Using the measured line in Figure 1, the input force needed to hold up the 10,000 N car on the output piston of Configuration 1 is closest to:",
+     "options": {
+      "A": "400 N",
+      "B": "380 N",
+      "C": "4,200 N",
+      "D": "420 N"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The measured slope is 4,800/200 = 24, so F(in) = 10,000/24 ≈ 417 N (about 420 N). Friction makes this larger than the ideal 400 N. Why the others are wrong: A) 400 N is the ideal value; the measured line shows only 9,600 N at 400 N. B) 380 N would imply more than ideal force multiplication, which a real lift cannot achieve. C) 4,200 N is off by a factor of 10 from the correct reading of the line.",
+     "trap": "Using the ideal area ratio when the question asks for the measured performance of the real device.",
+     "topic": "Mechanical advantage of a hydraulic lift",
+     "mastery_sheet_id": "4B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_CP_P4",
+   "passage_text": "A proton-exchange-membrane hydrogen fuel cell is operated at 25 °C. Hydrogen gas is oxidized at the anode (H₂ → 2 H⁺ + 2 e⁻), and oxygen is reduced at the cathode (O₂ + 4 H⁺ + 4 e⁻ → 2 H₂O). Protons cross the membrane, while electrons travel through an external load. The standard cell potential is 1.23 V. A researcher varies the load, so the current drawn from a single cell changes, and records the terminal voltage and the electrical power delivered (Table 1). Figure 1 shows the resulting polarization curve. The measured open-circuit voltage is 1.00 V, below 1.23 V. The researcher assumes all hydrogen consumed supplies current at 100% efficiency, and uses F = 96,500 C/mol e⁻ and 2.0 g/mol for H₂. The cell has an active area of 25 cm², is supplied with pure hydrogen and oxygen at 1 atm, and reaches steady state at each load before readings are recorded. Voltage efficiency is defined as the terminal voltage divided by 1.23 V.",
+   "table_data": "| Current (A) | Voltage (V) | Power (W) |\n|---|---|---|\n| 0 | 1.00 | 0 |\n| 2 | 0.85 | 1.70 |\n| 4 | 0.78 | 3.12 |\n| 6 | 0.70 | 4.20 |\n| 8 | 0.58 | 4.64 |\n| 10 | 0.42 | 4.20 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Polarization curve of a single hydrogen fuel cell",
+    "x_label": "Current (A)",
+    "y_label": "Cell voltage (V)",
+    "series": [
+     {
+      "name": "Cell voltage",
+      "points": [
+       [
+        0,
+        1.0
+       ],
+       [
+        2,
+        0.85
+       ],
+       [
+        4,
+        0.78
+       ],
+       [
+        6,
+        0.7
+       ],
+       [
+        8,
+        0.58
+       ],
+       [
+        10,
+        0.42
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_CP_P4_Q1",
+     "stem": "At a steady current of 4 A, what mass of hydrogen is consumed per hour?",
+     "options": {
+      "A": "0.30 g",
+      "B": "0.075 g",
+      "C": "0.15 g",
+      "D": "0.60 g"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Charge = 4 A × 3,600 s = 14,400 C; moles e⁻ = 14,400/96,500 = 0.149; moles H₂ = 0.0746; mass = 0.0746 × 2.0 = 0.15 g. Why the others are wrong: A) 0.30 g treats each H₂ as delivering one electron instead of two. B) 0.075 g is the number of moles of H₂, not the mass in grams. D) 0.60 g assumes four electrons per H₂ (the O₂ stoichiometry).",
+     "trap": "Ignoring that each H₂ molecule releases two electrons, or reporting moles as grams.",
+     "topic": "Faraday's law in a fuel cell",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_CP_P4_Q2",
+     "stem": "At 6 A, the voltage efficiency of the cell is closest to:",
+     "options": {
+      "A": "57%",
+      "B": "70%",
+      "C": "43%",
+      "D": "81%"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Efficiency = 0.70 V / 1.23 V = 0.569, or about 57%. Why the others are wrong: B) 70% reads the voltage in volts as a percentage of 1 V rather than dividing by 1.23 V. C) 43% is the fraction lost (1 - 0.57), not the efficiency. D) 81% is the open-circuit voltage (1.00 V) divided by 1.23 V, not the value at 6 A.",
+     "trap": "Dividing by the wrong reference voltage or reporting the loss instead of the efficiency.",
+     "topic": "Cell potential and efficiency",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_CP_P4_Q3",
+     "stem": "Table 1 shows 4.20 W at both 6 A and 10 A, even though the voltage is much lower at 10 A. Which statement explains this?",
+     "options": {
+      "A": "Power depends only on voltage, so the two operating points must share the same internal resistance",
+      "B": "The cell stores charge at the higher current, which adds to the power delivered to the external load",
+      "C": "Power equals current times voltage, and the increase in current offsets the drop in voltage, since 0.70 × 6 = 0.42 × 10",
+      "D": "Power is defined as current squared divided by voltage, which yields equal values at these two points"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) P = IV: 6 × 0.70 = 4.20 W and 10 × 0.42 = 4.20 W, a coincidence of the decreasing voltage and the increasing current around the 8 A maximum. Why the others are wrong: A) Power depends on both current and voltage; internal resistance is not required to be equal. B) A fuel cell does not store charge; reactants are fed continuously. D) The relation P = I²/V is not valid; P = IV = I²R = V²/R.",
+     "trap": "Assuming lower voltage always means lower power, ignoring that P = IV depends on both quantities.",
+     "topic": "Electrical power",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P4_Q4",
+     "stem": "The sharpest drop in voltage between 0 and 2 A (1.00 V to 0.85 V) is most consistent with which source of loss?",
+     "options": {
+      "A": "ohmic resistance of the membrane, which dominates at the lowest currents",
+      "B": "activation overpotential from slow oxygen reduction at the cathode",
+      "C": "depletion of hydrogen at the anode, which limits the supply at the lowest currents",
+      "D": "a decrease in the standard cell potential as the current drawn increases"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A rapid initial voltage loss at small current reflects the energy barrier of the sluggish oxygen reduction (activation overpotential); ohmic loss grows linearly and mass-transport loss dominates at high current. Why the others are wrong: A) Ohmic loss is proportional to current and shows as a steady linear decline, not a sharp initial drop. C) Reactant depletion limits the cell at high current (the steep drop from 8 to 10 A), not at 2 A. D) E° is a thermodynamic constant and does not change with current.",
+     "trap": "Attributing every voltage loss to resistance rather than distinguishing activation, ohmic, and mass-transport regions.",
+     "topic": "Fuel cell polarization",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P4_Q5",
+     "stem": "Which description of the electrode processes in the operating cell is correct?",
+     "options": {
+      "A": "Electrons flow through the membrane from the cathode to the anode, and H⁺ is carried through the external circuit",
+      "B": "Electrons flow through the external circuit from the anode to the cathode, where O₂ is reduced to H₂O using H⁺ that crossed the membrane",
+      "C": "Electrons flow through the external circuit from the cathode to the anode, where H₂ is oxidized to supply H⁺",
+      "D": "Protons and electrons both flow through the membrane from the anode to the cathode, where O₂ is reduced"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Oxidation occurs at the anode; electrons travel through the wire to the cathode, and the membrane conducts only H⁺, which combines with O₂ and electrons to form water. Why the others are wrong: A) The membrane blocks electrons and ions are not carried by the wire. C) Oxidation of H₂ is at the anode, and electrons leave from the anode, not toward it. D) The membrane is an electronic insulator; electrons must use the external circuit.",
+     "trap": "Letting electrons cross the electrolyte or reversing the direction of electron flow relative to anode and cathode.",
+     "topic": "Fuel cell electrode reactions",
+     "mastery_sheet_id": "4C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_CP_P5",
+   "passage_text": "Students investigate polarized light with a lamp that emits unpolarized light of intensity 200 W/m² and two ideal linear polarizing filters. The first filter (P1) transmits light polarized along its axis, so the beam leaving P1 has half the incident intensity. The second filter (P2), the analyzer, is rotated by an angle θ relative to P1, and a sensor measures the intensity leaving P2. For polarized light, the transmitted intensity follows Malus's law, I = I₀ cos²θ, where I₀ is the intensity incident on the analyzer. Table 1 shows the measurements for several angles, and Figure 1 displays the data. In a second experiment, P1 and P2 are crossed (θ = 90°) and a third filter (P3) is inserted between them with its axis at 45° to P1. The sensor was calibrated in the dark, and a shroud blocked ambient light so that only the lamp contributed; the lamp output remained stable throughout. Light intensity is proportional to the square of the electric field amplitude.",
+   "table_data": "| Angle θ between P1 and P2 (degrees) | Intensity after P2 (W/m²) |\n|---|---|\n| 0 | 100 |\n| 30 | 75.0 |\n| 45 | 50.0 |\n| 60 | 25.0 |\n| 90 | 0 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Transmitted intensity versus analyzer angle",
+    "x_label": "Angle θ (degrees)",
+    "y_label": "Intensity after P2 (W/m²)",
+    "series": [
+     {
+      "name": "Measured",
+      "points": [
+       [
+        0,
+        100
+       ],
+       [
+        15,
+        93.3
+       ],
+       [
+        30,
+        75.0
+       ],
+       [
+        45,
+        50.0
+       ],
+       [
+        60,
+        25.0
+       ],
+       [
+        75,
+        6.7
+       ],
+       [
+        90,
+        0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_CP_P5_Q1",
+     "stem": "According to Malus's law, what intensity would be expected after P2 at θ = 20°?",
+     "options": {
+      "A": "88 W/m²",
+      "B": "94 W/m²",
+      "C": "12 W/m²",
+      "D": "83 W/m²"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) I = 100 cos²20° = 100 × (0.940)² = 88 W/m². Why the others are wrong: B) 94 W/m² forgets to square the cosine (100 × cos 20°). C) 12 W/m² uses sin²20°, the component blocked rather than transmitted. D) 83 W/m² results from linear interpolation between 100 and 75, but the curve is not linear.",
+     "trap": "Omitting the square in Malus's law or interpolating linearly on a cos² curve.",
+     "topic": "Malus's law",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_CP_P5_Q2",
+     "stem": "When a third filter at 45° to P1 is inserted between crossed P1 and P2, the intensity after P2 is closest to:",
+     "options": {
+      "A": "0 W/m²",
+      "B": "50 W/m²",
+      "C": "12.5 W/m²",
+      "D": "25 W/m²"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) After P1: 100. After P3: 100 cos²45° = 50. After P2 (45° from P3): 50 cos²45° = 25 W/m². Why the others are wrong: A) 0 would be the result without P3; crossed filters alone block all light. B) 50 W/m² is the intensity after P3 only; P2 further reduces it. C) 12.5 W/m² results from applying a factor of 0.25 at the second step instead of 0.5.",
+     "trap": "Concluding that adding a filter can only reduce light, so crossed polarizers still transmit nothing.",
+     "topic": "Polarizers in series",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P5_Q3",
+     "stem": "What is the polarization of the light leaving the analyzer P2 at θ = 60°?",
+     "options": {
+      "A": "Linearly polarized along the axis of P1, with 25% of the intensity incident on it",
+      "B": "Linearly polarized along the transmission axis of P2, with 25% of the intensity incident on it",
+      "C": "Unpolarized, with 25% of the intensity incident on it",
+      "D": "Circularly polarized, with 75% of the intensity incident on it"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) An ideal polarizer outputs light polarized along its own axis; cos²60° = 0.25 gives the transmitted fraction. Why the others are wrong: A) The light takes on the orientation of the last filter that it passed, not P1. C) Light passing an ideal linear polarizer is always polarized. D) A linear polarizer does not produce circular polarization; 75% is the blocked fraction.",
+     "trap": "Assuming the polarization direction is set by the first filter instead of the last one the light passed.",
+     "topic": "Polarization by filters",
+     "mastery_sheet_id": "4D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P5_Q4",
+     "stem": "At θ = 60°, the ratio of the transmitted electric field amplitude to the amplitude incident on P2 is:",
+     "options": {
+      "A": "0.50",
+      "B": "0.25",
+      "C": "0.75",
+      "D": "0.87"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) E(out)/E(in) = cos 60° = 0.50; squaring gives 0.25, the intensity ratio. Why the others are wrong: B) 0.25 is the intensity ratio, which is the square of the amplitude ratio. C) 0.75 would result from 1 - 0.25 and is not the amplitude ratio. D) 0.87 is sin 60°, the blocked component.",
+     "trap": "Mixing up the intensity ratio (cos²θ) with the amplitude ratio (cosθ).",
+     "topic": "Electric field amplitude and intensity",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_CP_P6",
+   "passage_text": "A science teacher introduces nuclear energy by comparing two processes, the fission of uranium-235 and the deuterium-tritium (D-T) fusion reaction. In the fission example, U-235 absorbs a neutron and splits into Ba-141, Kr-92, and three neutrons. In the fusion example, deuterium and tritium combine to form He-4 and a neutron. Using atomic masses, the teacher computes the mass defect Δm for each reaction and converts it to energy using 1 u = 931.5 MeV/c². The results are in Table 1. Figure 1 plots approximate binding energy per nucleon against mass number for several nuclides. The teacher also notes that a nuclear power plant operating at 1,000 MW thermal output obtains its energy from fission, and uses 1 MeV = 1.6 × 10⁻¹³ J. All masses are atomic masses in unified atomic mass units, with electron masses accounted for in the balance, and the energy released appears mainly as kinetic energy of the products. Fusion requires plasma temperatures of order 10⁸ K, whereas fission can be started by slow neutrons at ordinary temperatures.",
+   "table_data": "| Reaction | Mass defect Δm (u) | Energy released (MeV) | Fuel mass (u) | Energy per unit fuel mass (MeV/u) |\n|---|---|---|---|---|\n| D + T → He-4 + n | 0.01888 | 17.6 | 5.030 | 3.50 |\n| U-235 + n → Ba-141 + Kr-92 + 3n | 0.1860 | 173.3 | 235.044 | 0.737 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Binding energy per nucleon versus mass number (approximate)",
+    "x_label": "Mass number A",
+    "y_label": "Binding energy per nucleon (MeV)",
+    "series": [
+     {
+      "name": "Selected nuclides",
+      "points": [
+       [
+        2,
+        1.11
+       ],
+       [
+        3,
+        2.83
+       ],
+       [
+        4,
+        7.07
+       ],
+       [
+        12,
+        7.68
+       ],
+       [
+        56,
+        8.79
+       ],
+       [
+        92,
+        8.51
+       ],
+       [
+        141,
+        8.33
+       ],
+       [
+        235,
+        7.59
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_CP_P6_Q1",
+     "stem": "Which statement best explains why both reactions in Table 1 release energy?",
+     "options": {
+      "A": "The products have lower binding energy per nucleon than the reactants, so the total mass increases",
+      "B": "The products are more tightly bound per nucleon, so the total mass decreases",
+      "C": "The reactants are heavier nuclei in both cases, so any reaction that splits a nucleus releases energy",
+      "D": "Both reactions emit neutrons, and the kinetic energy of the neutrons is the source of the energy released"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Figure 1 shows binding energy per nucleon rising from A = 2 to a peak near A = 56, and falling for U-235; fusion and fission both move toward the more tightly bound region, converting mass into energy. Why the others are wrong: A) Lower binding energy per nucleon in the products would require energy input and a mass increase. C) Fusion does not split nuclei, and splitting light nuclei would absorb energy. D) Neutron kinetic energy is a result of the energy release, not the underlying source.",
+     "trap": "Assuming that splitting or joining nuclei always releases energy, without considering where the product lies on the binding energy curve.",
+     "topic": "Binding energy curve",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P6_Q2",
+     "stem": "From Table 1, how does the energy released per unit mass of fuel for D-T fusion compare with that for U-235 fission?",
+     "options": {
+      "A": "About 0.21 times as large",
+      "B": "About 9.9 times as large",
+      "C": "About 4.7 times as large",
+      "D": "About equal"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 3.50 MeV/u ÷ 0.737 MeV/u = 4.7. Why the others are wrong: A) 0.21 is the reciprocal of the ratio; fusion releases more per unit mass. B) 9.9 is the ratio of energy per reaction event (173.3/17.6) with fission in the numerator; it ignores the difference in fuel mass. D) The per-mass values 3.50 and 0.737 MeV/u differ by nearly a factor of five.",
+     "trap": "Comparing energy per reaction event rather than energy per unit mass of fuel.",
+     "topic": "Energy density of nuclear fuels",
+     "mastery_sheet_id": "4E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P6_Q3",
+     "stem": "Why does fusion need temperatures near 10⁸ K while fission of U-235 can be triggered by slow neutrons at ordinary temperatures?",
+     "options": {
+      "A": "Fusion releases less energy per reaction, so extra heat must be supplied to reach the mass defect",
+      "B": "The strong nuclear force acts only at high temperatures, whereas fission relies on the weak force",
+      "C": "Fusing nuclei must overcome the Coulomb repulsion between positive charges, whereas a neutron is uncharged and is not repelled",
+      "D": "Neutrons have greater mass than the reacting nuclei, so they penetrate the nucleus at any temperature"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Two nuclei both carry positive charge and must be driven close enough for the strong force to bind them; a neutron feels no electrostatic repulsion. Why the others are wrong: A) Energy released does not set the activation requirement; the Coulomb barrier does. B) The strong force is temperature-independent, and fission is not a weak-force process. D) A neutron is much lighter than a U-235 nucleus; its ability to enter is due to its neutrality.",
+     "trap": "Thinking that the temperature requirement is about total energy released rather than electrostatic repulsion.",
+     "topic": "Fusion and fission requirements",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P6_Q4",
+     "stem": "A reactor delivers 1,000 MW of thermal power, and each fission releases 173.3 MeV. The number of fissions per second is closest to:",
+     "options": {
+      "A": "6.3 × 10²¹",
+      "B": "3.6 × 10¹⁹",
+      "C": "3.6 × 10¹⁶",
+      "D": "2.8 × 10⁻¹¹"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Energy per fission = 173.3 × 1.6 × 10⁻¹³ = 2.77 × 10⁻¹¹ J; rate = 10⁹ J/s ÷ 2.77 × 10⁻¹¹ J = 3.6 × 10¹⁹ per second. Why the others are wrong: A) 6.3 × 10²¹ treats each fission as releasing only 1 MeV. C) 3.6 × 10¹⁶ uses 10⁶ W rather than 1,000 MW (10⁹ W). D) 2.8 × 10⁻¹¹ is the energy per fission in joules, not a rate.",
+     "trap": "Forgetting to convert MW to W or MeV to J before dividing power by energy per event.",
+     "topic": "Nuclear power calculation",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_CP_P6_Q5",
+     "stem": "According to Figure 1, which nuclide among those plotted is the most stable per nucleon, and what does this imply for fusing it with another nucleus?",
+     "options": {
+      "A": "He-4; fusing it would absorb energy, because helium has the highest binding energy per nucleon",
+      "B": "U-235; fusing it would release energy, because it has the largest number of nucleons",
+      "C": "Fe-56; fusing it would absorb energy, because the product would be less tightly bound per nucleon",
+      "D": "H-2; fusing it would absorb energy, because it has the lowest binding energy per nucleon"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The peak near A = 56 (8.79 MeV) marks the most tightly bound nucleus; fusion beyond this point is endothermic. Why the others are wrong: A) He-4 (7.07 MeV) is well below Fe-56 (8.79 MeV) in Figure 1. B) U-235 (7.59 MeV) is less stable per nucleon, and the number of nucleons does not give stability. D) H-2 has the lowest binding energy, so fusing it releases energy rather than absorbing it.",
+     "trap": "Equating the heaviest nucleus with the most stable one.",
+     "topic": "Binding energy curve",
+     "mastery_sheet_id": "4E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_CP_P7",
+   "passage_text": "A chemistry class measures how the solubility of three salts in water depends on temperature, using saturated solutions equilibrated for one hour at each temperature and analyzed by evaporating a weighed sample. Table 1 lists the solubility in grams of solute per 100 g of water for potassium nitrate, sodium chloride, and lithium carbonate, and Figure 1 plots the same data. Students then carry out recrystallization-type exercises with these salts. In Exercise 1, 200 g of water is saturated with KNO₃ at 80 °C and then cooled to 20 °C. In Exercise 2, a mixture of 100 g KNO₃ and 5 g NaCl is dissolved in 100 g of water at 80 °C and cooled to 20 °C. In Exercise 3, a saturated solution of Li₂CO₃ in 100 g of water at 20 °C is heated to 80 °C. Assume the salts dissolve independently and the water mass remains constant.",
+   "table_data": "| Temperature (°C) | KNO₃ (g/100 g H₂O) | NaCl (g/100 g H₂O) | Li₂CO₃ (g/100 g H₂O) |\n|---|---|---|---|\n| 0 | 13.3 | 35.7 | 1.54 |\n| 20 | 31.6 | 35.9 | 1.33 |\n| 40 | 63.9 | 36.4 | 1.17 |\n| 60 | 110 | 37.1 | 1.01 |\n| 80 | 169 | 38.0 | 0.85 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Solubility of three salts versus temperature",
+    "x_label": "Temperature (°C)",
+    "y_label": "Solubility (g per 100 g H₂O)",
+    "series": [
+     {
+      "name": "KNO₃",
+      "points": [
+       [
+        0,
+        13.3
+       ],
+       [
+        20,
+        31.6
+       ],
+       [
+        40,
+        63.9
+       ],
+       [
+        60,
+        110
+       ],
+       [
+        80,
+        169
+       ]
+      ]
+     },
+     {
+      "name": "NaCl",
+      "points": [
+       [
+        0,
+        35.7
+       ],
+       [
+        20,
+        35.9
+       ],
+       [
+        40,
+        36.4
+       ],
+       [
+        60,
+        37.1
+       ],
+       [
+        80,
+        38.0
+       ]
+      ]
+     },
+     {
+      "name": "Li₂CO₃",
+      "points": [
+       [
+        0,
+        1.54
+       ],
+       [
+        20,
+        1.33
+       ],
+       [
+        40,
+        1.17
+       ],
+       [
+        60,
+        1.01
+       ],
+       [
+        80,
+        0.85
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_CP_P7_Q1",
+     "stem": "In Exercise 1, the mass of KNO₃ that crystallizes upon cooling is closest to:",
+     "options": {
+      "A": "137 g",
+      "B": "338 g",
+      "C": "63 g",
+      "D": "275 g"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Per 100 g water the solubility drops from 169 to 31.6 g, so 137.4 g crystallizes per 100 g; for 200 g of water, 2 × 137.4 = 275 g. Why the others are wrong: A) 137 g is the amount for 100 g of water; the sample contains 200 g. B) 338 g is the total amount dissolved at 80 °C (2 × 169); some KNO₃ remains dissolved at 20 °C. C) 63 g is twice the amount that stays dissolved at 20 °C (2 × 31.6).",
+     "trap": "Forgetting to scale by the water mass, or reporting the dissolved amount instead of the amount that crystallizes.",
+     "topic": "Solubility curves and crystallization",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_CP_P7_Q2",
+     "stem": "The data show that Li₂CO₃ becomes less soluble as temperature rises, whereas KNO₃ becomes more soluble. Which conclusion about the enthalpy of solution (ΔH_soln) is consistent with this?",
+     "options": {
+      "A": "ΔH_soln is negative for Li₂CO₃ and positive for KNO₃",
+      "B": "ΔH_soln is positive for Li₂CO₃ and negative for KNO₃, since heating favors exothermic dissolution",
+      "C": "ΔH_soln is negative for both, since both dissolve spontaneously in water",
+      "D": "ΔH_soln is positive for both, because solubility is determined by entropy alone"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) By Le Chatelier's principle, heating shifts an endothermic dissolution toward more dissolved solute (KNO₃) and an exothermic dissolution toward solid (Li₂CO₃). Why the others are wrong: B) This reverses the signs; a salt whose solubility falls on heating releases heat on dissolving. C) KNO₃ solubility increases with T, indicating endothermic dissolution. D) Opposite temperature trends cannot arise from the same sign of ΔH_soln.",
+     "trap": "Reversing the relationship between temperature dependence of solubility and the sign of ΔH_soln.",
+     "topic": "Enthalpy of solution and temperature",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P7_Q3",
+     "stem": "In Exercise 2, what is the result of cooling the solution to 20 °C?",
+     "options": {
+      "A": "About 100 g of KNO₃ crystallizes together with the 5 g of NaCl impurity",
+      "B": "About 68 g of KNO₃ crystallizes; the NaCl stays dissolved",
+      "C": "About 68 g of KNO₃ crystallizes together with the 5 g of NaCl impurity",
+      "D": "No KNO₃ crystallizes, because the solution was not saturated at 80 °C"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At 20 °C only 31.6 g KNO₃ remains in 100 g of water, so 100 - 31.6 = 68.4 g crystallizes; 5 g NaCl is below its solubility (35.9 g), so it remains dissolved. Why the others are wrong: A) Not all KNO₃ crystallizes; 31.6 g remains in solution, and NaCl is far below saturation. C) NaCl would precipitate only if more than 35.9 g were present per 100 g of water. D) The solution holds 100 g of KNO₃ per 100 g water, which exceeds 31.6 g at 20 °C, so crystals do form on cooling.",
+     "trap": "Assuming all solutes precipitate on cooling, ignoring the solubility of each salt at the final temperature.",
+     "topic": "Purification by crystallization",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P7_Q4",
+     "stem": "In Exercise 3, heating the saturated Li₂CO₃ solution from 20 °C to 80 °C results in:",
+     "options": {
+      "A": "dissolution of about 0.48 g of additional Li₂CO₃",
+      "B": "no change, since the amount of solute is fixed",
+      "C": "precipitation of about 0.48 g of solid Li₂CO₃",
+      "D": "precipitation of about 0.85 g of solid Li₂CO₃"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Solubility falls from 1.33 to 0.85 g/100 g water, so 1.33 - 0.85 = 0.48 g must come out of solution. Why the others are wrong: A) More dissolving would require solubility to increase with T, but it falls for Li₂CO₃. B) The amount of solute is fixed, but the amount that can remain dissolved is not. D) 0.85 g is the amount that remains dissolved at 80 °C, not the amount precipitated.",
+     "trap": "Assuming heating always increases solubility, as it does for most solids.",
+     "topic": "Temperature dependence of solubility",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_CP_P8",
+   "passage_text": "A materials chemist studies the phase behavior of carbon dioxide, which is used both as dry ice and as a supercritical solvent. Table 1 lists three characteristic points of CO₂ (the normal sublimation point, the triple point, and the critical point) together with those for water. Figure 1 shows the three phase-boundary curves of CO₂ as pressure versus temperature; the solid-liquid line is nearly vertical, with a slightly positive slope of about 0.02 K per atm. All pressures are absolute, and the boundaries were assembled from vapor pressure and melting measurements on pure CO₂ at several temperatures. In Experiment 1, a block of solid CO₂ at 180 K is warmed to 250 K at a constant pressure of 1.0 atm. In Experiment 2, gaseous CO₂ at 250 K is compressed slowly. In Experiment 3, CO₂ at 320 K is compressed isothermally from 1 atm to 100 atm. The chemist notes that, in contrast to CO₂, liquid water is denser than ice.",
+   "table_data": "| Point | CO₂ T (K) | CO₂ P (atm) | H₂O T (K) | H₂O P (atm) |\n|---|---|---|---|---|\n| Normal sublimation / boiling | 194.7 | 1.00 | 373 | 1.00 |\n| Triple point | 216.6 | 5.11 | 273.16 | 0.006 |\n| Critical point | 304.2 | 72.9 | 647 | 218 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Phase boundaries of CO₂",
+    "x_label": "Temperature (K)",
+    "y_label": "Pressure (atm)",
+    "series": [
+     {
+      "name": "Solid-gas",
+      "points": [
+       [
+        195,
+        1.0
+       ],
+       [
+        205,
+        2.3
+       ],
+       [
+        216.6,
+        5.11
+       ]
+      ]
+     },
+     {
+      "name": "Liquid-gas",
+      "points": [
+       [
+        216.6,
+        5.11
+       ],
+       [
+        230,
+        8.8
+       ],
+       [
+        250,
+        17.7
+       ],
+       [
+        270,
+        31.6
+       ],
+       [
+        290,
+        52.8
+       ],
+       [
+        304.2,
+        72.9
+       ]
+      ]
+     },
+     {
+      "name": "Solid-liquid",
+      "points": [
+       [
+        216.6,
+        5.11
+       ],
+       [
+        218.8,
+        105
+       ],
+       [
+        221.0,
+        205
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_CP_P8_Q1",
+     "stem": "In Experiment 1, what happens as solid CO₂ is warmed from 180 K to 250 K at 1.0 atm?",
+     "options": {
+      "A": "The solid melts at about 195 K and the liquid boils at about 250 K",
+      "B": "The solid melts at 216.6 K and the liquid remains until 250 K",
+      "C": "The solid sublimes at 216.6 K and the gas then condenses to liquid",
+      "D": "The solid sublimes directly to a gas at about 195 K, and no liquid forms"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) At 1.0 atm the pressure is below the triple point pressure (5.11 atm), so the solid-gas boundary is crossed at 194.7 K and liquid never appears. Why the others are wrong: A) A liquid phase cannot exist below 5.11 atm, so there is no melting or boiling step. B) Melting at 216.6 K would require a pressure of at least 5.11 atm. C) 216.6 K is the triple-point temperature, not the sublimation temperature at 1.0 atm; and warming does not condense a gas.",
+     "trap": "Expecting every solid to melt at atmospheric pressure, ignoring that this pressure is below the triple point pressure.",
+     "topic": "Phase diagram and sublimation",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P8_Q2",
+     "stem": "In Experiment 2, the minimum pressure at which the CO₂ gas at 250 K begins to condense to liquid is closest to:",
+     "options": {
+      "A": "18 atm",
+      "B": "5.1 atm",
+      "C": "73 atm",
+      "D": "1.0 atm"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At 250 K the vertical line crosses the liquid-gas curve in Figure 1 at about 17.7 atm; compressing past this pressure produces liquid. Why the others are wrong: B) 5.1 atm is the triple-point pressure, but 250 K is well above the triple-point temperature. C) 73 atm is the critical pressure; liquefaction at 250 K occurs well below it. D) 1.0 atm is the standard pressure, at which CO₂ is a gas at 250 K.",
+     "trap": "Using the triple point or critical pressure instead of reading the liquid-gas curve at the specified temperature.",
+     "topic": "Reading a phase diagram",
+     "mastery_sheet_id": "5B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P8_Q3",
+     "stem": "The positive slope of the solid-liquid line for CO₂ indicates that:",
+     "options": {
+      "A": "increasing pressure lowers the melting point, because solid CO₂ is less dense than liquid CO₂ near the triple point",
+      "B": "increasing pressure raises the melting point, because solid CO₂ is denser than liquid CO₂",
+      "C": "increasing pressure raises the melting point, because liquid CO₂ is denser than the solid phase near the triple point",
+      "D": "the melting point is independent of pressure, because the phases of CO₂ differ only in energy and not in volume"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Higher pressure favors the denser, smaller-volume phase; a positive dP/dT therefore means the solid is denser, unlike water, whose negative slope reflects less dense ice. Why the others are wrong: A) That behavior (negative slope) belongs to water, where ice is less dense than the liquid. C) If the liquid were denser, pressure would favor the liquid and lower the melting point. D) The slope is nonzero, so the melting temperature does depend on pressure.",
+     "trap": "Applying water's anomalous behavior to every substance.",
+     "topic": "Solid-liquid boundary and density",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P8_Q4",
+     "stem": "In Experiment 3, as the CO₂ at 320 K is compressed to 100 atm, the sample:",
+     "options": {
+      "A": "condenses to a liquid at about 52 atm, forming two phases",
+      "B": "remains a single supercritical fluid throughout, with no distinct liquid-gas boundary crossed",
+      "C": "condenses to a solid at about 100 atm, since the pressure is high",
+      "D": "condenses to a liquid at 73 atm, which is the critical pressure"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 320 K exceeds the critical temperature (304.2 K), so no pressure can produce a distinct liquid phase. Why the others are wrong: A) No liquid-gas boundary exists above the critical temperature, so there is no condensation at any pressure. C) The solid-liquid line is far to the left at about 220 K; compression at 320 K does not freeze CO₂. D) The critical pressure applies only at 304.2 K; above that temperature there is no condensation.",
+     "trap": "Assuming that sufficient pressure always liquefies a gas, regardless of temperature.",
+     "topic": "Critical point",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_CP_P9",
+   "passage_text": "A biochemist separates a mixture of proteins using two electrophoretic methods. In SDS-PAGE, proteins are denatured in sodium dodecyl sulfate and a reducing agent and then run through a 10% polyacrylamide gel toward the anode; migration distance after a fixed time is a linear function of log(molecular mass). Four standards were run alongside two unknown proteins, X and Y (Table 1, Figure 1). In isoelectric focusing (IEF), proteins are placed in a gel containing a stable pH gradient from pH 3 (anode end) to pH 10 (cathode end) and an electric field is applied; each protein migrates until its net charge is zero. The isoelectric points (pI) of X and Y were found to be 8.2 and 4.9. Gels were stained with Coomassie dye after the run, and distances were measured from the bottom of the loading well to the center of each band. In a final experiment, the SDS-PAGE is repeated with a 15% polyacrylamide gel. For the pI experiment, protein X was initially applied at a position where the pH is 6.",
+   "table_data": "| Sample | Migration distance (cm) | Mass (kDa) | pI |\n|---|---|---|---|\n| Standard 1 | 2.00 | 100 | n/a |\n| Standard 2 | 3.50 | 50 | n/a |\n| Standard 3 | 5.00 | 25 | n/a |\n| Standard 4 | 6.50 | 12.5 | n/a |\n| Protein X | 4.25 | unknown | 8.2 |\n| Protein Y | 2.75 | unknown | 4.9 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. SDS-PAGE standard curve",
+    "x_label": "Migration distance (cm)",
+    "y_label": "log₁₀ (mass in kDa)",
+    "series": [
+     {
+      "name": "Standards",
+      "points": [
+       [
+        2.0,
+        2.0
+       ],
+       [
+        3.5,
+        1.699
+       ],
+       [
+        5.0,
+        1.398
+       ],
+       [
+        6.5,
+        1.097
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_CP_P9_Q1",
+     "stem": "Based on Table 1 and Figure 1, the molecular mass of protein X is closest to:",
+     "options": {
+      "A": "37.5 kDa",
+      "B": "25 kDa",
+      "C": "35 kDa",
+      "D": "42 kDa"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The standard curve is linear in log(mass), and 4.25 cm lies midway between 50 kDa (3.50 cm) and 25 kDa (5.00 cm); the log midpoint corresponds to √(50 × 25) ≈ 35 kDa. Why the others are wrong: A) 37.5 kDa is the arithmetic mean of 50 and 25, but the relationship is linear in log of the mass. B) 25 kDa corresponds to a migration distance of 5.00 cm, farther than X traveled. D) 42 kDa would require a distance of about 3.9 cm, which is not the measured 4.25 cm.",
+     "trap": "Interpolating on a linear mass scale rather than the logarithmic scale used by the standard curve.",
+     "topic": "SDS-PAGE standard curve",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_CP_P9_Q2",
+     "stem": "What is the primary role of SDS in the first method?",
+     "options": {
+      "A": "It binds only to positive residues and neutralizes the proteins, so migration depends on shape",
+      "B": "It denatures the proteins and gives them a uniform negative charge per unit mass, so migration depends on size",
+      "C": "It cleaves peptide bonds into short fragments of equal length, so all proteins migrate together",
+      "D": "It creates the pH gradient, so migration continues until the net charge of each protein is zero"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) SDS coats polypeptides with a nearly constant negative charge per gram, masking intrinsic charge and unfolding them, so sieving by the gel separates by mass. Why the others are wrong: A) SDS binds the polypeptide backbone through hydrophobic interactions and adds negative charge; it doesn't neutralize. C) SDS does not break peptide bonds; the reducing agent breaks disulfide bonds only. D) The pH gradient of IEF comes from carrier ampholytes; SDS-PAGE has no such gradient.",
+     "trap": "Confusing SDS-PAGE (separation by mass) with IEF (separation by charge at the pI).",
+     "topic": "Role of SDS",
+     "mastery_sheet_id": "5C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P9_Q3",
+     "stem": "In IEF, protein X (pI 8.2) starts where the pH is 6. Which statement describes its behavior?",
+     "options": {
+      "A": "It carries a net positive charge, migrates toward the cathode, and stops where the pH is 8.2",
+      "B": "It carries a net negative charge, migrates toward the anode, and stops where the pH is 8.2",
+      "C": "It carries a net positive charge, migrates toward the anode, and stops where the pH is 6",
+      "D": "It carries no net charge and remains at pH 6 because it is already within the pH gradient"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At pH 6 < pI the protein is protonated and net positive, so it moves toward the cathode (higher pH) until pH = pI, where the net charge is zero. Why the others are wrong: B) Net negative charge occurs when pH > pI; at pH 6 the protein is positive. C) A positive protein moves toward the cathode, and it does not stop until the pH reaches its pI. D) Net charge is zero only at the pI (8.2), not at pH 6.",
+     "trap": "Mixing up the sign of the charge below and above the pI, or the direction of migration toward electrodes.",
+     "topic": "Isoelectric focusing",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P9_Q4",
+     "stem": "When the SDS-PAGE is repeated with 15% polyacrylamide rather than 10%, which outcome is expected?",
+     "options": {
+      "A": "All bands migrate longer distances, since the denser gel exerts a greater force on the proteins",
+      "B": "The bands do not change position, since SDS makes migration independent of the gel pore size",
+      "C": "Only the small proteins migrate shorter distances, since large proteins do not enter the gel",
+      "D": "All bands migrate shorter distances, with larger proteins impeded to a greater extent"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A higher acrylamide concentration gives smaller pores and more resistance, slowing migration, especially for larger proteins; this increases resolution for smaller proteins. Why the others are wrong: A) Smaller pores hinder movement; they do not enhance it. B) SDS equalizes charge-to-mass, but the gel sieving effect still determines migration. C) Both large and small proteins are slowed, and large proteins are retarded more.",
+     "trap": "Believing that a denser gel speeds migration, or that the gel plays no role once SDS is added.",
+     "topic": "Gel pore size",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P9_Q5",
+     "stem": "Protein Y has a pI of 4.9. In a native (non-denaturing) gel at pH 8.6, with no SDS, the net charge of Y and its direction of migration are:",
+     "options": {
+      "A": "positive, migrating toward the anode (positive electrode)",
+      "B": "negative, toward the anode",
+      "C": "negative, migrating toward the cathode (negative electrode)",
+      "D": "positive, migrating toward the cathode (negative electrode)"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At pH 8.6 > pI 4.9 the protein carries a net negative charge, and negative species migrate toward the anode (positive electrode). Why the others are wrong: A) A positive protein would be repelled by the anode; the charge here is negative. C) A negatively charged protein is attracted to the positive electrode, the anode. D) The protein is above its pI, so it is not positively charged.",
+     "trap": "Applying the sign of charge relative to the pI backwards.",
+     "topic": "Net charge and pI",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_CP_P10",
+   "passage_text": "Peptide bonds link amino acids through a condensation reaction in which the carboxyl group of one amino acid and the amino group of another lose a molecule of water. In water at neutral pH, the reverse reaction, hydrolysis, is thermodynamically favorable, yet it is extremely slow. A biochemist tests the dipeptide Ala-Gly under several conditions, measuring the percentage hydrolyzed after 24 hours by amino acid analysis (Table 1). In 6 M HCl at 110 °C, hydrolysis is a first-order process in the dipeptide. Figure 1 shows the time course in this medium. The biochemist then examines the proposed mechanism for acid hydrolysis and the form in which each amino acid exists in the final solution. The reactions were run in sealed tubes with equal starting concentrations of dipeptide (0.10 M), and samples were neutralized before analysis to stop the reaction. Assume that the pKa values of a carboxyl group and an ammonium group in free amino acids are about 2 and 9–10.",
+   "table_data": "| Conditions | Temperature (°C) | Hydrolyzed after 24 h (%) |\n|---|---|---|\n| Water, pH 7 | 37 | < 0.1 |\n| 6 M HCl | 37 | 0.5 |\n| 6 M HCl | 110 | 99.5 |\n| Peptidase, pH 7.4 | 37 | 98 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Hydrolysis of Ala-Gly in 6 M HCl at 110 °C",
+    "x_label": "Time (h)",
+    "y_label": "Dipeptide hydrolyzed (%)",
+    "series": [
+     {
+      "name": "Ala-Gly",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        2,
+        35
+       ],
+       [
+        4,
+        58
+       ],
+       [
+        8,
+        82
+       ],
+       [
+        16,
+        97
+       ],
+       [
+        24,
+        99.5
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_CP_P10_Q1",
+     "stem": "Hydrolysis of Ala-Gly is thermodynamically favorable, yet Table 1 shows less than 0.1% hydrolysis in water at pH 7 over 24 hours. This is best explained by:",
+     "options": {
+      "A": "a positive ΔG for hydrolysis, because water is a poor nucleophile",
+      "B": "a negative ΔS for the reaction, which makes hydrolysis nonspontaneous",
+      "C": "the absence of the peptidase, which changes the equilibrium position of the reaction",
+      "D": "a high activation energy, because resonance gives the amide C-N bond partial double-bond character"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Thermodynamic favorability (negative ΔG) does not imply a fast rate; the stabilized, planar amide bond has a high barrier, making uncatalyzed hydrolysis slow. Why the others are wrong: A) The premise states that hydrolysis has a favorable ΔG; the slow rate is kinetic. B) The stated favorable ΔG means the net spontaneity is not governed by a negative ΔS here. C) Enzymes accelerate the approach to equilibrium but do not change its position.",
+     "trap": "Equating a slow reaction with an unfavorable free energy change; kinetic stability is distinct from thermodynamic stability.",
+     "topic": "Kinetic versus thermodynamic stability",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P10_Q2",
+     "stem": "According to Figure 1, the half-life of Ala-Gly in 6 M HCl at 110 °C is closest to:",
+     "options": {
+      "A": "3 h",
+      "B": "8 h",
+      "C": "12 h",
+      "D": "1 h"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Half the dipeptide is hydrolyzed (50%) between 2 h (35%) and 4 h (58%), so t½ ≈ 3 h (k ≈ 0.22 h⁻¹, t½ = 0.693/k ≈ 3.2 h). Why the others are wrong: B) At 8 h about 82% has already been hydrolyzed, far beyond one half-life. C) At 12 h roughly 93% has been hydrolyzed, which is more than three half-lives. D) At 1 h only about 20% is hydrolyzed, so half the dipeptide has not yet reacted.",
+     "trap": "Choosing the time at which the reaction is nearly complete rather than the time at which 50% has reacted.",
+     "topic": "First-order half-life",
+     "mastery_sheet_id": "5D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P10_Q3",
+     "stem": "Which statement describes the role of acid in the hydrolysis mechanism?",
+     "options": {
+      "A": "Protonation of the amide nitrogen makes the nitrogen a stronger nucleophile, so it attacks water",
+      "B": "Protonation of water generates hydroxide, which is a much stronger nucleophile at low pH",
+      "C": "Protonation of the carbonyl oxygen makes the carbonyl carbon more electrophilic, so water can attack it",
+      "D": "Protonation of the α-carbon breaks the C-N bond directly without a tetrahedral intermediate"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The carbonyl oxygen of the amide is the most basic site; protonation increases the carbonyl carbon's positive character, and water adds to form a tetrahedral intermediate, which then expels the amine. Why the others are wrong: A) Nitrogen is not the primary basic site, and protonating it does not make it nucleophilic. B) Acid lowers hydroxide concentration; hydroxide is not generated at low pH. D) The hydrolysis involves nucleophilic addition to the carbonyl; the α-carbon is not protonated.",
+     "trap": "Proposing protonation of the amide nitrogen, which is not basic because its lone pair is delocalized into the carbonyl.",
+     "topic": "Acid-catalyzed amide hydrolysis",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_CP_P10_Q4",
+     "stem": "After complete hydrolysis in 6 M HCl, the predominant form of the glycine product is:",
+     "options": {
+      "A": "⁺H₃N-CH₂-COO⁻, a zwitterion with no net charge",
+      "B": "H₂N-CH₂-COO⁻, with a deprotonated amine and a carboxylate",
+      "C": "⁺H₃N-CH₂-COOH, with a protonated amine and a neutral carboxyl group",
+      "D": "H₂N-CH₂-COOH, with a neutral amine and neutral carboxyl group"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) In 6 M HCl (pH well below 0) both groups are protonated, because the pH is below the carboxyl pKa of about 2; glycine carries a net +1 charge. Why the others are wrong: A) The zwitterion predominates near neutral pH, between the two pKa values. B) The fully deprotonated anion predominates only at high pH, above about 10. D) A neutral amine with a neutral carboxyl group is a minor form in water at any pH.",
+     "trap": "Drawing amino acids as zwitterions regardless of the pH of the solution.",
+     "topic": "Amino acid ionization states",
+     "mastery_sheet_id": "5D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL09_CP_D1",
+   "stem": "A uniform 4.0 m plank of mass 10 kg is balanced on a pivot at its center. A 30 kg child sits 1.5 m to the left of the pivot. At what distance to the right of the pivot must a 50 kg child sit for the plank to remain in rotational equilibrium?",
+   "options": {
+    "A": "2.5 m",
+    "B": "1.1 m",
+    "C": "0.60 m",
+    "D": "0.90 m"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) The plank's weight acts at the pivot and produces no torque. Setting torques equal: (30)(1.5) = (50)x, so x = 0.90 m. Why the others are wrong: A) 2.5 m inverts the mass ratio (50/30 × 1.5). B) 1.1 m adds an imagined torque from the plank, but its weight acts through the pivot. C) 0.60 m results from dividing 30 × 1.5 by 75, mixing the masses incorrectly.",
+   "trap": "Including the weight of a uniform plank at its center as a torque; it acts at the pivot and contributes zero.",
+   "topic": "Torque and rotational equilibrium",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openbooks.lib.msu.edu/collegephysics1/chapter/the-second-condition-for-equilibrium-2"
+    ]
+   }
+  },
+  {
+   "id": "FL09_CP_D2",
+   "stem": "A 2.0 kg cart moving at 3.0 m/s collides with a stationary 1.0 kg cart, and the two stick together. What fraction of the initial kinetic energy is lost in the collision?",
+   "options": {
+    "A": "None, because momentum is conserved in the collision",
+    "B": "Two-thirds",
+    "C": "One-half",
+    "D": "One-third"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Momentum: (2.0)(3.0) = (3.0)v, so v = 2.0 m/s. KE before = 9.0 J; after = ½(3.0)(2.0)² = 6.0 J; 3.0 J (one-third) is lost. Why the others are wrong: A) Momentum is conserved, but kinetic energy is not in a perfectly inelastic collision. B) Two-thirds is the fraction of energy that remains if 6.0 J is mistaken for the loss. C) One-half has no basis here; the final kinetic energy is 6.0 J of the original 9.0 J.",
+   "trap": "Assuming that conservation of momentum implies conservation of kinetic energy.",
+   "topic": "Inelastic collisions",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://brilliant.org/wiki/determining-kinetic-energy-lost-in-inelastic/",
+     "https://introphys.gatech.edu/lab/2211/lab12/prelab.html"
+    ]
+   }
+  },
+  {
+   "id": "FL09_CP_D3",
+   "stem": "A 50.0 g sample of metal at 100.0 °C is dropped into 100.0 g of water at 20.0 °C in an insulated calorimeter. The final temperature is 24.0 °C. The specific heat of water is 4.18 J/(g·°C). What is the specific heat of the metal?",
+   "options": {
+    "A": "0.88 J/(g·°C)",
+    "B": "0.22 J/(g·°C)",
+    "C": "0.44 J/(g·°C)",
+    "D": "4.18 J/(g·°C)"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Heat gained by water = (100.0)(4.18)(4.0) = 1,672 J. The metal lost this heat: c = 1,672 / [(50.0)(76.0)] = 0.44 J/(g·°C). Why the others are wrong: A) 0.88 would result from using 25 g for the metal mass. B) 0.22 would result from doubling the metal mass. D) 4.18 J/(g·°C) is the specific heat of water, not of the metal.",
+   "trap": "Using the temperature change of water for the metal, or mixing up the masses of the metal and the water.",
+   "topic": "Calorimetry",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chem-textbook.ucalgary.ca/calorimetry/"
+    ]
+   }
+  },
+  {
+   "id": "FL09_CP_D4",
+   "stem": "A uniform wooden block with density 600 kg/m³ floats at rest in fresh water (density 1,000 kg/m³). What fraction of the block's volume is submerged?",
+   "options": {
+    "A": "60%",
+    "B": "40%",
+    "C": "100%",
+    "D": "16%"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Floating means buoyant force equals weight: ρ(water)V(sub)g = ρ(block)Vg, so V(sub)/V = 600/1,000 = 0.60. Why the others are wrong: B) 40% is the fraction above the water line, not submerged. C) The block would be fully submerged only if its density equaled or exceeded that of water. D) 16% has no connection to the density ratio of the block and the water.",
+   "trap": "Reporting the fraction above the surface instead of the submerged fraction.",
+   "topic": "Buoyancy",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://oer.xyzhomework.com/ebooks/html/college-physics-2e/ch11/11-7-archimedes-principle.html"
+    ]
+   }
+  },
+  {
+   "id": "FL09_CP_D5",
+   "stem": "A household heater rated at 1,200 W operates on a 120 V supply. What is the resistance of its heating element?",
+   "options": {
+    "A": "12 Ω",
+    "B": "10 Ω",
+    "C": "0.10 Ω",
+    "D": "144 Ω"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) P = V²/R, so R = (120)²/1,200 = 14,400/1,200 = 12 Ω (the current is 10 A). Why the others are wrong: B) 10 is the current in amperes (P/V), not the resistance. C) 0.10 comes from V/P, which has no physical meaning here. D) 144 Ω results from dividing V² by 100 instead of by the power.",
+   "trap": "Confusing the current with resistance or using V/P instead of V²/P.",
+   "topic": "Power in resistive circuits",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openpress.usask.ca/physics155/chapter/6-2-resistors-in-series-and-parallel/"
+    ]
+   }
+  },
+  {
+   "id": "FL09_CP_D6",
+   "stem": "An ambulance siren emits a steady 700 Hz tone as the ambulance travels toward a stationary listener at 30 m/s. The speed of sound is 340 m/s. The frequency heard by the listener is closest to:",
+   "options": {
+    "A": "762 Hz",
+    "B": "643 Hz",
+    "C": "768 Hz",
+    "D": "700 Hz"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) f = f₀ v/(v - v_s) = 700 × 340/310 = 768 Hz; the source's approach compresses the wavelength. Why the others are wrong: A) 762 Hz results from the approximation f₀(1 + v_s/v), which is not exact for a moving source. B) 643 Hz is the frequency heard after the ambulance passes (receding). D) 700 Hz would be heard only if there were no relative motion.",
+   "trap": "Using the receding-source formula or the approximate expression for an approaching source.",
+   "topic": "Doppler effect",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://labs.phys.utk.edu/mbreinig/phys135core/modules/m10/doppler_effect.html",
+     "https://cracku.in/formula/3926"
+    ]
+   }
+  },
+  {
+   "id": "FL09_CP_D7",
+   "stem": "An object is placed 30 cm in front of a thin converging lens with focal length 10 cm. The image formed is:",
+   "options": {
+    "A": "virtual, upright, and 7.5 cm from the lens, on the object side",
+    "B": "real, inverted, and 30 cm from the lens, the same size as the object",
+    "C": "real, inverted, and 15 cm from the lens",
+    "D": "virtual, upright, and 15 cm from the lens, on the object side"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) 1/v = 1/f - 1/u = 1/10 - 1/30 = 1/15, so v = +15 cm (real side); m = -v/u = -0.5, so the image is inverted and half the object's size. Why the others are wrong: A) A virtual image requires an object inside the focal length (closer than 10 cm). B) A 30 cm image distance would require the object to be at 15 cm. D) A positive v indicates a real image formed on the far side of the lens.",
+   "trap": "Assigning a virtual, upright image to an object placed outside the focal length of a converging lens.",
+   "topic": "Thin lenses",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://labs.phys.utk.edu/mbreinig/phys222core/modules/m8/thin_lenses.html"
+    ]
+   }
+  },
+  {
+   "id": "FL09_CP_D8",
+   "stem": "Light of wavelength 400 nm illuminates a metal with a work function of 2.0 eV. Using hc ≈ 1,240 eV·nm, the maximum kinetic energy of the ejected photoelectrons is closest to:",
+   "options": {
+    "A": "1.1 eV",
+    "B": "3.1 eV",
+    "C": "5.1 eV",
+    "D": "0 eV"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Photon energy = 1,240/400 = 3.1 eV; KE(max) = hf - φ = 3.1 - 2.0 = 1.1 eV. Why the others are wrong: B) 3.1 eV is the photon energy, before the work function is subtracted. C) 5.1 eV would result from adding the work function to the photon energy. D) Electrons are ejected because 3.1 eV exceeds the 2.0 eV work function.",
+   "trap": "Reporting the photon energy as the electron kinetic energy.",
+   "topic": "Photoelectric effect",
+   "mastery_sheet_id": "4E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.pearson.com/channels/it/calculators/photoelectric-effect-calculator"
+    ]
+   }
+  },
+  {
+   "id": "FL09_CP_D9",
+   "stem": "Radium-226 (atomic number 88) undergoes alpha decay. The daughter nuclide is:",
+   "options": {
+    "A": "radon-226 (atomic number 86), with an unchanged mass number",
+    "B": "radon-222 (atomic number 86)",
+    "C": "francium-226 (atomic number 87), after emission of a beta particle",
+    "D": "thorium-230 (atomic number 90), after gaining an alpha particle"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) An alpha particle carries 2 protons and 2 neutrons, so A decreases by 4 and Z by 2: 226 - 4 = 222 and 88 - 2 = 86. Why the others are wrong: A) The mass number must drop by 4 in alpha decay. C) Francium-226 would be produced by beta-plus decay or electron capture, not alpha decay. D) Thorium-230 has a higher mass number and atomic number than the parent.",
+   "trap": "Changing only the atomic number or confusing alpha emission with beta emission.",
+   "topic": "Alpha decay",
+   "mastery_sheet_id": "4E",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_CP_D10",
+   "stem": "What is the expected freezing point of a 0.50 m aqueous solution of CaCl₂? (K_f of water = 1.86 °C/m; assume complete dissociation.)",
+   "options": {
+    "A": "-2.8 °C",
+    "B": "-0.93 °C",
+    "C": "-1.86 °C",
+    "D": "-5.6 °C"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) ΔT_f = i K_f m = (3)(1.86)(0.50) = 2.79 °C, so the solution freezes at about -2.8 °C. Why the others are wrong: B) -0.93 °C ignores dissociation (i = 1). C) -1.86 °C results from using i = 2 (two particles) instead of 3. D) -5.6 °C would arise from i = 6.",
+   "trap": "Forgetting that CaCl₂ provides three particles per formula unit.",
+   "topic": "Freezing point depression",
+   "mastery_sheet_id": "5A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.vanderbilt.edu/AnS/Chemistry/Tellinghuisen/Chem236/Expt6.pdf",
+     "https://chemistry.csueastbay.edu/~pfleming/chem/351/chap08/vantHoff.htm"
+    ]
+   }
+  },
+  {
+   "id": "FL09_CP_D11",
+   "stem": "An acetic acid/acetate buffer (pKa = 4.76) is prepared with 0.10 M acetate and 0.010 M acetic acid. The pH of this buffer is closest to:",
+   "options": {
+    "A": "3.76",
+    "B": "4.76",
+    "C": "6.76",
+    "D": "5.76"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) pH = pKa + log([A⁻]/[HA]) = 4.76 + log(10) = 5.76. Why the others are wrong: A) 3.76 comes from inverting the ratio. B) 4.76 would be the pH only if the concentrations of acid and conjugate base were equal. C) 6.76 would correspond to a ratio of 100.",
+   "trap": "Inverting the base-to-acid ratio in the Henderson-Hasselbalch equation.",
+   "topic": "Buffers",
+   "mastery_sheet_id": "5A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Acids_and_Bases/Buffers/Henderson-Hasselbalch_Approximation",
+     "https://biology.arizona.edu/biochemistry/problem_sets/ph/HH.html"
+    ]
+   }
+  },
+  {
+   "id": "FL09_CP_D12",
+   "stem": "Ethanol (CH₃CH₂OH) boils at 78 °C, whereas dimethyl ether (CH₃OCH₃), which has the same molecular formula, boils at -24 °C. The best explanation is that:",
+   "options": {
+    "A": "dimethyl ether is more polar, so it has stronger dipole-dipole forces than ethanol does",
+    "B": "ethanol has a larger molar mass, so its London dispersion forces are much greater",
+    "C": "dimethyl ether molecules form hydrogen bonds with one another, but these bonds are weaker than in ethanol",
+    "D": "ethanol forms hydrogen bonds between molecules, but dimethyl ether does not"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Ethanol has an O-H group, so it can donate and accept hydrogen bonds; dimethyl ether has only an acceptor oxygen, so it cannot hydrogen bond with itself. Why the others are wrong: A) Ethanol is at least as polar, and its hydrogen bonding is much stronger than dipole-dipole forces. B) The two compounds are isomers with identical molar mass. C) Dimethyl ether has no H bonded to oxygen and so cannot be a hydrogen bond donor.",
+   "trap": "Attributing boiling point differences to molar mass or polarity when the compounds are isomers.",
+   "topic": "Intermolecular forces and boiling point",
+   "mastery_sheet_id": "5B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_CP_D13",
+   "stem": "A mixture of benzoic acid and naphthalene in diethyl ether is shaken with aqueous sodium bicarbonate, and the layers are separated. Which statement describes the outcome?",
+   "options": {
+    "A": "Naphthalene is converted to a salt and enters the aqueous layer, while benzoic acid remains in the ether layer",
+    "B": "Both compounds remain in the ether layer, because neither reacts with a weak base",
+    "C": "Benzoic acid is converted to sodium benzoate and enters the aqueous layer, while naphthalene remains in the ether layer",
+    "D": "Both compounds enter the aqueous layer, because sodium bicarbonate is soluble in water"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Bicarbonate deprotonates the carboxylic acid (pKa ≈ 4.2), forming a water-soluble carboxylate salt; neutral, nonpolar naphthalene stays in the organic layer. Why the others are wrong: A) Naphthalene has no acidic proton and cannot form a salt. B) Bicarbonate is a strong enough base to deprotonate a carboxylic acid. D) Water solubility of the base does not make a nonpolar hydrocarbon soluble in water.",
+   "trap": "Thinking that only strong bases deprotonate carboxylic acids, which would leave both compounds in the organic layer.",
+   "topic": "Acid-base extraction",
+   "mastery_sheet_id": "5C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_CP_D14",
+   "stem": "(R)-2-Bromobutane reacts with sodium cyanide in acetone by an SN2 mechanism. The major product is:",
+   "options": {
+    "A": "(S)-2-methylbutanenitrile, formed with inversion of configuration",
+    "B": "(R)-2-methylbutanenitrile, formed with retention of configuration at the stereocenter",
+    "C": "a racemic mixture, formed through a planar carbocation intermediate in the slow step",
+    "D": "(S)-2-methylbutanenitrile, formed with retention of configuration at the stereocenter"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) SN2 proceeds by backside attack of cyanide, inverting the stereocenter; with CN replacing Br at the top priority, the descriptor changes from R to S. Why the others are wrong: B) Retention would imply frontside attack, which SN2 does not do. C) A carbocation would be required for racemization, which is characteristic of SN1. D) The product is S because of inversion; retention would leave R.",
+   "trap": "Assuming that the stereochemical descriptor stays the same, or that substitution of a secondary halide always passes through a carbocation.",
+   "topic": "SN2 stereochemistry",
+   "mastery_sheet_id": "5D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_CP_D15",
+   "stem": "A compound with formula C₄H₈O shows a strong infrared absorption near 1715 cm⁻¹ and no broad absorption near 3300 cm⁻¹ and none near 2720 cm⁻¹. The compound is most likely:",
+   "options": {
+    "A": "2-butanone",
+    "B": "butanal",
+    "C": "3-buten-1-ol",
+    "D": "cyclobutanol"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The 1715 cm⁻¹ band indicates a ketone C=O; the absence of O-H (3300) and aldehyde C-H (2720) bands rules out alcohols and aldehydes. Why the others are wrong: B) Butanal would show an aldehyde C-H stretch near 2720 cm⁻¹. C) 3-Buten-1-ol has an alcohol O-H (broad ~3300 cm⁻¹) and no C=O. D) Cyclobutanol has an O-H group and no C=O absorption.",
+   "trap": "Assigning a carbonyl to an aldehyde without checking for the characteristic aldehyde C-H stretch.",
+   "topic": "Infrared spectroscopy",
+   "mastery_sheet_id": "5D",
+   "skill": "data reading",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

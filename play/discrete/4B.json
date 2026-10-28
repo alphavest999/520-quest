@@ -1,0 +1,813 @@
+[
+ {
+  "id": "d_4B_1",
+  "type": "discrete",
+  "stem": "Blood flows from the aorta into the capillary beds, whose total cross-sectional area is roughly 1000 times that of the aorta. Compared with aortic flow, the blood velocity in the capillaries is:",
+  "options": {
+   "A": "much higher, because capillary radius is so small",
+   "B": "unchanged, because pressure is constant across the circuit",
+   "C": "higher, because capillary resistance is greatest",
+   "D": "much lower, because total cross-sectional area is greatest there"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Continuity (A1v1 = A2v2) means velocity falls as total cross-sectional area rises, which is why capillary flow is slow enough for exchange. Why the others are wrong: A) each capillary is narrow, but velocity depends on the summed area of all parallel capillaries, which is huge, so velocity is lower, not higher. B) pressure falls steadily along the circuit and is not constant; velocity is set by continuity, not by constant pressure. C) high resistance lowers the pressure, but velocity is governed by total cross-sectional area, not by resistance.",
+  "trap": "Looking at a single capillary's tiny radius instead of the total cross-sectional area of all capillaries in parallel.",
+  "topic": "Continuity equation",
+  "mastery_sheet_id": "4B",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_2",
+  "type": "discrete",
+  "stem": "A vessel constricts so that its radius is halved while the pressure gradient and blood viscosity stay constant. Flow rate through the vessel changes by a factor of:",
+  "options": {
+   "A": "1/2",
+   "B": "1/16",
+   "C": "1/4",
+   "D": "1/8"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Poiseuille's law gives Q proportional to r^4, so halving the radius gives (1/2)^4 = 1/16 of the flow. Why the others are wrong: A) 1/2 would reflect a linear dependence on radius, which Poiseuille flow does not have. C) 1/4 would reflect an r^2 (cross-sectional area) dependence, ignoring the extra velocity profile effect. D) 1/8 would reflect an r^3 dependence, which is not the law.",
+  "trap": "Using a linear or squared dependence on radius instead of the fourth power.",
+  "topic": "Poiseuille's law",
+  "mastery_sheet_id": "4B",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://phys.libretexts.org/Bookshelves/Classical_Mechanics/Classical_Mechanics_(Tatum)/20%3A_Miscellaneous/20.04%3A_Viscosity/20.4.01%3A_Poiseuille's_Law",
+    "https://sciencedemonstrations.fas.harvard.edu/presentations/poiseuilles-law"
+   ]
+  }
+ },
+ {
+  "id": "d_4B_3",
+  "type": "discrete",
+  "stem": "A horizontal artery has a localized atherosclerotic narrowing. In the narrowed segment, compared with the normal segment, the blood has:",
+  "options": {
+   "A": "higher velocity and lower pressure",
+   "B": "higher velocity and higher pressure",
+   "C": "lower velocity and higher pressure",
+   "D": "lower velocity and lower pressure"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Continuity requires faster flow in the narrow segment, and Bernoulli's principle then requires lower static pressure at the same height. Why the others are wrong: B) faster flow cannot coincide with higher pressure in a horizontal ideal fluid; Bernoulli trades pressure for kinetic energy. C) velocity cannot fall in a constriction, since the same flow must pass through a smaller area. D) velocity would rise, not fall, in the narrowing, so slower flow contradicts continuity.",
+  "trap": "Assuming the narrowed region has higher pressure because it is 'squeezed'.",
+  "topic": "Bernoulli's principle in stenosis",
+  "mastery_sheet_id": "4B",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_4",
+  "type": "discrete",
+  "stem": "A standing person's foot is 0.5 m below the level of the heart. Taking blood density as about 1000 kg/m^3 and g as 10 m/s^2, the hydrostatic contribution to blood pressure at the foot relative to the heart is approximately:",
+  "options": {
+   "A": "+500 Pa",
+   "B": "-5000 Pa",
+   "C": "+5000 Pa",
+   "D": "+50,000 Pa"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Delta P = rho g h = 1000 x 10 x 0.5 = 5000 Pa, and pressure is higher below the heart. Why the others are wrong: A) +500 Pa is a power-of-ten error in rho g h. B) -5000 Pa has the right magnitude but the wrong sign, since a negative value would apply above the heart. D) +50,000 Pa is a power-of-ten error and far too large for 0.5 m of blood.",
+  "trap": "Dropping the sign convention or making a power-of-ten error in rho g h.",
+  "topic": "Hydrostatic pressure in the vascular system",
+  "mastery_sheet_id": "4B",
+  "difficulty": "516",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4B_5",
+  "type": "discrete",
+  "stem": "According to Henry's law, the concentration of oxygen dissolved in plasma is directly proportional to:",
+  "options": {
+   "A": "the hemoglobin concentration of the blood",
+   "B": "the partial pressure of oxygen in contact with the plasma",
+   "C": "the total atmospheric pressure regardless of composition",
+   "D": "the oxygen saturation of hemoglobin"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Henry's law states that dissolved gas concentration equals a constant times the gas's partial pressure in contact with the liquid. Why the others are wrong: A) hemoglobin concentration determines bound oxygen, not dissolved oxygen. C) total pressure matters only through the oxygen partial pressure, which depends on composition as well. D) hemoglobin saturation describes bound oxygen and does not set the dissolved concentration.",
+  "trap": "Confusing dissolved oxygen (Henry's law) with hemoglobin-bound oxygen.",
+  "topic": "Henry's law",
+  "mastery_sheet_id": "4B",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_6",
+  "type": "discrete",
+  "stem": "At the summit of a mountain, total atmospheric pressure is about 380 mmHg. Treating air as 21% oxygen, the partial pressure of oxygen in dry air is approximately:",
+  "options": {
+   "A": "160 mmHg",
+   "B": "21 mmHg",
+   "C": "80 mmHg",
+   "D": "380 mmHg"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) By Dalton's law PO2 = 0.21 x 380 = about 80 mmHg. Why the others are wrong: A) 160 mmHg is the sea-level value (0.21 x 760), not the summit value. B) 21 mmHg uses the percentage as if it were a pressure and ignores scaling with total pressure. D) 380 mmHg is the total atmospheric pressure, not the oxygen fraction of it.",
+  "trap": "Thinking the percentage of oxygen falls at altitude rather than total pressure.",
+  "topic": "Dalton's law at altitude",
+  "mastery_sheet_id": "4B",
+  "difficulty": "526",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4B_7",
+  "type": "discrete",
+  "stem": "The sigmoidal shape of the hemoglobin-oxygen dissociation curve is best explained by:",
+  "options": {
+   "A": "each heme group binding oxygen independently",
+   "B": "oxygen binding decreasing affinity of other subunits",
+   "C": "a single high-affinity binding site per tetramer",
+   "D": "binding of oxygen to one subunit increasing the affinity of the remaining subunits"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Binding of oxygen to one subunit raises the affinity of the others (positive cooperativity, T to R shift), producing a sigmoidal curve. Why the others are wrong: A) independent binding sites would give a hyperbolic curve, not a sigmoid. B) negative cooperativity would flatten the curve and is the opposite of what hemoglobin does. C) hemoglobin is a tetramer with four heme sites, not one.",
+  "trap": "Mixing up hyperbolic (independent binding) and sigmoidal (cooperative) curves.",
+  "topic": "Hemoglobin cooperativity",
+  "mastery_sheet_id": "4B",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_8",
+  "type": "discrete",
+  "stem": "In exercising skeletal muscle, which change shifts the hemoglobin-oxygen dissociation curve to the right and facilitates oxygen unloading?",
+  "options": {
+   "A": "increased CO2 and decreased pH",
+   "B": "decreased temperature",
+   "C": "decreased 2,3-BPG",
+   "D": "increased pH"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Higher CO2, lower pH, higher temperature and higher 2,3-BPG lower hemoglobin's affinity for oxygen (right shift), promoting unloading in active muscle. Why the others are wrong: B) decreased temperature raises affinity and shifts the curve left. C) decreased 2,3-BPG raises affinity and shifts the curve left. D) increased pH raises affinity (Bohr effect in reverse) and shifts the curve left.",
+  "trap": "Reversing the direction of shift: right shift means lower affinity and more unloading.",
+  "topic": "Bohr effect",
+  "mastery_sheet_id": "4B",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_9",
+  "type": "discrete",
+  "stem": "In a healthy adult, which change shifts the hemoglobin–oxygen dissociation curve to the right?",
+  "options": {
+   "A": "Decreased PCO2",
+   "B": "Decreased temperature",
+   "C": "Increased 2,3-BPG",
+   "D": "Increased pH"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) 2,3-BPG stabilizes the T state, lowering O2 affinity and shifting the curve right (higher P50). Why the others are wrong: A) lower CO2 shifts left. B) cooling shifts left. D) higher pH (alkalosis) shifts left via the Bohr effect.",
+  "trap": "Reading a right shift as higher affinity; right shift means lower affinity and easier O2 unloading.",
+  "topic": "Oxyhemoglobin dissociation curve",
+  "mastery_sheet_id": "4B",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_10",
+  "type": "discrete",
+  "stem": "Compared with hemoglobin, myoglobin in muscle has:",
+  "options": {
+   "A": "a hyperbolic curve and higher affinity at low PO2",
+   "B": "a sigmoidal curve and lower affinity at low PO2",
+   "C": "a sigmoidal curve and higher affinity",
+   "D": "a hyperbolic curve and lower affinity at low PO2"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Myoglobin is a monomer with no cooperativity and a left-shifted hyperbolic curve, so it takes oxygen from hemoglobin and stores it. Why the others are wrong: B) a sigmoidal curve requires multiple cooperative subunits, and lower affinity would stop oxygen transfer from blood to muscle. C) myoglobin has a single subunit so it cannot be sigmoidal, even though its affinity is higher. D) the hyperbolic shape is right, but lower affinity would prevent myoglobin from taking oxygen from hemoglobin.",
+  "trap": "Assigning cooperativity to a single-subunit protein.",
+  "topic": "Myoglobin versus hemoglobin",
+  "mastery_sheet_id": "4B",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_11",
+  "type": "discrete",
+  "stem": "A murmur heard over a narrowed heart valve is caused by turbulent flow. Turbulence becomes more likely when:",
+  "options": {
+   "A": "blood viscosity increases greatly",
+   "B": "the vessel is made narrower while velocity is held constant",
+   "C": "blood density decreases",
+   "D": "blood velocity increases through the narrowed opening"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Reynolds number = rho v D / eta, so a larger velocity raises Re and promotes turbulence. Why the others are wrong: A) higher viscosity is in the denominator and lowers Re, making flow more laminar. B) with velocity held constant, a smaller diameter D lowers Re, so turbulence becomes less likely. C) lower density lowers Re, reducing turbulence.",
+  "trap": "Forgetting viscosity is in the denominator of the Reynolds number.",
+  "topic": "Reynolds number and turbulence",
+  "mastery_sheet_id": "4B",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_12",
+  "type": "discrete",
+  "stem": "A patient with polycythemia has a markedly elevated hematocrit. If the pressure gradient across a vessel is unchanged, the flow rate through the vessel will:",
+  "options": {
+   "A": "increase, because oxygen content rises",
+   "B": "remain unchanged, because radius is unchanged",
+   "C": "decrease, because viscosity and resistance rise",
+   "D": "increase, because density rises"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Poiseuille's law makes resistance proportional to viscosity, so higher hematocrit increases resistance and lowers Q for a fixed pressure gradient. Why the others are wrong: A) extra oxygen-carrying capacity does not change the fluid mechanics, and flow actually falls. B) radius is not the only determinant of resistance; viscosity also enters directly. D) density is not in Poiseuille's law, and the viscosity increase reduces flow.",
+  "trap": "Assuming only vessel radius influences resistance.",
+  "topic": "Blood viscosity",
+  "mastery_sheet_id": "4B",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_13",
+  "type": "discrete",
+  "stem": "Which segment of the systemic circulation contributes the greatest resistance to blood flow, producing the largest pressure drop?",
+  "options": {
+   "A": "aorta",
+   "B": "venules",
+   "C": "vena cava",
+   "D": "arterioles"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Arterioles have small, adjustable radii and thick smooth muscle, so with the r^4 dependence they contribute the most resistance and the largest pressure drop. Why the others are wrong: A) the aorta has a large radius and low resistance. B) venules are low-pressure, wide-capacity vessels with little resistance. C) the vena cava has a very large radius and minimal resistance.",
+  "trap": "Assuming capillaries are the site of highest resistance because they are the smallest.",
+  "topic": "Systemic vascular resistance",
+  "mastery_sheet_id": "4B",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_14",
+  "type": "discrete",
+  "stem": "A patient has a blood pressure of 120/80 mmHg. Using the standard approximation, the mean arterial pressure is closest to:",
+  "options": {
+   "A": "80 mmHg",
+   "B": "100 mmHg",
+   "C": "93 mmHg",
+   "D": "120 mmHg"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) MAP = diastolic + one third of pulse pressure = 80 + 40/3, about 93 mmHg, since diastole lasts longer than systole. Why the others are wrong: A) 80 mmHg is just the diastolic pressure. B) 100 mmHg is the simple average, which overweights systole. D) 120 mmHg is just the systolic pressure.",
+  "trap": "Averaging systolic and diastolic pressure, ignoring that diastole lasts longer.",
+  "topic": "Mean arterial pressure",
+  "mastery_sheet_id": "4B",
+  "difficulty": "524",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mean_arterial_pressure"
+   ]
+  }
+ },
+ {
+  "id": "d_4B_15",
+  "type": "discrete",
+  "stem": "A resting person has a heart rate of 70 beats per minute and a stroke volume of 70 mL. Cardiac output is approximately:",
+  "options": {
+   "A": "4.9 L/min",
+   "B": "0.49 L/min",
+   "C": "1.0 L/min",
+   "D": "49 L/min"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) CO = HR x SV = 70 beats/min x 70 mL = 4900 mL/min = 4.9 L/min. Why the others are wrong: B) 0.49 L/min is off by a factor of 10 from a mL to L conversion slip. C) 1.0 L/min does not follow from 70 x 70 mL and is far below a normal resting output. D) 49 L/min is a factor-of-10 error in the other direction and is physiologically impossible at rest.",
+  "trap": "Unit conversion mistakes between mL and L.",
+  "topic": "Cardiac output",
+  "mastery_sheet_id": "4B",
+  "difficulty": "515",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4B_16",
+  "type": "discrete",
+  "stem": "A patient with severe protein malnutrition develops generalized edema. The most direct mechanism is a decrease in:",
+  "options": {
+   "A": "capillary hydrostatic pressure",
+   "B": "plasma oncotic pressure, reducing fluid reabsorption into capillaries",
+   "C": "interstitial hydrostatic pressure",
+   "D": "lymphatic vessel diameter only"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Low albumin reduces plasma oncotic pressure, which normally pulls fluid back into capillaries, so net filtration exceeds reabsorption and edema forms. Why the others are wrong: A) lower capillary hydrostatic pressure would reduce filtration and oppose edema. C) interstitial hydrostatic pressure is not what protein malnutrition changes. D) lymphatic diameter is not altered by malnutrition, and 'only' ignores the primary oncotic change.",
+  "trap": "Attributing edema to high hydrostatic pressure rather than low oncotic pressure.",
+  "topic": "Starling forces and edema",
+  "mastery_sheet_id": "4B",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_17",
+  "type": "discrete",
+  "stem": "The lymphatic system helps maintain fluid balance primarily by:",
+  "options": {
+   "A": "actively transporting oxygen to tissues",
+   "B": "increasing capillary oncotic pressure directly",
+   "C": "returning excess filtered interstitial fluid and protein to the venous circulation",
+   "D": "absorbing water from arterioles"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Net filtration at capillaries exceeds reabsorption, and lymph returns the surplus interstitial fluid and protein to the veins. Why the others are wrong: A) lymphatics do not transport oxygen; that is the job of blood and hemoglobin. B) lymph does not directly raise capillary oncotic pressure; returning protein only indirectly maintains the gradient. D) lymphatics collect fluid from the interstitium, not from arterioles.",
+  "trap": "Overlooking that capillaries filter more than they reabsorb.",
+  "topic": "Lymphatic system role",
+  "mastery_sheet_id": "4B",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_18",
+  "type": "discrete",
+  "stem": "Without surfactant, small alveoli tend to collapse and empty into larger alveoli because:",
+  "options": {
+   "A": "pressure from surface tension is inversely proportional to radius",
+   "B": "wall tension is proportional to radius",
+   "C": "small alveoli have greater compliance",
+   "D": "large alveoli have higher surface tension"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Laplace's law for a sphere gives P = 2T/r, so smaller radius means higher pressure, and small alveoli empty into larger ones unless surfactant lowers T. Why the others are wrong: B) wall tension is not the cause; in the alveolar form pressure is inversely, not directly, related to radius. C) small alveoli have lower, not greater, compliance because of their higher collapsing pressure. D) large alveoli do not have higher surface tension; the problem is pressure being highest in the small ones.",
+  "trap": "Applying the vessel wall-tension form (T = Pr) to alveoli.",
+  "topic": "Surfactant and Laplace's law",
+  "mastery_sheet_id": "4B",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_19",
+  "type": "discrete",
+  "stem": "During inspiration, contraction of the diaphragm causes air to enter the lungs because:",
+  "options": {
+   "A": "thoracic volume decreases and pressure rises",
+   "B": "thoracic volume increases and intrapulmonary pressure falls below atmospheric",
+   "C": "alveolar pressure rises above atmospheric",
+   "D": "lung tissue actively pulls in air"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Diaphragm contraction increases thoracic volume; by Boyle's law (PV constant) pressure falls below atmospheric and air flows in down the gradient. Why the others are wrong: A) thoracic volume increases, not decreases, and rising pressure would push air out. C) alveolar pressure above atmospheric would drive expiration, not inspiration. D) lung tissue is passive and follows the chest wall; it does not actively pull air in.",
+  "trap": "Believing inspiration is pushing air in rather than a pressure gradient created by volume change.",
+  "topic": "Mechanics of breathing",
+  "mastery_sheet_id": "4B",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_20",
+  "type": "discrete",
+  "stem": "A patient with pulmonary fibrosis has thickened alveolar walls. According to Fick's law, the rate of gas diffusion across the alveolar-capillary membrane will:",
+  "options": {
+   "A": "increase, because surface area increases",
+   "B": "remain unchanged, because partial pressures are unchanged",
+   "C": "increase, because tissue density increases",
+   "D": "decrease, because diffusion distance increases"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Fick's law makes diffusion rate proportional to area x pressure difference / thickness, so thickened walls lower the rate. Why the others are wrong: A) fibrosis does not increase surface area, and if anything area is lost. B) thickness is part of the rate expression, so unchanged partial pressures do not keep the rate unchanged. C) tissue density is not a term in Fick's law, and denser tissue would not speed diffusion.",
+  "trap": "Forgetting thickness is in the denominator of Fick's law.",
+  "topic": "Fick's law of diffusion",
+  "mastery_sheet_id": "4B",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_21",
+  "type": "discrete",
+  "stem": "Most carbon dioxide is transported in the blood as:",
+  "options": {
+   "A": "dissolved CO2",
+   "B": "carbaminohemoglobin",
+   "C": "bicarbonate ions in plasma",
+   "D": "carbon monoxide"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) About 70% of CO2 is carried as bicarbonate, formed from CO2 and water by carbonic anhydrase in red cells. Why the others are wrong: A) dissolved CO2 accounts for only about 7%. B) carbaminohemoglobin carries about 23%, a minor fraction despite being hemoglobin-based. D) carbon monoxide is a different gas and is not how CO2 is transported.",
+  "trap": "Choosing carbaminohemoglobin because it is a hemoglobin-based pathway.",
+  "topic": "CO2 transport in blood",
+  "mastery_sheet_id": "4B",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_22",
+  "type": "discrete",
+  "stem": "In systemic capillaries, bicarbonate formed inside red blood cells leaves the cell in exchange for:",
+  "options": {
+   "A": "sodium ions leaving the cell",
+   "B": "hydrogen ions entering the cell",
+   "C": "oxygen entering the cell",
+   "D": "chloride ions entering the cell"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The band 3 anion exchanger swaps HCO3- out for Cl- in (chloride shift) to maintain electroneutrality. Why the others are wrong: A) sodium does not exchange for bicarbonate through this antiporter. B) H+ stays in the cell and is buffered by hemoglobin; it does not enter in exchange for bicarbonate. C) oxygen moves by diffusion and is not coupled to bicarbonate exit.",
+  "trap": "Thinking bicarbonate exits alone or with a cation.",
+  "topic": "Chloride shift",
+  "mastery_sheet_id": "4B",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_23",
+  "type": "discrete",
+  "stem": "Deoxygenated hemoglobin binds more CO2 and H+ than oxygenated hemoglobin. This helps in systemic tissues because:",
+  "options": {
+   "A": "oxygen release promotes uptake of CO2 as blood leaves the tissues",
+   "B": "oxygen release causes CO2 release",
+   "C": "it shifts the curve left",
+   "D": "CO2 uptake prevents oxygen unloading"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The Haldane effect: lower oxygen saturation increases hemoglobin's CO2 and H+ binding, aiding CO2 pickup as oxygen is released in tissues. Why the others are wrong: B) oxygen release promotes CO2 binding, not release; CO2 release happens in the lungs. C) a left shift would raise affinity and impair unloading, and it is not the Haldane effect. D) CO2 uptake and H+ binding promote (Bohr effect) rather than prevent oxygen unloading.",
+  "trap": "Confusing the Haldane effect with the Bohr effect.",
+  "topic": "Haldane effect",
+  "mastery_sheet_id": "4B",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_24",
+  "type": "discrete",
+  "stem": "Compared with a healthy person, a patient with carbon monoxide poisoning has:",
+  "options": {
+   "A": "reduced arterial PO2 and reduced oxygen content",
+   "B": "normal arterial PO2 but reduced oxygen content",
+   "C": "normal oxygen content and reduced PO2",
+   "D": "right-shifted curve and increased unloading"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) CO binds heme with very high affinity, cutting oxygen content and left-shifting the remaining sites, while dissolved O2 and thus arterial PO2 stay normal. Why the others are wrong: A) PO2 reflects dissolved oxygen, which CO does not reduce, so arterial PO2 is normal. C) content is reduced, not normal, since CO occupies heme sites. D) CO causes a left shift, which impairs unloading rather than increasing it.",
+  "trap": "Assuming low content must mean low arterial PO2.",
+  "topic": "Carbon monoxide poisoning",
+  "mastery_sheet_id": "4B",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_25",
+  "type": "discrete",
+  "stem": "A patient has severe iron-deficiency anemia. Which finding is expected?",
+  "options": {
+   "A": "reduced arterial PO2 with normal oxygen content",
+   "B": "normal arterial PO2 with reduced arterial oxygen content",
+   "C": "reduced arterial PO2 and reduced hemoglobin saturation",
+   "D": "increased arterial oxygen content"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Anemia lowers hemoglobin concentration so oxygen content falls, but PO2 (dissolved oxygen) and percent saturation remain normal. Why the others are wrong: A) content is reduced, not normal, and PO2 is not reduced since lung gas exchange is intact. C) saturation and PO2 are normal because the remaining hemoglobin is fully loaded. D) fewer hemoglobin molecules means decreased, not increased, oxygen content.",
+  "trap": "Equating low hemoglobin with low saturation or PaO2.",
+  "topic": "Anemia and oxygen delivery",
+  "mastery_sheet_id": "4B",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_26",
+  "type": "discrete",
+  "stem": "A pulmonary embolism blocks blood flow to a portion of a lung that continues to be ventilated. This region is best described as:",
+  "options": {
+   "A": "shunt with a low ventilation-perfusion ratio",
+   "B": "normal ventilation-perfusion matching",
+   "C": "dead space with a low ventilation-perfusion ratio",
+   "D": "dead space with a high ventilation-perfusion ratio"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Ventilation without perfusion gives V/Q approaching infinity, which is dead space. Why the others are wrong: A) a shunt is perfusion without ventilation, the opposite of an embolism. B) blocked blood flow breaks matching, so it is not normal. C) dead space has a high, not low, V/Q ratio.",
+  "trap": "Reversing dead space and shunt.",
+  "topic": "Ventilation-perfusion mismatch",
+  "mastery_sheet_id": "4B",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_27",
+  "type": "discrete",
+  "stem": "In an under-ventilated region of lung with low alveolar PO2, pulmonary arterioles constrict. This response:",
+  "options": {
+   "A": "increases blood flow to hypoxic alveoli",
+   "B": "is the same as systemic vessels dilating in hypoxia",
+   "C": "diverts blood toward better-ventilated alveoli",
+   "D": "reduces total pulmonary resistance"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Hypoxic vasoconstriction redirects flow away from poorly ventilated alveoli toward well-ventilated ones, improving V/Q matching. Why the others are wrong: A) constriction decreases flow to hypoxic alveoli rather than increasing it. B) systemic vessels dilate in hypoxia, the opposite of the pulmonary response. D) constriction raises local, and typically total, pulmonary resistance.",
+  "trap": "Assuming pulmonary vessels respond like systemic vessels.",
+  "topic": "Hypoxic pulmonary vasoconstriction",
+  "mastery_sheet_id": "4B",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_28",
+  "type": "discrete",
+  "stem": "Pulmonary arterial pressure is much lower than systemic arterial pressure even though both ventricles have the same cardiac output. This is because the pulmonary circuit has:",
+  "options": {
+   "A": "much lower vascular resistance",
+   "B": "much higher blood viscosity",
+   "C": "much longer vessels",
+   "D": "thicker arterial walls"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) With equal flow, P = Q x R, so a much lower pulmonary pressure means much lower vascular resistance. Why the others are wrong: B) the same blood circulates, so viscosity is unchanged. C) pulmonary vessels are shorter, and longer vessels would raise resistance. D) pulmonary arteries have thinner, more compliant walls.",
+  "trap": "Assuming pressure differences imply different flow.",
+  "topic": "Pulmonary circulation pressures",
+  "mastery_sheet_id": "4B",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_29",
+  "type": "discrete",
+  "stem": "An aneurysm in the aorta is at greater risk of rupture as it enlarges because, at a given pressure:",
+  "options": {
+   "A": "wall tension decreases with radius",
+   "B": "wall tension is independent of radius",
+   "C": "pressure decreases with radius",
+   "D": "wall tension increases with vessel radius"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) For a cylinder T = P x r, so at a given pressure a larger radius means more wall tension, which promotes further dilation and rupture risk. Why the others are wrong: A) tension rises, not falls, with radius in the cylinder form of Laplace's law. B) tension is proportional to radius, so it is not independent of it. C) pressure is the given quantity and does not decrease because the radius grows; it is tension that changes.",
+  "trap": "Using the alveolar (inverse radius) form of Laplace for a vessel.",
+  "topic": "Law of Laplace for vessels",
+  "mastery_sheet_id": "4B",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_30",
+  "type": "discrete",
+  "stem": "Blood flows at 0.5 m/s through a vessel of cross-sectional area 4 cm^2 that narrows to 1 cm^2. Ignoring viscosity, the speed in the narrow region is:",
+  "options": {
+   "A": "2 m/s",
+   "B": "0.125 m/s",
+   "C": "1 m/s",
+   "D": "4 m/s"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Continuity A1v1 = A2v2 gives v2 = 4 cm^2 x 0.5 m/s / 1 cm^2 = 2 m/s. Why the others are wrong: B) 0.125 m/s inverts the area ratio and gives slower flow in the narrowing. C) 1 m/s corresponds to a 2-fold rather than 4-fold area reduction. D) 4 m/s multiplies by the area ratio twice or uses the wrong ratio.",
+  "trap": "Inverting the area ratio in A1v1 = A2v2 and getting a slower speed in the narrowing.",
+  "topic": "Continuity equation calculation",
+  "mastery_sheet_id": "4B",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4B_31",
+  "type": "discrete",
+  "stem": "Mean arterial pressure is 100 mmHg, central venous pressure is approximately 0 mmHg and cardiac output is 5 L/min. Total peripheral resistance is:",
+  "options": {
+   "A": "0.05 mmHg per L/min",
+   "B": "5 mmHg per L/min",
+   "C": "20 mmHg per L/min",
+   "D": "500 mmHg per L/min"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) R = delta P / Q = (100 - 0) mmHg / 5 L/min = 20 mmHg per L/min. Why the others are wrong: A) 0.05 inverts the ratio (Q/P = 5/100) instead of dividing pressure by flow. B) 5 is just the cardiac output and ignores the pressure difference. D) 500 multiplies pressure by flow instead of dividing.",
+  "trap": "Multiplying pressure by flow, or inverting the ratio to Q/delta P, instead of dividing the pressure drop by flow.",
+  "topic": "Total peripheral resistance",
+  "mastery_sheet_id": "4B",
+  "difficulty": "525",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4B_32",
+  "type": "discrete",
+  "stem": "CO2 diffuses readily from pulmonary capillary blood into alveoli even though its partial pressure gradient is only about 6 mmHg, because CO2:",
+  "options": {
+   "A": "has a higher molecular mass than O2",
+   "B": "is much more soluble in the membrane and plasma than O2",
+   "C": "is bound to hemoglobin with greater affinity",
+   "D": "is actively transported"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Diffusion rate depends on the gradient and on solubility in the membrane and plasma; CO2 is about 20 times more soluble than O2, offsetting its small gradient. Why the others are wrong: A) higher molecular mass would slow, not speed, diffusion, and solubility is the dominant factor. C) hemoglobin binding does not drive diffusion across the alveolar membrane; CO2 largely travels as bicarbonate. D) CO2 crosses the membrane passively by diffusion; no active transport is involved.",
+  "trap": "Assuming a small gradient implies a slow diffusion.",
+  "topic": "Gas diffusion across the alveolar membrane",
+  "mastery_sheet_id": "4B",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_33",
+  "type": "discrete",
+  "stem": "Hydrogen gas (2 g/mol) and oxygen gas (32 g/mol) effuse through a small pinhole at the same temperature. The ratio of the effusion rate of hydrogen to oxygen is:",
+  "options": {
+   "A": "16",
+   "B": "4",
+   "C": "2",
+   "D": "1/4"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Graham's law gives rate ratio = sqrt(M_O2 / M_H2) = sqrt(32/2) = sqrt(16) = 4. Why the others are wrong: A) 16 forgets to take the square root of the molar mass ratio. C) 2 would arise from sqrt(4), a miscalculated mass ratio. D) 1/4 inverts the ratio, implying hydrogen effuses more slowly.",
+  "trap": "Forgetting to take the square root of the molar mass ratio.",
+  "topic": "Graham's law",
+  "mastery_sheet_id": "4B",
+  "difficulty": "521",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Graham%27s_law",
+    "https://www.physicsclassroom.com/Chemistry-Tutorial/Gases-and-Gas-Laws/Grahams-Law-of-Effusion"
+   ]
+  }
+ },
+ {
+  "id": "d_4B_34",
+  "type": "discrete",
+  "stem": "Blood with hemoglobin at 15 g/dL fully saturated binds roughly 1.34 mL O2 per gram. The oxygen carried by hemoglobin is approximately:",
+  "options": {
+   "A": "2 mL O2 per dL of blood",
+   "B": "0.3 mL O2 per dL of blood",
+   "C": "20 mL O2 per dL of blood",
+   "D": "200 mL O2 per dL of blood"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) 15 g/dL x 1.34 mL O2/g = about 20 mL O2 per dL bound to hemoglobin. Why the others are wrong: A) 2 mL/dL is a power-of-ten error. B) 0.3 mL/dL is the dissolved oxygen, not the hemoglobin-bound amount. D) 200 mL/dL is a power-of-ten error in the other direction.",
+  "trap": "Assuming dissolved oxygen is a major carrier.",
+  "topic": "Oxygen content of blood",
+  "mastery_sheet_id": "4B",
+  "difficulty": "526",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.medmastery.com/guides/blood-gas-analysis-clinical-guide/how-calculate-total-oxygen-content-arterial-blood",
+    "https://medbullets.com/respiratory/117018/oxygen-content-of-blood"
+   ]
+  }
+ },
+ {
+  "id": "d_4B_35",
+  "type": "discrete",
+  "stem": "When measuring blood pressure with a sphygmomanometer, Korotkoff sounds are heard when cuff pressure is between systolic and diastolic because:",
+  "options": {
+   "A": "blood flows turbulently through the partially compressed artery",
+   "B": "blood flow is completely stopped",
+   "C": "flow is laminar and silent",
+   "D": "venous valves close"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) When cuff pressure is between systolic and diastolic, the artery opens intermittently and the high-velocity jet through the partially compressed vessel is turbulent, producing sounds. Why the others are wrong: B) complete stoppage of flow (cuff above systolic) produces silence, not sounds. C) laminar flow is silent, and it returns only when cuff pressure falls below diastolic. D) venous valves are not involved in Korotkoff sounds, which arise in the artery.",
+  "trap": "Thinking sounds arise from fully blocked flow.",
+  "topic": "Blood pressure measurement",
+  "mastery_sheet_id": "4B",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_36",
+  "type": "discrete",
+  "stem": "Compared with a young person, an elderly person with stiff arteries typically has:",
+  "options": {
+   "A": "a smaller pulse pressure",
+   "B": "a lower systolic pressure",
+   "C": "unchanged pulse pressure but lower heart rate",
+   "D": "a larger pulse pressure, because arteries cannot expand to buffer stroke volume"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Compliant arteries buffer stroke volume; stiffening raises systolic and lowers diastolic pressure, widening the pulse pressure. Why the others are wrong: A) reduced compliance increases pulse pressure; it cannot make it smaller. B) systolic pressure typically rises with stiff arteries, not falls. C) pulse pressure widens with stiffness, and a lower heart rate is not the expected finding.",
+  "trap": "Believing stiffness raises both systolic and diastolic equally.",
+  "topic": "Arterial compliance",
+  "mastery_sheet_id": "4B",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_37",
+  "type": "discrete",
+  "stem": "Veins hold most of the blood volume and return it to the heart at low pressure. Which feature most directly prevents backflow in the legs?",
+  "options": {
+   "A": "thick muscular walls",
+   "B": "one-way valves assisted by skeletal muscle contraction",
+   "C": "high hydrostatic pressure",
+   "D": "pulsatile flow from capillaries"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) One-way venous valves plus the skeletal muscle pump push blood toward the heart and prevent backflow in the legs. Why the others are wrong: A) veins have thin, not thick muscular, walls; that describes arteries. C) high hydrostatic pressure in the legs favors pooling rather than preventing backflow. D) capillary outflow is not pulsatile, since pulsation is damped by the arterial tree.",
+  "trap": "Assigning arterial properties to veins.",
+  "topic": "Venous return",
+  "mastery_sheet_id": "4B",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_38",
+  "type": "discrete",
+  "stem": "During exercise, arterioles in working skeletal muscle dilate in response to local metabolites. Total peripheral resistance therefore:",
+  "options": {
+   "A": "increases, because the beds are arranged in series",
+   "B": "increases, because blood viscosity rises",
+   "C": "remains exactly constant, because cardiac output rises",
+   "D": "decreases, because the dilated muscle beds are arranged in parallel"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Dilating muscle beds lower the equivalent resistance of the parallel organ circuits, so cardiac output can rise with little change in mean pressure. Why the others are wrong: A) organ beds are arranged in parallel, not in series, so dilating one lowers total resistance. B) viscosity does not rise meaningfully during exercise, and dilation lowers resistance anyway. C) cardiac output and resistance are not locked together, and resistance falls.",
+  "trap": "Treating organ circuits as series elements.",
+  "topic": "Regulation of blood flow during exercise",
+  "mastery_sheet_id": "4B",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4B_39",
+  "type": "discrete",
+  "stem": "An IV bag is raised so that its height above the patient's arm doubles, doubling the pressure driving fluid into the needle (needle and tubing unchanged, venous pressure negligible). The flow rate will:",
+  "options": {
+   "A": "quadruple",
+   "B": "halve",
+   "C": "double",
+   "D": "increase 16-fold"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Q = delta P / R, so with R constant, doubling the driving pressure doubles the flow. Why the others are wrong: A) quadrupling would imply a squared dependence on pressure, which is not in the relation. B) halving would imply an inverse relationship to pressure. D) 16-fold would imply a fourth-power dependence, which applies to radius, not pressure.",
+  "trap": "Applying the r^4 relation to pressure.",
+  "topic": "Poiseuille's law in IV therapy",
+  "mastery_sheet_id": "4B",
+  "difficulty": "523",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4B_40",
+  "type": "discrete",
+  "stem": "Mixed venous blood entering a pulmonary capillary has a PO2 of about 40 mmHg, and alveolar PO2 is about 100 mmHg. Which statement describes oxygen movement?",
+  "options": {
+   "A": "oxygen diffuses passively from alveolar air into the capillary blood until the partial pressures nearly equalize",
+   "B": "oxygen is actively pumped into the blood against its gradient",
+   "C": "oxygen diffuses from the blood into the alveoli",
+   "D": "oxygen movement stops because hemoglobin is already saturated"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Gas exchange is passive and follows partial pressure gradients, so oxygen moves from alveolar air (100 mmHg) into blood (40 mmHg) until they nearly equalize. Why the others are wrong: B) oxygen is not actively pumped; diffusion alone suffices. C) the gradient favors movement into the blood, not out of it. D) hemoglobin at a PO2 of 40 mmHg is only about 75% saturated, so loading continues.",
+  "trap": "Believing gas exchange needs active transport.",
+  "topic": "Alveolar gas exchange gradients",
+  "mastery_sheet_id": "4B",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ }
+]

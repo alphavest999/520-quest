@@ -1,0 +1,105 @@
+{
+ "logname": "FL06",
+ "in_scope": 58,
+ "matched": 58,
+ "fixed": [],
+ "verified_true": 49,
+ "unverified": {
+  "CP_D1": "outside formula/constant not confirmed by search (search budget exhausted; v=wr, P=rho g h, momentum conservation, torque balance, buoyancy, P=V^2/R, thin lens, Doppler, equilibrium ICE)",
+  "CP_D14": "outside formula/constant not confirmed by search (search budget exhausted; v=wr, P=rho g h, momentum conservation, torque balance, buoyancy, P=V^2/R, thin lens, Doppler, equilibrium ICE)",
+  "CP_D2": "outside formula/constant not confirmed by search (search budget exhausted; v=wr, P=rho g h, momentum conservation, torque balance, buoyancy, P=V^2/R, thin lens, Doppler, equilibrium ICE)",
+  "CP_D3": "outside formula/constant not confirmed by search (search budget exhausted; v=wr, P=rho g h, momentum conservation, torque balance, buoyancy, P=V^2/R, thin lens, Doppler, equilibrium ICE)",
+  "CP_D5": "outside formula/constant not confirmed by search (search budget exhausted; v=wr, P=rho g h, momentum conservation, torque balance, buoyancy, P=V^2/R, thin lens, Doppler, equilibrium ICE)",
+  "CP_D7": "outside formula/constant not confirmed by search (search budget exhausted; v=wr, P=rho g h, momentum conservation, torque balance, buoyancy, P=V^2/R, thin lens, Doppler, equilibrium ICE)",
+  "CP_D8": "outside formula/constant not confirmed by search (search budget exhausted; v=wr, P=rho g h, momentum conservation, torque balance, buoyancy, P=V^2/R, thin lens, Doppler, equilibrium ICE)",
+  "CP_P1_Q4": "outside formula/constant not confirmed by search (search budget exhausted; v=wr, P=rho g h, momentum conservation, torque balance, buoyancy, P=V^2/R, thin lens, Doppler, equilibrium ICE)",
+  "CP_P7_Q4": "outside formula/constant not confirmed by search (search budget exhausted; v=wr, P=rho g h, momentum conservation, torque balance, buoyancy, P=V^2/R, thin lens, Doppler, equilibrium ICE)"
+ },
+ "note": "CARS.json has no calculation questions. BB_P2_Q2 computed 0.0745 vs keyed \"about 7 percent\" (rounding, accepted). Search result for peptide charge contained an arithmetic slip (counted 3 negatives); correct sum for Lys-Arg-Gly-Asp is +0.98 ~ +1, key kept.",
+ "searches": [
+  [
+   "Poiseuille Q=pi r^4 dP/(8 eta L) and Re~2000 laminar threshold",
+   "confirmed (textbook/educational pages; no NCBI hit)"
+  ],
+  [
+   "dG = RT ln Kd, dG = dH - TdS in ITC",
+   "confirmed"
+  ],
+  [
+   "Hill equation log(Y/(1-Y)) = n log pO2 - n log P50, slope n",
+   "confirmed; Hb n about 2.8"
+  ],
+  [
+   "Oxygen content 1.34 mL O2/g Hb x saturation",
+   "confirmed"
+  ],
+  [
+   "Hardy-Weinberg carrier 2pq, q^2 incidence",
+   "confirmed"
+  ],
+  [
+   "Falconer's formula h2=2(rMZ-rDZ)",
+   "confirmed"
+  ],
+  [
+   "van't Hoff pi=iMRT",
+   "confirmed"
+  ],
+  [
+   "Respiratory control ratio = state 3/state 4",
+   "confirmed (PMC tables, JoVE)"
+  ],
+  [
+   "Duane-Hunt lambda_min=hc/eV; hc=1240 eV nm; Mo Ka",
+   "formula and E=1240/0.071=17.465 keV confirmed; Mo K-edge 20 keV not confirmed (not used in a calculation)"
+  ],
+  [
+   "Mo K-alpha energy/wavelength",
+   "E=hc/lambda consistency confirmed"
+  ],
+  [
+   "Palmitate beta-oxidation 7 cycles, 8 acetyl-CoA",
+   "confirmed"
+  ],
+  [
+   "Henderson-Hasselbalch pKa acetic acid 4.76",
+   "confirmed"
+  ],
+  [
+   "Parallel-plate capacitor C=k e0 A/d, U=1/2 CV^2, isolated V drops by k",
+   "confirmed"
+  ],
+  [
+   "Single slit a sin(theta)=lambda, width 2 lambda L/a",
+   "confirmed"
+  ],
+  [
+   "RCF = w^2 r/g and rpm conversion",
+   "confirmed"
+  ],
+  [
+   "Bernoulli plus continuity pressure drop",
+   "confirmed qualitatively; lens/Doppler not returned"
+  ],
+  [
+   "RC discharge Q=Q0 e^(-t/RC); calorimetry q=mcDT, neutralization about -57 kJ/mol",
+   "confirmed; literature -57 vs question -56 computed from given data"
+  ],
+  [
+   "Genomic imprinting DMR, imprint erased/reset in germline",
+   "confirmed"
+  ],
+  [
+   "Peptide net charge at pH 7.4 with given pKa values",
+   "method confirmed"
+  ],
+  [
+   "Doppler moving source formula",
+   "not run: search budget exhausted"
+  ],
+  [
+   "Thin lens equation",
+   "not run: search budget exhausted"
+  ]
+ ]
+}

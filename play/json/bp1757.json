@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "type": "question",
+    "passage_id": "bp1757",
+    "passage_text": "Researchers investigated the relationship between light intensity and the rate of photosynthesis in the freshwater alga *Chlorella vulgaris*. The algae were grown under controlled temperature (22 °C) and CO₂ concentration (400 ppm). Light intensity was varied using neutral density filters, and the rate of oxygen production was measured as an index of photosynthetic activity. The following data were obtained over a 30‑minute period:\n\n| Light Intensity (µmol photons m⁻² s⁻¹) | O₂ Production (µmol O₂ mg⁻¹ Chl h⁻¹) |\n|----------------------------------------|-------------------------------------------|\n| 50                                     | 12.4                                       |\n| 150                                    | 32.7                                       |\n| 300                                    | 58.9                                       |\n| 600                                    | 81.2                                       |\n| 1200                                   | 92.5                                       |\n\nThe researchers noted that the rate of photosynthesis increased with light intensity but began to plateau at higher intensities, suggesting a light‑saturation effect.",
+    "table_data": [
+      {
+        "Light Intensity (µmol photons m⁻² s⁻¹)": 50,
+        "O₂ Production (µmol O₂ mg⁻¹ Chl h⁻¹)": 12.4
+      },
+      {
+        "Light Intensity (µmol photons m⁻² s⁻¹)": 150,
+        "O₂ Production (µmol O₂ mg⁻¹ Chl h⁻¹)": 32.7
+      },
+      {
+        "Light Intensity (µmol photons m⁻² s⁻¹)": 300,
+        "O₂ Production (µmol O₂ mg⁻¹ Chl h⁻¹)": 58.9
+      },
+      {
+        "Light Intensity (µmol photons m⁻² s⁻¹)": 600,
+        "O₂ Production (µmol O₂ mg⁻¹ Chl h⁻¹)": 81.2
+      },
+      {
+        "Light Intensity (µmol photons m⁻² s⁻¹)": 1200,
+        "O₂ Production (µmol O₂ mg⁻¹ Chl h⁻¹)": 92.5
+      }
+    ],
+    "stem": "Which of the following best describes the trend observed in the data?",
+    "options": {
+      "A": "O₂ production increases linearly with light intensity across the entire range.",
+      "B": "O₂ production increases rapidly at low light but levels off at higher light intensities.",
+      "C": "O₂ production decreases as light intensity increases.",
+      "D": "O₂ production remains constant regardless of light intensity."
+    },
+    "correct": "B",
+    "explanation": "The data show a steep rise in O₂ production from 50 to 600 µmol photons m⁻² s⁻¹ (12.4 to 81.2), followed by a much smaller increase from 600 to 1200 (81.2 to 92.5), so the rate is levelling off as it approaches light saturation, although it has not fully plateaued in the range tested.",
+    "trap": "Assuming a linear relationship across all intensities would ignore the saturation effect.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": 2,
+    "type": "question",
+    "passage_id": "bp1757",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "If the researchers wanted to investigate the effect of temperature on photosynthetic rate while keeping light intensity constant, which experimental design would be most appropriate?",
+    "options": {
+      "A": "Use a single temperature (22 °C) and vary light intensity across the same range as in the original study.",
+      "B": "Maintain a constant light intensity of 300 µmol photons m⁻² s⁻¹ and test temperatures of 10 °C, 22 °C, and 35 °C.",
+      "C": "Keep temperature at 22 °C and vary CO₂ concentration while measuring O₂ production.",
+      "D": "Raise light intensity and temperature together in successive trials (150 µmol photons m⁻² s⁻¹ at 10 °C, 300 at 22 °C, 600 at 35 °C)."
+    },
+    "correct": "B",
+    "explanation": "Correct: B. Holding light at 300 µmol photons m⁻² s⁻¹ while testing 10, 22 and 35 °C makes temperature the only manipulated variable. Why the others are wrong: A) It keeps temperature fixed and varies light, repeating the original experiment. C) It varies CO₂, not temperature. D) Light and temperature rise together, so any change in O₂ output cannot be attributed to temperature alone.",
+    "trap": "Choosing the design that raises light and temperature together, which seems efficient but confounds the two so a change in O₂ output cannot be attributed to temperature.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T10:05:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": 3,
+    "type": "question",
+    "passage_id": "bp1757",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Using the data from the table, calculate the approximate slope (in µmol O₂ mg⁻¹ Chl h⁻¹ per µmol photons m⁻² s⁻¹) of the linear portion of the response curve (from 50 to 300 µmol photons m⁻² s⁻¹).",
+    "options": {
+      "A": "0.19",
+      "B": "0.25",
+      "C": "0.35",
+      "D": "0.45"
+    },
+    "correct": "A",
+    "explanation": "Correct: A) Slope = (58.9 − 12.4)/(300 − 50) = 46.5/250 = 0.186, about 0.19. Why the others are wrong: B) 0.25 would need a rise of 62.5 over the same interval. C) 0.35 would need a rise of 87.5, more than the highest rate in the table. D) 0.45 would need a rise of 112.5, which exceeds every value in the table.",
+    "trap": "Using the endpoints of the whole curve (50 to 1200) gives about 0.07, a slope that includes the saturated region.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T10:10:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": 4,
+    "type": "question",
+    "passage_id": "bp1757",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following statements is NOT supported by the data?",
+    "options": {
+      "A": "O₂ production increased at every higher light intensity tested.",
+      "B": "The gain in O₂ production from 600 to 1200 µmol photons m⁻² s⁻¹ was smaller than the gain from 300 to 600.",
+      "C": "O₂ production at 1200 µmol photons m⁻² s⁻¹ was more than seven times that at 50.",
+      "D": "O₂ production at 1200 µmol photons m⁻² s⁻¹ was double that at 600."
+    },
+    "correct": "D",
+    "explanation": "Correct: D is unsupported; 92.5 is only about 1.14 times 81.2. Why the others are wrong: A) The values rise 12.4, 32.7, 58.9, 81.2, 92.5. B) The gain was 11.3 versus 22.3. C) 92.5/12.4 = 7.5.",
+    "trap": "Assuming that doubling the light doubles the O₂ output, which ignores the saturation shown in the data.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T10:15:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": 5,
+    "type": "question",
+    "passage_id": "bp1757",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "At 600 µmol photons m⁻² s⁻¹, O₂ production is what percent of the highest rate observed?",
+    "options": {
+      "A": "87.8%",
+      "B": "50.0%",
+      "C": "12.2%",
+      "D": "113.9%"
+    },
+    "correct": "A",
+    "explanation": "Correct: 81.2/92.5 × 100 = 87.8%. Why the others are wrong: B) 50.0% is the ratio of the light intensities (600/1200), not of the rates. C) 12.2% is the shortfall from the maximum (100 − 87.8). D) 113.9% inverts the ratio (92.5/81.2).",
+    "trap": "Using the ratio of light intensities (50%) instead of the ratio of O₂ production rates, which levels off at high light.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T10:20:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  }
+]

@@ -1,0 +1,1533 @@
+{
+ "exam": "FL10",
+ "section": "PS",
+ "passages": [
+  {
+   "passage_id": "FL10_PS_P1",
+   "passage_text": "Sensory adaptation lowers perceived intensity of a constant stimulus. Researchers recruited 40 adults with normal olfaction and randomly assigned them to one of two groups (n = 20 each). Each participant held a sealed jar under the nose and inhaled normally while a jar of either amyl acetate (banana odor) or eugenol (clove odor) was presented continuously for 120 s. Every 30 s, participants rated odor intensity on a 0-100 scale. Group means are shown in Table 1. Afterward, all participants moved to a clean-air room and re-rated amyl acetate at several delays; recovery of the amyl acetate group is shown in Figure 1. Finally, 10 participants from the amyl acetate group were presented with eugenol immediately after the 120-s adaptation period and rated it 66, compared with 70 in unadapted participants. A paired t-test comparing the 0-s and 120-s ratings within each group gave p < 0.001. Participants were not told which odorant they were given.",
+   "table_data": "**Table 1.** Mean intensity rating during continuous exposure\n\n| Exposure time (s) | Amyl acetate group | Eugenol group |\n|---|---|---|\n| 0 | 72 | 70 |\n| 30 | 41 | 38 |\n| 60 | 24 | 22 |\n| 90 | 15 | 14 |\n| 120 | 11 | 10 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Recovery of amyl acetate intensity rating in clean air after 120 s adaptation",
+    "x_label": "Time in clean air (s)",
+    "y_label": "Mean intensity rating (0-100)",
+    "series": [
+     {
+      "name": "Amyl acetate group",
+      "points": [
+       [
+        0,
+        11
+       ],
+       [
+        30,
+        28
+       ],
+       [
+        60,
+        45
+       ],
+       [
+        120,
+        65
+       ],
+       [
+        180,
+        71
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_PS_P1_Q1",
+     "stem": "The decline in rated intensity of amyl acetate during continuous exposure is best explained by which process?",
+     "options": {
+      "A": "Sensory adaptation, a reduced responsiveness of olfactory receptor neurons and downstream circuits",
+      "B": "Sensitization, in which repeated exposure to a stimulus produces a progressively amplified neural response",
+      "C": "Extinction of a classically conditioned association between the odor and an unconditioned stimulus",
+      "D": "A shift in the participants' response criterion that made them report weaker sensations at each rating"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Continuous exposure to a constant odorant reduces responsiveness of receptors and central neurons, which is sensory adaptation. Why the others are wrong: B) Sensitization would increase, not decrease, ratings. C) No conditioned association was established; the odor was never paired with another stimulus. D) A criterion shift would not explain the reversible, stimulus-specific recovery in clean air and cross-odor result.",
+     "trap": "Choosing sensitization because any change with repeated exposure sounds like a learning effect, ignoring the direction of the change.",
+     "topic": "Taste and olfaction receptor adaptation",
+     "mastery_sheet_id": "6A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P1_Q2",
+     "stem": "By what percentage did the mean amyl acetate rating fall between 0 s and 60 s of exposure?",
+     "options": {
+      "A": "67%",
+      "B": "33%",
+      "C": "48%",
+      "D": "24%"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) (72 - 24) / 72 = 0.667, a 67% decline. Why the others are wrong: B) 33% is the proportion of the original rating that remained (24/72). C) 48% is the absolute drop in rating points, not a percentage. D) 24% is the rating at 60 s, not a percentage decline.",
+     "trap": "Reporting the absolute drop in points (48) or the remaining proportion instead of the percent decrease relative to baseline.",
+     "topic": "Taste and olfaction receptor adaptation",
+     "mastery_sheet_id": "6A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_PS_P1_Q3",
+     "stem": "After 120 s in clean air, the mean amyl acetate rating was approximately what percentage of the unadapted rating of 72?",
+     "options": {
+      "A": "About 90%",
+      "B": "About 65%",
+      "C": "About 45%",
+      "D": "About 15%"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Figure 1 shows 65 at 120 s; 65 / 72 = 0.90. Why the others are wrong: B) 65 is the rating itself, not its percentage of 72. C) 45 is the rating at 60 s, and 45/72 is about 63%. D) 15% would correspond to a rating near 11, the value immediately after adaptation.",
+     "trap": "Reading the y-axis value (65) as if it were a percentage of baseline without dividing by 72.",
+     "topic": "Taste and olfaction receptor adaptation",
+     "mastery_sheet_id": "6A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P1_Q4",
+     "stem": "Eugenol was rated 66 after amyl acetate adaptation, close to its unadapted value of 70. This result most strongly suggests that adaptation:",
+     "options": {
+      "A": "arises mainly from changes in sniffing behavior that affect every odorant equally across the session",
+      "B": "reflects a general decline in participant attention that lowers all later ratings by the same amount",
+      "C": "occurs only in higher cortical areas, so all receptor neuron types must remain fully responsive",
+      "D": "is largely specific to the receptor populations activated by the adapting odorant, with little carryover to eugenol-sensitive neurons"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Because eugenol, which activates different receptors, was barely affected, the adaptation is largely odorant-specific at the receptor level. Why the others are wrong: A) Changes in sniffing would lower ratings of eugenol too. B) A general attention decline would also reduce eugenol's rating, which stayed near baseline. C) Receptor-level adaptation is well documented and the data do not restrict adaptation to cortex.",
+     "trap": "Attributing the decline to attention or fatigue, which would have lowered the eugenol rating as well.",
+     "topic": "Taste and olfaction receptor adaptation",
+     "mastery_sheet_id": "6A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P1_Q5",
+     "stem": "Olfaction is unusual among the senses because olfactory information reaches primary olfactory cortex and the amygdala after:",
+     "options": {
+      "A": "a relay in the medial geniculate nucleus, as in audition",
+      "B": "bypassing the thalamic relay used by most other senses",
+      "C": "a relay in the lateral geniculate nucleus, as in vision",
+      "D": "crossing entirely to the contralateral hemisphere at the optic chiasm"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Olfactory bulb projections go directly to piriform cortex and limbic structures without a thalamic relay first. Why the others are wrong: A) The medial geniculate relays auditory, not olfactory, information. C) The lateral geniculate relays visual information. D) The optic chiasm carries visual fibers, and olfactory projections are largely ipsilateral.",
+     "trap": "Assuming every sense is relayed through the thalamus before cortex.",
+     "topic": "Taste and olfaction receptor adaptation",
+     "mastery_sheet_id": "6A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_PS_P2",
+   "passage_text": "The Flynn effect refers to rising raw scores on intelligence tests across generations. A testing company administered a 60-item matrix reasoning subtest and a 60-item vocabulary subtest to nationally representative samples (n = 2,000 per sampling year) in six years between 1960 and 2010. Matrix reasoning is considered a measure of fluid intelligence, whereas vocabulary reflects accumulated knowledge. Mean raw scores are shown in Table 1 and Figure 1. For matrix reasoning, the standard deviation of raw scores was 10 in every year. Raw scores were converted to IQ using a scale with mean 100 and SD 15 relative to a chosen norm sample. The company's 1960 norms (mean 30, SD 10 on matrix reasoning) had been used for all examinees until the data were reviewed. Investigators also recorded mean years of schooling for each cohort, which rose from 9.8 years in 1960 to 13.1 in 2010. Test-retest reliability was above 0.90 in all samples, and a one-way analysis of variance across years was significant for matrix reasoning (p < 0.001).",
+   "table_data": "**Table 1.** Mean raw scores (out of 60) by testing year\n\n| Year | Matrix reasoning | Vocabulary |\n|---|---|---|\n| 1960 | 30.0 | 22.0 |\n| 1970 | 32.0 | 22.2 |\n| 1980 | 34.0 | 22.1 |\n| 1990 | 36.0 | 22.5 |\n| 2000 | 38.0 | 22.6 |\n| 2010 | 38.5 | 22.8 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Mean raw score by testing year",
+    "x_label": "Testing year",
+    "y_label": "Mean raw score (out of 60)",
+    "series": [
+     {
+      "name": "Matrix reasoning",
+      "points": [
+       [
+        1960,
+        30.0
+       ],
+       [
+        1970,
+        32.0
+       ],
+       [
+        1980,
+        34.0
+       ],
+       [
+        1990,
+        36.0
+       ],
+       [
+        2000,
+        38.0
+       ],
+       [
+        2010,
+        38.5
+       ]
+      ]
+     },
+     {
+      "name": "Vocabulary",
+      "points": [
+       [
+        1960,
+        22.0
+       ],
+       [
+        1970,
+        22.2
+       ],
+       [
+        1980,
+        22.1
+       ],
+       [
+        1990,
+        22.5
+       ],
+       [
+        2000,
+        22.6
+       ],
+       [
+        2010,
+        22.8
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_PS_P2_Q1",
+     "stem": "Using the stated scale (10 raw points = 15 IQ points), the matrix reasoning gain from 1960 to 2000 corresponds to about how many IQ points per decade?",
+     "options": {
+      "A": "2",
+      "B": "6",
+      "C": "3",
+      "D": "12"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The gain is 8 raw points over 4 decades, or 2 raw points per decade = 0.2 SD = 3 IQ points per decade. Why the others are wrong: A) 2 is the raw-score gain per decade, not converted to IQ. B) 6 would result from doubling the conversion factor. D) 12 is the total IQ gain over the 40 years, not the per-decade rate.",
+     "trap": "Forgetting to convert raw points to SD units and then to IQ points, or reporting the total instead of the per-decade rate.",
+     "topic": "Intelligence testing and the Flynn effect",
+     "mastery_sheet_id": "6B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_PS_P2_Q2",
+     "stem": "A 2000 examinee scores 38, the mean for the 2000 sample. When scored against the 1960 norms, this examinee's IQ is closest to:",
+     "options": {
+      "A": "108",
+      "B": "100",
+      "C": "123",
+      "D": "112"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) (38 - 30) / 10 = 0.8 SD above the 1960 mean; 0.8 x 15 = 12, so IQ = 112. Why the others are wrong: A) 108 would correspond to 0.53 SD, not 0.8. B) 100 would be correct only if scored against 2000 norms. C) 123 would correspond to 1.5 SD.",
+     "trap": "Scoring against the examinee's own cohort norm instead of the older 1960 norm, giving an IQ of 100.",
+     "topic": "Intelligence testing and the Flynn effect",
+     "mastery_sheet_id": "6B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_PS_P2_Q3",
+     "stem": "Gains were much larger on matrix reasoning than on vocabulary. Given that the gene pool cannot change appreciably in 50 years, the best interpretation is that:",
+     "options": {
+      "A": "environmental changes such as more schooling and practice with abstract problems raised fluid reasoning more than stored knowledge",
+      "B": "strong genetic selection for fluid intelligence occurred across four decades while vocabulary is entirely nongenetic",
+      "C": "matrix reasoning measures crystallized intelligence, which rises with age, whereas vocabulary measures fluid intelligence",
+      "D": "vocabulary scores are unreliable, so no change could be detected regardless of the true trend"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) A rapid population-level change must be largely environmental, and rising schooling and abstract-reasoning experience plausibly boost fluid reasoning more than vocabulary. Why the others are wrong: B) Selection cannot change population genetics this fast, and the claim that vocabulary is nongenetic is false. C) The passage states that matrix reasoning measures fluid intelligence and vocabulary reflects knowledge. D) Reliability was above 0.90 in all samples.",
+     "trap": "Treating rising scores as evidence of genetic change rather than environmental change.",
+     "topic": "Intelligence testing and the Flynn effect",
+     "mastery_sheet_id": "6B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P2_Q4",
+     "stem": "Why do test publishers periodically restandardize IQ tests on new samples?",
+     "options": {
+      "A": "To raise the heritability estimate of the test within each successive cohort",
+      "B": "To remove every item that measures fluid reasoning because such items are culturally biased",
+      "C": "To ensure test-retest reliability reaches exactly 1.0 before the test is published",
+      "D": "To keep the population mean at 100"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Without new norms, raw-score gains would inflate IQs; restandardizing keeps 100 as the current average. Why the others are wrong: A) Standardization does not change heritability. B) Restandardizing does not remove item types. C) Reliability cannot be forced to 1.0 by norming.",
+     "trap": "Assuming restandardization is done to improve validity of items rather than to re-anchor the scoring scale.",
+     "topic": "Intelligence testing and the Flynn effect",
+     "mastery_sheet_id": "6B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P2_Q5",
+     "stem": "Between 2000 and 2010, the matrix reasoning mean increased by only 0.5 points. Which conclusion is best supported by Figure 1?",
+     "options": {
+      "A": "The Flynn effect reversed, with scores falling below 1960 levels",
+      "B": "The 2000-2010 decade produced the largest gain in the series",
+      "C": "The rate of gain slowed after 2000 compared with earlier decades",
+      "D": "Environmental influences no longer affect matrix reasoning scores at all"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Earlier decades gained 2.0 points each; 0.5 points shows a slowdown, consistent with a possible plateau. Why the others are wrong: A) Scores remained far above 1960 levels. B) Earlier decades had larger gains of 2.0 points. D) A slowdown does not show environment has no influence.",
+     "trap": "Over-interpreting a slowed rate of increase as a reversal or as proof the effect vanished.",
+     "topic": "Intelligence testing and the Flynn effect",
+     "mastery_sheet_id": "6B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_PS_P3",
+   "passage_text": "The theory of planned behavior proposes that behavioral intention is shaped by attitude toward the behavior, subjective norm, and perceived behavioral control (PBC), and that intention and PBC predict behavior. Researchers surveyed 300 college students about regular exercise. Each item was rated on a 1-7 scale. Four weeks later, students reported the number of gym sessions they attended per week (averaged across the four weeks). Multiple regression was used to predict intention from attitude, subjective norm, and PBC, and then to predict sessions from intention and PBC. Standardized coefficients are shown in Table 1. Participants were also grouped into tertiles of intention, and mean weekly sessions by tertile are shown in Figure 1. The model for intention had R-squared = 0.48, and the model for sessions had R-squared = 0.31. No participant had a medical restriction on exercise, and students were recruited from introductory psychology courses with course credit as compensation.",
+   "table_data": "**Table 1.** Standardized regression coefficients\n\n| Predictor | Outcome: intention (beta) | p | Outcome: sessions (beta) | p |\n|---|---|---|---|---|\n| Attitude | 0.35 | < 0.001 | not entered | - |\n| Subjective norm | 0.12 | 0.03 | not entered | - |\n| Perceived behavioral control | 0.30 | < 0.001 | 0.22 | 0.002 |\n| Intention | - | - | 0.41 | < 0.001 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Mean weekly gym sessions by intention tertile",
+    "x_label": "Intention tertile (1 = low, 2 = middle, 3 = high)",
+    "y_label": "Mean sessions per week",
+    "series": [
+     {
+      "name": "Mean sessions",
+      "points": [
+       [
+        1,
+        0.6
+       ],
+       [
+        2,
+        1.4
+       ],
+       [
+        3,
+        2.5
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_PS_P3_Q1",
+     "stem": "A questionnaire item reads, \"I am confident I could exercise even when my schedule is busy.\" In the theory of planned behavior, this item is most similar to which construct?",
+     "options": {
+      "A": "Subjective norm, the perceived social pressure from important others",
+      "B": "Attitude toward the behavior, the favorable or unfavorable evaluation of exercise",
+      "C": "Perceived behavioral control, the belief that one is able to perform the behavior",
+      "D": "Behavioral intention, the motivation to perform the behavior in the near future"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Confidence in one's ability to carry out the behavior despite obstacles is perceived behavioral control, akin to self-efficacy. Why the others are wrong: A) Subjective norm concerns beliefs about what others expect. B) Attitude concerns evaluation, not ability. D) Intention concerns the plan to act, not confidence about ability.",
+     "trap": "Confusing intention with control because both feel like personal motivation.",
+     "topic": "Attitude-behavior consistency (theory of planned behavior)",
+     "mastery_sheet_id": "7C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P3_Q2",
+     "stem": "According to Table 1, which predictor had the strongest independent association with intention?",
+     "options": {
+      "A": "Perceived behavioral control (beta = 0.30)",
+      "B": "Subjective norm (beta = 0.12)",
+      "C": "Intention (beta = 0.41)",
+      "D": "Attitude (beta = 0.35)"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Attitude has the largest standardized coefficient among the three predictors of intention. Why the others are wrong: A) PBC is second at 0.30. B) Subjective norm has the smallest coefficient. C) Intention is an outcome predictor in the sessions model, not a predictor of intention.",
+     "trap": "Picking the largest coefficient in the table (0.41) without checking that it belongs to a different model.",
+     "topic": "Attitude-behavior consistency (theory of planned behavior)",
+     "mastery_sheet_id": "7C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P3_Q3",
+     "stem": "The model for intention had R-squared = 0.48. What proportion of the variance in intention was NOT explained by attitude, subjective norm, and PBC?",
+     "options": {
+      "A": "48%",
+      "B": "52%",
+      "C": "69%",
+      "D": "77%"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 1 - 0.48 = 0.52, or 52%. Why the others are wrong: A) 48% is the explained variance. C) 69% has no basis in the data given. D) 77% would come from treating 0.48 as R and squaring it (1 - 0.23), but 0.48 is already R-squared.",
+     "trap": "Squaring R-squared again, or reporting the explained variance instead of the unexplained.",
+     "topic": "Attitude-behavior consistency (theory of planned behavior)",
+     "mastery_sheet_id": "7C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_PS_P3_Q4",
+     "stem": "Which result supports the claim that PBC affects behavior beyond its influence through intention?",
+     "options": {
+      "A": "PBC's significant coefficient (beta = 0.22) when predicting sessions together with intention",
+      "B": "Attitude's significant coefficient (beta = 0.35) when predicting intention",
+      "C": "Subjective norm's modest coefficient (beta = 0.12) when predicting intention",
+      "D": "The R-squared of 0.31 for the sessions model, which is lower than that of the intention model"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) In the sessions model, PBC remains a significant predictor with intention in the model, indicating a direct effect on behavior. Why the others are wrong: B) Attitude is not in the sessions model and cannot speak to PBC. C) Subjective norm is unrelated to a direct PBC-behavior effect. D) A lower R-squared does not show PBC's direct effect.",
+     "trap": "Reading the intention-model coefficients as if they described effects on behavior.",
+     "topic": "Attitude-behavior consistency (theory of planned behavior)",
+     "mastery_sheet_id": "7C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P3_Q5",
+     "stem": "Why were gym sessions recorded four weeks after the questionnaire rather than on the same day?",
+     "options": {
+      "A": "To guarantee that attitudes and norms would converge to the same value for all participants",
+      "B": "To eliminate self-report bias entirely, since sessions were counted only by a delay",
+      "C": "To increase the sample size through new participants joining over the four weeks",
+      "D": "To establish that intention preceded behavior in time, as required to claim prediction rather than mere concurrent association"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Measuring behavior later establishes temporal precedence, necessary to claim that intention predicts later behavior. Why the others are wrong: A) Predictors need not converge and a delay does not make them do so. B) Sessions were self-reported, so bias is still possible. C) A delay does not add participants and the sample stayed at 300.",
+     "trap": "Believing a delay corrects for self-report error rather than establishing time order.",
+     "topic": "Attitude-behavior consistency (theory of planned behavior)",
+     "mastery_sheet_id": "7C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_PS_P4",
+   "passage_text": "Researchers studied how people explain outcomes. One hundred twenty students completed a difficult 20-item verbal test and were randomly assigned (n = 30 per group) to one of four conditions. In two conditions, students received bogus feedback on their own score (success or failure) and then rated how much the result was caused by internal factors (ability and effort) and external factors (test difficulty and luck) on a 1-9 scale. In the other two conditions, observers watched a recording of a peer taking the test, were told the peer had succeeded or failed, and rated the same causes for the peer. Feedback was assigned at random and was unrelated to actual performance. Mean ratings are shown in Table 1, and internal attribution ratings are plotted in Figure 1. A two-way analysis of variance showed a significant interaction between role (self or observer) and outcome for internal attributions (p < 0.01). All raters completed the ratings in private and were debriefed afterward.",
+   "table_data": "**Table 1.** Mean attribution ratings (1-9)\n\n| Condition | Internal | External |\n|---|---|---|\n| Self, success | 7.2 | 3.1 |\n| Self, failure | 4.4 | 6.3 |\n| Observer, success | 5.6 | 4.8 |\n| Observer, failure | 5.9 | 4.6 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Mean internal attribution rating by condition",
+    "x_label": "Condition (1 = self/success, 2 = self/failure, 3 = observer/success, 4 = observer/failure)",
+    "y_label": "Mean internal attribution (1-9)",
+    "series": [
+     {
+      "name": "Internal attribution",
+      "points": [
+       [
+        1,
+        7.2
+       ],
+       [
+        2,
+        4.4
+       ],
+       [
+        3,
+        5.6
+       ],
+       [
+        4,
+        5.9
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_PS_P4_Q1",
+     "stem": "In the self conditions, how much higher was the mean internal attribution after success than after failure?",
+     "options": {
+      "A": "3.2",
+      "B": "2.8",
+      "C": "1.9",
+      "D": "0.3"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 7.2 - 4.4 = 2.8. Why the others are wrong: A) 3.2 is the difference in external ratings (6.3 - 3.1). C) 1.9 is the gap between external and internal ratings after failure (6.3 - 4.4). D) 0.3 is the observer difference (5.9 - 5.6).",
+     "trap": "Subtracting the external ratings instead of the internal ratings that the question asks about.",
+     "topic": "Self-serving bias in attribution",
+     "mastery_sheet_id": "8A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_PS_P4_Q2",
+     "stem": "Observers rated another person's failure as more internally caused (5.9) than actors rated their own failure (4.4). Which concept best captures this difference?",
+     "options": {
+      "A": "Actor-observer difference, a reflection of the fundamental attribution error in judging others' behavior",
+      "B": "Self-serving bias, because observers protect their own self-esteem when judging peers",
+      "C": "Hindsight bias, because observers knew the outcome before rating its cause",
+      "D": "The halo effect, because observers generalized from one positive trait to others"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) People tend to explain others' behavior by dispositions while explaining their own by situations. Why the others are wrong: B) Self-serving bias would explain actors' favorable self-attributions, not observers' judgments of peers. C) Hindsight bias concerns judging an outcome as predictable, not attributing causes. D) The halo effect concerns generalizing a positive impression, which is not measured here.",
+     "trap": "Labeling any attribution pattern as self-serving bias without noting that the target is another person.",
+     "topic": "Self-serving bias in attribution",
+     "mastery_sheet_id": "8A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P4_Q3",
+     "stem": "Why was feedback assigned at random and unrelated to actual test performance?",
+     "options": {
+      "A": "To ensure the sample was representative of all college students",
+      "B": "To ensure group differences in attribution were due to the feedback rather than true ability",
+      "C": "To remove the need for success and failure comparison conditions",
+      "D": "To keep participants unaware of the study hypothesis, as in blinding of researchers"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Random, bogus feedback separates the outcome from ability, so attributional differences can be attributed to the feedback received. Why the others are wrong: A) Random assignment of conditions is not random sampling. C) The comparison between success and failure is still central. D) Hiding hypotheses is a separate procedure from randomization.",
+     "trap": "Mixing up random assignment, which supports causal inference, with random sampling, which supports generalization.",
+     "topic": "Self-serving bias in attribution",
+     "mastery_sheet_id": "8A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P4_Q4",
+     "stem": "A student consistently attributes failures to stable internal causes and successes to luck. This pattern is:",
+     "options": {
+      "A": "identical to the self-serving pattern shown by actors in the table",
+      "B": "the reverse of the self-serving pattern",
+      "C": "an example of the halo effect applied to self-ratings of ability",
+      "D": "evidence that the student is an observer rather than an actor in the attributional sense"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Self-serving bias credits successes internally and failures externally; this student does the opposite, as in pessimistic attributional styles. Why the others are wrong: A) The table shows actors credit success to internal causes. C) The halo effect is a different bias. D) Actor and observer roles refer to who is being judged, not to this pattern.",
+     "trap": "Assuming any attribution style that involves internal causes is self-serving.",
+     "topic": "Self-serving bias in attribution",
+     "mastery_sheet_id": "8A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P4_Q5",
+     "stem": "Observers' mean internal ratings differed little between success (5.6) and failure (5.9). This most likely indicates that observers:",
+     "options": {
+      "A": "attributed outcomes almost entirely to luck and test difficulty",
+      "B": "lacked the outcome-dependent shift in attributions that actors showed",
+      "C": "showed a stronger self-serving bias than the actors did",
+      "D": "responded more strongly to the feedback manipulation than the actors did"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Actors' internal ratings changed by 2.8 points with outcome, whereas observers' changed by only 0.3. Why the others are wrong: A) Observers' external ratings (4.6-4.8) were not dominant over internal ratings. C) Self-serving bias would increase differences by outcome, not decrease them. D) A smaller difference indicates weaker, not stronger, responsiveness.",
+     "trap": "Assuming a small difference means the manipulation produced a bigger effect.",
+     "topic": "Self-serving bias in attribution",
+     "mastery_sheet_id": "8A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_PS_P5",
+   "passage_text": "Anchoring is the tendency for judgments to stay close to an initially presented number. In an experiment, 160 participants read a description of a three-bedroom house and then estimated its appraised market value. Half were novices (undergraduate students) and half were licensed real estate agents (n = 80 each). Within each group, participants were randomly assigned to see either a low listing price anchor ($180,000) or a high listing price anchor ($320,000) before estimating the value; both anchors were randomly generated by the experimenters and participants were told the listing price was for reference only. All participants estimated in private and received the same house description. Mean estimates are shown in Table 1 and Figure 1. The anchoring index is defined as the difference between mean estimates in the high-anchor and low-anchor conditions divided by the difference between the anchors, expressed as a percentage. The effect of anchor was significant in both groups (p < 0.01), and the anchor-by-expertise interaction was also significant (p = 0.02).",
+   "table_data": "**Table 1.** Mean estimated value (thousands of dollars)\n\n| Group | Low anchor (180) | High anchor (320) |\n|---|---|---|\n| Novices | 205 | 285 |\n| Real estate agents | 232 | 262 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Mean estimated value by anchor condition",
+    "x_label": "Anchor condition (1 = low, 2 = high)",
+    "y_label": "Mean estimate (thousands of dollars)",
+    "series": [
+     {
+      "name": "Novices",
+      "points": [
+       [
+        1,
+        205
+       ],
+       [
+        2,
+        285
+       ]
+      ]
+     },
+     {
+      "name": "Real estate agents",
+      "points": [
+       [
+        1,
+        232
+       ],
+       [
+        2,
+        262
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_PS_P5_Q1",
+     "stem": "Estimates that were pulled toward the randomly assigned listing price illustrate which cognitive process?",
+     "options": {
+      "A": "Anchoring and insufficient adjustment away from an initial reference value during estimation",
+      "B": "The availability heuristic, in which estimates depend on how easily examples come to mind",
+      "C": "The representativeness heuristic, in which judgments rely on similarity to a prototype",
+      "D": "Confirmation bias, in which people seek information consistent with a prior belief"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The numerical anchor biased estimates because adjustments away from it were insufficient. Why the others are wrong: B) Availability concerns ease of recall, which was not manipulated. C) Representativeness concerns similarity to a prototype. D) Confirmation bias concerns seeking supportive evidence, which was not measured.",
+     "trap": "Selecting any named heuristic without matching it to what the manipulation actually varied.",
+     "topic": "Anchoring and judgment",
+     "mastery_sheet_id": "8B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P5_Q2",
+     "stem": "What was the anchoring index for novices?",
+     "options": {
+      "A": "80%",
+      "B": "43%",
+      "C": "29%",
+      "D": "57%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) (285 - 205) / (320 - 180) = 80 / 140 = 0.57. Why the others are wrong: A) 80% treats the 80-thousand difference in estimates as a percentage. B) 43% is the complement of the index (1 - 0.57). C) 29% is half of 57%, from incorrectly dividing by twice the anchor difference.",
+     "trap": "Using the raw difference in estimates, or its complement, as the index.",
+     "topic": "Anchoring and judgment",
+     "mastery_sheet_id": "8B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_PS_P5_Q3",
+     "stem": "Compared with novices, the agents' results indicate that expertise:",
+     "options": {
+      "A": "made agents completely immune to anchors because their estimates were more accurate overall",
+      "B": "increased anchoring because agents' estimates differed from novices' in both conditions",
+      "C": "had no relationship to anchoring since both groups showed significant anchor effects",
+      "D": "reduced anchoring but did not eliminate it"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Agents' index was (262 - 232) / 140 = 21%, lower than novices' 57%, but still nonzero. Why the others are wrong: A) Agents' estimates still differed by 30 thousand across anchors. B) Agents' index is smaller, not larger. C) The significant interaction shows the groups differed in the size of the effect.",
+     "trap": "Concluding that a significant effect in both groups means expertise has no effect.",
+     "topic": "Anchoring and judgment",
+     "mastery_sheet_id": "8B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P5_Q4",
+     "stem": "Which modification would best test whether anchoring occurs because participants assume the anchor is informative?",
+     "options": {
+      "A": "Double the number of real estate agents in each condition",
+      "B": "Replace the house with a used car and keep the same procedure",
+      "C": "Have each participant give both a low-anchor and a high-anchor estimate",
+      "D": "Tell participants that the anchor was set by a random coin toss"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) If an anchor known to be random still biases estimates, then perceived informativeness is not required; reduced bias would indicate it matters. Why the others are wrong: A) A larger sample improves precision but does not address the mechanism. B) A different object tests generality, not mechanism. C) A within-subjects design changes carryover effects, not the informativeness of the anchor.",
+     "trap": "Choosing a design change that increases power or generality but does not manipulate the proposed mechanism.",
+     "topic": "Anchoring and judgment",
+     "mastery_sheet_id": "8B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_PS_P6",
+   "passage_text": "Researchers examined whether recognition of facial emotion is shared across cultures and how expression is regulated. In Study 1, participants from three samples (a US university, a Japanese university, and a small rural Community R with little exposure to Western media; n = 60 each) viewed 36 posed photographs, six per emotion, and chose one of six emotion labels for each. Mean percent correct is shown in Table 1. Chance performance on each trial is 1 in 6. In Study 2, 40 students from each of the US and Japanese universities watched a disturbing film, either alone or with a high-status experimenter present, while hidden cameras recorded their faces. Trained coders rated spontaneous expression intensity (0-10). Study 2 results are shown in Table 2. Coders were blind to participants' nationality and condition. Participants in Study 2 gave informed consent and were debriefed after the film. In Study 1, photographs were presented in a random order, and each participant completed the task in a quiet room with no time limit. Differences among samples were tested with an analysis of variance (p < 0.01).",
+   "table_data": "**Table 1.** Mean percent correct recognition\n\n| Emotion | US | Japan | Community R |\n|---|---|---|---|\n| Happiness | 97 | 95 | 90 |\n| Surprise | 92 | 90 | 80 |\n| Anger | 88 | 85 | 75 |\n| Sadness | 85 | 83 | 72 |\n| Fear | 80 | 76 | 61 |\n| Disgust | 84 | 80 | 68 |\n\n**Table 2.** Mean expression intensity (0-10)\n\n| Group | Alone | With experimenter |\n|---|---|---|\n| US | 7.0 | 6.8 |\n| Japan | 7.1 | 3.9 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL10_PS_P6_Q1",
+     "stem": "Which result best supports the claim that the recognition results are not due to guessing?",
+     "options": {
+      "A": "Accuracy was higher in the US sample than in Community R for every emotion",
+      "B": "Fear was recognized less accurately than happiness in every sample",
+      "C": "Accuracy for every emotion in all three samples was far above the 16.7% expected by chance",
+      "D": "Japanese participants showed lower expression intensity in front of the experimenter"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Chance is 1/6 = 16.7%, and the lowest accuracy in the table was 61%. Why the others are wrong: A) A US advantage shows difference between samples but not that results exceed chance. B) The ordering of emotions does not test guessing. D) Study 2 concerns expression, not recognition.",
+     "trap": "Choosing a true statement from the data that does not actually address the question of chance.",
+     "topic": "Non-verbal communication and emotional expression",
+     "mastery_sheet_id": "8C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P6_Q2",
+     "stem": "The reduced expression intensity of Japanese participants in front of the experimenter is best explained by:",
+     "options": {
+      "A": "an absence of the underlying emotion in Japanese individuals",
+      "B": "a failure of Japanese participants to recognize facial emotion",
+      "C": "culture-specific display rules",
+      "D": "the facial feedback effect, which amplifies expression when others are present"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Display rules are cultural norms about when and how to show emotion; Japanese expression dropped only when a high-status observer was present. Why the others are wrong: A) Alone, Japanese participants showed intensity (7.1) equal to US participants, so the emotion was present. B) Recognition in Japan was high. D) Facial feedback does not predict suppression with an observer present.",
+     "trap": "Treating less outward expression as less felt emotion.",
+     "topic": "Non-verbal communication and emotional expression",
+     "mastery_sheet_id": "8C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P6_Q3",
+     "stem": "For which emotion was the gap in accuracy between the US sample and Community R largest?",
+     "options": {
+      "A": "Disgust",
+      "B": "Anger",
+      "C": "Happiness",
+      "D": "Fear"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Gaps were fear 19, disgust 16, anger 13, and happiness 7 percentage points. Why the others are wrong: A) Disgust gap was 16. B) Anger gap was 13. C) Happiness gap was only 7.",
+     "trap": "Choosing the emotion with the lowest accuracy overall rather than computing the gap, though here the two coincide for fear only.",
+     "topic": "Non-verbal communication and emotional expression",
+     "mastery_sheet_id": "8C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P6_Q4",
+     "stem": "The use of posed, static photographs in Study 1 most limits the conclusions because:",
+     "options": {
+      "A": "they may differ from the dynamic, context-dependent expressions people produce spontaneously",
+      "B": "they prevent the computation of percent correct for each emotion",
+      "C": "they make chance performance impossible to determine for a six-choice task",
+      "D": "they ensure that participants have already seen all of the expressions before"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Posed static images may not reflect natural expressions, which limits ecological validity. Why the others are wrong: B) Percent correct can be computed from any forced-choice task. C) Chance is 1/6 in a six-choice task. D) Prior exposure is not guaranteed by static photographs.",
+     "trap": "Confusing a limit on generalizability (ecological validity) with a limit on statistical computation.",
+     "topic": "Non-verbal communication and emotional expression",
+     "mastery_sheet_id": "8C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_PS_P7",
+   "passage_text": "Urban ecologists study how neighborhood conditions shape residents' outcomes. Researchers analyzed 40 neighborhoods in one city and grouped them into quartiles by poverty rate. A resident survey measured collective efficacy (social cohesion and willingness to intervene for the common good) on a 1-5 scale, and police records provided violent crimes per 1,000 residents. Quartile means are shown in Table 1. Figure 1 plots collective efficacy against crime rate for eight representative neighborhoods. Because residents are not randomly distributed across neighborhoods, the researchers also described a separate housing program in which low-income families were randomly chosen by lottery to receive vouchers for homes in low-poverty neighborhoods; control families received no voucher. Several years later, adolescents in voucher families reported better mental health than control adolescents (p = 0.01), although adult employment did not differ between groups. The correlation between collective efficacy and crime across all 40 neighborhoods was r = -0.88.",
+   "table_data": "**Table 1.** Neighborhood characteristics by poverty quartile\n\n| Quartile | Poverty rate (%) | Collective efficacy (1-5) | Violent crimes per 1,000 |\n|---|---|---|---|\n| 1 (lowest poverty) | 6 | 4.1 | 2.1 |\n| 2 | 14 | 3.7 | 4.0 |\n| 3 | 26 | 3.2 | 7.5 |\n| 4 (highest poverty) | 41 | 2.6 | 12.4 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Collective efficacy and violent crime in eight neighborhoods",
+    "x_label": "Collective efficacy (1-5)",
+    "y_label": "Violent crimes per 1,000",
+    "series": [
+     {
+      "name": "Neighborhoods",
+      "points": [
+       [
+        2.4,
+        13.5
+       ],
+       [
+        2.7,
+        11.2
+       ],
+       [
+        3.0,
+        8.9
+       ],
+       [
+        3.3,
+        7.0
+       ],
+       [
+        3.6,
+        5.1
+       ],
+       [
+        3.9,
+        3.6
+       ],
+       [
+        4.2,
+        2.4
+       ],
+       [
+        4.5,
+        1.6
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_PS_P7_Q1",
+     "stem": "The finding that neighborhoods with lower collective efficacy had more violence is most consistent with which framework?",
+     "options": {
+      "A": "Labeling theory, which emphasizes the effects of formal designations on identity",
+      "B": "Social disorganization theory from the Chicago school, linking weak community ties and informal control to crime",
+      "C": "Differential association theory, which emphasizes learning of deviance through close contacts",
+      "D": "Strain theory, which emphasizes a gap between cultural goals and legitimate means"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Social disorganization theory from the Chicago school links weak community ties and informal control to crime. Why the others are wrong: A) Labeling theory concerns reactions that create deviant identities. C) Differential association concerns interpersonal learning of norms. D) Strain theory concerns blocked access to goals.",
+     "trap": "Choosing a different well-known theory of deviance because it sounds individual rather than neighborhood-level.",
+     "topic": "Urban ecology and neighborhood effects",
+     "mastery_sheet_id": "9A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P7_Q2",
+     "stem": "How many times higher was the violent crime rate in the highest-poverty quartile than in the lowest-poverty quartile?",
+     "options": {
+      "A": "10.3",
+      "B": "5.9",
+      "C": "2.0",
+      "D": "0.17"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 12.4 / 2.1 = 5.9. Why the others are wrong: A) 10.3 is the difference (12.4 - 2.1), not a ratio. C) 2.0 is not supported; the lowest-quartile rate is 2.1 per 1,000, not a ratio. D) 0.17 is the inverse ratio (2.1 / 12.4).",
+     "trap": "Subtracting the rates instead of dividing them, or inverting the ratio.",
+     "topic": "Urban ecology and neighborhood effects",
+     "mastery_sheet_id": "9A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_PS_P7_Q3",
+     "stem": "Why can the voucher lottery, but not the neighborhood quartile data, support the claim that neighborhoods influence outcomes?",
+     "options": {
+      "A": "The lottery increased the number of neighborhoods in the sample from 40 to 80",
+      "B": "Random assignment to move reduces self-selection of which families live in which neighborhoods",
+      "C": "The quartile data cannot show any association between poverty and crime",
+      "D": "The lottery demonstrated that employment was affected by the neighborhood as much as mental health"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Random assignment makes voucher and control families comparable at baseline, so differences can be attributed to moving. Why the others are wrong: A) The lottery does not change the number of neighborhoods analyzed. C) The quartile data do show an association; they just cannot show causation. D) Employment did not differ between groups.",
+     "trap": "Concluding that observational data show no association rather than that they cannot establish causation.",
+     "topic": "Urban ecology and neighborhood effects",
+     "mastery_sheet_id": "9A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P7_Q4",
+     "stem": "Using the first and last points in Figure 1, the approximate slope of the relationship between collective efficacy and crime rate is:",
+     "options": {
+      "A": "+5.7 crimes per 1,000 per unit of collective efficacy",
+      "B": "-0.18 crimes per 1,000 per unit of collective efficacy",
+      "C": "-11.9 crimes per 1,000 per unit of collective efficacy",
+      "D": "-5.7 crimes per 1,000 per unit of collective efficacy"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) (1.6 - 13.5) / (4.5 - 2.4) = -11.9 / 2.1 = -5.7. Why the others are wrong: A) The relationship is negative, so the sign is wrong. B) -0.18 is the inverse (2.1/11.9) of the slope. C) -11.9 is the rise only, not divided by the change in x.",
+     "trap": "Reporting the change in y without dividing by the change in x.",
+     "topic": "Urban ecology and neighborhood effects",
+     "mastery_sheet_id": "9A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_PS_P8",
+   "passage_text": "Globalization has increased the movement of workers across borders. A sociologist examined one lower-middle-income country over 15 years. National statistics recorded the number of workers living abroad, total annual remittances (money sent home by emigrants), gross domestic product (GDP), and the domestic unemployment rate. Values are shown in Table 1. Figure 1 plots remittances as a share of GDP and the unemployment rate over time. In interviews with 120 emigrants, most said they left because wages abroad were several times higher than at home, while a minority cited family reunification. Most remittances were spent on household consumption, schooling, and housing. Officials also reported that the proportion of emigrants with university degrees was higher than the proportion in the national workforce. The study was descriptive; there was no comparison country, and the interview sample was recruited through emigrant community associations. Each interview lasted about an hour and was conducted in the emigrant's home language. The sociologist used official statistics for all numerical comparisons, and the unemployment rate was defined as the share of the labor force without work who were seeking it.",
+   "table_data": "**Table 1.** National statistics\n\n| Year | Emigrant workers (thousands) | Remittances (million USD) | GDP (million USD) | Unemployment (%) |\n|---|---|---|---|---|\n| 2000 | 120 | 1,100 | 22,000 | 14 |\n| 2005 | 180 | 1,980 | 27,000 | 12 |\n| 2010 | 260 | 3,400 | 34,000 | 9 |\n| 2015 | 310 | 4,350 | 43,500 | 8 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Remittances as a share of GDP and unemployment rate",
+    "x_label": "Year",
+    "y_label": "Percent",
+    "series": [
+     {
+      "name": "Remittances (% of GDP)",
+      "points": [
+       [
+        2000,
+        5.0
+       ],
+       [
+        2005,
+        7.3
+       ],
+       [
+        2010,
+        10.0
+       ],
+       [
+        2015,
+        10.0
+       ]
+      ]
+     },
+     {
+      "name": "Unemployment rate (%)",
+      "points": [
+       [
+        2000,
+        14
+       ],
+       [
+        2005,
+        12
+       ],
+       [
+        2010,
+        9
+       ],
+       [
+        2015,
+        8
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_PS_P8_Q1",
+     "stem": "High domestic unemployment and low wages in the origin country are examples of which type of migration factor?",
+     "options": {
+      "A": "Push factors",
+      "B": "Pull factors that attract migrants to a destination country",
+      "C": "Intervening obstacles that hinder migration between origin and destination",
+      "D": "Chain migration processes in which earlier migrants help later ones"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Conditions at the origin that encourage people to leave are push factors; higher wages abroad are pull factors. Why the others are wrong: B) Pull factors are conditions at the destination. C) Intervening obstacles are barriers such as costs and laws. D) Chain migration refers to network assistance.",
+     "trap": "Labeling high foreign wages and low home wages with the same term instead of separating push from pull.",
+     "topic": "Globalization and labor migration",
+     "mastery_sheet_id": "9B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P8_Q2",
+     "stem": "Remittances as a percentage of GDP in 2005 were closest to:",
+     "options": {
+      "A": "1.8%",
+      "B": "10.0%",
+      "C": "7.3%",
+      "D": "5.0%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 1,980 / 27,000 = 0.0733, or 7.3%. Why the others are wrong: A) 1.8% does not follow from any row; 1,980 / 27,000 is about 7.3%. B) 10.0% is the 2010 and 2015 value. D) 5.0% is the 2000 value.",
+     "trap": "Reading the percentage for a neighboring year rather than computing from the 2005 row.",
+     "topic": "Globalization and labor migration",
+     "mastery_sheet_id": "9B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_PS_P8_Q3",
+     "stem": "By about what percentage did the average remittance per emigrant worker increase from 2000 to 2015?",
+     "options": {
+      "A": "35%",
+      "B": "158%",
+      "C": "53%",
+      "D": "258%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 2000: 1,100 / 120 = 9.17 thousand USD; 2015: 4,350 / 310 = 14.03; (14.03 - 9.17) / 9.17 = 53%. Why the others are wrong: A) 35% does not match the per-worker figures (it would require about $12,400 per emigrant in 2015). B) 158% is the increase in the number of emigrant workers (120 to 310), not in remittance per worker. D) 258% is the ratio of emigrant numbers expressed as a percentage (310/120), not a per-worker change.",
+     "trap": "Using the change in total remittances or number of emigrants rather than the per-worker average.",
+     "topic": "Globalization and labor migration",
+     "mastery_sheet_id": "9B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_PS_P8_Q4",
+     "stem": "A sociologist argues that continued reliance on remittances and the loss of skilled workers leave the country economically dependent on wealthier nations. This argument reflects which perspective?",
+     "options": {
+      "A": "World-systems (dependency) theory, which describes peripheral economies' reliance on core economies",
+      "B": "Structural functionalism, which emphasizes the contribution of each part to social stability",
+      "C": "Symbolic interactionism, which emphasizes shared meanings in face-to-face interaction",
+      "D": "Rational choice theory, which emphasizes individuals' cost-benefit calculations in each decision"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) World-systems and dependency theories describe how peripheral economies depend on core economies. Why the others are wrong: B) Functionalism concerns stability and function of institutions. C) Symbolic interactionism concerns meanings in micro-level interaction. D) Rational choice explains individual decisions, not structural dependency.",
+     "trap": "Choosing rational choice because migrants are described as seeking higher wages, though the claim is about structural dependence.",
+     "topic": "Globalization and labor migration",
+     "mastery_sheet_id": "9B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_PS_P9",
+   "passage_text": "Intergenerational mobility describes how children's economic positions relate to their parents'. Researchers linked tax records for 100,000 parent-child pairs in one country. Parents' household income (averaged over ages 40 to 45) and children's household income (averaged over ages 35 to 40) were each ranked into quintiles within their generation. Table 1 shows, for each parental quintile, the percentage of children who ended in each quintile (rows sum to 100). The researchers also calculated, separately for two regions, the percentage of children from bottom-quintile families who reached the top quintile in four birth cohorts. These results are plotted in Figure 1. Sample sizes within each region and cohort exceeded 5,000 pairs, and the standard error for each percentage was below 0.5 percentage points. The study is observational and cannot determine which family or school characteristics produce the patterns. Incomes were adjusted for inflation, and pairs were included only if both parent and child had positive reported income in the averaging years. Quintile boundaries were computed separately for the parent and child generations.",
+   "table_data": "**Table 1.** Percentage of children reaching each income quintile, by parental quintile\n\n| Parental quintile | Child Q1 | Child Q2 | Child Q3 | Child Q4 | Child Q5 |\n|---|---|---|---|---|---|\n| Q1 (lowest) | 34 | 26 | 20 | 12 | 8 |\n| Q2 | 24 | 25 | 22 | 17 | 12 |\n| Q3 | 19 | 22 | 23 | 21 | 15 |\n| Q4 | 13 | 18 | 22 | 25 | 22 |\n| Q5 (highest) | 10 | 10 | 15 | 22 | 43 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Percent of bottom-quintile children reaching the top quintile, by birth cohort",
+    "x_label": "Birth cohort",
+    "y_label": "Percent reaching top quintile",
+    "series": [
+     {
+      "name": "North",
+      "points": [
+       [
+        1950,
+        12
+       ],
+       [
+        1960,
+        11
+       ],
+       [
+        1970,
+        9.5
+       ],
+       [
+        1980,
+        8.5
+       ]
+      ]
+     },
+     {
+      "name": "South",
+      "points": [
+       [
+        1950,
+        7
+       ],
+       [
+        1960,
+        7
+       ],
+       [
+        1970,
+        6.5
+       ],
+       [
+        1980,
+        6
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_PS_P9_Q1",
+     "stem": "According to Table 1, what percentage of children from bottom-quintile families ended above the bottom quintile as adults?",
+     "options": {
+      "A": "34%",
+      "B": "8%",
+      "C": "66%",
+      "D": "92%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 100 - 34 = 66%; equivalently 26 + 20 + 12 + 8. Why the others are wrong: A) 34% is the percentage who stayed in the bottom quintile. B) 8% is the percentage who reached the top quintile. D) 92% is the percentage who did not reach the top quintile.",
+     "trap": "Reading the first cell of the row rather than summing the other cells.",
+     "topic": "Social mobility across generations",
+     "mastery_sheet_id": "10A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P9_Q2",
+     "stem": "How many times more likely is a child from a top-quintile family to be in the top quintile than a child from a bottom-quintile family?",
+     "options": {
+      "A": "About 5.4 times",
+      "B": "About 35 times",
+      "C": "About 1.3 times",
+      "D": "About 0.19 times"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 43 / 8 = 5.4. Why the others are wrong: B) 35 is the difference in percentage points, not a ratio. C) 1.3 does not follow from the table. D) 0.19 is the inverse ratio (8/43).",
+     "trap": "Subtracting percentages and calling it a ratio.",
+     "topic": "Social mobility across generations",
+     "mastery_sheet_id": "10A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_PS_P9_Q3",
+     "stem": "Which statement is supported by Figure 1?",
+     "options": {
+      "A": "In the North the chance rose across cohorts, whereas in the South it fell",
+      "B": "The gap between the regions widened with each successive birth cohort",
+      "C": "In both regions the chance of rising to the top fell across cohorts, and the gap between regions narrowed",
+      "D": "In both regions the chance remained constant across all four cohorts"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) North fell from 12 to 8.5 and South from 7 to 6, so the gap went from 5 to 2.5 points. Why the others are wrong: A) Both regions declined. B) The gap narrowed, not widened. D) Neither region was constant.",
+     "trap": "Describing a falling line as constant because the South's changes look small.",
+     "topic": "Social mobility across generations",
+     "mastery_sheet_id": "10A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P9_Q4",
+     "stem": "Because Table 1 compares children's income positions with their parents' positions, it measures:",
+     "options": {
+      "A": "intragenerational mobility, the change in one person's position over a lifetime",
+      "B": "structural mobility, produced by changes in the number of available occupations",
+      "C": "intergenerational mobility, expressed in relative terms based on income rank",
+      "D": "absolute poverty, defined as the lack of income needed for basic needs"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Linking parents' and children's ranks measures relative intergenerational mobility. Why the others are wrong: A) Intragenerational mobility follows the same person over time. B) Structural mobility concerns shifts in the occupational structure, and quintile ranks remove overall growth. D) Absolute poverty uses a fixed standard, not income ranks.",
+     "trap": "Confusing movement across generations with movement within one person's career.",
+     "topic": "Social mobility across generations",
+     "mastery_sheet_id": "10A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_PS_P10",
+   "passage_text": "A school district offered an after-school tutoring program to students who scored in the lowest 10% on a standardized mathematics test (district mean 70, SD 10). Of 200 low scorers, 100 families chose to enroll their children (tutored group) and 100 did not (untutored group). All 200 students retook an equivalent form of the test at the end of the year. As a comparison, a random sample of 100 students from the whole district, not selected by score, was also retested. The test-retest correlation of the two forms in the district was r = 0.80. Group means are shown in Table 1. Because tutored students were selected based on a low pretest score and had parents who chose to participate, the district's analyst warned that the 7-point gain in the tutored group could not be interpreted as the effect of tutoring alone. The expected posttest mean for a group with a given pretest mean is calculated as the district mean plus r times the difference between the group's pretest mean and the district mean.",
+   "table_data": "**Table 1.** Mean test scores\n\n| Group | n | Pretest | Posttest | Change |\n|---|---|---|---|---|\n| Tutored low scorers | 100 | 52 | 59 | +7 |\n| Untutored low scorers | 100 | 52 | 56 | +4 |\n| Random district sample | 100 | 70 | 70 | 0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL10_PS_P10_Q1",
+     "stem": "The 4-point improvement among untutored low scorers is most likely due to:",
+     "options": {
+      "A": "maturation of the selected students that did not occur in the random sample",
+      "B": "a placebo effect resulting from the students' belief that they were being helped",
+      "C": "practice effects that apply only to students with low pretest scores",
+      "D": "regression to the mean after selection on extreme scores"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Selecting extreme low scorers on an imperfectly reliable test leads their retest scores to move toward the mean, while the unselected group did not change. Why the others are wrong: A) Maturation would also affect the random sample, which did not change. B) Untutored students received no treatment to create a placebo effect. C) Practice would raise the random sample's scores too.",
+     "trap": "Attributing the improvement of a group that received no treatment to some treatment-like effect.",
+     "topic": "Regression to the mean",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_PS_P10_Q2",
+     "stem": "Using the stated formula, the expected posttest mean for the low scorers because of regression alone is:",
+     "options": {
+      "A": "52.0",
+      "B": "59.2",
+      "C": "70.0",
+      "D": "55.6"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) 70 + 0.80 x (52 - 70) = 70 - 14.4 = 55.6. Why the others are wrong: A) 52.0 would be expected only if the retest were perfectly reliable (r = 1). B) 59.2 results from using r = 0.60. C) 70.0 would be expected if r = 0.",
+     "trap": "Assuming no regression (r = 1) or complete regression (r = 0).",
+     "topic": "Regression to the mean",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_PS_P10_Q3",
+     "stem": "Compared with the untutored low scorers, the tutored low scorers gained an additional:",
+     "options": {
+      "A": "3 points",
+      "B": "7 points",
+      "C": "4 points",
+      "D": "11 points"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Tutored change (+7) minus untutored change (+4) equals 3 points (59 - 56). Why the others are wrong: B) 7 points is the total gain, which includes regression and self-selection. C) 4 points is the untutored group's gain. D) 11 points adds the two gains.",
+     "trap": "Attributing the entire 7-point gain to tutoring.",
+     "topic": "Regression to the mean",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_PS_P10_Q4",
+     "stem": "Which change in design would best allow the district to estimate the effect of tutoring?",
+     "options": {
+      "A": "Randomly assign the low scorers to tutoring or to a no-tutoring comparison group of similar students",
+      "B": "Enroll only the students whose parents requested tutoring and compare them with their own earlier scores",
+      "C": "Compare the tutored students with the random district sample instead of with low scorers",
+      "D": "Retest the tutored group several times and use the highest score for each student"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Random assignment among equally low scorers balances regression and parental choice across groups. Why the others are wrong: B) A before-after design for self-selected students is vulnerable to regression. C) The random sample starts at a very different level, so it is not comparable. D) Using the highest scores biases results upward.",
+     "trap": "Using a pretest-posttest comparison within one self-selected group as if it were controlled.",
+     "topic": "Regression to the mean",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL10_PS_D1",
+   "stem": "A hiker sees a bear, notices her pounding heart and trembling, and then reports feeling afraid. According to the James-Lange theory, the sequence of events is:",
+   "options": {
+    "A": "stimulus, with arousal and conscious emotion occurring simultaneously and independently",
+    "B": "stimulus, cognitive appraisal of the situation, then arousal that is labeled as an emotion",
+    "C": "stimulus, physiological arousal, then the conscious experience of emotion as a result",
+    "D": "stimulus, conscious fear, then physiological arousal produced by that fear"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) James-Lange holds that the perception of bodily changes constitutes the emotion. Why the others are wrong: A) Simultaneous, independent arousal and emotion is the Cannon-Bard theory. B) Arousal labeled through appraisal is the Schachter-Singer two-factor theory. D) Emotion first and arousal second is the commonsense view James-Lange rejected.",
+   "trap": "Confusing James-Lange with the commonsense order in which emotion causes the bodily response.",
+   "topic": "Emotion theories",
+   "mastery_sheet_id": "6C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D2",
+   "stem": "A sleeper is easily awakened and shows an EEG with brief 12-14 Hz bursts and occasional large biphasic waves, but no rapid eye movements. The sleeper is in:",
+   "options": {
+    "A": "stage N1",
+    "B": "stage N2",
+    "C": "stage N3",
+    "D": "REM sleep"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Sleep spindles and K-complexes characterize stage N2 sleep. Why the others are wrong: A) Stage N1 shows theta waves and slow rolling eye movements. C) Stage N3 is dominated by high-amplitude delta waves and is hard to arouse from. D) REM shows low-amplitude mixed-frequency activity with rapid eye movements.",
+   "trap": "Choosing N3 because large waves are visible, even though spindles and an easy awakening point to N2.",
+   "topic": "Sleep stages and EEG patterns",
+   "mastery_sheet_id": "6C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D3",
+   "stem": "Which stage of Selye's general adaptation syndrome is characterized by sustained physiological arousal, with cortisol remaining elevated while the body attempts to cope with an ongoing stressor?",
+   "options": {
+    "A": "Alarm",
+    "B": "Resistance",
+    "C": "Exhaustion",
+    "D": "Recovery"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) In resistance, the body maintains heightened arousal and cortisol while coping continues. Why the others are wrong: A) Alarm is the initial fight-or-flight activation. C) Exhaustion occurs when resources are depleted and illness risk rises. D) Recovery is not a stage of the general adaptation syndrome.",
+   "trap": "Choosing alarm because cortisol is associated with the stress response in general.",
+   "topic": "General adaptation syndrome",
+   "mastery_sheet_id": "6C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D4",
+   "stem": "Two siblings share a genetic vulnerability to depression, but only the one who lost a job develops the disorder. This is best explained by:",
+   "options": {
+    "A": "a purely genetic model, in which siblings with the same alleles must develop the disorder",
+    "B": "a purely environmental model, in which genetic vulnerability plays no role",
+    "C": "a diathesis-stress model, in which vulnerability produces illness only when a stressor occurs",
+    "D": "a learned helplessness model, in which the disorder follows exposure to an uncontrollable shock in a laboratory"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Diathesis-stress combines predisposition and a triggering stressor. Why the others are wrong: A) A purely genetic model predicts both siblings would be affected. B) The shared vulnerability is stated, so genes are not irrelevant. D) Learned helplessness is a laboratory model and does not require a shared genetic vulnerability.",
+   "trap": "Choosing a single-cause model.",
+   "topic": "Diathesis-stress model",
+   "mastery_sheet_id": "7A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D5",
+   "stem": "Which symptom of schizophrenia is classified as a negative symptom?",
+   "options": {
+    "A": "Auditory hallucinations that comment on the person's behavior",
+    "B": "Flat affect with little spontaneous speech",
+    "C": "A fixed false belief that neighbors are monitoring the person",
+    "D": "Tangential speech in which ideas are only loosely connected"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Negative symptoms reflect diminished normal functions, such as blunted emotion and reduced speech. Why the others are wrong: A) Hallucinations are positive symptoms. C) Delusions are positive symptoms. D) Disorganized speech is classified with positive symptoms.",
+   "trap": "Assuming the most obviously abnormal behaviors are negative symptoms.",
+   "topic": "Symptoms of schizophrenia",
+   "mastery_sheet_id": "7A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D6",
+   "stem": "A shy student avoids parties, receives fewer invitations, and becomes more socially anxious. Which concept from social-cognitive personality theory best describes this loop?",
+   "options": {
+    "A": "Psychosexual fixation at the oral stage",
+    "B": "Reciprocal determinism",
+    "C": "Situationism, which holds that behavior is determined almost entirely by the immediate context",
+    "D": "Trait stability, which holds that behavior is consistent across all contexts and over time"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Reciprocal determinism describes mutual influence among person, behavior, and environment. Why the others are wrong: A) Psychosexual fixation is a Freudian concept unrelated to this loop. C) Situationism ignores the role of the person. D) Trait stability does not describe a feedback loop with the environment.",
+   "trap": "Choosing situationism because the environment is involved.",
+   "topic": "Social-cognitive personality theory",
+   "mastery_sheet_id": "7A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D7",
+   "stem": "In studies of obedience, which change would be expected to reduce obedience substantially?",
+   "options": {
+    "A": "The authority figure wears a laboratory coat and speaks calmly and firmly",
+    "B": "The study is run at a well-known and prestigious university",
+    "C": "The authority figure takes responsibility for any harm caused to the learner",
+    "D": "The authority figure gives commands by telephone instead of being in the room"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Physical distance from the authority reduces obedience. Why the others are wrong: A) Visible markers of authority increase obedience. B) Prestige increases obedience. C) Taking responsibility reduces the participant's felt responsibility, increasing obedience.",
+   "trap": "Choosing a variable that increases obedience, since all options sound like Milgram's variations.",
+   "topic": "Obedience to authority",
+   "mastery_sheet_id": "7B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D8",
+   "stem": "Individuals pull less hard on a rope when in a team than when pulling alone, and no one can identify individual contributions. This is best described as:",
+   "options": {
+    "A": "social facilitation",
+    "B": "social loafing",
+    "C": "deindividuation",
+    "D": "the bystander effect"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Individuals reduce effort in groups when contributions are not identifiable. Why the others are wrong: A) Social facilitation concerns performance changes due to an audience. C) Deindividuation concerns reduced self-awareness and norm adherence in crowds. D) The bystander effect concerns helping in emergencies.",
+   "trap": "Choosing social facilitation because both involve other people affecting performance.",
+   "topic": "Social loafing",
+   "mastery_sheet_id": "7B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D9",
+   "stem": "Members of a group who each moderately favored a risky investment before meeting end up choosing an even riskier option after discussion. This is an example of:",
+   "options": {
+    "A": "groupthink",
+    "B": "group polarization",
+    "C": "regression to the mean",
+    "D": "the false consensus effect"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Discussion strengthens the group's initial leaning. Why the others are wrong: A) Groupthink involves suppression of dissent for cohesion. C) Regression to the mean is a statistical phenomenon. D) False consensus is overestimating agreement with others.",
+   "trap": "Choosing groupthink because the group made a poor decision.",
+   "topic": "Group polarization",
+   "mastery_sheet_id": "7B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D10",
+   "stem": "The just noticeable difference for a 200-g weight is 4 g. According to Weber's law, the just noticeable difference for a 500-g weight is:",
+   "options": {
+    "A": "10 g",
+    "B": "4 g",
+    "C": "8 g",
+    "D": "2.5 g"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The Weber fraction is 4/200 = 0.02, and 0.02 x 500 = 10 g. Why the others are wrong: B) 4 g assumes JND is constant. C) 8 g would be the JND for 400 g. D) 2.5 g is the result of inverting the ratio.",
+   "trap": "Assuming that the JND is a fixed amount rather than a fixed proportion.",
+   "topic": "Weber's law and psychophysics",
+   "mastery_sheet_id": "6A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://elvers.us/perception/WebersLaw/",
+     "https://sk.sagepub.com/ency/edvol/embed/the-sage-encyclopedia-of-research-design-2e/chpt/weber-fechner-law"
+    ]
+   }
+  },
+  {
+   "id": "FL10_PS_D11",
+   "stem": "A child watches water poured from a short, wide glass into a tall, thin glass and says the tall glass now holds more. According to Piaget, this child:",
+   "options": {
+    "A": "is in the sensorimotor stage and lacks object permanence entirely",
+    "B": "is in the concrete operational stage and has mastered reversibility",
+    "C": "is in the preoperational stage and has not yet achieved conservation",
+    "D": "is in the formal operational stage and reasons only about abstract hypotheses"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Failure on conservation tasks characterizes the preoperational stage. Why the others are wrong: A) Sensorimotor children are infants developing object permanence. B) Concrete operational children succeed on conservation. D) Formal operational thinkers pass conservation tasks easily.",
+   "trap": "Choosing concrete operational because the child is school-aged.",
+   "topic": "Piaget's stages",
+   "mastery_sheet_id": "6B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D12",
+   "stem": "A teenager comes to see herself as talented after noticing that teachers and classmates respond to her with praise. This process illustrates:",
+   "options": {
+    "A": "the self-serving bias",
+    "B": "the fundamental attribution error",
+    "C": "the looking-glass self",
+    "D": "a self-fulfilling prophecy involving only her own prediction"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Cooley's looking-glass self holds that self-concept develops from imagining how others perceive us. Why the others are wrong: A) Self-serving bias concerns credit for success and blame for failure. B) The fundamental attribution error concerns explanations of others' behavior. D) A self-fulfilling prophecy requires a belief that changes behavior to confirm itself.",
+   "trap": "Choosing self-serving bias because the self-image is favorable.",
+   "topic": "Looking-glass self",
+   "mastery_sheet_id": "8A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D13",
+   "stem": "A university's manifest function is educating students. Which of the following is a latent function?",
+   "options": {
+    "A": "Granting degrees that certify completion of a course of study",
+    "B": "Conducting research that is published in scholarly journals",
+    "C": "Training students for professional careers through coursework",
+    "D": "Providing a place for students to meet future spouses and friends"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Latent functions are unintended and often unrecognized consequences of an institution. Why the others are wrong: A) Granting degrees is recognized and intended. B) Research is an intended function. C) Career training is an intended function.",
+   "trap": "Choosing an intended function that seems secondary to education.",
+   "topic": "Functionalism: manifest and latent functions",
+   "mastery_sheet_id": "9A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D14",
+   "stem": "A household in a wealthy country earns 40% less than the national median but has adequate food and housing. This household is best described as experiencing:",
+   "options": {
+    "A": "absolute poverty",
+    "B": "a high Gini coefficient",
+    "C": "relative poverty",
+    "D": "downward intergenerational mobility"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Relative poverty is defined by comparison with the typical standard of a society. Why the others are wrong: A) Absolute poverty means lacking basic necessities. B) The Gini coefficient measures inequality for a population, not for one household. D) Intergenerational mobility concerns changes relative to parents.",
+   "trap": "Treating any low income as absolute poverty.",
+   "topic": "Poverty measures",
+   "mastery_sheet_id": "10A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_PS_D15",
+   "stem": "A researcher raises the significance level from 0.05 to 0.10. Assuming nothing else changes, which effect is expected?",
+   "options": {
+    "A": "The probability of a Type I error increases and that of a Type II error decreases",
+    "B": "The probability of a Type I error decreases and that of a Type II error increases",
+    "C": "The probabilities of both Type I and Type II errors increase",
+    "D": "The probabilities of both Type I and Type II errors remain unchanged"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) A higher alpha makes rejecting the null easier, so false positives rise and false negatives fall. Why the others are wrong: B) This describes lowering alpha. C) The errors trade off against each other when other factors are fixed. D) Alpha is the Type I error rate, so it changes.",
+   "trap": "Reversing the direction of the tradeoff between Type I and Type II errors.",
+   "topic": "Type I and Type II errors",
+   "mastery_sheet_id": "SIRS",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

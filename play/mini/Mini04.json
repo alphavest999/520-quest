@@ -1,0 +1,1521 @@
+{
+ "exam": "Mini04",
+ "type": "mini",
+ "section": "BB",
+ "passages": [
+  {
+   "passage_id": "Mini04_BB_P1",
+   "passage_text": "Cadherins are calcium-dependent adhesion proteins. To test how E-cadherin supports cell aggregation, researchers used mouse L cells, which express no cadherins and do not aggregate. L cells were stably transfected with a vector encoding full-length E-cadherin (L-Ecad) or with an empty vector (L-vec). Cells were released from plates with a mild treatment that preserves surface proteins, suspended at equal density, and rotated gently for 60 minutes. Aggregation was reported as the percentage decrease in the number of single, unattached cells relative to time zero. Buffers contained 2 mM Ca2+ unless stated. In one condition, 2 mM EGTA, a Ca2+ chelator, replaced Ca2+. In another, Fab fragments of an antibody against the extracellular region of E-cadherin were added. In a mixing experiment, L-Ecad and L-vec cells were combined 1:1. In a final experiment, L-Ecad cells were combined 1:1 with L-Ncad cells, which express N-cadherin, and the aggregates were examined by microscopy. Table 1 summarizes results at 2 mM Ca2+ or as noted. Figure 1 shows aggregation of L-Ecad cells as the Ca2+ concentration was varied.",
+   "table_data": "| Cell population | Condition | Aggregation (%) |\n|---|---|---|\n| L-vec | 2 mM Ca2+ | 6 |\n| L-Ecad | 2 mM Ca2+ | 84 |\n| L-Ecad | 2 mM EGTA, no Ca2+ | 5 |\n| L-Ecad | 2 mM Ca2+ + anti-E-cadherin Fab | 14 |\n| L-Ecad + L-vec (1:1) | 2 mM Ca2+ | 41 |\n| L-Ecad + L-Ncad (1:1) | 2 mM Ca2+ | 80, in separate aggregates of each cell type |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Aggregation of L-Ecad cells versus extracellular Ca2+",
+    "x_label": "Ca2+ concentration (mM)",
+    "y_label": "Aggregation (%)",
+    "series": [
+     {
+      "name": "L-Ecad",
+      "points": [
+       [
+        0,
+        5
+       ],
+       [
+        0.1,
+        12
+       ],
+       [
+        0.25,
+        35
+       ],
+       [
+        0.5,
+        62
+       ],
+       [
+        1,
+        80
+       ],
+       [
+        2,
+        84
+       ]
+      ]
+     },
+     {
+      "name": "L-vec",
+      "points": [
+       [
+        0,
+        5
+       ],
+       [
+        0.1,
+        5
+       ],
+       [
+        0.25,
+        6
+       ],
+       [
+        0.5,
+        6
+       ],
+       [
+        1,
+        6
+       ],
+       [
+        2,
+        6
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini04_BB_P1_Q1",
+     "stem": "Why did L-Ecad cells fail to aggregate when Ca2+ was replaced with EGTA?",
+     "options": {
+      "A": "Ca2+ is consumed as an energy source when cadherins link adjacent cells, so removing it halts ATP-dependent adhesion",
+      "B": "EGTA causes the cells to swell and burst, which removes the single cells from the suspension that are counted",
+      "C": "Ca2+ binding to the extracellular repeats rigidifies the ectodomain so it can bind a cadherin on a neighboring cell",
+      "D": "EGTA activates proteases that digest the cytoplasmic tail of E-cadherin, which uncouples the protein from the cell membrane"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Ca2+ ions bind between the extracellular repeats and stiffen the ectodomain; without Ca2+ the protein is floppy and cannot form trans interactions, so chelation abolishes aggregation (84% to 5%). Why the others are wrong: A) Ca2+ is a structural cofactor, not a fuel; cadherin binding does not consume ATP. B) Cell lysis would lower the count of all cells, but the L-Ecad cells in EGTA stayed as single cells (5% aggregation), consistent with intact cells that simply do not adhere. D) Nothing in the data suggests proteolysis of the cytoplasmic tail; cadherin loss of function in EGTA is due to loss of Ca2+ binding in the extracellular region and is reversible.",
+     "trap": "Assuming Ca2+ acts as a metabolic cofactor or energy source rather than as a structural ion that stabilizes the cadherin ectodomain.",
+     "topic": "Calcium dependence of cadherins",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P1_Q2",
+     "stem": "In the 1:1 mixture of L-Ecad and L-vec cells, aggregation was 41%, about half that of L-Ecad cells alone. Which interpretation is most consistent with this result?",
+     "options": {
+      "A": "L-vec cells release a soluble factor that blocks E-cadherin on the L-Ecad cells and halves their binding ability",
+      "B": "E-cadherin on L-Ecad cells binds the empty vector protein on L-vec cells with about half the strength of its homophilic binding",
+      "C": "E-cadherin binds a different, unidentified receptor present on all L cells, and half of the mixed cells lacked that receptor",
+      "D": "E-cadherin binds E-cadherin on another cell, so only the L-Ecad cells in the mixture could join aggregates"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Cadherin binding is homophilic. L-vec cells lack cadherin, so only the L-Ecad half of the population (about 84% of half the cells, roughly 42%) can aggregate, matching the observed 41%. Why the others are wrong: A) A blocking factor would also have reduced aggregation of L-Ecad cells alone and in other conditions; there is no evidence for it, and the observed value is predicted by simple cell counting. B) The empty vector encodes no cell-surface protein, so there is nothing for E-cadherin to bind on L-vec cells. C) L-vec cells aggregated only 6% alone, so they carry no functional receptor; L-Ecad aggregation requires E-cadherin on both partners.",
+     "trap": "Concluding that L-vec cells actively interfere, when the data simply reflect half of the cells lacking the homophilic binding partner.",
+     "topic": "Homophilic cadherin binding",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P1_Q3",
+     "stem": "Based on Figure 1, the Ca2+ concentration at which aggregation of L-Ecad cells is about half of its plateau value is closest to",
+     "options": {
+      "A": "0.3 mM",
+      "B": "1.0 mM",
+      "C": "2.0 mM",
+      "D": "0.05 mM"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The plateau is about 84%, so half-maximal is about 42%. Aggregation is 35% at 0.25 mM and 62% at 0.5 mM, so 42% falls at about 0.3 mM. Why the others are wrong: B) At 1.0 mM aggregation is already 80%, close to the plateau. C) At 2.0 mM aggregation is at the plateau of 84%. D) At 0.05 mM aggregation would be only about 8%, far below half-maximal.",
+     "trap": "Taking the midpoint of the x-axis range rather than reading the concentration that gives half of the maximum y-value.",
+     "topic": "Reading a dose-response graph",
+     "mastery_sheet_id": "2A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P1_Q4",
+     "stem": "Which comparison in Table 1 provides the most direct evidence that the extracellular region of E-cadherin is needed for aggregation?",
+     "options": {
+      "A": "L-Ecad cells with and without the anti-E-cadherin Fab in 2 mM Ca2+",
+      "B": "L-Ecad cells alone compared with the 1:1 mixture of L-Ecad and L-vec cells in 2 mM Ca2+",
+      "C": "L-vec cells compared with L-Ecad cells, each suspended in 2 mM Ca2+ buffer for 60 minutes",
+      "D": "L-Ecad cells in 2 mM Ca2+ compared with L-Ecad cells in 2 mM EGTA without any added Ca2+"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The Fab binds only the extracellular region, and it lowers aggregation from 84% to 14%, so that region is directly implicated. Why the others are wrong: B) The mixing result shows that binding is homophilic; it does not test the role of the extracellular region. C) This comparison shows that expressing the E-cadherin gene is required, but not which part of the protein does the work. D) The EGTA comparison shows that aggregation needs Ca2+, but Ca2+ could be required for many processes and does not identify the domain involved.",
+     "trap": "Choosing a comparison that shows E-cadherin or Ca2+ matters without isolating the specific domain that mediates adhesion.",
+     "topic": "Experimental design for adhesion",
+     "mastery_sheet_id": "2A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P1_Q5",
+     "stem": "Inside the cell, the cytoplasmic tail of E-cadherin is linked through catenins primarily to which cytoskeletal element at adherens junctions?",
+     "options": {
+      "A": "Actin filaments",
+      "B": "Intermediate filaments",
+      "C": "Microtubules",
+      "D": "Septins"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Adherens junctions anchor cadherins to the actin cytoskeleton through beta-catenin and alpha-catenin. Why the others are wrong: B) Intermediate filaments attach to desmosomes (desmosomal cadherins) and hemidesmosomes, not classical adherens junctions. C) Microtubules are not the principal cytoskeletal partners of adherens junction cadherins. D) Septins are filament-forming GTPases involved in cytokinesis and cell shape, not the standard link to adherens junction catenins.",
+     "trap": "Confusing adherens junctions (actin) with desmosomes (intermediate filaments), since both use cadherin-family proteins.",
+     "topic": "Adherens junction cytoskeleton",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini04_BB_P2",
+   "passage_text": "Aquaporin-1 (AQP1) is a tetrameric membrane protein in which each monomer forms a water-selective pore. To measure its effect on water permeability, researchers injected Xenopus laevis oocytes with water (control) or with AQP1 cRNA and incubated them for three days. Oocytes have a low basal permeability to water. Each oocyte, in a buffer of 200 mOsm, was transferred to a buffer of 70 mOsm, and its volume was recorded by video microscopy. The osmotic water permeability coefficient (Pf) was calculated from the initial rate of swelling. Mercury (HgCl2) reacts covalently with cysteine side chains, and AQP1 contains a cysteine near the narrowest part of its pore. Some AQP1-expressing oocytes were exposed to 0.3 mM HgCl2 for 5 minutes before the transfer. Others were exposed to HgCl2 and then to 5 mM beta-mercaptoethanol (BME), a thiol-containing reducing agent, for 15 minutes. Results are shown in Table 1. In a separate group, AQP1 oocytes were kept in 200 mOsm buffer, with no change in osmolarity.",
+   "table_data": "| Oocyte group | Pf (micrometers per s) | Relative volume 3 min after transfer to 70 mOsm |\n|---|---|---|\n| Water-injected | 20 | 1.06 |\n| AQP1 | 210 | 1.52 |\n| AQP1 + HgCl2 | 35 | 1.09 |\n| AQP1 + HgCl2, then BME | 195 | 1.49 |\n| AQP1, kept in 200 mOsm | not measured | 1.00 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini04_BB_P2_Q1",
+     "stem": "The swelling of AQP1 oocytes after transfer to 70 mOsm buffer is best described as",
+     "options": {
+      "A": "active transport of water into the cell, powered by ATP hydrolysis at the AQP1 pore",
+      "B": "movement of solutes out of the oocyte through AQP1, which draws water in behind them",
+      "C": "passive osmosis of water into the more concentrated cytoplasm",
+      "D": "secondary active transport in which water enters coupled to the inward movement of sodium"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Water moves by osmosis toward the compartment with the higher solute concentration; AQP1 only raises the permeability of the membrane to water. Why the others are wrong: A) Aquaporins are channels, not pumps; water flows passively and does not require ATP. B) AQP1 is water-selective, and the volume increase reflects net water entry, not solute exit; solute loss would shrink the cell. D) No sodium-coupled step is involved; aquaporin-mediated flow is driven only by the osmotic gradient.",
+     "trap": "Treating the channel as a pump that spends energy, rather than a pore through which water follows the osmotic gradient.",
+     "topic": "Osmosis and aquaporins",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P2_Q2",
+     "stem": "Which statement best explains why BME restored swelling of the HgCl2-treated AQP1 oocytes?",
+     "options": {
+      "A": "BME hydrolyzes peptide bonds in AQP1 so that the mercury-modified region is removed from the pore",
+      "B": "BME induces synthesis of new AQP1 protein from the injected cRNA during the 15-minute treatment, which replaces the inhibited channels",
+      "C": "The thiol groups of BME displace mercury from the cysteine sulfhydryl groups of AQP1 and reopen the pore",
+      "D": "BME raises the osmolarity of the buffer, which increases the driving force for water entry"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Mercury inhibits through reaction with cysteine thiols; a reagent rich in thiols competes for the mercury and returns the pore to normal, which fits Pf returning from 35 to 195. Why the others are wrong: A) Cleaving AQP1 would destroy rather than restore its function. B) Protein synthesis and insertion within 15 minutes cannot account for a nearly complete recovery, and the original protein had been present all along. D) BME at 5 mM adds negligible osmolarity relative to the 70 mOsm buffer, and the oocytes were tested in the same buffers as the other groups.",
+     "trap": "Overlooking that the inhibition was chemical and reversible, and attributing recovery to new protein or osmotic changes.",
+     "topic": "Reversible inhibition by thiol modification",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P2_Q3",
+     "stem": "The AQP1-dependent portion of permeability is the Pf of AQP1 oocytes minus the Pf of water-injected oocytes. About what percentage of that portion was eliminated by HgCl2?",
+     "options": {
+      "A": "83%",
+      "B": "92%",
+      "C": "8%",
+      "D": "17%"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) AQP1-dependent Pf = 210 - 20 = 190. After mercury it is 35 - 20 = 15. The fraction eliminated is (190 - 15)/190 = 175/190, about 92%. Why the others are wrong: A) 83% is 175/210, which fails to subtract the basal permeability of the oocyte before computing the fraction. C) 8% is about the AQP1-dependent portion that remained (15/190), not the portion that was eliminated. D) 17% is 35/210, the fraction of the total Pf that remained, not the fraction removed.",
+     "trap": "Failing to subtract the basal permeability of water-injected oocytes, or reporting the remaining fraction instead of the eliminated fraction.",
+     "topic": "Percentage inhibition",
+     "mastery_sheet_id": "2A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini04_BB_P2_Q4",
+     "stem": "Water-injected oocytes still swelled slightly (relative volume 1.06). The most likely reason is that",
+     "options": {
+      "A": "sodium channels in the oocyte membrane open in dilute buffer and carry water along with sodium",
+      "B": "the lipid bilayer itself is slightly permeable to water, even without aquaporins",
+      "C": "water-injection itself delivers hypotonic solution that expands the oocyte before the transfer",
+      "D": "oocytes contain endogenous AQP1 at levels equal to the injected cells, but the pores are partly closed"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Water can diffuse across phospholipid bilayers slowly, which explains a small basal Pf of 20 micrometers per second. Why the others are wrong: A) Ion channels do not carry bulk water in the way described; water flow follows osmotic gradients. C) The control oocytes were incubated for three days and are at osmotic equilibrium with 200 mOsm buffer before the transfer. D) If endogenous AQP1 were equal in both groups, the Pf values would be identical, but AQP1 oocytes swelled about 10 times faster in Pf.",
+     "trap": "Assuming that no water crosses a membrane lacking aquaporins, so that any swelling must reflect a specific protein.",
+     "topic": "Basal membrane permeability to water",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P2_Q5",
+     "stem": "For AQP1 oocytes kept in 200 mOsm buffer (relative volume 1.00), which explanation is most appropriate?",
+     "options": {
+      "A": "Water still crosses AQP1 in both directions, but with no osmotic gradient the two fluxes are equal and there is no net volume change",
+      "B": "The oocyte actively pumps out water at the same rate as it enters to maintain constant volume",
+      "C": "Water cannot cross the membrane unless the osmolarity inside is higher than outside by at least 100 mOsm, because smaller gradients cannot overcome the barrier of the bilayer",
+      "D": "Aquaporins close in isotonic buffer because they are gated by changes in membrane tension"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Channels allow bidirectional movement; net flux requires a difference in water potential across the membrane. Why the others are wrong: B) No water pump exists in oocytes; volume is constant because the net flux is zero. C) Water flux has no threshold gradient; any gradient produces some net flow. D) Nothing in the passage suggests aquaporin gating by tension, and the pores function whenever water gradients exist.",
+     "trap": "Equating a lack of net volume change with a lack of water movement.",
+     "topic": "Equilibrium and net flux",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini04_BB_P3",
+   "passage_text": "Escherichia coli swims by rotating flagella. When the flagella rotate counterclockwise they form a bundle and the cell runs in a nearly straight line; when they rotate clockwise the bundle flies apart and the cell tumbles and then runs in a new direction. In a capillary assay, a glass capillary containing buffer with or without the amino acid attractant aspartate was placed for 60 minutes in a chamber of motile bacteria, and the number of cells that entered the capillary was counted. The aspartate receptor Tar signals through the kinase CheA, which phosphorylates CheY; phosphorylated CheY binds the flagellar motor and promotes clockwise rotation. The strains were wild type (WT), a tar deletion (Dtar), and a cheA deletion (DcheA). The tumbling rate of each strain was measured in uniform buffer. Table 1 gives the results, and Figure 1 shows the accumulation of WT cells in capillaries containing a range of aspartate concentrations.",
+   "table_data": "| Strain | Tumbles per second in uniform buffer | Cells in capillary, buffer only | Cells in capillary, 100 micromolar aspartate |\n|---|---|---|---|\n| WT | 1.0 | 1,200 | 21,500 |\n| Dtar | 1.0 | 1,100 | 1,400 |\n| DcheA | 0.0 | 900 | 1,000 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Accumulation of WT cells in capillaries versus aspartate concentration",
+    "x_label": "Aspartate in capillary (micromolar)",
+    "y_label": "Cells in capillary (thousands)",
+    "series": [
+     {
+      "name": "WT",
+      "points": [
+       [
+        0,
+        1.2
+       ],
+       [
+        0.1,
+        2.5
+       ],
+       [
+        1,
+        5.8
+       ],
+       [
+        10,
+        14.0
+       ],
+       [
+        100,
+        21.5
+       ],
+       [
+        1000,
+        9.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini04_BB_P3_Q1",
+     "stem": "Compared with the buffer-only capillary, the accumulation of WT cells in the 100 micromolar aspartate capillary was about",
+     "options": {
+      "A": "18-fold greater",
+      "B": "21-fold greater",
+      "C": "5-fold greater",
+      "D": "9-fold greater"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 21,500 divided by 1,200 is about 17.9, or about 18-fold. Why the others are wrong: B) 21-fold results from comparing 21,500 with about 1,000 rather than 1,200, or from reading the thousands of cells as a ratio to 1. C) 5-fold would result if the value were compared with the 1 micromolar condition (5.8/1.2 = 4.8), not with 100 micromolar. D) 9-fold is not obtained from the table or from Figure 1; it would correspond to a count of about 10,800 cells.",
+     "trap": "Dividing by the wrong control value or misreading the units of the graph versus the table.",
+     "topic": "Fold change from a table",
+     "mastery_sheet_id": "2B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini04_BB_P3_Q2",
+     "stem": "Which mechanism best explains how WT cells move up an aspartate gradient?",
+     "options": {
+      "A": "When attractant concentration rises over time, the tumbling frequency drops, so runs that happen to point up the gradient are prolonged",
+      "B": "Cells compare receptor occupancy between the front and the back of the cell and steer by rotating the flagella on the side facing the attractant",
+      "C": "Tumbles are directed toward the attractant, so each reorientation points the cell up the gradient",
+      "D": "Aspartate binding increases the number of flagella on the cell, which increases swimming speed up the gradient"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Bacteria are too small to sense spatial gradients; they sense changes over time and bias a random walk by suppressing tumbling when conditions improve. Why the others are wrong: B) E. Coli is only about 2 micrometers long, so it cannot detect a meaningful difference in concentration between its two ends. C) Tumbles produce random new directions, not directed ones; the bias comes from longer runs when moving in a favorable direction. D) Flagellar number does not change in seconds; attractant changes tumbling frequency.",
+     "trap": "Thinking bacteria steer like larger cells by sensing a spatial gradient, rather than biasing a random walk through time-dependent signaling.",
+     "topic": "Bacterial chemotaxis mechanism",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P3_Q3",
+     "stem": "The Dtar strain tumbled normally in uniform buffer but did not accumulate in the aspartate capillary. This result indicates that Tar",
+     "options": {
+      "A": "is required to detect aspartate, while the motility machinery of the cell is intact",
+      "B": "is required for flagellar rotation, because cells lacking Tar cannot swim at all",
+      "C": "is required to import aspartate for use as an energy source, so Dtar cells starve in the capillary",
+      "D": "inhibits CheA, so its deletion locks cells in constant tumbling"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The normal tumbling rate (1.0 per second) and normal buffer-only counts show that the cells swim; they fail only when the attractant must be sensed. Why the others are wrong: B) Dtar cells tumble and move normally in buffer, so Tar is not needed for flagellar rotation. C) Nothing in the data concerns nutrient uptake; Tar is a chemoreceptor, and starvation would not occur within 60 minutes. D) Constant tumbling would give a tumble rate well above 1.0 per second, not the normal value reported.",
+     "trap": "Reading a failure to respond to a signal as a global defect in motility or metabolism.",
+     "topic": "Receptor function in chemotaxis",
+     "mastery_sheet_id": "2B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P3_Q4",
+     "stem": "DcheA cells did not tumble and did not accumulate in the aspartate capillary. The best explanation is that",
+     "options": {
+      "A": "without CheA the Tar receptor cannot bind aspartate, so the cells never detect the gradient",
+      "B": "without CheA the flagellar motor cannot rotate, so DcheA cells cannot swim into the capillary",
+      "C": "without CheA the cells tumble constantly, which prevents them from swimming in a straight line and so from moving steadily toward the attractant",
+      "D": "without CheA, CheY is not phosphorylated, so the cells never tumble and cannot bias their random walk toward the attractant"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Tumbling requires CheY-P. Cells that only run still move randomly, but they lack the ability to change direction in response to the gradient, so they do not accumulate. Why the others are wrong: A) Receptor binding happens upstream of CheA and is not prevented by its deletion; the defect is in the signal output. B) The reported counts in buffer (900) show that DcheA cells still swim; tumbling is absent, not motility. C) A tumble rate of 0.0 per second means these cells do not tumble at all.",
+     "trap": "Equating loss of tumbling with loss of motility, when the strain can still swim but cannot change direction.",
+     "topic": "Signal transduction in chemotaxis",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P3_Q5",
+     "stem": "In Figure 1, accumulation of WT cells declines between 100 and 1000 micromolar aspartate. Which explanation is most plausible?",
+     "options": {
+      "A": "The cells run out of CheY, so tumbling can no longer be suppressed at any aspartate concentration",
+      "B": "High aspartate concentrations are toxic to the cells that enter the capillary, so their count falls as they die there",
+      "C": "Receptors near the capillary mouth become saturated and adapt, so cells can no longer detect a useful gradient there",
+      "D": "Aspartate at 1 mM is converted by the cells into a repellent that causes them to swim away"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Chemotaxis depends on sensing changes in receptor occupancy; saturation and adaptation reduce the response at high concentrations. Why the others are wrong: A) CheY is a catalytic signaling protein that is regenerated; a limit on its amount would not explain a decrease only at high attractant. B) Aspartate at 1 mM is an ordinary amino acid concentration and is not toxic; the data show a decline in the count, not cell death. D) No evidence indicates conversion into a repellent, and the cells respond to attractant at lower concentrations.",
+     "trap": "Attributing a drop in response at high stimulus to toxicity rather than to receptor saturation and adaptation.",
+     "topic": "Dose-response and adaptation",
+     "mastery_sheet_id": "2B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini04_BB_P4",
+   "passage_text": "Influenza A virus has a segmented, negative-sense RNA genome. The viral surface protein hemagglutinin binds terminal sialic acid on host cells, and the enzyme neuraminidase (NA) cleaves sialic acid, which allows newly formed virions to leave the infected cell. The drug oseltamivir carboxylate inhibits NA. A plaque assay was used to test two viral isolates: wild type (WT) and a variant carrying the substitution H275Y in NA. Confluent monolayers of MDCK cells were infected with 0.1 mL of a 10^-5 dilution of each virus stock, and after a 1-hour adsorption the inoculum was removed and replaced with an agarose overlay containing the drug at the concentrations shown. After 48 hours, cells were fixed and stained, and plaques (clear zones of dead cells) were counted. The mean plaque diameter was also measured. Table 1 shows the results of the experiment, each value the mean of three wells. Plaque number reports how many infectious particles started a spreading infection, whereas plaque diameter reflects how efficiently virus spread from cell to cell during the 48-hour incubation.",
+   "table_data": "| Oseltamivir carboxylate (nM) | WT plaques per well | WT plaque diameter (mm) | H275Y plaques per well | H275Y plaque diameter (mm) |\n|---|---|---|---|---|\n| 0 | 98 | 2.1 | 96 | 2.0 |\n| 1 | 95 | 1.6 | 96 | 2.0 |\n| 10 | 52 | 0.8 | 94 | 1.9 |\n| 100 | 4 | 0.3 | 90 | 1.7 |\n| 1000 | 0 | none | 60 | 1.0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini04_BB_P4_Q1",
+     "stem": "What is the titer of the WT virus stock, in plaque-forming units (PFU) per milliliter?",
+     "options": {
+      "A": "9.8 x 10^6",
+      "B": "9.8 x 10^8",
+      "C": "9.8 x 10^7",
+      "D": "9.8 x 10^5"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Titer = plaques / (dilution x volume plated) = 98 / (10^-5 x 0.1 mL) = 98 / 10^-6 = 9.8 x 10^7 PFU/mL. Why the others are wrong: A) 9.8 x 10^6 results from dividing by the dilution but forgetting to account for the 0.1 mL volume. B) 9.8 x 10^8 results from using 0.01 mL, which is not the volume plated. D) 9.8 x 10^5 results from dividing by the dilution twice or multiplying by the volume instead of dividing.",
+     "trap": "Forgetting to divide by the volume plated, which gives a titer ten-fold too low.",
+     "topic": "Plaque assay calculation",
+     "mastery_sheet_id": "2B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://vs.mahidol.ac.th/mozwe/en/virus-quantification-using-the-plaque-assay/",
+       "https://wolfson.huji.ac.il/expression/procedures/insects/VIRAL_PLAQUE_ASSAY.htm"
+      ]
+     }
+    },
+    {
+     "id": "Mini04_BB_P4_Q2",
+     "stem": "In the WT virus, the drug reduced plaque diameter even at 1 nM, a concentration that did not reduce plaque number. The best explanation is that inhibiting NA",
+     "options": {
+      "A": "prevents the host cell from undergoing lysis, so infected cells survive longer",
+      "B": "prevents the virus from binding sialic acid on the first host cell, so fewer initial infections occur",
+      "C": "blocks viral RNA synthesis inside infected cells, so that these cells produce no progeny virions at all",
+      "D": "traps newly made virions on the surface of the infected cell, which limits spread to neighboring cells"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Plaque number reflects initial infection events and plaque size reflects cell-to-cell spread, which depends on release of progeny virions by NA. Why the others are wrong: A) The size of the plaques reflects cell death and spread; the data do not show that infected cells survive longer, and the mechanism of the drug concerns release. B) Hemagglutinin, not NA, mediates attachment; blocking NA would not reduce initial infection at 1 nM, where plaque number was unchanged. C) NA acts at release, after replication; if RNA synthesis were blocked there would be no plaques at all.",
+     "trap": "Mixing up the roles of hemagglutinin (attachment) and neuraminidase (release) in the infection cycle.",
+     "topic": "Viral life cycle and NA inhibitors",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P4_Q3",
+     "stem": "Which feature of influenza A most directly accounts for the rapid emergence of drug-resistant variants such as H275Y?",
+     "options": {
+      "A": "The virus carries a large DNA genome that undergoes frequent recombination with host DNA",
+      "B": "The virus integrates into the host genome, where mutations accumulate over many cell divisions",
+      "C": "The viral reverse transcriptase is error prone and introduces many mutations as it copies the RNA genome into DNA",
+      "D": "The viral RNA-dependent RNA polymerase lacks proofreading activity, which creates many mutations in progeny genomes"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Influenza replicates its RNA genome with an RNA-dependent RNA polymerase that does not proofread, so the mutation rate is high. Why the others are wrong: A) Influenza has a segmented RNA genome, not a DNA genome. B) Influenza does not integrate; it replicates in the nucleus as RNA without entering the host chromosomes. C) Influenza is not a retrovirus and has no reverse transcriptase; it never makes a DNA intermediate.",
+     "trap": "Applying features of retroviruses such as HIV to a negative-sense RNA virus.",
+     "topic": "Mutation in RNA viruses",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P4_Q4",
+     "stem": "Which conclusion is best supported by Table 1?",
+     "options": {
+      "A": "Oseltamivir carboxylate kills infected MDCK cells directly, since plaque counts fall at high doses",
+      "B": "H275Y spreads between cells more efficiently than WT in the absence of drug, as shown by plaque diameter at 0 nM",
+      "C": "H275Y cannot infect cells because plaque numbers decline at 1000 nM",
+      "D": "H275Y requires more than 100 times as much drug as WT to reduce plaque number by about half"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) WT plaque number fell to about half (52 of 98) at 10 nM, whereas H275Y still had 60 of 96 at 1000 nM, so at least 100-fold more drug is needed. Why the others are wrong: A) Plaques are formed by dead cells; fewer plaques in the presence of drug means fewer successful rounds of infection, not direct killing of cells. B) At 0 nM the diameters are 2.0 mm and 2.1 mm, which is no evidence for more efficient spread. C) The H275Y virus infected cells at all concentrations and had 60 plaques per well even at 1000 nM.",
+     "trap": "Reading a partial reduction at the highest dose as a total loss of infectivity.",
+     "topic": "Interpreting resistance data",
+     "mastery_sheet_id": "2B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P4_Q5",
+     "stem": "The influenza A genome is negative-sense RNA. Which of the following must be present in the virion to start infection of a new cell?",
+     "options": {
+      "A": "A viral ribosome to translate the genome directly into protein",
+      "B": "A viral DNA-dependent RNA polymerase to transcribe the genome into mRNA",
+      "C": "A viral RNA-dependent RNA polymerase",
+      "D": "A viral integrase to insert the genome into the host chromosome"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A negative strand cannot be translated, and host cells do not copy RNA into RNA, so the virion carries its own polymerase for transcription. Why the others are wrong: A) Viruses lack ribosomes; they use host ribosomes, but only on mRNA, which the negative strand is not. B) The viral genome is RNA, not DNA, so a DNA-dependent polymerase would have no template. D) Integrase is characteristic of retroviruses; influenza does not integrate.",
+     "trap": "Assuming a negative-strand RNA can be read directly by host ribosomes.",
+     "topic": "Negative-sense RNA virus replication",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini04_BB_P5",
+   "passage_text": "Bacillus subtilis forms endospores when nutrients are scarce. A mother cell packages a copy of its chromosome in a spore with a dehydrated core, a thick protective coat, and a high content of dipicolinic acid (DPA) chelated with Ca2+. Small acid-soluble proteins (SASPs) bind the spore DNA. To compare heat resistance, researchers prepared vegetative cells, wild-type (WT) spores, and spores of a mutant lacking the two major SASP genes (DSASP). Each preparation, containing about 10^8 colony-forming units (CFU) per mL, was heated at 90 degrees C. Samples were removed at intervals, cooled, and plated, and the log10 of CFU per mL was calculated. The core water content and DPA content of spores and cells were also measured. Table 1 shows the composition of each type, and Figure 1 shows survival over time. The D-value is the time required for a 10-fold (one log) reduction in viable count. Assume that survival declines linearly on a log scale during the heating period and that all preparations began with the same number of cells.",
+   "table_data": "| Preparation | Core water (% of wet weight) | DPA (% of dry weight) |\n|---|---|---|\n| Vegetative cells | 80 | 0 |\n| WT spores | 35 | 10 |\n| DSASP spores | 35 | 10 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Survival at 90 degrees C",
+    "x_label": "Time at 90 degrees C (min)",
+    "y_label": "log10 CFU per mL",
+    "series": [
+     {
+      "name": "Vegetative cells",
+      "points": [
+       [
+        0,
+        8.0
+       ],
+       [
+        5,
+        6.0
+       ],
+       [
+        10,
+        4.0
+       ],
+       [
+        15,
+        2.0
+       ],
+       [
+        20,
+        0.0
+       ]
+      ]
+     },
+     {
+      "name": "DSASP spores",
+      "points": [
+       [
+        0,
+        8.0
+       ],
+       [
+        5,
+        7.5
+       ],
+       [
+        10,
+        7.0
+       ],
+       [
+        15,
+        6.5
+       ],
+       [
+        20,
+        6.0
+       ]
+      ]
+     },
+     {
+      "name": "WT spores",
+      "points": [
+       [
+        0,
+        8.0
+       ],
+       [
+        5,
+        7.9
+       ],
+       [
+        10,
+        7.8
+       ],
+       [
+        15,
+        7.7
+       ],
+       [
+        20,
+        7.6
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini04_BB_P5_Q1",
+     "stem": "From Figure 1, what is the D-value at 90 degrees C for vegetative cells?",
+     "options": {
+      "A": "2.5 min",
+      "B": "10 min",
+      "C": "5.0 min",
+      "D": "1.0 min"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The count drops by 2 logs (8.0 to 6.0) in 5 minutes, that is 1 log per 2.5 minutes. Why the others are wrong: B) 10 min is the D-value of the DSASP spores, not of the vegetative cells. C) 5.0 min is the time for a 2-log drop, not a 1-log drop. D) 1.0 min would imply a 5-log drop in 5 minutes, which the graph does not show.",
+     "trap": "Reporting the time of the whole interval rather than the time for a single 10-fold decrease.",
+     "topic": "D-value from a graph",
+     "mastery_sheet_id": "2B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini04_BB_P5_Q2",
+     "stem": "Assuming the WT spore curve continues linearly, about how long at 90 degrees C would be needed to reduce a WT spore population by 3 logs?",
+     "options": {
+      "A": "60 min",
+      "B": "150 min",
+      "C": "30 min",
+      "D": "300 min"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) WT spores lose 0.4 log in 20 minutes, which is 0.1 log per 5 minutes, a D-value of 50 minutes; 3 logs requires 3 x 50 = 150 minutes. Why the others are wrong: A) 60 min is close to a single D-value and would give only a 1-log reduction. C) 30 min is the time for a 3-log drop of DSASP spores (D = 10 min), not WT spores. D) 300 min would result from doubling the D-value or using a 6-log reduction.",
+     "trap": "Using a D-value of a different preparation, or using an inconsistent time scale when extrapolating.",
+     "topic": "Extrapolating survival curves",
+     "mastery_sheet_id": "2B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini04_BB_P5_Q3",
+     "stem": "Table 1 and Figure 1 together support which conclusion about heat resistance of spores?",
+     "options": {
+      "A": "Core dehydration alone accounts for all of the heat resistance, since WT and DSASP spores have identical core water",
+      "B": "DPA content has no relation to heat resistance, since vegetative cells with no DPA die at about the same rate as WT spores",
+      "C": "SASPs alone account for the heat resistance of spores, because DSASP spores die as fast as vegetative cells",
+      "D": "Low core water and high DPA help, but SASPs add protection, since DSASP and WT spores differ with equal water and DPA"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The DSASP spores survive far better than vegetative cells (D = 10 vs 2.5 min), which suggests that dehydration and DPA matter, and WT spores survive better still (D = 50 min), which implicates SASPs. Why the others are wrong: A) WT and DSASP have identical core water but different survival, so dehydration cannot account for all of the resistance. B) WT spores survive far better than the vegetative cells, which lack DPA, so DPA is plausibly relevant. C) DSASP spores have a D-value four times that of vegetative cells, so SASPs are not the only factor.",
+     "trap": "Attributing an effect to a single factor when the comparison among three groups reveals more than one.",
+     "topic": "Interpreting multi-factor data",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P5_Q4",
+     "stem": "Spores are not killed by boiling water at 100 degrees C for several minutes. Which sterilization method is therefore preferred for surgical instruments?",
+     "options": {
+      "A": "Refrigerating the instruments at 4 degrees C, which prevents germination of endospores",
+      "B": "Autoclaving at 121 degrees C under pressure",
+      "C": "Soaking in 70% ethanol, which is sporicidal at room temperature",
+      "D": "Boiling the instruments for 30 minutes at 100 degrees C, which kills all bacterial forms"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Endospores withstand 100 degrees C; the higher temperature of a pressurized autoclave achieves sterility. Why the others are wrong: A) Cold storage does not kill spores and may even preserve them. C) Ethanol kills vegetative cells but does not reliably kill spores. D) Boiling is not reliable against spores, as Figure 1 shows for WT spores even at 90 degrees C.",
+     "trap": "Believing that boiling sterilizes everything, which ignores the existence of heat-resistant endospores.",
+     "topic": "Sterilization and endospores",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P5_Q5",
+     "stem": "Which statement correctly distinguishes endospore formation from bacterial reproduction?",
+     "options": {
+      "A": "Each spore divides by binary fission after formation, which increases the number of cells",
+      "B": "Spores form from a fusion of two bacteria and thereby produce a new genetic combination",
+      "C": "Each cell makes one spore, so cell number does not increase",
+      "D": "Spores are formed by meiosis, which halves the chromosome number of the mother cell"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A starving cell converts itself into one spore; viable cell number rises only after germination and growth. Why the others are wrong: A) Spores are dormant and do not divide until they germinate. B) Spore formation is not sexual; no fusion with another cell occurs. D) Bacteria do not undergo meiosis; the spore receives a full copy of the chromosome.",
+     "trap": "Treating spores as a reproductive stage, as in fungi, rather than as a dormant survival form.",
+     "topic": "Endospore formation",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini04_BB_P6",
+   "passage_text": "A human epithelial cell line has a doubling time of 20 hours. Researchers used flow cytometry to measure DNA content per cell after propidium iodide staining and sorted cells into G1 (2N DNA), S (between 2N and 4N), and G2/M (4N) groups. Asynchronous cultures were left untreated or treated for 24 hours with one of three agents. Hydroxyurea inhibits ribonucleotide reductase and so depletes deoxyribonucleotides. Nocodazole prevents polymerization of microtubules. Drug R inhibits CDK4/6, kinases that phosphorylate the retinoblastoma protein (Rb). The percentage of cells in each group is shown in Table 1. In a separate time course, cells were treated with nocodazole and sampled every 6 hours; Figure 1 shows the percentage of cells with 4N DNA content, with a series for untreated cells. Assume that the untreated culture is in exponential growth, that the percentage of cells in a phase is proportional to the duration of that phase, and that cell death was negligible.",
+   "table_data": "| Treatment (24 h) | G1 (%) | S (%) | G2/M (%) |\n|---|---|---|---|\n| None | 52 | 30 | 18 |\n| Hydroxyurea | 48 | 47 | 5 |\n| Nocodazole | 10 | 7 | 83 |\n| Drug R | 88 | 7 | 5 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Cells with 4N DNA content over time",
+    "x_label": "Time (h)",
+    "y_label": "Cells with 4N DNA (%)",
+    "series": [
+     {
+      "name": "Nocodazole",
+      "points": [
+       [
+        0,
+        18
+       ],
+       [
+        6,
+        35
+       ],
+       [
+        12,
+        58
+       ],
+       [
+        18,
+        74
+       ],
+       [
+        24,
+        83
+       ]
+      ]
+     },
+     {
+      "name": "Untreated",
+      "points": [
+       [
+        0,
+        18
+       ],
+       [
+        6,
+        18
+       ],
+       [
+        12,
+        18
+       ],
+       [
+        18,
+        18
+       ],
+       [
+        24,
+        18
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini04_BB_P6_Q1",
+     "stem": "Cells in G2/M have 4N DNA content because, at this stage,",
+     "options": {
+      "A": "the cell has completed meiosis I, so each daughter has twice the haploid DNA content",
+      "B": "the cell has not yet replicated DNA but has doubled the number of chromosomes by fusing with another cell",
+      "C": "the cell has undergone cytokinesis, producing two cells that each contain 4N DNA",
+      "D": "DNA was replicated in S phase but sister chromatids remain joined"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) After S phase each chromosome consists of two sister chromatids, giving 4N DNA until anaphase and cytokinesis divide them. Why the others are wrong: A) This is a mitotic culture; meiosis does not occur in this cell line. B) DNA doubling occurs by replication, not by cell fusion. C) Cytokinesis returns each daughter cell to 2N.",
+     "trap": "Confusing the chromosome number with the DNA content, which doubles in S phase while the chromosome count stays the same.",
+     "topic": "DNA content in the cell cycle",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P6_Q2",
+     "stem": "Drug R caused 88% of cells to accumulate in G1. The most likely mechanism is that CDK4/6 inhibition",
+     "options": {
+      "A": "blocks DNA polymerase directly, so cells that enter S phase cannot continue and remain in G1",
+      "B": "keeps Rb hypophosphorylated and bound to E2F, so genes required for S phase are not expressed",
+      "C": "activates the anaphase-promoting complex, which degrades the cyclins required for S phase",
+      "D": "prevents microtubule assembly, so cells stall before the metaphase spindle can form"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) CDK4/6 phosphorylation of Rb releases E2F; the drug blocks that release, so the G1/S transition is not made. Why the others are wrong: A) A DNA polymerase block would cause accumulation in S, as seen with hydroxyurea, not in G1. C) Activation of APC/C drives mitotic exit and is not how a CDK4/6 inhibitor works; the drug acts on Rb phosphorylation. D) Microtubule disruption causes arrest in G2/M (as in the nocodazole row), not in G1.",
+     "trap": "Choosing an arrest point that matches a different drug in the table rather than the pathway the drug inhibits.",
+     "topic": "G1/S regulation by CDK4/6 and Rb",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P6_Q3",
+     "stem": "Using the assumptions in the passage, the duration of S phase in the untreated culture is closest to",
+     "options": {
+      "A": "14 h",
+      "B": "3.6 h",
+      "C": "10.4 h",
+      "D": "6 h"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) S phase is 30% of the cell cycle, and 0.30 x 20 h = 6 h. Why the others are wrong: A) 14 h is not obtained from any phase fraction; it would be 70% of the cycle, the time outside S. B) 3.6 h is 18% of 20 h, the duration of G2/M. C) 10.4 h is 52% of 20 h, the duration of G1.",
+     "trap": "Using the percentage of a different phase to calculate the duration.",
+     "topic": "Estimating phase duration",
+     "mastery_sheet_id": "2C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini04_BB_P6_Q4",
+     "stem": "In Figure 1, the percentage of nocodazole-treated cells with 4N DNA content rises gradually rather than all at once. The best explanation is that",
+     "options": {
+      "A": "other cells keep cycling until they reach mitosis, where the spindle checkpoint arrests them",
+      "B": "nocodazole enters cells slowly and takes about 24 hours to reach an effective concentration",
+      "C": "cells in G1 and S duplicate their DNA twice in the presence of nocodazole and become 4N",
+      "D": "nocodazole kills cells in G1 and S, so the fraction of 4N cells rises as other cells are lost"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Each cell is arrested only when it reaches M phase, so the 4N fraction rises as cells arrive from earlier phases, in about 20 hours. Why the others are wrong: B) Drugs of this kind act within minutes to hours; the gradual rise reflects cell cycle progression, not drug uptake. C) A cell that is arrested in M phase has 4N DNA only after a single replication in S phase; rereplication does not explain the data. D) The passage states that cell death was negligible, and the 4N count was already 58% at 12 h.",
+     "trap": "Attributing a time-dependent change to drug kinetics instead of to cell-cycle progression of an asynchronous population.",
+     "topic": "Mitotic arrest kinetics",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P6_Q5",
+     "stem": "Which observation in Table 1 is most consistent with hydroxyurea's effect on ribonucleotide reductase?",
+     "options": {
+      "A": "The fraction of cells in S rises from 30% to 47%, which shows that DNA replication is faster after treatment",
+      "B": "The S fraction rises from 30% to 47% while G2/M falls from 18% to 5%, as cells cannot finish replication without dNTPs",
+      "C": "The fraction of cells in G2/M falls from 18% to 5%, which shows that nucleotides are also needed for the mechanics of mitosis itself",
+      "D": "The fraction of cells in G1 falls from 52% to 48%, which shows that cells cannot enter S phase"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Without dNTPs, DNA replication stalls, so cells accumulate in S and fewer reach G2/M. Why the others are wrong: A) A larger S fraction means that cells spend longer in S, not that replication is faster. C) The lower G2/M fraction arises because fewer cells complete S phase, not because mitosis needs nucleotides. D) G1 fraction changed only slightly and cells still entered S, as the S fraction increased.",
+     "trap": "Reading an increase in the S-phase fraction as faster replication rather than a slowed or stalled replication.",
+     "topic": "Hydroxyurea and S phase",
+     "mastery_sheet_id": "2C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini04_BB_P7",
+   "passage_text": "Skeletal muscle regenerates from satellite cells, quiescent stem cells that lie beside muscle fibers. When activated, satellite cells proliferate as myoblasts, then stop dividing, express myogenin, and fuse to form multinucleated myotubes. To study this process, researchers cultured C2C12 myoblasts in growth medium with 10% fetal bovine serum. At day 0, the medium was changed to differentiation medium with 2% horse serum. Cells were fixed on the indicated days and stained for Ki67, a marker present in cycling cells and absent in cells that have exited the cell cycle, and for myogenin. The fusion index is the percentage of all nuclei located within cells containing three or more nuclei. In one group, cells were transfected with an siRNA against myogenin (siMyog) at day 0, and the same measurements were made on day 4. Table 1 shows the results. About 800 nuclei were counted for each time point. Myogenin is a muscle-specific transcription factor of the basic helix-loop-helix family, and myoblasts that have exited the cell cycle remain viable and capable of fusion.",
+   "table_data": "| Condition | Ki67-positive nuclei (%) | Myogenin-positive nuclei (%) | Fusion index (%) |\n|---|---|---|---|\n| Day 0 | 85 | 2 | 0 |\n| Day 1 | 40 | 30 | 3 |\n| Day 2 | 12 | 62 | 28 |\n| Day 4 | 4 | 70 | 65 |\n| Day 4, siMyog | 5 | 6 | 4 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini04_BB_P7_Q1",
+     "stem": "Which observation in Table 1 best supports the idea that cell cycle exit precedes myoblast fusion?",
+     "options": {
+      "A": "Between day 0 and day 1, Ki67-positive nuclei fall from 85% to 40% while the fusion index rises only from 0% to 3%",
+      "B": "At day 4, siMyog cells have 5% Ki67-positive nuclei, which shows that myogenin is required for cell cycle exit",
+      "C": "At day 4 the fusion index is 65%, which shows that most nuclei are in myotubes",
+      "D": "At day 2, 28% of nuclei are fused, which is lower than the 62% that are myogenin-positive"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The loss of cycling cells occurs before the appearance of multinucleated cells, which fits an ordered series of events. Why the others are wrong: B) The siMyog cells exited the cell cycle (5% Ki67-positive) despite lacking myogenin, so myogenin is not required for cell cycle exit. C) A high final fusion index shows that fusion occurred but not the order of events. D) Comparing myogenin and fusion shows that myogenin expression precedes fusion, but does not address exit from the cycle.",
+     "trap": "Reading the final state of the cells as evidence for the sequence of events.",
+     "topic": "Ordering of differentiation steps",
+     "mastery_sheet_id": "2C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P7_Q2",
+     "stem": "The siMyog cells at day 4 were mostly Ki67-negative but had a fusion index of 4%. Which conclusion is best supported?",
+     "options": {
+      "A": "Myogenin is a cell-cycle inhibitor, since siMyog cells divide faster than control cells at day 4",
+      "B": "Myogenin is needed for exit from the cell cycle, since siMyog cells lack the fusion that accompanies exit",
+      "C": "Myogenin is needed for the terminal differentiation program, including fusion, but not for exit from the cell cycle",
+      "D": "Myoblasts can fuse without leaving the cell cycle, since siMyog cells remain 95% Ki67-positive"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) siMyog cells left the cycle (5% Ki67-positive), but they did not differentiate and fuse, which shows that exit alone is insufficient. Why the others are wrong: A) The data do not show faster division; Ki67 is 5% in siMyog versus 4% in the day 4 control, which are essentially equal. B) Exit from the cell cycle occurred in the siMyog group (5% Ki67-positive). D) The table shows that siMyog cells are only 5% Ki67-positive, not 95%.",
+     "trap": "Assuming that cells lacking the differentiation program must also have failed to exit the cell cycle.",
+     "topic": "Role of myogenin",
+     "mastery_sheet_id": "2C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P7_Q3",
+     "stem": "Switching from 10% to 2% serum most likely promotes differentiation because",
+     "options": {
+      "A": "reduced mitogen signaling lowers growth-factor-driven cycling, which permits cells to exit the cycle and differentiate",
+      "B": "serum contains myogenin, and a lower dose of serum avoids repression of the endogenous myogenin gene in the cells",
+      "C": "low serum is toxic to myoblasts, which stimulates the apoptotic program that leads to fusion",
+      "D": "low serum increases the concentration of cholesterol in the medium, which forces the cells to fuse"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Serum supplies growth factors that sustain proliferative signaling; their withdrawal favors exit and differentiation. Why the others are wrong: B) Serum is not a source of myogenin, an intracellular transcription factor made by the cells. C) Differentiating cells in low serum remain viable and become myotubes; fusion is not an apoptotic process. D) Serum contains lipids and cholesterol; lowering serum does not raise them or compel fusion.",
+     "trap": "Explaining a change in cell fate as the result of toxicity or stress instead of altered signaling.",
+     "topic": "Signals for differentiation",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P7_Q4",
+     "stem": "Which property must satellite cells have in order to be classified as stem cells of muscle?",
+     "options": {
+      "A": "The ability to self-renew and to give rise to differentiated muscle cells",
+      "B": "The ability to remain proliferative indefinitely and never express myogenin",
+      "C": "The ability to form every cell type of the body, including nerve cells and blood cells",
+      "D": "The ability to form myotubes without ever dividing, so the pool is not depleted"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Stem cells both self-renew and produce differentiated progeny; satellite cells are unipotent (muscle) stem cells. Why the others are wrong: B) Satellite cells do express myogenin as they differentiate; a stem cell does not remain undifferentiated in all progeny. C) That describes pluripotent stem cells, whereas satellite cells are restricted to the muscle lineage. D) Satellite cells must divide to produce the myoblasts that regenerate muscle.",
+     "trap": "Assuming that all stem cells are pluripotent.",
+     "topic": "Stem cell definition",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P7_Q5",
+     "stem": "About how many of the 800 nuclei counted at day 2 were myogenin-positive?",
+     "options": {
+      "A": "About 96",
+      "B": "About 496",
+      "C": "About 560",
+      "D": "About 224"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 62% of 800 = 496. Why the others are wrong: A) 96 is 12% of 800, the number of Ki67-positive nuclei. C) 560 is 70% of 800, the myogenin-positive count at day 4. D) 224 is 28% of 800, the number of nuclei in myotubes.",
+     "trap": "Reading the percentage from a different column or a different day.",
+     "topic": "Calculation from a table",
+     "mastery_sheet_id": "2C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini04_BB_P8",
+   "passage_text": "TRPV1 is a cation channel found in the sensory endings of nociceptive neurons. It opens in response to capsaicin, the pungent compound in chili peppers, and to noxious heat. To characterize it, HEK293 cells, which do not normally express TRPV1, were transfected with the TRPV1 gene or left untransfected. Whole-cell patch-clamp recordings were made with the membrane potential held at -60 mV. The standard external solution contained Na+ and 2 mM Ca2+. Capsaicin was applied by perfusion at 1 micromolar unless otherwise stated, and the peak inward current was recorded. Capsazepine, a competitive antagonist at the capsaicin site, was applied at 10 micromolar with capsaicin. In one group, external Na+ was replaced with N-methyl-D-glucamine (NMDG+), a large cation that does not pass through the channel. Table 1 shows peak currents, and Figure 1 shows the current in TRPV1 cells at different capsaicin concentrations. Inward current is reported as a magnitude in picoamperes (pA).",
+   "table_data": "| Cells and condition | Peak inward current (pA) |\n|---|---|\n| Untransfected, 1 micromolar capsaicin | 12 |\n| TRPV1, vehicle only | 15 |\n| TRPV1, 1 micromolar capsaicin | 1450 |\n| TRPV1, capsaicin + capsazepine | 95 |\n| TRPV1, capsaicin, external Na+ replaced by NMDG+ | 180 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Peak inward current versus capsaicin concentration in TRPV1 cells",
+    "x_label": "Capsaicin (micromolar)",
+    "y_label": "Peak inward current (pA)",
+    "series": [
+     {
+      "name": "TRPV1",
+      "points": [
+       [
+        0.01,
+        60
+       ],
+       [
+        0.1,
+        420
+       ],
+       [
+        0.3,
+        850
+       ],
+       [
+        1,
+        1450
+       ],
+       [
+        3,
+        1900
+       ],
+       [
+        10,
+        2150
+       ],
+       [
+        30,
+        2200
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini04_BB_P8_Q1",
+     "stem": "The inward current evoked by capsaicin in TRPV1 cells is best explained by",
+     "options": {
+      "A": "pumping of Na+ into the cell by the Na+/K+ ATPase, which is stimulated by capsaicin",
+      "B": "entry of Na+ and Ca2+ down their electrochemical gradients through the open channel, which depolarizes the cell",
+      "C": "exit of K+ through the open channel, which hyperpolarizes the cell",
+      "D": "entry of Cl- through the open channel, which depolarizes the cell"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) TRPV1 is a nonselective cation channel; at -60 mV Na+ (and Ca2+) enter, and the current falls when Na+ is replaced by impermeant NMDG+. Why the others are wrong: A) The pump is not stimulated by capsaicin and is too slow to give a current of this size within seconds. C) K+ exit would be an outward current and would not be the inward current recorded. D) Cl- entry would be an outward current by convention and would hyperpolarize the cell; the NMDG+ result also implicates cations.",
+     "trap": "Confusing the direction of current with the direction of ion movement, so that anion entry or cation exit is mistaken for inward current.",
+     "topic": "Ion channel currents",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P8_Q2",
+     "stem": "By what percentage did capsazepine reduce the peak current evoked by 1 micromolar capsaicin in TRPV1 cells?",
+     "options": {
+      "A": "About 99%",
+      "B": "About 93%",
+      "C": "About 7%",
+      "D": "About 66%"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The current fell from 1450 to 95 pA, a decrease of 1355 pA, and 1355/1450 = 0.93. Why the others are wrong: A) 99% would require a final current of about 15 pA, the vehicle-only level, which was not reached. C) 7% is about the remaining fraction (95/1450 = 6.6%), not the fraction removed. D) 66% is not obtained from the data; it would correspond to a current of about 490 pA.",
+     "trap": "Reporting the fraction remaining rather than the fraction inhibited.",
+     "topic": "Percent inhibition",
+     "mastery_sheet_id": "3A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini04_BB_P8_Q3",
+     "stem": "Based on Figure 1, the capsaicin concentration that produces half of the maximal current is closest to",
+     "options": {
+      "A": "0.6 micromolar",
+      "B": "10 micromolar",
+      "C": "0.06 micromolar",
+      "D": "3 micromolar"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The maximum is about 2200 pA, so half is about 1100 pA; the curve passes through 850 pA at 0.3 micromolar and 1450 pA at 1 micromolar, so 1100 pA occurs at about 0.6 micromolar. Why the others are wrong: B) At 10 micromolar the current is 2150 pA, near saturation. C) At 0.06 micromolar the current is only about 200 pA, far below half the maximum. D) At 3 micromolar the current is 1900 pA, about 86% of the maximum.",
+     "trap": "Choosing the concentration at which the current is nearly maximal, rather than the one giving half of the maximal response.",
+     "topic": "Dose-response reading",
+     "mastery_sheet_id": "3A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P8_Q4",
+     "stem": "Capsaicin applied to the skin causes a burning sensation. Which sequence best accounts for this sensation?",
+     "options": {
+      "A": "Channel opening depolarizes the nociceptor ending until voltage-gated Na+ channels fire action potentials that are relayed to the brain",
+      "B": "Channel opening causes the release of acetylcholine at the skin, which activates muscarinic receptors on keratinocytes to heat the tissue",
+      "C": "Channel opening activates motor neurons that contract skin muscle, which stretches pain receptors",
+      "D": "Channel opening hyperpolarizes the nociceptor ending, which releases inhibitory neurotransmitter onto pain-carrying neurons"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Cation influx depolarizes the sensory ending; when threshold is reached, voltage-gated Na+ channels open and action potentials propagate along the afferent fiber toward the central nervous system. Why the others are wrong: B) The effect arises from activation of the sensory neuron, not from acetylcholine release in the skin or a literal rise in temperature. C) Capsaicin acts on sensory (afferent) neurons, not motor neurons. D) The current is inward, so the ending depolarizes rather than hyperpolarizes.",
+     "trap": "Assuming that capsaicin literally heats tissue, rather than activating the same channel that detects heat.",
+     "topic": "Nociceptor signaling",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini04_BB_P9",
+   "passage_text": "Leptin is a hormone secreted by adipose tissue in proportion to fat mass. Two strains of obese mice were studied. Mice homozygous for the ob mutation (ob/ob) are severely obese; those homozygous for the db mutation (db/db) are equally obese. To determine whether each strain lacks a circulating factor or the ability to respond to it, researchers used parabiosis, a surgery that joins the circulatory systems of two animals so that blood-borne factors are shared. Pairs were joined at 6 weeks of age, and the daily food intake and change in body mass of each partner were measured over the next 4 weeks. Unjoined mice served as controls. In each case, the partners were of the same sex and similar size. Table 1 shows the results. Hormone injection experiments in the same strains gave consistent findings. Assume that circulating blood factors exchange freely between partners within a few days of surgery, and that any change in intake reflects hormonal signaling rather than stress from the surgery.",
+   "table_data": "| Mouse (partner) | Daily food intake (g) | Body mass change over 4 weeks (g) |\n|---|---|---|\n| Wild type, unjoined | 4.0 | +1 |\n| ob/ob, unjoined | 7.5 | +14 |\n| db/db, unjoined | 7.8 | +16 |\n| ob/ob (joined to wild type) | 4.4 | +2 |\n| Wild type (joined to ob/ob) | 4.0 | +1 |\n| Wild type (joined to db/db) | 1.5 | -6 |\n| db/db (joined to wild type) | 7.9 | +17 |\n| ob/ob (joined to db/db) | 1.4 | -7 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini04_BB_P9_Q1",
+     "stem": "The wild-type mouse joined to a db/db partner ate much less and lost weight. The best explanation is that",
+     "options": {
+      "A": "the db/db partner secretes a satiety factor that acts only on its own hypothalamus and spreads by gap junctions to the wild-type partner",
+      "B": "the wild-type partner makes antibodies against the db/db partner's tissues, which reduces its food intake",
+      "C": "the db/db partner lacks leptin, so the wild-type partner's leptin is diverted to the db/db partner and is no longer available to the wild type",
+      "D": "the db/db partner secretes large amounts of leptin, which reaches the wild-type partner through the shared circulation and suppresses its appetite"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) db/db mice cannot respond to leptin, so fat accumulates and leptin rises; the high circulating leptin acts on the functional receptors of the wild-type partner. Why the others are wrong: A) Gap junctions link cells, not separate animals; the factor travels in the blood. B) The data do not suggest an immune response, and the effect is explained by the hormone's known action. C) db/db mice are not leptin deficient; if leptin were lacking, the wild-type partner's intake would not fall below 4.0 g.",
+     "trap": "Assuming the db mutation, like ob, is a lack of the hormone rather than a failure to respond to it.",
+     "topic": "Parabiosis and leptin",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P9_Q2",
+     "stem": "Which conclusion about the db/db mouse is best supported by the table?",
+     "options": {
+      "A": "It is lacking the satiety center in the hypothalamus, since its partner lost weight",
+      "B": "It produces leptin but cannot respond to it, since its own intake stayed high when joined to a wild-type partner that stopped eating",
+      "C": "It produces no leptin, since its intake was unchanged when joined to a wild-type partner",
+      "D": "It produces leptin that is inactive, since its leptin has no effect on the intake of a partner with normal receptors"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) db/db intake stayed at 7.9 g and mass rose by 17 g even when joined to a wild-type partner, while that partner ate only 1.5 g and lost weight, so db/db makes active leptin but does not respond to it. Why the others are wrong: A) The conclusion concerns a receptor defect, not an absence of an entire brain region; the table cannot establish anatomy. C) The unchanged intake would be seen in either case; the starvation of the partner shows that the db/db mouse makes active hormone. D) The wild-type partner joined to db/db ate 1.5 g instead of 4.0 g, which shows that db/db leptin is active.",
+     "trap": "Concluding that a failure to respond to a signal means the signal is absent.",
+     "topic": "Interpreting hormone-resistance",
+     "mastery_sheet_id": "3A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P9_Q3",
+     "stem": "Compared with wild-type mice, which of the following pairs of plasma leptin concentrations would be expected in ob/ob and db/db mice?",
+     "options": {
+      "A": "ob/ob: high; db/db: high",
+      "B": "ob/ob: high; db/db: very low or undetectable",
+      "C": "ob/ob: very low or undetectable; db/db: very low or undetectable",
+      "D": "ob/ob: very low or undetectable; db/db: high"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) ob/ob mice have no functional hormone, and db/db mice have large fat stores and no feedback, so they secrete high levels. Why the others are wrong: A) ob/ob mice cannot produce functional leptin, so levels cannot be high. B) This reverses the genotypes. C) db/db mice are obese and secrete leptin in proportion to their fat mass.",
+     "trap": "Reversing the two mutant strains or expecting both strains to have the same hormone level.",
+     "topic": "Prediction of hormone levels",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P9_Q4",
+     "stem": "Leptin lowers food intake mainly by acting on neurons of which brain region?",
+     "options": {
+      "A": "The cerebellar cortex of the hindbrain",
+      "B": "The posterior pituitary gland and its stalk",
+      "C": "The arcuate nucleus of the hypothalamus",
+      "D": "The primary visual cortex of the occipital lobe"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Leptin receptors in the arcuate nucleus regulate NPY/AgRP (appetite-stimulating) and POMC (appetite-suppressing) neurons. Why the others are wrong: A) The cerebellar cortex coordinates movement and is not a site of leptin action on appetite. B) The posterior pituitary stores and releases oxytocin and ADH and is not the main leptin target. D) The primary visual cortex processes visual information.",
+     "trap": "Selecting a structure that is part of the endocrine system but not the site where leptin acts.",
+     "topic": "Hypothalamic control of appetite",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini04_BB_P10",
+   "passage_text": "Mammalian behavior shows circadian rhythms that persist in constant darkness (DD) with a period near, but not exactly, 24 hours. The suprachiasmatic nucleus (SCN) of the hypothalamus is thought to be the master pacemaker. Hamsters kept in DD were studied by wheel-running activity. Circadian time (CT) is defined so that CT0 is the start of the subjective day and CT12 is the onset of activity in a nocturnal animal. Animals were given a brief light pulse at different CTs, and the shift in the next day's activity onset was measured. Table 1 shows the rhythm of animals under different conditions, including an SCN lesion and SCN lesion followed by transplantation of fetal SCN tissue from a donor with a short free-running period (tau mutant). Figure 1 shows the shift in activity onset as a function of CT of the light pulse (positive values are advances, negative values are delays). Light pulses lasted 15 minutes and were given at an intensity of 100 lux to animals that had been in constant darkness for at least two weeks, so that their free-running rhythms were established.",
+   "table_data": "| Group | Rhythm in constant darkness |\n|---|---|\n| Wild type, intact | Period 23.8 h |\n| Wild type, SCN lesion | No rhythm |\n| Tau mutant donor, intact | Period 20.0 h |\n| SCN lesion, graft of tau mutant SCN | Period 20.1 h |\n| SCN lesion, graft of wild-type SCN | Period 23.9 h |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Phase shift in activity onset after a light pulse",
+    "x_label": "Circadian time of light pulse (CT, h)",
+    "y_label": "Phase shift (h)",
+    "series": [
+     {
+      "name": "Phase shift",
+      "points": [
+       [
+        2,
+        0.1
+       ],
+       [
+        6,
+        0.0
+       ],
+       [
+        10,
+        0.2
+       ],
+       [
+        12,
+        -0.5
+       ],
+       [
+        14,
+        -1.5
+       ],
+       [
+        16,
+        -2.0
+       ],
+       [
+        18,
+        -0.8
+       ],
+       [
+        20,
+        1.2
+       ],
+       [
+        22,
+        1.8
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini04_BB_P10_Q1",
+     "stem": "Which conclusion is best supported by the results of the SCN lesion and graft groups?",
+     "options": {
+      "A": "The SCN is not required for rhythms, since grafted animals recover a rhythm",
+      "B": "The SCN generates the period of the rhythm, since grafted tissue imposes the donor's period on a lesioned host",
+      "C": "The rhythm is set by the host's remaining tissues, since the host retains its wild-type period after grafting",
+      "D": "The SCN produces rhythms only if connected to the retina, since grafted animals have no retinal input"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) An animal with no rhythm after lesion regains one whose period matches that of the donor tissue, so the period is a property of the SCN cells. Why the others are wrong: A) Lesioned animals lost the rhythm, which shows that the SCN is required; the graft restored it. C) Grafted animals had donor periods (20.1 h and 23.9 h), not the host's. D) The experiment does not address retinal input, and the rhythm persisted in constant darkness, in which light cues are absent.",
+     "trap": "Reading the recovery of rhythmicity as evidence that the SCN is dispensable.",
+     "topic": "Experimental design for pacemaker",
+     "mastery_sheet_id": "3A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P10_Q2",
+     "stem": "A hamster with a free-running rhythm receives a light pulse at CT16. Compared with an unpulsed animal, its activity onset on the following day is predicted to occur",
+     "options": {
+      "A": "about 0.5 h later",
+      "B": "about 2 h earlier",
+      "C": "about 2 h later",
+      "D": "at the same time"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Figure 1 shows a phase shift of -2.0 h at CT16, and negative values are delays, so activity begins later. Why the others are wrong: A) A delay of 0.5 hour is the shift near CT12, not CT16. B) An advance of 2 hours would require a shift of +2.0 h, as seen near CT22 (+1.8 h) but with the opposite sign. D) No shift occurs during the subjective day (CT2 to CT10), not at CT16.",
+     "trap": "Mixing up the sign convention for advances and delays.",
+     "topic": "Phase response curve",
+     "mastery_sheet_id": "3A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P10_Q3",
+     "stem": "Light information reaches the SCN mainly through",
+     "options": {
+      "A": "the vestibulocochlear nerve, from the hair cells of the inner ear",
+      "B": "the optic radiations, from the lateral geniculate nucleus to the visual cortex",
+      "C": "photoreceptors in the pineal gland, which sense light through the skull",
+      "D": "the retinohypothalamic tract, from retinal ganglion cells that contain the photopigment melanopsin"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A subset of retinal ganglion cells is intrinsically photosensitive and projects directly to the SCN. Why the others are wrong: A) The vestibulocochlear nerve carries hearing and balance information. B) The optic radiations carry image-forming information to visual cortex and are not the main route to the SCN. C) In mammals the pineal gland does not sense light directly; it receives information from the SCN.",
+     "trap": "Assuming that all light information is processed through the visual cortex pathway.",
+     "topic": "Photic input to the SCN",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini04_BB_P10_Q4",
+     "stem": "Which statement best describes how the SCN influences melatonin secretion?",
+     "options": {
+      "A": "The SCN has no effect on melatonin, which is regulated solely by blood glucose concentration",
+      "B": "The SCN inhibits the adrenal medulla, which causes melatonin to be released at night",
+      "C": "The SCN drives the pineal gland through a multisynaptic pathway, so melatonin is high at night and light at night suppresses it",
+      "D": "The SCN secretes melatonin directly into the blood during the day, which signals the pineal gland to rest"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) SCN output travels via the hypothalamus and sympathetic ganglia to the pineal gland, and melatonin is secreted mainly at night; light suppresses it. Why the others are wrong: A) Melatonin secretion is controlled by the circadian system and light, not by glucose. B) Melatonin is not secreted by the adrenal medulla, which makes catecholamines. D) Melatonin is made by the pineal gland, not by the SCN, and it is secreted at night.",
+     "trap": "Assuming the SCN itself secretes the hormone.",
+     "topic": "SCN and melatonin",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "Mini04_BB_D1",
+   "stem": "Which interaction stabilizes an alpha helix?",
+   "options": {
+    "A": "Hydrophobic interactions between the peptide backbone atoms and the surrounding water",
+    "B": "Disulfide bonds between cysteine side chains of residues that are four positions apart in the sequence",
+    "C": "Ionic bonds between the side chains of every pair of adjacent residues along the helix",
+    "D": "Hydrogen bonds between a backbone carbonyl oxygen and the amide hydrogen four residues along the chain"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) The helix is held by regular i to i+4 backbone hydrogen bonds, which repeat along its length. Why the others are wrong: A) The backbone is polar; hydrophobic interactions involve side chains and tend to bury them, not the backbone. B) Disulfide bonds are tertiary structure and need not recur every four residues. C) Side chain ionic interactions can contribute but do not define the helix, and adjacent residues point in different directions.",
+   "trap": "Attributing secondary structure to side chain interactions rather than to backbone hydrogen bonding.",
+   "topic": "Protein secondary structure",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini04_BB_D2",
+   "stem": "A double-reciprocal plot of an enzyme-catalyzed reaction shows two lines, with and without an inhibitor, that intersect on the y-axis. The inhibitor is most likely",
+   "options": {
+    "A": "an activator, because the slope of the line is decreased",
+    "B": "noncompetitive, because Vmax is decreased while Km is unchanged",
+    "C": "competitive, because Vmax is unchanged while the apparent Km is increased",
+    "D": "uncompetitive, because both Vmax and Km are decreased"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) The y-intercept is 1/Vmax, so a common intercept means unchanged Vmax; a greater slope reveals an increased apparent Km. Why the others are wrong: A) A decreased slope means faster catalysis, but an inhibitor increases the slope on this plot. B) Noncompetitive inhibition lines intersect on the x-axis, since Vmax falls while Km stays the same. D) Uncompetitive inhibition produces parallel lines.",
+   "trap": "Mixing up the intercepts of a Lineweaver-Burk plot.",
+   "topic": "Enzyme inhibition",
+   "mastery_sheet_id": "1A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini04_BB_D3",
+   "stem": "Which of the following is a function of the 5' cap and poly-A tail of a eukaryotic mRNA?",
+   "options": {
+    "A": "Base pairing with the anticodon of the initiator tRNA",
+    "B": "Stabilization of the mRNA against degradation",
+    "C": "Binding of RNA polymerase II to the promoter, which starts transcription",
+    "D": "Recognition of the mRNA by a snRNP complex to catalyze removal of introns"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The cap and tail increase mRNA stability and promote translation initiation. Why the others are wrong: A) The start codon, not the cap or tail, pairs with the initiator tRNA anticodon. C) Transcription initiation depends on promoter sequences in the DNA. D) Splicing is directed by sequences at intron boundaries, not by the cap or tail.",
+   "trap": "Assigning the cap and tail to splicing or transcription rather than to stability.",
+   "topic": "mRNA processing",
+   "mastery_sheet_id": "1B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini04_BB_D4",
+   "stem": "An autosomal recessive disorder affects 1 in 2,500 people in a population in Hardy-Weinberg equilibrium. The frequency of carriers is closest to",
+   "options": {
+    "A": "1 in 26",
+    "B": "1 in 50",
+    "C": "1 in 100",
+    "D": "1 in 2,500"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) q^2 = 1/2500, so q = 0.02 and p = 0.98; carriers are 2pq = 2 x 0.98 x 0.02, about 0.039, or about 1 in 26. Why the others are wrong: B) 1 in 50 is q, the allele frequency (0.02), not the carrier frequency. C) 1 in 100 is q/2, a quantity that has no meaning for carrier frequency. D) 1 in 2,500 is the frequency of affected individuals.",
+   "trap": "Reporting the allele frequency q as if it were the carrier frequency 2pq.",
+   "topic": "Hardy-Weinberg",
+   "mastery_sheet_id": "1C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://app.achievable.me/study/usmle-step-1/learn/genetics-population-genetics",
+     "https://cognito.org/blog/hardy-weinberg-equation-a-level-biology"
+    ]
+   }
+  },
+  {
+   "id": "Mini04_BB_D5",
+   "stem": "How many molecules of FADH2 are produced during complete beta-oxidation of one molecule of palmitoyl-CoA (16 carbons)?",
+   "options": {
+    "A": "14",
+    "B": "7",
+    "C": "16",
+    "D": "8"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) A 16-carbon fatty acyl-CoA needs 7 cycles of beta-oxidation, each producing one FADH2 and one NADH, along with 8 acetyl-CoA. Why the others are wrong: A) 14 is the total of FADH2 and NADH, not FADH2 alone. C) 16 is the number of carbons. D) 8 is the number of acetyl-CoA produced, which is one more than the number of cycles.",
+   "trap": "Counting cycles as equal to the number of acetyl-CoA produced.",
+   "topic": "Fatty acid oxidation",
+   "mastery_sheet_id": "1D",
+   "skill": "calculation",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini04_BB_D6",
+   "stem": "Cyanide binds to cytochrome c oxidase (Complex IV). Compared with before addition of cyanide, isolated, well-supplied mitochondria would show",
+   "options": {
+    "A": "a lower NADH/NAD+ ratio in the matrix, since NADH oxidation is stimulated by the electron backup",
+    "B": "a higher NADH/NAD+ ratio in the matrix and a collapse of the proton gradient",
+    "C": "an increased oxygen consumption rate, since cytochrome c accumulates in the reduced state",
+    "D": "an increased rate of ATP synthesis, since protons accumulate in the intermembrane space"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Blocking the final electron transfer stops electron flow, so reduced carriers accumulate and proton pumping ceases. Why the others are wrong: A) NADH cannot be reoxidized when electron flow stops, so the ratio rises. C) Oxygen is the final electron acceptor; without Complex IV activity, oxygen consumption falls. D) Without electron transport there is no proton pumping, so the gradient falls and ATP synthesis stops.",
+   "trap": "Predicting that a blocked pathway makes upstream carriers more oxidized.",
+   "topic": "Electron transport chain inhibitors",
+   "mastery_sheet_id": "1D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini04_BB_D7",
+   "stem": "Patients with I-cell disease lack the Golgi enzyme that adds mannose-6-phosphate to lysosomal enzymes. In these cells, newly made lysosomal hydrolases would most likely",
+   "options": {
+    "A": "be degraded by the proteasome immediately after translation",
+    "B": "be delivered to peroxisomes, which have similar acid hydrolases",
+    "C": "be secreted instead of reaching lysosomes",
+    "D": "accumulate in the nucleus, since they cannot be exported"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Mannose-6-phosphate is the signal for sorting to lysosomes; without it the enzymes follow the default pathway to the cell surface. Why the others are wrong: A) The enzymes are properly folded and enter the secretory pathway, not the proteasome. B) Peroxisomes import proteins by a different signal and have different enzymes. D) Hydrolases are made in the rough ER and pass through the secretory pathway; they do not go to the nucleus.",
+   "trap": "Expecting a mis-sorted protein to be degraded rather than to follow the default secretory route.",
+   "topic": "Lysosomal targeting",
+   "mastery_sheet_id": "2A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini04_BB_D8",
+   "stem": "Two strains of bacteria are separated by a membrane filter whose pores let viruses pass but block cells. DNase is added to the medium. Strain A acquires a gene from strain B. This transfer most likely occurred by",
+   "options": {
+    "A": "binary fission, in which the gene is copied into the daughter cell",
+    "B": "transduction, in which a bacteriophage carries donor DNA to the recipient",
+    "C": "transformation, in which the recipient takes up free DNA from the medium",
+    "D": "conjugation, in which a sex pilus brings the two cells into contact"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Phage particles can pass the filter and protect DNA from DNase within the capsid. Why the others are wrong: A) Binary fission is asexual reproduction and transfers genes only from a parent cell to its daughters. C) Free DNA would be destroyed by DNase. D) Conjugation requires direct cell contact, which the filter prevents.",
+   "trap": "Forgetting that DNA in a phage capsid is protected from DNase.",
+   "topic": "Horizontal gene transfer",
+   "mastery_sheet_id": "2B",
+   "skill": "experimental design",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini04_BB_D9",
+   "stem": "If a pair of sister chromatids fails to separate in meiosis II in one of the two secondary cells, which gametes result from that division?",
+   "options": {
+    "A": "Two gametes with an extra chromosome and two missing a chromosome",
+    "B": "Four normal gametes, since meiosis I already separated the homologs",
+    "C": "Two normal gametes, one with an extra chromosome, and one missing a chromosome",
+    "D": "Four gametes each with an extra chromosome"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) The unaffected secondary cell makes two normal gametes; the affected one makes one n+1 and one n-1 gamete. Why the others are wrong: A) That outcome occurs with nondisjunction of homologs in meiosis I, where both cells are affected. B) A failure in meiosis II causes an error despite normal meiosis I. D) Only one of the secondary cells is affected, so not all gametes are abnormal.",
+   "trap": "Confusing the outcomes of nondisjunction in meiosis I and meiosis II.",
+   "topic": "Nondisjunction",
+   "mastery_sheet_id": "2C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini04_BB_D10",
+   "stem": "Why do steroid hormones such as cortisol circulate in the blood bound to carrier proteins?",
+   "options": {
+    "A": "They are rapidly degraded by plasma proteases unless protected",
+    "B": "They bind membrane receptors that require them to be in a bound form",
+    "C": "They are hydrophobic and have low solubility in plasma",
+    "D": "They are large polypeptides that would otherwise be filtered by the glomerulus"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Steroids derive from cholesterol and are nonpolar, so carrier proteins increase their transport in aqueous plasma. Why the others are wrong: A) Protease sensitivity applies to peptide hormones, not to steroids. B) Steroids act through intracellular receptors after diffusing across the membrane. D) Steroids are small lipid molecules, not polypeptides.",
+   "trap": "Treating steroid hormones as peptides.",
+   "topic": "Steroid hormone transport",
+   "mastery_sheet_id": "3A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini04_BB_D11",
+   "stem": "An increase in venous return to the heart increases stroke volume by the Frank-Starling mechanism. This occurs because",
+   "options": {
+    "A": "greater filling raises the heart rate, which reduces diastolic filling time",
+    "B": "greater filling activates the baroreceptors, which immediately increase the sympathetic stimulation of the SA node",
+    "C": "greater filling reduces the afterload, which increases ejection from the ventricle",
+    "D": "greater filling stretches the ventricular myocardium, which increases the force of contraction"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) A longer sarcomere length at end diastole yields a greater force of contraction for the same neural input. Why the others are wrong: A) Heart rate is not the cause of the increase in stroke volume. B) The mechanism is intrinsic and does not need baroreceptor reflexes. C) Filling does not reduce afterload; afterload is the pressure the ventricle must overcome.",
+   "trap": "Attributing an intrinsic length-tension effect to a neural reflex.",
+   "topic": "Cardiac physiology",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini04_BB_D12",
+   "stem": "Furosemide inhibits the Na+/K+/2Cl- cotransporter in the thick ascending limb of the loop of Henle. Which effect is expected?",
+   "options": {
+    "A": "A larger urine volume of higher osmolarity, since water reabsorption is increased",
+    "B": "A smaller urine volume of higher osmolarity, since sodium is retained in the tubule",
+    "C": "No change in urine volume, since the collecting duct compensates fully",
+    "D": "A larger urine volume of lower osmolarity, since the medullary gradient is reduced"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Blocked NaCl reabsorption in the thick ascending limb decreases the interstitial osmotic gradient, so less water can be reabsorbed, producing more dilute urine in larger volume. Why the others are wrong: A) Water reabsorption is reduced, not increased, when the medullary gradient is lower. B) Inhibiting reabsorption of Na+ keeps it in the tubule and holds water there, which increases volume. C) Compensation by the collecting duct is incomplete, and diuretic use lowers the capacity to concentrate urine.",
+   "trap": "Overlooking the role of the loop in establishing the medullary gradient.",
+   "topic": "Renal physiology",
+   "mastery_sheet_id": "3B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

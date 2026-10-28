@@ -1,0 +1,143 @@
+[
+  {
+    "id": "bp1063-1",
+    "type": "question",
+    "passage_id": "bp1063",
+    "passage_text": "Researchers investigated the effect of a novel antimicrobial peptide (AMP) on the growth of methicillin-resistant Staphylococcus aureus (MRSA) in vitro. The peptide was synthesized and purified to >95% purity. Cultures of MRSA were inoculated into tryptic soy broth and exposed to increasing concentrations of the peptide (0, 2, 4, 8, and 16 μg/mL). After 24 hours of incubation at 37 °C, bacterial viability was quantified by plating serial dilutions and counting colony-forming units (CFU). The experiment was performed in triplicate, and the mean CFU/mL was recorded for each concentration. A dose–response curve was generated to estimate the minimum inhibitory concentration (MIC) and the 50% inhibitory concentration (IC50). The data suggested a steep decline in CFU with concentrations above 4 μg/mL, indicating potent activity. Researchers also examined the peptide’s effect on biofilm formation by measuring crystal violet absorbance at 590 nm. The results showed a marked reduction in biofilm biomass at 8 μg/mL and higher. These findings support further development of the AMP as a potential therapeutic agent against MRSA infections.",
+    "table_data": [
+      {
+        "Concentration (μg/mL)": "0",
+        "CFU/mL": "1.2e8",
+        "Biofilm absorbance": "1.00"
+      },
+      {
+        "Concentration (μg/mL)": "2",
+        "CFU/mL": "9.5e7",
+        "Biofilm absorbance": "0.90"
+      },
+      {
+        "Concentration (μg/mL)": "4",
+        "CFU/mL": "4.8e7",
+        "Biofilm absorbance": "0.70"
+      },
+      {
+        "Concentration (μg/mL)": "8",
+        "CFU/mL": "1.2e6",
+        "Biofilm absorbance": "0.30"
+      },
+      {
+        "Concentration (μg/mL)": "16",
+        "CFU/mL": "3.0e4",
+        "Biofilm absorbance": "0.10"
+      }
+    ],
+    "stem": "What is the CFU count at 8 μg/mL?",
+    "options": {
+      "A": "1.2 × 10⁶",
+      "B": "4.8 × 10⁷",
+      "C": "9.5 × 10⁷",
+      "D": "1.2 × 10⁸"
+    },
+    "correct": "A",
+    "explanation": "The table lists the CFU/mL at each concentration. At 8 μg/mL the CFU is 1.2 × 10⁶.",
+    "trap": "Option B (4.8 × 10⁷) is the CFU at 4 μg/mL, not 8 μg/mL.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1063-2",
+    "type": "question",
+    "passage_id": "bp1063",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which control provides the baseline growth against which the effect of the peptide on CFU is judged?",
+    "options": {
+      "A": "MRSA incubated for 24 h at 37 °C in broth with no peptide (0 μg/mL)",
+      "B": "MRSA exposed only to the highest peptide concentration, 16 μg/mL",
+      "C": "Sterile broth with peptide but without bacteria",
+      "D": "Heat-killed MRSA plated at each concentration"
+    },
+    "correct": "A",
+    "explanation": "Correct: A. Untreated cultures grown under identical conditions give the baseline CFU (1.2 x 10⁸ per mL in the table) against which reductions are calculated. Why the others are wrong: B) A single treated condition has no untreated reference. C) Sterile broth with peptide checks for contamination but gives no bacterial growth to compare with. D) Heat-killed cells yield no colonies, so they cannot show baseline growth.",
+    "trap": "Choosing a control that tests something else (sterility or killing) instead of the untreated growth baseline.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1063-3",
+    "type": "question",
+    "passage_id": "bp1063",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Calculate the percent reduction in CFU from 0 to 16 μg/mL.",
+    "options": {
+      "A": "≈99.9%",
+      "B": "≈95%",
+      "C": "≈80%",
+      "D": "≈50%"
+    },
+    "correct": "A",
+    "explanation": "Percent reduction = [(1.2 × 10⁸ – 3 × 10⁴) / 1.2 × 10⁸] × 100 ≈ 99.98% ≈ 99.9%.",
+    "trap": "Judging the drop by eye from 10⁸ to 10⁴ and guessing about 95%, instead of computing that only 3.0 × 10⁴ / 1.2 × 10⁸ = 0.025% of the untreated CFU remained (a 99.98% reduction).",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1063-4",
+    "type": "question",
+    "passage_id": "bp1063",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which statement is NOT supported by the data?",
+    "options": {
+      "A": "CFU/mL decreased at each successive higher peptide concentration tested.",
+      "B": "Biofilm absorbance at 8 μg/mL was 30% of the untreated value.",
+      "C": "CFU/mL at 16 μg/mL was less than 0.1% of the untreated value.",
+      "D": "The peptide eliminated all viable MRSA at 16 μg/mL."
+    },
+    "correct": "D",
+    "explanation": "Correct: D. The table lists 3.0 x 10⁴ CFU/mL at 16 μg/mL, so viable bacteria remained. Why the others are wrong: A) CFU falls 1.2e8, 9.5e7, 4.8e7, 1.2e6, 3.0e4, so A is supported. B) The table gives 0.30 against 1.00 untreated, so B is supported. C) 3.0e4/1.2e8 = 0.025%, which is below 0.1%, so C is supported.",
+    "trap": "Reading a 99.98% reduction as complete killing.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1063-5",
+    "type": "question",
+    "passage_id": "bp1063",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which additional assay would best determine how quickly the peptide kills MRSA?",
+    "options": {
+      "A": "Hemolysis assay",
+      "B": "Time‑kill curve",
+      "C": "Electron microscopy of cell wall",
+      "D": "Minimum bactericidal concentration"
+    },
+    "correct": "B",
+    "explanation": "A time-kill curve measures CFU over time at a fixed concentration, showing the rate of killing and whether it is bactericidal.",
+    "trap": "Option C (electron microscopy) visualizes damage but does not quantify killing kinetics.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  }
+]

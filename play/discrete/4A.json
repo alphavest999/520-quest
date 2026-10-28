@@ -1,0 +1,886 @@
+[
+ {
+  "id": "d_4A_1",
+  "type": "discrete",
+  "stem": "A runner completes one full lap of a 400 m track in 80 s. What is her average velocity for the lap?",
+  "options": {
+   "A": "0 m/s",
+   "B": "5 m/s",
+   "C": "10 m/s",
+   "D": "400 m/s"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Average velocity is displacement over time, and after one full lap she is back at the start, so displacement and average velocity are zero. Why the others are wrong: B) 5 m/s is the average speed (400 m / 80 s), which uses distance rather than displacement. C) 10 m/s results from dividing 400 by 40 s or doubling the speed, with no physical basis. D) 400 m/s equals the distance itself and ignores dividing by time.",
+  "trap": "Using distance rather than displacement.",
+  "topic": "Displacement vs distance",
+  "mastery_sheet_id": "4A",
+  "difficulty": "518",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_2",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A stone is dropped from rest from a bridge and hits the water after 2.0 s. Ignoring air resistance, how high is the bridge?",
+  "options": {
+   "A": "10 m",
+   "B": "20 m",
+   "C": "40 m",
+   "D": "5 m"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) For a drop from rest, d = 1/2 g t^2 = 0.5 x 10 x 2^2 = 20 m. Why the others are wrong: A) 10 m is 1/2 g t with time not squared. C) 40 m uses g t^2 and omits the factor of 1/2. D) 5 m is 1/4 g t^2, a double halving.",
+  "trap": "Forgetting to square the time or the factor of 1/2.",
+  "topic": "Free fall",
+  "mastery_sheet_id": "4A",
+  "difficulty": "521",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_3",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A ball is thrown horizontally at 10 m/s from a cliff. Ignoring air resistance, what is its speed after 2.0 s?",
+  "options": {
+   "A": "10 m/s",
+   "B": "20 m/s",
+   "C": "22 m/s",
+   "D": "30 m/s"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Horizontal speed stays 10 m/s while vertical speed is gt = 20 m/s, so speed = sqrt(10^2 + 20^2) = sqrt(500), about 22 m/s. Why the others are wrong: A) 10 m/s is only the horizontal component and ignores vertical gain. B) 20 m/s is only the vertical component and ignores the horizontal. D) 30 m/s adds the perpendicular components arithmetically instead of vectorially.",
+  "trap": "Adding perpendicular velocity components arithmetically.",
+  "topic": "Projectile motion",
+  "mastery_sheet_id": "4A",
+  "difficulty": "524",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_4",
+  "type": "discrete",
+  "stem": "A net force of 60 N acts on a 12 kg cart. What is its acceleration?",
+  "options": {
+   "A": "0.2 m/s^2",
+   "B": "72 m/s^2",
+   "C": "720 m/s^2",
+   "D": "5 m/s^2"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) By Newton's second law, a = F/m = 60 N / 12 kg = 5 m/s^2. Why the others are wrong: A) 0.2 m/s^2 is m/F, inverting the relation. B) 72 m/s^2 comes from adding 60 and 12. C) 720 m/s^2 comes from multiplying force by mass.",
+  "trap": "Inverting F = ma and dividing mass by force instead of force by mass.",
+  "topic": "Newton's second law",
+  "mastery_sheet_id": "4A",
+  "difficulty": "527",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_5",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A 10 kg block rests on a 30 degree incline without sliding. What is the magnitude of the static friction force?",
+  "options": {
+   "A": "50 N",
+   "B": "87 N",
+   "C": "100 N",
+   "D": "30 N"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The block is in equilibrium, so static friction equals the down-slope component: f = mg sin 30 = 100 x 0.5 = 50 N. Why the others are wrong: B) 87 N is mg cos 30, the normal force, not the friction force. C) 100 N is the full weight, not the component along the incline. D) 30 N has no basis; it just reuses the angle in degrees.",
+  "trap": "Using cosine instead of sine for the parallel component.",
+  "topic": "Inclined plane friction",
+  "mastery_sheet_id": "4A",
+  "difficulty": "516",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_6",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A 20 kg crate is on a frictionless 60 degree incline. What is the normal force on the crate?",
+  "options": {
+   "A": "173 N",
+   "B": "100 N",
+   "C": "200 N",
+   "D": "20 N"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) On an incline the normal force is N = mg cos 60 = 200 x 0.5 = 100 N. Why the others are wrong: A) 173 N is mg sin 60, the down-slope component, not the normal force. C) 200 N is the weight, equal to the normal force only on level ground. D) 20 N is the mass in kg, not a force.",
+  "trap": "Using sine instead of cosine for the normal component.",
+  "topic": "Normal force on an incline",
+  "mastery_sheet_id": "4A",
+  "difficulty": "519",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_7",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A 70 kg person stands on a scale in an elevator accelerating upward at 2 m/s^2. What does the scale read?",
+  "options": {
+   "A": "700 N",
+   "B": "560 N",
+   "C": "840 N",
+   "D": "140 N"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Newton's second law for upward acceleration: N - mg = ma, so N = 70 x (10 + 2) = 840 N. Why the others are wrong: A) 700 N is the weight at rest or constant velocity, with no acceleration included. B) 560 N is 70 x (10 - 2), the reading for downward acceleration. D) 140 N is ma only, omitting the weight.",
+  "trap": "Subtracting the acceleration when the acceleration is upward.",
+  "topic": "Apparent weight",
+  "mastery_sheet_id": "4A",
+  "difficulty": "522",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_8",
+  "type": "discrete",
+  "stem": "A 50 N force pulls a sled 4 m along the ground, directed 60 degrees above the horizontal. How much work does the force do?",
+  "options": {
+   "A": "200 J",
+   "B": "173 J",
+   "C": "50 J",
+   "D": "100 J"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Work uses the force component along displacement: W = F d cos 60 = 50 x 4 x 0.5 = 100 J. Why the others are wrong: A) 200 J is Fd and ignores the angle. B) 173 J uses sin 60 instead of cos 60. C) 50 J does not follow from the given values (F x cos 60 x 2).",
+  "trap": "Ignoring the angle or using sine instead of cosine.",
+  "topic": "Work",
+  "mastery_sheet_id": "4A",
+  "difficulty": "525",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_9",
+  "type": "discrete",
+  "stem": "A 2 kg object's speed increases from 3 m/s to 5 m/s. What net work was done on it?",
+  "options": {
+   "A": "16 J",
+   "B": "4 J",
+   "C": "8 J",
+   "D": "32 J"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Work equals change in kinetic energy: 1/2 m (vf^2 - vi^2) = 1 x (25 - 9) = 16 J. Why the others are wrong: B) 4 J uses the square of the speed difference, 1/2 m (vf - vi)^2 = 4 J. C) 8 J is a computational slip such as halving the correct answer. D) 32 J omits the factor of 1/2.",
+  "trap": "Squaring the velocity difference instead of the difference of squares.",
+  "topic": "Work-energy theorem",
+  "mastery_sheet_id": "4A",
+  "difficulty": "528",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_10",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A 0.5 kg ball is dropped from 5 m. Ignoring air resistance, what is its speed just before it hits the ground?",
+  "options": {
+   "A": "5 m/s",
+   "B": "10 m/s",
+   "C": "7 m/s",
+   "D": "50 m/s"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Energy conservation: mgh = 1/2 mv^2, so v = sqrt(2gh) = sqrt(2 x 10 x 5) = 10 m/s, and mass cancels. Why the others are wrong: A) 5 m/s just reuses the height value. C) 7 m/s is sqrt(gh) = sqrt(50), omitting the factor of 2. D) 50 m/s is gh, with no square root.",
+  "trap": "Forgetting the factor of 2 or including mass in the final speed.",
+  "topic": "Energy conservation",
+  "mastery_sheet_id": "4A",
+  "difficulty": "517",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_11",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A person lifts a 60 kg load 3 m at constant speed in 6 s. What is the average power output?",
+  "options": {
+   "A": "180 W",
+   "B": "1800 W",
+   "C": "300 W",
+   "D": "30 W"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) The work is mgh = 60 x 10 x 3 = 1800 J, and P = W/t = 1800/6 = 300 W. Why the others are wrong: A) 180 W omits g (60 x 3 / 1 s), giving too small a work. B) 1800 W is the work in joules, never divided by time. D) 30 W is an arithmetic slip, such as dividing 180 by 6.",
+  "trap": "Reporting the work in joules as power instead of dividing by the time.",
+  "topic": "Power",
+  "mastery_sheet_id": "4A",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_12",
+  "type": "discrete",
+  "stem": "A spring with k = 200 N/m is compressed 0.10 m. How much elastic potential energy is stored?",
+  "options": {
+   "A": "2.0 J",
+   "B": "20 J",
+   "C": "10 J",
+   "D": "1.0 J"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Spring energy U = 1/2 k x^2 = 0.5 x 200 x (0.10)^2 = 1.0 J. Why the others are wrong: A) 2.0 J omits the factor of 1/2. B) 20 J is kx (force in newtons), not energy. C) 10 J results from not squaring x properly.",
+  "trap": "Using F = kx as energy or forgetting to square x.",
+  "topic": "Elastic potential energy",
+  "mastery_sheet_id": "4A",
+  "difficulty": "523",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_13",
+  "type": "discrete",
+  "stem": "A 40 kg child sits 2.0 m from the pivot of a uniform seesaw. Where must a 20 kg child sit on the other side to balance it?",
+  "options": {
+   "A": "4.0 m from the pivot",
+   "B": "1.0 m from the pivot",
+   "C": "2.0 m from the pivot",
+   "D": "8.0 m from the pivot"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Torques balance: 40 x 2.0 = 20 x d, so d = 4.0 m. Why the others are wrong: B) 1.0 m inverts the ratio, putting the lighter child closer. C) 2.0 m ignores the mass difference. D) 8.0 m over-corrects the ratio, mistakenly squaring it or multiplying by 4.",
+  "trap": "Inverting the torque ratio so the lighter child sits closer to the pivot than the heavier one.",
+  "topic": "Rotational equilibrium",
+  "mastery_sheet_id": "4A",
+  "difficulty": "526",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_14",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A person holds a 50 N weight in the hand 0.35 m from the elbow. The biceps attaches 0.05 m from the elbow, acting perpendicular to the forearm. Neglecting the forearm's weight, what force must the biceps exert?",
+  "options": {
+   "A": "50 N",
+   "B": "350 N",
+   "C": "175 N",
+   "D": "7 N"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Torque balance about the elbow: F x 0.05 = 50 x 0.35, so F = 350 N. Why the others are wrong: A) 50 N ignores that the muscle acts on a short lever arm. C) 175 N comes from dividing by 0.1 instead of 0.05, a division error. D) 7 N inverts the lever ratio (50 x 0.05 / 0.35).",
+  "trap": "Assuming the muscle force equals the weight.",
+  "topic": "Lever arm in the body",
+  "mastery_sheet_id": "4A",
+  "difficulty": "515",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_15",
+  "type": "discrete",
+  "stem": "A centrifuge speeds up to double its rotation rate with the same radius. The centripetal acceleration at the tube changes by what factor?",
+  "options": {
+   "A": "2 times larger",
+   "B": "8 times larger",
+   "C": "4 times larger",
+   "D": "unchanged"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Centripetal acceleration a = omega^2 r, so doubling omega at fixed radius gives 4 times the acceleration. Why the others are wrong: A) 2 times treats acceleration as linear in omega. B) 8 times implies a cubic dependence on omega. D) Acceleration depends on omega, so it changes when the rotation rate changes.",
+  "trap": "Treating centripetal acceleration as proportional to omega rather than omega squared.",
+  "topic": "Centripetal acceleration",
+  "mastery_sheet_id": "4A",
+  "difficulty": "518",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_16",
+  "type": "discrete",
+  "stem": "A 0.2 kg ball moving at 10 m/s strikes a wall and rebounds at 10 m/s in the opposite direction. What is the magnitude of the impulse?",
+  "options": {
+   "A": "0 N·s",
+   "B": "2 N·s",
+   "C": "40 N·s",
+   "D": "4 N·s"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Impulse equals change in momentum: 0.2 x (10 - (-10)) = 4 N·s. Why the others are wrong: A) 0 treats the final and initial velocities as equal, ignoring the direction reversal. B) 2 N·s uses a 10 m/s change rather than 20 m/s. C) 40 N·s multiplies speed change by 10 or drops the mass.",
+  "trap": "Forgetting the velocity reverses direction.",
+  "topic": "Impulse",
+  "mastery_sheet_id": "4A",
+  "difficulty": "521",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_17",
+  "type": "discrete",
+  "stem": "A 2 kg cart moving at 6 m/s collides and sticks to a stationary 4 kg cart. What is their common velocity?",
+  "options": {
+   "A": "2 m/s",
+   "B": "1.5 m/s",
+   "C": "3 m/s",
+   "D": "6 m/s"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Momentum conservation in a perfectly inelastic collision: 2 x 6 = (2 + 4) v, so v = 2 m/s. Why the others are wrong: B) 1.5 m/s is an arithmetic slip, such as dividing 6 by 4. C) 3 m/s averages the 6 and 0 m/s velocities, ignoring mass. D) 6 m/s ignores the added mass of the second cart.",
+  "trap": "Assuming the velocity is unchanged.",
+  "topic": "Inelastic collision",
+  "mastery_sheet_id": "4A",
+  "difficulty": "524",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_18",
+  "type": "discrete",
+  "stem": "A moving billiard ball strikes an identical stationary ball head-on in an elastic collision. After the collision:",
+  "options": {
+   "A": "both balls move at half the original velocity",
+   "B": "the first ball stops and the second moves with the original velocity",
+   "C": "the balls stick together",
+   "D": "the first ball rebounds and the second moves with the same speed"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) With equal masses, an elastic head-on collision conserves momentum and kinetic energy, so velocities are exchanged: the first ball stops and the second moves off at the original speed. Why the others are wrong: A) Both moving at half speed conserves momentum but loses kinetic energy, so it is not elastic. C) Sticking together is a perfectly inelastic collision. D) The first ball rebounding with the second at the same speed would violate momentum conservation.",
+  "trap": "Applying the inelastic collision result.",
+  "topic": "Elastic collision",
+  "mastery_sheet_id": "4A",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4A_19",
+  "type": "discrete",
+  "stem": "A skydiver reaches terminal velocity. Which statement is correct?",
+  "options": {
+   "A": "The drag force exceeds her weight and she decelerates",
+   "B": "Gravity stops acting on her",
+   "C": "The drag force equals her weight and the net force is zero",
+   "D": "Her acceleration continues to be g"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) At terminal velocity drag equals weight, so net force and acceleration are zero and velocity is constant. Why the others are wrong: A) If drag exceeded weight she would be decelerating, not at constant terminal speed. B) Gravity always acts; it is balanced by drag. D) Her acceleration is zero at terminal velocity, not g.",
+  "trap": "Thinking zero acceleration means no gravity.",
+  "topic": "Terminal velocity",
+  "mastery_sheet_id": "4A",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4A_20",
+  "type": "discrete",
+  "stem": "A person pushes with 100 N on a wall that does not move. The wall exerts on the person a force of:",
+  "options": {
+   "A": "0 N because the wall does not move",
+   "B": "less than 100 N because the wall is at rest",
+   "C": "100 N in the same direction",
+   "D": "100 N in the opposite direction"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) By Newton's third law, the wall pushes back with 100 N, equal in magnitude and opposite in direction. Why the others are wrong: A) A stationary wall still exerts a reaction force; at rest means net force zero, not zero force. B) Action-reaction forces are equal in magnitude, not smaller. C) A force in the same direction would violate Newton's third law.",
+  "trap": "Thinking stationary objects exert no force.",
+  "topic": "Newton's third law",
+  "mastery_sheet_id": "4A",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4A_21",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. How much gravitational potential energy does a 2 kg object gain when raised 3 m?",
+  "options": {
+   "A": "60 J",
+   "B": "6 J",
+   "C": "30 J",
+   "D": "600 J"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Gravitational potential energy gain is mgh = 2 x 10 x 3 = 60 J. Why the others are wrong: B) 6 J omits g. C) 30 J is mh x 5, which does not correspond to mgh (a factor-of-2 slip). D) 600 J is a power-of-ten error.",
+  "trap": "Omitting g from mgh and so getting only mass times height.",
+  "topic": "Gravitational potential energy",
+  "mastery_sheet_id": "4A",
+  "difficulty": "522",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_22",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A frictionless ramp 5 m long rises 1 m. What force parallel to the ramp is needed to push a 50 kg crate up it at constant speed?",
+  "options": {
+   "A": "500 N",
+   "B": "100 N",
+   "C": "250 N",
+   "D": "10 N"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) At constant speed on a frictionless ramp, F = mg sin(theta) = 500 x (1/5) = 100 N. Why the others are wrong: A) 500 N is the full weight, ignoring the ramp's mechanical advantage. C) 250 N is an incorrect ratio (half the weight). D) 10 N is the incorrect ratio of 1/50.",
+  "trap": "Ignoring the ramp's mechanical advantage.",
+  "topic": "Ramp as a simple machine",
+  "mastery_sheet_id": "4A",
+  "difficulty": "525",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_23",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A movable pulley is used to lift an 80 N load 2 m (ideal, no friction). Which values are correct?",
+  "options": {
+   "A": "80 N force and 2 m of rope",
+   "B": "40 N force and 2 m of rope",
+   "C": "40 N force and 4 m of rope pulled",
+   "D": "160 N force and 1 m of rope"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) A movable pulley halves the force (40 N) while doubling the rope pulled (4 m), so work stays 160 J. Why the others are wrong: A) 80 N and 2 m is no machine at all and ignores the pulley advantage. B) 40 N with only 2 m of rope would reduce work, which no ideal machine can do. D) 160 N and 1 m reverses the force and distance trade.",
+  "trap": "Thinking machines reduce work.",
+  "topic": "Pulley",
+  "mastery_sheet_id": "4A",
+  "difficulty": "528",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_24",
+  "type": "discrete",
+  "stem": "A machine receives 500 J of input energy and delivers 350 J of useful work. What is its efficiency?",
+  "options": {
+   "A": "30%",
+   "B": "143%",
+   "C": "85%",
+   "D": "70%"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Efficiency = useful output / input = 350/500 = 0.70 = 70%. Why the others are wrong: A) 30% is the fraction of energy lost. B) 143% inverts the ratio (500/350), which is impossible for a machine. C) 85% has no basis in 350/500.",
+  "trap": "Inverting the efficiency ratio, or reporting the fraction lost rather than the fraction delivered.",
+  "topic": "Efficiency",
+  "mastery_sheet_id": "4A",
+  "difficulty": "517",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_25",
+  "type": "discrete",
+  "stem": "An object moves at 4 m/s for 3 s and then decelerates uniformly to rest in 2 s. What is the total displacement?",
+  "options": {
+   "A": "16 m",
+   "B": "12 m",
+   "C": "20 m",
+   "D": "8 m"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Displacement is the area under the v-t graph: 4 x 3 + 1/2 x 4 x 2 = 12 + 4 = 16 m. Why the others are wrong: B) 12 m includes only the constant-velocity phase and omits the deceleration. C) 20 m treats the full 5 s as constant speed (4 x 5). D) 8 m counts only the deceleration phase as a rectangle (4 x 2).",
+  "trap": "Omitting the triangle area of the deceleration phase from the displacement.",
+  "topic": "Velocity-time graph",
+  "mastery_sheet_id": "4A",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_26",
+  "type": "discrete",
+  "stem": "The slope of a curved position-versus-time graph that gets steeper with time indicates:",
+  "options": {
+   "A": "constant velocity",
+   "B": "increasing velocity (positive acceleration)",
+   "C": "constant acceleration of zero",
+   "D": "decreasing speed"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The slope of a position-time graph is velocity, so an increasing slope means velocity is increasing (positive acceleration). Why the others are wrong: A) Constant velocity gives a straight line with constant slope. C) Zero acceleration also means constant slope, so a straight line. D) Decreasing speed would show a flattening slope.",
+  "trap": "Confusing a curve with a constant-velocity line.",
+  "topic": "Position-time graph",
+  "mastery_sheet_id": "4A",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4A_27",
+  "type": "discrete",
+  "stem": "A bird flies 3 m east and then 4 m north. What is the magnitude of its displacement?",
+  "options": {
+   "A": "7 m",
+   "B": "1 m",
+   "C": "5 m",
+   "D": "12 m"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) The displacement is the hypotenuse: sqrt(3^2 + 4^2) = 5 m. Why the others are wrong: A) 7 m is the total distance traveled. B) 1 m is the difference of the legs. D) 12 m is the product of the legs.",
+  "trap": "Adding magnitudes instead of using the Pythagorean theorem.",
+  "topic": "Vector addition",
+  "mastery_sheet_id": "4A",
+  "difficulty": "526",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_28",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A 10 kg crate is pulled across a level floor at constant velocity by a 30 N horizontal force. What is the coefficient of kinetic friction?",
+  "options": {
+   "A": "0.03",
+   "B": "3.0",
+   "C": "0.1",
+   "D": "0.3"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) At constant velocity friction equals the 30 N pull, so mu = f/N = 30/(10 x 10) = 0.3. Why the others are wrong: A) 0.03 is a decimal error, off by ten. B) 3.0 divides by mass only (30/10) instead of weight. C) 0.1 comes from the wrong numbers, such as dividing by 300.",
+  "trap": "Dividing by mass instead of weight.",
+  "topic": "Kinetic friction",
+  "mastery_sheet_id": "4A",
+  "difficulty": "515",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_29",
+  "type": "discrete",
+  "stem": "At the highest point of a projectile's trajectory in the absence of air resistance, its acceleration is:",
+  "options": {
+   "A": "10 m/s^2 downward",
+   "B": "0 m/s^2",
+   "C": "10 m/s^2 upward",
+   "D": "10 m/s^2 horizontal"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Gravity is the only force, so acceleration is 10 m/s^2 downward throughout the flight, including the apex. Why the others are wrong: B) Zero acceleration confuses zero vertical velocity at the apex with zero acceleration. C) Acceleration never points upward since gravity points down. D) There is no horizontal force, so no horizontal acceleration.",
+  "trap": "Confusing zero vertical velocity with zero acceleration.",
+  "topic": "Projectile apex",
+  "mastery_sheet_id": "4A",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4A_30",
+  "type": "discrete",
+  "stem": "Two balls are launched on level ground at the same speed, one at 30 degrees and one at 60 degrees. Ignoring air resistance, which statement is correct?",
+  "options": {
+   "A": "The 30 degree ball has a greater range",
+   "B": "They have equal ranges, and the 60 degree ball reaches a greater height",
+   "C": "The 60 degree ball has a greater range and equal heights",
+   "D": "They have equal ranges and equal heights"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Range is proportional to sin(2 theta), equal for complementary angles 30 and 60, while height scales with sin^2(theta), so the 60 degree ball rises higher. Why the others are wrong: A) The 30 degree ball does not outrange the 60 degree ball since ranges are equal. C) The ranges are equal, not greater for 60 degrees, and heights differ. D) Ranges are equal but heights are not equal, since height depends on sin^2.",
+  "trap": "Thinking the largest angle gives the largest range.",
+  "topic": "Projectile range",
+  "mastery_sheet_id": "4A",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4A_31",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A car travels around a flat circular curve of radius 20 m. If the coefficient of static friction is 0.5, what is the maximum speed without slipping?",
+  "options": {
+   "A": "5 m/s",
+   "B": "100 m/s",
+   "C": "10 m/s",
+   "D": "14 m/s"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Friction supplies centripetal force: mu m g = m v^2/r, so v = sqrt(mu g r) = sqrt(0.5 x 10 x 20) = 10 m/s. Why the others are wrong: A) 5 m/s does not follow from the equation and underestimates the speed. B) 100 m/s is v^2; the square root was not taken. D) 14 m/s is sqrt(200), from dropping the 0.5 factor.",
+  "trap": "Forgetting to take the square root.",
+  "topic": "Banked and flat curves",
+  "mastery_sheet_id": "4A",
+  "difficulty": "524",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_32",
+  "type": "discrete",
+  "stem": "A satellite moves in a circular orbit at constant speed. The net work done on the satellite by gravity in one orbit is:",
+  "options": {
+   "A": "positive, because gravity accelerates the satellite",
+   "B": "negative, because gravity opposes outward motion",
+   "C": "equal to the kinetic energy of the satellite",
+   "D": "zero, because the force is perpendicular to the displacement at all times"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Gravity acts toward the center, perpendicular to velocity, so W = Fd cos 90 = 0 and kinetic energy stays constant. Why the others are wrong: A) Gravity does not do positive work here; speed is constant. B) The satellite does not move outward or inward in a circular orbit, so there is no negative work. C) Net work equals the change in kinetic energy, which is zero, not equal to the kinetic energy.",
+  "trap": "Thinking any force that causes acceleration does work.",
+  "topic": "Work by centripetal force",
+  "mastery_sheet_id": "4A",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4A_33",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A pendulum bob is released from rest at a height of 0.20 m above its lowest point. What is its speed at the bottom (ignoring friction)?",
+  "options": {
+   "A": "2 m/s",
+   "B": "0.4 m/s",
+   "C": "4 m/s",
+   "D": "20 m/s"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Energy conservation gives v = sqrt(2gh) = sqrt(2 x 10 x 0.2) = sqrt(4) = 2 m/s. Why the others are wrong: B) 0.4 m/s is just 2gh/10 or a misplaced decimal, off by a factor of five. C) 4 m/s is 2gh without the square root. D) 20 m/s is a decimal error.",
+  "trap": "Forgetting to take the square root after computing 2gh.",
+  "topic": "Pendulum energy",
+  "mastery_sheet_id": "4A",
+  "difficulty": "516",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_34",
+  "type": "discrete",
+  "stem": "A constant force of 20 N moves an object at constant speed of 3 m/s in the direction of the force. What power is delivered?",
+  "options": {
+   "A": "6.7 W",
+   "B": "60 W",
+   "C": "23 W",
+   "D": "180 W"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Power is P = Fv = 20 x 3 = 60 W when force and velocity are parallel. Why the others are wrong: A) 6.7 W is F/v, dividing instead of multiplying. C) 23 W is F + v, adding unlike quantities. D) 180 W is F v^2, squaring velocity.",
+  "trap": "Dividing force by velocity instead of multiplying them to get power.",
+  "topic": "Power and velocity",
+  "mastery_sheet_id": "4A",
+  "difficulty": "519",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_35",
+  "type": "discrete",
+  "stem": "Why does bending the knees when landing from a jump reduce the risk of injury?",
+  "options": {
+   "A": "It reduces the change in momentum of the body",
+   "B": "It increases the average force over a shorter time",
+   "C": "It lengthens the stopping time, reducing the average force for the same change in momentum",
+   "D": "It reduces the person's mass"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Impulse F_avg = delta p / delta t, so lengthening the stopping time reduces the average force for the same momentum change. Why the others are wrong: A) The momentum change is fixed by landing speed and mass, and bending the knees does not reduce it. B) Bending knees increases the stopping time, not shortens it, so force goes down, not up. D) Mass does not change when bending the knees.",
+  "trap": "Believing momentum changes by a different amount.",
+  "topic": "Impulse and injury",
+  "mastery_sheet_id": "4A",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4A_36",
+  "type": "discrete",
+  "stem": "Which of the following is the SI base-unit expression for power?",
+  "options": {
+   "A": "kg·m^2/s^2",
+   "B": "kg·m/s^2",
+   "C": "kg·m/s",
+   "D": "kg·m^2/s^3"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Power = energy/time = (kg·m^2/s^2)/s = kg·m^2/s^3. Why the others are wrong: A) kg·m^2/s^2 is the joule, a unit of energy. B) kg·m/s^2 is the newton, a unit of force. C) kg·m/s is the unit of momentum.",
+  "trap": "Confusing joules (energy) with watts (power) and forgetting to divide by time.",
+  "topic": "Units",
+  "mastery_sheet_id": "4A",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4A_37",
+  "type": "discrete",
+  "stem": "A wrench handle of length 0.30 m is pulled with a force of 50 N directed 30 degrees from the handle's axis. What is the torque?",
+  "options": {
+   "A": "7.5 N·m",
+   "B": "15 N·m",
+   "C": "13 N·m",
+   "D": "1.5 N·m"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Torque = r F sin(theta) = 0.30 x 50 x sin 30 = 7.5 N·m. Why the others are wrong: B) 15 N·m ignores the angle (0.30 x 50). C) 13 N·m uses cos 30 instead of sin 30. D) 1.5 N·m is a decimal error.",
+  "trap": "Using cosine instead of sine for the angle between r and F.",
+  "topic": "Torque",
+  "mastery_sheet_id": "4A",
+  "difficulty": "528",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_38",
+  "type": "discrete",
+  "stem": "A 100 N sign hangs from two symmetric cables, each making 30 degrees above the horizontal. What is the tension in each cable?",
+  "options": {
+   "A": "50 N",
+   "B": "100 N",
+   "C": "200 N",
+   "D": "87 N"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Vertical balance: 2T sin 30 = 100, so T = 100 N. Why the others are wrong: A) 50 N divides the weight by two without accounting for the angle. C) 200 N would result from T = W/sin 30 without halving for two cables. D) 87 N uses cos 30 in place of sin 30.",
+  "trap": "Ignoring the angle when splitting the load.",
+  "topic": "Static equilibrium",
+  "mastery_sheet_id": "4A",
+  "difficulty": "517",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_39",
+  "type": "discrete",
+  "stem": "A car traveling at 20 m/s brakes with a constant deceleration of 5 m/s^2. How far does it travel before stopping?",
+  "options": {
+   "A": "80 m",
+   "B": "20 m",
+   "C": "40 m",
+   "D": "4 m"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) d = v^2/(2a) = 400/(2 x 5) = 40 m. Why the others are wrong: A) 80 m omits the factor of 2 in the denominator. B) 20 m just reuses the initial speed as a distance. D) 4 m is a divide-by-5 slip (20/5).",
+  "trap": "Omitting the factor of 2 in v^2 = 2ad when finding stopping distance.",
+  "topic": "Stopping distance",
+  "mastery_sheet_id": "4A",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4A_40",
+  "type": "discrete",
+  "stem": "Use g = 10 m/s^2 where needed. A 3 kg block slides at 2 m/s on a rough surface with mu_k = 0.2 until it stops. How far does it slide?",
+  "options": {
+   "A": "2 m",
+   "B": "0.5 m",
+   "C": "4 m",
+   "D": "1 m"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Friction decelerates the block: d = v^2/(2 mu g) = 4/(2 x 0.2 x 10) = 1 m, and mass cancels. Why the others are wrong: A) 2 m is v^2/(mu g) = 4/(2), omitting the factor of 2 in the denominator. B) 0.5 m halves the correct distance by including the factor of 2 twice. C) 4 m is v^2 itself with no division by 2 mu g.",
+  "trap": "Including mass in the distance calculation, when mass cancels from friction and kinetic energy.",
+  "topic": "Friction and work-energy",
+  "mastery_sheet_id": "4A",
+  "difficulty": "523",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ }
+]

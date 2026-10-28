@@ -1,0 +1,1483 @@
+{
+ "exam": "FL10",
+ "section": "BB",
+ "passages": [
+  {
+   "passage_id": "FL10_BB_P1",
+   "passage_text": "Collagen is a triple helix of three polypeptide chains rich in the repeat Gly-X-Y, where X and Y are often proline or 4-hydroxyproline. Proline hydroxylation occurs in the endoplasmic reticulum after translation and is catalyzed by prolyl 4-hydroxylase, an Fe2+-containing enzyme that also requires alpha-ketoglutarate, O2, and ascorbate (vitamin C). A researcher cultured human dermal fibroblasts for 72 hours under the conditions in Table 1. One culture was derived from a patient with a heterozygous Gly-to-Ser substitution at a single Gly-X-Y triplet of the alpha-1(I) chain (mutant line); the others were normal fibroblasts. 2,2'-Dipyridyl is a membrane-permeant chelator of Fe2+. Secreted collagen was purified from the medium, its hydroxyproline content was measured by amino acid analysis, and its thermal denaturation midpoint (Tm) was determined by circular dichroism. Secretion was expressed relative to normal cells grown with 50 uM ascorbate. Body temperature is 37 degrees C. Under-hydroxylated procollagen that cannot fold into a stable helix is retained in the endoplasmic reticulum and degraded.",
+   "table_data": "| Cell line | Ascorbate (uM) | Added agent | Hydroxyproline (residues per 1000) | Tm (C) | Relative secretion |\n|---|---|---|---|---|---|\n| Normal | 0 | none | 42 | 31 | 0.3 |\n| Normal | 50 | none | 96 | 39 | 1.0 |\n| Normal | 50 | 2,2'-dipyridyl | 40 | 30 | 0.3 |\n| Mutant | 50 | none | 94 | 33 | 0.4 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL10_BB_P1_Q1",
+     "stem": "Which statement best describes the role of ascorbate in the reaction catalyzed by prolyl 4-hydroxylase?",
+     "options": {
+      "A": "It keeps the enzyme's iron in the Fe2+ state so that the enzyme remains catalytically active",
+      "B": "It binds the Gly-X-Y repeat and holds proline in the conformation needed for hydroxylation",
+      "C": "It is decarboxylated alongside oxygen activation, which generates succinate as a byproduct",
+      "D": "It supplies the oxygen atom that is added to the proline ring during hydroxylation reactions"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Ascorbate is a reducing agent that regenerates Fe2+ when the iron is oxidized during catalysis; without it the enzyme stalls (the biochemical basis of scurvy). Why the others are wrong: B) Ascorbate does not bind the substrate; it acts on the enzyme's metal center. C) alpha-Ketoglutarate, not ascorbate, is the co-substrate decarboxylated to succinate. D) O2 is the oxygen source, not ascorbate.",
+     "trap": "Confusing ascorbate with alpha-ketoglutarate, the co-substrate that is actually consumed, instead of recognizing it as the iron-reducing cofactor.",
+     "topic": "collagen hydroxylation and vitamin C",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P1_Q2",
+     "stem": "Which conclusion about normal fibroblasts grown without ascorbate is best supported by the data in Table 1?",
+     "options": {
+      "A": "Their collagen is not stably folded at 37 C, so little of it is secreted",
+      "B": "Their collagen is secreted at a normal rate but is rapidly digested once it reaches the medium",
+      "C": "Their collagen gene is transcribed less efficiently, which accounts for the lower hydroxyproline value",
+      "D": "Their collagen has extra cross-links that raise its Tm above body temperature but prevent export"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Tm is 31 C, below 37 C, so triple helices would unfold at body temperature and are retained and degraded, matching secretion of only 0.3. Why the others are wrong: B) Secretion is reduced to 0.3, so the collagen is not secreted normally. C) Nothing in the table measures transcription; hydroxylation is post-translational. D) The Tm is lower, not higher, and cross-linking is not what the table measures.",
+     "trap": "Reading hydroxyproline loss as a transcription defect, when Tm and secretion data point to a post-translational folding problem.",
+     "topic": "collagen hydroxylation and vitamin C",
+     "mastery_sheet_id": "1A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P1_Q3",
+     "stem": "The mutant line has nearly normal hydroxyproline content but a Tm of 33 C and low secretion. Which explanation is most consistent with these results?",
+     "options": {
+      "A": "Only glycine fits at the helix center, so serine disrupts packing",
+      "B": "The mutant fibroblasts cannot import ascorbate, so hydroxylation is incomplete in the mutant line",
+      "C": "Serine forms disulfide bonds between chains that lock the helix in a distorted conformation",
+      "D": "Serine occupies the proline site and prevents prolyl 4-hydroxylase from modifying neighboring residues"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Every third residue must be glycine because it lacks a side chain and sits in the crowded interior of the helix; a bulkier serine distorts the helix even though hydroxylation is normal (94 residues per 1000). Why the others are wrong: B) Hydroxyproline content shows ascorbate was used normally. C) Serine has a hydroxyl group, not a thiol, and cannot form disulfides. D) Hydroxyproline is 94 per 1000, so hydroxylation was not blocked.",
+     "trap": "Assuming any collagen defect must reflect a hydroxylation problem, even though this line's hydroxyproline content is normal.",
+     "topic": "collagen structure and mutations",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P1_Q4",
+     "stem": "Compared with normal cells grown at 50 uM ascorbate, the hydroxyproline content of normal cells grown with no ascorbate is approximately",
+     "options": {
+      "A": "2.3% lower",
+      "B": "44% lower",
+      "C": "54% lower",
+      "D": "56% lower"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) (96 - 42) / 96 = 0.56, so the no-ascorbate collagen has about 56% less hydroxyproline. Why the others are wrong: A) 96 / 42 is 2.3-fold, which is a ratio rather than a percentage decrease. B) 42 / 96 is 44%, which is the fraction remaining, not the fraction lost. C) 54 is the absolute difference in residues per 1000, not a percentage of the reference value.",
+     "trap": "Dividing by the wrong base or reporting the remaining fraction (44%) rather than the decrease.",
+     "topic": "collagen hydroxylation and vitamin C",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_BB_P1_Q5",
+     "stem": "A researcher proposes that dipyridyl lowers hydroxyproline by chelating Fe2+ in prolyl 4-hydroxylase rather than by some other toxic effect. Which experiment would best test this hypothesis?",
+     "options": {
+      "A": "Raising the ascorbate concentration to 500 uM in the presence of dipyridyl and measuring cell number",
+      "B": "Adding excess Fe2+ together with dipyridyl and determining whether hydroxyproline content returns toward 96 residues per 1000",
+      "C": "Growing mutant fibroblasts with dipyridyl and measuring whether their Tm falls below 33 C",
+      "D": "Measuring the Tm of collagen heated in the medium that contained dipyridyl for 72 hours"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) If dipyridyl acts by sequestering iron, supplying iron in excess should compete for the chelator and rescue hydroxylation; non-rescue would suggest another mechanism. Why the others are wrong: A) Cell number does not report hydroxylase activity. C) This tests the mutant phenotype and does not test the iron-dependence of the chelator. D) Heating collagen in medium tests thermal stability, not the mechanism of dipyridyl.",
+     "trap": "Choosing an experiment that reports a downstream phenotype instead of one that reverses the proposed mechanism.",
+     "topic": "collagen hydroxylation and vitamin C",
+     "mastery_sheet_id": "1A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_BB_P2",
+   "passage_text": "Nonsense-mediated decay (NMD) is a surveillance pathway that degrades mRNAs containing premature termination codons (PTCs). During splicing, an exon junction complex (EJC) is deposited about 20 to 24 nucleotides upstream of each exon-exon junction. Ribosomes in the first round of translation remove EJCs as they advance. If a ribosome terminates at a stop codon located more than about 50 nucleotides upstream of the final exon-exon junction, a remaining EJC recruits the helicase UPF1, which triggers mRNA decay. A researcher transfected HeLa cells with a three-exon beta-globin minigene. Constructs carried either no mutation (WT), a nonsense mutation at codon 39 in exon 1, or a nonsense mutation at codon 140 in exon 3 (the final exon). Cells received a control siRNA or an siRNA against UPF1, or were treated for 4 hours with cycloheximide, an inhibitor of translation elongation. mRNA was quantified by RT-qPCR and normalized to an unrelated reporter transcript; values are relative to WT with control siRNA.",
+   "table_data": "| Construct | Treatment | Relative minigene mRNA |\n|---|---|---|\n| WT | control siRNA | 1.00 |\n| PTC, codon 39 (exon 1) | control siRNA | 0.12 |\n| PTC, codon 39 (exon 1) | UPF1 siRNA | 0.78 |\n| PTC, codon 140 (exon 3) | control siRNA | 0.93 |\n| PTC, codon 39 (exon 1) | cycloheximide | 0.81 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL10_BB_P2_Q1",
+     "stem": "Why is the mRNA carrying the codon 140 nonsense mutation largely spared from NMD?",
+     "options": {
+      "A": "Exon 3 contains an enhancer sequence that blocks deadenylation of the transcript after splicing",
+      "B": "Nonsense codons in the final exon are read through by suppressor tRNAs that restore full-length protein, so no truncated product is made",
+      "C": "No exon-exon junction lies downstream of the stop codon, so no EJC remains to signal that the termination is premature",
+      "D": "The stop codon is too close to the 5' cap for UPF1 to be recruited to the terminating ribosome"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) EJCs are placed only at exon-exon junctions; a stop codon in the last exon has no downstream junction, so the ribosome removes all EJCs before terminating and UPF1 is not recruited. Why the others are wrong: A) No enhancer or deadenylation block is described; the exon-junction rule explains the data. B) Read-through by suppressor tRNAs is not a general mechanism and is not implied by the data. D) The codon 140 PTC lies near the 3' end, not near the cap.",
+     "trap": "Thinking NMD depends only on whether a PTC exists, without applying the position rule relative to the last exon-exon junction.",
+     "topic": "nonsense-mediated decay",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P2_Q2",
+     "stem": "The cycloheximide result for the codon 39 construct is best explained by which conclusion?",
+     "options": {
+      "A": "Cycloheximide inhibits UPF1 helicase activity directly, preventing it from unwinding the mRNA",
+      "B": "Cycloheximide increases splicing efficiency, so more minigene mRNA is made from the transgene",
+      "C": "NMD occurs in the nucleus before export, so translation inhibitors change mRNA stability only indirectly",
+      "D": "NMD requires an actively translating ribosome to reach the PTC and displace or read the EJC signal"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Blocking translation raised the PTC mRNA from 0.12 to 0.81, showing decay depends on translation of the message. Why the others are wrong: A) No data show direct inhibition of UPF1; cycloheximide acts on the ribosome. B) Higher splicing would not selectively rescue only the PTC mRNA. C) NMD is coupled to translation, which occurs in the cytoplasm.",
+     "trap": "Attributing a drug's effect to its best-known target in an unrelated pathway instead of inferring from the logic of the experiment that translation is required.",
+     "topic": "nonsense-mediated decay",
+     "mastery_sheet_id": "1B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P2_Q3",
+     "stem": "By what factor did UPF1 knockdown increase the abundance of the codon 39 PTC mRNA?",
+     "options": {
+      "A": "About 6.5-fold",
+      "B": "About 0.15-fold",
+      "C": "About 0.66-fold",
+      "D": "About 8.3-fold"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 0.78 / 0.12 = 6.5. Why the others are wrong: B) 0.15 is the inverse ratio (0.12 / 0.78). C) 0.66 is the absolute difference (0.78 - 0.12), not a ratio. D) 8.3 is 1 / 0.12, which compares WT to the PTC mRNA rather than knockdown to control.",
+     "trap": "Subtracting the two values or inverting the ratio instead of dividing the knockdown value by the control value.",
+     "topic": "nonsense-mediated decay",
+     "mastery_sheet_id": "1B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_BB_P2_Q4",
+     "stem": "Heterozygous carriers of a beta-globin PTC in exon 1 are usually clinically silent, whereas some carriers with PTCs in the final exon have a severe dominant phenotype. Which explanation is most consistent with the data?",
+     "options": {
+      "A": "Final-exon PTCs trigger more efficient NMD, which removes the normal mRNA from the same cell along with the mutant",
+      "B": "Exon 1 mutations are corrected by splicing, whereas final-exon mutations are not removed from the transcript",
+      "C": "Exon 1 PTC mRNA is stabilized, which dilutes the abnormal protein with extra normal globin from the second allele",
+      "D": "NMD degrades exon 1 PTC mRNA, whereas final-exon PTC mRNA escapes and yields truncated protein"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) NMD acts as a safeguard: it degrades exon 1 PTC transcripts (0.12) so truncated protein is rare, whereas final-exon PTC transcripts escape (0.93) and produce a truncated protein that can precipitate and harm the cell. Why the others are wrong: A) Final-exon PTCs escape NMD rather than triggering it more efficiently. B) Splicing does not remove nonsense mutations from exons. C) The exon 1 PTC mRNA is degraded, not stabilized.",
+     "trap": "Assuming that a more severe phenotype must come from more efficient decay, when escape from NMD is what allows truncated protein to accumulate.",
+     "topic": "nonsense-mediated decay",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_BB_P3",
+   "passage_text": "A genetics clinic evaluates a woman who has had three first-trimester miscarriages and one child with Down syndrome. G-banded karyotyping of her blood lymphocytes shows 45 chromosomes with a single large chromosome that appears to be a fusion of chromosomes 14 and 21, written 45,XX,der(14;21)(q10;q10). This is a Robertsonian translocation: the long arms of two acrocentric chromosomes fuse at the centromere, and the tiny short arms, which carry mostly redundant ribosomal RNA genes, are lost. The carrier has two normal copies of the genes on the long arms and is phenotypically normal. At meiosis I the three chromosomes involved (14, 21, and the derivative) can segregate in six ways. Table 1 lists the six possible egg types and the zygote that results when each is fertilized by a normal sperm carrying one chromosome 14 and one chromosome 21. A counselor wants to estimate theoretical risks, assuming the six egg types are formed with equal frequency and that zygotes with monosomy or with trisomy 14 do not survive to birth.",
+   "table_data": "| Egg type | Chromosomes in the egg | Zygote after fertilization by a normal sperm | Outcome |\n|---|---|---|---|\n| 1 | 14, 21 | Normal karyotype | Healthy |\n| 2 | der(14;21) | Balanced carrier | Healthy |\n| 3 | der(14;21), 21 | Functional trisomy 21 | Down syndrome |\n| 4 | 14 | Monosomy 21 | Nonviable |\n| 5 | der(14;21), 14 | Trisomy 14 | Nonviable |\n| 6 | 21 | Monosomy 14 | Nonviable |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL10_BB_P3_Q1",
+     "stem": "Why is the carrier woman phenotypically normal even though her karyotype shows only 45 chromosomes?",
+     "options": {
+      "A": "Robertsonian translocations delete the centromere, which removes the cell's dependence on genes from both chromosomes",
+      "B": "The derivative chromosome silences one copy of each fused chromosome through X-inactivation-like mechanisms",
+      "C": "Nearly all genes remain in two copies, and the lost short arms carry redundant sequences",
+      "D": "The missing chromosome is replaced by a duplicated chromosome 22 that supplies the lost gene products"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A Robertsonian translocation is a balanced rearrangement: nearly all euchromatic genes are retained in normal dosage, and loss of the acrocentric short arms is tolerated because rRNA genes are present in many copies on several chromosomes. Why the others are wrong: A) The centromeres are fused, not deleted; a derivative chromosome retains one functional centromere. B) No X-inactivation-like silencing of autosomes occurs here. D) Chromosome 22 does not compensate for lost genes of other chromosomes.",
+     "trap": "Equating a lower chromosome number with lost genetic information instead of recognizing a balanced fusion of two chromosomes.",
+     "topic": "chromosome translocation and karyotype",
+     "mastery_sheet_id": "1C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P3_Q2",
+     "stem": "Based on the assumptions in the passage, what is the probability that a live-born child of the carrier woman and a normal man has Down syndrome?",
+     "options": {
+      "A": "2/3",
+      "B": "1/2",
+      "C": "1/3",
+      "D": "1/6"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Only egg types 1, 2, and 3 give viable zygotes; they are equally likely, and only type 3 (one in three) produces Down syndrome among live births. Why the others are wrong: A) 2/3 is the fraction of live-born children who are not Down syndrome. B) 1/2 would result if only types 1 and 3 were viable. D) 1/6 is the fraction of all zygotes with Down syndrome, which includes the three nonviable outcomes in the denominator.",
+     "trap": "Using all six egg types as the denominator instead of conditioning on live birth.",
+     "topic": "chromosome translocation and karyotype",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_BB_P3_Q3",
+     "stem": "A different parent carries a Robertsonian translocation that fuses the two copies of chromosome 21, written der(21;21). Assuming only zygotes with at least one copy of 21 genes survive and that the other parent is normal, what fraction of this parent's live-born children are expected to have Down syndrome?",
+     "options": {
+      "A": "One half of them",
+      "B": "None of them",
+      "C": "One third of them",
+      "D": "All of them"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Gametes carry either der(21;21) or no chromosome 21; with a normal gamete they give trisomy 21 or monosomy 21, and monosomy 21 is not viable, so every live birth has Down syndrome. Why the others are wrong: A) Half would apply only if a normal egg type also formed, but this carrier has no normal chromosome 21. B) The derivative chromosome carries both copies of the long arm, so its gametes cannot be normal. C) One third applies to the 14;21 carrier, which also forms normal gametes.",
+     "trap": "Transferring the one-third risk from the 14;21 carrier to a 21;21 carrier, which cannot make a normal gamete.",
+     "topic": "chromosome translocation and karyotype",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P3_Q4",
+     "stem": "A child with Down syndrome has a karyotype of 46 chromosomes, including one derivative chromosome fusing a chromosome 14 and a chromosome 21. What does this finding imply for the parents?",
+     "options": {
+      "A": "The child inherited a deletion of the short arm of chromosome 14 that is responsible for Down syndrome",
+      "B": "One parent may carry a balanced translocation, so the recurrence risk exceeds that for a typical trisomy 21",
+      "C": "Both parents must have had nondisjunction at meiosis II, so the recurrence risk is the same as the general population",
+      "D": "The child's cells arose by mitotic nondisjunction after fertilization, so the parents' karyotypes will be normal"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A translocation Down syndrome karyotype (46 chromosomes) often reflects inheritance from a balanced carrier parent, and parental karyotyping is recommended because recurrence risk can be high. Why the others are wrong: A) Down syndrome results from extra 21q material, not a deletion on 14. C) Standard trisomy 21 from nondisjunction gives 47 chromosomes and a low recurrence risk. D) The chromosome count and derivative chromosome do not suggest mitotic nondisjunction.",
+     "trap": "Assuming all Down syndrome has the same recurrence risk without noticing that 46 chromosomes with a derivative points to a translocation.",
+     "topic": "chromosome translocation and karyotype",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_BB_P4",
+   "passage_text": "The urea cycle converts toxic ammonia to urea in the liver. The first two steps, catalyzed by carbamoyl phosphate synthetase I (CPS I) and ornithine transcarbamylase (OTC), occur in the mitochondrial matrix; citrulline is then exported to the cytosol, where argininosuccinate synthetase (ASS) condenses it with aspartate. Three newborns presented on day 3 of life with lethargy and vomiting after beginning protein feeds. Each had a defect in a different urea cycle enzyme (CPS I, OTC, or ASS). Table 1 lists plasma and urine measurements. When carbamoyl phosphate accumulates in the matrix, it can exit to the cytosol and enter pyrimidine synthesis, increasing orotic acid. Patient A was then given a standardized protein load, and plasma ammonia was followed for 6 hours (Figure 1) alongside a healthy infant. Patient A was treated with a protein-restricted diet, arginine, and sodium benzoate. Blood was sampled before feeding and at intervals afterward, and all assays were performed in a single reference laboratory to minimize variability between samples.",
+   "table_data": "| Measurement | Reference | Patient A | Patient B | Patient C |\n|---|---|---|---|---|\n| Plasma ammonia (umol/L) | <35 | 410 | 380 | 450 |\n| Plasma glutamine (umol/L) | 400-700 | 1450 | 1380 | 1520 |\n| Plasma citrulline (umol/L) | 10-45 | 4 | 3 | 1850 |\n| Urine orotic acid (fold over reference) | 1 | 38 | 1.1 | 1.3 |",
+   "graph": {
+    "type": "line",
+    "title": "Plasma ammonia after a protein load",
+    "x_label": "Time after protein load (h)",
+    "y_label": "Plasma ammonia (umol/L)",
+    "series": [
+     {
+      "name": "Healthy infant",
+      "points": [
+       [
+        0,
+        25
+       ],
+       [
+        1,
+        30
+       ],
+       [
+        2,
+        34
+       ],
+       [
+        4,
+        28
+       ],
+       [
+        6,
+        24
+       ]
+      ]
+     },
+     {
+      "name": "Patient A",
+      "points": [
+       [
+        0,
+        300
+       ],
+       [
+        1,
+        420
+       ],
+       [
+        2,
+        610
+       ],
+       [
+        4,
+        720
+       ],
+       [
+        6,
+        650
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_BB_P4_Q1",
+     "stem": "Which defect most likely accounts for Patient A, based on Table 1?",
+     "options": {
+      "A": "OTC deficiency, because carbamoyl phosphate accumulates and spills into pyrimidine synthesis",
+      "B": "CPS I deficiency, because carbamoyl phosphate cannot be made and ammonia therefore builds up",
+      "C": "ASS deficiency, because aspartate is not condensed with citrulline and orotic acid rises as a result",
+      "D": "Argininosuccinate lyase deficiency, because fumarate cannot be released and citrulline is depleted"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Low citrulline with a 38-fold rise in orotic acid indicates that carbamoyl phosphate is made but not used by OTC, so it is diverted to orotic acid. Why the others are wrong: B) CPS I deficiency (Patient B) lowers carbamoyl phosphate, so orotic acid is not raised. C) ASS deficiency (Patient C) produces a large rise in citrulline, which Patient A does not show. D) A lyase defect, downstream of ASS, would raise argininosuccinate and generally not lower citrulline.",
+     "trap": "Concluding that any hyperammonemia with low citrulline is CPS I deficiency without using orotic acid to separate it from OTC deficiency.",
+     "topic": "urea cycle and ammonia",
+     "mastery_sheet_id": "1D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P4_Q2",
+     "stem": "Plasma glutamine is elevated in all three patients. Which explanation is most reasonable?",
+     "options": {
+      "A": "High ammonia inhibits glutamine synthetase, which leaves glutamine as the only nitrogen carrier left",
+      "B": "Glutamine is the direct substrate of carbamoyl phosphate synthetase I and therefore accumulates when it is blocked",
+      "C": "Glutaminase is activated by high ammonia, so glutamine is made from the breakdown of urea in blood",
+      "D": "Glutamine synthetase incorporates excess ammonia into glutamate, so glutamine serves as a nitrogen buffer that tracks the ammonia load"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Glutamine synthetase adds NH4+ to glutamate using ATP, trapping ammonia in a nontoxic form; plasma glutamine therefore tracks the ammonia load. Why the others are wrong: A) High ammonia drives, rather than inhibits, glutamine synthesis. B) CPS I uses free ammonia (with bicarbonate and ATP), not glutamine, in the mitochondrial matrix. C) Glutaminase releases ammonia from glutamine; urea is not a source of glutamine.",
+     "trap": "Mixing up glutaminase and glutamine synthetase, which run in opposite directions with respect to ammonia.",
+     "topic": "urea cycle and ammonia",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P4_Q3",
+     "stem": "Sodium benzoate lowers ammonia in these patients. Which mechanism is best supported?",
+     "options": {
+      "A": "Benzoate inhibits glutamine synthetase, which lowers glutamine and therefore reduces ammonia production",
+      "B": "Benzoate conjugates with glycine to form hippurate, which is excreted in urine, removing nitrogen without the urea cycle",
+      "C": "Benzoate is converted to urea by arginase, which provides an alternative route for ammonia disposal",
+      "D": "Benzoate activates carbamoyl phosphate synthetase I, which restores flux through the first step of the cycle"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Glycine carries nitrogen; once it is conjugated to benzoate and cleared as hippurate, it is replaced by new glycine made using ammonia, so nitrogen is removed through a bypass pathway. Why the others are wrong: A) Inhibiting glutamine synthetase would raise ammonia rather than lower it. C) Arginase is a urea cycle enzyme and does not use benzoate. D) Benzoate does not activate CPS I; the defect is in the cycle itself.",
+     "trap": "Assuming a drug that lowers ammonia must repair the defective enzyme rather than provide an alternate nitrogen excretion pathway.",
+     "topic": "urea cycle and ammonia",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P4_Q4",
+     "stem": "At 4 hours after the protein load, Patient A's plasma ammonia was approximately how many times that of the healthy infant?",
+     "options": {
+      "A": "26",
+      "B": "29",
+      "C": "0.04",
+      "D": "22"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 720 / 28 = 25.7, or about 26-fold. Why the others are wrong: B) 29 uses the healthy infant's 0-hour value (720 / 25) instead of the 4-hour value. C) 0.04 inverts the ratio (28 / 720). D) 22 pairs Patient A's 2-hour value with the control's 4-hour value (610 / 28).",
+     "trap": "Reading the wrong time point or inverting the ratio when comparing two curves.",
+     "topic": "urea cycle and ammonia",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_BB_P4_Q5",
+     "stem": "Patient C accumulates citrulline. Which statement best explains why the citrulline is found in plasma rather than remaining in the mitochondria?",
+     "options": {
+      "A": "The defective ASS blocks the mitochondrial ornithine transporter, which traps citrulline in the intermembrane space",
+      "B": "Citrulline is made in the matrix and exported, then accumulates where ASS is deficient",
+      "C": "Citrulline is produced from aspartate in plasma, so its level depends on aspartate rather than on urea cycle flux",
+      "D": "Citrulline is synthesized in the cytosol from arginine and cannot enter mitochondria, so it accumulates there"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) OTC makes citrulline in the matrix; an ornithine-citrulline carrier exports it, and with ASS deficient the cytosolic pool rises and spills into blood. Why the others are wrong: A) ASS is a cytosolic enzyme and does not regulate the mitochondrial carrier. C) Aspartate is a substrate of ASS, but citrulline is not produced from aspartate in plasma. D) Citrulline is made from ornithine and carbamoyl phosphate in the matrix, not from arginine in the cytosol.",
+     "trap": "Forgetting that the urea cycle spans two compartments and so misplacing where each intermediate is synthesized or consumed.",
+     "topic": "urea cycle and ammonia",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_BB_P5",
+   "passage_text": "Most mitochondrial proteins are encoded in the nucleus and imported after synthesis in the cytosol. Matrix proteins usually carry an N-terminal presequence, an amphipathic alpha helix with positively charged and hydrophobic faces, that is recognized by the TOM complex on the outer membrane and then passes through the TIM23 channel of the inner membrane. Inside the matrix, mitochondrial processing peptidase (MPP), a zinc metalloprotease, removes the presequence. A researcher fused the presequence of a matrix enzyme to GFP and incubated radiolabeled precursor with isolated yeast mitochondria for 20 minutes at 25 degrees C. After import, samples were treated with proteinase K, which digests proteins on the outside of intact membranes, and then analyzed by SDS-PAGE. Protease-protected precursor was scored as imported, and a smaller band was scored as processed by MPP. Conditions included the uncoupler CCCP (which dissipates the electrical potential across the inner membrane), depletion of matrix ATP, EDTA (a metal chelator), and a variant presequence in which three arginines were replaced by glutamate.",
+   "table_data": "| Precursor | Condition | Protease-protected (%) | Processed to mature size (%) |\n|---|---|---|---|\n| Wild-type presequence-GFP | complete | 88 | 85 |\n| Wild-type presequence-GFP | + CCCP | 6 | 4 |\n| Wild-type presequence-GFP | ATP depleted | 22 | 18 |\n| Wild-type presequence-GFP | + EDTA | 87 | 3 |\n| Arg-to-Glu variant | complete | 11 | 9 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL10_BB_P5_Q1",
+     "stem": "The loss of import in the presence of CCCP most directly indicates that translocation of the presequence across the inner membrane",
+     "options": {
+      "A": "requires a cytosolic chaperone that is inactivated by uncouplers of oxidative phosphorylation",
+      "B": "depends on the membrane potential, which pulls the positively charged presequence toward the negative matrix side",
+      "C": "requires the outer membrane TOM complex to be disassembled before the precursor can reach the matrix and be pulled across the inner membrane",
+      "D": "depends on a proton-motive force that is used by ATP synthase to phosphorylate the imported protein"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) CCCP dissipates the electrical potential (negative inside the matrix), which electrophoretically drives the positively charged presequence through TIM23; protection falls from 88% to 6%. Why the others are wrong: A) Nothing in the data implicates a chaperone being inactivated by CCCP. C) The TOM complex remains intact and is not disassembled during import. D) The potential drives movement of the presequence; no phosphorylation of the precursor is involved.",
+     "trap": "Linking every effect of an uncoupler to ATP synthesis instead of recognizing that the membrane potential itself drives presequence movement.",
+     "topic": "mitochondrial import and signal sequences",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P5_Q2",
+     "stem": "In the EDTA condition, 87% of the precursor is protease protected but only 3% is processed. What is the most likely interpretation?",
+     "options": {
+      "A": "The precursor remained on the outer surface of the mitochondria, where it was bound to the TOM complex",
+      "B": "The precursor entered the matrix, but MPP, a metal-dependent protease, could not remove the presequence despite normal translocation",
+      "C": "EDTA ruptured the mitochondrial membranes, so the protected precursor reflects leaky organelles rather than import",
+      "D": "EDTA stimulated import by blocking proteinase K, and therefore it prevented the digestion of the precursor"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Protection from proteinase K means the precursor is inside intact membranes; lack of cleavage fits chelation of the zinc that MPP requires. Why the others are wrong: A) Surface-bound precursor would be digested by proteinase K, giving low protection. C) Ruptured membranes would expose the precursor to proteinase K and give low, not high, protection. D) Proteinase K is not blocked by EDTA in this design; protection reflects location, not enzyme inhibition.",
+     "trap": "Treating protease protection and presequence cleavage as the same measurement, when the EDTA row shows they can be uncoupled.",
+     "topic": "mitochondrial import and signal sequences",
+     "mastery_sheet_id": "2A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P5_Q3",
+     "stem": "A GFP fusion containing a tightly folded domain that cannot be unfolded is not imported. Which statement best explains this observation?",
+     "options": {
+      "A": "The channels thread precursors through in an unfolded state, aided by matrix Hsp70 and ATP",
+      "B": "Folded proteins are imported only into the intermembrane space, where TIM23 releases them to the matrix",
+      "C": "The folded domain masks the presequence from the signal peptidase located in the endoplasmic reticulum",
+      "D": "The folded domain increases the positive charge of the precursor, which prevents it from being drawn through TIM23"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Import channels accommodate extended polypeptide chains; tightly folded segments stall translocation, and ATP-dependent matrix Hsp70 helps pull the chain inward (ATP depletion lowered import to 22%). Why the others are wrong: B) Matrix proteins are not routed to the intermembrane space in a folded state. C) Mitochondrial import does not involve ER signal peptidase. D) The fold does not alter net charge in a way that explains the block.",
+     "trap": "Picturing import as passage of folded proteins through large pores, like nuclear import, rather than as threading of unfolded chains.",
+     "topic": "mitochondrial import and signal sequences",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P5_Q4",
+     "stem": "Which feature best allows the cell to sort a protein with a mitochondrial presequence away from one with an endoplasmic reticulum signal sequence?",
+     "options": {
+      "A": "The mitochondrial presequence is added to the C-terminus after folding, whereas the ER signal is at the N-terminus",
+      "B": "The mitochondrial presequence is recognized by the signal recognition particle, whereas the ER signal sequence is not",
+      "C": "The mitochondrial presequence is hydrophobic and uncharged, whereas the ER signal sequence is rich in acidic residues",
+      "D": "The mitochondrial presequence is amphipathic and positively charged, whereas the ER signal sequence has a central hydrophobic core"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A positively charged amphipathic helix is recognized by TOM receptors, while the hydrophobic core of an ER signal sequence is bound by SRP; the Arg-to-Glu variant (11% imported) shows how much the charge matters. Why the others are wrong: A) The presequence is N-terminal and is removed by MPP. B) SRP recognizes the ER signal sequence, not mitochondrial presequences. C) The presequence is charged and amphipathic, not hydrophobic and uncharged.",
+     "trap": "Remembering that both are N-terminal signals but swapping their chemical properties and receptors.",
+     "topic": "mitochondrial import and signal sequences",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_BB_P6",
+   "passage_text": "Bacteriophage lambda infects Escherichia coli and can follow either of two pathways. In the lytic cycle, phage genes are expressed in a cascade that replicates the genome and lyses the cell. In lysogeny, the phage integrates at attB as a prophage and the cI repressor shuts off lytic genes. The decision depends on the CII protein, a transcription activator that is unstable because of host FtsH protease; CII activates transcription of cI. A researcher infected E. coli with lambda variants and counted lysogens by selecting for resistance to superinfection, and determined plaque appearance. Lysogens were also exposed to ultraviolet (UV) light, which damages DNA and activates RecA; activated RecA stimulates auto-cleavage of the cI repressor. In a separate series, wild-type phage were added at different multiplicities of infection (MOI, average phage per cell), and the percentage of infected cells that became lysogens was measured (Figure 1). Table 1 summarizes the other experiments.",
+   "table_data": "| Phage | Host | Treatment | Lysogens (%) | Plaque appearance | Cells lysing after UV (%) |\n|---|---|---|---|---|---|\n| Wild type | recA+ | MOI 5 | 78 | turbid | not tested |\n| cI- mutant | recA+ | MOI 5 | 0 | clear | not tested |\n| cII- mutant | recA+ | MOI 5 | 3 | clear | not tested |\n| Wild-type lysogen | recA+ | UV | not applicable | not applicable | 94 |\n| Wild-type lysogen | recA- | UV | not applicable | not applicable | 2 |",
+   "graph": {
+    "type": "line",
+    "title": "Lysogeny as a function of multiplicity of infection",
+    "x_label": "Multiplicity of infection (phage per cell)",
+    "y_label": "Infected cells becoming lysogens (%)",
+    "series": [
+     {
+      "name": "Wild-type lambda",
+      "points": [
+       [
+        0.1,
+        2
+       ],
+       [
+        0.5,
+        8
+       ],
+       [
+        1,
+        20
+       ],
+       [
+        2,
+        45
+       ],
+       [
+        5,
+        78
+       ],
+       [
+        10,
+        92
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_BB_P6_Q1",
+     "stem": "Why does the cI- mutant form clear rather than turbid plaques?",
+     "options": {
+      "A": "Without cI repressor, the phage cannot adsorb to E. coli, so only a few cells are infected at all",
+      "B": "Without cI repressor, the host RecA protein is inactive, so the phage genome cannot be replicated",
+      "C": "Without cI repressor, the CII protein is degraded more quickly, which blocks integration of the prophage into the E. coli chromosome at attB",
+      "D": "Without cI repressor, no infected cell can maintain lysogeny, so every infected cell proceeds through the lytic cycle"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A turbid plaque contains surviving lysogens that are immune to superinfection thanks to cI; with no cI, no lysogens survive and the plaque clears. Why the others are wrong: A) Adsorption does not depend on cI; the mutant infects normally, as 0% lysogens at MOI 5 reflects the lytic outcome. B) RecA is a host protein that is not required for lytic replication. C) CII acts upstream of cI; cI loss does not accelerate CII degradation.",
+     "trap": "Treating a mutation in the repressor as an infection defect instead of recognizing that it removes the ability to establish or maintain lysogeny.",
+     "topic": "bacteriophage lysogeny versus lysis",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P6_Q2",
+     "stem": "Which explanation best accounts for the increase in lysogeny with increasing MOI in Figure 1?",
+     "options": {
+      "A": "Higher MOI saturates FtsH, which stabilizes cI and prevents the repressor from being cleaved by RecA",
+      "B": "Higher MOI raises the concentration of RecA, which cleaves lytic proteins and thereby favors integration",
+      "C": "Several genomes per cell increase the dose of Cro, which represses lytic genes and promotes integration of the prophage at the attB site in the host chromosome",
+      "D": "Several genomes per cell increase the dose of CII, so enough accumulates despite FtsH degradation to activate cI transcription"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) CII is unstable and acts as a dose-dependent sensor of infection; multiple genomes per cell synthesize more CII, promoting cI expression and lysogeny. Why the others are wrong: A) FtsH degrades CII, not cI; saturating it would not change cI cleavage. B) RecA cleaves cI, which favors lysis rather than lysogeny. C) Cro favors the lytic pathway, so more Cro would not promote lysogeny.",
+     "trap": "Reversing the roles of Cro (lytic) and cI or CII (lysogenic) when predicting which regulator accumulates at high multiplicity.",
+     "topic": "bacteriophage lysogeny versus lysis",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P6_Q3",
+     "stem": "In Table 1, lysogens exposed to UV lyse efficiently in a recA+ host but not in a recA- host. Which mechanism is most consistent with this result?",
+     "options": {
+      "A": "UV-activated RecA phosphorylates cI, which causes the repressor to bind more tightly to the operators",
+      "B": "UV-activated RecA activates CII, which then switches the prophage from lysogeny to the lytic cycle",
+      "C": "UV-activated RecA promotes auto-cleavage of cI, releasing repression of lytic genes and inducing the prophage",
+      "D": "UV light cuts the prophage out of the chromosome directly, and RecA only packages the excised genome"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) RecA acts as a co-protease that triggers cI self-cleavage, so Cro and other lytic genes are expressed; without RecA only 2% of cells lyse. Why the others are wrong: A) Phosphorylation of cI is not part of this mechanism, and tighter binding would maintain lysogeny. B) CII promotes lysogeny rather than lysis, and RecA does not activate it. D) Excision depends on phage Int and Xis after induction, not on direct cutting by UV light.",
+     "trap": "Assuming UV induces lysis by directly excising the prophage rather than by inactivating the repressor.",
+     "topic": "bacteriophage lysogeny versus lysis",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P6_Q4",
+     "stem": "Assume that every one of 500 cells is infected at MOI 1. Based on Figure 1, about how many cells enter the lytic cycle?",
+     "options": {
+      "A": "225",
+      "B": "100",
+      "C": "400",
+      "D": "200"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) At MOI 1, 20% become lysogens, so 80% of 500, or 400 cells, enter the lytic cycle. Why the others are wrong: A) 225 is the number of lysogens (45%) expected at MOI 2, not lytic cells at MOI 1. B) 100 is the number of lysogens (20% of 500), not lytic cells. D) 200 is 40% of 500 and matches no value in Figure 1 at MOI 1.",
+     "trap": "Reporting the lysogenic fraction (100 cells) instead of the complement that undergoes lysis.",
+     "topic": "bacteriophage lysogeny versus lysis",
+     "mastery_sheet_id": "2B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_BB_P7",
+   "passage_text": "Normal human somatic cells divide a limited number of times before entering replicative senescence, in which they remain metabolically active but stop dividing. Telomeres, repeats of TTAGGG at chromosome ends, shorten with each division because DNA polymerase cannot fully replicate the 3' end of the lagging strand. Telomerase, a ribonucleoprotein with a catalytic reverse transcriptase subunit (hTERT) and an RNA template (hTR), extends telomeres but is silent in most somatic cells. Critically short telomeres are recognized as DNA damage and activate p53, which drives arrest. A researcher engineered primary human fibroblasts as shown in Table 1 and passaged them continuously, measuring mean terminal restriction fragment length (a measure of telomere length) at intervals (Figure 1). Telomerase activity was measured by the TRAP assay (relative to control cells). Senescent cells were identified by staining for senescence-associated beta-galactosidase (SA-beta-gal) at population doubling (PD) 55, and the fraction of cells with gamma-H2AX foci at telomeres was scored as a marker of telomere damage.",
+   "table_data": "| Cell line | Telomerase activity (relative) | Maximum PD reached | SA-beta-gal positive at PD 55 (%) | Cells with telomeric gamma-H2AX foci (%) |\n|---|---|---|---|---|\n| Control fibroblasts | 1 | 55 | 85 | 62 |\n| hTERT-expressing | 48 | more than 120 | 4 | 3 |\n| Catalytically dead hTERT | 1 | 56 | 84 | 60 |\n| Control + p53 shRNA | 1 | 68 | 40 | 55 |",
+   "graph": {
+    "type": "line",
+    "title": "Mean telomere length during serial passage",
+    "x_label": "Population doublings",
+    "y_label": "Mean telomere length (kb)",
+    "series": [
+     {
+      "name": "Control fibroblasts",
+      "points": [
+       [
+        0,
+        9.0
+       ],
+       [
+        20,
+        7.4
+       ],
+       [
+        40,
+        5.8
+       ],
+       [
+        55,
+        4.6
+       ]
+      ]
+     },
+     {
+      "name": "hTERT-expressing",
+      "points": [
+       [
+        0,
+        9.0
+       ],
+       [
+        20,
+        9.0
+       ],
+       [
+        40,
+        9.1
+       ],
+       [
+        60,
+        9.0
+       ],
+       [
+        80,
+        9.1
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_BB_P7_Q1",
+     "stem": "Which statement best explains why telomeres in the control fibroblasts shorten with each division?",
+     "options": {
+      "A": "DNA polymerase cannot synthesize the leading strand at chromosome ends because it only copies in the 3' to 5' direction, which leaves the ends uncopied",
+      "B": "The RNA component of telomerase is degraded at each division, so repeats are no longer added to the 5' ends",
+      "C": "Telomeric repeats are specifically cut by nucleases whenever the cell passes through the S phase checkpoint",
+      "D": "DNA polymerase cannot replicate the extreme 3' end of the lagging-strand template after the terminal RNA primer is removed"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The end-replication problem: the lagging strand lacks a primer for the last Okazaki fragment, so the 3' overhang shortens by about 80 bp per division in these cells (9.0 kb to 5.8 kb over 40 PD). Why the others are wrong: A) DNA polymerase copies 5' to 3' on both strands; the leading strand can be copied to the end. B) Telomerase is absent in control cells, and it extends the 3' end, not the 5' end. C) No nuclease activity specific to telomere repeats at S phase is part of the explanation.",
+     "trap": "Believing polymerase cannot copy one direction or that active nucleases erase telomeres, rather than the missing primer at the lagging-strand end.",
+     "topic": "telomerase and cellular senescence",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P7_Q2",
+     "stem": "What is the main purpose of including the catalytically dead hTERT line?",
+     "options": {
+      "A": "It shows that catalytic activity, not hTERT protein alone, prevents senescence",
+      "B": "To show that overexpression of any protein increases the number of population doublings in a cell line",
+      "C": "To show that the hTR template RNA is dispensable for telomerase to elongate telomeres in these cells",
+      "D": "To show that p53 is activated by the catalytically dead enzyme more strongly than by the control cells"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The dead enzyme is expressed but cannot add repeats; its senescence at PD 56 (84% SA-beta-gal positive) matches control, so the catalytic activity is required for immortalization. Why the others are wrong: B) The dead enzyme did not extend lifespan, so this does not support a general effect of protein overexpression. C) The experiment does not test the RNA template; telomerase needs hTR to function. D) No p53 measurements were made in this comparison.",
+     "trap": "Reading the catalytically dead line as a test of an unrelated variable instead of a control for expression versus enzymatic activity.",
+     "topic": "telomerase and cellular senescence",
+     "mastery_sheet_id": "2C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P7_Q3",
+     "stem": "Knockdown of p53 extended the lifespan of control cells to PD 68 but did not make them immortal. Which explanation is most consistent with the data?",
+     "options": {
+      "A": "p53 knockdown activated telomerase, but the enzyme was inactive in the absence of the hTR template",
+      "B": "Cells divided without p53 arrest, but telomeres kept shortening until a later crisis",
+      "C": "p53 knockdown prevented telomere shortening, but the cells then accumulated another senescence signal",
+      "D": "p53 knockdown eliminated the DNA damage signal at telomeres, so the cells no longer needed telomeres"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) gamma-H2AX foci remain high (55%) in the p53 shRNA line, so telomeres still shorten and signal damage; loss of p53 only removes the arrest response, which delays but does not prevent crisis. Why the others are wrong: A) TRAP activity stays at 1, so telomerase was not activated. C) Telomere shortening is a replication phenomenon and continues without p53. D) Persistent telomeric foci show that telomere damage remains in the p53 knockdown line.",
+     "trap": "Assuming that bypassing the checkpoint also repairs the underlying telomere problem.",
+     "topic": "telomerase and cellular senescence",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P7_Q4",
+     "stem": "Using the slope of the control curve between 0 and 40 population doublings, at about which population doubling would the control telomeres reach 5.0 kb?",
+     "options": {
+      "A": "40",
+      "B": "50",
+      "C": "62",
+      "D": "30"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The loss is (9.0 - 5.8) / 40 = 0.08 kb per PD, so reaching 5.0 kb requires (9.0 - 5.0) / 0.08 = 50 PD. Why the others are wrong: A) 40 is the PD at which telomeres are 5.8 kb, which is not yet 5.0 kb. C) 62 results from dividing the remaining 5.0 kb by 0.08 instead of the 4.0 kb lost. D) 30 would apply to a loss of about 0.13 kb per PD, faster than the curve shows.",
+     "trap": "Dividing the final telomere length by the rate instead of the length lost from the starting value.",
+     "topic": "telomerase and cellular senescence",
+     "mastery_sheet_id": "2C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_BB_P8",
+   "passage_text": "Heart rate is set by the sinoatrial (SA) node, whose pacemaker cells depolarize spontaneously during phase 4 of the action potential. The vagus nerve releases acetylcholine onto M2 muscarinic receptors on the node, and sympathetic nerves release norepinephrine onto beta-1 adrenergic receptors. In a study of healthy 25-year-old volunteers resting supine, heart rate was measured under pharmacologic blockade (Table 1). Atropine is a muscarinic receptor antagonist and propranolol is a nonselective beta-adrenergic antagonist. In a second protocol, phenylephrine, an alpha-1 agonist that raises arterial pressure without direct effects on the heart, was infused at increasing doses to produce graded increases in mean arterial pressure (MAP), and heart rate was recorded with and without atropine (Figure 1). Baroreceptors in the carotid sinus and aortic arch send signals to the medulla, which adjusts autonomic outflow to the heart. Each value is the mean of ten participants. Participants avoided caffeine and exercise for 24 hours before testing, and heart rate was recorded by continuous electrocardiogram after 10 minutes of rest.",
+   "table_data": "| Condition | Heart rate (beats/min) |\n|---|---|\n| Control (no drug) | 68 |\n| Atropine | 88 |\n| Propranolol | 60 |\n| Atropine + propranolol | 104 |",
+   "graph": {
+    "type": "line",
+    "title": "Heart rate during phenylephrine-induced rise in arterial pressure",
+    "x_label": "Mean arterial pressure (mmHg)",
+    "y_label": "Heart rate (beats/min)",
+    "series": [
+     {
+      "name": "Control",
+      "points": [
+       [
+        80,
+        76
+       ],
+       [
+        90,
+        68
+       ],
+       [
+        100,
+        60
+       ],
+       [
+        110,
+        52
+       ],
+       [
+        120,
+        50
+       ]
+      ]
+     },
+     {
+      "name": "Atropine",
+      "points": [
+       [
+        80,
+        90
+       ],
+       [
+        90,
+        88
+       ],
+       [
+        100,
+        87
+       ],
+       [
+        110,
+        86
+       ],
+       [
+        120,
+        86
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_BB_P8_Q1",
+     "stem": "Which conclusion about resting autonomic tone is best supported by Table 1?",
+     "options": {
+      "A": "Sympathetic tone dominates at rest, because blocking it lowers heart rate by a larger amount than blocking vagal input raises it",
+      "B": "Parasympathetic tone dominates at rest, because blocking it raises heart rate more than blocking sympathetic input lowers it",
+      "C": "Parasympathetic and sympathetic tone are equal at rest, because the two single drugs change heart rate in opposite directions",
+      "D": "Neither division influences rest heart rate, because the intrinsic rate with both blocked is not different from control"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Atropine raises heart rate by 20 beats/min whereas propranolol lowers it by only 8, so vagal slowing is the larger resting influence. Why the others are wrong: A) Propranolol lowers rate by 8, which is less than the 20 beat/min rise with atropine. C) The magnitudes differ (20 versus 8), so tone is not equal. D) Double blockade gives 104, well above the control of 68, so autonomic input matters.",
+     "trap": "Reading opposite directions of change as equal tone instead of comparing the sizes of the two effects.",
+     "topic": "autonomic control of heart rate",
+     "mastery_sheet_id": "3A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P8_Q2",
+     "stem": "Which mechanism best explains how acetylcholine slows the SA node?",
+     "options": {
+      "A": "M2 receptors open voltage-gated Na+ channels, which causes a rapid upstroke that shortens the interval between beats",
+      "B": "M2 receptors block the funny current by closing gap junctions, which isolates the SA node from the atrium",
+      "C": "M2 receptors activate Gs, which raises cAMP and shifts If channels to open at more negative potentials",
+      "D": "M2 receptors activate Gi-coupled K+ channels and lower cAMP, which hyperpolarizes the cell and slows phase 4 depolarization"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) M2 receptors act through Gi: the beta-gamma subunits open GIRK K+ channels (hyperpolarization) and the alpha-i subunit decreases cAMP, lowering If and slowing the pacemaker potential. Why the others are wrong: A) Na+ channel opening would speed, not slow, the rate and is not how M2 receptors act. B) M2 receptors do not close gap junctions; they alter ion channel activity in SA nodal cells. C) Gs and increased cAMP describe the sympathetic, beta-1 effect, which speeds the node.",
+     "trap": "Mixing up Gs (sympathetic, beta-1) and Gi (parasympathetic, M2) signaling in the pacemaker cell.",
+     "topic": "autonomic control of heart rate",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P8_Q3",
+     "stem": "What does the flat atropine curve in Figure 1 indicate about the baroreflex slowing of heart rate seen in the control curve?",
+     "options": {
+      "A": "It is mediated mainly by increased vagal outflow acting on muscarinic receptors rather than by withdrawal of sympathetic drive",
+      "B": "It is mediated mainly by decreased sympathetic outflow, because atropine blocks beta-1 receptors on the SA node",
+      "C": "It is mediated mainly by local autoregulation in the heart, because the atropine curve is independent of arterial pressure",
+      "D": "It is mediated by direct effects of phenylephrine on the SA node, because the curve is flat after the drug is given, rather than by any change in autonomic outflow"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Atropine blocks muscarinic receptors, and the slope falls from about -0.8 beats/min per mmHg to almost zero; the reflex slowing therefore depended on vagal activation. Why the others are wrong: B) Atropine blocks muscarinic, not beta-1 receptors. C) The control curve shows the dependence on pressure; local autoregulation is not shown by these data. D) Phenylephrine acts on alpha-1 receptors in vessels and lowers rate only through the reflex, as the control curve shows.",
+     "trap": "Assuming that the drug-sensitive step must be sympathetic withdrawal because the heart rate fell as pressure rose.",
+     "topic": "autonomic control of heart rate",
+     "mastery_sheet_id": "3A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P8_Q4",
+     "stem": "What is the slope of the control curve in Figure 1 between MAP of 90 and 110 mmHg?",
+     "options": {
+      "A": "+0.8 beats/min per mmHg",
+      "B": "-1.25 beats/min per mmHg",
+      "C": "-0.8 beats/min per mmHg",
+      "D": "-16 beats/min per mmHg"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) (52 - 68) / (110 - 90) = -16/20 = -0.8. Why the others are wrong: A) The slope is negative; heart rate falls as pressure rises. B) -1.25 is the inverse (mmHg change per unit of heart rate change). D) -16 is the change in heart rate without dividing by the 20 mmHg interval.",
+     "trap": "Reporting the total change in heart rate without dividing by the pressure interval, or inverting the ratio.",
+     "topic": "autonomic control of heart rate",
+     "mastery_sheet_id": "3A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_BB_P8_Q5",
+     "stem": "A patient has recently received a heart transplant, which interrupts autonomic nerves to the donor heart. Compared with the 68 beats/min of the control volunteers, the patient's resting heart rate is expected to be",
+     "options": {
+      "A": "lower, near 60 beats/min, because the sympathetic supply is lost and vagal tone remains",
+      "B": "much lower, because the denervated SA node cannot depolarize spontaneously without vagal input",
+      "C": "higher, near the intrinsic rate, because vagal tone is lost",
+      "D": "unchanged, because the SA node does not depend on autonomic input to generate a rhythm"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The denervated SA node fires at its intrinsic rate (about 100 beats/min, as in the double-blockade condition), higher than the resting rate of innervated hearts. Why the others are wrong: A) Vagal input is also lost with the transplant, so the vagal tone does not remain. B) The SA node depolarizes spontaneously and does not require neural input to fire. D) The double-blockade rate of 104 shows that autonomic input changes the rate.",
+     "trap": "Assuming the pacemaker needs nerve input to fire, rather than recognizing that nerves only modulate an intrinsically faster rate.",
+     "topic": "autonomic control of heart rate",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_BB_P9",
+   "passage_text": "Gastrin, secretin, and cholecystokinin (CCK) are hormones released by enteroendocrine cells into the blood in response to luminal contents. In a study of healthy volunteers, tubes were placed in the stomach and duodenum, and fasting values were compared with those after specified stimuli. Table 1 gives mean changes in plasma hormone concentration (as multiples of the fasting value) and a physiologic response for each stimulus. G cells in the gastric antrum release gastrin; D cells release somatostatin when luminal pH falls, which inhibits G cells. In a separate experiment, antral pH was clamped at different values and plasma gastrin was measured (Figure 1). Gastrin stimulates acid secretion by parietal cells both directly and through histamine release from enterochromataffin-like (ECL) cells. Secretin is released from S cells of the duodenum, and CCK from I cells. A patient with a gastrin-secreting tumor was also studied and had very high fasting gastrin, and acid output that was not reduced by low antral pH.",
+   "table_data": "| Stimulus | Gastrin (fold) | Secretin (fold) | CCK (fold) | Physiologic response |\n|---|---|---|---|---|\n| Protein meal in stomach | 4.0 | 1.0 | 1.2 | Acid output 5-fold higher |\n| Acid (pH 2) infused into duodenum | 0.5 | 6.0 | 1.0 | Pancreatic bicarbonate 4-fold higher |\n| Fatty acids infused into duodenum | 0.8 | 1.5 | 7.0 | Gallbladder emptying 70% (fasting 10%) |",
+   "graph": {
+    "type": "scatter",
+    "title": "Plasma gastrin at clamped antral pH",
+    "x_label": "Antral luminal pH",
+    "y_label": "Plasma gastrin (pg/mL)",
+    "series": [
+     {
+      "name": "Healthy volunteers",
+      "points": [
+       [
+        1.5,
+        12
+       ],
+       [
+        2.5,
+        25
+       ],
+       [
+        3.5,
+        48
+       ],
+       [
+        5.0,
+        85
+       ],
+       [
+        6.5,
+        110
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_BB_P9_Q1",
+     "stem": "The rise in secretin after duodenal acid serves which physiologic purpose?",
+     "options": {
+      "A": "It stimulates pancreatic duct cells to secrete bicarbonate that neutralizes acid entering the duodenum",
+      "B": "It stimulates parietal cells to secrete more acid so that digestion of protein in the duodenum is accelerated",
+      "C": "It stimulates the gallbladder to contract and the sphincter of Oddi to relax to deliver bile salts",
+      "D": "It stimulates pancreatic acinar cells to release zymogens that digest the fats delivered from the stomach"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Secretin is released when duodenal pH is low; the 6.0-fold rise matches the 4-fold increase in pancreatic bicarbonate, protecting duodenal mucosa and raising pH for pancreatic enzymes. Why the others are wrong: B) Secretin inhibits, rather than stimulates, gastric acid secretion. C) Gallbladder contraction and sphincter relaxation are CCK effects (fat infusion row). D) Enzyme release from acinar cells is mainly stimulated by CCK, not by secretin.",
+     "trap": "Mixing up the targets of secretin (bicarbonate, duct cells) and CCK (enzymes and bile).",
+     "topic": "GI hormones gastrin secretin CCK",
+     "mastery_sheet_id": "3B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P9_Q2",
+     "stem": "Which mechanism explains the response of gallbladder emptying to fatty acids?",
+     "options": {
+      "A": "Fatty acids directly depolarize gallbladder smooth muscle through intrinsic reflexes without hormonal input",
+      "B": "Fatty acids stimulate S cells to release secretin, which contracts the gallbladder and raises bicarbonate",
+      "C": "Fatty acids stimulate I cells to release CCK, which contracts the gallbladder and relaxes the sphincter of Oddi",
+      "D": "Fatty acids stimulate G cells to release gastrin, which raises acid output and speeds gallbladder emptying"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) CCK rose 7-fold with duodenal fatty acids; it contracts gallbladder smooth muscle and relaxes the sphincter of Oddi to deliver bile for emulsification. Why the others are wrong: A) The data show a strong CCK response, which points to a hormonal mechanism. B) Secretin rose only 1.5-fold with fatty acids, and its main effect is on bicarbonate. D) Gastrin fell slightly (0.8) with fatty acid infusion.",
+     "trap": "Choosing secretin for any duodenal stimulus without matching the hormone to the nutrient that triggers it.",
+     "topic": "GI hormones gastrin secretin CCK",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P9_Q3",
+     "stem": "What explains the pattern of plasma gastrin in Figure 1?",
+     "options": {
+      "A": "Acid activates D cells to release somatostatin, which inhibits G cells",
+      "B": "Low luminal pH directly stimulates G cells, so gastrin release is greatest when the antrum is most acidic",
+      "C": "High luminal pH stimulates D cells, which release somatostatin that increases gastrin release from the G cells",
+      "D": "Plasma gastrin tracks parietal cell activity, which falls as the antrum becomes less acidic"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Gastrin is under negative feedback: acid triggers somatostatin, which restrains G cells, and gastrin increases from 12 to 110 pg/mL as pH rises. Why the others are wrong: B) Gastrin is lowest, not highest, at the most acidic pH in the figure. C) Somatostatin is released in response to low pH and is inhibitory. D) The figure shows gastrin falling as acid rises, which would not follow a parietal-cell-driven pattern.",
+     "trap": "Assuming that acid always stimulates acid-promoting hormones rather than recognizing negative feedback.",
+     "topic": "GI hormones gastrin secretin CCK",
+     "mastery_sheet_id": "3B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P9_Q4",
+     "stem": "The patient with the gastrin-secreting tumor develops fatty, bulky stools. Which mechanism is most likely?",
+     "options": {
+      "A": "Excess acid stimulates pancreatic lipase and bile secretion, which causes fats to be absorbed too quickly by the ileum",
+      "B": "Excess gastrin increases secretin release, which overstimulates bicarbonate secretion and washes bile salts out of the lumen",
+      "C": "Excess acid entering the duodenum inactivates pancreatic lipase and precipitates bile acids, which impairs fat digestion and micelle formation",
+      "D": "Excess gastrin directly blocks CCK release from I cells, which prevents gallbladder contraction in response to fat"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) With acid output not suppressed, the duodenal pH stays low, below the optimum of pancreatic lipase, and bile acids precipitate, so fat is malabsorbed (steatorrhea). Why the others are wrong: A) Acid inactivates lipase rather than stimulating it. B) Acid in the duodenum raises secretin, but bicarbonate is not overwhelmed in this patient and no washout is described. D) The case describes no direct effect of gastrin on CCK release.",
+     "trap": "Attributing malabsorption to altered hormone interactions rather than to the effect of low duodenal pH on enzymes and bile acids.",
+     "topic": "GI hormones gastrin secretin CCK",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P9_Q5",
+     "stem": "A patient takes a proton pump inhibitor for several months. Which change in plasma gastrin would be expected, and why?",
+     "options": {
+      "A": "Higher, because the drug directly stimulates G cells through the CCK2 receptor in the antrum",
+      "B": "Unchanged, because gastrin secretion is controlled only by vagal input and is independent of pH",
+      "C": "Higher, because less acid in the antrum lowers somatostatin release and removes inhibition of G cells",
+      "D": "Lower, because less acid in the stomach reduces the stimulus for gastrin release from G cells"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) By Figure 1, rising antral pH raises gastrin through loss of somatostatin-mediated inhibition; this hypergastrinemia is a known effect of long-term acid suppression. Why the others are wrong: A) The drug blocks the H+/K+ ATPase of parietal cells and does not stimulate G cells directly. B) Figure 1 shows a strong dependence of gastrin on pH. D) Acid inhibits gastrin release, so less acid does not reduce it.",
+     "trap": "Predicting that reducing acid would reduce gastrin, which ignores the negative feedback loop.",
+     "topic": "GI hormones gastrin secretin CCK",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_BB_P10",
+   "passage_text": "In regions where Plasmodium falciparum malaria is endemic, the sickle cell allele (HbS), a glutamate-to-valine substitution at position 6 of the beta-globin chain, reaches high frequencies. Heterozygotes (AS) generally have normal red cell morphology under ordinary conditions. A researcher followed a birth cohort of 10,000 newborns in a high-transmission region, assuming Hardy-Weinberg proportions at birth, and recorded the percentage of children aged 2 to 5 years with high-density parasitemia and the relative fitness (survival to reproductive age, scaled to a maximum of 1.00). In parasitized AS red cells, hemoglobin deoxygenates more quickly and polymerizes, causing the cells to sickle and to be cleared by the spleen, and parasite proteins display on the cell surface is impaired. Parasite density was estimated from thick blood smears, and genotypes were determined by hemoglobin electrophoresis. Table 1 shows the cohort data. Figure 1 plots the frequency of HbS among adults against the prevalence of malaria in children across six surveyed regions.",
+   "table_data": "| Genotype | Newborns (of 10,000) | High-density parasitemia (%) | Relative fitness |\n|---|---|---|---|\n| AA | 7056 | 28 | 0.85 |\n| AS | 2688 | 6 | 1.00 |\n| SS | 256 | 5 | 0.20 |",
+   "graph": {
+    "type": "scatter",
+    "title": "HbS allele frequency versus malaria prevalence across regions",
+    "x_label": "Malaria prevalence in children (%)",
+    "y_label": "HbS allele frequency",
+    "series": [
+     {
+      "name": "Regions",
+      "points": [
+       [
+        2,
+        0.0
+       ],
+       [
+        10,
+        0.02
+       ],
+       [
+        25,
+        0.07
+       ],
+       [
+        40,
+        0.1
+       ],
+       [
+        55,
+        0.14
+       ],
+       [
+        70,
+        0.16
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_BB_P10_Q1",
+     "stem": "Which mechanism best explains the lower parasitemia in AS children?",
+     "options": {
+      "A": "AS red cells lack the membrane receptors that merozoites need to enter, which prevents all new infections",
+      "B": "The valine substitution makes hemoglobin unable to bind oxygen, which starves the parasite of the oxygen it requires",
+      "C": "Heterozygotes produce antibodies against Plasmodium that are absent in AA children at the same ages, which prevents infection altogether in early childhood",
+      "D": "Polymerization of HbS in parasitized cells causes sickling and clearance, and impairs display of parasite adhesion proteins"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Under low oxygen in infected cells, HbS polymerizes, the cell sickles and is removed by the spleen, and surface display of PfEMP1 is impaired, which limits parasite growth and cytoadherence. Why the others are wrong: A) AS children still become infected; parasite density, not infection, is lower. B) HbS still binds oxygen, although it polymerizes in the deoxygenated form. C) The protection is not mediated by a unique antibody response.",
+     "trap": "Attributing protection to a loss of function in oxygen binding or to immunity rather than to polymerization in infected cells.",
+     "topic": "sickle cell and malaria selection",
+     "mastery_sheet_id": "1C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P10_Q2",
+     "stem": "Using the relative fitnesses in Table 1, what is the expected equilibrium frequency of the HbS allele?",
+     "options": {
+      "A": "0.05",
+      "B": "0.84",
+      "C": "0.19",
+      "D": "0.16"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) With selection coefficients s = 1 - 0.85 = 0.15 against AA and t = 1 - 0.20 = 0.80 against SS, q = s / (s + t) = 0.15 / 0.95 = 0.158, about 0.16. Why the others are wrong: A) 0.05 would require much weaker selection against AA. B) 0.84 is the equilibrium frequency of the A allele, not of S. C) 0.19 results from dividing 0.15 by t (0.80) instead of by s + t.",
+     "trap": "Dividing by the selection against SS alone instead of the sum of the two selection coefficients, or reporting the A allele.",
+     "topic": "sickle cell and malaria selection",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://courses.washington.edu/gs562/lectures/lec6.pdf",
+       "https://mun.ca/biology/scarr/Heterozygote_advantage.html"
+      ]
+     }
+    },
+    {
+     "id": "FL10_BB_P10_Q3",
+     "stem": "If malaria were eliminated from a region, what change in HbS frequency would be expected over many generations?",
+     "options": {
+      "A": "A slow decline, because SS individuals would still have low fitness, while most S alleles are masked in heterozygotes",
+      "B": "No change, because the allele has no effect on fitness when malaria is absent",
+      "C": "A steady rise, because heterozygotes would be fitter than AA children when no malaria is present",
+      "D": "A rapid disappearance within a few generations, because AS individuals would lose all of their fitness"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Without malaria, AS and AA have about equal fitness while SS keep their disadvantage; because most S alleles reside in heterozygotes, selection removes them slowly. Why the others are wrong: B) SS individuals still have reduced survival, so the allele has fitness effects. C) Without malaria, AS has no advantage over AA, so a rise would not be expected. D) AS would not lose fitness; they would be similar to AA.",
+     "trap": "Expecting the heterozygous advantage to reverse into a strong disadvantage instead of a weak, slow selection against a recessive allele.",
+     "topic": "sickle cell and malaria selection",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_BB_P10_Q4",
+     "stem": "Why does substitution of valine for glutamate at beta position 6 lead to polymerization of deoxyhemoglobin S?",
+     "options": {
+      "A": "The new hydrophobic valine fits into a hydrophobic pocket on a neighboring deoxy hemoglobin, which promotes fiber formation",
+      "B": "The new valine blocks the heme pocket, which locks hemoglobin in the oxygenated R state and induces precipitation",
+      "C": "The loss of a negatively charged glutamate increases electrostatic repulsion between hemoglobins, which favors aggregation",
+      "D": "The new valine forms a disulfide bond with a cysteine on a neighboring hemoglobin, which cross-links tetramers"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Replacing a polar, charged residue with hydrophobic valine creates a sticky surface patch that binds a complementary pocket on another deoxygenated hemoglobin, so tetramers stack into fibers. Why the others are wrong: B) HbS polymerizes in the deoxygenated T state, not by locking the R state. C) Removing a negative charge would reduce, not increase, repulsion. D) Valine has no sulfhydryl group and cannot form a disulfide bond.",
+     "trap": "Explaining a charge-to-hydrophobic substitution by a covalent cross-link or a change in the oxygen-binding pocket.",
+     "topic": "sickle cell and malaria selection",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL10_BB_D1",
+   "stem": "An enzyme has a Vmax of 50 umol/min and a Km of 2 mM. In the presence of a fixed concentration of a competitive inhibitor, the apparent Km is 6 mM. At a substrate concentration of 6 mM with the inhibitor present, what is the reaction velocity?",
+   "options": {
+    "A": "50 umol/min",
+    "B": "37.5 umol/min",
+    "C": "25 umol/min",
+    "D": "12.5 umol/min"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) A competitive inhibitor leaves Vmax unchanged and raises apparent Km; v = Vmax[S]/(Km,app + [S]) = 50(6)/(6 + 6) = 25 umol/min. Why the others are wrong: A) 50 umol/min is Vmax, which would be reached only at saturating substrate. B) 37.5 umol/min is the velocity without the inhibitor (50 x 6 / 8). D) 12.5 umol/min would require an apparent Km of 18 mM.",
+   "trap": "Using the uninhibited Km of 2 mM in the equation, which gives the velocity without inhibitor.",
+   "topic": "competitive inhibition and Michaelis-Menten kinetics",
+   "mastery_sheet_id": "1A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.medschoolcoach.com/mcat/enzyme-inhibition",
+     "https://education.med.nyu.edu/mbm/proteomics/enzymes.shtml"
+    ]
+   }
+  },
+  {
+   "id": "FL10_BB_D2",
+   "stem": "A protein with an isoelectric point of 9.2 is applied to an ion-exchange column at pH 7.0. Which column would bind the protein?",
+   "options": {
+    "A": "An anion exchanger, because the protein carries a net negative charge at pH 7.0",
+    "B": "A cation exchanger, because the protein carries a net positive charge at pH 7.0",
+    "C": "A cation exchanger, because the protein carries a net negative charge at pH 7.0",
+    "D": "An anion exchanger, because the protein carries a net positive charge at pH 7.0"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) At a pH below its pI the protein has a net positive charge and binds the negatively charged resin of a cation exchanger. Why the others are wrong: A) A net negative charge would occur only above the pI, at pH values higher than 9.2. C) A negatively charged protein would bind an anion exchanger, but the protein is positive here. D) Positively charged proteins are repelled by the positively charged groups on an anion exchanger.",
+   "trap": "Reversing the relationship between pH, pI, and net charge.",
+   "topic": "ion-exchange chromatography",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_BB_D3",
+   "stem": "After DNA replication in E. coli, the mismatch repair proteins MutS and MutL correct a mispaired base. How does the system distinguish the newly synthesized strand from the template strand?",
+   "options": {
+    "A": "The new strand carries ribonucleotides at its 5' end that mark it for removal and resynthesis",
+    "B": "The new strand is transiently unmethylated at GATC sites, whereas the parental strand is methylated",
+    "C": "The new strand is bound by the sliding clamp, which remains bound throughout the entire cell cycle",
+    "D": "The template strand carries uracil at mismatched positions, which is excised by uracil DNA glycosylase"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Dam methylase methylates adenine at GATC sequences after replication; the hemimethylated state lets repair proteins identify the new strand for correction. Why the others are wrong: A) RNA primers mark Okazaki fragments, but they do not mark mismatches for repair. C) The clamp does not remain on DNA across the cell cycle and is not the strand marker. D) Uracil excision is base excision repair, which acts without MutS and MutL.",
+   "trap": "Confusing mismatch repair with base excision repair or primer removal.",
+   "topic": "mismatch repair in prokaryotes",
+   "mastery_sheet_id": "1B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_BB_D4",
+   "stem": "A researcher begins a PCR with 1,000 copies of a target sequence and assumes 100% efficiency in every cycle. What is the minimum number of cycles needed to exceed 1 x 10^6 copies?",
+   "options": {
+    "A": "20",
+    "B": "30",
+    "C": "10",
+    "D": "7"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Copies double each cycle, so 1,000 x 2^n > 10^6 requires 2^n > 1,000, which is first met at n = 10 (1,024). Why the others are wrong: A) 20 cycles would give 1,000 x 2^20, about 10^9 copies. B) 30 cycles would amplify beyond 10^12 copies. D) 7 cycles give 1,000 x 128 = 128,000 copies, which is too few.",
+   "trap": "Dividing 10^6 by 1,000 and then by 2 (or using ln or log10 values) instead of finding n for which 2^n exceeds 1,000.",
+   "topic": "PCR amplification",
+   "mastery_sheet_id": "1B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://nij.ojp.gov/nij-hosted-online-training-courses/dna-amplification/overview/amplification"
+    ]
+   }
+  },
+  {
+   "id": "FL10_BB_D5",
+   "stem": "Cystic fibrosis is an autosomal recessive disorder that affects about 1 in 2,500 newborns in a population in Hardy-Weinberg equilibrium. What is the approximate frequency of carriers?",
+   "options": {
+    "A": "1 in 50",
+    "B": "1 in 25",
+    "C": "1 in 2,500",
+    "D": "1 in 12"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) q squared = 1/2,500, so q = 0.02, p is about 0.98, and carrier frequency 2pq is about 0.04, or 1 in 25. Why the others are wrong: A) 1 in 50 corresponds to the allele frequency q = 0.02, not to carriers (2pq). C) 1 in 2,500 is the frequency of affected homozygotes. D) 1 in 12 would be 2pq for a more common allele (q about 0.04).",
+   "trap": "Reporting q (1 in 50) as the carrier frequency without multiplying by 2p.",
+   "topic": "Hardy-Weinberg carrier frequency",
+   "mastery_sheet_id": "1C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.gfmer.ch/SRH-Course-2013/community-genetics/pdf/Applications-population-genetics-Hamamy-2013.pdf",
+     "https://cognito.org/blog/hardy-weinberg-equation-a-level-biology"
+    ]
+   }
+  },
+  {
+   "id": "FL10_BB_D6",
+   "stem": "During a prolonged fast, the liver produces ketone bodies that are used by the brain but cannot be used by the liver itself. Which enzyme deficiency in hepatocytes explains this?",
+   "options": {
+    "A": "HMG-CoA synthase, which forms HMG-CoA from acetoacetyl-CoA and acetyl-CoA",
+    "B": "Succinyl-CoA:acetoacetate CoA transferase (thiophorase), which activates acetoacetate to acetoacetyl-CoA",
+    "C": "Carnitine acyltransferase I, which is required to import fatty acids into mitochondria",
+    "D": "Acetyl-CoA carboxylase, which forms malonyl-CoA from acetyl-CoA"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The liver makes acetoacetate and 3-hydroxybutyrate but lacks thiophorase, so it cannot convert them back to acetyl-CoA; extrahepatic tissues have the enzyme. Why the others are wrong: A) HMG-CoA synthase is highly active in liver mitochondria and is needed for ketone production. C) Carnitine acyltransferase I is needed to supply the substrate for ketogenesis, so liver has it. D) Acetyl-CoA carboxylase is a fatty acid synthesis enzyme and is not involved in ketone use.",
+   "trap": "Naming an enzyme of ketone synthesis instead of the enzyme needed for ketone utilization.",
+   "topic": "ketone body metabolism",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_BB_D7",
+   "stem": "A malnourished patient has elevated blood lactate and pyruvate and low erythrocyte transketolase activity. A deficiency of which vitamin is most likely?",
+   "options": {
+    "A": "Biotin, because pyruvate carboxylase and transketolase both require it for carboxylation reactions",
+    "B": "Riboflavin, because pyruvate dehydrogenase and transketolase both require FAD as a cofactor",
+    "C": "Niacin, because pyruvate dehydrogenase and transketolase both use NAD+ as the electron acceptor",
+    "D": "Thiamine, because pyruvate dehydrogenase and transketolase both require thiamine pyrophosphate"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Thiamine pyrophosphate is a cofactor for pyruvate dehydrogenase, alpha-ketoglutarate dehydrogenase, and transketolase, so its deficiency raises pyruvate and lactate and lowers transketolase activity. Why the others are wrong: A) Transketolase is not a carboxylase and has no biotin requirement. B) Transketolase does not use FAD; thiamine pyrophosphate is the cofactor shared by both enzymes. C) Transketolase does not use NAD+ as its cofactor.",
+   "trap": "Selecting a vitamin that serves only one of the two enzymes cited, rather than the cofactor shared by both.",
+   "topic": "thiamine and pyruvate dehydrogenase",
+   "mastery_sheet_id": "1D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_BB_D8",
+   "stem": "Cholera toxin causes severe watery diarrhea by modifying a G protein in intestinal epithelial cells. Which change in the signaling pathway most directly accounts for the secretion of chloride and water?",
+   "options": {
+    "A": "Gq is locked in its active state, which activates phospholipase C and raises cAMP through IP3",
+    "B": "Gs is locked active, so cAMP stays high, PKA is active, and CFTR opens",
+    "C": "Gi is locked in its active state, which inhibits adenylyl cyclase and lowers cAMP, which opens CFTR",
+    "D": "Gs is permanently inactivated, which lowers cAMP and relieves inhibition of the Na+/K+ ATPase"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Cholera toxin ADP-ribosylates the alpha subunit of Gs, preventing GTP hydrolysis; persistent cAMP production activates PKA, which phosphorylates and opens the CFTR chloride channel. Why the others are wrong: A) Gq acts through IP3 and diacylglycerol and does not raise cAMP directly. C) Gi activation would lower cAMP and not stimulate secretion. D) Inactivating Gs would lower cAMP and reduce secretion.",
+   "trap": "Mixing up the G protein subtypes and the direction of change in cAMP.",
+   "topic": "G protein signaling and cholera toxin",
+   "mastery_sheet_id": "2A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_BB_D9",
+   "stem": "In an Hfr x F- cross in E. coli, the recipient cells rarely become F+ (Hfr) even though DNA is transferred. What is the best explanation?",
+   "options": {
+    "A": "The recipient's F- pilus blocks the transfer of F factor genes, while chromosomal genes cross the bridge freely",
+    "B": "The F genes are last in line, and the mating pair usually separates first",
+    "C": "The F factor genes are transferred first, but they are degraded by restriction enzymes in the recipient",
+    "D": "The F factor is excised from the donor chromosome before transfer begins, so only chromosomal genes are passed"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Transfer starts at the origin inside the integrated F factor, so the remaining F genes are last in line and conjugation usually breaks before they enter the recipient. Why the others are wrong: A) F- recipient cells do not make F pili, and the donor makes the pilus. C) The F genes are transferred last, not first, because they lie behind the origin of transfer; restriction is not the issue. D) In an Hfr strain the F factor remains integrated; excision would produce an F' or F+ cell instead.",
+   "trap": "Assuming that the whole F factor is transferred first because it initiates conjugation.",
+   "topic": "bacterial conjugation and Hfr strains",
+   "mastery_sheet_id": "2B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_BB_D10",
+   "stem": "A cell sustains a double-strand break in a chromosome. Why is repair by homologous recombination favored in S and G2 phases but rarely used in G1?",
+   "options": {
+    "A": "It needs an intact sister chromatid as a template, which exists only after DNA replication",
+    "B": "It needs the nuclear envelope to be disassembled, which occurs only after S phase",
+    "C": "It requires Cdk activity to unwind the helix, which is absent in G1",
+    "D": "It requires a second homologous chromosome to be paired in a synaptonemal complex, which forms after replication"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Homologous recombination copies the undamaged sequence from the sister chromatid, which is present only after replication; G1 cells rely on error-prone nonhomologous end joining. Why the others are wrong: B) The nuclear envelope remains intact during repair in S and G2. C) Helix unwinding is not what Cdk activity provides; the missing item is the template. D) The synaptonemal complex is specific to meiosis, not to repair of breaks in somatic cells.",
+   "trap": "Applying meiotic recombination features (synaptonemal complex) to repair in somatic cells.",
+   "topic": "double-strand break repair",
+   "mastery_sheet_id": "2C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_BB_D11",
+   "stem": "A child with trisomy 21 inherited two different maternal chromosome 21 homologs, as shown by heterozygosity for markers near the centromere. In which stage did the nondisjunction most likely occur?",
+   "options": {
+    "A": "Meiosis II in the mother, because sister chromatids failed to separate",
+    "B": "Mitosis in the early embryo, because sister chromatids failed to separate",
+    "C": "Meiosis I in the mother, because homologs failed to separate",
+    "D": "Meiosis I in the father, because homologs failed to separate"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) If two different homologs of maternal origin are present, then homologs failed to segregate at meiosis I; a meiosis II error would produce two identical copies (apart from crossovers). Why the others are wrong: A) A meiosis II error gives two copies of the same homolog, which would appear homozygous near the centromere. B) A mitotic error would produce mosaicism and would not give two different maternal homologs. D) The extra chromosomes came from the mother, as the markers show.",
+   "trap": "Not distinguishing between the two meiotic divisions based on whether the extra chromosomes are identical or different.",
+   "topic": "nondisjunction in meiosis",
+   "mastery_sheet_id": "2C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_BB_D12",
+   "stem": "In a neuron, the extracellular K+ concentration rises from 4 mM to 8 mM, with intracellular K+ unchanged. At 37 C, about how much does the K+ equilibrium potential change?",
+   "options": {
+    "A": "It becomes about 61 mV less negative",
+    "B": "It becomes about 9 mV less negative",
+    "C": "It becomes about 18 mV less negative",
+    "D": "It becomes about 18 mV more negative"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) E_K = 61.5 log([K]out/[K]in); doubling [K]out adds 61.5 x log 2 = 18.5 mV, moving E_K toward zero (depolarization). Why the others are wrong: A) 61 mV is the change for a 10-fold change in concentration, not a 2-fold change. B) 9 mV would be half of the correct shift, from omitting the logarithm of 2 (0.30). D) Raising extracellular K+ decreases the outward gradient and so E_K becomes less negative, not more.",
+   "trap": "Using 61 mV for a two-fold change instead of 61 x log 2, or getting the sign of the shift wrong.",
+   "topic": "Nernst potential and hyperkalemia",
+   "mastery_sheet_id": "3A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://uen.pressbooks.pub/expertneuro/chapter/the-equilibrium-nernst-potential",
+     "https://neurotext.library.stonybrook.edu/C2/C2_4/C2_4.html"
+    ]
+   }
+  },
+  {
+   "id": "FL10_BB_D13",
+   "stem": "A patient has a diffusely enlarged thyroid, exophthalmos, low serum TSH, and high serum free T4. Which mechanism most likely explains this presentation?",
+   "options": {
+    "A": "A TSH-secreting pituitary adenoma drives the thyroid, which raises T4 and TSH together",
+    "B": "Iodine deficiency reduces hormone synthesis, so TSH is elevated and the thyroid enlarges",
+    "C": "Antibodies block the TSH receptor, so the thyroid produces less hormone and TSH rises",
+    "D": "Antibodies activate the TSH receptor, and excess T4 suppresses TSH"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) In Graves disease, stimulating autoantibodies mimic TSH, causing hyperthyroidism and goiter; high T4 suppresses TRH and TSH through negative feedback. Why the others are wrong: A) A pituitary adenoma would give high TSH, not low TSH. B) Iodine deficiency causes hypothyroidism with high TSH. C) Blocking antibodies would cause hypothyroidism with high TSH.",
+   "trap": "Expecting TSH to be high whenever the thyroid is enlarged, ignoring the feedback effect of excess T4.",
+   "topic": "Graves disease and thyroid feedback",
+   "mastery_sheet_id": "3A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_BB_D14",
+   "stem": "A patient with heart failure begins taking spironolactone. Which set of changes in the patient's serum and urine is most likely?",
+   "options": {
+    "A": "Serum K+ falls, and urinary Na+ excretion falls",
+    "B": "Serum K+ rises, and urinary Na+ excretion falls",
+    "C": "Serum K+ rises, and urinary Na+ excretion rises",
+    "D": "Serum K+ falls, and urinary Na+ excretion rises"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Spironolactone blocks aldosterone's mineralocorticoid receptor in principal cells, so fewer ENaC channels and Na+/K+ ATPases are made: less Na+ is reabsorbed (more in urine) and less K+ is secreted (higher serum K+). Why the others are wrong: A) Natriuresis occurs with the drug, so urinary Na+ excretion rises rather than falls, and K+ is retained rather than lost. B) Blocking aldosterone reduces Na+ reabsorption, so urinary Na+ does not fall. D) Aldosterone antagonism reduces K+ secretion, so serum K+ does not fall.",
+   "trap": "Remembering the diuretic effect but not that K+ secretion falls, which makes the drug potassium-sparing.",
+   "topic": "aldosterone antagonists",
+   "mastery_sheet_id": "3B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_BB_D15",
+   "stem": "A person is exposed to carbon monoxide in a poorly ventilated room. Which set of findings is expected?",
+   "options": {
+    "A": "Normal PaO2, reduced O2 content, and a left-shifted curve",
+    "B": "Normal arterial PO2, normal oxygen content of the blood, and a right-shifted oxyhemoglobin curve",
+    "C": "Reduced arterial PO2, normal oxygen content of the blood, and a left-shifted oxyhemoglobin curve",
+    "D": "Reduced arterial PO2, reduced oxygen content of the blood, and a right-shifted oxyhemoglobin curve"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) CO binds hemoglobin with about 200-fold higher affinity than O2, reducing O2 content, but dissolved O2 and PaO2 are determined by the lungs and are unchanged; CO also increases the O2 affinity of the other subunits, shifting the curve left. Why the others are wrong: B) The oxygen content is reduced because many heme groups are occupied by CO, and the PaO2 is normal, so the content cannot be normal. C) The oxygen content is reduced because CO occupies heme sites, even though PaO2 itself is normal; reduced PaO2 would imply a lung problem. D) PaO2 is not reduced because gas exchange across the alveolar membrane is intact, and a right shift would favor unloading.",
+   "trap": "Equating low oxygen content with low arterial PO2, when CO leaves the dissolved oxygen unchanged.",
+   "topic": "carbon monoxide poisoning and hemoglobin",
+   "mastery_sheet_id": "3B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

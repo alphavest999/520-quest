@@ -1,0 +1,1543 @@
+{
+ "exam": "Mini02",
+ "type": "mini",
+ "section": "CP",
+ "passages": [
+  {
+   "passage_id": "Mini02_CP_P1",
+   "passage_text": "A biomechanics student models the human forearm as a uniform rigid rod of mass 1.6 kg hinged at the elbow and held horizontal. The biceps tendon attaches 4.0 cm from the elbow and pulls vertically upward. The center of mass of the forearm lies 15 cm from the elbow, and a hand grips a load 30 cm from the elbow. A force sensor in the tendon records the biceps force while the subject holds loads of several masses motionless, and the elbow joint force is then found from the force balance on the forearm. Results are in Table 1. Use g = 10 m/s², and treat the forearm as remaining horizontal and the biceps force as remaining vertical and approximately constant throughout any slow movement. In a second model, the student considers a surgical transfer that moves the tendon attachment to 6.0 cm from the elbow. The student reads all values from a calibrated sensor and repeats each measurement several times, and the scatter among repeats is small enough to be ignored. The subject keeps the upper arm vertical and the shoulder still during every trial, so that the only motion occurs at the elbow.",
+   "table_data": "| Load mass (kg) | Biceps force (N) | Elbow joint force (N) |\n|---|---|---|\n| 0 | 60 | 44 downward |\n| 1.0 | 135 | 109 downward |\n| 2.0 | 210 | 174 downward |\n| 4.0 | 360 | 304 downward |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini02_CP_P1_Q1",
+     "stem": "What biceps force is needed to hold a 3.0 kg load motionless, based on the trend in Table 1?",
+     "options": {
+      "A": "225 N",
+      "B": "285 N",
+      "C": "46 N",
+      "D": "360 N"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Force rises linearly with load: 60 N plus 75 N per kilogram (torque balance F(0.04) = 16(0.15) + 10M(0.30)), so 60 + 225 = 285 N, which is also midway between the 2.0 kg and 4.0 kg entries. Why the others are wrong: A) This is 75 N per kilogram times 3.0 kg and leaves out the 60 N needed just to support the forearm itself. C) This is the total weight of the forearm and load (16 N + 30 N), which ignores the lever arms entirely. D) This is the value for a 4.0 kg load, not 3.0 kg.",
+     "trap": "Adding up weights as if the biceps pulled at the same distance from the elbow as the load.",
+     "topic": "Static torque balance",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P1_Q2",
+     "stem": "Treating the forearm as weightless, what is the ideal mechanical advantage of the forearm lever when the biceps lifts a load held in the hand?",
+     "options": {
+      "A": "7.5",
+      "B": "0.27",
+      "C": "1.0",
+      "D": "0.13"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Mechanical advantage is the effort arm divided by the load arm, 4.0 cm / 30 cm = 0.13; the biceps lies between the fulcrum and the load, a third-class lever. Why the others are wrong: A) This inverts the ratio (30/4.0); that would be the factor by which hand motion exceeds tendon motion, not the force advantage. B) This uses the 15 cm center-of-mass distance (4.0/15) rather than the 30 cm distance of the load. C) This applies only if effort and load act at equal distances from the pivot, which is not the case here.",
+     "trap": "Inverting the ratio of lever arms and expecting a force gain from a third-class lever.",
+     "topic": "Lever mechanical advantage",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://phys.libretexts.org/Bookshelves/Conceptual_Physics/Body_Physics_-_Motion_to_Metabolism_(Davis)/06:_Forces_within_the_Body/6.02:_Body_Levers",
+       "https://openoregon.pressbooks.pub/bodyphysics2ed/chapter/body-levers/"
+      ]
+     }
+    },
+    {
+     "id": "Mini02_CP_P1_Q3",
+     "stem": "According to the force balance on the forearm, what is the force exerted by the elbow joint on the forearm when a 2.0 kg load is held?",
+     "options": {
+      "A": "174 N upward",
+      "B": "174 N downward",
+      "C": "36 N upward",
+      "D": "210 N down"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Net force is zero: 210 N (biceps, up) = 36 N (weights, down) + J, so the joint must push down with 210 - 36 = 174 N. Why the others are wrong: A) The magnitude is right, but the biceps force already exceeds the total weight, so the hinge must pull the forearm downward, not upward. C) This would balance only the weights and forgets that the biceps itself supplies 210 N. D) This is the biceps force itself, not the difference between the biceps force and the weights.",
+     "trap": "Assuming the joint force simply supports the weight rather than balancing the large biceps force.",
+     "topic": "Equilibrium of forces",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://phys.libretexts.org/Bookshelves/University_Physics/Physics_(Boundless)/8%3A_Static_Equilibrium_Elasticity_and_Torque/8.2%3A_Conditions_for_Equilibrium"
+      ]
+     }
+    },
+    {
+     "id": "Mini02_CP_P1_Q4",
+     "stem": "If the tendon attachment were moved to 6.0 cm from the elbow, what biceps force would be required to hold the 2.0 kg load?",
+     "options": {
+      "A": "315 N",
+      "B": "210 N",
+      "C": "70 N",
+      "D": "140 N"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Torque balance: F(0.060) = 16(0.15) + 20(0.30) = 8.4 N·m, so F = 140 N, which is 210 N × (4.0/6.0). Why the others are wrong: A) This multiplies 210 N by 6.0/4.0, moving the force the wrong way; a longer effort arm lowers the force needed. B) This is the original value; the effort arm changed, so the force must change. C) This scales 210 N by the ratio 4.0/12, which does not correspond to any lever arm in the problem.",
+     "trap": "Scaling the force directly with the effort arm instead of inversely.",
+     "topic": "Torque and lever arm",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://phys.libretexts.org/Bookshelves/University_Physics/Physics_(Boundless)/8%3A_Static_Equilibrium_Elasticity_and_Torque/8.2%3A_Conditions_for_Equilibrium"
+      ]
+     }
+    },
+    {
+     "id": "Mini02_CP_P1_Q5",
+     "stem": "The subject slowly raises the 2.0 kg load by 0.20 m at the hand. Which value is closest to the work done by the biceps over this movement?",
+     "options": {
+      "A": "4.0 J",
+      "B": "42 J",
+      "C": "1.6 J",
+      "D": "5.6 J"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The tendon moves 0.20 × (4.0/30) = 0.027 m, so W = 210 N × 0.027 m = 5.6 J, equal to the gain in potential energy of the load (4.0 J) plus the forearm (1.6 J). Why the others are wrong: A) This is the work done only on the load (20 N × 0.20 m) and ignores the work needed to lift the forearm. B) This multiplies the biceps force by the hand's displacement; the tendon moves only a fraction of that distance. C) This is the work done on the forearm alone, leaving out the load.",
+     "trap": "Using the displacement of the hand rather than the displacement of the tendon.",
+     "topic": "Work and energy",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://physicscourses.colorado.edu/phys1010/phys1010_fa12/lecture_notes/class10_preclass.pdf",
+       "https://cyberphysics.co.uk/topics/energy/types/gpe.htm",
+       "https://phys.libretexts.org/Bookshelves/University_Physics/Physics_(Boundless)/8%3A_Static_Equilibrium_Elasticity_and_Torque/8.2%3A_Conditions_for_Equilibrium"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini02_CP_P2",
+   "passage_text": "A student releases steel spheres of different radii r (density 7800 kg/m³) from rest just below the surface of a tall cylinder of glycerol (density 1260 kg/m³, viscosity 1.2 Pa·s) held at 20 °C. A camera records each sphere after it reaches a constant speed, the terminal speed v_t. For slow flow, the drag force on a sphere is F = 6πηrv (Stokes' law), where η is the viscosity and v is the speed. The buoyant force equals the weight of the displaced fluid. The cylinder is wide enough that wall effects can be ignored, and each trial was repeated three times and averaged. Table 1 lists v_t for four steel spheres, and Figure 1 plots v_t against r². In a final trial, the student drops an aluminum sphere (density 2700 kg/m³) with the same radius as the 2.0 mm steel sphere. Use g = 10 m/s² and V = (4/3)πr³. The thermometers in the experiment can be read to 0.1 °C, and the cylinder is shielded from drafts. The student assumes that each sphere reaches its terminal speed well before it passes the first mark, so that all speeds in the table are steady values.",
+   "table_data": "| Radius r (mm) | r² (mm²) | Terminal speed v_t (cm/s) |\n|---|---|---|\n| 0.50 | 0.25 | 0.30 |\n| 1.0 | 1.0 | 1.2 |\n| 2.0 | 4.0 | 4.8 |\n| 3.0 | 9.0 | 10.9 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Terminal speed versus r²",
+    "x_label": "r² (mm²)",
+    "y_label": "Terminal speed (cm/s)",
+    "series": [
+     {
+      "name": "Steel spheres in glycerol",
+      "points": [
+       [
+        0.25,
+        0.3
+       ],
+       [
+        1.0,
+        1.2
+       ],
+       [
+        4.0,
+        4.8
+       ],
+       [
+        9.0,
+        10.9
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini02_CP_P2_Q1",
+     "stem": "What is the magnitude of the drag force on the 2.0 mm steel sphere when it moves at its terminal speed?",
+     "options": {
+      "A": "2.6 × 10⁻³ N",
+      "B": "2.2 × 10⁻³ N",
+      "C": "4.2 × 10⁻⁴ N",
+      "D": "2.2 × 10⁻² N"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At terminal speed drag equals weight minus buoyancy: (7800 - 1260)(10)(4/3)π(2.0 × 10⁻³)³ = 2.2 × 10⁻³ N; Stokes' law with 4.8 cm/s gives the same value. Why the others are wrong: A) This is the sphere's weight alone, which forgets that buoyancy supports part of the weight. C) This is the buoyant force, not the drag force. D) This has the right digits but is off by a factor of ten, which comes from an error converting 2.0 mm to meters.",
+     "trap": "Equating drag to the full weight and ignoring buoyancy.",
+     "topic": "Terminal velocity forces",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P2_Q2",
+     "stem": "According to Figure 1, which terminal speed is expected for a steel sphere of radius 2.5 mm?",
+     "options": {
+      "A": "7.9 cm/s",
+      "B": "6.0 cm/s",
+      "C": "7.6 cm/s",
+      "D": "9.4 cm/s"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The graph is a straight line of slope about 1.2 cm/s per mm², and r² = 6.25 mm², giving 1.21 × 6.25 = 7.6 cm/s. Why the others are wrong: A) This interpolates linearly in radius between 2.0 and 3.0 mm, but the graph shows speed depends on r². B) This assumes speed is proportional to r (4.8 × 2.5/2.0). D) This assumes speed is proportional to r³ (4.8 × 1.25³).",
+     "trap": "Interpolating linearly in radius rather than using the r² dependence.",
+     "topic": "Graph interpretation",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P2_Q3",
+     "stem": "The aluminum sphere is dropped in place of the 2.0 mm steel sphere. Its terminal speed is approximately what multiple of the steel sphere's terminal speed?",
+     "options": {
+      "A": "0.346",
+      "B": "0.588",
+      "C": "4.54",
+      "D": "0.22"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Terminal speed is proportional to (ρ_sphere - ρ_fluid): (2700 - 1260)/(7800 - 1260) = 1440/6540 = 0.22. Why the others are wrong: A) This is the ratio of the sphere densities (2700/7800) and ignores buoyancy. B) This takes the square root of the density ratio, but speed depends linearly on the density difference. C) This inverts the correct ratio, as if aluminum were the denser sphere.",
+     "trap": "Comparing raw densities instead of densities minus the fluid density.",
+     "topic": "Net force with buoyancy",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P2_Q4",
+     "stem": "Immediately after the 2.0 mm steel sphere is released from rest, what is the magnitude of its acceleration?",
+     "options": {
+      "A": "10 m/s²",
+      "B": "1.6 m/s²",
+      "C": "8.4 m/s²",
+      "D": "0 m/s²"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) At v = 0 there is no drag, so a = g(1 - ρ_fluid/ρ_steel) = 10(1 - 1260/7800) = 8.4 m/s². Why the others are wrong: A) This is free-fall acceleration and ignores buoyancy. B) This is the buoyancy term alone (g × ρ_fluid/ρ_steel) rather than the net. D) This describes the sphere after it reaches terminal speed, not at release.",
+     "trap": "Assuming a released object starts with zero acceleration because forces are present.",
+     "topic": "Newton's second law",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini02_CP_P3",
+   "passage_text": "Venous pressure in a standing person is influenced by the weight of the blood column between the heart and the vein. A physiologist measures gauge pressure in veins at several sites in a standing subject using fluid-filled catheters. The right atrium is taken as the reference height, with a gauge pressure of about 0 mmHg. Blood density is 1060 kg/m³, mercury density is 13,600 kg/m³, g = 9.8 m/s², and 1 mmHg = 133 Pa. The hydrostatic prediction, ρgh, is compared with measured values in Table 1, and measured pressure is plotted against depth below the right atrium in Figure 1. Mean arterial pressure at heart level is 100 mmHg. When the subject later lies supine, the foot is only about 0.10 m below the right atrium. The venous valves are assumed to be open and the subject stands still, without muscle contraction, for several minutes before each reading so that flow in the veins is negligible. Catheter pressure transducers are zeroed at the level of the right atrium before every measurement.",
+   "table_data": "| Vein site | Height relative to right atrium (m) | Predicted ρgh (mmHg) | Measured (mmHg) |\n|---|---|---|---|\n| Dorsal foot vein | -1.30 | +101 | 98 |\n| Knee vein | -0.70 | +55 | 53 |\n| Hand at side | -0.50 | +39 | 37 |\n| Hand raised overhead | +0.40 | -31 | about 0 (collapsed) |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Measured venous pressure versus depth below right atrium",
+    "x_label": "Depth below right atrium (m)",
+    "y_label": "Measured venous pressure (mmHg)",
+    "series": [
+     {
+      "name": "Standing subject",
+      "points": [
+       [
+        0.0,
+        0
+       ],
+       [
+        0.5,
+        37
+       ],
+       [
+        0.7,
+        53
+       ],
+       [
+        1.3,
+        98
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini02_CP_P3_Q1",
+     "stem": "Which value is closest to the hydrostatic pressure increase produced by a 1.30 m column of blood?",
+     "options": {
+      "A": "14 kPa",
+      "B": "1.4 kPa",
+      "C": "140 kPa",
+      "D": "7.3 kPa"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) ΔP = ρgh = (1060)(9.8)(1.30) = 1.35 × 10⁴ Pa, which is about 14 kPa (101 mmHg). Why the others are wrong: B) This is off by a factor of ten; the product 1060 × 9.8 × 1.30 is about 13,500 Pa, not 1,350 Pa. C) This is too large by a factor of ten and would exceed one atmosphere. D) This uses the knee depth of 0.70 m instead of 1.30 m.",
+     "trap": "Making a power-of-ten slip when multiplying density, g, and height.",
+     "topic": "Hydrostatic pressure",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P3_Q2",
+     "stem": "Why is the measured pressure in the raised hand near 0 mmHg, rather than the predicted -31 mmHg?",
+     "options": {
+      "A": "The thin-walled veins collapse when the pressure inside falls below the pressure outside, so the column cannot sustain a negative gauge pressure.",
+      "B": "Blood density falls at the raised height, which cancels the hydrostatic term.",
+      "C": "Arterial pressure rises in the raised hand and offsets the venous value.",
+      "D": "The muscle pump pushes the blood forward and lowers the pressure to exactly 0 mmHg."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) A collapsed vein carries pressure near atmospheric, so a catheter does not register the large negative value that ρgh predicts. Why the others are wrong: B) Density is essentially independent of the height of a limb. C) Arterial pressure falls at greater height, and it is a different vessel from the vein being measured. D) The muscle pump acts during movement and would not set a still limb to zero.",
+     "trap": "Assuming veins behave as rigid pipes at all pressures.",
+     "topic": "Venous collapse",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P3_Q3",
+     "stem": "If mean arterial pressure at heart level is 100 mmHg, what is the approximate mean arterial pressure in the dorsal foot artery of the standing subject?",
+     "options": {
+      "A": "100 mmHg",
+      "B": "0 mmHg",
+      "C": "200 mmHg",
+      "D": "131 mmHg"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Gravity adds the same hydrostatic term to the artery, so P ≈ 100 + 101 = about 200 mmHg. Why the others are wrong: A) This ignores the column of blood between the heart and the foot. B) This subtracts the hydrostatic term, which would apply to a site above the heart. D) This adds the 1.30 m depth to 100 as if the depth were in mmHg.",
+     "trap": "Subtracting the hydrostatic term for a site below the heart.",
+     "topic": "Hydrostatic effects on arteries",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P3_Q4",
+     "stem": "Which height of a column of blood exerts a pressure of 100 mmHg?",
+     "options": {
+      "A": "7.8 mm",
+      "B": "1.3 m",
+      "C": "100 mm",
+      "D": "13 m"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) h(blood) = 100 mm × (13,600/1060) = 1283 mm, or about 1.3 m. Why the others are wrong: A) This inverts the density ratio (100 × 1060/13,600). C) This equates mmHg with mm of blood, though mercury is almost thirteen times denser. D) This misplaces the decimal point by a factor of ten.",
+     "trap": "Forgetting that mercury is much denser than blood when converting heights.",
+     "topic": "Pressure units and density",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P3_Q5",
+     "stem": "When the subject lies supine, which measured pressure is expected in the dorsal foot vein?",
+     "options": {
+      "A": "98 mmHg",
+      "B": "About 8 mmHg",
+      "C": "0 mmHg exactly",
+      "D": "78 mmHg"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) With the foot only 0.10 m below the atrium, ρgh = 1060 × 9.8 × 0.10 = 1040 Pa, or about 8 mmHg. Why the others are wrong: A) This is the standing value, which depended on a 1.30 m column that is no longer present. C) A small depth below the atrium still adds a positive hydrostatic pressure. D) This is off by a factor of ten from the correct hydrostatic term for 0.10 m.",
+     "trap": "Assuming posture does not change the hydrostatic component of venous pressure.",
+     "topic": "Hydrostatic pressure",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini02_CP_P4",
+   "passage_text": "Gas exchange across the alveolar-capillary membrane occurs by diffusion. According to Fick's law, the rate of transfer of a gas is proportional to the membrane area A, the partial-pressure difference ΔP, and a diffusion coefficient D, and inversely proportional to the membrane thickness d. D is proportional to the gas solubility S in the membrane fluid divided by the square root of the gas's molar mass M. Table 1 lists properties of three gases with typical partial pressures in alveolar gas and in blood entering the pulmonary capillaries of a resting subject. Solubility is in mmol/(L·atm) at 37 °C. Water vapor pressure at body temperature is 47 mmHg, and dry air is 21% O₂ by volume. A student also considers diseases that change A or d. Assume that each gas behaves ideally, that the alveolar gas and the capillary blood equilibrate across the same membrane, and that the temperature is 37 °C. Values in Table 1 are typical of a healthy adult breathing room air at sea level, where the barometric pressure is 760 mmHg.",
+   "table_data": "| Gas | M (g/mol) | S (mmol/L·atm) | Alveolar P (mmHg) | Entering blood P (mmHg) |\n|---|---|---|---|---|\n| O₂ | 32 | 1.3 | 100 | 40 |\n| CO₂ | 44 | 34 | 40 | 46 |\n| N₂ | 28 | 0.64 | 570 | 570 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini02_CP_P4_Q1",
+     "stem": "What is the ratio D(CO₂)/D(O₂) calculated from the data in Table 1?",
+     "options": {
+      "A": "26.2",
+      "B": "19.0",
+      "C": "22",
+      "D": "0.045"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) D is proportional to S/√M, so the ratio is (34/1.3) × √(32/44) = 26.2 × 0.853 = about 22. Why the others are wrong: A) This is the ratio of solubilities alone, with no molar mass correction. B) This applies the molar mass ratio (32/44) without taking its square root. D) This is the inverse of the correct ratio.",
+     "trap": "Leaving out the square root in the molar mass dependence.",
+     "topic": "Fick's law diffusion coefficient",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P4_Q2",
+     "stem": "How does the net rate of CO₂ transfer compare with the net rate of O₂ transfer across the same membrane in a resting subject?",
+     "options": {
+      "A": "About 22 times as fast",
+      "B": "About 2.2 times as fast",
+      "C": "About 0.45 times as fast",
+      "D": "About 10 times as slow"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Rate is proportional to D × ΔP: ratio = 22 × (6 mmHg/60 mmHg) = 2.2. Why the others are wrong: A) This uses the ratio of diffusion coefficients and ignores the much smaller driving pressure for CO₂. C) This inverts the ratio and would mean O₂ moves faster, contradicting the large D difference. D) This uses only the pressure ratio (6/60) and ignores the diffusion coefficients.",
+     "trap": "Using only the partial-pressure gradient to compare transfer rates.",
+     "topic": "Fick's law",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P4_Q3",
+     "stem": "In a diseased lung, the effective membrane area is 40% of normal and the membrane is twice as thick. What fraction of the normal O₂ transfer rate is expected?",
+     "options": {
+      "A": "20%",
+      "B": "80%",
+      "C": "40%",
+      "D": "10%"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Rate is proportional to A/d: 0.40/2 = 0.20, or 20% of normal. Why the others are wrong: B) This multiplies the area fraction by the thickness factor instead of dividing. C) This accounts for the loss of area alone and ignores the thickening. D) This divides by the thickness twice, which is not required by Fick's law.",
+     "trap": "Multiplying by the thickness factor rather than dividing.",
+     "topic": "Fick's law",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P4_Q4",
+     "stem": "A climber breathes humidified air at a total pressure of 253 mmHg. Which value is closest to the partial pressure of O₂ in the inspired air?",
+     "options": {
+      "A": "43 mmHg",
+      "B": "53.1 mmHg",
+      "C": "206 mmHg",
+      "D": "21.0 mmHg"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Inspired PO₂ = 0.21 × (253 - 47) = 0.21 × 206 = 43 mmHg. Why the others are wrong: B) This applies 21% to the total pressure and forgets that water vapor occupies 47 mmHg of the humidified air. C) This subtracts water vapor but forgets to multiply by the 21% oxygen fraction. D) This treats the 21% oxygen fraction as a pressure in mmHg.",
+     "trap": "Ignoring water vapor pressure in humidified air.",
+     "topic": "Dalton's law",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P4_Q5",
+     "stem": "By Graham's law, how does the effusion rate of N₂ compare with that of CO₂ at the same temperature?",
+     "options": {
+      "A": "N₂ effuses about 1.57 times faster",
+      "B": "N₂ effuses about 0.80 times as fast",
+      "C": "N₂ and CO₂ effuse at the same rate",
+      "D": "N₂ effuses about 1.25 times faster"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Rate ratio = √(M_CO₂/M_N₂) = √(44/28) = 1.25. Why the others are wrong: A) This uses the mass ratio without the square root. B) This inverts the ratio, but lighter gases effuse faster. C) Gases with equal kinetic energy but different masses move at different speeds.",
+     "trap": "Using the mass ratio directly rather than its square root.",
+     "topic": "Graham's law",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Graham%27s_law",
+       "https://www.physicsclassroom.com/Chemistry-Tutorial/Gases-and-Gas-Laws/Grahams-Law-of-Effusion"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini02_CP_P5",
+   "passage_text": "Buried iron pipelines corrode in moist soil. To test cathodic protection, a technician connects iron coupons by wire to strips of other metals, buries each pair in moist soil for 30 days, and records the mass change of the iron coupon. Results appear in Table 1 with the standard reduction potentials of the strip metals. The reduction potential of Fe²⁺/Fe is -0.44 V. In soil, O₂ dissolved in water is reduced at the cathode: O₂ + 2 H₂O + 4 e⁻ → 4 OH⁻ (E° = +0.40 V). A control iron coupon with no attached strip lost 22 mg. The strips themselves are not weighed, and in every pair the soil water acts as the electrolyte that completes the circuit between the two metals. The technician also considers using a magnesium strip as a sacrificial anode on a long pipeline. Standard reduction potentials are for 25 °C and 1 M solutions, and the soil moisture and temperature were the same for every coupon. Each strip had a surface area about equal to that of the iron coupon, and the connecting wire did not corrode during the test.",
+   "table_data": "| Attached metal | E° reduction (V) | Iron coupon mass change (mg) |\n|---|---|---|\n| Mg | -2.37 | 0 |\n| Zn | -0.76 | -1 |\n| Ni | -0.26 | -27 |\n| Sn | -0.14 | -31 |\n| Cu | +0.34 | -46 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini02_CP_P5_Q1",
+     "stem": "What is the standard cell potential when a zinc strip serves as anode and O₂ is reduced at the cathode?",
+     "options": {
+      "A": "1.16 V",
+      "B": "0.32 V",
+      "C": "-0.36 V",
+      "D": "0.84 V"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) E°cell = E°cathode - E°anode = 0.40 - (-0.76) = 1.16 V. Why the others are wrong: B) This uses Fe²⁺ as the cathode (-0.44 - (-0.76)), but oxygen is reduced under these conditions. C) This adds the two potentials with their signs instead of subtracting the anode potential. D) This is the potential of iron as anode (0.40 + 0.44), not zinc.",
+     "trap": "Adding the half-cell potentials instead of subtracting the anode from the cathode.",
+     "topic": "Standard cell potential",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://pressbooks.pub/molecularworld/?p=1302",
+       "https://dornshuld.chemistry.msstate.edu/books/chemistry/cell-potential.html"
+      ]
+     }
+    },
+    {
+     "id": "Mini02_CP_P5_Q2",
+     "stem": "In the iron-copper pair, which statement describes the flow of electrons and the site of oxygen reduction?",
+     "options": {
+      "A": "Copper is the anode; electrons flow from copper to iron, which protects the iron.",
+      "B": "Iron is the cathode, so it is protected, and electrons flow from copper to iron.",
+      "C": "Iron is the anode; electrons flow through the wire from iron to copper, where O₂ is reduced.",
+      "D": "No current flows because both metals are connected by the same wire."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Fe is oxidized more readily than Cu (-0.44 V versus +0.34 V), so iron is the anode and the electrons travel to copper, which acts as the cathode surface. Why the others are wrong: A) Copper is much harder to oxidize than iron, so it cannot be the anode. B) The larger mass loss for the Fe-Cu pair shows iron corrodes faster, which means it is the anode. D) The potential difference between the metals drives current through the wire.",
+     "trap": "Assuming the metal with the higher reduction potential is the one that corrodes.",
+     "topic": "Galvanic corrosion",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P5_Q3",
+     "stem": "A magnesium anode supplies a steady 0.20 A to a pipeline for 24 hours (Mg → Mg²⁺ + 2 e⁻; molar mass 24.3 g/mol; F = 96,500 C/mol). What mass of magnesium is consumed?",
+     "options": {
+      "A": "4.4 g",
+      "B": "1.1 g",
+      "C": "2.2 g",
+      "D": "5.9 g"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Charge = 0.20 × 86,400 = 17,280 C = 0.179 mol e⁻, so 0.0895 mol Mg × 24.3 g/mol = 2.2 g. Why the others are wrong: A) This uses one electron per magnesium atom instead of two. B) This uses four electrons per magnesium atom, a number that belongs to the O₂ half-reaction. D) This uses the molar mass of zinc (65.4 g/mol) instead of magnesium.",
+     "trap": "Using the wrong number of electrons per mole of metal in the Faraday calculation.",
+     "topic": "Faraday's law",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://goldbook.iupac.org/terms/view/09075",
+       "https://en.wikipedia.org/wiki/Faraday%27s_laws_of_electrolysis"
+      ]
+     }
+    },
+    {
+     "id": "Mini02_CP_P5_Q4",
+     "stem": "A steel can is coated with tin. Why does the iron corrode faster than uncoated iron once the coating is scratched?",
+     "options": {
+      "A": "Tin has a higher reduction potential than iron, so iron becomes the anode of a galvanic cell with the tin surface.",
+      "B": "Tin has a lower reduction potential than iron, so tin is oxidized and protects the iron.",
+      "C": "Tin is a better electrical insulator, which traps water against the iron.",
+      "D": "Tin reacts with O₂ to form a layer that dissolves iron."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) E°(Sn²⁺/Sn) = -0.14 V is greater than E°(Fe²⁺/Fe) = -0.44 V, so exposed iron oxidizes in preference to tin, as the -31 mg entry in Table 1 shows. Why the others are wrong: B) Tin's reduction potential is higher than iron's, not lower; zinc and magnesium would behave this way. C) The corrosion rate increase arises from the galvanic couple, not insulation. D) Tin does not dissolve iron; iron loses mass through its own oxidation.",
+     "trap": "Assuming any metal coating protects the iron even after the coating is damaged.",
+     "topic": "Cathodic protection",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini02_CP_P6",
+   "passage_text": "A heating element is made from a nichrome wire 2.0 m long with diameter 0.40 mm (cross-sectional area 1.26 × 10⁻⁷ m²). The resistance of a wire is R = ρL/A, where ρ is the resistivity, L the length, and A the cross-sectional area. Over a modest temperature range, ρ = ρ₂₀[1 + α(T - 20 °C)]. Table 1 lists ρ₂₀ and α for nichrome and for copper, the material of the leads supplying current to the element. A student heats the nichrome wire in a furnace, measures its resistance with a small test current at four temperatures, and plots the results in Figure 1. The student then connects the wire at 20 °C to a 24 V source through copper leads of the same length and diameter as the nichrome wire. The wire is straight, has uniform composition, and carries a current small enough that self-heating can be ignored during the resistance measurements in the furnace. The thermal expansion of the wire is small enough that its dimensions are treated as constant.",
+   "table_data": "| Material | ρ₂₀ (Ω·m) | α (K⁻¹) |\n|---|---|---|\n| Nichrome | 1.1 × 10⁻⁶ | 4 × 10⁻⁴ |\n| Copper | 1.7 × 10⁻⁸ | 3.9 × 10⁻³ |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Resistance of the nichrome wire versus temperature",
+    "x_label": "Temperature (°C)",
+    "y_label": "Resistance (Ω)",
+    "series": [
+     {
+      "name": "Nichrome wire",
+      "points": [
+       [
+        20,
+        17.5
+       ],
+       [
+        220,
+        18.9
+       ],
+       [
+        420,
+        20.3
+       ],
+       [
+        620,
+        21.7
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini02_CP_P6_Q1",
+     "stem": "Which value is closest to the power dissipated by the nichrome wire at 20 °C when connected directly to the 24 V source?",
+     "options": {
+      "A": "1.4 W",
+      "B": "33 W",
+      "C": "580 W",
+      "D": "0.057 W"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) R = 17.5 Ω from Figure 1, so P = V²/R = 576/17.5 = 33 W. Why the others are wrong: A) This is the current in amperes (24/17.5), not the power. C) This squares the voltage but omits division by the resistance. D) This is 1/R, a conductance in siemens, not a power.",
+     "trap": "Mixing up current and power or leaving out the resistance in P = V²/R.",
+     "topic": "Electric power",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.vedantu.com/physics/relation-between-power-and-resistance",
+       "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-b54-power-and-resistor-configurations/notes"
+      ]
+     }
+    },
+    {
+     "id": "Mini02_CP_P6_Q2",
+     "stem": "If the same length of nichrome wire had a diameter of 0.80 mm, what resistance would it have at 20 °C?",
+     "options": {
+      "A": "8.75 Ω",
+      "B": "4.4 Ω",
+      "C": "35.0 Ω",
+      "D": "70.0 Ω"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Doubling the diameter quadruples the area, so R = 17.5/4 = 4.4 Ω. Why the others are wrong: A) This halves the resistance as if it depended on diameter rather than area. C) This doubles the resistance, the wrong direction for a thicker wire. D) This quadruples the resistance, which would apply to a wire of half the diameter.",
+     "trap": "Treating resistance as inversely proportional to diameter instead of to diameter squared.",
+     "topic": "Resistance and geometry",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P6_Q3",
+     "stem": "According to Figure 1, by what percentage does the resistance of the nichrome wire increase between 20 °C and 620 °C?",
+     "options": {
+      "A": "2.4%",
+      "B": "124%",
+      "C": "4.2%",
+      "D": "24%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The graph rises from 17.5 Ω to 21.7 Ω, an increase of 4.2/17.5 = 24%, consistent with α ΔT = (4 × 10⁻⁴)(600) = 0.24. Why the others are wrong: A) This is a decimal error; 600 K times 4 × 10⁻⁴ is 0.24, which is 24%. B) This is the ratio 21.7/17.5 expressed as a percentage of the original value, not the increase. C) This treats the absolute rise in ohms as a percentage.",
+     "trap": "Reporting the final-to-initial ratio, or the rise in ohms, as the percent increase.",
+     "topic": "Temperature dependence of resistance",
+     "mastery_sheet_id": "4C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P6_Q4",
+     "stem": "Which explanation best accounts for the increase in resistance of metals such as copper and nichrome as temperature rises?",
+     "options": {
+      "A": "The number of conduction electrons decreases as the metal is heated.",
+      "B": "Greater lattice vibration scatters conduction electrons more often, lowering their average drift speed for a given field.",
+      "C": "The wire's length decreases on heating, which raises R.",
+      "D": "The wire's cross-sectional area rises, which increases R."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) In a metal, the number of charge carriers is nearly constant, but more frequent collisions with vibrating ions reduce drift velocity and raise resistivity. Why the others are wrong: A) In metals the number of carriers barely changes; that explanation fits semiconductors in reverse. C) Thermal expansion lengthens a wire, and the effect is far too small to explain a 24% change. D) A larger area would lower the resistance, and again the expansion is very small.",
+     "trap": "Attributing the resistance change to geometry or carrier number rather than scattering.",
+     "topic": "Resistivity and temperature",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P6_Q5",
+     "stem": "In the circuit with the copper leads, approximately what fraction of the 24 V source voltage is dropped across the leads at 20 °C?",
+     "options": {
+      "A": "98.5%",
+      "B": "15%",
+      "C": "1.5%",
+      "D": "0.27%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) R(leads) = (1.7 × 10⁻⁸)(2.0)/(1.26 × 10⁻⁷) = 0.27 Ω in series with 17.5 Ω, so the lead fraction is 0.27/17.8 = 1.5%. Why the others are wrong: A) This is the fraction across the nichrome wire, not the leads. B) This is a power-of-ten error from 0.27/1.78. D) This reports the lead resistance in ohms as a percentage.",
+     "trap": "Neglecting that series resistances divide the voltage in proportion to resistance.",
+     "topic": "Series circuits",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.allaboutcircuits.com/textbook/direct-current/chpt-6/voltage-divider-circuits/",
+       "https://openbooks.library.umass.edu/funee/chapter/3-2/"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini02_CP_P7",
+   "passage_text": "A glass pH electrode and an Ag/AgCl reference electrode form a cell whose potential depends linearly on pH: E = -s(pH - 7), where s = 2.303RT/F. The instrument is set so that E = 0 V in a pH 7.00 buffer. The reference electrode contains saturated KCl, so the AgCl + e⁻ → Ag + Cl⁻ half-reaction has a fixed potential. A student calibrates the meter with buffers at 25 °C and records the cell potential for two samples, as shown in Table 1. Figure 1 shows the calibration lines at 25 °C and at 37 °C. Use R = 8.314 J/(mol·K), F = 96,500 C/mol, and 2.303RT/F = 0.0592 V at 25 °C. The calibration solutions are stirred and equilibrated for two minutes before each reading, and the electrodes are rinsed between solutions. The meter has a very high input impedance, so a negligible current passes through the cell during a measurement.",
+   "table_data": "| Solution | Temperature (°C) | E (V) |\n|---|---|---|\n| Buffer, pH 4.00 | 25 | +0.178 |\n| Buffer, pH 7.00 | 25 | 0.000 |\n| Buffer, pH 10.00 | 25 | -0.178 |\n| Sample A | 25 | +0.0888 |\n| Sample B | 37 | -0.0369 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Cell potential versus pH",
+    "x_label": "pH",
+    "y_label": "Cell potential (V)",
+    "series": [
+     {
+      "name": "25 °C",
+      "points": [
+       [
+        4,
+        0.178
+       ],
+       [
+        7,
+        0.0
+       ],
+       [
+        10,
+        -0.178
+       ]
+      ]
+     },
+     {
+      "name": "37 °C",
+      "points": [
+       [
+        4,
+        0.185
+       ],
+       [
+        7,
+        0.0
+       ],
+       [
+        10,
+        -0.185
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini02_CP_P7_Q1",
+     "stem": "What is the pH of Sample A?",
+     "options": {
+      "A": "5.50",
+      "B": "8.50",
+      "C": "1.50",
+      "D": "6.00"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) pH = 7 - E/s = 7 - 0.0888/0.0592 = 7 - 1.50 = 5.50. Why the others are wrong: B) This reverses the sign of the cell potential (7 + 1.50). C) This is the quotient E/s alone, without subtracting it from 7. D) This matches no step of the calculation; 0.0888 V is 1.50 pH units from neutral, not 1.00.",
+     "trap": "Forgetting the pH 7 offset or reversing the sign of the slope.",
+     "topic": "Nernst equation and pH",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P7_Q2",
+     "stem": "Why is the 37 °C line in Figure 1 steeper than the 25 °C line?",
+     "options": {
+      "A": "The reference electrode potential increases at higher temperature.",
+      "B": "Hydrogen ion concentration is higher at 37 °C for any buffer.",
+      "C": "The slope 2.303RT/F is proportional to absolute temperature, so it is about 4% larger at 310 K than at 298 K.",
+      "D": "The Faraday constant rises with temperature."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) T enters the Nernst slope directly; 0.0592 × (310/298) = 0.0616 V per pH unit. Why the others are wrong: A) The reference potential would shift all points up or down, not change the slope. B) A buffer's pH is nearly constant; the change in slope is from the equation, not the solution. D) F is a constant and does not depend on temperature.",
+     "trap": "Attributing the steeper slope to a change in the solution rather than to the T term in the Nernst equation.",
+     "topic": "Temperature in Nernst equation",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P7_Q3",
+     "stem": "At 25 °C, what cell potential is expected for a solution of pH 8.50?",
+     "options": {
+      "A": "+0.0888 V",
+      "B": "-0.178 V",
+      "C": "-0.0592 V",
+      "D": "-0.0888 V"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) E = -0.0592 × (8.50 - 7.00) = -0.0888 V. Why the others are wrong: A) This has the right magnitude but the wrong sign; potential falls as pH rises. B) This is the potential at pH 10.00, not 8.50. C) This is the potential for a single pH unit above 7, not for 1.5 units.",
+     "trap": "Getting the sign wrong because acid solutions give positive potentials.",
+     "topic": "Nernst equation",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P7_Q4",
+     "stem": "Why does the potential of the Ag/AgCl reference electrode stay constant while the sample pH changes?",
+     "options": {
+      "A": "The chloride concentration in the saturated KCl filling solution is fixed, so the AgCl/Ag half-cell potential is fixed.",
+      "B": "The reference electrode is not connected to the sample.",
+      "C": "Silver ions are consumed in proportion to the hydrogen ion concentration.",
+      "D": "The reference electrode has no half-reaction."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) By the Nernst equation, E for AgCl/Ag depends on [Cl⁻], which is held constant by the saturated KCl. Why the others are wrong: B) It must be connected through a junction to complete the circuit. C) Silver is not involved in the hydrogen ion response of the cell. D) AgCl + e⁻ → Ag + Cl⁻ is a real half-reaction at that electrode.",
+     "trap": "Thinking a reference electrode does not take part in the cell reaction.",
+     "topic": "Reference electrodes",
+     "mastery_sheet_id": "4C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P7_Q5",
+     "stem": "What is the hydrogen ion concentration in Sample A?",
+     "options": {
+      "A": "3.2 × 10⁻⁹ M",
+      "B": "5.5 × 10⁻⁶ M",
+      "C": "3.2 × 10⁻⁶ M",
+      "D": "3.2 × 10⁻² M"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) [H⁺] = 10⁻⁵·⁵ = 3.2 × 10⁻⁶ M. Why the others are wrong: A) This corresponds to pH 8.50. B) This takes the pH value as the coefficient of the exponent. D) This corresponds to pH 1.50, the quotient E/s.",
+     "trap": "Using the wrong sign or value when converting pH to concentration.",
+     "topic": "pH and [H⁺]",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://antoine.frostburg.edu/chem/senese/101/acidbase/faq/what-is-pH.shtml",
+       "https://goldbook.iupac.org/terms/view/P04524"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini02_CP_P8",
+   "passage_text": "Alkaline phosphatase, an enzyme in raw milk, is inactivated by heat, and the loss of activity follows first-order kinetics. A food scientist measured the first-order rate constant k for inactivation at four temperatures (Table 1) and plotted ln k against 1000/T in Figure 1. The Arrhenius equation, k = A e^(-Ea/RT), predicts that the plot of ln k versus 1/T is a straight line with slope -Ea/R. Use R = 8.314 J/(mol·K) and ln 2 = 0.693. The scientist assumes that the activation energy and the pre-exponential factor A do not depend on temperature over this range. A second question concerns the effect of a catalyst that lowers the activation energy of a reaction by 10 kJ/mol without changing A. Samples were held at each temperature long enough to reach thermal equilibrium, and the activity remaining was assayed with a colorimetric substrate. The scatter among replicate assays at each temperature was small, and each value in the table is an average of three runs.",
+   "table_data": "| Temperature (K) | k (s⁻¹) |\n|---|---|\n| 300 | 1.0 × 10⁻⁴ |\n| 310 | 2.8 × 10⁻⁴ |\n| 320 | 7.4 × 10⁻⁴ |\n| 330 | 1.8 × 10⁻³ |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Arrhenius plot for enzyme inactivation",
+    "x_label": "1000/T (K⁻¹)",
+    "y_label": "ln k",
+    "series": [
+     {
+      "name": "Inactivation",
+      "points": [
+       [
+        3.333,
+        -9.21
+       ],
+       [
+        3.226,
+        -8.18
+       ],
+       [
+        3.125,
+        -7.21
+       ],
+       [
+        3.03,
+        -6.32
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini02_CP_P8_Q1",
+     "stem": "Which activation energy is obtained from the slope of the line in Figure 1?",
+     "options": {
+      "A": "9.6 kJ/mol",
+      "B": "160 kJ/mol",
+      "C": "80 kJ/mol",
+      "D": "40 kJ/mol"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The slope is (-6.32 + 9.21)/(3.030 - 3.333) = -9.5 × 10³ K, so Ea = 9.5 × 10³ × 8.314 = 79 kJ/mol, about 80 kJ/mol. Why the others are wrong: A) This is the slope magnitude in thousands of kelvin with the factor of 1000 and R both ignored. B) This doubles the correct value, as if the slope were -Ea/(R/2). D) This halves the value, as if the slope were -2Ea/R.",
+     "trap": "Forgetting to multiply the slope by R (or by the factor of 1000 in the axis).",
+     "topic": "Arrhenius equation",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P8_Q2",
+     "stem": "What is the half-life for inactivation at 300 K?",
+     "options": {
+      "A": "1.4 × 10⁻⁴ s",
+      "B": "1.0 × 10⁴ s",
+      "C": "3.5 × 10³ s",
+      "D": "6.9 × 10³ s"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) For first-order kinetics, t½ = ln 2/k = 0.693/(1.0 × 10⁻⁴ s⁻¹) = 6.9 × 10³ s. Why the others are wrong: A) This is k divided by ln 2, which has the inverse of the units of time. B) This is 1/k, the mean lifetime, not the half-life. C) This is 0.5/k, which uses 0.5 in place of ln 2.",
+     "trap": "Using 1/k or k/ln 2 for the half-life of a first-order process.",
+     "topic": "First-order half-life",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chem-textbook.ucalgary.ca/?p=7936"
+      ]
+     }
+    },
+    {
+     "id": "Mini02_CP_P8_Q3",
+     "stem": "Why does the rate constant increase as temperature rises?",
+     "options": {
+      "A": "A larger fraction of molecular collisions has energy at or above the activation energy.",
+      "B": "Raising the temperature lowers the activation energy of the reaction.",
+      "C": "Raising the temperature increases the concentration of enzyme.",
+      "D": "Raising the temperature makes the reaction more exothermic."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The Boltzmann distribution shifts toward higher energies, so exp(-Ea/RT) grows with T while Ea itself stays the same. Why the others are wrong: B) Ea is a property of the reaction pathway; heating does not change it (only a catalyst would). C) The concentration in the sample does not change on heating, and k is independent of concentration. D) The enthalpy change is not what k reflects, and it is nearly constant over this range.",
+     "trap": "Believing heat lowers the activation barrier rather than raising the fraction of molecules that can cross it.",
+     "topic": "Temperature dependence of rate",
+     "mastery_sheet_id": "5E",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P8_Q4",
+     "stem": "At 330 K, approximately how long does it take for 90% of the active enzyme to be lost?",
+     "options": {
+      "A": "3.9 × 10² s",
+      "B": "1.3 × 10³ s",
+      "C": "5.6 × 10² s",
+      "D": "1.3 × 10⁴ s"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) For 90% loss, ln(1/0.10) = 2.303, so t = 2.303/(1.8 × 10⁻³ s⁻¹) = 1.3 × 10³ s. Why the others are wrong: A) This is the half-life, ln 2/k, which describes a loss of 50%. C) This is 1/k, the time for the active fraction to fall to 37%. D) This is off by a factor of ten.",
+     "trap": "Using the half-life for a 90% loss.",
+     "topic": "First-order kinetics",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chem-textbook.ucalgary.ca/?p=7936"
+      ]
+     }
+    },
+    {
+     "id": "Mini02_CP_P8_Q5",
+     "stem": "At 300 K, by what factor does the rate constant increase if a catalyst lowers Ea by 10 kJ/mol and leaves A unchanged?",
+     "options": {
+      "A": "4.01",
+      "B": "10.0",
+      "C": "55",
+      "D": "1.004"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) k₂/k₁ = exp(ΔEa/RT) = exp(10,000/(8.314 × 300)) = exp(4.01) = 55. Why the others are wrong: A) This is the value of the exponent, not of the exponential. B) This equates 10 kJ/mol with a tenfold increase. D) This results from using Ea in kJ with R in J, which makes the exponent about 0.004.",
+     "trap": "Reporting the exponent rather than the exponential of the exponent.",
+     "topic": "Catalysis and activation energy",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini02_CP_P9",
+   "passage_text": "A student uses a coffee-cup calorimeter to measure enthalpies of neutralization. In each trial 50.0 mL of an acid solution and 50.0 mL of a base solution, both at the same initial temperature, are mixed in an insulated polystyrene cup with a lid, and the highest temperature is recorded. Assume that all solutions have density 1.00 g/mL and specific heat capacity 4.18 J/(g·K), that no heat is lost to the surroundings, and that the heat absorbed by the cup is negligible. Results of two trials are shown in Table 1. In a third trial planned for later, the student will use 2.0 M HCl and 2.0 M NaOH, again 50.0 mL of each at 21.0 °C. All of the reactions are carried out at constant pressure. The acid and base solutions were allowed to reach thermal equilibrium with the room before mixing, and the mixture was stirred gently with the thermometer. The student recorded temperature every 15 seconds and used the highest value, which occurred about 45 seconds after mixing.",
+   "table_data": "| Trial | Reagents (50.0 mL of each) | T initial (°C) | T final (°C) |\n|---|---|---|---|\n| 1 | 1.0 M HCl + 1.0 M NaOH | 21.0 | 27.8 |\n| 2 | 1.0 M CH₃COOH + 1.0 M NaOH | 21.0 | 27.3 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini02_CP_P9_Q1",
+     "stem": "Which value is closest to the enthalpy of neutralization per mole for Trial 1?",
+     "options": {
+      "A": "+56.8 kJ/mol",
+      "B": "-2.84 kJ/mol",
+      "C": "-57 kJ/mol",
+      "D": "-28.4 kJ/mol"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) q = (100.0 g)(4.18 J/g·K)(6.8 K) = 2.84 kJ released by 0.0500 mol of water formed; ΔH = -2.84/0.0500 = -57 kJ/mol. Why the others are wrong: A) The temperature rose, so the reaction is exothermic and ΔH is negative. B) This is the total heat, not divided by the moles of water formed. D) This divides by 0.100 mol, the total moles of acid plus base, rather than the 0.0500 mol of limiting reagent.",
+     "trap": "Dividing by the wrong number of moles or dropping the negative sign of an exothermic reaction.",
+     "topic": "Calorimetry",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.ausetute.com.au/heatneutral.html",
+       "https://www.jove.com/science-education/v/11289/constant-pressure-calorimeter-coffee-cup-calorimeter"
+      ]
+     }
+    },
+    {
+     "id": "Mini02_CP_P9_Q2",
+     "stem": "Why is the temperature rise in Trial 2 smaller than in Trial 1?",
+     "options": {
+      "A": "Part of the energy released is consumed in ionizing the weak acid, which is endothermic, so the net heat released is smaller.",
+      "B": "Acetic acid contains fewer moles of acid than HCl.",
+      "C": "Neutralization of a weak acid is endothermic overall.",
+      "D": "The specific heat capacity of acetic acid solution is lower than that of HCl."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Acetic acid dissociates only partly; completing the dissociation as the base removes H⁺ absorbs energy, giving ΔH of about -53 kJ/mol rather than -57. Why the others are wrong: B) Both solutions contain 0.0500 mol of acid, so the amounts are equal. C) The temperature rose, so the overall reaction is exothermic. D) Dilute solutions have nearly equal heat capacities, and a lower value would give a larger, not smaller, temperature rise.",
+     "trap": "Attributing the difference to amounts of reagent rather than the energy of ionization.",
+     "topic": "Enthalpy of neutralization",
+     "mastery_sheet_id": "5E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P9_Q3",
+     "stem": "If the cup itself absorbs a small amount of heat, but the student ignores this, how will the calculated enthalpy of neutralization compare with the true value?",
+     "options": {
+      "A": "The magnitude will be too large, because the cup adds extra heat to the solution.",
+      "B": "It will be exactly correct, because the cup's heat capacity cancels in ΔT.",
+      "C": "The sign of ΔH will reverse.",
+      "D": "The magnitude will be too small, because the temperature rise of the solution is smaller than if all the heat had gone to the solution."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Heat absorbed by the cup lowers the solution's temperature change, so q calculated from the solution alone underestimates the total heat released. Why the others are wrong: A) The cup absorbs heat from the reaction; it does not supply heat. B) The heat taken up by the cup never reaches the thermometer, so it does not cancel. C) The temperature still rises, so the reaction still appears exothermic.",
+     "trap": "Thinking heat absorbed by the apparatus would inflate the measured value.",
+     "topic": "Calorimetry error analysis",
+     "mastery_sheet_id": "5E",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P9_Q4",
+     "stem": "In the planned third trial, which final temperature is expected?",
+     "options": {
+      "A": "27.8 °C",
+      "B": "55.6 °C",
+      "C": "48.2 °C",
+      "D": "34.6 °C"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The 2.0 M solutions give twice the moles (0.100 mol) in the same 100 g, so the heat and ΔT double: 6.8 × 2 = 13.6 K, and 21.0 + 13.6 = 34.6 °C. Why the others are wrong: A) This is the Trial 1 result; doubling the moles of reaction in the same mass of solution doubles the temperature rise. B) This doubles the final temperature rather than the temperature change. C) This quadruples the temperature rise instead of doubling it.",
+     "trap": "Doubling the final temperature instead of the temperature change.",
+     "topic": "Heat and temperature change",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.ausetute.com.au/heatneutral.html",
+       "https://www.jove.com/science-education/v/11289/constant-pressure-calorimeter-coffee-cup-calorimeter"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini02_CP_P10",
+   "passage_text": "In cells, hydrolysis of ATP drives otherwise unfavorable reactions. For a reaction at constant temperature, ΔG = ΔG°′ + RT ln Q, where ΔG°′ is the standard free-energy change at pH 7 and Q is the reaction quotient. Table 1 lists ΔG°′ at 37 °C (310 K, RT = 2.58 kJ/mol) for four reactions. Figure 1 shows ΔG for ATP hydrolysis as ln Q varies, where Q = [ADP][Pᵢ]/[ATP] with concentrations in M. In a resting muscle cell, [ATP] = 5 mM, [ADP] = 0.5 mM, and [Pᵢ] = 5 mM, so Q = 5 × 10⁻⁴ and ln Q = -7.6. A coupled reaction is one whose overall ΔG°′ is the sum of the ΔG°′ values of its parts. Use R = 8.314 J/(mol·K). Assume that the activities of all species equal their molar concentrations. The values of ΔG°′ in Table 1 are for reactions in which each species is at 1 M except for H⁺, which is held at pH 7, and the temperature of all reactions is 37 °C.",
+   "table_data": "| Reaction | ΔG°′ (kJ/mol) |\n|---|---|\n| ATP + H₂O → ADP + Pᵢ | -30.5 |\n| Glucose + Pᵢ → glucose-6-phosphate + H₂O | +13.8 |\n| Phosphoenolpyruvate + H₂O → pyruvate + Pᵢ | -61.9 |\n| Creatine phosphate + H₂O → creatine + Pᵢ | -43.1 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. ΔG of ATP hydrolysis versus ln Q (310 K)",
+    "x_label": "ln Q",
+    "y_label": "ΔG (kJ/mol)",
+    "series": [
+     {
+      "name": "ATP hydrolysis",
+      "points": [
+       [
+        -10,
+        -56.3
+       ],
+       [
+        -8,
+        -51.1
+       ],
+       [
+        -6,
+        -46.0
+       ],
+       [
+        -4,
+        -40.8
+       ],
+       [
+        -2,
+        -35.7
+       ],
+       [
+        0,
+        -30.5
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini02_CP_P10_Q1",
+     "stem": "What is ΔG°′ for the coupled reaction glucose + ATP → glucose-6-phosphate + ADP?",
+     "options": {
+      "A": "-44.3 kJ/mol",
+      "B": "-16.7 kJ/mol",
+      "C": "+16.7 kJ/mol",
+      "D": "-30.5 kJ/mol"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Add the two reactions: -30.5 + 13.8 = -16.7 kJ/mol. Why the others are wrong: A) This adds the magnitudes of the two values instead of combining their signs. C) This has the right magnitude, but the sum is negative because the ATP term is larger in magnitude. D) This is the ATP hydrolysis term by itself and leaves out the unfavorable glucose phosphorylation.",
+     "trap": "Adding magnitudes instead of the signed values when coupling reactions.",
+     "topic": "Coupled reactions",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini02_CP_P10_Q2",
+     "stem": "What is the equilibrium constant at 310 K for glucose + ATP → glucose-6-phosphate + ADP?",
+     "options": {
+      "A": "1.5 × 10⁻³",
+      "B": "6.5",
+      "C": "1.0",
+      "D": "6.5 × 10²"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) K = exp(-ΔG°′/RT) = exp(16.7/2.58) = exp(6.5) = 6.5 × 10². Why the others are wrong: A) This uses exp(-6.5), which applies to a reaction with a positive ΔG°′. B) This takes the value of the exponent, 16.7/2.58, as K. C) This results from using ΔG°′ in kJ with R in J, which makes the exponent nearly zero.",
+     "trap": "Using the wrong sign in the exponent or leaving the exponent un-exponentiated.",
+     "topic": "Free energy and equilibrium",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://web02.gonzaga.edu/faculty/cronk/chem245pub/equilibrium_and_free_energy.html",
+       "https://courses.lumenlearning.com/suny-introductorychemistry/chapter/free-energy-under-nonstandard-conditions-2/"
+      ]
+     }
+    },
+    {
+     "id": "Mini02_CP_P10_Q3",
+     "stem": "Using Figure 1, which ΔG is closest to the value for ATP hydrolysis in the resting muscle cell?",
+     "options": {
+      "A": "-50 kJ/mol",
+      "B": "-30.5 kJ/mol",
+      "C": "-10.9 kJ/mol",
+      "D": "+50.1 kJ/mol"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At ln Q = -7.6 the line lies between -51 (at -8) and -46 (at -6), so ΔG is about -50 kJ/mol: -30.5 + (2.58)(-7.6) = -50.1. Why the others are wrong: B) This is the standard value at ln Q = 0, which does not apply to the cell. C) This adds the term RT ln Q to ΔG°′ with the wrong sign (-30.5 + 19.6). D) ATP hydrolysis is spontaneous in the cell, so ΔG must be negative.",
+     "trap": "Using the standard-state value for conditions that are far from standard.",
+     "topic": "ΔG and reaction quotient",
+     "mastery_sheet_id": "5E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P10_Q4",
+     "stem": "Why is ΔG for ATP hydrolysis in the cell more negative than ΔG°′?",
+     "options": {
+      "A": "Cells hold Q well above 1 by keeping ADP and Pᵢ high.",
+      "B": "ΔG°′ is defined at a temperature far above 37 °C.",
+      "C": "Enzymes lower the ΔG of the hydrolysis reaction.",
+      "D": "Cells keep Q well below 1 by holding ATP high and ADP and Pᵢ low, which makes ln Q negative."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Because ΔG = ΔG°′ + RT ln Q and ln Q is negative at Q < 1, the added term is negative. Why the others are wrong: A) If Q were above 1, ln Q would be positive and ΔG would be less negative than ΔG°′. B) The standard state here is defined at pH 7 and the same temperature, not an elevated one. C) Enzymes change rates but not ΔG, which depends only on the states of reactants and products.",
+     "trap": "Believing that a catalyst can change the free-energy change of a reaction.",
+     "topic": "Reaction quotient",
+     "mastery_sheet_id": "5E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini02_CP_P10_Q5",
+     "stem": "What is the slope of the line in Figure 1?",
+     "options": {
+      "A": "8.31 kJ/mol",
+      "B": "-30.5 kJ/mol",
+      "C": "2.6 kJ/mol",
+      "D": "25.8 kJ/mol"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) ΔG = ΔG°′ + RT ln Q, so the slope with respect to ln Q is RT = (8.314)(310)/1000 = 2.6 kJ/mol. Why the others are wrong: A) This is the value of R in J/(mol·K) with the temperature left out. B) This is the intercept (ΔG°′) of the line, not its slope. D) This is RT expressed in J/mol with a factor of ten wrong in the conversion.",
+     "trap": "Confusing the intercept with the slope or omitting T from RT.",
+     "topic": "Linear form of ΔG equation",
+     "mastery_sheet_id": "5E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "Mini02_CP_D1",
+   "stem": "A car traveling at 20 m/s brakes to a stop with all wheels locked on a level road. The coefficient of kinetic friction is 0.80. Using g = 10 m/s², what is the stopping distance?",
+   "options": {
+    "A": "50.0 m",
+    "B": "25 m",
+    "C": "12.5 m",
+    "D": "2.5 m"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) a = μg = 8.0 m/s², and d = v²/(2a) = 400/16 = 25 m. Why the others are wrong: A) This omits the factor of 2 in the denominator. C) This divides by 4μg, doubling the factor in the denominator. D) This is off by a factor of ten.",
+   "trap": "Dropping the factor of 2 in v² = 2ad.",
+   "topic": "Friction and kinematics",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://physicsforums.com/threads/stopping-distance.831906"
+    ]
+   }
+  },
+  {
+   "id": "Mini02_CP_D2",
+   "stem": "Blood flows at 0.25 m/s through the aorta, whose cross-sectional area is 4.0 cm². The total cross-sectional area of the capillaries is 2000 cm². Assuming incompressible steady flow, what is the average speed in the capillaries?",
+   "options": {
+    "A": "125 m/s",
+    "B": "0.50 mm/s",
+    "C": "5.0 mm/s",
+    "D": "0.25 m/s"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) By the continuity equation, v₂ = v₁A₁/A₂ = 0.25 × 4.0/2000 = 5.0 × 10⁻⁴ m/s = 0.50 mm/s. Why the others are wrong: A) This multiplies by the area ratio instead of dividing; flow slows as total area increases. C) This is off by a factor of ten. D) This assumes the speed stays constant, which contradicts conservation of volume flow.",
+   "trap": "Applying continuity with the area ratio inverted.",
+   "topic": "Continuity equation",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openstax.org/books/college-physics-ap-courses-2e/pages/12-1-flow-rate-and-its-relation-to-velocity"
+    ]
+   }
+  },
+  {
+   "id": "Mini02_CP_D3",
+   "stem": "A 6.0 μF capacitor and a 3.0 μF capacitor are connected in series across a 12 V battery. What is the potential difference across the 3.0 μF capacitor?",
+   "options": {
+    "A": "8.0 V",
+    "B": "4.0 V",
+    "C": "12 V",
+    "D": "6.0 V"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) C(series) = 2.0 μF, so Q = 24 μC on each, and V = Q/C = 24/3.0 = 8.0 V. Why the others are wrong: B) This is the voltage across the 6.0 μF capacitor. C) This applies to capacitors in parallel, not in series. D) This splits the voltage equally, ignoring the different capacitances.",
+   "trap": "Treating series capacitors as if they shared voltage equally.",
+   "topic": "Capacitors in series",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://web.physics.ucsb.edu/~lecturedemonstrations/Composer/Pages/64.48.html",
+     "https://eepower.com/capacitor-guide/applications/capacitors-in-series/"
+    ]
+   }
+  },
+  {
+   "id": "Mini02_CP_D4",
+   "stem": "An object is placed 30 cm in front of a concave mirror of focal length 15 cm. Which description fits the image?",
+   "options": {
+    "A": "Virtual, upright, and enlarged",
+    "B": "Real, inverted, and the same size as the object",
+    "C": "Real, inverted, and smaller than the object",
+    "D": "No image forms"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) 1/di = 1/15 - 1/30 = 1/30, so di = 30 cm and m = -1. Why the others are wrong: A) This applies to an object inside the focal length. C) This describes an object beyond twice the focal length. D) An image forms at infinity only when the object is at the focal point.",
+   "trap": "Misplacing the object relative to the center of curvature.",
+   "topic": "Mirror equation",
+   "mastery_sheet_id": "4D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini02_CP_D5",
+   "stem": "Uranium-238 decays by alpha emission. Which nucleus is the immediate product?",
+   "options": {
+    "A": "Protactinium-234",
+    "B": "Thorium-238",
+    "C": "Thorium-234",
+    "D": "Radium-230"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) An alpha particle carries 2 protons and 4 nucleons, so Z = 90 and A = 234. Why the others are wrong: A) This has Z = 91, the product of beta decay of thorium-234. B) This removes protons but not nucleons. D) This would require loss of an alpha particle from thorium-234.",
+   "trap": "Confusing which nuclear particle changes Z and A.",
+   "topic": "Alpha decay",
+   "mastery_sheet_id": "4E",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini02_CP_D6",
+   "stem": "What is the pH of a 1.0 × 10⁻³ M aqueous solution of Ba(OH)₂ at 25 °C?",
+   "options": {
+    "A": "11.0",
+    "B": "2.7",
+    "C": "3.0",
+    "D": "11.3"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) [OH⁻] = 2.0 × 10⁻³ M, pOH = 2.7, pH = 14 - 2.7 = 11.3. Why the others are wrong: A) This counts only one OH⁻ per formula unit. B) This is the pOH, not the pH. C) This treats the solution as an acid of the same concentration.",
+   "trap": "Counting one hydroxide per formula unit of a dibasic base.",
+   "topic": "pH of strong base",
+   "mastery_sheet_id": "5A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.pearson.com/channels/general-chemistry/study-guides/ph-and-poh-of-strong-acids-and",
+     "https://scilearn.sydney.edu.au/firstyear/exams/chem1002/2008answers/2008-N-5.pdf"
+    ]
+   }
+  },
+  {
+   "id": "Mini02_CP_D7",
+   "stem": "Which of the following molecules has no net dipole moment despite having polar bonds?",
+   "options": {
+    "A": "XeF₄",
+    "B": "SO₂",
+    "C": "PCl₃",
+    "D": "CH₂Cl₂"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) XeF₄ is square planar, so its four Xe-F bond dipoles cancel. Why the others are wrong: B) It is bent, so its two bond dipoles add. C) It is trigonal pyramidal, and the dipoles add. D) It is tetrahedral but with two different substituent types, so the dipoles do not cancel.",
+   "trap": "Assuming that polar bonds always produce a polar molecule.",
+   "topic": "Molecular polarity",
+   "mastery_sheet_id": "5B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini02_CP_D8",
+   "stem": "A compound has a partition coefficient K = [ether]/[water] = 4.0. A 100 mL aqueous solution containing 1.0 g of the compound is shaken once with 100 mL of ether. What mass of the compound is in the ether layer after equilibrium?",
+   "options": {
+    "A": "0.50 g",
+    "B": "0.20 g",
+    "C": "0.67 g",
+    "D": "0.80 g"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Fraction in ether = K·Vₑ/(K·Vₑ + V_w) = 4/(4 + 1) = 0.80, so 0.80 g. Why the others are wrong: A) This would result if K were 1.0. B) This is the mass remaining in the water layer. C) This results from using K = 2.0.",
+   "trap": "Mixing up the mass remaining in water with the mass extracted into ether.",
+   "topic": "Liquid-liquid extraction",
+   "mastery_sheet_id": "5C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.chem.tamu.edu/rgroup/gladysz/documents/extractions.pdf"
+    ]
+   }
+  },
+  {
+   "id": "Mini02_CP_D9",
+   "stem": "How many stereoisomers exist for 2,3-dibromobutane?",
+   "options": {
+    "A": "3",
+    "B": "4",
+    "C": "2",
+    "D": "1"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) It has two stereocenters but is symmetric, so there is a meso compound plus one pair of enantiomers. Why the others are wrong: B) This counts 2ⁿ without allowing for the meso form. C) This counts only the enantiomeric pair. D) This counts only the meso form.",
+   "trap": "Applying 2ⁿ to molecules with internal symmetry.",
+   "topic": "Stereoisomers and meso compounds",
+   "mastery_sheet_id": "5D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini02_CP_D10",
+   "stem": "A reaction has ΔH = +40 kJ/mol and ΔS = +120 J/(mol·K). Above which temperature does it become spontaneous?",
+   "options": {
+    "A": "0.33 K",
+    "B": "333 K",
+    "C": "3.0 K",
+    "D": "120 K"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) ΔG = ΔH - TΔS < 0 when T > 40,000/120 = 333 K. Why the others are wrong: A) This fails to convert kilojoules to joules. C) This inverts the ratio and also mishandles the units. D) This equates the temperature with ΔS.",
+   "trap": "Mixing kJ and J when comparing ΔH and TΔS.",
+   "topic": "Gibbs free energy and temperature",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://wisc.pb.unizin.org/chem103and104/chapter/gibbs-free-energy-m17q4/",
+     "https://chem.libretexts.org/Bookshelves/General_Chemistry/Map:_Chemistry_-_The_Central_Science_(Brown_et_al.)/19:_Chemical_Thermodynamics/19.06:_Free_Energy_and_Temperature"
+    ]
+   }
+  },
+  {
+   "id": "Mini02_CP_D11",
+   "stem": "What is the ground-state electron configuration of the Fe²⁺ ion?",
+   "options": {
+    "A": "[Ar] 4s² 3d⁴",
+    "B": "[Ar] 4s¹ 3d⁵",
+    "C": "[Ar] 3d⁶",
+    "D": "[Ar] 3d⁸"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Iron is [Ar] 4s² 3d⁶; the 4s electrons are removed first. Why the others are wrong: A) This removes two 3d electrons first. B) This removes one 4s and one 3d electron. D) This adds electrons rather than removing them.",
+   "trap": "Removing 3d electrons before 4s electrons when forming cations.",
+   "topic": "Electron configuration of ions",
+   "mastery_sheet_id": "4E",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini02_CP_D12",
+   "stem": "A sound has an intensity of 1.0 × 10⁻⁸ W/m². A second sound has an intensity of 1.0 × 10⁻⁶ W/m². By how many decibels does the second sound's level exceed the first?",
+   "options": {
+    "A": "20 dB",
+    "B": "2.0 dB",
+    "C": "100 dB",
+    "D": "200 dB"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) ΔL = 10 log(10⁻⁶/10⁻⁸) = 10 × 2 = 20 dB. Why the others are wrong: B) This reports the logarithm without the factor of 10. C) This reports the intensity ratio itself. D) This multiplies the ratio by 2.",
+   "trap": "Reporting the intensity ratio or the logarithm instead of 10 log of the ratio.",
+   "topic": "Sound intensity level",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openstax.org/books/college-physics-ap-courses-2e/pages/17-3-sound-intensity-and-sound-level"
+    ]
+   }
+  }
+ ]
+}

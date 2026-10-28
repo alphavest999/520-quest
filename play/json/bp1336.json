@@ -1,0 +1,143 @@
+[
+  {
+    "id": "bp1336_q1",
+    "type": "question",
+    "passage_id": "bp1336",
+    "passage_text": "Researchers investigated the effect of caffeine on cognitive performance in a controlled laboratory setting. A total of 120 healthy adults (age 20–35) were randomly assigned to one of four groups: placebo, low-dose caffeine (100 mg), moderate-dose caffeine (200 mg), and high-dose caffeine (300 mg). Each participant completed a 30‑minute psychomotor vigilance task (PVT) after ingestion. Reaction times were recorded in milliseconds, and the number of lapses (reaction time > 500 ms) was counted. The study aimed to determine whether increasing caffeine dosage correlates with improved vigilance and whether there is a threshold beyond which performance declines. Participants were instructed to abstain from caffeine for 12 hours prior to the experiment. The data were analyzed using a one‑way ANOVA followed by post‑hoc Tukey tests. The researchers hypothesized a dose‑dependent improvement up to 200 mg, with possible plateau or decline at 300 mg due to overstimulation.",
+    "table_data": [
+      [
+        "Condition",
+        "Mean Reaction Time (ms)",
+        "Standard Deviation (ms)"
+      ],
+      [
+        "Placebo",
+        "350",
+        "45"
+      ],
+      [
+        "Low‑Dose (100 mg)",
+        "320",
+        "40"
+      ],
+      [
+        "Moderate‑Dose (200 mg)",
+        "310",
+        "35"
+      ],
+      [
+        "High‑Dose (300 mg)",
+        "315",
+        "50"
+      ]
+    ],
+    "stem": "Based on the data presented, which statement best describes the relationship between caffeine dosage and mean reaction time?",
+    "options": {
+      "A": "Mean reaction time decreases linearly with increasing dosage.",
+      "B": "Mean reaction time decreases up to 200 mg and then slightly increases at 300 mg.",
+      "C": "Mean reaction time is unaffected by caffeine dosage.",
+      "D": "Mean reaction time increases with higher caffeine dosage."
+    },
+    "correct": "B",
+    "explanation": "The table shows a progressive decrease in mean reaction time from placebo to 200 mg, followed by a small increase at 300 mg, indicating a dose‑dependent improvement that plateaus or slightly worsens at the highest dose.",
+    "trap": "Option A incorrectly assumes a continuous linear trend, ignoring the slight increase at 300 mg.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  },
+  {
+    "id": "bp1336_q2",
+    "type": "question",
+    "passage_id": "bp1336",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which analysis is most appropriate for testing whether the 200 mg group differs from the placebo group while controlling the overall error rate across all pairwise group comparisons?",
+    "options": {
+      "A": "Separate t‑tests for every pair, each at p < 0.05, with no correction",
+      "B": "A chi‑square test of independence",
+      "C": "A paired t‑test between the 200 mg and placebo groups",
+      "D": "A Tukey post‑hoc test following a significant one‑way ANOVA"
+    },
+    "correct": "D",
+    "explanation": "Correct: A post‑hoc Tukey test after a significant ANOVA compares group pairs while controlling the family‑wise error rate, as the passage describes. Why the others are wrong: A) uncorrected multiple t‑tests inflate the Type I error rate. B) chi‑square tests compare categorical frequencies, but reaction time is continuous. C) a paired test applies to repeated measures on the same participants, but these groups are independent.",
+    "trap": "Running multiple uncorrected t-tests, which seems simpler but inflates false positives.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:02:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  },
+  {
+    "id": "bp1336_q3",
+    "type": "question",
+    "passage_id": "bp1336",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Assuming the standard deviations reported are accurate and the 120 participants were divided equally among the four groups, calculate the approximate 95% confidence interval for the mean reaction time of the moderate‑dose group.",
+    "options": {
+      "A": "305–315 ms",
+      "B": "310–320 ms",
+      "C": "298–323 ms",
+      "D": "300–310 ms"
+    },
+    "correct": "C",
+    "explanation": "Correct: With 120 participants in 4 equal groups, n = 30 per group. SE = 35/√30 = 6.39 ms, so the 95% CI = 310 ± 1.96 × 6.39 = 310 ± 12.5, about 298 to 323 ms. Why the others are wrong: A) 305–315 ms is only about ±0.8 SE, far too narrow. B) 310–320 ms starts at the mean instead of being centered on it. D) 300–310 ms ends at the mean and is also not centered on it.",
+    "trap": "Using n = 120 (SE = 3.2) ignores that each group has only 30 participants.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:04:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1336_q4",
+    "type": "question",
+    "passage_id": "bp1336",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following is NOT supported by Table 1?",
+    "options": {
+      "A": "The 200 mg group's mean reaction time was 40 ms lower than the placebo group's.",
+      "B": "The 300 mg group had the largest standard deviation.",
+      "C": "The 300 mg group's mean reaction time was slightly higher than the 200 mg group's.",
+      "D": "The 300 mg group's mean reaction time was worse than the placebo group's."
+    },
+    "correct": "D",
+    "explanation": "Correct: The 300 mg mean (315 ms) is faster than the placebo mean (350 ms), so performance was not worse than placebo. Why the others are wrong: A) 350 - 310 = 40 ms. B) the 300 mg SD of 50 ms is the largest of the four SDs. C) 315 ms is greater than 310 ms.",
+    "trap": "Reading the slight rise at 300 mg as a decline below placebo performance.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:06:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  },
+  {
+    "id": "bp1336_q5",
+    "type": "question",
+    "passage_id": "bp1336",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Caffeine improves vigilance primarily through which molecular mechanism?",
+    "options": {
+      "A": "Antagonism of adenosine A1/A2A receptors",
+      "B": "Inhibition of acetylcholinesterase",
+      "C": "Blockade of voltage-gated sodium channels",
+      "D": "Agonism at GABA-A receptors"
+    },
+    "correct": "A",
+    "explanation": "Caffeine is a competitive antagonist of adenosine receptors, blocking adenosine-mediated drowsiness and increasing arousal.",
+    "trap": "Choosing acetylcholinesterase inhibition because raising acetylcholine also promotes alertness, although caffeine acts by blocking adenosine receptors.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:08:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  }
+]

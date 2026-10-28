@@ -1,0 +1,1501 @@
+{
+ "exam": "FL04",
+ "section": "CP",
+ "passages": [
+  {
+   "passage_id": "FL04_CP_P1",
+   "passage_text": "A student studies the stability of a uniform ladder of mass 20 kg and length 4.0 m that leans against a smooth vertical wall, with its foot on a rough horizontal floor. The ladder makes an angle θ with the floor. Use g = 10 m/s². Because the wall is smooth, it exerts only a horizontal normal force on the ladder, whereas the floor exerts a vertical normal force N and a horizontal static friction force f. The student applies the conditions for static equilibrium, taking torques about the foot of the ladder, to find the friction force required at several angles when the ladder is on the verge of slipping. The smallest coefficient of static friction that prevents slipping is μ = f/N. Results for the unloaded ladder are shown in Table 1 and Figure 1. The student then asks how the requirement changes when a 60 kg person stands on the ladder at various heights.",
+   "table_data": "| θ (degrees) | Required friction force f (N) | Minimum μ |\n|---|---|---|\n| 80 | 17.6 | 0.09 |\n| 70 | 36.4 | 0.18 |\n| 60 | 57.7 | 0.29 |\n| 50 | 83.9 | 0.42 |\n| 40 | 119 | 0.60 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Minimum coefficient of static friction versus ladder angle",
+    "x_label": "Angle θ with floor (degrees)",
+    "y_label": "Minimum μ",
+    "series": [
+     {
+      "name": "Unloaded ladder",
+      "points": [
+       [
+        40,
+        0.6
+       ],
+       [
+        50,
+        0.42
+       ],
+       [
+        60,
+        0.29
+       ],
+       [
+        70,
+        0.18
+       ],
+       [
+        80,
+        0.09
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_CP_P1_Q1",
+     "stem": "According to Table 1, which expression gives the friction force needed at 60° for the unloaded ladder?",
+     "options": {
+      "A": "f = mg/tan θ ≈ 115 N",
+      "B": "f = mg/(2 tan θ) ≈ 58 N",
+      "C": "f = mg/2 ≈ 100 N",
+      "D": "f = (mg/2) tan θ ≈ 173 N"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Torque about the foot gives N_w(L sin θ) = mg(L/2)cos θ, so N_w = mg/(2 tan θ) = 200/(2 × 1.73) = 58 N, and f equals N_w by horizontal balance. Why the others are wrong: A) f = mg/tan θ ≈ 115 N omits the factor of 1/2 that comes from the weight acting at the ladder's midpoint. C) f = mg/2 ≈ 100 N ignores the angle dependence that enters through the lever arms of the wall force and the weight. D) f = (mg/2) tan θ ≈ 173 N inverts the tangent, which would predict more friction at steeper angles, contrary to Table 1.",
+     "trap": "Forgetting that the weight acts at L/2 (so the factor of 2) or inverting the tangent when solving for the wall force.",
+     "topic": "Torque and static equilibrium",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.physicsforums.com/threads/statics-ladder-and-friction-less-wall-question.441909/post-2954169"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P1_Q2",
+     "stem": "A student's floor has μs = 0.40 with the ladder. Using Figure 1, which angle is approximately the smallest at which the unloaded ladder remains at rest?",
+     "options": {
+      "A": "About 39° with the floor",
+      "B": "About 22° with the floor",
+      "C": "About 51° with the floor",
+      "D": "About 68° with the floor"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The requirement μ = 1/(2 tan θ) = 0.40 gives tan θ = 1.25, so θ ≈ 51°; Figure 1 shows μ_min of 0.42 at 50° and 0.29 at 60°, bracketing 0.40. Why the others are wrong: A) About 39° with the floor comes from inverting the relationship (tan θ = 2μ instead of 1/(2μ)); at 39° the requirement is above 0.60. B) About 22° with the floor uses θ = arctan μ, which ignores the torque balance, and is far below the angle where μ_min drops to 0.40. D) About 68° with the floor is stable but not the smallest angle; μ_min is only about 0.20 there, well under 0.40.",
+     "trap": "Reading the graph backward and choosing the angle where μ_min exceeds the available friction, which would cause slipping.",
+     "topic": "Static friction and equilibrium",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P1_Q3",
+     "stem": "Why is the foot of the ladder a convenient axis for the torque equation?",
+     "options": {
+      "A": "The unknown floor forces act at the axis, so they exert no torque and drop out",
+      "B": "The ladder's weight acts at the axis, so it contributes no torque and drops out",
+      "C": "The wall force and the floor friction force have equal lever arms and cancel in the torque sum",
+      "D": "Torque can only be calculated about a point where a surface exerts a force on the object"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Both the normal force and the friction force from the floor act at the foot, so their lever arms are zero and they do not appear in the equation, leaving only the wall force and the weight. Why the others are wrong: B) The ladder's weight acts at the axis, so it contributes no torque and drops out is false; the weight acts at the center of mass, 2.0 m from the foot, and supplies the main torque. C) The wall force and the floor friction force have equal lever arms and cancel in the torque sum is wrong; the wall force acts at the top, with a lever arm L sin θ, while the friction force acts at the axis. D) Torque can only be calculated about a point where a surface exerts a force on the object is wrong; any point may serve as the axis for an object in equilibrium, and this one is just the most convenient.",
+     "trap": "Believing the weight acts at the pivot or that an axis must be placed at a contact point.",
+     "topic": "Torque and lever arms",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P1_Q4",
+     "stem": "A 60 kg person (weight 600 N) stands 80% of the way up the 20 kg ladder, which is at 60°. About what friction force does the floor need to supply?",
+     "options": {
+      "A": "About 580 N",
+      "B": "About 231 N",
+      "C": "About 58 N",
+      "D": "About 335 N"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Torque about the foot: N_w(L sin 60°) = 200(L/2)cos 60° + 600(0.8L)cos 60°, so N_w = (100 + 480)/tan 60° = 580/1.73 ≈ 335 N, and f = N_w. Why the others are wrong: A) About 580 N is the sum (mg/2 + weight × 0.8) without dividing by tan θ, so it is the torque-like numerator rather than a force. B) About 231 N uses a person standing at the midpoint (50% up) instead of 80%, which gives a smaller torque from the person. C) About 58 N is the friction for the unloaded ladder in Table 1 and ignores the person's added torque.",
+     "trap": "Using the person's weight at the midpoint, or giving the answer without dividing by tan θ.",
+     "topic": "Equilibrium with added load",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.physicsforums.com/threads/statics-ladder-and-friction-less-wall-question.441909/post-2954169"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P1_Q5",
+     "stem": "Suppose the wall were rough instead of smooth. How would the floor friction force required to hold the unloaded ladder at a given angle compare with the smooth-wall case?",
+     "options": {
+      "A": "It would be larger, because the wall's friction force adds a second horizontal force the floor must cancel",
+      "B": "It would be smaller, because wall friction supplies an upward force and an additional torque",
+      "C": "It would be the same, because the ladder's weight and angle fix the floor friction independent of wall properties",
+      "D": "It would be zero, because any wall friction at all makes the floor friction unnecessary"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Wall friction acts upward, adding a torque about the foot that helps balance the weight, so the wall's normal force, which equals the floor friction, can be smaller. Why the others are wrong: A) It would be larger, because the wall's friction force adds a second horizontal force the floor must cancel is wrong; wall friction is directed along the wall (vertical), so it is not a horizontal force. C) It would be the same, because the ladder's weight and angle fix the floor friction independent of wall properties is wrong; the wall's friction force adds a torque about the foot, changing the balance. D) It would be zero, because any wall friction at all makes the floor friction unnecessary overstates the effect; the wall still needs a horizontal normal force that the floor friction must balance.",
+     "trap": "Treating all wall forces as horizontal or thinking wall properties cannot affect the torque balance.",
+     "topic": "Friction and torque",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_CP_P2",
+   "passage_text": "A student builds a resistor network and connects it to a 12.0 V battery of negligible internal resistance. Resistor R₁ (4.0 Ω) is in series with a parallel pair formed by R₂ (6.0 Ω) and R₃ (12.0 Ω), and this combination is in series with R₄ (2.0 Ω). The student measures the potential difference across each resistor with the battery at 12.0 V, recorded in Table 1. The student then varies the battery voltage and records the current supplied by the battery, plotted in Figure 1. All resistors are ohmic, and the voltmeter and ammeter used are treated as ideal except where the student examines how to place a voltmeter. The wires have negligible resistance and the temperature of the resistors stays constant during each measurement. Finally, the student considers what would happen if R₃ burned out and became an open circuit, leaving the rest of the network connected as before.",
+   "table_data": "| Resistor | Resistance (Ω) | Measured voltage (V) |\n|---|---|---|\n| R₁ | 4.0 | 4.8 |\n| R₂ | 6.0 | 4.8 |\n| R₃ | 12.0 | 4.8 |\n| R₄ | 2.0 | 2.4 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Battery current versus battery voltage",
+    "x_label": "Battery voltage (V)",
+    "y_label": "Battery current (A)",
+    "series": [
+     {
+      "name": "Network",
+      "points": [
+       [
+        2.0,
+        0.2
+       ],
+       [
+        4.0,
+        0.4
+       ],
+       [
+        8.0,
+        0.8
+       ],
+       [
+        12.0,
+        1.2
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_CP_P2_Q1",
+     "stem": "What equivalent resistance of the network does Figure 1 indicate?",
+     "options": {
+      "A": "24 Ω",
+      "B": "8.0 Ω",
+      "C": "10 Ω",
+      "D": "1.0 Ω"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The line passes through (12.0 V, 1.20 A), so R = V/I = 10 Ω, matching 4.0 + (6.0 × 12.0)/(6.0 + 12.0) + 2.0 = 4.0 + 4.0 + 2.0. Why the others are wrong: A) 24 Ω is the sum of all four resistors, as if every resistor were in series, which would give only 0.50 A at 12.0 V. B) 8.0 Ω omits R₄ from the total; the data show 1.2 A at 12.0 V, which requires more than 8.0 Ω. D) 1.0 Ω treats all four resistors as parallel, which would draw 12 A from the battery.",
+     "trap": "Adding all resistances directly or using the wrong combination rule for the parallel pair.",
+     "topic": "Series-parallel resistance",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P2_Q2",
+     "stem": "What current flows through R₃ at a battery voltage of 12.0 V?",
+     "options": {
+      "A": "0.40 A",
+      "B": "0.80 A",
+      "C": "1.2 A",
+      "D": "0.60 A"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) R₃ has 4.8 V across it (Table 1), so I = V/R = 4.8/12.0 = 0.40 A. Why the others are wrong: B) 0.80 A is the current through R₂ (4.8 V / 6.0 Ω), not R₃, which has twice the resistance. C) 1.2 A is the total battery current, which splits between R₂ and R₃. D) 0.60 A assumes the total current divides equally between the parallel branches, but they have unequal resistances.",
+     "trap": "Splitting current equally between parallel branches of unequal resistance.",
+     "topic": "Ohm's law in parallel branches",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P2_Q3",
+     "stem": "R₃ burns out and becomes an open circuit. At 12.0 V, what happens to the battery current and the voltage across R₂?",
+     "options": {
+      "A": "Current rises to 2.0 A and the R₂ voltage falls to zero",
+      "B": "Current stays at 1.2 A and the R₂ voltage stays at 4.8 V",
+      "C": "Current falls to 1.0 A and the R₂ voltage stays at 4.8 V",
+      "D": "Current falls to 1.0 A and the R₂ voltage rises to 6.0 V"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) With R₃ removed the total is 4.0 + 6.0 + 2.0 = 12 Ω, so I = 1.0 A and V₂ = (1.0)(6.0) = 6.0 V, higher than the 4.8 V before. Why the others are wrong: A) Current rises to 2.0 A and the R₂ voltage falls to zero treats the failed resistor as a short circuit, but an open circuit removes that branch rather than bypassing the others. B) Current stays at 1.2 A and the R₂ voltage stays at 4.8 V assumes R₁ and R₄ alone fix the total resistance, ignoring that the parallel pair now has a higher resistance. C) Current falls to 1.0 A and the R₂ voltage stays at 4.8 V gets the current right but ignores that the larger voltage drop across the parallel section must appear across R₂.",
+     "trap": "Assuming that removing a branch leaves the voltage across the remaining parallel resistor unchanged.",
+     "topic": "Series-parallel circuit changes",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P2_Q4",
+     "stem": "At 12.0 V, what power is dissipated in R₁?",
+     "options": {
+      "A": "36 W",
+      "B": "5.8 W",
+      "C": "14 W",
+      "D": "2.9 W"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) R₁ carries the full 1.2 A, so P = I²R = (1.2)²(4.0) = 5.8 W, or P = V²/R = (4.8)²/4.0 = 5.8 W. Why the others are wrong: A) 36 W applies the full 12.0 V battery voltage across R₁ in P = V²/R, but R₁ drops only 4.8 V. C) 14 W is the total power supplied by the battery (12.0 V × 1.2 A), not that in one resistor. D) 2.9 W is the power dissipated in R₄ (1.2 A)² × 2.0 Ω, a different resistor.",
+     "trap": "Using the battery voltage instead of the voltage across the individual resistor.",
+     "topic": "Electrical power",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P2_Q5",
+     "stem": "To measure the voltage across R₂ without changing the circuit's behavior, how should the voltmeter be connected?",
+     "options": {
+      "A": "In series with R₂, using a meter of very small resistance",
+      "B": "In parallel with R₂, using a meter of very small resistance",
+      "C": "In parallel with R₂, using a meter of very large resistance",
+      "D": "In series with R₂, using a meter of very large resistance"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A voltmeter measures the potential difference across a component, so it goes in parallel, and it must draw negligible current, which requires very high resistance. Why the others are wrong: A) In series with R₂, using a meter of very small resistance would put the meter in the current path, which is how an ammeter is connected, not a voltmeter. B) In parallel with R₂, using a meter of very small resistance would divert current around R₂ and lower the equivalent resistance of that branch. D) In series with R₂, using a meter of very large resistance would nearly block current in that branch and change the circuit.",
+     "trap": "Mixing up ammeter (series, low resistance) and voltmeter (parallel, high resistance) connections.",
+     "topic": "Meter placement",
+     "mastery_sheet_id": "4C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_CP_P3",
+   "passage_text": "Lead(II) iodide dissolves slightly in water according to PbI₂(s) ⇌ Pb²⁺(aq) + 2 I⁻(aq), with Ksp = 1.0 × 10⁻⁸ at 25°C. A student prepares saturated solutions of PbI₂ in pure water and in sodium iodide (NaI) solutions of several concentrations. Excess solid is stirred with each solution until equilibrium is reached, and the dissolved lead is measured after filtration. Because the solubility s is defined as the moles of PbI₂ that dissolve per liter, s equals [Pb²⁺] at equilibrium. Table 1 shows the measured solubility of PbI₂ at each added NaI concentration, and Figure 1 plots log s against log [NaI] for the three NaI solutions. In a final experiment, the student mixes equal volumes of two dilute solutions and uses the reaction quotient Q to predict whether a precipitate of PbI₂ will form. Assume that all activity coefficients are 1 and that the temperature stays at 25°C throughout, so that Ksp does not change from one solution to the next.",
+   "table_data": "| [NaI] added (M) | Solubility of PbI₂, s (M) |\n|---|---|\n| 0 | 1.4 × 10⁻³ |\n| 0.0010 | 1.05 × 10⁻³ |\n| 0.010 | 9.6 × 10⁻⁵ |\n| 0.100 | 1.0 × 10⁻⁶ |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Solubility of PbI₂ versus added iodide",
+    "x_label": "log [NaI] (M)",
+    "y_label": "log s",
+    "series": [
+     {
+      "name": "PbI₂ in NaI",
+      "points": [
+       [
+        -3,
+        -2.98
+       ],
+       [
+        -2,
+        -4.02
+       ],
+       [
+        -1,
+        -6.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_CP_P3_Q1",
+     "stem": "What is the molar solubility of PbI₂ in pure water, given Ksp = 1.0 × 10⁻⁸?",
+     "options": {
+      "A": "1.4 × 10⁻³ M",
+      "B": "1.0 × 10⁻⁴ M",
+      "C": "2.2 × 10⁻³ M",
+      "D": "2.5 × 10⁻⁹ M"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Ksp = s(2s)² = 4s³, so s = (2.5 × 10⁻⁹)^(1/3) = 1.4 × 10⁻³ M, matching the first row of Table 1. Why the others are wrong: B) 1.0 × 10⁻⁴ M is √Ksp, which treats PbI₂ as a 1:1 salt and ignores the two iodide ions per formula unit. C) 2.2 × 10⁻³ M is the cube root of Ksp, which leaves out the factor of 4 that comes from [Pb²⁺][I⁻]² = s(2s)². D) 2.5 × 10⁻⁹ M is Ksp/4, forgetting to take the cube root after setting Ksp = 4s³.",
+     "trap": "Using a square root for a salt that gives three ions or leaving out the 2² factor from the stoichiometry.",
+     "topic": "Ksp and solubility",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://web.chemteam.info/Equilibrium/Common-ion-effect.html",
+       "https://www.chm.uri.edu/weuler/chm112/lectures/lecture21.html"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P3_Q2",
+     "stem": "Which statement best explains the decrease in solubility as NaI is added?",
+     "options": {
+      "A": "Ksp decreases as more NaI is added, because the added ions lower the equilibrium constant",
+      "B": "Ksp is unchanged, but the extra I⁻ shifts the equilibrium toward solid PbI₂ (Le Chatelier)",
+      "C": "The added Na⁺ ions form ion pairs with Pb²⁺ and remove lead from solution, lowering [Pb²⁺]",
+      "D": "The added NaI raises the total ionic strength, which always lowers the solubility of any salt"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) I⁻ is a product of the dissolution; adding it makes Q > Ksp, so the equilibrium shifts left (Le Chatelier) and less PbI₂ dissolves, while Ksp is unchanged. Why the others are wrong: A) Ksp decreases as more NaI is added, because the added ions lower the equilibrium constant is wrong; Ksp depends only on temperature, and the product [Pb²⁺][I⁻]² stays equal to Ksp at equilibrium. C) The added Na⁺ ions form ion pairs with Pb²⁺ and remove lead from solution, lowering [Pb²⁺] is wrong; Na⁺ does not complex Pb²⁺, and the observed effect is due to the shared iodide ion. D) The added NaI raises the total ionic strength, which always lowers the solubility of any salt is wrong; the passage assumes activity coefficients of 1, and the trend arises from the common ion, not from ionic strength.",
+     "trap": "Believing that Ksp itself changes when a common ion is added.",
+     "topic": "Common-ion effect",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P3_Q3",
+     "stem": "What is the predicted solubility of PbI₂ in 0.050 M NaI? Neglect the iodide contributed by dissolved PbI₂.",
+     "options": {
+      "A": "2.0 × 10⁻⁷ M",
+      "B": "8.0 × 10⁻⁶ M",
+      "C": "1.0 × 10⁻⁶ M",
+      "D": "4.0 × 10⁻⁶ M"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Ksp = s[I⁻]² gives s = (1.0 × 10⁻⁸)/(0.050)² = 4.0 × 10⁻⁶ M, and 2s is negligible compared with 0.050 M. Why the others are wrong: A) 2.0 × 10⁻⁷ M uses Ksp/[I⁻], leaving out the square on the iodide concentration. B) 8.0 × 10⁻⁶ M doubles the correct answer, as if s were multiplied by the coefficient of iodide. C) 1.0 × 10⁻⁶ M is the value for 0.100 M NaI in Table 1, not for 0.050 M.",
+     "trap": "Omitting the square on [I⁻] in the Ksp expression.",
+     "topic": "Common-ion calculation",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://web.chemteam.info/Equilibrium/Common-ion-effect.html",
+       "https://www.chm.uri.edu/weuler/chm112/lectures/lecture21.html"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P3_Q4",
+     "stem": "The line connecting the last two points of Figure 1 has a slope of about −2. What does this indicate?",
+     "options": {
+      "A": "s is inversely proportional to [I⁻]²",
+      "B": "s is inversely proportional to [I⁻]",
+      "C": "s is directly proportional to [I⁻]²",
+      "D": "s is independent of [I⁻] at high iodide concentrations"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) With I⁻ dominated by added NaI, s = Ksp/[I⁻]², so log s = log Ksp − 2 log[I⁻], giving slope −2. Why the others are wrong: B) s is inversely proportional to [I⁻] would give a slope of −1, which reflects a 1:1 salt rather than PbI₂. C) s is directly proportional to [I⁻]² would give a slope of +2, but the graph shows solubility falling as iodide increases. D) s is independent of [I⁻] at high iodide concentrations would give a slope of 0, but solubility drops about a hundredfold over a tenfold increase in iodide.",
+     "trap": "Choosing the slope from the stoichiometric ratio without considering the exponent in the Ksp expression.",
+     "topic": "Log-log data analysis",
+     "mastery_sheet_id": "5A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P3_Q5",
+     "stem": "Equal volumes of 2.0 × 10⁻³ M Pb(NO₃)₂ and 4.0 × 10⁻³ M NaI are mixed. What is predicted?",
+     "options": {
+      "A": "A precipitate forms, because Q = 3.2 × 10⁻⁸ is greater than Ksp",
+      "B": "A precipitate forms, because Q = 2.0 × 10⁻⁶ is greater than Ksp",
+      "C": "No precipitate forms, because Q = 4.0 × 10⁻⁹ is less than Ksp",
+      "D": "No precipitate forms, because Q is equal to Ksp"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) After mixing, [Pb²⁺] = 1.0 × 10⁻³ M and [I⁻] = 2.0 × 10⁻³ M, so Q = (1.0 × 10⁻³)(2.0 × 10⁻³)² = 4.0 × 10⁻⁹ < Ksp, and the solution remains unsaturated. Why the others are wrong: A) A precipitate forms, because Q = 3.2 × 10⁻⁸ is greater than Ksp uses the concentrations before mixing and neglects that the volume doubles, which halves each concentration. B) A precipitate forms, because Q = 2.0 × 10⁻⁶ is greater than Ksp omits the square on [I⁻], which makes Q appear much larger than it is. D) No precipitate forms, because Q is equal to Ksp is wrong; Q = 4.0 × 10⁻⁹, which is below Ksp rather than equal to it.",
+     "trap": "Forgetting that mixing equal volumes halves each concentration before calculating Q.",
+     "topic": "Precipitation prediction",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://web.chemteam.info/Equilibrium/Common-ion-effect.html",
+       "https://www.chm.uri.edu/weuler/chm112/lectures/lecture21.html"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_CP_P4",
+   "passage_text": "In a photoelectric experiment, monochromatic light of known wavelength illuminates a clean metal surface inside an evacuated tube. The student adjusts a retarding voltage until the photocurrent just drops to zero; this value is the stopping potential V_s, which equals the maximum kinetic energy of the ejected electrons divided by the electron charge e. For each wavelength, the student also calculates the light frequency f = c/λ. Results are shown in Table 1 and Figure 1. The student uses hc = 1240 eV·nm. In a separate trial, intense 600 nm light produced no photocurrent at all, even when the intensity was increased tenfold. In a final trial, the student doubled the intensity of the 400 nm beam while keeping the wavelength fixed and observed the change in the current. The photon model of light predicts that each electron absorbs one photon. The tube is evacuated so that collisions with gas molecules do not affect the ejected electrons, and the metal surface was cleaned immediately before each run to avoid oxide layers.",
+   "table_data": "| Wavelength (nm) | Frequency (×10¹⁴ Hz) | Stopping potential (V) |\n|---|---|---|\n| 400 | 7.50 | 0.80 |\n| 350 | 8.57 | 1.24 |\n| 300 | 10.0 | 1.83 |\n| 250 | 12.0 | 2.66 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Stopping potential versus frequency",
+    "x_label": "Frequency (×10¹⁴ Hz)",
+    "y_label": "Stopping potential (V)",
+    "series": [
+     {
+      "name": "Metal surface",
+      "points": [
+       [
+        7.5,
+        0.8
+       ],
+       [
+        8.57,
+        1.24
+       ],
+       [
+        10.0,
+        1.83
+       ],
+       [
+        12.0,
+        2.66
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_CP_P4_Q1",
+     "stem": "What is the work function of the metal?",
+     "options": {
+      "A": "3.90 eV",
+      "B": "0.80 eV",
+      "C": "2.30 eV",
+      "D": "1.55 eV"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) At 400 nm the photon energy is 1240/400 = 3.10 eV. φ = hf − eV_s = 3.10 − 0.80 = 2.30 eV. Why the others are wrong: A) 3.90 eV adds the stopping potential to the photon energy instead of subtracting. B) 0.80 eV is the maximum kinetic energy, not the energy required to free the electron. D) 1.55 eV is half of the photon energy, which has no basis in the model.",
+     "trap": "Confusing the maximum kinetic energy of the electrons with the work function.",
+     "topic": "Work function from stopping potential",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.pearson.com/channels/calculators/photoelectric-effect-calculator",
+       "https://cyberphysics.co.uk/topics/atomic/Photoelectric_effect/Photoelectric_effect_stopping_potential.html"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P4_Q2",
+     "stem": "What does the slope of the line in Figure 1 represent?",
+     "options": {
+      "A": "φ/h",
+      "B": "e/h",
+      "C": "h",
+      "D": "h/e"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) eV_s = hf − φ, so V_s = (h/e)f − φ/e. The slope is h/e, about 4.1 × 10⁻¹⁵ V·s. Why the others are wrong: A) φ/h would be the x-intercept (threshold frequency), not the slope. B) e/h is the inverse of the actual slope. C) h alone has units of J·s; a slope in V per Hz gives h/e.",
+     "trap": "Forgetting that dividing by e converts energy to potential, so the slope is h/e and not h.",
+     "topic": "Interpreting Einstein photoelectric graph",
+     "mastery_sheet_id": "4E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P4_Q3",
+     "stem": "Why did intense 600 nm light fail to produce a photocurrent?",
+     "options": {
+      "A": "The intensity was not high enough to heat the metal",
+      "B": "600 nm light has a higher frequency than 400 nm light",
+      "C": "The stopping potential was set too low",
+      "D": "Each photon has energy (2.07 eV) below the work function"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) One photon ejects one electron, so a photon of 1240/600 = 2.07 eV cannot free an electron bound by 2.30 eV, no matter how many photons arrive. Why the others are wrong: A) The intensity was not high enough to heat the metal misapplies a thermal model; heating is not the mechanism. B) 600 nm light has a higher frequency than 400 nm light reverses the relation; longer wavelength means lower frequency. C) The stopping potential was set too low is irrelevant when no electrons are ejected at zero retarding voltage.",
+     "trap": "Believing that enough intensity can compensate for photon energy below the threshold.",
+     "topic": "Threshold frequency and photon model",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P4_Q4",
+     "stem": "When the intensity of the 400 nm beam is doubled, what happens?",
+     "options": {
+      "A": "The photocurrent is unchanged and the stopping potential doubles",
+      "B": "Both the photocurrent and the stopping potential double",
+      "C": "The photocurrent doubles and the stopping potential decreases",
+      "D": "The photocurrent doubles and the stopping potential is unchanged"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Doubling the intensity doubles the number of photons and so of ejected electrons, while each photon still has 3.10 eV, so V_s stays 0.80 V. Why the others are wrong: A) The photocurrent is unchanged and the stopping potential doubles reverses the roles of intensity and frequency. B) Both the photocurrent and the stopping potential double incorrectly ties the electron kinetic energy to intensity. C) The photocurrent doubles and the stopping potential decreases has no basis; V_s depends only on frequency.",
+     "trap": "Thinking that a brighter beam gives electrons more kinetic energy.",
+     "topic": "Intensity versus frequency",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P4_Q5",
+     "stem": "Which wavelength is closest to the longest wavelength that would eject electrons from this metal?",
+     "options": {
+      "A": "270 nm",
+      "B": "1080 nm",
+      "C": "540 nm",
+      "D": "400 nm"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) λ_max = hc/φ = 1240/2.30 = 539 nm. Why the others are wrong: A) 270 nm uses λ = hc/(2φ). B) 1080 nm uses hc/(φ/2), which doubles the correct wavelength. D) 400 nm is a wavelength actually used; it is not the maximum.",
+     "trap": "Using a wavelength from the data table instead of computing the threshold from the work function.",
+     "topic": "Threshold wavelength",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.pearson.com/channels/calculators/photoelectric-effect-calculator",
+       "https://cyberphysics.co.uk/topics/atomic/Photoelectric_effect/Photoelectric_effect_stopping_potential.html"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_CP_P5",
+   "passage_text": "A physics class measures the speed of sound using a resonance tube that is closed at the bottom by an adjustable water level and open at the top. A vibrating tuning fork is held over the open end, and the water level is lowered until the loudest sound is heard, which marks the first resonance of the air column. The length L₁ from the water surface to the open end is recorded. The tube has an inner radius of 1.5 cm. Because the pressure antinode forms slightly beyond the open end, the effective length is L + 0.6r. The air temperature is 20°C and the speed of sound is 343 m/s. The measurements for three forks are shown in Table 1. The class then continues to lower the water to find the second resonance for the 512 Hz fork. In a final extension, the class repeats the 512 Hz measurement in a warm room.",
+   "table_data": "| Fork frequency (Hz) | Measured L₁ (m) |\n|---|---|\n| 384 | 0.214 |\n| 512 | 0.159 |\n| 640 | 0.125 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_CP_P5_Q1",
+     "stem": "What is the wavelength of the sound from the 512 Hz fork?",
+     "options": {
+      "A": "0.67 m",
+      "B": "1.5 m",
+      "C": "0.34 m",
+      "D": "1.8 × 10⁵ m"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) λ = v/f = 343/512 = 0.67 m. Why the others are wrong: B) 1.5 m inverts the ratio, giving f/v instead of v/f. C) 0.34 m is half the wavelength, the spacing between successive resonances. D) 1.8 × 10⁵ m multiplies v by f instead of dividing.",
+     "trap": "Multiplying instead of dividing when relating speed, frequency, and wavelength.",
+     "topic": "Wavelength from speed and frequency",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_CP_P5_Q2",
+     "stem": "Where, relative to the top of the tube, should the second resonance be measured for the 512 Hz fork?",
+     "options": {
+      "A": "0.33 m",
+      "B": "0.49 m below the top",
+      "C": "0.67 m",
+      "D": "0.16 m"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Resonances in a closed tube occur at effective lengths of 3λ/4 = 0.50 m, so L₂ = 0.50 − 0.009 = 0.49 m. Why the others are wrong: A) 0.33 m is λ/2, the spacing between resonances, not the second length. C) 0.67 m is a full wavelength, which is not a resonance for a tube closed at one end. D) 0.16 m is the first resonance, not the second.",
+     "trap": "Using λ/2 or λ as the second resonance length for a tube closed at one end.",
+     "topic": "Resonance in a closed tube",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://hyperphysics.gsu.edu/hbase/Class/PhSciLab/restube.html",
+       "https://phys.libretexts.org/Bookshelves/Waves_and_Acoustics/Laboratory_Manual_-_The_Science_of_Sound_(Fiore)/05%3A_Resonant_Pipes/5.01%3A_Section_1-"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P5_Q3",
+     "stem": "In the warm room, speed of sound in air is higher. How does L₁ for the 512 Hz fork change?",
+     "options": {
+      "A": "It decreases",
+      "B": "It is unchanged",
+      "C": "It increases only if the fork frequency changes",
+      "D": "It increases"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Higher v gives a longer λ = v/f at fixed f, and L₁ ≈ λ/4 − 0.6r increases. Why the others are wrong: A) It decreases would require a shorter wavelength, which would need a lower speed. B) It is unchanged ignores that the resonance depends on the wavelength in the air column. C) It increases only if the fork frequency changes is false; the frequency is fixed by the fork and λ still changes with v.",
+     "trap": "Assuming that the frequency of the fork changes with the speed of sound rather than the wavelength.",
+     "topic": "Temperature dependence of sound speed",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P5_Q4",
+     "stem": "The measured L₁ of 0.159 m for the 512 Hz fork is shorter than λ/4 = 0.168 m. Why?",
+     "options": {
+      "A": "The water surface is a displacement antinode",
+      "B": "The displacement antinode lies slightly beyond the open end",
+      "C": "The speed of sound inside the tube is lower than in room air",
+      "D": "The fork frequency is higher than labeled"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The effective length is L + 0.6r, so the measured length is shorter than λ/4 by the end correction of about 0.009 m. Why the others are wrong: A) The water surface is a displacement antinode is incorrect; the closed end (water) is a displacement node. C) The speed of sound inside the tube is lower than in room air has no support; the same air is used. D) The fork frequency is higher than labeled would be a random error not tied to the tube geometry.",
+     "trap": "Placing a displacement antinode at the closed end instead of at the open end.",
+     "topic": "End correction in resonance tubes",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_CP_P6",
+   "passage_text": "A Venturi meter measures the flow of water through a horizontal pipe. The pipe has an inner diameter of 8.0 cm that narrows smoothly to a 4.0 cm diameter throat, then widens again. A differential pressure gauge reads the difference ΔP between the pressure in the wide section and the pressure in the throat. Water is treated as an ideal, incompressible fluid of density 1000 kg/m³, and the wide-section cross-sectional area is A₁ = 5.03 × 10⁻³ m². A student sets the volume flow rate Q at several values and records the speeds from the continuity equation and the pressure difference predicted by Bernoulli's equation, shown in Table 1. The student then considers replacing the water with an oil of density 800 kg/m³ and tilting the meter so that the throat is higher than the wide section. Viscous losses and the small change in water density with pressure are ignored throughout, and the pressure gauge is assumed to respond only to the pressure difference between its two taps.",
+   "table_data": "| Q (L/s) | Speed in wide section v₁ (m/s) | Speed in throat v₂ (m/s) | ΔP (kPa) |\n|---|---|---|---|\n| 2.0 | 0.40 | 1.59 | 1.19 |\n| 4.0 | 0.80 | 3.18 | 4.75 |\n| 6.0 | 1.19 | 4.77 | 10.7 |\n| 8.0 | 1.59 | 6.37 | 19.0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_CP_P6_Q1",
+     "stem": "At Q = 2.0 L/s, what is the speed in the throat?",
+     "options": {
+      "A": "0.80 m/s",
+      "B": "0.40 m/s",
+      "C": "1.6 m/s",
+      "D": "6.4 m/s"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Continuity requires A₁v₁ = A₂v₂, and A₁/A₂ = (8.0/4.0)² = 4, so v₂ = 4(0.40) = 1.6 m/s. Why the others are wrong: A) 0.80 m/s applies the ratio of the diameters (2:1) instead of the ratio of the areas (4:1). B) 0.40 m/s is the speed in the wide section, not the throat, where the water is faster. D) 6.4 m/s uses the ratio of diameters to the fourth power, 16 instead of 4, as the speedup.",
+     "trap": "Using the diameter ratio rather than the area ratio in the continuity equation.",
+     "topic": "Continuity equation",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://engineerexcel.com/venturi-meter-flow/",
+       "https://www.engineeringtoolbox.com/amp/orifice-nozzle-venturi-d_590.html"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P6_Q2",
+     "stem": "What ΔP is predicted at Q = 10.0 L/s?",
+     "options": {
+      "A": "About 30 kPa",
+      "B": "About 5.9 kPa",
+      "C": "About 12 kPa",
+      "D": "About 24 kPa"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) ΔP = ½ρ(v₂² − v₁²) is proportional to Q²; Q is 5 times the 2.0 L/s value, so ΔP = 25 × 1.19 ≈ 30 kPa. Why the others are wrong: B) About 5.9 kPa assumes ΔP is directly proportional to Q, so five times the 2.0 L/s reading. C) About 12 kPa scales the 2.0 L/s reading by 10, but Q rises by a factor of 5, so ΔP rises by 25. D) About 24 kPa scales ΔP linearly from the 8.0 L/s value by the 1.25 ratio of flow rates, rather than squaring it.",
+     "trap": "Assuming a linear relation between ΔP and flow rate.",
+     "topic": "Bernoulli's equation",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://engineerexcel.com/venturi-meter-flow/",
+       "https://www.engineeringtoolbox.com/amp/orifice-nozzle-venturi-d_590.html"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P6_Q3",
+     "stem": "If the water is replaced by oil of density 800 kg/m³ at Q = 4.0 L/s, what is the predicted ΔP?",
+     "options": {
+      "A": "About 5.9 kPa",
+      "B": "About 3.8 kPa",
+      "C": "About 4.75 kPa",
+      "D": "About 2.4 kPa"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Speeds are fixed by Q and the areas, and ΔP is proportional to ρ, so ΔP = (800/1000)(4.75) = 3.8 kPa. Why the others are wrong: A) About 5.9 kPa divides the water value by 0.80 instead of multiplying, which would apply if the oil were denser. C) About 4.75 kPa assumes ΔP depends on speeds only, but ΔP = ½ρ(v₂² − v₁²) depends on density as well. D) About 2.4 kPa halves the water value, a change that is not supported by a density ratio of 0.80.",
+     "trap": "Forgetting that Bernoulli's pressure term scales with density or inverting the density ratio.",
+     "topic": "Fluid density and pressure",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://engineerexcel.com/venturi-meter-flow/",
+       "https://www.engineeringtoolbox.com/amp/orifice-nozzle-venturi-d_590.html"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P6_Q4",
+     "stem": "With Q = 4.0 L/s and the throat placed 0.20 m above the wide section, what does the gauge read? Use g = 9.8 m/s².",
+     "options": {
+      "A": "About 2.8 kPa",
+      "B": "About 4.75 kPa",
+      "C": "About 1.96 kPa",
+      "D": "About 6.7 kPa"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) P₁ − P₂ = ½ρ(v₂² − v₁²) + ρgh = 4.75 + (1000)(9.8)(0.20)/1000 = 4.75 + 1.96 ≈ 6.7 kPa. Why the others are wrong: A) About 2.8 kPa subtracts ρgh instead of adding it; the water must gain potential energy, so the pressure drop is larger. B) About 4.75 kPa applies the horizontal result, but the height term ρgh = 1.96 kPa also contributes. C) About 1.96 kPa is only the hydrostatic term and leaves out the kinetic term, 4.75 kPa.",
+     "trap": "Ignoring the elevation term or giving it the wrong sign in Bernoulli's equation.",
+     "topic": "Bernoulli with elevation",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_CP_P7",
+   "passage_text": "Divers breathe gas mixtures whose composition is chosen to keep the partial pressure of oxygen below about 1.4 atm. A diver uses a trimix of 18% O₂, 45% He, and 37% N₂ by mole. Pressure increases by about 1.0 atm for each 10 m of seawater depth, starting from 1.0 atm at the surface, and the gas is assumed to behave ideally with mole fractions unchanged at depth. Dalton's law relates each partial pressure to the mole fraction and the total pressure. Table 1 lists the mole fraction, the partial pressure at 60 m, and the normal boiling point of each component, which reflects the strength of its intermolecular attractions. Recreational divers who breathe compressed air (21% O₂, 79% N₂) are also considered. The questions that follow concern both the gas laws and the molecular properties that make helium behave most ideally of the three gases. Temperature is assumed to be the same for all of the gases in the mixture.",
+   "table_data": "| Gas | Mole fraction | Partial pressure at 60 m (atm) | Normal boiling point (K) |\n|---|---|---|---|\n| O₂ | 0.18 | 1.26 | 90 |\n| He | 0.45 | 3.15 | 4.2 |\n| N₂ | 0.37 | 2.59 | 77 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_CP_P7_Q1",
+     "stem": "What is the partial pressure of O₂ for a diver breathing air at 40 m?",
+     "options": {
+      "A": "0.84 atm",
+      "B": "1.05 atm",
+      "C": "0.21 atm",
+      "D": "1.40 atm"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At 40 m the total pressure is 1.0 + 4.0 = 5.0 atm, so P(O₂) = 0.21 × 5.0 = 1.05 atm. Why the others are wrong: A) 0.84 atm uses a total pressure of 4.0 atm, leaving out the 1.0 atm of atmospheric pressure at the surface. C) 0.21 atm is the surface value; the partial pressure rises in proportion to the total pressure at depth. D) 1.40 atm is the commonly cited limit for O₂ partial pressure, not the value calculated for air at this depth.",
+     "trap": "Forgetting to add the 1.0 atm of surface pressure to the pressure from the water column.",
+     "topic": "Dalton's law",
+     "mastery_sheet_id": "5B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://shop.humankinetics.com/blogs/excerpt/understand-the-physics-of-scuba-diving"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P7_Q2",
+     "stem": "At what maximum depth does the trimix keep P(O₂) at or below 1.4 atm?",
+     "options": {
+      "A": "About 68 m",
+      "B": "About 78 m",
+      "C": "About 57 m",
+      "D": "About 7.8 m"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) P_total = 1.4/0.18 = 7.8 atm, so the water column contributes 6.8 atm, which is 68 m of seawater. Why the others are wrong: B) About 78 m uses the total pressure of 7.8 atm directly as depth in tens of meters, without subtracting the surface 1.0 atm. C) About 57 m uses 0.21 as the O₂ mole fraction (air) rather than 0.18 for the trimix. D) About 7.8 m finds the total pressure but does not convert atm to meters of depth at 10 m per atm.",
+     "trap": "Forgetting to subtract the atmospheric 1.0 atm from the total pressure before converting to depth.",
+     "topic": "Gas mixtures and depth",
+     "mastery_sheet_id": "5B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://shop.humankinetics.com/blogs/excerpt/understand-the-physics-of-scuba-diving"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P7_Q3",
+     "stem": "Why does helium have the lowest normal boiling point of the three gases in Table 1?",
+     "options": {
+      "A": "It is a monatomic gas, so it has no intermolecular forces at all between atoms",
+      "B": "It has a large permanent dipole moment that makes its atoms repel at close range",
+      "C": "Its large partial pressure at depth overcomes its intermolecular forces and lowers its boiling point",
+      "D": "Its small, tightly held electron cloud is least polarizable, so its London forces are weakest"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) London dispersion forces grow with polarizability, which grows with number of electrons; He (2 electrons) is the least polarizable, so it needs the least thermal energy to boil. Why the others are wrong: A) It is a monatomic gas, so it has no intermolecular forces at all between atoms is wrong; helium atoms still attract through weak London dispersion forces, which is why it liquefies at 4.2 K. B) It has a large permanent dipole moment that makes its atoms repel at close range is wrong; helium atoms are nonpolar and have no permanent dipole. C) Its large partial pressure at depth overcomes its intermolecular forces and lowers its boiling point is wrong; the boiling point listed is a normal boiling point at 1 atm and is independent of the mixture.",
+     "trap": "Thinking nonpolar atoms have no intermolecular forces or that boiling points depend on partial pressure in a mixture.",
+     "topic": "London forces and boiling point",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P7_Q4",
+     "stem": "If the diver ascends from 60 m to 30 m without changing gas, what is the new partial pressure of N₂?",
+     "options": {
+      "A": "2.59 atm",
+      "B": "1.11 atm",
+      "C": "1.48 atm",
+      "D": "0.37 atm"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) At 30 m, P_total = 4.0 atm, so P(N₂) = 0.37 × 4.0 = 1.48 atm. Why the others are wrong: A) 2.59 atm is the value at 60 m; the partial pressure decreases as total pressure falls during ascent. B) 1.11 atm uses 3.0 atm as total pressure at 30 m, omitting the 1.0 atm of atmospheric pressure. D) 0.37 atm is the mole fraction, not a pressure, and would apply only at a total pressure of 1.0 atm.",
+     "trap": "Using only the hydrostatic pressure from the water column as the total pressure.",
+     "topic": "Partial pressure and depth",
+     "mastery_sheet_id": "5B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://shop.humankinetics.com/blogs/excerpt/understand-the-physics-of-scuba-diving"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_CP_P8",
+   "passage_text": "A student extracts pigments from spinach leaves and separates them by thin-layer chromatography (TLC) on a silica gel plate. Silica is a polar stationary phase. The first plate is developed in a nonpolar solvent mixture (9:1 hexane/acetone) until the solvent front reaches 8.0 cm above the origin line. The student measures the distance from the origin to the center of each spot and calculates the retention factor Rf = distance traveled by spot/distance traveled by solvent front. A second plate is developed in a more polar solvent (7:3 hexane/acetone) under otherwise identical conditions. Results are shown in Table 1. Chlorophyll b differs from chlorophyll a only in that a formyl group (–CHO) replaces a methyl group (–CH₃) on one ring. β-Carotene is a hydrocarbon, whereas lutein is a hydrocarbon bearing two hydroxyl groups. The plates were developed in a closed chamber saturated with solvent vapor, and the pigments were spotted with the same capillary tube. All spot distances were measured immediately after the plate was removed.",
+   "table_data": "| Pigment | Spot distance, 9:1 (cm) | Rf, 9:1 | Rf, 7:3 |\n|---|---|---|---|\n| β-Carotene | 7.6 | 0.95 | 0.98 |\n| Chlorophyll a | 3.6 | 0.45 | 0.78 |\n| Chlorophyll b | 3.2 | 0.40 | 0.72 |\n| Lutein | 2.4 | 0.30 | 0.65 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_CP_P8_Q1",
+     "stem": "Which statement best explains why β-carotene travels the farthest on the plate?",
+     "options": {
+      "A": "It is nonpolar and interacts weakly with polar silica",
+      "B": "It is the heaviest of the pigments",
+      "C": "It forms strong hydrogen bonds with silica",
+      "D": "It is the only pigment soluble in hexane"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Nonpolar compounds adsorb least to silica and are carried by the relatively nonpolar solvent, giving the highest Rf. Why the others are wrong: B) It is the heaviest of the pigments is not the controlling factor; adsorption strength determines mobility on TLC. C) It forms strong hydrogen bonds with silica would hold it near the origin, not carry it to the solvent front. D) It is the only pigment soluble in hexane is false; all the pigments move in the solvent.",
+     "trap": "Thinking larger molecules or those that bind strongly to the stationary phase travel farther.",
+     "topic": "TLC polarity and Rf",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P8_Q2",
+     "stem": "Why does chlorophyll b have a lower Rf than chlorophyll a in the 9:1 system?",
+     "options": {
+      "A": "The formyl group makes chlorophyll b more polar so it binds silica more strongly",
+      "B": "Chlorophyll b is less polar than chlorophyll a",
+      "C": "Chlorophyll b has a lower molar mass",
+      "D": "Chlorophyll b is insoluble in the solvent"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) A C=O group adds polarity and can accept hydrogen bonds from silica, increasing adsorption and lowering Rf. Why the others are wrong: B) Chlorophyll b is less polar than chlorophyll a reverses the effect of replacing CH₃ with the polar CHO. C) Chlorophyll b has a lower molar mass is false; it is slightly heavier than chlorophyll a. D) Chlorophyll b is insoluble in the solvent is false, since it moved 3.2 cm.",
+     "trap": "Assuming that the pigment with the added group moves farther because it is more soluble in the mobile phase.",
+     "topic": "Polarity effects in chromatography",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P8_Q3",
+     "stem": "What would be expected when the more polar solvent (7:3) is used in place of 9:1?",
+     "options": {
+      "A": "All Rf values decrease",
+      "B": "All Rf values increase",
+      "C": "Only β-carotene changes",
+      "D": "The order of the pigments reverses"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A more polar eluent competes better with the analytes for the silica surface, so each spot is carried farther (Table 1). Why the others are wrong: A) All Rf values decrease reverses the effect; a stronger eluent moves spots farther. C) Only β-carotene changes is not supported; the table shows all pigments change. D) The order of the pigments reverses is not observed; the relative order is preserved in Table 1.",
+     "trap": "Thinking that a more polar solvent would hold polar compounds more tightly on a polar plate.",
+     "topic": "Eluent strength",
+     "mastery_sheet_id": "5C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P8_Q4",
+     "stem": "In the 9:1 system, how far would lutein travel if the solvent front rose to 10.0 cm?",
+     "options": {
+      "A": "2.4 cm",
+      "B": "3.0 cm",
+      "C": "6.5 cm",
+      "D": "33 cm"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Rf is constant for fixed conditions: distance = 0.30 × 10.0 cm = 3.0 cm. Why the others are wrong: A) 2.4 cm is the distance for an 8.0 cm solvent front. C) 6.5 cm uses the Rf of 0.65 from the more polar 7:3 solvent. D) 33 cm divides the front distance by Rf, inverting the definition.",
+     "trap": "Using the fixed distance from the table rather than scaling by Rf for the new solvent front.",
+     "topic": "Rf calculation",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_CP_P9",
+   "passage_text": "Carboxylic acid derivatives react with nucleophiles by nucleophilic acyl substitution. The nucleophile adds to the carbonyl carbon to form a tetrahedral intermediate, which then collapses by expelling the leaving group and reforming the C=O bond. A student compares the relative reactivity of four acetyl derivatives toward water at neutral pH and 25°C. The reactivity ranks (1 = most reactive) and the leaving group properties are in Table 1. The student notes that the more stable the leaving group is as an anion, the more readily the tetrahedral intermediate collapses. Esters and amides are also attacked by hydroxide in base-promoted hydrolysis, in which the carboxylic acid product is deprotonated by the base to give a carboxylate. The student also studies resonance donation from the heteroatom lone pair into the carbonyl group, which stabilizes the starting material. These reactivity trends are commonly used to plan syntheses in which a more reactive derivative is converted into a less reactive one, but not the reverse.",
+   "table_data": "| Acetyl derivative | Leaving group | pKa of conjugate acid of leaving group | Reactivity rank |\n|---|---|---|---|\n| Acetyl chloride | Cl⁻ | −7 | 1 |\n| Acetic anhydride | CH₃COO⁻ | 4.8 | 2 |\n| Ethyl acetate | CH₃CH₂O⁻ | 16 | 3 |\n| Acetamide | NH₂⁻ | 38 | 4 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_CP_P9_Q1",
+     "stem": "Why is acetyl chloride the most reactive of these derivatives?",
+     "options": {
+      "A": "Chloride is a strong base and leaves readily",
+      "B": "Chloride is the weakest base and best leaving group, and chlorine donates little electron density to C=O",
+      "C": "Chlorine donates its lone pair into C=O the most effectively",
+      "D": "The tetrahedral intermediate is not formed"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The very low pKa of HCl means Cl⁻ is very stable, and poor resonance donation leaves the carbonyl carbon highly electrophilic. Why the others are wrong: A) Chloride is a strong base and leaves readily contradicts Table 1; a strong base is a poor leaving group. C) Chlorine donates its lone pair into C=O the most effectively is false; orbital overlap with chlorine's 3p orbital is poor. D) The tetrahedral intermediate is not formed is incorrect; all acyl derivatives react through this intermediate.",
+     "trap": "Confusing leaving-group ability with basicity; strong bases are poor leaving groups.",
+     "topic": "Leaving group ability",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P9_Q2",
+     "stem": "What are the products when ethyl acetate is heated with aqueous NaOH?",
+     "options": {
+      "A": "Sodium acetate and ethanol",
+      "B": "Acetic acid and sodium ethoxide",
+      "C": "Acetamide and ethanol",
+      "D": "Ethyl alcohol and acetyl chloride"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Hydroxide adds, the ethoxide leaves, and the resulting acetic acid is deprotonated to acetate, making the reaction irreversible. Why the others are wrong: B) Acetic acid and sodium ethoxide is incorrect since ethoxide is a far stronger base than water and acetic acid would be deprotonated. C) Acetamide and ethanol needs a nitrogen source that is not present. D) Ethyl alcohol and acetyl chloride has no source of chlorine and is the reverse of an unfavorable reaction.",
+     "trap": "Writing the neutral carboxylic acid as the product of base-promoted hydrolysis.",
+     "topic": "Saponification",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P9_Q3",
+     "stem": "Why is acetamide so much less reactive than ethyl acetate?",
+     "options": {
+      "A": "Nitrogen's lone pair donates strongly into the carbonyl, stabilizing the amide",
+      "B": "The C=O bond in amides is longer and weaker",
+      "C": "Amides do not form a tetrahedral intermediate",
+      "D": "Nitrogen is more electronegative than oxygen"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Amide resonance reduces the electrophilicity of C=O, and NH₂⁻ is a very poor leaving group (conjugate acid pKa 38). Why the others are wrong: B) The C=O bond in amides is longer and weaker is false; resonance gives the C–N bond partial double-bond character. C) Amides do not form a tetrahedral intermediate is false; the same mechanism applies but is slower. D) Nitrogen is more electronegative than oxygen is incorrect; oxygen is more electronegative.",
+     "trap": "Arguing from electronegativity alone and overlooking resonance donation.",
+     "topic": "Amide resonance",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P9_Q4",
+     "stem": "What are the organic products of the reaction of acetic anhydride with excess methylamine (CH₃NH₂)?",
+     "options": {
+      "A": "Methyl acetate and ammonia",
+      "B": "Acetyl chloride and methylamine",
+      "C": "Acetic acid only",
+      "D": "N-methylacetamide and acetate"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The amine adds to a carbonyl, acetate leaves, and the ammonium is deprotonated by a second equivalent of amine, giving the amide plus acetate. Why the others are wrong: A) Methyl acetate and ammonia would require methoxide as a nucleophile and expels the wrong group. B) Acetyl chloride and methylamine would reverse the reactivity order in Table 1. C) Acetic acid only ignores that the amine is the nucleophile and is incorporated into the product.",
+     "trap": "Assuming that acylation of an amine yields an ester instead of an amide.",
+     "topic": "Acylation of amines",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_CP_P10",
+   "passage_text": "Hydrogen peroxide decomposes according to 2 H₂O₂(aq) → 2 H₂O(l) + O₂(g). The uncatalyzed reaction is very slow, with an activation energy of 75 kJ/mol, but iodide ion catalyzes it by providing an alternative pathway. A student measures initial rates of O₂ formation at 298 K for several starting concentrations, as listed in Table 1. The student then determines the rate constant k of the catalyzed reaction at four temperatures between 288 K and 318 K and plots ln k against 1000/T in Figure 1. The line through the points has a slope of −6.0. Use R = 8.314 J/(mol·K). Each rate is expressed per liter of solution as the rate of disappearance of H₂O₂, and the iodide concentration is not changed appreciably over the course of each initial-rate measurement. The pre-exponential factor of the catalyzed pathway is assumed to equal that of the uncatalyzed pathway, and both are assumed to be independent of temperature over this range.",
+   "table_data": "| Experiment | [H₂O₂] (M) | [I⁻] (M) | Initial rate (M/s) |\n|---|---|---|---|\n| 1 | 0.10 | 0.010 | 2.0 × 10⁻⁵ |\n| 2 | 0.20 | 0.010 | 4.0 × 10⁻⁵ |\n| 3 | 0.10 | 0.020 | 4.0 × 10⁻⁵ |\n| 4 | 0.20 | 0.020 | 8.0 × 10⁻⁵ |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Arrhenius plot for the iodide-catalyzed decomposition",
+    "x_label": "1000/T (1/K)",
+    "y_label": "ln k",
+    "series": [
+     {
+      "name": "Catalyzed reaction",
+      "points": [
+       [
+        3.472,
+        -4.61
+       ],
+       [
+        3.356,
+        -3.91
+       ],
+       [
+        3.247,
+        -3.26
+       ],
+       [
+        3.145,
+        -2.64
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_CP_P10_Q1",
+     "stem": "Which rate law is consistent with Table 1?",
+     "options": {
+      "A": "rate = k[H₂O₂]",
+      "B": "rate = k[H₂O₂][I⁻]",
+      "C": "rate = k[H₂O₂]²",
+      "D": "rate = k[H₂O₂][I⁻]²"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Doubling either concentration alone doubles the rate (Experiments 2 and 3), so the reaction is first order in each reactant and second order overall. Why the others are wrong: A) rate = k[H₂O₂] leaves out iodide, but doubling [I⁻] doubles the rate even though iodide is not consumed overall. C) rate = k[H₂O₂]² would quadruple the rate when only [H₂O₂] is doubled, but Experiment 2 shows a twofold increase. D) rate = k[H₂O₂][I⁻]² would quadruple the rate when [I⁻] is doubled, but Experiment 3 shows only a twofold increase.",
+     "trap": "Excluding a catalyst from the rate law, although catalysts can appear in it.",
+     "topic": "Rate laws from initial rates",
+     "mastery_sheet_id": "5E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_CP_P10_Q2",
+     "stem": "What is the value of k at 298 K?",
+     "options": {
+      "A": "2.0 × 10⁻² M⁻¹ s⁻¹",
+      "B": "2.0 × 10⁻² s⁻¹",
+      "C": "2.0 × 10⁻⁴ M⁻¹ s⁻¹",
+      "D": "2.0 × 10⁻⁵ M⁻¹ s⁻¹"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) k = rate/([H₂O₂][I⁻]) = (2.0 × 10⁻⁵)/(0.10 × 0.010) = 2.0 × 10⁻² M⁻¹ s⁻¹. Why the others are wrong: B) 2.0 × 10⁻² s⁻¹ has the numerical value right but units of a first-order constant; for a second-order rate law the units are M⁻¹ s⁻¹. C) 2.0 × 10⁻⁴ M⁻¹ s⁻¹ divides the rate by [H₂O₂] only, leaving out the iodide concentration. D) 2.0 × 10⁻⁵ M⁻¹ s⁻¹ is the rate in Experiment 1, which is not divided by the concentrations.",
+     "trap": "Using the wrong units for a second-order rate constant or leaving out one concentration.",
+     "topic": "Rate constant calculation",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_CP_P10_Q3",
+     "stem": "What activation energy does the slope of Figure 1 give for the catalyzed reaction?",
+     "options": {
+      "A": "About −50 kJ/mol",
+      "B": "About 6.0 kJ/mol",
+      "C": "About +50 kJ/mol",
+      "D": "About 0.050 kJ/mol"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The slope equals −Ea/(1000R), so Ea = 6.0 × 1000 × 8.314 = 5.0 × 10⁴ J/mol = 50 kJ/mol. Why the others are wrong: A) About −50 kJ/mol keeps the sign of the slope, but the activation energy is positive and equals −slope × R. B) About 6.0 kJ/mol equals the slope without multiplying by R or by the factor of 1000 for the axis units. D) About 0.050 kJ/mol multiplies the slope by R but omits the factor of 1000, giving 50 J/mol.",
+     "trap": "Missing the factor of 1000 from the axis or the negative sign in slope = −Ea/R.",
+     "topic": "Arrhenius equation",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://courses.lumenlearning.com/suny-introductorychemistry/chapter/activation-energy-and-the-arrhenius-equation-2/",
+       "https://wisc.pb.unizin.org/chem109fall2023/chapter/activation-energy-and-reaction-rate"
+      ]
+     }
+    },
+    {
+     "id": "FL04_CP_P10_Q4",
+     "stem": "By about what factor does the catalyst increase k at 298 K, assuming the pre-exponential factor is unchanged?",
+     "options": {
+      "A": "1.5",
+      "B": "10",
+      "C": "4.1 × 10⁻⁵",
+      "D": "2.4 × 10⁴"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The ratio is exp(ΔEa/RT) = exp[25,000/(8.314 × 298)] = exp(10.1) ≈ 2.4 × 10⁴. Why the others are wrong: A) 1.5 is the ratio of the activation energies (75/50), which ignores the exponential dependence of k on Ea. B) 10 is the exponent Δ Ea/RT (about 10.1), and the rate constant ratio is e raised to that value. C) 4.1 × 10⁻⁵ is the reciprocal, which would apply to a catalyst that raised the activation energy.",
+     "trap": "Comparing activation energies by simple ratio instead of exponentially or confusing the direction of the change.",
+     "topic": "Catalysis and activation energy",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://courses.lumenlearning.com/suny-introductorychemistry/chapter/activation-energy-and-the-arrhenius-equation-2/",
+       "https://wisc.pb.unizin.org/chem109fall2023/chapter/activation-energy-and-reaction-rate"
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL04_CP_D1",
+   "stem": "A 70 kg person stands on a scale in an elevator that accelerates upward at 2.0 m/s². What does the scale read? (Use g = 9.8 m/s².)",
+   "options": {
+    "A": "690 N",
+    "B": "550 N",
+    "C": "830 N",
+    "D": "140 N"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) N − mg = ma, so N = m(g + a) = 70(11.8) = 826 N, about 830 N. Why the others are wrong: A) 690 N is the weight mg, valid only at constant velocity. B) 550 N is m(g − a), the reading for downward acceleration. D) 140 N is only the net force ma.",
+   "trap": "Using g − a instead of g + a for an upward acceleration.",
+   "topic": "Apparent weight",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://timan.cs.illinois.edu/pdfjs_csintro//static/slides/PHYS101/lecture05/PHYS101---lecture05---slide10.pdf"
+    ]
+   }
+  },
+  {
+   "id": "FL04_CP_D2",
+   "stem": "A 2.0 kg cart moving at 3.0 m/s collides and sticks to a 1.0 kg cart at rest. How much kinetic energy is lost?",
+   "options": {
+    "A": "6.0 J",
+    "B": "9.0 J",
+    "C": "1.5 J",
+    "D": "3.0 J"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Final speed = 6.0/3.0 = 2.0 m/s; KE_i = 9.0 J, KE_f = ½(3.0)(4.0) = 6.0 J; lost = 3.0 J. Why the others are wrong: A) 6.0 J is the final kinetic energy, not the loss. B) 9.0 J is the initial kinetic energy. C) 1.5 J has no basis; it would be half the loss.",
+   "trap": "Assuming kinetic energy is conserved in an inelastic collision or reporting the final energy as the loss.",
+   "topic": "Inelastic collisions",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://web.pa.msu.edu/courses/2014fall/PHY251/Inelastic.pdf"
+    ]
+   }
+  },
+  {
+   "id": "FL04_CP_D3",
+   "stem": "Water flows at 2.0 m/s through a pipe of radius 3.0 cm into a section of radius 1.5 cm. What is the speed in the narrower section?",
+   "options": {
+    "A": "4.0 m/s",
+    "B": "16 m/s",
+    "C": "8.0 m/s",
+    "D": "1.0 m/s"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Continuity: A₁v₁ = A₂v₂; A scales with r², so halving r quadruples v: 8.0 m/s. Why the others are wrong: A) 4.0 m/s scales speed with radius rather than area. B) 16 m/s applies the factor of four twice. D) 1.0 m/s inverts the relation, as if the speed fell in the narrow section.",
+   "trap": "Using the radius ratio instead of the area ratio in the continuity equation.",
+   "topic": "Continuity equation",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openstax.org/books/college-physics-ap-courses/pages/12-1-flow-rate-and-its-relation-to-velocity"
+    ]
+   }
+  },
+  {
+   "id": "FL04_CP_D4",
+   "stem": "A 12 V battery is connected to a 4.0 Ω resistor in series with a parallel combination of a 6.0 Ω and a 12 Ω resistor. What is the current through the 6.0 Ω resistor?",
+   "options": {
+    "A": "0.5 A",
+    "B": "1.5 A",
+    "C": "2.0 A",
+    "D": "1.0 A"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) R_parallel = 4.0 Ω, total = 8.0 Ω, I = 1.5 A; voltage across the parallel branch = 6.0 V, so I = 6.0/6.0 = 1.0 A. Why the others are wrong: A) 0.5 A is the current through the 12 Ω resistor. B) 1.5 A is the total current. C) 2.0 A applies the full 12 V across the 6.0 Ω resistor.",
+   "trap": "Applying the battery voltage across a resistor that sees only part of it.",
+   "topic": "Series-parallel circuits",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel"
+    ]
+   }
+  },
+  {
+   "id": "FL04_CP_D5",
+   "stem": "A current of 2.0 A flows through aqueous CuSO₄ for 965 s. What mass of copper is deposited? (F = 96,500 C/mol; Cu = 63.5 g/mol.)",
+   "options": {
+    "A": "1.3 g",
+    "B": "0.32 g",
+    "C": "0.64 g",
+    "D": "6.4 g"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Q = 1930 C = 0.020 mol e⁻; Cu²⁺ needs 2 e⁻, so 0.010 mol × 63.5 = 0.64 g. Why the others are wrong: A) 1.3 g assumes one electron per copper atom. B) 0.32 g divides by two twice. D) 6.4 g has an error of a factor of ten in the moles of electrons.",
+   "trap": "Forgetting that Cu²⁺ requires two electrons per atom.",
+   "topic": "Electrolysis stoichiometry",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.monash.edu/student-academic-success/chemistry/electrolysis/faradays-laws"
+    ]
+   }
+  },
+  {
+   "id": "FL04_CP_D6",
+   "stem": "An object is placed 30 cm from a converging lens of focal length 10 cm. Which describes the image?",
+   "options": {
+    "A": "Virtual, upright, 15 cm from the lens",
+    "B": "Real, inverted, 15 cm from the lens",
+    "C": "Real, inverted, 7.5 cm from the lens",
+    "D": "Real, upright, 30 cm from the lens"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) 1/d_i = 1/10 − 1/30 = 1/15, so d_i = 15 cm; positive d_i means real and magnification −0.5 means inverted. Why the others are wrong: A) Virtual, upright, 15 cm from the lens would occur only for an object inside the focal length. C) Real, inverted, 7.5 cm from the lens gives the wrong image distance. D) Real, upright, 30 cm from the lens occurs for no real object with a converging lens.",
+   "trap": "Mixing up sign conventions for real versus virtual images.",
+   "topic": "Thin lens equation",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.omnicalculator.com/physics/thin-lens-equation",
+     "https://learn.physicslens.com/light/thin-converging-lenses.html"
+    ]
+   }
+  },
+  {
+   "id": "FL04_CP_D7",
+   "stem": "Light in glass (n = 1.5) strikes the glass–air interface. What is the critical angle?",
+   "options": {
+    "A": "42°",
+    "B": "48°",
+    "C": "56°",
+    "D": "90°"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) sinθ_c = n_air/n_glass = 1/1.5 = 0.667, so θ_c = 42°. Why the others are wrong: B) 48° is the complement, found with cosine instead of sine. C) 56° would correspond to n of about 1.2. D) 90° is the angle of refraction at the critical angle, not the critical angle.",
+   "trap": "Using cosine instead of sine in the critical angle relation or confusing it with the refraction angle.",
+   "topic": "Total internal reflection",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://labs.phys.utk.edu/mbreinig/phys421/modules/m1/total_internal_reflection.html"
+    ]
+   }
+  },
+  {
+   "id": "FL04_CP_D8",
+   "stem": "A radioisotope has a half-life of 8.0 days. What percentage of a sample remains after 24 days?",
+   "options": {
+    "A": "25%",
+    "B": "12.5%",
+    "C": "50%",
+    "D": "6.25%"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) 24 days is three half-lives, so (1/2)³ = 12.5%. Why the others are wrong: A) 25% is the amount after two half-lives. C) 50% is the amount remaining after only one half-life. D) 6.25% is the amount after four half-lives.",
+   "trap": "Miscounting half-lives or treating decay as linear.",
+   "topic": "Half-life",
+   "mastery_sheet_id": "4E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/The_Basics_of_General_Organic_and_Biological_Chemistry_(Ball_et_al.)/11%3A_Nuclear_Chemistry/11.02%3A_Half-Life"
+    ]
+   }
+  },
+  {
+   "id": "FL04_CP_D9",
+   "stem": "An electron in a hydrogen atom moves from n = 3 to n = 2. Which wavelength is emitted?",
+   "options": {
+    "A": "487 nm",
+    "B": "656 nm",
+    "C": "122 nm",
+    "D": "1875 nm"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) E = 13.6(1/4 − 1/9) = 1.89 eV, so λ = 1240/1.89 = 656 nm. Why the others are wrong: A) 487 nm is the n = 4 to 2 transition. C) 122 nm is in the ultraviolet, the n = 2 to 1 transition. D) 1875 nm is the n = 4 to 3 transition.",
+   "trap": "Using the wrong pair of levels or mixing up emission series.",
+   "topic": "Bohr model spectral lines",
+   "mastery_sheet_id": "4E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openstax.org/books/university-physics-volume-3/pages/6-4-bohrs-model-of-the-hydrogen-atom"
+    ]
+   }
+  },
+  {
+   "id": "FL04_CP_D10",
+   "stem": "What is the molar solubility of AgCl (Ksp = 1.8 × 10⁻¹⁰) in 0.10 M NaCl?",
+   "options": {
+    "A": "1.3 × 10⁻⁵ M",
+    "B": "1.8 × 10⁻¹⁰ M",
+    "C": "1.8 × 10⁻⁹ M",
+    "D": "1.8 × 10⁻¹¹ M"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) [Ag⁺] = Ksp/[Cl⁻] = 1.8 × 10⁻¹⁰/0.10 = 1.8 × 10⁻⁹ M, because of the common ion effect. Why the others are wrong: A) 1.3 × 10⁻⁵ M is the solubility in pure water, √Ksp. B) 1.8 × 10⁻¹⁰ M is Ksp itself. D) 1.8 × 10⁻¹¹ M multiplies Ksp by 0.10 instead of dividing by the 0.10 M chloride concentration.",
+   "trap": "Using √Ksp even when a common ion is present.",
+   "topic": "Common ion effect",
+   "mastery_sheet_id": "5A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://web.chemteam.info/Equilibrium/Common-ion-effect.html",
+     "https://www.chm.uri.edu/weuler/chm112/lectures/lecture21.html"
+    ]
+   }
+  },
+  {
+   "id": "FL04_CP_D11",
+   "stem": "What is the molecular geometry of XeF₄?",
+   "options": {
+    "A": "Tetrahedral",
+    "B": "Square planar",
+    "C": "See-saw",
+    "D": "Octahedral"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Xe has 4 bonding pairs and 2 lone pairs (octahedral electron geometry), with the lone pairs opposite each other: square planar. Why the others are wrong: A) Tetrahedral would apply to four bonding pairs and no lone pairs. C) See-saw corresponds to 4 bonding pairs and 1 lone pair. D) Octahedral has six bonding pairs, as in SF₆.",
+   "trap": "Ignoring lone pairs on the central atom.",
+   "topic": "VSEPR geometry",
+   "mastery_sheet_id": "5B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_CP_D12",
+   "stem": "A mixture of benzoic acid and naphthalene in diethyl ether is shaken with aqueous NaHCO₃. Where is each compound found?",
+   "options": {
+    "A": "Benzoic acid in the ether layer and naphthalene in the aqueous layer",
+    "B": "Both in the ether layer",
+    "C": "Benzoate in the aqueous layer and naphthalene in the ether layer",
+    "D": "Both in the aqueous layer"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) The carboxylic acid is deprotonated to the water-soluble benzoate salt, while neutral naphthalene stays in ether. Why the others are wrong: A) Benzoic acid in the ether layer and naphthalene in the aqueous layer reverses the solubility, as nonpolar naphthalene does not dissolve in water. B) Both in the ether layer ignores acid-base reactivity of benzoic acid. D) Both in the aqueous layer is incorrect; naphthalene is nonpolar.",
+   "trap": "Forgetting that ionic forms partition into the aqueous layer.",
+   "topic": "Acid-base extraction",
+   "mastery_sheet_id": "5C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_CP_D13",
+   "stem": "Ethyl benzoate is treated with excess LiAlH₄ followed by aqueous acid. What are the products?",
+   "options": {
+    "A": "Benzaldehyde and ethanol",
+    "B": "Benzoic acid and ethanol",
+    "C": "Benzyl alcohol and ethanol",
+    "D": "Benzyl alcohol only"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) LiAlH₄ reduces esters to two alcohols: PhCH₂OH from the acyl portion and EtOH from the alkoxy portion. Why the others are wrong: A) Benzaldehyde and ethanol would be the product of partial reduction, which LiAlH₄ does not stop at. B) Benzoic acid and ethanol is hydrolysis, not reduction. D) Benzyl alcohol only ignores the ethanol released from the alkoxy group.",
+   "trap": "Stopping the reduction at the aldehyde stage.",
+   "topic": "Ester reduction",
+   "mastery_sheet_id": "5D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_CP_D14",
+   "stem": "The pKa values of alanine are 2.34 (carboxyl) and 9.69 (ammonium). What is its isoelectric point?",
+   "options": {
+    "A": "2.3",
+    "B": "9.7",
+    "C": "12.0",
+    "D": "6.0"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) pI = (2.34 + 9.69)/2 = 6.02, where the zwitterion dominates. Why the others are wrong: A) 2.3 is the carboxyl pKa. B) 9.7 is the ammonium pKa. C) 12.0 is the sum, not the average.",
+   "trap": "Using a single pKa or summing instead of averaging.",
+   "topic": "Isoelectric point",
+   "mastery_sheet_id": "5D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openstax.org/books/organic-chemistry/pages/26-2-amino-acids-and-the-henderson-hasselbalch-equation-isoelectric-points"
+    ]
+   }
+  },
+  {
+   "id": "FL04_CP_D15",
+   "stem": "Dissolving a salt in 50.0 g of water raises the temperature of the water by 6.0°C. What heat did the water absorb? (c = 4.18 J/g·°C)",
+   "options": {
+    "A": "0.30 kJ",
+    "B": "0.072 kJ",
+    "C": "5.2 kJ",
+    "D": "1.3 kJ"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) q = mcΔT = 50.0 × 4.18 × 6.0 = 1254 J, or 1.3 kJ. Why the others are wrong: A) 0.30 kJ omits the specific heat. B) 0.072 kJ divides mass by c instead of multiplying. C) 5.2 kJ multiplies by c twice.",
+   "trap": "Omitting c or mis-handling units in q = mcΔT.",
+   "topic": "Calorimetry",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.physicsclassroom.com/Class/thermalP/u18l2b.cfm"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "bp1705_q1",
+    "type": "question",
+    "passage_id": "bp1705",
+    "passage_text": "Researchers studied the impact of a novel antioxidant supplement on the endurance performance of 60 trained male cyclists. Participants were randomly assigned to one of three groups: a placebo group (n = 20), a low‑dose group receiving 200 mg/day (n = 20), and a high‑dose group receiving 600 mg/day (n = 20). After a 12‑week supplementation period, all cyclists completed a standardized 30‑km time trial on a calibrated indoor bike. The primary outcome was the change in VO₂max (ml·kg⁻¹·min⁻¹) from baseline to post‑intervention. Secondary outcomes included lactate threshold and perceived exertion. The study also recorded adverse events and compliance rates. Data were analyzed using one‑way ANOVA followed by Tukey post‑hoc tests. The authors concluded that the high‑dose group exhibited a statistically significant greater improvement in VO₂max compared to placebo, and the low‑dose group also improved significantly more than placebo (Tukey p < 0.01), though less than the high‑dose group. The authors suggested that the antioxidant may enhance mitochondrial efficiency, thereby improving endurance capacity.",
+    "table_data": [
+      [
+        "Group",
+        "Mean ΔVO₂max (ml·kg⁻¹·min⁻¹)",
+        "SD",
+        "p vs placebo (Tukey)"
+      ],
+      [
+        "Placebo",
+        "1.2",
+        "0.8",
+        "—"
+      ],
+      [
+        "Low Dose",
+        "2.5",
+        "1.1",
+        "< 0.01"
+      ],
+      [
+        "High Dose",
+        "4.3",
+        "1.3",
+        "< 0.001"
+      ]
+    ],
+    "stem": "Which of the following best describes the primary finding of the study?",
+    "options": {
+      "A": "Only the low‑dose supplement significantly increased VO₂max compared to placebo.",
+      "B": "Only the high‑dose supplement significantly increased VO₂max compared to placebo.",
+      "C": "Both low‑dose and high‑dose supplements significantly increased VO₂max compared to placebo.",
+      "D": "Neither dose significantly affected VO₂max compared to placebo."
+    },
+    "correct": "C",
+    "explanation": "With the ANOVA error term (pooled SD ≈ 1.09, SE for a Tukey comparison ≈ 1.09/√20 = 0.24), the studentized range is q = (2.5 − 1.2)/0.24 ≈ 5.4 for low dose and q = (4.3 − 1.2)/0.24 ≈ 12.8 for high dose versus placebo. Both exceed the critical value (≈ 3.4 at α = 0.05 and ≈ 4.3 at α = 0.01 for 3 groups, 57 df), so both differences are significant (p < 0.05).",
+    "trap": "Assuming only the larger mean difference reaches significance; with SDs near 1 and n = 20 per group, even the 1.3-unit difference is significant.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1705_q2",
+    "type": "question",
+    "passage_id": "bp1705",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "If the researchers wanted to determine whether the antioxidant’s effect on VO₂max was dose‑dependent, which experimental design element should be added or modified?",
+    "options": {
+      "A": "Include a crossover design where each participant receives all doses in random order.",
+      "B": "Add a fourth group receiving 400 mg/day to create a dose gradient.",
+      "C": "Use a larger sample size (n = 60 per group) to increase power.",
+      "D": "Measure lactate threshold instead of VO₂max as the primary outcome."
+    },
+    "correct": "B",
+    "explanation": "A dose‑response relationship is best evaluated by including intermediate doses to observe a gradient of effects. Adding a 400 mg/day group would allow assessment of whether improvements increase with dose.",
+    "trap": "Option A suggests a crossover, which controls inter‑subject variability but would not directly assess a dose gradient across groups.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:02:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1705_q3",
+    "type": "question",
+    "passage_id": "bp1705",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "What is the approximate percent increase in VO₂max for the high‑dose group relative to the placebo group?",
+    "options": {
+      "A": "258%",
+      "B": "125%",
+      "C": "200%",
+      "D": "300%"
+    },
+    "correct": "A",
+    "explanation": "Percent increase = (4.3 − 1.2)/1.2 × 100 ≈ 258 %.",
+    "trap": "Students report the ratio 4.3/1.2 (358%) or divide the 3.1 difference by the high-dose mean (72%) instead of by the placebo change of 1.2.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:04:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1705_q4",
+    "type": "question",
+    "passage_id": "bp1705",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following statements is a potential trap when interpreting the study’s results?",
+    "options": {
+      "A": "The high‑dose group's improvement may be due to a placebo effect.",
+      "B": "Because both doses were significant versus placebo, 200 mg/day must be as effective as 600 mg/day.",
+      "C": "Randomization reduces the chance of baseline imbalance between groups.",
+      "D": "A p-value below 0.05 means a difference this large would be uncommon if the true effect were zero."
+    },
+    "correct": "B",
+    "explanation": "Significance versus placebo does not mean equal effects: the low-dose mean (2.5) is lower than the high-dose mean (4.3), and the Tukey comparison between them is also significant (q ≈ 7.4). Statements C and D are correct interpretations; A is ruled out by the placebo control.",
+    "trap": "Treating 'significant versus placebo' as 'equivalent to each other'.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:06:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1705_q5",
+    "type": "question",
+    "passage_id": "bp1705",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following resources would best help a student understand the statistical methods used in this study?",
+    "options": {
+      "A": "A textbook chapter on one‑way ANOVA and post‑hoc tests.",
+      "B": "A guide to interpreting lactate threshold data.",
+      "C": "A review article on antioxidant supplements.",
+      "D": "A manual on bicycle ergometer calibration."
+    },
+    "correct": "A",
+    "explanation": "The study employed one‑way ANOVA and Tukey post‑hoc tests; a textbook chapter on these topics provides the necessary background.",
+    "trap": "Option C is too broad and does not focus on the statistical methods.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:08:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  }
+]

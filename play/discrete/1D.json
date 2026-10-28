@@ -1,0 +1,446 @@
+[
+ {
+  "id": "d_1D_1",
+  "type": "discrete",
+  "stem": "A reaction has a positive standard free energy change, yet it proceeds spontaneously in the cell. Which statement best explains this?",
+  "options": {
+   "A": "The enzyme lowers the standard free energy change",
+   "B": "The cell temperature changes the sign of delta G0'",
+   "C": "Cellular conditions equal standard conditions",
+   "D": "The reaction quotient Q is low enough that the actual delta G is negative"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) delta G = delta G0' + RT ln Q; a low Q (products kept scarce) can make the actual delta G negative even when delta G0' is positive. Why the others are wrong: A) Enzymes change the rate, not the standard free energy change. B) Temperature changes in cells are small and cannot flip the sign of delta G0'. C) Cells are not at standard 1 M concentrations, so actual delta G differs from delta G0'.",
+  "trap": "Equating standard and actual free energy change.",
+  "topic": "Free energy",
+  "mastery_sheet_id": "1D",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_2",
+  "type": "discrete",
+  "stem": "Hydrolysis of ATP has delta G0' = -30.5 kJ/mol. It is coupled to a reaction with delta G0' = +20 kJ/mol. What is the net delta G0'?",
+  "options": {
+   "A": "+50.5 kJ/mol",
+   "B": "-50.5 kJ/mol",
+   "C": "-10.5 kJ/mol",
+   "D": "+10.5 kJ/mol"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Free energy changes of coupled reactions add: -30.5 + 20 = -10.5 kJ/mol, so the coupled process is favorable. Why the others are wrong: A) +50.5 comes from subtracting the ATP term as if it were positive (30.5 + 20). B) -50.5 adds the magnitudes (30.5 + 20) and gives them the negative sign. D) +10.5 has the correct magnitude but the wrong sign.",
+  "trap": "Sign errors when summing free energy changes.",
+  "topic": "Coupled reactions",
+  "mastery_sheet_id": "1D",
+  "difficulty": "522",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1D_3",
+  "type": "discrete",
+  "stem": "What is the net ATP produced by substrate-level phosphorylation in glycolysis per glucose?",
+  "options": {
+   "A": "4",
+   "B": "1",
+   "C": "36",
+   "D": "2"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Glycolysis invests 2 ATP and produces 4 by substrate-level phosphorylation, for a net of 2. Why the others are wrong: A) 4 is the gross yield before subtracting the 2 ATP invested. B) 1 is not a result of the pathway. C) 36 is the approximate aerobic yield of complete glucose oxidation, not glycolysis alone.",
+  "trap": "Reporting gross rather than net ATP.",
+  "topic": "Glycolysis yield",
+  "mastery_sheet_id": "1D",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_4",
+  "type": "discrete",
+  "stem": "High cytosolic citrate would be expected to",
+  "options": {
+   "A": "inhibit phosphofructokinase-1",
+   "B": "activate phosphofructokinase-1",
+   "C": "activate pyruvate kinase",
+   "D": "directly inhibit hexokinase"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Citrate signals abundant energy and biosynthetic precursors and inhibits PFK-1, the main regulated step of glycolysis. Why the others are wrong: B) Activating PFK-1 would increase glycolysis despite high energy supply, which is the opposite of the signal. C) Pyruvate kinase is activated by fructose-1,6-bisphosphate, not by citrate. D) Hexokinase is inhibited by its product glucose-6-phosphate, not directly by citrate.",
+  "trap": "Reversing the direction of regulation.",
+  "topic": "Glycolysis regulation",
+  "mastery_sheet_id": "1D",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_5",
+  "type": "discrete",
+  "stem": "In anaerobic muscle, conversion of pyruvate to lactate is important primarily because it",
+  "options": {
+   "A": "regenerates NAD+ so glycolysis can continue",
+   "B": "produces additional ATP",
+   "C": "generates glucose for the brain",
+   "D": "produces NADH"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Lactate dehydrogenase oxidizes NADH to NAD+, sustaining glyceraldehyde-3-phosphate dehydrogenase and therefore glycolysis when oxygen is limiting. Why the others are wrong: B) The LDH reaction itself makes no ATP. C) Glucose for the brain is made by the liver, not by this step. D) NADH is consumed by the LDH reaction, not produced.",
+  "trap": "Thinking the lactate step generates ATP.",
+  "topic": "Fermentation",
+  "mastery_sheet_id": "1D",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_6",
+  "type": "discrete",
+  "stem": "A thiamine-deficient patient develops lactic acidosis. This is best explained by impaired",
+  "options": {
+   "A": "pyruvate dehydrogenase, which requires thiamine pyrophosphate",
+   "B": "glycolysis, which requires thiamine",
+   "C": "complex IV of the electron transport chain",
+   "D": "lactate dehydrogenase, which uses thiamine"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) PDH requires thiamine pyrophosphate; reduced PDH activity diverts pyruvate to lactate, causing lactic acidosis. Why the others are wrong: B) Glycolysis does not require thiamine. C) Complex IV is not thiamine dependent. D) LDH uses NADH, not thiamine.",
+  "trap": "Not recalling cofactors of PDH (thiamine, lipoate, FAD, NAD+, CoA).",
+  "topic": "Pyruvate dehydrogenase",
+  "mastery_sheet_id": "1D",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_7",
+  "type": "discrete",
+  "stem": "How many NADH are produced by the citric acid cycle itself (not counting PDH) per molecule of glucose?",
+  "options": {
+   "A": "6",
+   "B": "3",
+   "C": "8",
+   "D": "10"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Each acetyl-CoA yields 3 NADH in the cycle, and one glucose gives 2 acetyl-CoA: 3 x 2 = 6. Why the others are wrong: B) 3 is the yield per turn, not per glucose. C) 8 adds NADH from other steps such as PDH to the cycle total. D) 10 adds NADH from other pathways such as glycolysis and PDH.",
+  "trap": "Counting a single turn instead of two per glucose.",
+  "topic": "TCA cycle",
+  "mastery_sheet_id": "1D",
+  "difficulty": "519",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://courses.lumenlearning.com/suny-nutrition/chapter/6-25-the-citric-acid-cycle/"
+   ]
+  }
+ },
+ {
+  "id": "d_1D_8",
+  "type": "discrete",
+  "stem": "2,4-Dinitrophenol is a protonophore that carries protons across the inner mitochondrial membrane. Which effect is expected?",
+  "options": {
+   "A": "Decreased oxygen consumption and increased ATP synthesis",
+   "B": "Increased oxygen consumption, decreased ATP synthesis, and increased heat",
+   "C": "Blocked electron flow at complex IV",
+   "D": "Increased proton gradient"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Dissipating the gradient removes back-pressure so the chain runs faster and consumes more O2, but energy is released as heat rather than captured in ATP. Why the others are wrong: A) Oxygen use rises, not falls, and ATP synthesis falls rather than rises. C) The electron transport chain is not blocked at complex IV; DNP acts on the gradient. D) DNP collapses the proton gradient rather than increasing it.",
+  "trap": "Thinking a dissipated gradient slows oxygen consumption.",
+  "topic": "Uncoupling",
+  "mastery_sheet_id": "1D",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_9",
+  "type": "discrete",
+  "stem": "Cyanide binds cytochrome oxidase (complex IV). Which immediate effect is expected?",
+  "options": {
+   "A": "Complex I becomes more oxidized",
+   "B": "Electron carriers upstream become more reduced and ATP synthesis falls",
+   "C": "ATP synthesis increases",
+   "D": "Oxygen consumption increases"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Cyanide blocks electron transfer to oxygen, so upstream carriers remain reduced and the proton gradient and ATP synthesis collapse. Why the others are wrong: A) Complex I becomes more reduced, not more oxidized, because electrons back up behind the block. C) ATP synthesis falls rather than increases. D) Oxygen consumption falls rather than rises, since oxygen is no longer reduced.",
+  "trap": "Thinking blocking the last step oxidizes upstream carriers.",
+  "topic": "ETC inhibition",
+  "mastery_sheet_id": "1D",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_10",
+  "type": "discrete",
+  "stem": "Oxidation of FADH2 yields less ATP than oxidation of NADH primarily because FADH2",
+  "options": {
+   "A": "has lower reduction potential than O2",
+   "B": "donates electrons to complex IV directly",
+   "C": "donates electrons at complex II, bypassing complex I proton pumping",
+   "D": "is only found in the cytosol"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) FADH2 donates electrons at complex II, which does not pump protons, so fewer protons are pumped per electron pair and less ATP is made. Why the others are wrong: A) FADH2 does pass electrons through the chain to oxygen, so its reduction potential relative to O2 is not the reason. B) FADH2 feeds complex II, not complex IV directly. D) FADH2 in this pathway is found in the mitochondrial inner membrane/matrix, not only in the cytosol.",
+  "trap": "Assuming both carriers yield the same ATP.",
+  "topic": "NADH vs FADH2",
+  "mastery_sheet_id": "1D",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_11",
+  "type": "discrete",
+  "stem": "Muscle glycogen cannot be used to raise blood glucose because muscle cells lack",
+  "options": {
+   "A": "glycogen phosphorylase",
+   "B": "glucose-6-phosphatase",
+   "C": "hexokinase",
+   "D": "glycogen synthase"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Without glucose-6-phosphatase, glucose-6-phosphate stays trapped in the muscle cell and enters glycolysis instead of being released into blood. Why the others are wrong: A) Muscle has glycogen phosphorylase and uses it to break down glycogen. C) Muscle has hexokinase to phosphorylate glucose. D) Muscle has glycogen synthase and makes glycogen.",
+  "trap": "Assuming muscle lacks phosphorylase or hexokinase because it does not export glucose, rather than lacking glucose-6-phosphatase.",
+  "topic": "Glycogen metabolism",
+  "mastery_sheet_id": "1D",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_12",
+  "type": "discrete",
+  "stem": "Which enzyme is unique to gluconeogenesis (not used in glycolysis)?",
+  "options": {
+   "A": "Phosphofructokinase-1",
+   "B": "Pyruvate kinase",
+   "C": "Fructose-1,6-bisphosphatase",
+   "D": "Phosphoglycerate kinase"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Fructose-1,6-bisphosphatase bypasses the PFK-1 step and is one of the enzymes unique to gluconeogenesis. Why the others are wrong: A) Phosphofructokinase-1 is a glycolytic irreversible enzyme. B) Pyruvate kinase is a glycolytic irreversible enzyme. D) Phosphoglycerate kinase catalyzes a reversible step used in both pathways.",
+  "trap": "Choosing a glycolytic enzyme because the question mentions a glucose-pathway bypass.",
+  "topic": "Gluconeogenesis",
+  "mastery_sheet_id": "1D",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_13",
+  "type": "discrete",
+  "stem": "Complete beta-oxidation of one molecule of palmitic acid (16 carbons) yields how many acetyl-CoA?",
+  "options": {
+   "A": "7",
+   "B": "8",
+   "C": "16",
+   "D": "14"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Each beta-oxidation cycle removes two carbons as acetyl-CoA; 7 cycles produce 8 acetyl-CoA because the last cycle cleaves a 4-carbon chain into two. Why the others are wrong: A) 7 is the number of cycles, not the number of acetyl-CoA. C) 16 is the number of carbons, not the number of 2-carbon units. D) 14 does not match 2-carbon units (it would be the carbons released after 7 cycles).",
+  "trap": "Confusing number of cycles with number of acetyl-CoA.",
+  "topic": "Beta-oxidation",
+  "mastery_sheet_id": "1D",
+  "difficulty": "521",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1D_14",
+  "type": "discrete",
+  "stem": "Malonyl-CoA inhibits which enzyme, preventing simultaneous fatty acid synthesis and oxidation?",
+  "options": {
+   "A": "Acetyl-CoA carboxylase",
+   "B": "Carnitine acyltransferase I (CPT-I)",
+   "C": "Hormone-sensitive lipase",
+   "D": "Fatty acid synthase"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Malonyl-CoA inhibits CPT-I, blocking entry of fatty acyl groups into mitochondria while synthesis is active. Why the others are wrong: A) Acetyl-CoA carboxylase produces malonyl-CoA rather than being the inhibited target. C) Hormone-sensitive lipase mobilizes stored fat and is regulated by hormones. D) Fatty acid synthase uses malonyl-CoA as a substrate.",
+  "trap": "Reversing producer and inhibited enzyme.",
+  "topic": "Fatty acid regulation",
+  "mastery_sheet_id": "1D",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_15",
+  "type": "discrete",
+  "stem": "During prolonged fasting, ketone bodies are",
+  "options": {
+   "A": "synthesized by erythrocytes",
+   "B": "used as fuel by the liver",
+   "C": "synthesized by the liver and used as fuel by the brain and muscle",
+   "D": "synthesized from glucose"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) The liver makes ketone bodies from acetyl-CoA but lacks the enzyme to use them, so the brain and muscle use them as fuel. Why the others are wrong: A) Erythrocytes lack mitochondria and cannot make ketone bodies. B) The liver cannot use ketones as fuel. D) Ketone bodies come from fatty acid-derived acetyl-CoA, not from glucose.",
+  "trap": "Assuming the liver, which produces ketones, also burns them.",
+  "topic": "Ketone bodies",
+  "mastery_sheet_id": "1D",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_16",
+  "type": "discrete",
+  "stem": "Glucose-6-phosphate dehydrogenase deficiency causes hemolysis during oxidative stress because red cells cannot",
+  "options": {
+   "A": "generate ATP by glycolysis",
+   "B": "bind oxygen",
+   "C": "synthesize 2,3-BPG",
+   "D": "regenerate NADPH to maintain reduced glutathione"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The pentose phosphate pathway is the main NADPH source in erythrocytes, and NADPH keeps glutathione reduced against oxidative stress. Why the others are wrong: A) Glycolysis still works and supplies ATP in G6PD deficiency. B) Hemoglobin still binds oxygen. C) 2,3-BPG production is not the issue.",
+  "trap": "Attributing the problem to ATP production.",
+  "topic": "Pentose phosphate pathway",
+  "mastery_sheet_id": "1D",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_17",
+  "type": "discrete",
+  "stem": "In the fed state after a carbohydrate meal, insulin",
+  "options": {
+   "A": "increases hepatic gluconeogenesis",
+   "B": "stimulates glycogenolysis",
+   "C": "increases glucose uptake in muscle and adipose tissue via GLUT4",
+   "D": "increases ketogenesis"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Insulin is anabolic: it promotes GLUT4 translocation to the membrane, glucose uptake in muscle and fat, and glycogen and fat synthesis. Why the others are wrong: A) Gluconeogenesis is stimulated by glucagon and fasting, not insulin. B) Glycogenolysis is stimulated by glucagon and epinephrine, not insulin. D) Ketogenesis is a fasting-state process suppressed by insulin.",
+  "trap": "Mixing the effects of insulin and glucagon.",
+  "topic": "Hormonal regulation",
+  "mastery_sheet_id": "1D",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_18",
+  "type": "discrete",
+  "stem": "Which description of the Cori cycle is correct?",
+  "options": {
+   "A": "Lactate from liver goes to muscle for oxidation",
+   "B": "Glucose is converted to fat in adipose",
+   "C": "Ketones are converted to glucose in the liver",
+   "D": "Lactate from muscle is converted to glucose in the liver and returned to muscle"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The Cori cycle sends muscle lactate to the liver, which converts it to glucose and returns it to muscle, transferring the metabolic cost of gluconeogenesis to the liver. Why the others are wrong: A) This reverses the organs, since lactate comes from muscle to the liver. B) Glucose conversion to fat in adipose is lipogenesis, not the Cori cycle. C) Ketones are not converted to glucose in the liver.",
+  "trap": "Thinking lactate travels from liver to muscle, reversing which organ makes lactate and which makes glucose.",
+  "topic": "Cori cycle",
+  "mastery_sheet_id": "1D",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_19",
+  "type": "discrete",
+  "stem": "Transamination reactions require which cofactor and transfer the amino group to which acceptor?",
+  "options": {
+   "A": "Thiamine pyrophosphate; pyruvate",
+   "B": "Pyridoxal phosphate; alpha-ketoglutarate",
+   "C": "Biotin; oxaloacetate",
+   "D": "NAD+ only; glutamate"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Aminotransferases use pyridoxal phosphate (vitamin B6) and typically move amino groups to alpha-ketoglutarate to form glutamate. Why the others are wrong: A) Thiamine pyrophosphate is for decarboxylations, and pyruvate is not the standard acceptor. C) Biotin is a carboxylation cofactor, not used in transamination. D) NAD+ is used in oxidative deamination, and glutamate is the product rather than the acceptor.",
+  "trap": "Mixing up which vitamin-derived cofactor serves transamination versus decarboxylation or carboxylation.",
+  "topic": "Amino acid metabolism",
+  "mastery_sheet_id": "1D",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_20",
+  "type": "discrete",
+  "stem": "Which reaction is an example of substrate-level phosphorylation?",
+  "options": {
+   "A": "PEP to pyruvate catalyzed by pyruvate kinase",
+   "B": "NADH oxidation by complex I",
+   "C": "ATP synthesis by ATP synthase",
+   "D": "FADH2 oxidation by complex II"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) PEP donates its phosphate directly to ADP via pyruvate kinase, without needing the proton gradient. Why the others are wrong: B) NADH oxidation by complex I is part of the electron transport chain. C) ATP synthase makes ATP by chemiosmosis, which is oxidative phosphorylation. D) FADH2 oxidation by complex II is part of the electron transport chain.",
+  "trap": "Mistaking oxidative phosphorylation for substrate-level.",
+  "topic": "Substrate-level phosphorylation",
+  "mastery_sheet_id": "1D",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1D_21",
+  "type": "discrete",
+  "stem": "A person oxidizing predominantly fat has a respiratory quotient (CO2 produced / O2 consumed) of about",
+  "options": {
+   "A": "0.7",
+   "B": "1.0",
+   "C": "1.3",
+   "D": "0.5"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Fat has few oxygens, so oxidation consumes more O2 per CO2 produced, giving an RQ of about 0.7. Why the others are wrong: B) 1.0 is the RQ for carbohydrate oxidation. C) 1.3 is seen in net lipogenesis, not fat oxidation. D) 0.5 is below the range seen physiologically.",
+  "trap": "Associating an RQ of 1.0 with fat, when that value belongs to carbohydrate oxidation.",
+  "topic": "Respiratory quotient",
+  "mastery_sheet_id": "1D",
+  "difficulty": "519",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.openanesthesia.org/keywords/respiratory-quotient/"
+   ]
+  }
+ },
+ {
+  "id": "d_1D_22",
+  "type": "discrete",
+  "stem": "NADH has E0' = -0.32 V and O2/H2O has E0' = +0.82 V. What is the free energy change for transfer of 2 electrons (F = 96.5 kJ/V mol)?",
+  "options": {
+   "A": "+220 kJ/mol",
+   "B": "-110 kJ/mol",
+   "C": "-440 kJ/mol",
+   "D": "-220 kJ/mol"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) delta G = -nF delta E = -2(96.5)(1.14) = about -220 kJ/mol. Why the others are wrong: A) +220 has the correct magnitude but the wrong sign. B) -110 uses n = 1 instead of 2. C) -440 uses n = 4 instead of 2.",
+  "trap": "Sign or electron-count errors in delta G = -nF delta E.",
+  "topic": "Redox energetics",
+  "mastery_sheet_id": "1D",
+  "difficulty": "524",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://chem.fsu.edu/~rlight/4054s02/Lectures/Chapter21.pdf"
+   ]
+  }
+ }
+]

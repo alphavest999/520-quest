@@ -1,0 +1,130 @@
+[
+  {
+    "id": "bp1119-01",
+    "type": "question",
+    "passage_id": "bp1119",
+    "passage_text": "Researchers studied the effect of a novel antihypertensive drug on systolic blood pressure (SBP) in adults with hypertension. One hundred participants were randomly assigned to receive either the drug (n=50) or a placebo (n=50) for eight weeks. After the intervention, mean SBP and standard deviation (SD) were recorded. The table below summarizes the findings. The study aimed to determine whether the drug lowered SBP more effectively than placebo and to assess the magnitude of the effect.",
+    "table_data": [
+      {
+        "Group": "Drug",
+        "Sample Size": 50,
+        "Mean SBP (mmHg)": 128,
+        "SD": 12
+      },
+      {
+        "Group": "Placebo",
+        "Sample Size": 50,
+        "Mean SBP (mmHg)": 138,
+        "SD": 15
+      }
+    ],
+    "stem": "Which group had the lower mean systolic blood pressure after eight weeks?",
+    "options": {
+      "A": "Drug group",
+      "B": "Placebo group",
+      "C": "Both groups had the same mean",
+      "D": "Insufficient data to determine"
+    },
+    "correct": "A",
+    "explanation": "The table shows a mean SBP of 128 mmHg for the drug group versus 138 mmHg for placebo, indicating the drug group had the lower mean.",
+    "trap": "Some may incorrectly assume the placebo group had a lower mean because of a misreading of the table’s column order.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1119-02",
+    "type": "question",
+    "passage_id": "bp1119",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which experimental design best supports causal inference in this study?",
+    "options": {
+      "A": "Randomized controlled trial",
+      "B": "Cohort study",
+      "C": "Case-control study",
+      "D": "Cross-sectional study"
+    },
+    "correct": "A",
+    "explanation": "Randomized controlled trials (RCTs) are the gold standard for establishing causality because randomization balances known and unknown confounders between groups.",
+    "trap": "Some may think a cohort study is appropriate, but it lacks the random assignment that reduces bias.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:02:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1119-03",
+    "type": "question",
+    "passage_id": "bp1119",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "What is the absolute difference in mean systolic blood pressure between the drug and placebo groups?",
+    "options": {
+      "A": "10 mmHg",
+      "B": "12 mmHg",
+      "C": "8 mmHg",
+      "D": "15 mmHg"
+    },
+    "correct": "A",
+    "explanation": "Mean SBP: Drug 128 mmHg, Placebo 138 mmHg. Absolute difference = 138 – 128 = 10 mmHg.",
+    "trap": "Reporting 12 or 15 mmHg, which are the standard deviations of the drug and placebo groups, not a difference between means.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:04:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1119-04",
+    "type": "question",
+    "passage_id": "bp1119",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "The trial randomly assigned participants to drug or placebo. Which problem does random assignment primarily reduce?",
+    "options": {
+      "A": "Confounding by baseline differences, such as age, between groups",
+      "B": "Random error in each participant's blood pressure measurement",
+      "C": "Differences in the standard deviation between groups",
+      "D": "The need for a sample size calculation"
+    },
+    "correct": "A",
+    "explanation": "Correct: Random allocation tends to balance known and unknown characteristics across groups, reducing confounding and selection bias. Why the others are wrong: B) Measurement variability within individuals is not removed by randomization; it is reduced by standardized measurement or repeated readings. C) Group SDs (12 vs 15 mmHg) are an outcome of the data and are not controlled by allocation. D) Randomization does not remove the need to plan sample size adequate to detect an effect.",
+    "trap": "Assuming randomization fixes every kind of error, including measurement and power.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:06:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1119-05",
+    "type": "question",
+    "passage_id": "bp1119",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which additional analysis would best show whether the 10 mmHg difference in mean SBP is larger than expected by chance?",
+    "options": {
+      "A": "A two-sample t-test or 95% confidence interval for the difference in means",
+      "B": "A correlation between age and SBP within the drug group",
+      "C": "A chi-square test applied to the two mean SBP values",
+      "D": "Calculating the SD of the placebo group alone"
+    },
+    "correct": "A",
+    "explanation": "Correct: Comparing the means of two independent groups with a two-sample t-test (or a confidence interval for the difference) shows whether 138 − 128 = 10 mmHg exceeds what sampling variability would produce, using the SDs (12 and 15) and n = 50 per group. Why the others are wrong: B) age versus SBP within one group does not compare the drug and placebo groups. C) chi-square tests compare counts or proportions, not means. D) a single group's SD describes spread but does not test the difference between groups.",
+    "trap": "Applying a test for categorical data to means, or describing spread in one group instead of comparing the groups.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:08:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  }
+]

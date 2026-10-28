@@ -1,0 +1,146 @@
+[
+  {
+    "id": "bp1117_q1",
+    "type": "question",
+    "passage_id": "bp1117",
+    "passage_text": "Researchers at the University of Midvale investigated the effects of a new dietary supplement on the gut microbiome of adult mice. Over a 12‑week period, 48 mice were randomly assigned to one of four groups: a control diet, a diet supplemented with 0.5% of the compound, 1.0%, or 2.0%. Fecal samples were collected at baseline, week 6, and week 12. Using 16S rRNA sequencing, the relative abundance of major bacterial phyla (Firmicutes, Bacteroidetes, Proteobacteria, Actinobacteria) was quantified. Table 1 summarizes the average relative abundances (in %) for each group at week 12. The researchers hypothesized that higher supplement concentrations would shift the Firmicutes/Bacteroidetes ratio toward a healthier profile. They also monitored body weight and glucose tolerance as secondary outcomes. The study aimed to determine whether the supplement could modulate gut microbiota composition and improve metabolic markers without adverse effects.",
+    "table_data": [
+      {
+        "Group": "Control",
+        "Firmicutes": 55.2,
+        "Bacteroidetes": 35.1,
+        "Proteobacteria": 5.3,
+        "Actinobacteria": 4.4
+      },
+      {
+        "Group": "0.5% Supplement",
+        "Firmicutes": 52.8,
+        "Bacteroidetes": 37.6,
+        "Proteobacteria": 5,
+        "Actinobacteria": 4.6
+      },
+      {
+        "Group": "1.0% Supplement",
+        "Firmicutes": 49.5,
+        "Bacteroidetes": 40.2,
+        "Proteobacteria": 5.1,
+        "Actinobacteria": 5.2
+      },
+      {
+        "Group": "2.0% Supplement",
+        "Firmicutes": 46,
+        "Bacteroidetes": 42.5,
+        "Proteobacteria": 5.4,
+        "Actinobacteria": 6.1
+      }
+    ],
+    "stem": "According to Table 1, which of the following statements best describes the trend in the Firmicutes/Bacteroidetes ratio across the supplement groups?",
+    "options": {
+      "A": "The ratio increases with higher supplement concentration.",
+      "B": "The ratio decreases with higher supplement concentration.",
+      "C": "The ratio remains unchanged across all groups.",
+      "D": "The ratio first increases then decreases as concentration rises."
+    },
+    "correct": "B",
+    "explanation": "The Firmicutes/Bacteroidetes ratio is calculated by dividing the Firmicutes percentage by the Bacteroidetes percentage. For Control: 55.2/35.1 ≈ 1.57. For 0.5%: 52.8/37.6 ≈ 1.41. For 1.0%: 49.5/40.2 ≈ 1.23. For 2.0%: 46.0/42.5 ≈ 1.08. The ratio steadily decreases as supplement concentration increases.",
+    "trap": "Option A incorrectly assumes a direct proportionality between supplement dose and the ratio.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1117_q2",
+    "type": "question",
+    "passage_id": "bp1117",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "In a parallel-group study like this one, which design element would best control for potential confounding by baseline microbiome composition?",
+    "options": {
+      "A": "Using a crossover design where each mouse receives all supplement levels sequentially.",
+      "B": "Randomly assigning mice to groups and stratifying by initial Firmicutes/Bacteroidetes ratio.",
+      "C": "Increasing the sample size to 100 mice per group.",
+      "D": "Administering the supplement only to mice that already have a high Firmicutes/Bacteroidetes ratio."
+    },
+    "correct": "B",
+    "explanation": "Correct: Stratifying the random assignment by initial Firmicutes/Bacteroidetes ratio gives every group a comparable distribution of baseline microbiomes. Why the others are wrong: A) giving every mouse all supplement levels in sequence is a crossover, not a parallel-group design, and carry-over of microbiome changes would confound later periods. C) a larger sample improves precision but does not by itself balance baseline composition. D) giving the supplement only to mice with a high initial ratio builds a baseline difference between groups into the comparison.",
+    "trap": "Choosing the crossover because each animal is its own control, although the supplement's lasting effect on the microbiome carries over between periods.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1117_q3",
+    "type": "question",
+    "passage_id": "bp1117",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "If the researchers report that the 2.0% supplement group had a 12% reduction in fasting glucose compared to the control, what is the absolute change in glucose (mg/dL) if the control group's fasting glucose was 140 mg/dL?",
+    "options": {
+      "A": "12.8 mg/dL",
+      "B": "16.8 mg/dL",
+      "C": "18.4 mg/dL",
+      "D": "20.0 mg/dL"
+    },
+    "correct": "B",
+    "explanation": "Correct: A 12% reduction of a 140 mg/dL control value is 0.12 × 140 = 16.8 mg/dL (the 2.0% group would be at 123.2 mg/dL). Why the others are wrong: A) 12.8 mg/dL does not follow from 12% of 140. C) 18.4 mg/dL does not follow from 12% of 140. D) 20.0 mg/dL would be a 14.3% reduction.",
+    "trap": "Reporting the final glucose value (123.2 mg/dL) or the percent itself (12) instead of the absolute change, 16.8 mg/dL.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1117_q4",
+    "type": "question",
+    "passage_id": "bp1117",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which of the following interpretations of Table 1 is a misreading of the data?",
+    "options": {
+      "A": "The 2.0% group had lower Firmicutes than the control group",
+      "B": "Bacteroidetes abundance rose with each increase in supplement concentration",
+      "C": "Proteobacteria abundance stayed within about 5.0-5.4% in all groups",
+      "D": "Because the Firmicutes/Bacteroidetes ratio fell, the supplement improved glucose tolerance"
+    },
+    "correct": "D",
+    "explanation": "Correct: Table 1 reports only phylum abundances at week 12; it contains no glucose tolerance data, so a change in the ratio cannot be taken as proof of improved metabolic function. Why the others are wrong: A) Firmicutes were 46.0% versus 55.2%, so this is supported. B) Bacteroidetes were 35.1, 37.6, 40.2 and 42.5%, a steady rise, so this is supported. C) Proteobacteria ranged from 5.0 to 5.4%, so this is supported.",
+    "trap": "Treating a shift in the Firmicutes/Bacteroidetes ratio (1.57 to 1.08) as direct proof of better metabolic health.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1117_q5",
+    "type": "question",
+    "passage_id": "bp1117",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Why is the 16S rRNA gene used to profile the relative abundance of bacterial phyla in fecal samples?",
+    "options": {
+      "A": "It has conserved regions that allow universal primers and hypervariable regions that differ among taxa",
+      "B": "It encodes a protein that is identical in every bacterial species",
+      "C": "It is present only in Firmicutes and Bacteroidetes",
+      "D": "It is a eukaryotic gene that marks host contamination"
+    },
+    "correct": "A",
+    "explanation": "The bacterial 16S rRNA gene contains conserved sequences, which allow universal PCR primers, flanking hypervariable regions, which differ among taxa and permit classification into phyla and genera.",
+    "trap": "Option B confuses a rRNA gene with a protein-coding gene.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  }
+]

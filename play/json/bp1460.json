@@ -1,0 +1,88 @@
+{
+  "passage_id": "bp1460",
+  "passage": "Biochemists in the Petrov laboratory characterized alcohol dehydrogenase purified from a bacterial expression system, focusing on its response to a candidate small-molecule inhibitor designed to resemble acetaldehyde. Reactions contained a fixed enzyme concentration in buffered solution at 25 °C, and initial velocities were measured at six acetaldehyde concentrations with and without 120 µM inhibitor. Product formation was followed spectrophotometrically for the first 60 seconds, a window in which less than 5% of substrate was consumed. Each velocity represents the mean of three independent reactions, and the standard error was below 4% of every mean. The team wished to determine whether the compound binds the free enzyme at the active site or instead binds elsewhere, and to estimate its dissociation constant for the enzyme–inhibitor complex before testing it in cultured cells. Enzyme purity exceeded 95% by SDS-PAGE, and the buffer contained no metal chelators or reducing agents that could interfere with the assay. All procedures followed the laboratory's standard operating protocols, and raw data were archived before analysis.",
+  "table": "Table 1. Initial velocities of alcohol dehydrogenase\n\n| [S] (µM) | v, no inhibitor (µmol/min) | v, 120 µM inhibitor (µmol/min) |\n|---|---|---|\n| 25 | 12 | 4.6 |\n| 50 | 20 | 8.6 |\n| 100 | 30 | 15 |\n| 200 | 40 | 24 |\n| 400 | 48 | 34.3 |\n| 800 | 53.3 | 43.6 |",
+  "questions": [
+    {
+      "stem": "According to Table 1, what is the initial velocity in the presence of inhibitor when [S] = 200 µM?",
+      "options": {
+        "A": "40 µmol/min",
+        "B": "15 µmol/min",
+        "C": "24 µmol/min",
+        "D": "34.3 µmol/min"
+      },
+      "correct": "C",
+      "explanation": "Reading the inhibitor column at [S] = 200 µM gives 24 µmol/min; the control column value (40) is the uninhibited rate.",
+      "topic": "Enzyme kinetics: data interpretation",
+      "trap": "Reading the no-inhibitor column (40 µmol/min) instead of the inhibitor column, which gives 24 µmol/min at 200 µM.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1460-1"
+    },
+    {
+      "stem": "Which additional experiment would best distinguish competitive from noncompetitive inhibition by this compound?",
+      "options": {
+        "A": "Measure whether very high substrate concentrations restore the uninhibited maximal velocity",
+        "B": "Measure velocity at a single substrate concentration with several enzyme concentrations",
+        "C": "Measure product formation after 60 minutes rather than 60 seconds",
+        "D": "Repeat the assay at a lower temperature to see whether inhibition disappears"
+      },
+      "correct": "A",
+      "explanation": "A competitive inhibitor raises apparent Km but leaves Vmax unchanged, so sufficiently high [S] outcompetes it. A noncompetitive inhibitor lowers Vmax regardless of [S].",
+      "topic": "Enzyme inhibition: experimental design",
+      "trap": "Choosing a 60-minute measurement; a longer run changes substrate depletion but does not show whether high [S] restores Vmax.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1460-2"
+    },
+    {
+      "stem": "Assuming simple competitive inhibition, what is the approximate Ki of the inhibitor?",
+      "options": {
+        "A": "240 µM",
+        "B": "40 µM",
+        "C": "360 µM",
+        "D": "60 µM"
+      },
+      "correct": "D",
+      "explanation": "Km,app = Km(1 + [I]/Ki). Here Km,app/Km = 3, so [I]/Ki = 2 and Ki = 120/2 = 60 µM.",
+      "topic": "Enzyme inhibition: Ki calculation",
+      "trap": "Multiplying [I] by the 2-fold increase in Km/Km,app (120 × 2 = 240 µM) instead of solving 3 = 1 + [I]/Ki, which gives Ki = 60 µM.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1460-3"
+    },
+    {
+      "stem": "Which statement about the data is NOT consistent with competitive inhibition?",
+      "options": {
+        "A": "The apparent Km is larger in the presence of the inhibitor",
+        "B": "The inhibition is weaker at higher substrate concentrations",
+        "C": "The inhibitor binds the free enzyme in preference to the enzyme–substrate complex",
+        "D": "The maximal velocity extrapolated to infinite [S] is lower with the inhibitor"
+      },
+      "correct": "D",
+      "explanation": "Correct: D. In competitive inhibition Vmax is unchanged (60 µmol/min in both data sets); only the apparent Km rises (100 to 300 µM). Why the others are wrong: A) the apparent Km triples. B) velocities converge as [S] rises (4.6/12 at 25 versus 43.6/53.3 at 800). C) a competitive inhibitor binds free enzyme, not the enzyme–substrate complex.",
+      "topic": "Enzyme inhibition: Lineweaver–Burk patterns",
+      "trap": "Expecting inhibition to be equally strong at all [S]; for a competitive inhibitor, substrate overcomes it and velocities converge at high [S].",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1460-4"
+    },
+    {
+      "stem": "Many drugs, such as statins and methotrexate, act as competitive inhibitors. Which property of such drugs most directly explains why they are often structural analogs of the substrate?",
+      "options": {
+        "A": "They must lower the enzyme's turnover number at saturating substrate",
+        "B": "They must bind the enzyme–substrate complex only",
+        "C": "They must occupy the same active site as the substrate",
+        "D": "They must bind covalently to the enzyme"
+      },
+      "correct": "C",
+      "explanation": "Competition requires binding to the same site; structural similarity to the substrate (or transition state) lets the drug fit the active site and compete reversibly.",
+      "topic": "Pharmacology link: substrate analogs",
+      "trap": "Assuming drugs must bind covalently; reversible competitive inhibitors bind the same active site noncovalently.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1460-5"
+    }
+  ],
+  "accuracy_verified": true
+}

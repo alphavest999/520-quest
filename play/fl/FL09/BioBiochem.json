@@ -1,0 +1,1470 @@
+{
+ "exam": "FL09",
+ "section": "BB",
+ "passages": [
+  {
+   "passage_id": "FL09_BB_P1",
+   "passage_text": "Histidine hydrochloride (0.1 M) was titrated with NaOH while pH was monitored. The titration curve showed three buffering regions, corresponding to the alpha-carboxyl group (pKa 1.8), the imidazole side chain (pKa 6.0), and the alpha-amino group (pKa 9.2). A student used the Henderson-Hasselbalch equation to calculate the average net charge of histidine at several pH values (Table 1 and Figure 1). The net charge is the sum of the charges on the three groups: the carboxyl group is neutral when protonated and negative when deprotonated, whereas the imidazole and alpha-amino groups are positive when protonated and neutral when deprotonated.\n\nIn a second experiment, the student applied histidine at pH 4.0 to a cation-exchange column containing negatively charged sulfonate groups, washed the column, and then eluted the bound amino acid by gradually raising the pH of the buffer. Histidine began to leave the column as the buffer pH approached the value at which its net charge reached zero.",
+   "table_data": "| pH | Average net charge of histidine |\n|---|---|\n| 1.0 | +1.86 |\n| 1.8 | +1.50 |\n| 4.0 | +1.00 |\n| 6.0 | +0.50 |\n| 7.6 | 0.00 |\n| 9.2 | -0.50 |\n| 11.0 | -0.98 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Average net charge of histidine versus pH",
+    "x_label": "pH",
+    "y_label": "Average net charge",
+    "series": [
+     {
+      "name": "Histidine",
+      "points": [
+       [
+        1.0,
+        1.86
+       ],
+       [
+        1.8,
+        1.5
+       ],
+       [
+        4.0,
+        1.0
+       ],
+       [
+        6.0,
+        0.5
+       ],
+       [
+        7.6,
+        0.0
+       ],
+       [
+        9.2,
+        -0.5
+       ],
+       [
+        11.0,
+        -0.98
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_BB_P1_Q1",
+     "stem": "According to the pKa values given, at what pH does histidine carry a net charge of zero?",
+     "options": {
+      "A": "pH 5.5, the average of the carboxyl and alpha-amino pKa values",
+      "B": "pH 7.6, the average of the imidazole and alpha-amino pKa values",
+      "C": "pH 3.9, the average of the carboxyl and imidazole pKa values",
+      "D": "pH 6.0, the pKa of the imidazole side chain, where it is half protonated"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The isoelectric point lies midway between the two pKa values that flank the neutral species, here 6.0 and 9.2, giving (6.0 + 9.2)/2 = 7.6, consistent with Table 1. Why the others are wrong: A) averages the wrong pair of pKa values; at pH 5.5 the net charge is still positive. C) also uses the wrong pair; the neutral form is not flanked by the carboxyl and imidazole groups. D) at pH 6.0 Table 1 shows a net charge of +0.50, not zero.",
+     "trap": "Averaging the lowest and highest pKa values, or choosing the side-chain pKa, instead of the two pKa values around the neutral species.",
+     "topic": "Amino acid isoelectric point",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://pearson.com/channels/biochemistry/asset/294c800a/what-is-the-pi-of-his-a-7-59-b-6-58c-3-91d-5-5"
+      ]
+     }
+    },
+    {
+     "id": "FL09_BB_P1_Q2",
+     "stem": "Why does histidine bind to the cation-exchange column at pH 4.0?",
+     "options": {
+      "A": "It carries a net charge of about -1, so it is attracted to the negative resin",
+      "B": "It is neutral at pH 4.0, so it adsorbs to the resin through hydrophobic contacts",
+      "C": "It carries a net charge of about +1, so it is attracted to the negative resin",
+      "D": "It carries a net charge of +2, which is the only charge able to displace the sulfonate groups"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Table 1 gives a net charge of +1.00 at pH 4.0 (carboxylate -1, imidazolium +1, ammonium +1), so the cation binds the sulfonate groups by electrostatic attraction. Why the others are wrong: A) a negative histidine would be repelled by the negatively charged sulfonate groups. B) histidine is not neutral at pH 4.0 (+1.00 in Table 1), and a neutral molecule would not be retained by charge. D) +2 occurs only near pH 1; no minimum charge is needed to bind the resin.",
+     "trap": "Forgetting that the carboxyl group is already deprotonated at pH 4.0 and so counting too many or too few charges.",
+     "topic": "Ion-exchange chromatography of amino acids",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P1_Q3",
+     "stem": "At pH 7.0, what fraction of the imidazole side chains of free histidine is protonated?",
+     "options": {
+      "A": "About 9%",
+      "B": "About 50%",
+      "C": "About 91%",
+      "D": "About 1%"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) pH - pKa = 1.0, so [deprotonated]/[protonated] = 10 and the protonated fraction is 1/(1 + 10) = 0.091, or about 9%. Why the others are wrong: B) 50% would apply only when pH equals the pKa (6.0). C) 91% is the deprotonated fraction; the ratio was inverted. D) 1% would require the pH to be 2 units above the pKa.",
+     "trap": "Inverting the ratio in the Henderson-Hasselbalch equation and reporting the deprotonated fraction as the protonated one.",
+     "topic": "Henderson-Hasselbalch calculation",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Acids_and_Bases/Buffers/Henderson-Hasselbalch_Approximation",
+       "https://biology.arizona.edu/biochemistry/problem_sets/ph/HH.html"
+      ]
+     }
+    },
+    {
+     "id": "FL09_BB_P1_Q4",
+     "stem": "Which feature of histidine makes it common in enzyme active sites that transfer protons near physiological pH?",
+     "options": {
+      "A": "The imidazole ring is permanently positively charged at all pH values above 2",
+      "B": "The imidazole pKa is near neutral, so it can readily gain or lose a proton",
+      "C": "The imidazole ring is uncharged and nonpolar, so it excludes water from the active site",
+      "D": "The imidazole ring forms disulfide bonds that hold substrates in place"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Because the imidazole pKa (about 6, and often closer to 7 inside proteins) is near physiological pH, the side chain exists in both protonated and deprotonated forms and can act as a general acid or base. Why the others are wrong: A) Table 1 shows the side chain loses its charge as pH rises above about 6. C) the ring is polar and can be charged; it is not a hydrophobic residue. D) disulfide bonds form between cysteine residues, not histidine.",
+     "trap": "Assuming histidine side chains are always charged like lysine and arginine, rather than titrating near neutral pH.",
+     "topic": "Amino acid side-chain properties",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P1_Q5",
+     "stem": "Which pH range would give the best buffering by the histidine side chain?",
+     "options": {
+      "A": "pH 5 to 7, near the imidazole pKa",
+      "B": "pH 3 to 4, where the net charge is nearly constant",
+      "C": "pH 7.6 to 8.6, around the isoelectric point where charge is zero",
+      "D": "pH 10 to 11, where the net charge approaches -1"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Buffering is greatest within about one pH unit of a pKa; the imidazole pKa is 6.0, and in this region the net charge changes steeply as protons are released. Why the others are wrong: B) the net charge plateaus here because no group is near its pKa, so little base is neutralized. C) this range lies between the imidazole and amino pKa values (6.0 and 9.2), so no group is near its pKa and buffering is weak. D) above about pH 10 the amino group is mostly deprotonated, so few titratable protons remain and buffering is weak.",
+     "trap": "Choosing the pH of zero net charge as the best buffering region rather than a region near a pKa.",
+     "topic": "Buffer regions on a titration curve",
+     "mastery_sheet_id": "1A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_BB_P2",
+   "passage_text": "Researchers studied the role of a kinase, KIN1, in the proliferation of cultured epithelial cells. Cells were transfected with a small interfering RNA (siRNA) designed to match a 21-nucleotide sequence in the KIN1 mRNA, or with a control siRNA of scrambled sequence. At 24, 48, and 72 hours, KIN1 mRNA was measured by quantitative PCR and KIN1 protein was measured by western blot. Both values are expressed as a percentage of the control-siRNA cells (Table 1, Figure 1). Cell numbers were also counted.\n\nIn a third experiment, cells received the KIN1 siRNA together with a plasmid encoding KIN1 in which several codons had been changed to synonymous codons at the siRNA target site, leaving the encoded protein unchanged. At 72 hours, cell number in this group was 94% of the control-siRNA value, compared with 52% for cells receiving the KIN1 siRNA alone. The half-life of KIN1 protein in untreated cells was measured to be about 20 hours.",
+   "table_data": "| Time (h) | KIN1 mRNA (% of control) | KIN1 protein (% of control) | Cells, control siRNA (x10^5) | Cells, KIN1 siRNA (x10^5) |\n|---|---|---|---|---|\n| 24 | 20 | 78 | 4.0 | 3.9 |\n| 48 | 12 | 35 | 7.9 | 6.1 |\n| 72 | 28 | 18 | 15.6 | 8.2 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. KIN1 mRNA and protein after KIN1 siRNA",
+    "x_label": "Time (h)",
+    "y_label": "% of control",
+    "series": [
+     {
+      "name": "KIN1 mRNA",
+      "points": [
+       [
+        24,
+        20
+       ],
+       [
+        48,
+        12
+       ],
+       [
+        72,
+        28
+       ]
+      ]
+     },
+     {
+      "name": "KIN1 protein",
+      "points": [
+       [
+        24,
+        78
+       ],
+       [
+        48,
+        35
+       ],
+       [
+        72,
+        18
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_BB_P2_Q1",
+     "stem": "At 24 hours, KIN1 mRNA is reduced by 80% but KIN1 protein by only 22%. The best explanation is that:",
+     "options": {
+      "A": "the siRNA acts only on protein, so mRNA levels are an unreliable indicator",
+      "B": "the siRNA blocks transcription of the KIN1 gene, which lowers mRNA before protein",
+      "C": "KIN1 protein that was made before transfection persists until it is degraded",
+      "D": "KIN1 protein is synthesized from a separate pool of mRNA that the siRNA cannot reach"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The siRNA destroys mRNA, but existing protein falls only as it is turned over; with a half-life near 20 hours, substantial protein remains at 24 hours and declines later (35% at 48 hours). Why the others are wrong: A) siRNA pairs with mRNA, not with protein, so mRNA is the direct target. B) siRNA acts after transcription by directing cleavage of the mRNA in the cytoplasm. D) no separate protected pool of mRNA is described, and the protein decline at 48 and 72 hours shows the siRNA is effective.",
+     "trap": "Assuming protein must fall as fast as mRNA, forgetting that protein half-life delays the decline.",
+     "topic": "RNA interference time course",
+     "mastery_sheet_id": "1B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P2_Q2",
+     "stem": "What is the purpose of the plasmid with synonymous codon changes in the third experiment?",
+     "options": {
+      "A": "To rule out off-target effects of the siRNA",
+      "B": "To increase the amount of siRNA that enters the RISC complex",
+      "C": "To confirm that the siRNA lowers KIN1 mRNA by blocking its translation",
+      "D": "To correct a mutation in the endogenous KIN1 gene"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The rescue construct encodes normal KIN1 protein but its mRNA lacks the matching sequence, so the siRNA cannot cleave it; restoring proliferation (94% of control) shows that KIN1 loss, not off-target silencing, causes the defect. Why the others are wrong: B) the plasmid encodes KIN1 and does not supply siRNA or RISC components. C) the siRNA is described as targeting mRNA sequence; the rescue tests specificity rather than mechanism. D) the endogenous gene is not mutated; the cells are wild type apart from the siRNA treatment.",
+     "trap": "Thinking the plasmid delivers more siRNA or repairs the gene rather than serving as a specificity control.",
+     "topic": "RNAi rescue experiment",
+     "mastery_sheet_id": "1B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P2_Q3",
+     "stem": "Which explanation best accounts for the rise in KIN1 mRNA between 48 and 72 hours (Table 1)?",
+     "options": {
+      "A": "The siRNA is diluted by cell division and degraded, so silencing wanes",
+      "B": "The siRNA is amplified by RNA polymerase in the cells, so silencing wanes",
+      "C": "KIN1 protein loss induces transcription from new copies of the gene",
+      "D": "The scrambled control siRNA begins to target KIN1 mRNA at later times"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Transfected siRNA is not replicated in mammalian cells; it is diluted with each division and degraded, so the silencing effect is transient and mRNA recovers. Why the others are wrong: B) siRNA does not amplify in mammalian cells, and amplification would deepen rather than reduce silencing. C) new gene copies are not made, and the protein continues to fall at 72 hours. D) the control siRNA has no match to KIN1 and would not lower mRNA in any case.",
+     "trap": "Believing silencing by siRNA is permanent, so any recovery must reflect a change in the gene.",
+     "topic": "Transient siRNA silencing",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P2_Q4",
+     "stem": "Within the RNA-induced silencing complex, the guide strand of a perfectly complementary siRNA most directly causes which event?",
+     "options": {
+      "A": "The ribosome stalls at the start codon of the target mRNA",
+      "B": "Argonaute cleaves the base-paired region of the target mRNA",
+      "C": "The target mRNA is capped at its 5' end and exported",
+      "D": "The siRNA is polyadenylated and translated into peptide"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Perfect complementarity lets the Argonaute protein in RISC cut the target mRNA, which is then degraded; partial pairing (as with many miRNAs) usually represses translation instead. Why the others are wrong: A) translation repression by stalling is typical of partial miRNA pairing, not of full complementarity. C) capping and export are normal steps of mRNA maturation in the nucleus and are unrelated to RISC. D) an siRNA is not an mRNA and is neither polyadenylated nor translated.",
+     "trap": "Mixing up the mechanisms of siRNA (cleavage) and miRNA (translational repression).",
+     "topic": "RISC mechanism",
+     "mastery_sheet_id": "1B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_BB_P3",
+   "passage_text": "A genetics class compared two inheritance patterns. Human ABO blood type is determined by a single gene with three alleles: IA and IB, which each encode a glycosyltransferase that adds a different sugar to the surface of red blood cells, and i, which encodes a nonfunctional enzyme. IA and IB are dominant to i, so people with type O blood have genotype ii. Dominance relationships describe how the products of the two alleles of a gene combine in a heterozygote, and they are inferred from the phenotypes of offspring in crosses. Red cells of people with genotype IAIB carry both sugars. Plasma contains antibodies against the A or B sugars that the person's own red cells lack.\n\nIn snapdragons, a cross between red-flowered and white-flowered plants produces only pink-flowered offspring. Pink flowers contain about half as much red pigment as red flowers.\n\nStudents collected blood-type data from five families, each with several children (Table 1). The parental phenotypes are given; students used the children's phenotypes to infer parental genotypes.",
+   "table_data": "| Family | Mother | Father | Children's blood types |\n|---|---|---|---|\n| 1 | A | B | A, B, AB, O |\n| 2 | AB | O | A, A, B |\n| 3 | A | A | A, A, O |\n| 4 | B | AB | A, AB, B |\n| 5 | O | O | O, O, O |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL09_BB_P3_Q1",
+     "stem": "Family 1 has a fifth child. What is the probability that this child has type O blood?",
+     "options": {
+      "A": "1/2",
+      "B": "1/8",
+      "C": "1/4",
+      "D": "0"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The type O child requires that each parent carries i, so the mother is IAi and the father is IBi; the chance of receiving i from both is 1/2 x 1/2 = 1/4. Why the others are wrong: A) 1/2 is the chance of one parent passing i, not both. B) 1/8 would require an extra independent 1/2 event that is not part of this cross. D) the parents are both heterozygous carriers of i, so type O is possible.",
+     "trap": "Using the probability that one parent transmits i instead of multiplying the two parents' contributions.",
+     "topic": "ABO inheritance probability",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://oldsite.nnu.edu/find/the-locus-that-controls-abo-blood-type-in-humans-resides-on-p9ss"
+      ]
+     }
+    },
+    {
+     "id": "FL09_BB_P3_Q2",
+     "stem": "For Family 2 (mother AB, father O), what is the probability that the next child has type A blood?",
+     "options": {
+      "A": "1/4",
+      "B": "3/4",
+      "C": "1",
+      "D": "1/2"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The mother gives IA or IB with equal probability and the father gives only i, so children are IAi (type A) or IBi (type B), each with probability 1/2. Why the others are wrong: A) 1/4 would apply if four equally likely phenotypes were possible, but only A and B can occur. B) 3/4 has no basis here: only two outcomes, type A and type B, can occur, and they are equally likely. C) not every child is type A, since the mother passes IB half the time (a type B child was observed).",
+     "trap": "Treating AB as if one allele hides the other, instead of counting each of the mother's gametes equally.",
+     "topic": "ABO cross with type O parent",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://cognito.org/courses/gcse/biology-triple/edexcel/higher/notes/Y0FVS0Npdko/3.14-inheritance-of-blood-groups"
+      ]
+     }
+    },
+    {
+     "id": "FL09_BB_P3_Q3",
+     "stem": "Which statement correctly distinguishes the inheritance of AB blood type from that of pink snapdragon flowers?",
+     "options": {
+      "A": "AB shows both alleles fully expressed; pink shows an intermediate amount of one product",
+      "B": "In AB blood the IA allele is incompletely dominant over IB, whereas pink flowers arise from codominance",
+      "C": "AB blood arises when two copies of one allele are inherited, whereas pink flowers require two different alleles",
+      "D": "AB blood shows an intermediate phenotype between A and B, whereas pink flowers express both pigments separately"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) IA and IB are codominant: both sugars appear on the same cell. Pink snapdragons show incomplete dominance: the heterozygote makes about half as much red pigment, an intermediate phenotype. Why the others are wrong: B) this reverses the terms; the AB phenotype is codominance and the pink phenotype is incomplete dominance. C) AB blood requires the two different alleles IA and IB, so the description of homozygotes is wrong. D) red cells of type AB carry both sugars rather than an intermediate form, and pink flowers do not express red and white pigment separately.",
+     "trap": "Reversing the definitions of codominance and incomplete dominance.",
+     "topic": "Codominance versus incomplete dominance",
+     "mastery_sheet_id": "1C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P3_Q4",
+     "stem": "The child with type A blood in Family 3 needs a red-cell transfusion. Which donor red cells could be given safely?",
+     "options": {
+      "A": "Type A or type O",
+      "B": "Type B or type O",
+      "C": "Type AB only",
+      "D": "Type A or type AB"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) A type A recipient has anti-B antibodies, so red cells lacking the B sugar (type A and type O) are safe. Why the others are wrong: B) type B cells carry the B sugar and would be attacked by the recipient's anti-B antibodies. C) type AB cells also carry the B sugar, and the recipient is not limited to AB donors. D) type AB cells carry the B sugar and would be agglutinated by the recipient's anti-B antibodies.",
+     "trap": "Reasoning from the donor's plasma antibodies rather than from the recipient's antibodies against donor red cells.",
+     "topic": "Transfusion compatibility",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_BB_P4",
+   "passage_text": "Researchers incubated primary rat hepatocytes under four conditions to examine how fatty acid synthesis and fatty acid oxidation are coordinated. Cells were treated with insulin or glucagon for 2 hours. In two further groups, insulin-treated cells received either TOFA, an inhibitor of acetyl-CoA carboxylase (ACC), or etomoxir, an irreversible inhibitor of carnitine palmitoyltransferase I (CPT-I) in the outer mitochondrial membrane. Malonyl-CoA was measured by mass spectrometry. Fatty acid synthesis was measured as incorporation of radiolabeled acetate into lipid, and beta-oxidation was measured as production of radiolabeled acid-soluble products from radiolabeled palmitate. Synthesis and oxidation are expressed relative to the insulin condition (Table 1 and Figure 1).\n\nGlucagon raised cyclic AMP in the cells and increased phosphorylation of ACC by protein kinase A and AMP-activated protein kinase. Phosphorylated ACC has low activity. All dishes received identical amounts of palmitate and acetate, each condition was run in triplicate, and cell viability exceeded 95% at the end of the incubation in every group.",
+   "table_data": "| Condition | Malonyl-CoA (pmol/mg protein) | Fatty acid synthesis (relative) | Beta-oxidation (relative) |\n|---|---|---|---|\n| Insulin | 10.0 | 100 | 15 |\n| Glucagon | 2.0 | 12 | 90 |\n| Insulin + TOFA | 1.5 | 8 | 85 |\n| Insulin + etomoxir | 10.0 | 100 | 3 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Fatty acid oxidation by condition",
+    "x_label": "Condition (1 = insulin, 2 = glucagon, 3 = insulin + TOFA, 4 = insulin + etomoxir)",
+    "y_label": "Beta-oxidation (relative)",
+    "series": [
+     {
+      "name": "Beta-oxidation",
+      "points": [
+       [
+        1,
+        15
+       ],
+       [
+        2,
+        90
+       ],
+       [
+        3,
+        85
+       ],
+       [
+        4,
+        3
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_BB_P4_Q1",
+     "stem": "Which mechanism best explains the low rate of beta-oxidation in insulin-treated cells?",
+     "options": {
+      "A": "Malonyl-CoA inhibits CPT-I, which limits entry of fatty acyl groups into mitochondria",
+      "B": "Malonyl-CoA inhibits acetyl-CoA carboxylase, which depletes the acetyl-CoA needed for oxidation",
+      "C": "Malonyl-CoA is oxidized in the matrix and competes with palmitoyl-CoA for NAD+",
+      "D": "Malonyl-CoA activates CPT-I, which exports fatty acyl groups from the mitochondria"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) High malonyl-CoA (10.0 pmol/mg) inhibits CPT-I, so long-chain fatty acyl groups cannot enter the matrix via the carnitine shuttle and beta-oxidation is low (15). Why the others are wrong: B) malonyl-CoA is the product of ACC and does not deplete acetyl-CoA; oxidation produces acetyl-CoA. C) malonyl-CoA does not compete for NAD+ and is not an oxidation substrate in the matrix. D) CPT-I imports acyl groups and is inhibited, not activated, by malonyl-CoA.",
+     "trap": "Confusing the synthesis intermediate malonyl-CoA with an oxidation substrate instead of a regulator of CPT-I.",
+     "topic": "Malonyl-CoA regulation of CPT-I",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P4_Q2",
+     "stem": "Why does glucagon lower malonyl-CoA levels in these cells?",
+     "options": {
+      "A": "Phosphorylation activates ACC, which consumes malonyl-CoA",
+      "B": "Phosphorylation inactivates ACC, so less malonyl-CoA is produced",
+      "C": "Glucagon increases insulin release, which degrades malonyl-CoA",
+      "D": "Phosphorylation inactivates CPT-I, which increases malonyl-CoA breakdown"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Glucagon raises cAMP and activates PKA (and AMPK), which phosphorylate and inactivate ACC; with less carboxylation of acetyl-CoA, malonyl-CoA falls to 2.0 pmol/mg. Why the others are wrong: A) ACC produces malonyl-CoA, and phosphorylation lowers its activity as stated in the passage. C) hepatocytes were cultured with glucagon alone and glucagon opposes insulin action. D) CPT-I is inhibited by malonyl-CoA, and the passage describes phosphorylation of ACC rather than CPT-I.",
+     "trap": "Assuming phosphorylation always activates enzymes rather than reading the direction given for ACC.",
+     "topic": "Hormonal control of ACC",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P4_Q3",
+     "stem": "The insulin-plus-etomoxir results (Table 1) are best explained by which statement?",
+     "options": {
+      "A": "CPT-I acts upstream of ACC, so its inhibition raises malonyl-CoA",
+      "B": "CPT-I acts downstream of malonyl-CoA and is not required for synthesis",
+      "C": "CPT-I is required for cytosolic fatty acid synthesis, so its inhibition would lower synthesis",
+      "D": "Etomoxir activates ACC, which keeps malonyl-CoA at 10.0 pmol/mg"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Etomoxir blocks CPT-I, so oxidation falls to 3, yet malonyl-CoA (10.0) and synthesis (100) are unchanged because malonyl-CoA is made by ACC upstream of CPT-I and synthesis occurs in the cytosol. Why the others are wrong: A) malonyl-CoA is unchanged, not raised, so CPT-I is not regulating ACC. C) synthesis stayed at 100, so CPT-I is not needed for it; synthesis occurs in the cytosol. D) malonyl-CoA is the same as in insulin alone, which shows ACC activity was unaffected.",
+     "trap": "Assuming that blocking one pathway step changes every other measurement in the pathway, regardless of order.",
+     "topic": "Etomoxir and pathway order",
+     "mastery_sheet_id": "1D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P4_Q4",
+     "stem": "Compared with fatty acid synthesis, beta-oxidation of palmitoyl-CoA differs in which respect?",
+     "options": {
+      "A": "It occurs in the cytosol and consumes NADPH",
+      "B": "It occurs in the mitochondrial matrix and consumes ATP for each two-carbon unit added",
+      "C": "It occurs in the cytosol and yields NADH and FADH2",
+      "D": "It occurs in the mitochondrial matrix and yields NADH and FADH2"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Beta-oxidation runs in the mitochondrial matrix and cleaves two-carbon acetyl-CoA units while reducing NAD+ and FAD; synthesis occurs in the cytosol and uses NADPH. Why the others are wrong: A) cytosolic NADPH use describes synthesis rather than oxidation. B) oxidation removes two-carbon units and does not add them; ATP is used to activate the fatty acid, not per unit. C) oxidation occurs in the matrix, not the cytosol, even though it yields NADH and FADH2.",
+     "trap": "Attributing the location or cofactor of one pathway to the other.",
+     "topic": "Fatty acid synthesis versus oxidation",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P4_Q5",
+     "stem": "How many rounds of the beta-oxidation spiral are needed to convert one palmitoyl-CoA (16 carbons) completely to acetyl-CoA?",
+     "options": {
+      "A": "7",
+      "B": "8",
+      "C": "16",
+      "D": "15"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Each round removes two carbons; the last round releases two acetyl-CoA units, so a 16-carbon chain needs 7 rounds and yields 8 acetyl-CoA. Why the others are wrong: B) 8 is the number of acetyl-CoA produced, not the number of rounds. C) 16 is the number of carbons in the chain. D) 15 is one less than the number of carbons and is not related to a two-carbon cycle.",
+     "trap": "Counting the acetyl-CoA products (8) instead of the cleavage rounds (7).",
+     "topic": "Beta-oxidation stoichiometry",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://cmed.tu.edu.iq/images/Biochemistry55.pdf"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_BB_P5",
+   "passage_text": "Researchers examined how intercellular junctions contribute to the barrier and communication properties of a cultured intestinal epithelial monolayer grown on a porous filter. They measured transepithelial electrical resistance (TEER), which reflects ion flow between cells, and the flux of radiolabeled mannitol (molecular weight 182) from the apical to the basolateral chamber. To assess cell-to-cell coupling, a single cell was injected with Lucifer yellow (molecular weight 457), and the number of neighboring cells containing dye after 5 minutes was counted. Control monolayers were compared with monolayers treated with EGTA (a calcium chelator) for 30 minutes, with monolayers in which the tight junction protein claudin-4 had been partly depleted, and with monolayers treated with carbenoxolone, an inhibitor of connexin channels (Table 1).\n\nIn a separate experiment, a fluorescent dextran of molecular weight 10,000 was injected into single control cells and did not appear in neighboring cells. All monolayers had been grown to confluence for 14 days and had similar cell density at the time of measurement, and each value in Table 1 is a mean of at least six filters.",
+   "table_data": "| Condition | TEER (ohm x cm^2) | Mannitol flux (relative to control) | Neighbors with Lucifer yellow |\n|---|---|---|---|\n| Control | 350 | 1.0 | 12 |\n| EGTA | 40 | 9.0 | 10 |\n| Claudin-4 depletion | 120 | 4.1 | 12 |\n| Carbenoxolone | 340 | 1.1 | 1 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL09_BB_P5_Q1",
+     "stem": "Which junction most directly limits the paracellular movement of mannitol across the monolayer?",
+     "options": {
+      "A": "Tight junctions",
+      "B": "Gap junctions",
+      "C": "Desmosomes",
+      "D": "Hemidesmosomes"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Reducing the tight junction protein claudin-4 or chelating calcium (which disrupts junction assembly) lowers TEER and raises mannitol flux, so tight junctions seal the paracellular space. Why the others are wrong: B) blocking gap junctions with carbenoxolone left TEER (340) and flux (1.1) near control. C) desmosomes anchor cells mechanically through intermediate filaments but do not seal the space between cells. D) hemidesmosomes attach cells to the basement membrane and are not between neighboring cells.",
+     "trap": "Choosing a junction that connects cells without recognizing that only tight junctions create the paracellular seal.",
+     "topic": "Tight junction barrier function",
+     "mastery_sheet_id": "2A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P5_Q2",
+     "stem": "Carbenoxolone treatment is most consistent with which conclusion?",
+     "options": {
+      "A": "Connexin channels seal the paracellular space, so their block reduces mannitol flux",
+      "B": "Connexin channels carry ions across the apical membrane, so their block reduces TEER",
+      "C": "Gap junctions pass dye between cells but do not form the barrier",
+      "D": "Connexin channels are needed for tight junction assembly, so their block abolishes TEER"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Dye spread falls from 12 to 1 neighbors while TEER and mannitol flux hardly change, so gap junctions mediate cytoplasmic coupling but not the barrier to paracellular flux. Why the others are wrong: A) mannitol flux was 1.1, essentially control, so connexins are not the paracellular seal. B) TEER barely changed (340 versus 350), so the connexin block did not affect ion flow across the monolayer. D) TEER was normal after treatment, so tight junctions remained assembled.",
+     "trap": "Assuming any junction inhibitor must change TEER regardless of the junction's actual role.",
+     "topic": "Gap junction function",
+     "mastery_sheet_id": "2A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P5_Q3",
+     "stem": "Why did the 10,000-dalton dextran fail to pass between neighboring cells, while Lucifer yellow did?",
+     "options": {
+      "A": "Gap junction channels admit only molecules larger than about 1,000 daltons",
+      "B": "Dextran is positively charged and is repelled by the connexon pore",
+      "C": "Dextran is degraded by lysosomes before it can reach the junction",
+      "D": "Gap junction channels admit molecules smaller than about 1,000 daltons"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A gap junction is formed from paired connexons (each a ring of six connexin subunits), and its channel passes ions and small molecules up to about 1 kDa, so Lucifer yellow (457) passes but a 10-kDa dextran does not. Why the others are wrong: A) the size limit works in the opposite direction; larger molecules are excluded. B) dextran is a neutral polysaccharide, and the exclusion depends on size. C) the experiment shows no lysosomal degradation, and the dextran would still have appeared in neighbors if it fit the pore.",
+     "trap": "Reversing the size limit, thinking larger molecules pass more readily through channels.",
+     "topic": "Gap junction permeability",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P5_Q4",
+     "stem": "If tight junctions were disrupted in an intestinal epithelium, which additional consequence would be expected?",
+     "options": {
+      "A": "Desmosome proteins would be unable to bind intermediate filaments",
+      "B": "Hemidesmosomes would no longer bind the basement membrane",
+      "C": "Membrane proteins would lose their polar distribution",
+      "D": "Gap junction channels would increase in number to compensate"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Tight junctions also act as a fence that keeps apical and basolateral membrane proteins separate; without them, polarity is lost and directional absorption is impaired. Why the others are wrong: A) desmosome-intermediate filament attachment does not depend on tight junctions. B) hemidesmosome attachment depends on integrins binding the basement membrane. D) the data show gap junction coupling unchanged in EGTA, with no compensation seen.",
+     "trap": "Overlooking the second role of tight junctions in maintaining membrane polarity.",
+     "topic": "Tight junctions and epithelial polarity",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_BB_P6",
+   "passage_text": "Bacterium B is a marine species that forms surface-attached biofilms. It synthesizes an acyl-homoserine lactone (AHL) autoinducer using the synthase LuxI, and the AHL binds the cytoplasmic receptor LuxR, a transcription factor that activates genes for extracellular polysaccharide production. Researchers compared the wild-type strain with a luxI deletion mutant, a luxR deletion mutant, and the luxI mutant supplemented with 100 nM synthetic AHL. All cultures were grown for 24 hours in microtiter plates. Planktonic growth was measured as optical density at 600 nm (OD600), biofilm biomass by crystal violet staining of surface-attached cells (OD570), and AHL concentration in the supernatant by a bioassay (Table 1). Each condition was tested in six replicate wells at 25 degrees C with gentle shaking, and values are means.\n\nWhen biofilms and planktonic cultures of the wild-type strain were exposed to the same concentration of an antibiotic for 4 hours, 42% of biofilm cells survived compared with 0.5% of planktonic cells.",
+   "table_data": "| Strain / condition | OD600 | Biofilm OD570 | AHL in supernatant (nM) |\n|---|---|---|---|\n| Wild type | 1.2 | 1.80 | 85 |\n| luxI deletion | 1.2 | 0.30 | 0 |\n| luxI deletion + 100 nM AHL | 1.2 | 1.70 | 100 |\n| luxR deletion | 1.2 | 0.28 | 90 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Biofilm biomass by strain",
+    "x_label": "Strain (1 = wild type, 2 = luxI deletion, 3 = luxI deletion + AHL, 4 = luxR deletion)",
+    "y_label": "Biofilm OD570",
+    "series": [
+     {
+      "name": "Biofilm OD570",
+      "points": [
+       [
+        1,
+        1.8
+       ],
+       [
+        2,
+        0.3
+       ],
+       [
+        3,
+        1.7
+       ],
+       [
+        4,
+        0.28
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_BB_P6_Q1",
+     "stem": "What do the equal OD600 values in Table 1 indicate?",
+     "options": {
+      "A": "The mutants form biofilm as readily as the wild type",
+      "B": "The wild type makes the same amount of AHL as the luxR mutant at each cell density",
+      "C": "The biofilm defects of the mutants are not caused by slower planktonic growth",
+      "D": "Biofilm biomass depends only on the number of planktonic cells"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) All strains reach OD600 of 1.2, so growth is similar, and the lower biofilm OD570 of the luxI and luxR mutants reflects a defect in biofilm formation rather than in growth. Why the others are wrong: A) biofilm OD570 is much lower in both mutants (0.30 and 0.28 versus 1.80). B) the wild type makes 85 nM and the luxR mutant 90 nM, which are similar but not the question, and OD600 does not measure AHL. D) the luxI + AHL strain has the same OD600 but a much higher biofilm OD570 than the luxI mutant, so biomass is not just cell number.",
+     "trap": "Reading similar planktonic growth as evidence of similar biofilm formation.",
+     "topic": "Controlling for growth in biofilm assays",
+     "mastery_sheet_id": "2B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P6_Q2",
+     "stem": "The luxR mutant produces AHL (90 nM) but forms little biofilm. This result indicates that:",
+     "options": {
+      "A": "LuxR is the synthase that produces AHL",
+      "B": "LuxR is the receptor for AHL",
+      "C": "AHL is not required for biofilm formation in this species",
+      "D": "LuxR is an exporter that releases AHL from the cell"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) AHL is present in luxR cells yet biofilm is poor, so the signal cannot be sensed without LuxR, the transcription factor that binds AHL and activates polysaccharide genes. Why the others are wrong: A) LuxI is the synthase, and the luxR mutant still makes AHL (90 nM). C) the luxI mutant is rescued by AHL, so AHL is required. D) the passage describes LuxR as a cytoplasmic transcription factor, not an exporter.",
+     "trap": "Confusing the synthase (LuxI) with the receptor (LuxR) in the quorum-sensing circuit.",
+     "topic": "Quorum sensing receptor",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P6_Q3",
+     "stem": "Why does AHL accumulate to effective levels only at high cell density?",
+     "options": {
+      "A": "Each cell releases AHL, so the extracellular concentration rises with population size, and AHL also induces more luxI expression",
+      "B": "AHL is made only when cells attach to a surface, which occurs at high density",
+      "C": "AHL is made by only a few cells, and spreads at a rate set by cell division",
+      "D": "Cells degrade AHL at low density, which removes the signal until nutrients are exhausted"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Per-cell AHL production is small, so the concentration crosses the activation threshold only when many cells are present; AHL-LuxR also upregulates luxI, giving positive feedback (autoinduction). Why the others are wrong: B) production does not require attachment, and planktonic cells in culture also produce AHL. C) there is no mention of a specialized subset of cells, and AHL diffuses without needing division. D) degradation at low density is not described, and the signal depends on population size, not nutrient exhaustion.",
+     "trap": "Thinking that quorum sensing responds to surface contact instead of the concentration of a shared signal.",
+     "topic": "Quorum sensing threshold",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P6_Q4",
+     "stem": "Which feature of biofilms best explains the higher antibiotic survival of biofilm cells?",
+     "options": {
+      "A": "Biofilm cells carry more copies of the gene for the antibiotic target",
+      "B": "Biofilm cells take up more antibiotic, which activates their repair enzymes",
+      "C": "Biofilm cells lose their cell walls, which blocks antibiotics that target peptidoglycan",
+      "D": "The extracellular matrix slows antibiotic diffusion and many cells grow slowly"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The polysaccharide matrix limits penetration of the drug and cells within the biofilm are often in slow-growth or persister states, so they survive far better (42% versus 0.5%). Why the others are wrong: A) the survival difference is physiological and does not depend on gene copy number. B) taking up more drug would increase killing rather than survival. C) biofilm cells retain their walls, and loss of walls is not described.",
+     "trap": "Ascribing biofilm tolerance to genetic resistance rather than to matrix and growth-state effects.",
+     "topic": "Biofilm antibiotic tolerance",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_BB_P7",
+   "passage_text": "Researchers studied how signaling molecules specify embryonic cell fates using explants from the animal cap of Xenopus blastulae. Animal cap tissue normally forms epidermis. Explants were cultured for 8 hours in solutions containing different concentrations of activin, a secreted protein that signals through receptors that activate SMAD transcription factors. Expression of three marker genes was then measured by quantitative PCR: keratin (epidermis, an ectodermal derivative), Brachyury (mesoderm), and Sox17 (endoderm). Values are expressed as a percentage of the maximum measured for each marker (Table 1 and Figure 1).\n\nIn a second experiment, animal cap cells were dissociated and cultured at low density in the presence or absence of noggin, a protein that binds and inactivates bone morphogenetic proteins (BMPs). Dissociated cells without noggin formed epidermis, whereas dissociated cells with noggin formed neural tissue expressing NCAM. In a third experiment, a piece of dorsal lip tissue was grafted to the ventral side of a host embryo, which then developed a second body axis.",
+   "table_data": "| Activin (ng/mL) | Keratin (%) | Brachyury (%) | Sox17 (%) |\n|---|---|---|---|\n| 0 | 95 | 2 | 1 |\n| 5 | 40 | 70 | 3 |\n| 20 | 5 | 90 | 15 |\n| 100 | 2 | 30 | 85 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Marker expression versus activin concentration",
+    "x_label": "Activin (ng/mL)",
+    "y_label": "Expression (% of maximum)",
+    "series": [
+     {
+      "name": "Keratin",
+      "points": [
+       [
+        0,
+        95
+       ],
+       [
+        5,
+        40
+       ],
+       [
+        20,
+        5
+       ],
+       [
+        100,
+        2
+       ]
+      ]
+     },
+     {
+      "name": "Brachyury",
+      "points": [
+       [
+        0,
+        2
+       ],
+       [
+        5,
+        70
+       ],
+       [
+        20,
+        90
+       ],
+       [
+        100,
+        30
+       ]
+      ]
+     },
+     {
+      "name": "Sox17",
+      "points": [
+       [
+        0,
+        1
+       ],
+       [
+        5,
+        3
+       ],
+       [
+        20,
+        15
+       ],
+       [
+        100,
+        85
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_BB_P7_Q1",
+     "stem": "Which tissue would most likely arise from cells with the marker profile seen at 100 ng/mL activin?",
+     "options": {
+      "A": "The epidermis of the skin",
+      "B": "Skeletal muscle of the limbs",
+      "C": "The neurons of the spinal cord",
+      "D": "Pancreatic epithelium"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) High Sox17 (85%) marks endoderm, which gives rise to the lining of the gut and respiratory tract and to the liver and pancreas. Why the others are wrong: A) epidermis is ectoderm and keratin is low (2%) at this dose. B) muscle is mesodermal, and Brachyury is only 30% at this dose, lower than at 20 ng/mL. C) neurons are ectodermal and would require BMP inhibition, as seen with noggin.",
+     "trap": "Matching the tissue to the marker that is highest at a different concentration.",
+     "topic": "Endoderm derivatives",
+     "mastery_sheet_id": "2C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P7_Q2",
+     "stem": "Which conclusion about activin is best supported by Table 1?",
+     "options": {
+      "A": "Activin acts only as an inducer of ectoderm at all concentrations",
+      "B": "Different concentrations of activin specify different germ layers, as expected for a morphogen",
+      "C": "Activin lowers Brachyury expression at every concentration tested",
+      "D": "Activin acts only on explants that contain dorsal lip tissue"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) As concentration increases, the dominant marker shifts from keratin (0) to Brachyury (5-20) to Sox17 (100), showing concentration-dependent fate choice, the defining property of a morphogen. Why the others are wrong: A) keratin (ectoderm) falls steadily as activin rises, so activin does not induce ectoderm. C) Brachyury rises from 2% at 0 ng/mL to 90% at 20 ng/mL. D) the explants were animal cap tissue, and dorsal lip tissue is used in a separate experiment.",
+     "trap": "Reading only one marker and overlooking the shift among germ layers with dose.",
+     "topic": "Morphogen gradients",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P7_Q3",
+     "stem": "The noggin experiment suggests that, in the absence of BMP signaling, dissociated ectoderm cells would:",
+     "options": {
+      "A": "Adopt a neural fate",
+      "B": "Adopt an endodermal fate",
+      "C": "Become notochord",
+      "D": "Undergo apoptosis"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Dissociated cells without noggin form epidermis, with BMP signaling present; when noggin blocks BMPs, they express NCAM and become neural tissue, so neural fate is the outcome when BMP is inhibited. Why the others are wrong: B) endoderm required high activin in Table 1, not BMP inhibition. C) notochord is dorsal mesoderm, which required activin rather than BMP inhibition. D) no increase in cell death is described; the cells differentiate.",
+     "trap": "Assuming that blocking a signal prevents differentiation rather than revealing a default neural fate.",
+     "topic": "Neural induction by BMP inhibition",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P7_Q4",
+     "stem": "The graft of dorsal lip tissue producing a second body axis is an example of:",
+     "options": {
+      "A": "Cell autonomous determination, in which the graft alone forms the entire axis",
+      "B": "Induction by an organizer that signals to neighboring host cells",
+      "C": "Induction of ectoderm by the endoderm to form neural crest",
+      "D": "Transdifferentiation of host mesoderm into endoderm"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The dorsal lip (Spemann organizer) secretes signals, including BMP inhibitors, that induce host cells to form dorsal structures, so most of the second axis is made from host cells. Why the others are wrong: A) the second axis is largely made of induced host tissue, not the graft alone. C) the dorsal lip is mesodermal and the induction described is of neural and dorsal tissue, not neural crest formation by endoderm. D) the signals induce a dorsal fate in host tissue, and no conversion to endoderm is described.",
+     "trap": "Thinking the grafted tissue itself forms the new structure rather than inducing the host.",
+     "topic": "Spemann organizer induction",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P7_Q5",
+     "stem": "By what factor does Sox17 expression increase when activin is raised from 20 to 100 ng/mL?",
+     "options": {
+      "A": "About 0.18-fold",
+      "B": "About 5.7-fold",
+      "C": "About 85-fold",
+      "D": "About 70-fold"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The ratio of 85% to 15% is 5.67, or about 5.7-fold. Why the others are wrong: A) 0.18 is the inverse ratio, 15/85. C) 85-fold would use the value at 100 ng/mL alone as the ratio. D) 70-fold is the difference, 85 - 15, not a ratio.",
+     "trap": "Inverting the ratio or reporting a difference rather than the fold change.",
+     "topic": "Fold change from a table",
+     "mastery_sheet_id": "2C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_BB_P8",
+   "passage_text": "Sound transduction occurs in the organ of Corti, where hair cells sit on the basilar membrane. Each hair cell has stereocilia projecting into the endolymph, a fluid with high K+ concentration and a positive potential of about +80 mV relative to perilymph. Deflection of stereocilia toward the tallest row opens mechanically gated channels at the tips, K+ enters, and the hair cell depolarizes; voltage-gated Ca2+ channels then open at the base of the cell.\n\nResearchers studied cochlear function in guinea pigs treated for 14 days with high-dose gentamicin, an aminoglycoside antibiotic known to enter hair cells through the mechanotransduction channels and cause cell death. Hearing thresholds at several frequencies were measured before and after treatment using auditory brainstem responses. The site along the basilar membrane that responds maximally to each frequency, expressed as distance from the base of the cochlea, was determined from mapping studies in untreated animals (Table 1 and Figure 1).",
+   "table_data": "| Frequency (kHz) | Distance of maximal response from base (mm) | Threshold shift after gentamicin (dB) |\n|---|---|---|\n| 0.5 | 30 | 5 |\n| 1 | 25 | 5 |\n| 2 | 20 | 8 |\n| 4 | 14 | 20 |\n| 8 | 9 | 45 |\n| 16 | 4 | 70 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Threshold shift after gentamicin versus frequency",
+    "x_label": "Frequency (kHz)",
+    "y_label": "Threshold shift (dB)",
+    "series": [
+     {
+      "name": "Threshold shift",
+      "points": [
+       [
+        0.5,
+        5
+       ],
+       [
+        1,
+        5
+       ],
+       [
+        2,
+        8
+       ],
+       [
+        4,
+        20
+       ],
+       [
+        8,
+        45
+       ],
+       [
+        16,
+        70
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_BB_P8_Q1",
+     "stem": "Why does K+ entry depolarize the hair cell?",
+     "options": {
+      "A": "Endolymph is K+ rich and positive, so K+ flows inward",
+      "B": "Endolymph has a low K+ concentration, so K+ moves inward down its concentration gradient",
+      "C": "Mechanically gated channels pump K+ inward using ATP, which adds positive charge",
+      "D": "Hair cell cytoplasm has a higher K+ concentration than endolymph, so K+ is pulled inward by diffusion"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Endolymph K+ is high and the endolymph is about +80 mV, so with the hair cell interior near -60 mV there is a large electrical force driving K+ inward; entry of positive charge depolarizes the cell. Why the others are wrong: B) endolymph is rich in K+, unlike most extracellular fluids. C) channels open passively to allow flow; they do not pump, and no ATP use is involved in the transduction current. D) the interior of the cell does not have more K+ than the endolymph in this case; the electrochemical force, including the +80 mV potential, drives inward flow.",
+     "trap": "Applying the usual low-K+ extracellular fluid rule to endolymph, which is unusually rich in K+.",
+     "topic": "Hair cell K+ transduction current",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P8_Q2",
+     "stem": "Based on Table 1, the high-frequency hearing loss after gentamicin most likely reflects damage to hair cells located:",
+     "options": {
+      "A": "Near the apex of the cochlea, where high frequencies are encoded",
+      "B": "Near the apex of the cochlea, where low frequencies are encoded",
+      "C": "Near the base of the cochlea, where high frequencies are encoded",
+      "D": "Uniformly along the cochlea, because all frequencies are affected equally"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Larger shifts occur at 8 and 16 kHz, which map to 9 and 4 mm from the base; so basal hair cells, which encode high frequencies on the stiff, narrow end of the basilar membrane, are most affected. Why the others are wrong: A) high frequencies map to the base, not the apex. B) the apical region encodes low frequencies, and those thresholds changed little (5 dB). D) the shift ranges from 5 dB at 0.5 kHz to 70 dB at 16 kHz, so loss is not uniform.",
+     "trap": "Reversing the tonotopic map of the cochlea (low frequencies at the base).",
+     "topic": "Cochlear tonotopy",
+     "mastery_sheet_id": "3A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P8_Q3",
+     "stem": "Which event follows hair cell depolarization and leads to activation of the auditory nerve?",
+     "options": {
+      "A": "Na+ enters through voltage-gated channels and triggers release of acetylcholine onto spiral ganglion neurons",
+      "B": "Ca2+ leaves the cell through voltage-gated channels and triggers release of GABA onto spiral ganglion neurons",
+      "C": "K+ leaves through mechanically gated channels and triggers an action potential in the hair cell",
+      "D": "Ca2+ enters through voltage-gated channels and triggers release of glutamate onto spiral ganglion neurons"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Depolarization opens voltage-gated Ca2+ channels; Ca2+ entry triggers exocytosis of glutamate-containing vesicles, which excites the spiral ganglion neurons. Why the others are wrong: A) the hair cell signal depends on Ca2+ entry and the transmitter is glutamate, not acetylcholine. B) Ca2+ enters the cell, which is how it triggers exocytosis, and the transmitter is glutamate. C) K+ enters, not leaves, through the mechanically gated channels, and hair cells signal with graded potentials rather than action potentials.",
+     "trap": "Assuming the hair cell fires an action potential rather than releasing transmitter in graded fashion.",
+     "topic": "Hair cell synaptic transmission",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P8_Q4",
+     "stem": "Gentamicin damages hair cells mainly because it:",
+     "options": {
+      "A": "Blocks the voltage-gated Ca2+ channels, which starves cells of energy",
+      "B": "Enters through the open mechanotransduction channels and accumulates in the cells",
+      "C": "Raises the K+ concentration in the endolymph, which hyperpolarizes the cells",
+      "D": "Is excluded by the tight junctions, which concentrates it in the perilymph"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The passage states the drug enters through the mechanotransduction channels, so cells with active channels accumulate it and die; high-frequency basal cells are affected first. Why the others are wrong: A) Ca2+ channel block is not described and would not itself kill cells. C) the drug does not alter endolymph K+, and higher K+ would depolarize rather than hyperpolarize. D) the drug reaches the hair cells and kills them, which would not happen if it were excluded.",
+     "trap": "Inventing a mechanism not stated in the passage instead of using the entry route given.",
+     "topic": "Aminoglycoside ototoxicity",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_BB_P9",
+   "passage_text": "Clotting is evaluated clinically with two screening tests. The prothrombin time (PT) measures clotting after tissue factor is added to citrated plasma and is sensitive to factors VII, X, V, II, and fibrinogen. The activated partial thromboplastin time (aPTT) measures clotting after a contact activator is added and is sensitive to factors XII, XI, IX, VIII, X, V, II, and fibrinogen. Reference values are 11-14 seconds for PT and 25-35 seconds for aPTT. The International Normalized Ratio is calculated as INR = (patient PT / mean normal PT)^ISI, where the ISI of the thromboplastin reagent used in this laboratory is 1.0 and the mean normal PT is 12 seconds.\n\nFour patients with bleeding symptoms were tested (Table 1). Patient 1 is a boy with a family history of bleeding into joints. Patient 2 takes warfarin for atrial fibrillation. Patient 3 is a woman with easy bruising and a normal family history of joint bleeding. Patient 4 is receiving intravenous unfractionated heparin after surgery.",
+   "table_data": "| Patient | PT (s) | aPTT (s) |\n|---|---|---|\n| 1 | 12 | 68 |\n| 2 | 30 | 45 |\n| 3 | 31 | 31 |\n| 4 | 13 | 90 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL09_BB_P9_Q1",
+     "stem": "Patient 1 has a normal PT and prolonged aPTT. Which deficiency is most consistent with these results?",
+     "options": {
+      "A": "Factor VII",
+      "B": "Vitamin K-dependent factors as a group",
+      "C": "Fibrinogen",
+      "D": "Factor VIII"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A prolonged aPTT with a normal PT points to the intrinsic pathway (factors XII, XI, IX, VIII); together with a family history of joint bleeding, hemophilia A (factor VIII) fits. Why the others are wrong: A) factor VII deficiency would prolong the PT, as in patient 3. B) a deficiency of vitamin K-dependent factors prolongs the PT, as in patient 2. C) fibrinogen deficiency would prolong both tests, but the PT is normal here.",
+     "trap": "Mixing up which test reflects which pathway when only one is abnormal.",
+     "topic": "Intrinsic pathway and aPTT",
+     "mastery_sheet_id": "3B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P9_Q2",
+     "stem": "Warfarin prolongs the PT in patient 2 because it:",
+     "options": {
+      "A": "Activates antithrombin, which inhibits thrombin and factor Xa",
+      "B": "Binds calcium, which prevents the activation of platelets and factors",
+      "C": "Cleaves fibrinogen to fibrin, which exhausts the available fibrinogen",
+      "D": "Blocks vitamin K recycling for factor carboxylation"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Warfarin blocks regeneration of reduced vitamin K, so factors II, VII, IX, and X lack gamma-carboxyglutamate residues needed to bind Ca2+ on phospholipid surfaces; factor VII has the shortest half-life, so the PT rises first. Why the others are wrong: A) this describes the mechanism of heparin through antithrombin, not warfarin. B) warfarin does not chelate calcium; the citrate in the sample tube does. C) thrombin, not warfarin, cleaves fibrinogen to fibrin.",
+     "trap": "Confusing the mechanisms of warfarin (factor synthesis) and heparin (antithrombin activation).",
+     "topic": "Warfarin mechanism",
+     "mastery_sheet_id": "3B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P9_Q3",
+     "stem": "What is the INR for patient 2?",
+     "options": {
+      "A": "0.4",
+      "B": "30",
+      "C": "2.5",
+      "D": "1.5"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) INR = (30 / 12)^1.0 = 2.5. Why the others are wrong: A) 0.4 is the inverse ratio, 12/30. B) 30 is the raw PT in seconds, not the ratio. D) 1.5 would result from subtracting reference time or using 18/12, which is not the patient's value.",
+     "trap": "Inverting the PT ratio or reporting the PT itself instead of the ratio.",
+     "topic": "INR calculation",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_BB_P9_Q4",
+     "stem": "Patient 3 has a prolonged PT and a normal aPTT. A deficiency of which factor would best explain this?",
+     "options": {
+      "A": "Factor VII, which is part of the extrinsic pathway only",
+      "B": "Factor IX, which is part of the intrinsic pathway only",
+      "C": "Factor X, which would also prolong the aPTT",
+      "D": "Factor XII, which is part of the contact system only"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Factor VII acts only in the tissue factor (extrinsic) pathway, so its deficiency prolongs the PT but leaves the aPTT normal. Why the others are wrong: B) factor IX deficiency prolongs the aPTT and leaves the PT normal. C) factor X is in the common pathway, so its deficiency would prolong both tests. D) factor XII deficiency prolongs only the aPTT.",
+     "trap": "Forgetting that common pathway deficiencies prolong both tests while pathway-specific ones prolong just one.",
+     "topic": "Extrinsic pathway and PT",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_BB_P10",
+   "passage_text": "Plasma cholesterol is carried in lipoproteins. Chylomicrons and very-low-density lipoprotein (VLDL) deliver triglycerides to tissues, and VLDL remnants are converted to low-density lipoprotein (LDL). LDL particles, which contain apolipoprotein B-100, are taken up by hepatocytes after binding the LDL receptor (LDLR). High-density lipoprotein (HDL) contains apolipoprotein A-I and carries cholesterol from peripheral tissues to the liver.\n\nResearchers compared four groups: control subjects, patients with heterozygous familial hypercholesterolemia (FH), patients with homozygous FH, and control subjects treated with a statin for 8 weeks. Statins competitively inhibit HMG-CoA reductase. Table 1 shows mean fasting lipid values and relative hepatic LDLR activity (measured in liver biopsy samples in the first three groups and estimated by LDL clearance in the treated group). In a second analysis, patients with homozygous FH were treated with the same statin dose, and mean LDL cholesterol fell by only 6%. All subjects fasted for 12 hours before blood sampling, and none was taking other lipid-lowering drugs or had diabetes or thyroid disease.",
+   "table_data": "| Group | LDL-C (mg/dL) | HDL-C (mg/dL) | Triglycerides (mg/dL) | Relative LDLR activity (%) |\n|---|---|---|---|---|\n| Control | 100 | 55 | 110 | 100 |\n| Heterozygous FH | 220 | 50 | 120 | 50 |\n| Homozygous FH | 600 | 40 | 130 | 2 |\n| Control + statin | 70 | 55 | 105 | 160 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. LDL cholesterol versus LDLR activity",
+    "x_label": "Relative LDLR activity (%)",
+    "y_label": "LDL-C (mg/dL)",
+    "series": [
+     {
+      "name": "Groups",
+      "points": [
+       [
+        100,
+        100
+       ],
+       [
+        50,
+        220
+       ],
+       [
+        2,
+        600
+       ],
+       [
+        160,
+        70
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_BB_P10_Q1",
+     "stem": "Which process is impaired in patients with FH who have defective LDL receptors?",
+     "options": {
+      "A": "Lipoprotein lipase hydrolysis of triglycerides in chylomicrons",
+      "B": "LDL uptake by receptor-mediated endocytosis",
+      "C": "Esterification of cholesterol in HDL by LCAT",
+      "D": "Secretion of VLDL from the liver as an energy source"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) LDLR binds apoB-100 on LDL and internalizes it in clathrin-coated vesicles; reduced receptor activity (50% and 2%) leaves LDL in plasma, so LDL-C rises to 220 and 600 mg/dL. Why the others are wrong: A) lipoprotein lipase acts in tissue capillaries and does not depend on LDLR, and triglycerides are only mildly changed. C) LCAT esterifies cholesterol on HDL, and HDL-C changes only modestly. D) VLDL secretion is not impaired in FH, and it is not the cause of LDL accumulation.",
+     "trap": "Attributing the elevated LDL to a defect in triglyceride transport instead of LDL receptor clearance.",
+     "topic": "LDL receptor-mediated endocytosis",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P10_Q2",
+     "stem": "Why does LDL-C fall in control subjects given a statin?",
+     "options": {
+      "A": "Lower hepatocyte cholesterol suppresses LDLR expression, which increases LDL uptake",
+      "B": "The statin binds LDL particles directly, which targets them for excretion in the bile",
+      "C": "The statin increases HMG-CoA reductase activity, which makes more HDL",
+      "D": "Lower hepatocyte cholesterol activates SREBP-2, which increases LDLR expression and LDL uptake"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) By inhibiting HMG-CoA reductase, the rate-limiting enzyme in cholesterol synthesis, statins lower intracellular cholesterol; SREBP-2 then raises LDLR expression (160% in Table 1), so more LDL is cleared. Why the others are wrong: A) LDLR expression rises, not falls, when intracellular cholesterol is low. B) statins act on the enzyme in the cell, not on LDL itself. C) statins inhibit HMG-CoA reductase rather than activate it, and HDL is unchanged at 55 mg/dL.",
+     "trap": "Predicting that low cellular cholesterol should lower LDL receptor expression.",
+     "topic": "Statin mechanism and SREBP",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P10_Q3",
+     "stem": "Why did LDL cholesterol fall by only 6% in statin-treated patients with homozygous FH?",
+     "options": {
+      "A": "Their cells make too much HDL, which blocks statin action",
+      "B": "Their HMG-CoA reductase is insensitive to all statins",
+      "C": "Their cells convert statin to LDL, which offsets the benefit",
+      "D": "Their cells have almost no LDL receptors to upregulate"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Statins lower plasma LDL mainly by increasing LDLR; with only 2% receptor activity, little additional receptor expression is possible, so LDL-C remains high. Why the others are wrong: A) HDL-C is lower in this group (40 mg/dL), and HDL does not block statins. B) the statin works in other groups through the same enzyme, and no insensitivity is described. C) statins are not converted to LDL, which is a lipoprotein.",
+     "trap": "Assuming a drug resistance mechanism instead of using the receptor data in the table.",
+     "topic": "Statin response in homozygous FH",
+     "mastery_sheet_id": "1D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_BB_P10_Q4",
+     "stem": "A patient has total cholesterol 240 mg/dL, HDL-C 50 mg/dL, and triglycerides 150 mg/dL. Using the Friedewald equation (LDL-C = total cholesterol - HDL-C - triglycerides/5), what is the estimated LDL-C?",
+     "options": {
+      "A": "190 mg/dL",
+      "B": "160 mg/dL",
+      "C": "40 mg/dL",
+      "D": "90 mg/dL"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Triglycerides/5 = 30, so LDL-C = 240 - 50 - 30 = 160 mg/dL. Why the others are wrong: A) 190 results from subtracting only HDL-C. C) 40 results from subtracting the full triglyceride value (240 - 50 - 150) without dividing by 5. D) 90 results from subtracting the undivided triglycerides and omitting HDL-C (240 - 150).",
+     "trap": "Forgetting to divide triglycerides by 5 when estimating VLDL cholesterol.",
+     "topic": "Friedewald LDL estimate",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_BB_P10_Q5",
+     "stem": "A competitive statin binds the active site of HMG-CoA reductase. Compared with the uninhibited enzyme, the statin changes the kinetics of the reaction in which way?",
+     "options": {
+      "A": "The apparent Km decreases and Vmax decreases",
+      "B": "The apparent Km is unchanged and Vmax decreases",
+      "C": "The apparent Km increases and Vmax increases",
+      "D": "The apparent Km increases and Vmax is unchanged"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A competitive inhibitor competes with HMG-CoA for the active site, so more substrate is needed to reach half-maximal velocity (higher apparent Km), but sufficiently high substrate overcomes it and Vmax is unchanged. Why the others are wrong: A) a decrease in both Km and Vmax is the signature of uncompetitive inhibition. B) unchanged Km with decreased Vmax is the signature of noncompetitive inhibition. C) an inhibitor cannot raise Vmax, which stays the same under competitive inhibition.",
+     "trap": "Mixing up the Km and Vmax changes produced by competitive, noncompetitive, and uncompetitive inhibitors.",
+     "topic": "Competitive inhibition kinetics",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL09_BB_D1",
+   "stem": "In an alpha helix, the hydrogen bonds that stabilize the structure form between:",
+   "options": {
+    "A": "The side-chain groups of residues that are adjacent in the sequence and point in the same direction",
+    "B": "The backbone carbonyl oxygen of one residue and the backbone amide hydrogen of a residue four positions along the chain",
+    "C": "The backbone carbonyl oxygen and amide hydrogen of residues on separate, antiparallel strands",
+    "D": "The side-chain hydroxyl groups of serine residues and the peptide backbone of the preceding turn"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Alpha helix hydrogen bonds link the C=O of residue i to the N-H of residue i+4, running parallel to the helix axis. Why the others are wrong: A) side chains project outward from the helix and do not form its backbone hydrogen-bond pattern. C) bonds between separate strands characterize beta sheets, not alpha helices. D) side chains are not required for the regular helical hydrogen-bond pattern.",
+   "trap": "Confusing the interstrand hydrogen bonding of beta sheets with the intrastrand bonding of helices.",
+   "topic": "Protein secondary structure",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D2",
+   "stem": "On a Lineweaver-Burk plot, a competitive inhibitor changes the line for the enzyme reaction by:",
+   "options": {
+    "A": "Increasing the y-intercept while leaving the x-intercept unchanged",
+    "B": "Decreasing both the slope and the y-intercept",
+    "C": "Increasing the slope while leaving the y-intercept unchanged",
+    "D": "Leaving the slope unchanged while shifting the line up"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Competitive inhibition raises the apparent Km but leaves Vmax unchanged, so the slope (Km/Vmax) rises and the y-intercept (1/Vmax) is the same. Why the others are wrong: A) a higher y-intercept would imply a lower Vmax, as in noncompetitive inhibition. B) a lower slope and lower intercept would mean a faster enzyme, not an inhibited one. D) a parallel upward shift is the pattern for uncompetitive inhibition, in which both intercepts change.",
+   "trap": "Mixing up which intercept is 1/Vmax and which is -1/Km.",
+   "topic": "Lineweaver-Burk analysis of inhibition",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D3",
+   "stem": "Which activity allows DNA polymerase III in E. coli to correct a mismatched nucleotide that it has just added?",
+   "options": {
+    "A": "A 3' to 5' exonuclease activity that removes the terminal nucleotide",
+    "B": "A 5' to 3' exonuclease activity that removes the RNA primer",
+    "C": "A helicase activity that unwinds the daughter strand",
+    "D": "A ligase activity that seals the nick after the mismatch"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The epsilon subunit has 3' to 5' exonuclease activity that excises a wrongly paired 3' terminal nucleotide so synthesis can resume. Why the others are wrong: B) 5' to 3' exonuclease activity (of DNA polymerase I) removes RNA primers and is not proofreading. C) helicase unwinds the parental duplex and does not edit the new strand. D) ligase joins fragments and does not remove incorrect bases.",
+   "trap": "Confusing the 3' to 5' proofreading activity with the 5' to 3' activity that removes primers.",
+   "topic": "DNA polymerase proofreading",
+   "mastery_sheet_id": "1B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D4",
+   "stem": "Aminoacyl-tRNA synthetases help maintain the accuracy of translation primarily because they:",
+   "options": {
+    "A": "Recognize the codon on the mRNA and select the matching tRNA by base pairing",
+    "B": "Catalyze peptide bond formation between adjacent amino acids on the ribosome",
+    "C": "Attach the right amino acid to its tRNA and edit mischarged ones",
+    "D": "Select the amino acid at the ribosome by checking codon-anticodon pairing"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Each synthetase uses ATP to charge a tRNA with its cognate amino acid and has editing activity, so the amino acid carried matches the anticodon. Why the others are wrong: A) codon recognition is performed by the anticodon of the tRNA on the ribosome, not by the synthetase. B) peptide bond formation is catalyzed by the rRNA of the large ribosomal subunit. D) synthetases act before the tRNA reaches the ribosome, and the ribosome checks codon-anticodon pairing, not the amino acid.",
+   "trap": "Placing the key step of amino acid selection at the ribosome instead of at the charging reaction.",
+   "topic": "tRNA charging",
+   "mastery_sheet_id": "1B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D5",
+   "stem": "Two unaffected parents have a child with an autosomal recessive disease. What is the probability that an unaffected child of these parents is a carrier?",
+   "options": {
+    "A": "1/2",
+    "B": "1/4",
+    "C": "2/3",
+    "D": "3/4"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Both parents are carriers (Aa x Aa); among unaffected offspring (AA, Aa, Aa) 2 of 3 are carriers. Why the others are wrong: A) 1/2 ignores that the affected genotype is excluded from the outcomes. B) 1/4 is the probability of an affected child, or of AA, before conditioning. D) 3/4 is the probability of being unaffected, not of being a carrier.",
+   "trap": "Failing to restrict the denominator to unaffected genotypes.",
+   "topic": "Carrier probability in recessive disease",
+   "mastery_sheet_id": "1C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.genomicseducation.hee.nhs.uk/education/videos/autosomal-recessive-inheritance/"
+    ]
+   }
+  },
+  {
+   "id": "FL09_BB_D6",
+   "stem": "During prolonged fasting, the brain can use ketone bodies, but the liver cannot because the liver:",
+   "options": {
+    "A": "Lacks the enzyme that synthesizes HMG-CoA from acetyl-CoA",
+    "B": "Cannot convert acetyl-CoA to acetoacetate in the matrix",
+    "C": "Lacks mitochondria in which to oxidize the ketone bodies",
+    "D": "Lacks the enzyme that activates acetoacetate to acetoacetyl-CoA, thiophorase"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Hepatocytes make ketone bodies but lack succinyl-CoA:acetoacetate CoA transferase (thiophorase), so they cannot use them as fuel. Why the others are wrong: A) the liver makes HMG-CoA in mitochondria as the first step of ketogenesis. B) the liver produces acetoacetate from HMG-CoA in the mitochondrial matrix. C) hepatocytes have abundant mitochondria.",
+   "trap": "Believing the liver cannot synthesize ketone bodies or lacks mitochondria.",
+   "topic": "Ketone body metabolism",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D7",
+   "stem": "During exercise, epinephrine binding to its receptor on muscle cells ultimately increases glycogen breakdown by:",
+   "options": {
+    "A": "Activating protein phosphatase 1, which dephosphorylates glycogen synthase and activates it",
+    "B": "Inhibiting adenylyl cyclase, which lowers cAMP and relieves inhibition of phosphorylase",
+    "C": "Activating glucokinase, which traps glucose as glucose-6-phosphate in muscle",
+    "D": "Activating protein kinase A, which activates phosphorylase kinase and then phosphorylase"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Epinephrine raises cAMP through a Gs protein, activating PKA, which phosphorylates and activates phosphorylase kinase; this activates glycogen phosphorylase to release glucose-1-phosphate. Why the others are wrong: A) phosphatase activation would favor synthesis rather than breakdown. B) epinephrine activates, not inhibits, adenylyl cyclase through a Gs-coupled receptor. C) glucokinase is a liver enzyme and phosphorylation of glucose does not drive glycogen breakdown.",
+   "trap": "Mixing up the kinase cascade that promotes breakdown with the phosphatase action that promotes synthesis.",
+   "topic": "Glycogen metabolism",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D8",
+   "stem": "Binding of a ligand to a Gs-coupled receptor leads to which sequence of events?",
+   "options": {
+    "A": "GTP is hydrolyzed to GDP on the alpha subunit, which activates adenylyl cyclase and raises cAMP",
+    "B": "GDP is exchanged for GTP on the alpha subunit, which inhibits adenylyl cyclase and lowers cAMP",
+    "C": "GDP is exchanged for GTP on the alpha subunit, which activates adenylyl cyclase and raises cAMP",
+    "D": "The receptor phosphorylates itself on tyrosine, which recruits adenylyl cyclase to the membrane"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Ligand-bound receptor acts as a GEF; the alpha subunit swaps GDP for GTP, dissociates, and stimulates adenylyl cyclase to make cAMP. Why the others are wrong: A) GTP hydrolysis inactivates the G protein rather than activating it. B) Gi, not Gs, inhibits adenylyl cyclase. D) autophosphorylation on tyrosine is a feature of receptor tyrosine kinases, not GPCRs.",
+   "trap": "Reversing the roles of GTP exchange (activation) and GTP hydrolysis (inactivation).",
+   "topic": "G protein-coupled receptor signaling",
+   "mastery_sheet_id": "2A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D9",
+   "stem": "A Gram-negative bacterium is generally less susceptible than a Gram-positive bacterium to penicillin G because it:",
+   "options": {
+    "A": "Lacks peptidoglycan in its cell wall",
+    "B": "Has a thick peptidoglycan layer that binds the drug",
+    "C": "Has a protective outer membrane",
+    "D": "Has teichoic acids that degrade the drug"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) The outer membrane with porins restricts penicillin G, so less drug reaches the thin peptidoglycan layer and its transpeptidases. Why the others are wrong: A) Gram-negative cells have a thin peptidoglycan layer, not none. B) the peptidoglycan layer is thin in Gram-negative cells, and it would not protect them by binding the drug. D) teichoic acids are in the Gram-positive wall and do not degrade penicillin.",
+   "trap": "Thinking Gram-negative organisms lack peptidoglycan.",
+   "topic": "Bacterial cell wall structure",
+   "mastery_sheet_id": "2B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D10",
+   "stem": "In bacterial conjugation, which structure is required for DNA transfer from the donor to the recipient?",
+   "options": {
+    "A": "A pilus encoded by the F plasmid in the donor cell",
+    "B": "A bacteriophage capsid carrying donor DNA",
+    "C": "A competence factor that opens pores in the recipient",
+    "D": "An endospore that protects the donor DNA"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) F-plasmid genes encode the sex pilus, which contacts the recipient and brings cells together for transfer of single-stranded DNA. Why the others are wrong: B) a phage capsid describes transduction, not conjugation. C) pore formation by competence factors describes natural transformation. D) endospores are dormant survival structures and do not transfer DNA.",
+   "trap": "Mixing up the three modes of horizontal gene transfer.",
+   "topic": "Bacterial conjugation",
+   "mastery_sheet_id": "2B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D11",
+   "stem": "The midcycle surge of luteinizing hormone is triggered by:",
+   "options": {
+    "A": "A high progesterone level from the corpus luteum, which exerts negative feedback on the hypothalamus",
+    "B": "A high estrogen level from the dominant follicle, which exerts positive feedback on the anterior pituitary",
+    "C": "A fall in FSH from the pituitary, which removes inhibition of GnRH",
+    "D": "A high level of inhibin, which exerts positive feedback on the ovary"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Sustained high estradiol from the mature follicle switches feedback from negative to positive, causing a GnRH-driven LH surge and ovulation. Why the others are wrong: A) progesterone is high only after ovulation, from the corpus luteum, and it inhibits LH. C) FSH does not inhibit GnRH, and the surge is driven by rising estrogen. D) inhibin suppresses FSH rather than provoking LH release.",
+   "trap": "Missing that estrogen switches from negative to positive feedback at midcycle.",
+   "topic": "Ovulation and the LH surge",
+   "mastery_sheet_id": "2C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D12",
+   "stem": "When a rod photoreceptor absorbs light, which change occurs?",
+   "options": {
+    "A": "cGMP is synthesized, cGMP-gated channels open, and the cell depolarizes",
+    "B": "cGMP is hydrolyzed, cGMP-gated channels close, and the cell hyperpolarizes",
+    "C": "cAMP is hydrolyzed, voltage-gated Na+ channels close, and the cell depolarizes",
+    "D": "cGMP is hydrolyzed, cGMP-gated channels open, and the cell hyperpolarizes"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Light isomerizes retinal, activating transducin and phosphodiesterase, which lowers cGMP; channels close, Na+ entry falls, and the rod hyperpolarizes, which reduces glutamate release. Why the others are wrong: A) the sequence is reversed; cGMP is lowered by light and the channels stay open in the dark. C) cAMP does not drive rod phototransduction, and closing channels hyperpolarizes. D) if cGMP falls, cGMP-gated channels close rather than open.",
+   "trap": "Expecting photoreceptors to depolarize in response to light.",
+   "topic": "Phototransduction in rods",
+   "mastery_sheet_id": "3A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D13",
+   "stem": "Compared with insulin, cortisol is more likely to:",
+   "options": {
+    "A": "Bind a membrane receptor and signal through receptor tyrosine kinase phosphorylation",
+    "B": "Be stored in secretory vesicles until a stimulus triggers its release",
+    "C": "Circulate freely in plasma, since it is highly water soluble",
+    "D": "Diffuse through the plasma membrane and alter gene transcription by binding an intracellular receptor"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Cortisol is a lipophilic steroid hormone that crosses the membrane, binds a cytoplasmic receptor, and acts as a transcription factor, producing slower, longer-lasting effects. Why the others are wrong: A) tyrosine kinase signaling describes insulin, not cortisol. B) peptide hormones such as insulin are stored in vesicles, whereas steroids are made on demand. C) cortisol is lipophilic and circulates mostly bound to transport proteins.",
+   "trap": "Assigning the receptor location of one hormone class to the other.",
+   "topic": "Steroid versus peptide hormone signaling",
+   "mastery_sheet_id": "3A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D14",
+   "stem": "Which sequence correctly describes the digestion and absorption of dietary triglycerides?",
+   "options": {
+    "A": "Pepsin hydrolyzes fat in the stomach, and fatty acids enter the portal blood bound to albumin",
+    "B": "Bile salts hydrolyze fats, and glycerol enters the lacteals as free fatty acids",
+    "C": "Bile salts emulsify fat, pancreatic lipase produces monoglycerides and fatty acids, and chylomicrons carry the resynthesized triglycerides into lacteals",
+    "D": "Pancreatic lipase digests fats in the jejunum, and enterocytes release them directly into portal capillaries"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Bile salts emulsify fat, pancreatic lipase yields 2-monoglycerides and free fatty acids, enterocytes re-esterify them and package them into chylomicrons, which enter lymphatic lacteals. Why the others are wrong: A) pepsin is a protease, and long-chain fatty acids are repackaged into chylomicrons rather than carried in the portal blood. B) bile salts emulsify but do not hydrolyze, and fatty acids are repackaged into chylomicrons. D) long-chain products are packaged into chylomicrons and enter lacteals, not portal capillaries.",
+   "trap": "Thinking that bile salts digest fats chemically instead of emulsifying them.",
+   "topic": "Lipid digestion and absorption",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_BB_D15",
+   "stem": "In a systemic capillary, net filtration of fluid out of the vessel at the arterial end is mainly driven by:",
+   "options": {
+    "A": "Oncotic pressure of plasma proteins exceeding the capillary hydrostatic pressure",
+    "B": "Interstitial hydrostatic pressure exceeding capillary hydrostatic pressure",
+    "C": "Hydrostatic pressure exceeding oncotic pressure",
+    "D": "Lymphatic suction exceeding the capillary oncotic pressure"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) At the arterial end the capillary hydrostatic pressure (about 35 mm Hg) exceeds the oncotic pressure (about 25 mm Hg), so fluid leaves; at the venous end oncotic pressure dominates and fluid returns. Why the others are wrong: A) oncotic pressure exceeding hydrostatic pressure would draw fluid in, as at the venous end. B) interstitial hydrostatic pressure opposes filtration and is small. D) lymphatic suction is not the main force, and oncotic pressure favors retention of fluid.",
+   "trap": "Reversing the forces at the arterial and venous ends of a capillary.",
+   "topic": "Starling forces in capillaries",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

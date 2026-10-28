@@ -1,0 +1,88 @@
+{
+  "passage_id": "bp1384",
+  "passage": "Cell biologists in the Haddad laboratory asked whether a metabolic stressor alters transcription of HSP70 in cultured hepatocytes. RNA was extracted from untreated and treated cells, treated with DNase, and reverse transcribed. Quantitative PCR was then performed with primers for HSP70 and for a reference gene whose expression is assumed to be stable. Each reaction contained a fluorescent DNA-binding dye and was run in triplicate. Amplification efficiency was verified to be close to 100% for both primer pairs, meaning the amount of product doubles each cycle. The cycle threshold, Ct, is the cycle at which fluorescence crosses a fixed threshold; mean values are shown. The group planned to calculate relative expression using the comparative Ct method before deciding whether to examine the promoter region for regulatory elements. RNA integrity numbers exceeded 8.5 for every sample. All procedures followed the laboratory's standard operating protocols, and raw data were archived before analysis.",
+  "table": "Table 1. Mean Ct values\n\n| Condition | Ct, HSP70 | Ct, reference gene |\n|---|---|---|\n| Untreated | 24 | 17 |\n| Treated | 21 | 17 |",
+  "questions": [
+    {
+      "stem": "Which condition shows greater starting amounts of HSP70 transcript, based on Table 1?",
+      "options": {
+        "A": "Treated cells",
+        "B": "The data cannot be compared without a standard curve",
+        "C": "Both conditions equally",
+        "D": "Untreated cells"
+      },
+      "correct": "A",
+      "explanation": "A lower Ct means the threshold is reached earlier, indicating more starting template. With equal reference Ct, the condition with the lower target Ct has higher expression.",
+      "topic": "Gene expression: data interpretation",
+      "trap": "Reading a higher Ct as higher expression; a lower Ct means the threshold was reached sooner, so more starting template.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1B",
+      "id": "bp1384-1"
+    },
+    {
+      "stem": "Which control best rules out amplification of contaminating genomic DNA?",
+      "options": {
+        "A": "A reaction run at a higher annealing temperature only",
+        "B": "A no-reverse-transcriptase control",
+        "C": "A reaction with double the template",
+        "D": "A no-primer control with cDNA"
+      },
+      "correct": "B",
+      "explanation": "If product appears without reverse transcriptase, it must come from DNA rather than from RNA-derived cDNA.",
+      "topic": "Molecular techniques: experimental design",
+      "trap": "Omitting the no-reverse-transcriptase control, so amplification of genomic DNA could be mistaken for cDNA signal.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1B",
+      "id": "bp1384-2"
+    },
+    {
+      "stem": "Using the ΔΔCt method with 100% efficiency, what is the fold change in HSP70 in treated versus untreated cells?",
+      "options": {
+        "A": "8-fold",
+        "B": "3-fold",
+        "C": "0.125-fold",
+        "D": "16-fold"
+      },
+      "correct": "A",
+      "explanation": "ΔCt(untreated) = 7; ΔCt(treated) = 4; ΔΔCt = -3. Fold change = 2^−(-3) = 8.",
+      "topic": "qPCR: fold-change calculation",
+      "trap": "Using 2^(+ΔΔCt) instead of 2^(−ΔΔCt), or forgetting to normalize the target Ct to the reference gene.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1B",
+      "id": "bp1384-3"
+    },
+    {
+      "stem": "Which statement about Ct values is INCORRECT?",
+      "options": {
+        "A": "The reference gene corrects for differences in input RNA",
+        "B": "A lower Ct indicates a higher starting amount of target",
+        "C": "A difference of one Ct corresponds to a two-fold difference at 100% efficiency",
+        "D": "A higher Ct indicates a higher starting amount of target"
+      },
+      "correct": "D",
+      "explanation": "Ct and abundance are inversely related; more template reaches threshold sooner.",
+      "topic": "qPCR: trap on Ct direction",
+      "trap": "Equating a higher Ct with more starting transcript; Ct is the cycle at which signal crosses threshold, so a lower Ct means more template.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1B",
+      "id": "bp1384-4"
+    },
+    {
+      "stem": "If expression changes, which feature of the gene would most directly be examined for a transcription-factor response?",
+      "options": {
+        "A": "The poly-A tail of the mature mRNA only",
+        "B": "The number of introns within the coding region only",
+        "C": "Promoter and enhancer sequences upstream of the transcription start site",
+        "D": "The anticodon of the matching tRNA"
+      },
+      "correct": "C",
+      "explanation": "Transcription-factor binding sites (promoter/enhancer elements) govern transcriptional initiation, linking the Ct data to the regulatory mechanism.",
+      "topic": "Gene regulation: central dogma link",
+      "trap": "Looking for the regulatory effect in the poly-A tail, introns or tRNA instead of the promoter and enhancer sequences that control initiation.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1B",
+      "id": "bp1384-5"
+    }
+  ],
+  "accuracy_verified": true
+}

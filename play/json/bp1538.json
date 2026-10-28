@@ -1,0 +1,117 @@
+[
+  {
+    "id": "bp1538-1",
+    "type": "question",
+    "passage_id": "bp1538",
+    "passage_text": "Researchers studied the effect of varying concentrations of a novel antimicrobial peptide on bacterial growth rates in vitro. They cultured Escherichia coli in 96‑well plates, adding peptide at concentrations of 0, 5, 10, 20, and 40 µg/mL. After 24 hours, optical density at 600 nm (OD600) was measured. The results were plotted in Table 1. Additionally, they assessed the peptide’s cytotoxicity on mammalian fibroblasts using a lactate dehydrogenase (LDH) release assay, with concentrations ranging from 0 to 40 µg/mL. The LDH data are shown in the third column of Table 1. The study aimed to determine the therapeutic window where bacterial inhibition is maximized while mammalian cell toxicity remains below 10%.",
+    "table_data": "Concentration (µg/mL) | OD600 (E. coli) | % LDH release (fibroblasts)\n0 | 1.00 | 5\n5 | 0.85 | 6\n10 | 0.60 | 8\n20 | 0.30 | 12\n40 | 0.10 | 18",
+    "stem": "Which concentration of peptide results in the lowest bacterial OD600?",
+    "options": {
+      "A": "0 µg/mL",
+      "B": "5 µg/mL",
+      "C": "10 µg/mL",
+      "D": "40 µg/mL"
+    },
+    "correct": "D",
+    "explanation": "The lowest OD600 value (0.10) occurs at 40 µg/mL, indicating the greatest reduction in bacterial growth.",
+    "trap": "20 µg/mL (OD 0.30) is tempting because it lies near the therapeutic window with lower LDH release, but the question asks only for the lowest OD600.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1538-2",
+    "type": "question",
+    "passage_id": "bp1538",
+    "passage_text": "Researchers studied the effect of varying concentrations of a novel antimicrobial peptide on bacterial growth rates in vitro. They cultured Escherichia coli in 96‑well plates, adding peptide at concentrations of 0, 5, 10, 20, and 40 µg/mL. After 24 hours, optical density at 600 nm (OD600) was measured. The results were plotted in Table 1. Additionally, they assessed the peptide’s cytotoxicity on mammalian fibroblasts using a lactate dehydrogenase (LDH) release assay, with concentrations ranging from 0 to 40 µg/mL. The LDH data are shown in the third column of Table 1. The study aimed to determine the therapeutic window where bacterial inhibition is maximized while mammalian cell toxicity remains below 10%.",
+    "table_data": "Concentration (µg/mL) | OD600 (E. coli) | % LDH release (fibroblasts)\n0 | 1.00 | 5\n5 | 0.85 | 6\n10 | 0.60 | 8\n20 | 0.30 | 12\n40 | 0.10 | 18",
+    "stem": "The table gives one value per concentration with no measure of variability. Which addition would best allow readers to judge whether differences between neighboring concentrations (for example 10 vs 20 µg/mL) are reliable?",
+    "options": {
+      "A": "Report mean ± SD from replicate wells at each concentration",
+      "B": "Add a higher concentration of 80 µg/mL",
+      "C": "Measure OD600 at 12 h instead of 24 h",
+      "D": "Remove the 0 µg/mL condition"
+    },
+    "correct": "A",
+    "explanation": "Correct: Replicate wells with mean ± SD show how much values vary, which is needed to judge whether a difference between concentrations exceeds random variation. Why the others are wrong: B) A higher concentration extends the range but says nothing about reliability of existing points. C) Changing the time point gives a different readout, not a measure of variability. D) The 0 µg/mL condition is the baseline for comparison, and removing it weakens the study.",
+    "trap": "Choosing a wider concentration range because it sounds more thorough, though it does not address variability.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1538-3",
+    "type": "question",
+    "passage_id": "bp1538",
+    "passage_text": "Researchers studied the effect of varying concentrations of a novel antimicrobial peptide on bacterial growth rates in vitro. They cultured Escherichia coli in 96‑well plates, adding peptide at concentrations of 0, 5, 10, 20, and 40 µg/mL. After 24 hours, optical density at 600 nm (OD600) was measured. The results were plotted in Table 1. Additionally, they assessed the peptide’s cytotoxicity on mammalian fibroblasts using a lactate dehydrogenase (LDH) release assay, with concentrations ranging from 0 to 40 µg/mL. The LDH data are shown in the third column of Table 1. The study aimed to determine the therapeutic window where bacterial inhibition is maximized while mammalian cell toxicity remains below 10%.",
+    "table_data": "Concentration (µg/mL) | OD600 (E. coli) | % LDH release (fibroblasts)\n0 | 1.00 | 5\n5 | 0.85 | 6\n10 | 0.60 | 8\n20 | 0.30 | 12\n40 | 0.10 | 18",
+    "stem": "Assuming linear LDH release between 10 and 20 µg/mL, estimate the % LDH release at 15 µg/mL.",
+    "options": {
+      "A": "9 %",
+      "B": "10 %",
+      "C": "11 %",
+      "D": "12 %"
+    },
+    "correct": "B",
+    "explanation": "Correct: Linear interpolation between 8% at 10 µg/mL and 12% at 20 µg/mL gives 8 + (15 − 10)/(20 − 10) × 4 = 10% at 15 µg/mL. Why the others are wrong: A) 9% is the value at 12.5 µg/mL. C) 11% is the value at 17.5 µg/mL. D) 12% is the measured value at 20 µg/mL, not at 15 µg/mL.",
+    "trap": "Taking the upper endpoint (12%) or an unequal split instead of the midpoint value of the linear interpolation.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1538-4",
+    "type": "question",
+    "passage_id": "bp1538",
+    "passage_text": "Researchers studied the effect of varying concentrations of a novel antimicrobial peptide on bacterial growth rates in vitro. They cultured Escherichia coli in 96‑well plates, adding peptide at concentrations of 0, 5, 10, 20, and 40 µg/mL. After 24 hours, optical density at 600 nm (OD600) was measured. The results were plotted in Table 1. Additionally, they assessed the peptide’s cytotoxicity on mammalian fibroblasts using a lactate dehydrogenase (LDH) release assay, with concentrations ranging from 0 to 40 µg/mL. The LDH data are shown in the third column of Table 1. The study aimed to determine the therapeutic window where bacterial inhibition is maximized while mammalian cell toxicity remains below 10%.",
+    "table_data": "Concentration (µg/mL) | OD600 (E. coli) | % LDH release (fibroblasts)\n0 | 1.00 | 5\n5 | 0.85 | 6\n10 | 0.60 | 8\n20 | 0.30 | 12\n40 | 0.10 | 18",
+    "stem": "Which of the following statements is NOT supported by the data?",
+    "options": {
+      "A": "Peptide at 20 µg/mL reduces bacterial growth by >65 %",
+      "B": "LDH release at 40 µg/mL exceeds 10 %",
+      "C": "OD600 at 0 µg/mL is 1.00",
+      "D": "LDH release increases linearly with concentration"
+    },
+    "correct": "D",
+    "explanation": "Correct: LDH release is 5, 6, 8, 12 and 18% at 0, 5, 10, 20 and 40 µg/mL; the increase per µg/mL is 0.2, 0.4, 0.4 and 0.3 %/(µg/mL), so it is not constant and the claim of linearity is not supported. Why the others are wrong: A) OD600 falls from 1.00 to 0.30 at 20 µg/mL, a 70% reduction, which exceeds 65%. B) LDH release at 40 µg/mL is 18%, which exceeds 10%. C) the OD600 at 0 µg/mL is 1.00 in the table.",
+    "trap": "Assuming a steadily rising trend must be linear, without checking that the increase per µg/mL changes.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1538-5",
+    "type": "question",
+    "passage_id": "bp1538",
+    "passage_text": "Researchers studied the effect of varying concentrations of a novel antimicrobial peptide on bacterial growth rates in vitro. They cultured Escherichia coli in 96‑well plates, adding peptide at concentrations of 0, 5, 10, 20, and 40 µg/mL. After 24 hours, optical density at 600 nm (OD600) was measured. The results were plotted in Table 1. Additionally, they assessed the peptide’s cytotoxicity on mammalian fibroblasts using a lactate dehydrogenase (LDH) release assay, with concentrations ranging from 0 to 40 µg/mL. The LDH data are shown in the third column of Table 1. The study aimed to determine the therapeutic window where bacterial inhibition is maximized while mammalian cell toxicity remains below 10%.",
+    "table_data": "Concentration (µg/mL) | OD600 (E. coli) | % LDH release (fibroblasts)\n0 | 1.00 | 5\n5 | 0.85 | 6\n10 | 0.60 | 8\n20 | 0.30 | 12\n40 | 0.10 | 18",
+    "stem": "Which concept describes comparing the concentration needed for bacterial inhibition with the concentration that causes mammalian cell toxicity?",
+    "options": {
+      "A": "Therapeutic index",
+      "B": "Oral bioavailability",
+      "C": "Renal clearance",
+      "D": "Michaelis constant (Km)"
+    },
+    "correct": "A",
+    "explanation": "Correct: The therapeutic index relates the toxic dose to the effective dose, which is the comparison used to define a therapeutic window. Why the others are wrong: B) Bioavailability is the fraction of a dose reaching circulation, not measured in these in vitro assays. C) Renal clearance describes drug elimination in a whole organism. D) Km is an enzyme substrate-affinity constant and is unrelated to these data.",
+    "trap": "Choosing a pharmacokinetic term because it sounds drug-related, though the data are in vitro and compare efficacy with toxicity.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  }
+]

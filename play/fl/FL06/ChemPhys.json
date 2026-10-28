@@ -1,0 +1,1641 @@
+{
+ "exam": "FL06",
+ "section": "CP",
+ "passages": [
+  {
+   "passage_id": "FL06_CP_P1",
+   "passage_text": "A technician calibrates a benchtop centrifuge used to pellet cultured cells. The rotor holds tubes whose bottoms lie 0.10 m from the rotation axis. The technician records the rotor speed in revolutions per minute (rpm), converts it to angular speed, and computes the relative centrifugal force (RCF), which is the centripetal acceleration of material at the tube bottom expressed in multiples of g (take g = 9.8 m/s²). For each speed she then measures the time needed for the suspension to clear completely, meaning that all cells have reached the tube bottom. The cells are denser than the surrounding medium, and the tube is long enough that the cells never reach the bottom before the end of the run. Table 1 lists RCF and clearing time at four speeds, and Figure 1 plots clearing time against rotor speed. The technician notes that the clearing time at 3000 rpm is 20 min and that cells pellet faster as the RCF increases.",
+   "table_data": "| Rotor speed (rpm) | RCF at 0.10 m (×g) | Clearing time (min) |\n|---|---|---|\n| 3000 | 1.0 × 10³ | 20 |\n| 6000 | 4.0 × 10³ | 5.0 |\n| 9000 | 9.1 × 10³ | 2.2 |\n| 12000 | 1.6 × 10⁴ | 1.3 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Clearing time versus rotor speed",
+    "x_label": "Rotor speed (rpm)",
+    "y_label": "Clearing time (min)",
+    "series": [
+     {
+      "name": "Cell suspension",
+      "points": [
+       [
+        3000,
+        20
+       ],
+       [
+        6000,
+        5.0
+       ],
+       [
+        9000,
+        2.2
+       ],
+       [
+        12000,
+        1.3
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_CP_P1_Q1",
+     "stem": "What is the centripetal acceleration at the tube bottom when the rotor spins at 6000 rpm?",
+     "options": {
+      "A": "63 m/s²",
+      "B": "3.9 × 10⁴ m/s²",
+      "C": "3.6 × 10⁶ m/s²",
+      "D": "4.0 × 10³ m/s²"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At 6000 rpm, ω = 6000 × 2π/60 = 628 rad/s, so a = ω²r = (628)²(0.10) = 3.9 × 10⁴ m/s², which is about 4.0 × 10³ g. Why the others are wrong: A) 63 m/s² is ωr with the wrong units; it is a speed, not an acceleration. C) 3.6 × 10⁶ m/s² results from squaring the rpm value directly without converting to rad/s. D) 4.0 × 10³ m/s² is the RCF in multiples of g, not the acceleration in m/s².",
+     "trap": "Using rpm in place of rad/s in a = ω²r, or reporting the RCF in g as an acceleration in m/s².",
+     "topic": "Centripetal acceleration in a centrifuge",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://bcf.technion.ac.il/portfolio/rcfrpm-conversion/"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P1_Q2",
+     "stem": "A tube is placed in a different rotor so that its bottom is 0.05 m from the axis and the rotor spins at 12000 rpm. What is the RCF at the tube bottom?",
+     "options": {
+      "A": "4.0 × 10³ × g",
+      "B": "1.6 × 10⁴ × g",
+      "C": "8.1 × 10³ × g",
+      "D": "3.2 × 10⁴ × g"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Acceleration is proportional to r at fixed ω, so halving the radius halves the RCF from 1.6 × 10⁴ g (Table 1) to about 8.1 × 10³ g. Why the others are wrong: A) 4.0 × 10³ × g would result from halving the radius and also halving the speed, but the speed is unchanged. B) 1.6 × 10⁴ × g is the value at 0.10 m and ignores the smaller radius. D) 3.2 × 10⁴ × g doubles the value, as though the radius had been doubled rather than halved.",
+     "trap": "Forgetting that centripetal acceleration scales linearly with radius but with the square of the angular speed.",
+     "topic": "RCF scaling with radius",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://bcf.technion.ac.il/portfolio/rcfrpm-conversion/"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P1_Q3",
+     "stem": "Which statement best explains why the cells move toward the tube bottom during centrifugation?",
+     "options": {
+      "A": "A real outward centrifugal force acts on each cell and exceeds the inward force that the surrounding medium exerts on the cell.",
+      "B": "The net force on each cell is zero while spinning, so each cell moves in a straight line tangent to its circle until it hits the wall.",
+      "C": "The medium supplies less inward force on a cell than the circular path requires, because the cell is denser than the medium it displaces, so the cell drifts outward.",
+      "D": "The cells are less massive than the displaced medium, so the medium moves inward and pushes the cells out toward the tube bottom."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The inward force from the surrounding medium on a small volume equals what is needed to keep that volume of medium in circular motion; a denser cell needs more than that, so it moves outward relative to the medium. Why the others are wrong: A) Centrifugal force is a fictitious force appearing only in the rotating frame, not a real force acting in the inertial frame. B) The net force on a cell in circular motion equals mv²/r toward the center and is not zero; the cell moves along a tube wall that supplies the force. D) The cells are denser, not less massive, than the displaced medium.",
+     "trap": "Treating centrifugal force as a real force rather than recognizing inertia plus insufficient inward force.",
+     "topic": "Circular motion and sedimentation",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P1_Q4",
+     "stem": "What is the linear speed of the tube bottom when the rotor spins at 12000 rpm?",
+     "options": {
+      "A": "63 m/s",
+      "B": "126 m/s",
+      "C": "1200 m/s",
+      "D": "12.6 m/s"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) ω = 12000 × 2π/60 = 1257 rad/s, so v = ωr = 1257 × 0.10 = 126 m/s. Why the others are wrong: A) 63 m/s is the speed at 6000 rpm, half of the value at 12000 rpm. C) 1200 m/s multiplies the rpm value by the radius without converting to rad/s. D) 12.6 m/s results from a decimal error in the conversion.",
+     "trap": "Multiplying rpm by radius without converting revolutions per minute to radians per second.",
+     "topic": "Linear speed in circular motion",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.firgelliauto.com/es/blogs/engineering-calculators/angular-velocity-calculator-rpm-to-rad-s"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P1_Q5",
+     "stem": "Using the trend in Table 1 and Figure 1, what clearing time is expected at 7500 rpm?",
+     "options": {
+      "A": "8.0 min",
+      "B": "1.3 min",
+      "C": "3.2 min",
+      "D": "12 min"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Clearing time is inversely proportional to RCF, which scales as (rpm)²: t = 20 min × (3000/7500)² = 3.2 min, between the 6000 rpm (5.0 min) and 9000 rpm (2.2 min) values. Why the others are wrong: A) 8.0 min assumes time is inversely proportional to the rpm instead of its square. B) 1.3 min is the time at 12000 rpm, which is much higher than 7500 rpm. D) 12 min is longer than the 6000 rpm clearing time, which cannot occur at a higher rotor speed.",
+     "trap": "Assuming a linear rather than quadratic dependence of clearing time on rotor speed.",
+     "topic": "Scaling of sedimentation time",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_CP_P2",
+   "passage_text": "Isothermal titration calorimetry (ITC) measures the heat released or absorbed when a ligand is injected into a protein solution at constant temperature. A researcher titrated three ligands, L1, L2, and L3, into separate samples of the same purified receptor at 298 K. Each titration was fit to a single-class binding model to give the dissociation constant Kd, the binding enthalpy ΔH, and the number of ligand-binding sites per receptor molecule. The standard free energy of binding was calculated from ΔG = RT ln Kd, with Kd expressed in mol/L and R = 8.314 J/(mol·K), and the entropy term was obtained from ΔG = ΔH − TΔS. Table 1 summarizes the results. Figure 1 shows the heat per mole of injectant for the L2 titration as a function of the molar ratio of total L2 to total receptor. Heat per injection was large and exothermic at low molar ratios and fell to the background level after the midpoint of the transition. Experiments were repeated with ligand added to buffer alone to subtract heats of dilution.",
+   "table_data": "| Ligand | Kd (µM) | ΔG (kJ/mol) | ΔH (kJ/mol) | TΔS (kJ/mol) |\n|---|---|---|---|---|\n| L1 | 1.0 | −34.2 | −20.0 | +14.2 |\n| L2 | 0.010 | −45.6 | −62.0 | −16.4 |\n| L3 | 100 | −22.8 | +5.0 | +27.8 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. ITC of L2 into receptor at 298 K",
+    "x_label": "Molar ratio (L2 : receptor)",
+    "y_label": "Heat per injection (kJ/mol of injectant)",
+    "series": [
+     {
+      "name": "L2",
+      "points": [
+       [
+        0.2,
+        -62.0
+       ],
+       [
+        0.6,
+        -62.0
+       ],
+       [
+        1.0,
+        -62.0
+       ],
+       [
+        1.4,
+        -61.6
+       ],
+       [
+        1.8,
+        -52.2
+       ],
+       [
+        2.2,
+        -9.8
+       ],
+       [
+        2.6,
+        -0.4
+       ],
+       [
+        3.0,
+        -0.0
+       ],
+       [
+        3.4,
+        -0.0
+       ],
+       [
+        3.8,
+        -0.0
+       ],
+       [
+        4.2,
+        -0.0
+       ],
+       [
+        4.6,
+        -0.0
+       ],
+       [
+        5.0,
+        -0.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_CP_P2_Q1",
+     "stem": "Using ΔG = RT ln Kd, what is the free energy of binding for L1 at 298 K?",
+     "options": {
+      "A": "+34.2 kJ/mol, unfavorable binding",
+      "B": "−34.2 kJ/mol",
+      "C": "−13.8 kJ/mol, ln Kd alone",
+      "D": "−34.2 J/mol, units unconverted"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) ΔG = (8.314 × 298 / 1000) × ln(1.0 × 10⁻⁶) = 2.48 × (−13.8) = −34.2 kJ/mol, matching Table 1. Why the others are wrong: A) +34.2 kJ/mol has the wrong sign; Kd below 1 M gives a negative ln Kd and favorable binding. C) −13.8 is ln Kd itself, with the RT factor omitted. D) −34.2 J/mol misses the conversion from J to kJ, because R is given in J/(mol·K).",
+     "trap": "Forgetting to convert R from joules to kilojoules, or using ln Kd without multiplying by RT.",
+     "topic": "Free energy from Kd",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Isothermal_titration_calorimetry",
+       "https://intechopen.com/chapters/80910"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P2_Q2",
+     "stem": "Which statement best describes the thermodynamic driving force for binding of L3?",
+     "options": {
+      "A": "Binding is driven by a favorable enthalpy change, since ΔG is negative.",
+      "B": "Binding is driven by a favorable enthalpy change and opposed by the entropy change.",
+      "C": "Binding is opposed by both terms, so it is not spontaneous at 298 K.",
+      "D": "Binding is driven entirely by a favorable entropy change, since ΔH is positive."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) For L3, ΔH = +5.0 kJ/mol is unfavorable, while TΔS = ΔH − ΔG = +5.0 − (−22.8) = +27.8 kJ/mol is strongly favorable, so binding is entropy driven. Why the others are wrong: A) ΔH is positive, so the enthalpy change opposes binding. B) This describes L2, for which ΔH is large and negative and TΔS is negative. C) ΔG is −22.8 kJ/mol, so binding is spontaneous.",
+     "trap": "Assuming that any spontaneous binding must be enthalpy driven, ignoring the sign of ΔH in the table.",
+     "topic": "Enthalpy-entropy decomposition",
+     "mastery_sheet_id": "5E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P2_Q3",
+     "stem": "Based on Figure 1, which conclusion about L2 binding is best supported?",
+     "options": {
+      "A": "Two sites per receptor; ΔH is about −62 kJ/mol.",
+      "B": "One site per receptor, with ΔH of about −62 kJ/mol of injectant.",
+      "C": "Two sites per receptor, with ΔH of about 0 kJ/mol after saturation.",
+      "D": "One site per receptor, with ΔH of about +62 kJ/mol of injectant."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The transition midpoint is at a molar ratio of about 2, giving two sites per receptor, and the low-ratio plateau of about −62 kJ/mol of injectant equals ΔH of binding, matching Table 1. Why the others are wrong: B) A midpoint of 1 would be needed for one site; the midpoint here is near 2. C) The near-zero heat after the midpoint reflects saturation (only dilution heat), not ΔH. D) Heat released is exothermic, so ΔH is negative, and the stoichiometry is again wrong.",
+     "trap": "Reading the saturated, near-zero heats at high molar ratio as the binding enthalpy, or assuming 1:1 binding by default.",
+     "topic": "ITC stoichiometry and enthalpy",
+     "mastery_sheet_id": "5E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P2_Q4",
+     "stem": "If a mutation lowered the Kd of L1 tenfold with no other change in conditions at 298 K, ΔG of binding would change by approximately:",
+     "options": {
+      "A": "+5.7 kJ/mol, making binding less favorable",
+      "B": "−2.5 kJ/mol, making binding more favorable",
+      "C": "−5.7 kJ/mol, making binding more favorable",
+      "D": "−23 kJ/mol, making binding more favorable"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) ΔΔG = RT ln(0.1) = 2.48 × (−2.303) = −5.7 kJ/mol, so binding becomes more favorable. Why the others are wrong: A) +5.7 kJ/mol has the right size but the wrong sign; a lower Kd means tighter binding. B) −2.5 kJ/mol is RT alone, without multiplying by ln 10. D) −23 kJ/mol results from treating the tenfold change as a factor of 10 in ΔG, or using log10 incorrectly.",
+     "trap": "Treating ΔG as linear in Kd instead of in ln Kd, or flipping the sign for a decrease in Kd.",
+     "topic": "Effect of Kd on ΔG",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Isothermal_titration_calorimetry",
+       "https://intechopen.com/chapters/80910"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_CP_P3",
+   "passage_text": "A physiology student studies steady flow of liquids through narrow, rigid, horizontal glass tubes. In each trial, the same pressure difference of 400 Pa is maintained between the two ends of a tube of length 0.20 m, and the volume of liquid collected per minute is measured. Water (density 1000 kg/m³, viscosity 1.0 mPa·s) is used in the first series; a sugar solution (viscosity 3.0 mPa·s) is used in the second. The student assumes that the flow is laminar and that the liquid behaves as a Newtonian fluid, so that Poiseuille's law, Q = πr⁴ΔP/(8ηL), applies, where Q is the volume flow rate, r is the tube radius, η is viscosity, and L is the length. Turbulence is expected for Reynolds numbers above roughly 2000, where the Reynolds number is ρvD/η with D the tube diameter and v the mean flow speed. The student's measurements are summarized in Table 1 and Figure 1.",
+   "table_data": "| Tube radius (mm) | Q, water (mL/min) | Q, sugar solution (mL/min) |\n|---|---|---|\n| 0.50 | 2.95 | 0.98 |\n| 0.75 | 14.9 | 4.97 |\n| 1.00 | 47.1 | 15.7 |\n| 1.50 | 238 | 79.5 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Flow rate of water versus tube radius",
+    "x_label": "Tube radius (mm)",
+    "y_label": "Q (mL/min)",
+    "series": [
+     {
+      "name": "Water",
+      "points": [
+       [
+        0.5,
+        2.95
+       ],
+       [
+        0.75,
+        14.9
+       ],
+       [
+        1.0,
+        47.1
+       ],
+       [
+        1.5,
+        238
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_CP_P3_Q1",
+     "stem": "For the water in the 1.00 mm radius tube, what flow rate is expected if the pressure difference is doubled to 800 Pa?",
+     "options": {
+      "A": "94 mL/min",
+      "B": "188 mL/min",
+      "C": "141 mL/min",
+      "D": "47 mL/min"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Q is directly proportional to ΔP, so doubling ΔP doubles Q from 47.1 to about 94 mL/min. Why the others are wrong: B) 188 mL/min would result if Q were proportional to the square of ΔP. C) 141 mL/min corresponds to tripling the flow rate, which would require tripling ΔP. D) 47 mL/min is the original flow rate and assumes no dependence on ΔP.",
+     "trap": "Applying the fourth-power dependence to pressure instead of to radius.",
+     "topic": "Poiseuille flow and pressure difference",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.jove.com/science-education/12743/poiseuille-s-law-and-reynolds-number",
+       "https://www.varsitytutors.com/practice/subjects/mcat/lessons/4b-viscosity-poiseuille-flow"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P3_Q2",
+     "stem": "If the radius of a blood vessel decreases by 20% while pressure difference, length, and viscosity are unchanged, the flow rate becomes approximately what fraction of its original value?",
+     "options": {
+      "A": "33%",
+      "B": "41%",
+      "C": "64%",
+      "D": "80%"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Q ∝ r⁴, so the new flow is (0.80)⁴ = 0.41 of the original. Why the others are wrong: A) 33% uses r⁵, which is not the dependence in Poiseuille's law. C) 64% treats flow as proportional to r², as for the cross-sectional area alone. D) 80% treats flow as directly proportional to radius.",
+     "trap": "Using a linear or squared dependence on radius instead of the fourth power.",
+     "topic": "Radius dependence of flow",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P3_Q3",
+     "stem": "Another liquid gives a flow rate of 23.6 mL/min in the 1.00 mm tube under the same 400 Pa pressure difference. What is the viscosity of this liquid?",
+     "options": {
+      "A": "4.0 mPa·s",
+      "B": "2.0 mPa·s",
+      "C": "0.50 mPa·s",
+      "D": "1.0 mPa·s"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Q is inversely proportional to η. Water gives 47.1 mL/min at 1.0 mPa·s, so a flow of 23.6 mL/min (half as large) corresponds to a viscosity twice as large, 2.0 mPa·s. Why the others are wrong: A) 4.0 mPa·s would reduce the flow to one fourth, about 11.8 mL/min. C) 0.50 mPa·s would give twice the flow of water, not half. D) 1.0 mPa·s is the viscosity of water, for which Q = 47.1 mL/min.",
+     "trap": "Inverting the viscosity dependence of flow rate.",
+     "topic": "Viscosity and flow",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.jove.com/science-education/12743/poiseuille-s-law-and-reynolds-number",
+       "https://www.varsitytutors.com/practice/subjects/mcat/lessons/4b-viscosity-poiseuille-flow"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P3_Q4",
+     "stem": "What is the approximate Reynolds number for water flowing in the 1.50 mm radius tube?",
+     "options": {
+      "A": "5.6 × 10²",
+      "B": "3.4 × 10³",
+      "C": "1.7 × 10³",
+      "D": "8.4 × 10²"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Q = 238 mL/min = 3.97 × 10⁻⁶ m³/s and A = π(1.5 × 10⁻³)² = 7.07 × 10⁻⁶ m², so v = 0.56 m/s. Re = ρvD/η = (1000)(0.56)(3.0 × 10⁻³)/(1.0 × 10⁻³) ≈ 1.7 × 10³, below 2000, so the laminar assumption is acceptable. Why the others are wrong: A) 5.6 × 10² omits the factor of the diameter in meters and uses the flow speed in cm/s incorrectly. B) 3.4 × 10³ uses twice the diameter. D) 8.4 × 10² uses the radius in place of the diameter.",
+     "trap": "Using the radius rather than the diameter in the Reynolds number.",
+     "topic": "Reynolds number",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.jove.com/science-education/12743/poiseuille-s-law-and-reynolds-number",
+       "https://www.varsitytutors.com/practice/subjects/mcat/lessons/4b-viscosity-poiseuille-flow"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_CP_P4",
+   "passage_text": "Students investigate a parallel-plate capacitor consisting of two circular metal plates of total facing area 0.020 m² separated by 1.0 mm. The permittivity of free space is 8.85 × 10⁻¹² F/m. With only air between the plates (dielectric constant κ = 1.0), the capacitor is connected to a 100 V battery until fully charged, and the battery is then disconnected so that the isolated plates retain their charge. A sheet of dielectric material that completely fills the gap is then slid between the plates, and the potential difference across the plates is measured with a high-impedance voltmeter. The experiment is repeated for several materials, always starting from the same charged air-filled capacitor. Table 1 lists the dielectric constant of each material, the capacitance with the dielectric in place, and the measured potential difference. Figure 1 shows capacitance as a function of dielectric constant. Edge effects and the conductivity of the materials are negligible.",
+   "table_data": "| Material | κ | Capacitance (pF) | Potential difference (V) |\n|---|---|---|---|\n| Air | 1.0 | 177 | 100 |\n| Teflon | 2.1 | 372 | 47.6 |\n| Paper | 3.7 | 655 | 27.0 |\n| Glass | 6.0 | 1062 | 16.7 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Capacitance versus dielectric constant",
+    "x_label": "Dielectric constant κ",
+    "y_label": "Capacitance (pF)",
+    "series": [
+     {
+      "name": "Capacitor",
+      "points": [
+       [
+        1.0,
+        177
+       ],
+       [
+        2.1,
+        372
+       ],
+       [
+        3.7,
+        655
+       ],
+       [
+        6.0,
+        1062
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_CP_P4_Q1",
+     "stem": "What is the capacitance of the air-filled capacitor?",
+     "options": {
+      "A": "17.7 pF",
+      "B": "8.85 nF",
+      "C": "177 pF",
+      "D": "1.77 nF"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) C = ε₀A/d = (8.85 × 10⁻¹²)(0.020)/(1.0 × 10⁻³) = 1.77 × 10⁻¹⁰ F = 177 pF. Why the others are wrong: A) 17.7 pF results from using a 1.0 cm separation instead of 1.0 mm. B) 8.85 nF is ε₀/d, which omits the plate area. D) 1.77 nF results from using a plate area ten times too large.",
+     "trap": "Converting millimeters to meters incorrectly or omitting the plate area.",
+     "topic": "Parallel-plate capacitance",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.miniphysics.com/uy1-dielectrics-in-capacitors.html",
+       "https://fac.ksu.edu.sa/sites/default/files/Chapter%2026-Capacitors.pdf"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P4_Q2",
+     "stem": "How much energy is stored in the air-filled capacitor when it is charged to 100 V?",
+     "options": {
+      "A": "8.9 nJ",
+      "B": "1.8 μJ",
+      "C": "0.44 μJ",
+      "D": "0.89 μJ"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) U = ½CV² = ½(177 × 10⁻¹²)(100)² = 8.9 × 10⁻⁷ J = 0.89 μJ. Why the others are wrong: A) 8.9 nJ results from an error of a factor of 100, such as using V = 10 V. B) 1.8 μJ is QV, which omits the factor of one half. C) 0.44 μJ is half of the correct value, from using ½ twice.",
+     "trap": "Using QV or CV² and forgetting the factor of 1/2 in the stored energy.",
+     "topic": "Energy stored in a capacitor",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.miniphysics.com/uy1-dielectrics-in-capacitors.html",
+       "https://fac.ksu.edu.sa/sites/default/files/Chapter%2026-Capacitors.pdf"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P4_Q3",
+     "stem": "After the battery is disconnected and the glass is inserted, what is the energy stored in the capacitor?",
+     "options": {
+      "A": "5.3 μJ",
+      "B": "0.74 μJ",
+      "C": "0.89 μJ",
+      "D": "0.15 μJ"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The charge Q is fixed because the plates are isolated, so U = Q²/2C. C increases by a factor of 6.0, so U falls to 0.89/6.0 = 0.15 μJ. Why the others are wrong: A) 5.3 μJ multiplies the original energy by κ, as would occur if V rather than Q were held fixed. B) 0.74 μJ is the energy lost, not the energy remaining. C) 0.89 μJ is the original energy, which would remain only if the capacitance did not change.",
+     "trap": "Assuming the energy stays constant or increases by the factor κ when the dielectric is inserted.",
+     "topic": "Dielectric insertion at constant charge",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P4_Q4",
+     "stem": "What is the magnitude of the electric field between the plates with the glass inserted?",
+     "options": {
+      "A": "1.0 × 10⁵ V/m",
+      "B": "1.7 × 10¹ V/m",
+      "C": "6.0 × 10⁵ V/m",
+      "D": "1.7 × 10⁴ V/m"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) E = V/d = 16.7 V/(1.0 × 10⁻³ m) = 1.7 × 10⁴ V/m, which is the original 1.0 × 10⁵ V/m reduced by a factor of κ = 6.0. Why the others are wrong: A) 1.0 × 10⁵ V/m is the field in the air-filled capacitor before the glass was inserted. B) 1.7 × 10¹ V/m results from using the plate separation in millimeters without conversion. C) 6.0 × 10⁵ V/m multiplies the original field by κ rather than dividing.",
+     "trap": "Multiplying instead of dividing the field by κ, or leaving the separation in millimeters.",
+     "topic": "Field in a dielectric",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.miniphysics.com/uy1-dielectrics-in-capacitors.html",
+       "https://fac.ksu.edu.sa/sites/default/files/Chapter%2026-Capacitors.pdf"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P4_Q5",
+     "stem": "Which statement best explains why the potential difference decreases when the dielectric is inserted?",
+     "options": {
+      "A": "The dielectric increases the separation between the effective plates, which reduces the field from the same charge.",
+      "B": "Free charges from the dielectric flow onto the plates and neutralize part of the charge that the plates stored.",
+      "C": "The dielectric absorbs some of the electrons from the negative plate, so the charge on the plates falls while their area stays the same.",
+      "D": "The molecules of the dielectric polarize, producing bound surface charge whose field opposes the field of the plates, so the net field and the potential difference decrease."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The induced dipoles of the dielectric create bound charge at its surfaces whose field points opposite to the plate field, reducing E and V = Ed while the free charge on the plates stays constant. Why the others are wrong: A) Separation is fixed at 1.0 mm; the dielectric does not change it. B) The dielectric is an insulator, so free charge does not flow, and the plate charge is constant because the plates are isolated. C) The dielectric does not remove electrons from the plates; if charge were lost, the plates would no longer have a fixed charge.",
+     "trap": "Assuming that charge leaks onto or off the plates when an insulator is inserted.",
+     "topic": "Dielectric polarization",
+     "mastery_sheet_id": "4C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_CP_P5",
+   "passage_text": "In a teaching laboratory, a laser beam of wavelength 633 nm (red) or 532 nm (green) passes through an adjustable single slit and falls on a screen located 2.00 m behind the slit. The student measures the width of the central bright maximum, defined as the distance between the first dark fringes on either side of the center. Small-angle approximations apply because the angles involved are well under 0.1 rad. The student varies the slit width a and records the central maximum width for each laser, as shown in Table 1. The first minimum occurs where a sinθ = λ, and for small angles the central maximum width is approximately 2λL/a, where L is the slit-to-screen distance. Figure 1 plots the central maximum width for the red laser against slit width. The experiment is performed in air, for which the refractive index may be taken as 1.00, and all measurements are repeated three times and averaged.",
+   "table_data": "| Slit width a (μm) | Central width, 633 nm (mm) | Central width, 532 nm (mm) |\n|---|---|---|\n| 50 | 50.6 | 42.6 |\n| 100 | 25.3 | 21.3 |\n| 200 | 12.7 | 10.6 |\n| 400 | 6.3 | 5.3 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Central maximum width versus slit width (633 nm)",
+    "x_label": "Slit width (μm)",
+    "y_label": "Central maximum width (mm)",
+    "series": [
+     {
+      "name": "633 nm",
+      "points": [
+       [
+        50,
+        50.6
+       ],
+       [
+        100,
+        25.3
+       ],
+       [
+        200,
+        12.7
+       ],
+       [
+        400,
+        6.3
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_CP_P5_Q1",
+     "stem": "For the 633 nm laser and the 100 μm slit, what is the angle of the first dark fringe from the central axis?",
+     "options": {
+      "A": "6.3 × 10⁻⁶ rad",
+      "B": "3.2 × 10⁻³ rad",
+      "C": "6.3 × 10⁻³ rad",
+      "D": "1.3 × 10⁻² rad"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) sinθ = λ/a = (633 × 10⁻⁹)/(100 × 10⁻⁶) = 6.3 × 10⁻³, so θ ≈ 6.3 × 10⁻³ rad. This agrees with (25.3 mm/2)/2.00 m. Why the others are wrong: A) 6.3 × 10⁻⁶ rad results from a unit error of a factor of 1000 in the slit width. B) 3.2 × 10⁻³ rad is half the correct value and would arise from using λ/2a. D) 1.3 × 10⁻² rad is 2λ/a, the angular width of the entire central maximum.",
+     "trap": "Confusing the half-angle to the first minimum with the full angular width of the central maximum.",
+     "topic": "First minimum in single-slit diffraction",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.pearson.com/channels/physics/asset/c7ade6ba/a-slit-0-240-mm-wide-is-illuminated-by-parallel-light-rays-of-wavelength-540-nm-"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P5_Q2",
+     "stem": "What is the expected width of the central maximum for light of wavelength 450 nm and a 100 μm slit under the same geometry?",
+     "options": {
+      "A": "25 mm",
+      "B": "9.0 mm",
+      "C": "36 mm",
+      "D": "18 mm"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Width = 2λL/a = 2(450 × 10⁻⁹)(2.00)/(100 × 10⁻⁶) = 0.018 m = 18 mm; the width is proportional to λ. Why the others are wrong: A) 25 mm is the width for 633 nm and ignores the shorter wavelength. B) 9.0 mm omits the factor of 2 in the width formula. C) 36 mm doubles the correct value, as though the screen were 4.00 m away.",
+     "trap": "Neglecting that shorter wavelengths diffract less and give a narrower central maximum.",
+     "topic": "Wavelength dependence of diffraction",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.pearson.com/channels/physics/asset/c7ade6ba/a-slit-0-240-mm-wide-is-illuminated-by-parallel-light-rays-of-wavelength-540-nm-"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P5_Q3",
+     "stem": "If the entire apparatus is submerged in water (n = 1.33) and the 633 nm laser is used with the 100 μm slit, what is the approximate width of the central maximum?",
+     "options": {
+      "A": "19 mm",
+      "B": "25 mm",
+      "C": "34 mm",
+      "D": "14 mm"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The wavelength in water is 633/1.33 = 476 nm (frequency is unchanged), so the width is 25.3/1.33 = 19 mm. Why the others are wrong: B) 25 mm assumes the wavelength is unchanged, but only the frequency stays the same. C) 34 mm multiplies the width by 1.33, as if the wavelength increased in water. D) 14 mm divides by 1.33 twice, which would apply to a quantity proportional to 1/n².",
+     "trap": "Assuming that wavelength is unchanged when light enters a medium, or reversing the direction of the change.",
+     "topic": "Diffraction in a medium",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P5_Q4",
+     "stem": "Which statement best explains why the central maximum becomes wider as the slit is made narrower?",
+     "options": {
+      "A": "A narrower slit transmits less light, so the interference from the edges of the slit spreads the remaining light over a wider angle.",
+      "B": "A narrower slit increases the number of wavelets, and the greater number of waves at the edges widens the maximum.",
+      "C": "The first minimum occurs where a sinθ = λ, so a smaller slit width a requires a larger angle θ before wavelets from the two halves of the slit cancel.",
+      "D": "A narrower slit lowers the frequency of the light passing through, which increases the wavelength and widens the pattern."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Destructive interference between wavelets from the top and middle of the slit first occurs when the path difference is λ/2, i.e., a sinθ = λ; smaller a means larger θ. Why the others are wrong: A) The pattern width depends on the ratio λ/a, not the transmitted intensity. B) A narrower slit contains fewer, not more, wavelets, and the number of wavelets does not set the angular positions of minima. D) The frequency of light is set by the source and is unchanged by the slit, and the wavelength stays 633 nm in air.",
+     "trap": "Attributing the pattern to light intensity or frequency changes instead of path differences.",
+     "topic": "Single-slit width dependence",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_CP_P6",
+   "passage_text": "An X-ray tube accelerates electrons through a potential difference V toward a molybdenum target. The electrons lose energy by interacting with the target, and the emitted X-ray spectrum consists of a continuous distribution that ends sharply at a minimum wavelength, λ_min, along with sharp lines superimposed on it. The shortest wavelength corresponds to a photon that takes the entire kinetic energy of one electron, so λ_min = hc/(eV), and hc = 1240 eV·nm. The Kα line of molybdenum has wavelength 0.071 nm and appears only when the accelerating voltage is large enough to eject an inner K-shell electron, which requires about 20 keV in molybdenum. A student collects spectra at four tube voltages at a fixed tube current of 20 mA, and the results are shown in Table 1. Figure 1 plots the measured λ_min against tube voltage. The student then wonders how changes in tube current and voltage affect the spectrum.",
+   "table_data": "| Tube voltage (kV) | λ_min (nm) | Kα line at 0.071 nm observed? |\n|---|---|---|\n| 15 | 0.083 | No |\n| 25 | 0.050 | Yes |\n| 30 | 0.041 | Yes |\n| 40 | 0.031 | Yes |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Minimum wavelength versus tube voltage",
+    "x_label": "Tube voltage (kV)",
+    "y_label": "λ_min (nm)",
+    "series": [
+     {
+      "name": "Continuous spectrum cutoff",
+      "points": [
+       [
+        15,
+        0.083
+       ],
+       [
+        25,
+        0.05
+       ],
+       [
+        30,
+        0.041
+       ],
+       [
+        40,
+        0.031
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_CP_P6_Q1",
+     "stem": "What is the maximum photon energy in the spectrum when the tube voltage is 40 kV?",
+     "options": {
+      "A": "40 keV",
+      "B": "17.5 keV",
+      "C": "80 keV",
+      "D": "0.031 keV"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) An electron accelerated through 40 kV gains 40 keV, and the highest-energy photon carries all of it: 40 keV (hc/0.031 nm = 40 keV). Why the others are wrong: B) 17.5 keV is the energy of a Kα photon, which does not set the cutoff. C) 80 keV doubles the electron energy, which would violate energy conservation for a single electron. D) 0.031 keV mistakes the wavelength in nanometers for an energy in keV.",
+     "trap": "Mixing up the wavelength value with the energy value, or confusing characteristic lines with the cutoff.",
+     "topic": "Duane-Hunt cutoff",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Duane%E2%80%93Hunt_law"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P6_Q2",
+     "stem": "What is the energy of a Kα photon of wavelength 0.071 nm?",
+     "options": {
+      "A": "8.8 keV",
+      "B": "17.5 keV",
+      "C": "70 keV",
+      "D": "1.75 keV"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) E = hc/λ = 1240 eV·nm/0.071 nm = 1.75 × 10⁴ eV = 17.5 keV. Why the others are wrong: A) 8.8 keV is the energy of a photon with wavelength 0.14 nm, twice the Kα wavelength. C) 70 keV results from multiplying the wavelength by 1000, ignoring the inverse relationship between energy and wavelength. D) 1.75 keV results from a decimal error, dividing by 0.71 nm instead.",
+     "trap": "Treating photon energy as proportional to wavelength instead of inversely proportional.",
+     "topic": "Photon energy and wavelength",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Duane%E2%80%93Hunt_law"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P6_Q3",
+     "stem": "Why is the Kα line absent from the 15 kV spectrum?",
+     "options": {
+      "A": "The Kα photon of 17.5 keV is absorbed by the target's outer electrons before it leaves the tube at low voltage.",
+      "B": "The maximum electron energy of 15 keV is smaller than the roughly 20 keV needed to eject a K-shell electron from molybdenum.",
+      "C": "The 15 kV electrons have too short a de Broglie wavelength to reach the K shell of the molybdenum atoms.",
+      "D": "The continuous spectrum at 15 kV has a λ_min longer than 0.071 nm, so it cannot contain a line at that wavelength."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A Kα photon is emitted when an electron fills a K-shell vacancy; the vacancy is created only if the bombarding electron has at least the K-shell binding energy (about 20 keV). Why the others are wrong: A) The Kα photons are not created at all at 15 kV; the problem is production, not absorption by outer electrons. C) A lower voltage gives longer de Broglie wavelengths, and wavelength alone does not prevent electron interaction with the inner shell. D) At 15 kV, λ_min is 0.083 nm, which is longer than 0.071 nm, but characteristic lines are produced by atomic transitions, not by the continuum cutoff.",
+     "trap": "Applying the continuum cutoff to characteristic lines, which depend on inner-shell ionization.",
+     "topic": "Characteristic X-rays",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P6_Q4",
+     "stem": "When the tube voltage is raised from 25 kV to 40 kV, what happens to the wavelength of the Kα line?",
+     "options": {
+      "A": "It stays at 0.071 nm.",
+      "B": "It decreases to 0.031 nm.",
+      "C": "It increases to 0.114 nm.",
+      "D": "It decreases to 0.044 nm."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The Kα wavelength is set by the energy difference between atomic shells of molybdenum, which does not depend on the tube voltage, so it stays at 0.071 nm. Why the others are wrong: B) 0.031 nm is the cutoff λ_min at 40 kV, which is a feature of the continuous spectrum. C) 0.114 nm scales the wavelength by 40/25, and the line would still be fixed even if the voltage dropped. D) 0.044 nm scales the wavelength by 25/40, as if the line moved with the voltage.",
+     "trap": "Treating characteristic lines as though they shift with accelerating voltage like the cutoff.",
+     "topic": "Characteristic versus continuous spectrum",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P6_Q5",
+     "stem": "If the tube current is doubled to 40 mA while the voltage is held at 30 kV, which change will occur?",
+     "options": {
+      "A": "The intensity remains the same, and λ_min remains 0.041 nm.",
+      "B": "The intensity increases by about a factor of 2, and λ_min remains 0.041 nm.",
+      "C": "The intensity remains the same, and λ_min decreases to 0.021 nm.",
+      "D": "The intensity increases by about a factor of 2, and λ_min decreases to 0.021 nm."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Current sets the number of electrons per second and therefore the X-ray intensity, while λ_min = hc/eV depends only on the voltage. Why the others are wrong: A) More electrons per second means more photons per second, so the intensity cannot stay the same. C) Doubling current does not change the energy per electron, so λ_min does not shift to 0.021 nm, and more electrons will increase intensity. D) The cutoff depends only on voltage, so it cannot decrease to 0.021 nm because the current doubled.",
+     "trap": "Believing that the number of electrons changes the energy of each photon.",
+     "topic": "Tube current versus voltage",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_CP_P7",
+   "passage_text": "A biophysics class measures the osmotic pressure of several aqueous solutions at 298 K using a membrane osmometer, in which a membrane permeable to water but not to the solutes separates the solution from pure water. The van't Hoff relation π = iMRT is used, where i is the van't Hoff factor, M is the molar concentration, R = 0.0821 L·atm/(mol·K), and T is the absolute temperature (RT = 24.5 L·atm/mol at 298 K). For each solute the students measured the pressure that just prevents net flow of water into the solution, and then calculated i. Sucrose and glucose do not dissociate in water. Table 1 shows the measured pressures for 0.100 M solutions, and Figure 1 shows the pressure of glucose solutions at several concentrations. In a second part of the study, the students consider red blood cells, whose cytoplasm has a total solute concentration of about 0.30 osmol/L, placed in different solutions. Red blood cells are impermeable to NaCl, CaCl₂, and sucrose over the time scale of the experiment.",
+   "table_data": "| Solute (0.100 M) | Measured π (atm) | Calculated i |\n|---|---|---|\n| Glucose | 2.45 | 1.00 |\n| Sucrose | 2.46 | 1.00 |\n| NaCl | 4.6 | 1.88 |\n| CaCl₂ | 6.9 | 2.82 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Osmotic pressure of glucose solutions at 298 K",
+    "x_label": "Glucose concentration (M)",
+    "y_label": "Osmotic pressure (atm)",
+    "series": [
+     {
+      "name": "Glucose",
+      "points": [
+       [
+        0.05,
+        1.22
+       ],
+       [
+        0.1,
+        2.45
+       ],
+       [
+        0.2,
+        4.89
+       ],
+       [
+        0.4,
+        9.78
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_CP_P7_Q1",
+     "stem": "What osmotic pressure is expected for a 0.30 M glucose solution at 298 K?",
+     "options": {
+      "A": "14.7 atm",
+      "B": "24.5 atm",
+      "C": "2.4 atm",
+      "D": "7.3 atm"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) π = iMRT = (1)(0.30)(24.5) = 7.3 atm, consistent with the linear trend in Figure 1. Why the others are wrong: A) 14.7 atm would result from using i = 2, though glucose does not dissociate. B) 24.5 atm is RT alone, which omits the concentration. C) 2.4 atm is the pressure of a 0.10 M solution.",
+     "trap": "Applying a van't Hoff factor greater than 1 to a nonelectrolyte.",
+     "topic": "Osmotic pressure calculation",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chem.libretexts.org/Bookshelves/General_Chemistry/Map%3A_Chemistry_(Zumdahl_and_Decoste)/17%3A_Solutions/17.7%3A_Osmotic_Pressure",
+       "https://chemteam.info/Solutions/Osmosis-Equation.html"
+      ]
+     }
+    },
+    {
+     "id": "FL06_CP_P7_Q2",
+     "stem": "Why is the measured van't Hoff factor of NaCl (1.88) less than the ideal value of 2?",
+     "options": {
+      "A": "Some Na⁺ and Cl⁻ ions form transient ion pairs in solution, so the effective number of independent particles is less than two per formula unit.",
+      "B": "Some NaCl remains undissolved as solid in a 0.100 M solution, so fewer ions are present in solution than the formula predicts.",
+      "C": "Chloride ions can pass through the osmometer membrane, so the solution loses solute particles and the pressure falls.",
+      "D": "Water molecules hydrate the ions and bind them to the membrane, which lowers the pressure that the solution can generate."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Electrostatic attraction between oppositely charged hydrated ions produces ion pairs, which behave as single particles and reduce i below the ideal integer. Why the others are wrong: B) NaCl is very soluble (about 6 M), so 0.100 M is completely dissolved. C) The membrane is impermeable to ions by the design of the experiment; ion passage would also be a separate effect. D) Hydration of ions does not bind them to the membrane, and hydration alone does not reduce the particle count.",
+     "trap": "Attributing nonideal behavior to incomplete dissolution rather than ion pairing.",
+     "topic": "Van't Hoff factor",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P7_Q3",
+     "stem": "Which solution causes red blood cells to swell and possibly burst?",
+     "options": {
+      "A": "0.30 M sucrose",
+      "B": "0.15 M NaCl",
+      "C": "0.20 M NaCl",
+      "D": "0.10 M NaCl"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) 0.10 M NaCl has about 0.19 osmol/L (0.10 × 1.88), lower than 0.30 osmol/L in the cells, so it is hypotonic and water enters the cells. Why the others are wrong: A) 0.30 M sucrose is 0.30 osmol/L, isotonic with the cytoplasm, and the cells are impermeable to sucrose. B) 0.15 M NaCl has about 0.28 osmol/L, approximately isotonic, so no major net movement of water occurs. C) 0.20 M NaCl has about 0.38 osmol/L, which is hypertonic and causes water to leave and cells to shrink.",
+     "trap": "Comparing molarities instead of osmolarities, and forgetting that NaCl produces two particles per formula unit.",
+     "topic": "Tonicity",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P7_Q4",
+     "stem": "The osmotic pressure of the 0.100 M glucose solution is used to support a column of water in a vertical tube attached to the osmometer (1 atm = 1.01 × 10⁵ Pa; water density 1000 kg/m³; g = 9.8 m/s²). Approximately how tall would the column be?",
+     "options": {
+      "A": "2.5 m",
+      "B": "25 m",
+      "C": "250 m",
+      "D": "0.25 m"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) π = 2.45 atm = 2.48 × 10⁵ Pa, and h = P/(ρg) = (2.48 × 10⁵)/(1000 × 9.8) ≈ 25 m. Why the others are wrong: A) 2.5 m results from a factor-of-ten error, as if the pressure were 0.245 atm. C) 250 m results from a factor-of-ten error in the other direction. D) 0.25 m results from a decimal error in converting the pressure to pascals.",
+     "trap": "Omitting the conversion of atmospheres to pascals before using P = ρgh.",
+     "topic": "Osmotic pressure and hydrostatic pressure",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://farside.ph.utexas.edu/teaching/336L/Fluidhtml/node25.html"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_CP_P8",
+   "passage_text": "Biochemists measure the thermal stability of synthetic double-stranded DNA oligonucleotides, each 20 base pairs long, whose guanine-cytosine (GC) content differs. In the double helix, adenine pairs with thymine through two hydrogen bonds and guanine pairs with cytosine through three. The absorbance at 260 nm of each duplex solution is monitored while the temperature is slowly raised, and the melting temperature (Tₘ) is defined as the midpoint of the absorbance increase, where half of the duplexes have separated into single strands. Measurements are made in buffers containing either 50 mM or 500 mM NaCl. Over this range, Tₘ depends linearly on the percentage of GC pairs. Table 1 summarizes the results, and Figure 1 plots Tₘ against GC content in the 50 mM NaCl buffer. The researchers also note that a sample's absorbance at 260 nm rises by roughly 30% when the duplex melts, even though no covalent bonds are broken. All samples contain the same total strand concentration.",
+   "table_data": "| GC content (%) | Tₘ in 50 mM NaCl (°C) | Tₘ in 500 mM NaCl (°C) |\n|---|---|---|\n| 30 | 70.6 | 87.2 |\n| 40 | 74.7 | 91.3 |\n| 50 | 78.8 | 95.4 |\n| 60 | 82.9 | 99.5 |\n| 70 | 87.0 | 103.6 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Melting temperature versus GC content (50 mM NaCl)",
+    "x_label": "GC content (%)",
+    "y_label": "Tm (°C)",
+    "series": [
+     {
+      "name": "50 mM NaCl",
+      "points": [
+       [
+        30,
+        70.6
+       ],
+       [
+        40,
+        74.7
+       ],
+       [
+        50,
+        78.8
+       ],
+       [
+        60,
+        82.9
+       ],
+       [
+        70,
+        87.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_CP_P8_Q1",
+     "stem": "How many hydrogen bonds hold together the strands of the 20-base-pair duplex that has 40% GC content?",
+     "options": {
+      "A": "40",
+      "B": "52",
+      "C": "48",
+      "D": "60"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 40% GC means 8 GC pairs (3 bonds each = 24) and 12 AT pairs (2 bonds each = 24), for a total of 48. Why the others are wrong: A) 40 assumes all 20 pairs are AT pairs with two hydrogen bonds. B) 52 swaps the numbers of GC and AT pairs (12 GC and 8 AT). D) 60 assumes all 20 pairs are GC pairs with three hydrogen bonds.",
+     "trap": "Reversing the AT and GC percentages or using one bond count for every pair.",
+     "topic": "Hydrogen bonds in base pairing",
+     "mastery_sheet_id": "5B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL06_CP_P8_Q2",
+     "stem": "Using the linear trend in Table 1, what Tₘ is expected for a similar duplex with 80% GC content in 50 mM NaCl?",
+     "options": {
+      "A": "91 °C",
+      "B": "95 °C",
+      "C": "99 °C",
+      "D": "87 °C"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Tm increases about 4.1 °C for each 10% GC (slope 0.41 °C per % GC), so the Tm at 80% GC is 87.0 + 4.1 = 91.1 °C. Why the others are wrong: B) 95 °C adds 8 °C, which is twice the actual increase per 10% GC. C) 99 °C is the value at 60% GC in 500 mM NaCl and is the wrong buffer, since the 50 mM series was asked. D) 87 °C is the value for 70% GC and does not include the extra 10% GC.",
+     "trap": "Reading the wrong salt column or extrapolating with the wrong slope.",
+     "topic": "Extrapolation of a linear trend",
+     "mastery_sheet_id": "5B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P8_Q3",
+     "stem": "Which statement best explains why Tₘ is higher in 500 mM NaCl than in 50 mM NaCl?",
+     "options": {
+      "A": "High salt concentration lowers the absorbance of the single strands, so the apparent midpoint of the transition shifts to a higher temperature.",
+      "B": "Chloride ions bind to the major groove and increase the number of base pairs, so the duplex is longer and has a higher Tₘ.",
+      "C": "Sodium ions form additional hydrogen bonds with the bases, which makes the duplex stronger at the same GC content.",
+      "D": "Sodium ions shield the repulsion between the negatively charged phosphate backbones of the two strands, which stabilizes the duplex."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Counterions screen phosphate–phosphate repulsion across the helix, so more thermal energy is required to separate the strands. Why the others are wrong: A) The shift is a real change in stability and not an artifact of absorbance of the single strands. B) Salt does not change the number of base pairs, which is fixed at 20 by the oligonucleotide sequence. C) Sodium ions interact electrostatically with the phosphates and do not hydrogen bond to the bases in a way that adds pairs.",
+     "trap": "Assuming that ions create new base-pair bonds rather than shielding charge repulsion.",
+     "topic": "Electrostatics of nucleic acids",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P8_Q4",
+     "stem": "Which phenomenon best explains the 30% increase in absorbance at 260 nm upon melting?",
+     "options": {
+      "A": "The hydrogen bonds between base pairs absorb strongly at 260 nm, so their formation on cooling increases absorbance.",
+      "B": "Strand separation lowers the concentration of the DNA, and the lower concentration produces more light absorption.",
+      "C": "Base stacking in the helix partially quenches absorption, and unstacking of the bases as strands separate increases the absorbance.",
+      "D": "Phosphodiester bonds break during melting, which exposes more of the chromophores of the bases to the solution."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Stacked bases interact electronically (hypochromism); on melting they unstack, producing hyperchromism, and the covalent backbone stays intact. Why the others are wrong: A) Hydrogen bonds do not account for absorption at 260 nm, which is due to the aromatic bases. B) Strand separation does not change the total DNA concentration or reduce light absorption through dilution. D) The backbone remains intact, since melting breaks only noncovalent interactions.",
+     "trap": "Thinking melting breaks covalent bonds, rather than disrupting stacking and hydrogen bonding.",
+     "topic": "Hyperchromic effect",
+     "mastery_sheet_id": "5B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_CP_P9",
+   "passage_text": "A chemist purifies 5.00 g of crude solid X by recrystallization from water. The crude sample contains 4.75 g of X and 0.25 g of a soluble impurity Y. The solubility of X in water increases steeply with temperature, as shown in Table 1 and Figure 1. The impurity Y is very soluble in water at all temperatures (at least 1.5 g per 100 mL even at 0 °C) and does not alter the solubility of X. The chemist heats water to 100 °C, adds the smallest volume that dissolves all of the solid, filters the hot solution to remove dust, allows the solution to cool slowly to room temperature, and then cools it in an ice bath to 0 °C. The crystals are collected by vacuum filtration and washed with a small amount of ice-cold water. Assume that the volume of the solution does not change on cooling and that the wash causes no loss of X. A student repeats the procedure using twice the minimum volume of hot water.",
+   "table_data": "| Temperature (°C) | Solubility of X (g per 100 mL water) |\n|---|---|\n| 0 | 0.50 |\n| 25 | 1.0 |\n| 50 | 2.5 |\n| 80 | 7.0 |\n| 100 | 12.0 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Solubility of X in water versus temperature",
+    "x_label": "Temperature (°C)",
+    "y_label": "Solubility (g per 100 mL)",
+    "series": [
+     {
+      "name": "Compound X",
+      "points": [
+       [
+        0,
+        0.5
+       ],
+       [
+        25,
+        1.0
+       ],
+       [
+        50,
+        2.5
+       ],
+       [
+        80,
+        7.0
+       ],
+       [
+        100,
+        12.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_CP_P9_Q1",
+     "stem": "What is the minimum volume of water at 100 °C needed to dissolve 4.75 g of X?",
+     "options": {
+      "A": "4.0 mL",
+      "B": "40 mL",
+      "C": "190 mL",
+      "D": "950 mL"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At 100 °C, 12.0 g of X dissolves in 100 mL, so 4.75 g requires 4.75/12.0 × 100 mL = 39.6 mL, about 40 mL. Why the others are wrong: A) 4.0 mL is a factor-of-ten error in the calculation. C) 190 mL uses the 50 °C solubility of 2.5 g per 100 mL (and results from a decimal error). D) 950 mL uses the 0 °C solubility, which is the value at the final temperature rather than the dissolving temperature.",
+     "trap": "Using solubility at the wrong temperature, rather than the boiling-water value, to find the minimum volume.",
+     "topic": "Minimum solvent for recrystallization",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL06_CP_P9_Q2",
+     "stem": "Assuming the minimum volume was used, what mass of pure X is recovered after cooling to 0 °C?",
+     "options": {
+      "A": "4.30 g",
+      "B": "4.55 g",
+      "C": "4.75 g",
+      "D": "0.20 g"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The 39.6 mL of solution retains 0.50 × 0.396 = 0.20 g of X at 0 °C, so 4.75 − 0.20 = 4.55 g crystallizes (96% recovery). Why the others are wrong: A) 4.30 g would require 0.45 g to remain dissolved, which is inconsistent with 0.50 g per 100 mL at 0 °C in 39.6 mL. C) 4.75 g would mean that all of X crystallizes, ignoring its solubility at 0 °C. D) 0.20 g is the mass of X that stays dissolved, not the mass recovered.",
+     "trap": "Forgetting that some product always remains dissolved in the cold solvent.",
+     "topic": "Percent recovery",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL06_CP_P9_Q3",
+     "stem": "What mass of X would the second student recover when 79 mL of hot water is used (twice the minimum) and the solution is cooled to 0 °C?",
+     "options": {
+      "A": "4.35 g",
+      "B": "3.96 g",
+      "C": "4.75 g",
+      "D": "4.55 g"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At 0 °C, 79 mL retains 0.50 × 0.79 = 0.40 g of X, so 4.75 − 0.40 = 4.35 g is recovered, which is lower than with the minimum volume. Why the others are wrong: B) 3.96 g subtracts 0.79 g, which treats the 0 °C solubility as 1.0 g per 100 mL (the 25 °C value). C) 4.75 g would require that none of X remain dissolved. D) 4.55 g is the recovery with the minimum volume, which does not apply when more solvent is used.",
+     "trap": "Failing to recognize that extra solvent increases the amount of product left in solution.",
+     "topic": "Effect of excess solvent",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL06_CP_P9_Q4",
+     "stem": "Why does slow cooling generally produce purer crystals than rapid cooling?",
+     "options": {
+      "A": "Slow cooling lets impurity Y crystallize first, and the crystals of Y can then be removed by filtration before X crystallizes.",
+      "B": "Slow cooling keeps the solution warm long enough for impurity Y to react with the solvent, which converts it to a more soluble form.",
+      "C": "Slow growth allows molecules to add reversibly to the lattice so that molecules of X fit into the crystal while impurity molecules, which fit poorly, remain in solution.",
+      "D": "Slow cooling raises the solubility of X so that fewer crystals form, and the smaller amount of crystals traps less impurity."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Crystal growth is selective when it is slow and near equilibrium; rapid precipitation traps impurities in the lattice or in occluded solvent. Why the others are wrong: A) Y is very soluble at all temperatures, so it does not crystallize before X. B) Y does not react with water; its removal depends on remaining dissolved. D) Cooling lowers, not raises, the solubility of X, and fewer crystals is not the reason for purity.",
+     "trap": "Believing that impurities are removed by chemical reaction rather than by their exclusion from the crystal lattice.",
+     "topic": "Crystal growth and purity",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_CP_P10",
+   "passage_text": "A student studies the elimination reactions of 2-bromo-2-methylbutane, a tertiary alkyl bromide, under three sets of conditions at 55 °C: (a) 0.50 M sodium ethoxide in ethanol, (b) pure ethanol with no added base, and (c) 0.50 M potassium tert-butoxide in tert-butanol. Product mixtures are analyzed by gas chromatography to determine the percentage of 2-methyl-2-butene (the more substituted, Zaitsev alkene), 2-methyl-1-butene (the less substituted, Hofmann alkene), and ethyl tert-pentyl ether (a substitution product). In separate kinetic runs, the student doubles the concentration of the alkyl bromide alone, or of the base alone, and records how the overall rate changes. The student knows that a strong base favors a concerted elimination, whereas ionization of the leaving group without a strong base gives a carbocation intermediate. Table 1 summarizes the observations. Percentages are of total products. Every run begins with an alkyl bromide concentration of 0.10 M, and each is allowed to proceed until no alkyl bromide remains. Each analysis is repeated three times and averaged, and the standard deviations are below 2 percentage points.",
+   "table_data": "| Conditions | Rate when [RBr] doubled | Rate when [base] doubled | Zaitsev alkene (%) | Hofmann alkene (%) | Ether (%) |\n|---|---|---|---|---|---|\n| (a) NaOEt, EtOH | ×2 | ×2 | 70 | 30 | 0 |\n| (b) EtOH only | ×2 | No base present | 17 | 3 | 80 |\n| (c) KOtBu, tBuOH | ×2 | ×2 | 28 | 72 | 0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL06_CP_P10_Q1",
+     "stem": "In conditions (a), by what factor does the rate change if both [RBr] and [ethoxide] are doubled?",
+     "options": {
+      "A": "1",
+      "B": "2",
+      "C": "8",
+      "D": "4"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The rate law is rate = k[RBr][EtO⁻] (first order in each, as for a bimolecular E2), so doubling both increases the rate by 2 × 2 = 4. Why the others are wrong: A) A factor of 1 would require the rate to be zero order in both species. B) A factor of 2 would apply if the rate were first order in only one species, as for E1 in condition (b). C) A factor of 8 would require a third-order rate law.",
+     "trap": "Using only one concentration term in the rate law, or applying the E1 rate law to a strong-base reaction.",
+     "topic": "E2 kinetics",
+     "mastery_sheet_id": "5D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL06_CP_P10_Q2",
+     "stem": "Which statement best explains why condition (b) gives mostly ether and some alkene?",
+     "options": {
+      "A": "Ethanol reacts first with the alkyl bromide in a single step in which the nucleophile attacks from the side opposite the leaving group.",
+      "B": "Slow ionization of the C–Br bond forms a tertiary carbocation, which is captured by ethanol as a nucleophile (SN1) or loses a proton to the solvent (E1).",
+      "C": "Ethanol is a poor base and a poor nucleophile, so the reaction proceeds by free radical chain steps that give a mixture of alkene and ether.",
+      "D": "Ethanol acts as a strong base that removes a β-hydrogen in a concerted step, and the ether forms by backside attack at the tertiary carbon."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The rate-limiting step is unimolecular ionization (rate depends only on [RBr]); the common carbocation then partitions between SN1 and E1 products, with substitution dominating. Why the others are wrong: A) A single-step backside attack describes SN2, which is blocked at a tertiary center and would give rate dependence on ethanol concentration as well. C) No radical initiators are present; ionic polar-protic conditions give ionic mechanisms. D) Ethanol is a weak base, and backside attack at a tertiary carbon is too hindered for SN2.",
+     "trap": "Treating a weak base/nucleophile solvent as if it caused a concerted E2 or SN2 reaction at a tertiary substrate.",
+     "topic": "E1 and SN1 competition",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P10_Q3",
+     "stem": "Why does potassium tert-butoxide give mostly the Hofmann alkene (c) while sodium ethoxide gives mostly the Zaitsev alkene (a)?",
+     "options": {
+      "A": "The tert-butoxide is a better nucleophile than ethoxide, and it attacks the tertiary carbon directly to eject the leaving group.",
+      "B": "The bulky tert-butoxide removes the more accessible hydrogens of the methyl group more readily than the hindered internal hydrogens, favoring the less substituted alkene.",
+      "C": "The tert-butoxide forms a carbocation more quickly than ethoxide, and the cation rearranges to the less substituted alkene.",
+      "D": "The tert-butoxide is a much weaker base than ethoxide, and weaker bases favor the less stable alkene product."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Steric hindrance in the base controls which β-hydrogen can be reached in the concerted E2 transition state, so the less hindered β-hydrogens are removed. Why the others are wrong: A) Bulk makes tert-butoxide a poorer nucleophile, and E2 does not involve attack on the carbon bearing the leaving group. C) E2 is concerted and does not involve a carbocation; rearrangement is not the cause. D) tert-Butoxide (conjugate acid pKa about 17 to 18) is at least as strong a base as ethoxide.",
+     "trap": "Treating a bulky base as weaker or as a better nucleophile instead of recognizing steric control of selectivity.",
+     "topic": "Zaitsev versus Hofmann selectivity",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P10_Q4",
+     "stem": "Which geometric arrangement of the leaving group and the β-hydrogen is required in the transition state of an E2 reaction?",
+     "options": {
+      "A": "The β-hydrogen and the leaving group must be gauche, with a dihedral angle of 60° so that the departing base is stabilized by the substituents.",
+      "B": "The β-hydrogen and the leaving group must be perpendicular, with a dihedral angle of 90° so that sp³ orbitals are not aligned with the π system.",
+      "C": "The β-hydrogen and the leaving group must be anti-periplanar, with a dihedral angle of 180° so that the orbitals overlap to form the π bond.",
+      "D": "The β-hydrogen and the leaving group must be syn-periplanar, with a dihedral angle of 0° so that the orbitals are eclipsed during bond formation."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Anti-periplanar alignment (the staggered conformation) permits smooth overlap of the C–H bonding orbital with the C–LG antibonding orbital as the π bond forms. Why the others are wrong: A) A gauche arrangement does not permit good overlap between the breaking bonds. B) At 90°, the orbitals are orthogonal and cannot overlap to form a π bond. D) Syn-periplanar elimination is possible in some rigid systems but is higher in energy because the groups are eclipsed.",
+     "trap": "Remembering that E2 requires an eclipsed geometry instead of the staggered anti arrangement.",
+     "topic": "E2 stereochemistry",
+     "mastery_sheet_id": "5D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_CP_P10_Q5",
+     "stem": "When 2-bromo-3-methylbutane (a secondary bromide) undergoes solvolysis in ethanol, which alkene is expected to be a major elimination product, and why?",
+     "options": {
+      "A": "2-Methyl-1-butene, formed after a 1,2-methyl shift converts the secondary cation into a tertiary carbocation.",
+      "B": "3-Methyl-1-butene, formed because E1 reactions always follow the Hofmann rule when the carbocation is secondary.",
+      "C": "2-Methyl-2-butene, formed after a 1,2-hydride shift converts the secondary carbocation to a more stable tertiary carbocation.",
+      "D": "2-Methyl-2-butene, formed by a concerted anti elimination in which no carbocation is involved because ethanol is a good nucleophile."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Ionization gives a secondary carbocation, which rearranges by a 1,2-hydride shift to the tertiary cation; loss of a proton gives the most substituted alkene. Why the others are wrong: A) The methyl group shift would give a different, less stable cation, and the hydride shift is the more direct path to a tertiary center. B) E1 reactions generally give the more substituted (Zaitsev) alkene, and the carbocation can rearrange before proton loss. D) Ethanol is a weak base, so the concerted E2 pathway is not favored; the carbocation mechanism accounts for the rearranged skeleton.",
+     "trap": "Ignoring carbocation rearrangement in E1/SN1 reactions of secondary substrates.",
+     "topic": "Carbocation rearrangement",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL06_CP_D1",
+   "stem": "A 2.0 kg cart moving at 3.0 m/s collides with a stationary 1.0 kg cart, and the two stick together. How much kinetic energy is lost in the collision?",
+   "options": {
+    "A": "6.0 J",
+    "B": "3.0 J",
+    "C": "1.5 J",
+    "D": "9.0 J"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Momentum conservation: 6.0 = 3.0 v, so v = 2.0 m/s. KE before = ½(2)(9) = 9.0 J, KE after = ½(3)(4) = 6.0 J, so 3.0 J is lost. Why the others are wrong: A) 6.0 J is the kinetic energy remaining after the collision. C) 1.5 J would be half the actual loss, from dividing by two twice. D) 9.0 J is the initial kinetic energy, which would all be lost only if the carts came to rest.",
+   "trap": "Assuming that momentum conservation means no kinetic energy is lost in a perfectly inelastic collision.",
+   "topic": "Inelastic collision",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://web.pa.msu.edu/courses/2014fall/PHY251/Inelastic.pdf"
+    ]
+   }
+  },
+  {
+   "id": "FL06_CP_D2",
+   "stem": "A 30 kg child sits 2.0 m from the pivot of a massless seesaw. Where must a 40 kg child sit on the other side to balance it?",
+   "options": {
+    "A": "1.5 m from the pivot",
+    "B": "0.75 m from the pivot",
+    "C": "2.0 m from the pivot",
+    "D": "2.7 m from the pivot"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Torque balance: (30)(g)(2.0) = (40)(g)(x), so x = 60/40 = 1.5 m. Why the others are wrong: B) 0.75 m divides by two incorrectly, as though the lever arms were halved. C) 2.0 m would balance only if the two children had equal masses. D) 2.7 m inverts the ratio of the masses and places the heavier child farther away.",
+   "trap": "Inverting the lever-arm ratio in a torque balance.",
+   "topic": "Torque and rotational equilibrium",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.physicsforums.com/threads/statics-ladder-and-friction-less-wall-question.441909/post-2954169"
+    ]
+   }
+  },
+  {
+   "id": "FL06_CP_D3",
+   "stem": "A uniform block of density 600 kg/m³ floats in fresh water (1000 kg/m³). What fraction of its volume is submerged?",
+   "options": {
+    "A": "75%",
+    "B": "60%",
+    "C": "50%",
+    "D": "40%"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Floating means buoyant force equals weight, so the submerged fraction is ρ_block/ρ_fluid = 600/1000 = 0.60. Why the others are wrong: A) 75% would apply to a block with a density of 750 kg/m³. C) 50% would apply if the block's density were 500 kg/m³. D) 40% is the fraction above the water, not the submerged part.",
+   "trap": "Reporting the exposed fraction instead of the submerged fraction.",
+   "topic": "Buoyancy",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openstax.org/books/college-physics-ap-courses-2e/pages/11-7-archimedes-principle"
+    ]
+   }
+  },
+  {
+   "id": "FL06_CP_D4",
+   "stem": "Water flows at 1.0 m/s through a horizontal pipe section whose cross-sectional area then narrows from 4.0 cm² to 1.0 cm². Treating the water as ideal, by approximately how much does the pressure drop in the narrow section (density 1000 kg/m³)?",
+   "options": {
+    "A": "15 kPa",
+    "B": "8.0 kPa",
+    "C": "7.5 kPa",
+    "D": "4.0 kPa"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Continuity gives v₂ = 4.0 m/s. Bernoulli: ΔP = ½ρ(v₂² − v₁²) = ½(1000)(16 − 1) = 7500 Pa. Why the others are wrong: A) 15 kPa omits the factor of one half in the Bernoulli equation. B) 8.0 kPa uses only the final speed, ignoring the initial kinetic energy term. D) 4.0 kPa uses the change in speed (3.0 m/s) in a way that does not follow from Bernoulli's equation.",
+   "trap": "Forgetting that Bernoulli involves the difference of v² terms and the factor of 1/2.",
+   "topic": "Bernoulli and continuity",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://open-exam-prep.com/study-guides/mcat-chemical-physical/fluids-gas-phase/fluid-dynamics"
+    ]
+   }
+  },
+  {
+   "id": "FL06_CP_D5",
+   "stem": "Two resistors of 6.0 Ω and 3.0 Ω are connected in parallel across a 12 V battery. What is the power dissipated in the 3.0 Ω resistor?",
+   "options": {
+    "A": "48 W",
+    "B": "24 W",
+    "C": "5.3 W",
+    "D": "16 W"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Each parallel branch has the full 12 V, so P = V²/R = 144/3.0 = 48 W. Why the others are wrong: B) 24 W is the power in the 6.0 Ω resistor. C) 5.3 W would result if the resistors were in series, with I = 12/9.0 A in the 3.0 Ω resistor. D) 16 W does not follow from a correct use of P = V²/R for either resistor.",
+   "trap": "Treating parallel resistors like series resistors and splitting the voltage.",
+   "topic": "Power in parallel circuits",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel"
+    ]
+   }
+  },
+  {
+   "id": "FL06_CP_D6",
+   "stem": "A capacitor of 20 μF is charged and then discharged through a 10 kΩ resistor. What fraction of the original charge remains after 0.20 s?",
+   "options": {
+    "A": "About 37%",
+    "B": "About 63%",
+    "C": "About 50%",
+    "D": "About 14%"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) τ = RC = (10⁴)(20 × 10⁻⁶) = 0.20 s, and Q = Q₀e^(−t/τ) = Q₀e⁻¹ ≈ 0.37 Q₀. Why the others are wrong: B) 63% is the fraction of charge that has left the capacitor (or the fraction reached when charging), not the fraction remaining. C) 50% would be the fraction remaining after one half-life, which is 0.69τ or about 0.14 s. D) 14% would be the fraction remaining after two time constants.",
+   "trap": "Confusing the 37% remaining at one time constant with the 63% gained during charging.",
+   "topic": "RC discharge",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.miniphysics.com/rc-circuits.html"
+    ]
+   }
+  },
+  {
+   "id": "FL06_CP_D7",
+   "stem": "An object is 30 cm from a thin converging lens of focal length 10 cm. Where is the image formed, and what are its characteristics?",
+   "options": {
+    "A": "7.5 cm from the lens; real and inverted",
+    "B": "30 cm from the lens; real and inverted",
+    "C": "15 cm from the lens; virtual and upright",
+    "D": "15 cm from the lens; real and inverted"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) 1/dᵢ = 1/f − 1/dₒ = 1/10 − 1/30 = 1/15, so dᵢ = +15 cm, a real inverted image with magnification −0.5. Why the others are wrong: A) 7.5 cm results from adding 1/10 and 1/30 instead of subtracting. B) 30 cm would require the object to be at 2f = 20 cm, and it is at 3f. C) A virtual upright image forms only when the object is inside the focal length.",
+   "trap": "Adding rather than subtracting the reciprocals in the thin lens equation.",
+   "topic": "Thin lens",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.physicsclassroom.com/getattachment/Physics-Video-Tutorial/Refraction-and-Lenses/Mathematics-of-Lenses/Lecture-Notes/LessonNotes.pdf?lang=en-US"
+    ]
+   }
+  },
+  {
+   "id": "FL06_CP_D8",
+   "stem": "A siren emitting 500 Hz moves at 34 m/s toward a stationary listener. The speed of sound is 340 m/s. What frequency does the listener hear?",
+   "options": {
+    "A": "455 Hz",
+    "B": "500 Hz",
+    "C": "550 Hz",
+    "D": "556 Hz"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) f' = f v/(v − v_s) = 500 × 340/306 = 556 Hz. Why the others are wrong: A) 455 Hz is the frequency heard if the siren were moving away. B) 500 Hz would be heard only if the siren were not moving relative to the listener. C) 550 Hz would be f(1 + v_s/v), which is only an approximation that is not exact here.",
+   "trap": "Using the wrong sign in the denominator for an approaching source.",
+   "topic": "Doppler effect",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://farside.ph.utexas.edu/teaching/315/Waves/node47.html"
+    ]
+   }
+  },
+  {
+   "id": "FL06_CP_D9",
+   "stem": "The nucleus uranium-238 (Z = 92) undergoes alpha decay. Which nuclide is the immediate product?",
+   "options": {
+    "A": "²³⁴Th (Z = 90)",
+    "B": "²³⁶Th (Z = 90)",
+    "C": "²³⁸Np (Z = 93)",
+    "D": "²³⁴Pa (Z = 91)"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) An alpha particle is ⁴He (2 protons, 2 neutrons), so A decreases by 4 (238 to 234) and Z by 2 (92 to 90), giving thorium-234. Why the others are wrong: B) ²³⁶Th (Z = 90) loses the proper two protons but only two mass units. C) ²³⁸Np (Z = 93) would be produced by beta-minus decay, which leaves A unchanged and raises Z by 1. D) ²³⁴Pa (Z = 91) would require losing four mass units but only one proton.",
+   "trap": "Mixing up the changes in A and Z for alpha and beta decay.",
+   "topic": "Alpha decay",
+   "mastery_sheet_id": "4E",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_CP_D10",
+   "stem": "A buffer contains 0.010 M acetic acid (pKa = 4.76) and 0.10 M sodium acetate. What is the approximate pH?",
+   "options": {
+    "A": "5.76",
+    "B": "3.76",
+    "C": "6.76",
+    "D": "4.76"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Henderson–Hasselbalch: pH = pKa + log([A⁻]/[HA]) = 4.76 + log(10) = 5.76. Why the others are wrong: B) 3.76 results from inverting the ratio of base to acid. C) 6.76 would require a base-to-acid ratio of 100. D) 4.76 would result only if the acid and conjugate base concentrations were equal.",
+   "trap": "Inverting the base-to-acid ratio in the Henderson–Hasselbalch equation.",
+   "topic": "Buffers",
+   "mastery_sheet_id": "5A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://bio.libretexts.org/Bookshelves/Biochemistry/Book%3A_Biochemistry_Free_and_Easy_(Ahern_and_Rajagopal)/01%3A_Cells_Water_and_Buffers/1.05%3A_Henderson-Hasselbalch_Approximation"
+    ]
+   }
+  },
+  {
+   "id": "FL06_CP_D11",
+   "stem": "Which compound has the highest boiling point?",
+   "options": {
+    "A": "Pentane (CH₃CH₂CH₂CH₂CH₃)",
+    "B": "2,2-Dimethylpropane (neopentane)",
+    "C": "Propane (CH₃CH₂CH₃)",
+    "D": "2-Methylbutane (isopentane)"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) All are nonpolar and held together by London dispersion forces; the straight-chain pentane has the greatest surface area for contact, giving the strongest dispersion forces and the highest boiling point (36 °C). Why the others are wrong: B) Neopentane is compact and nearly spherical, giving less contact and a boiling point near 9.5 °C. C) Propane has fewer electrons and a smaller surface area, with a boiling point of about −42 °C. D) Isopentane is somewhat branched, so its boiling point (about 28 °C) is lower than that of pentane.",
+   "trap": "Thinking that branching increases boiling point or that all isomers have equal boiling points.",
+   "topic": "Dispersion forces and boiling point",
+   "mastery_sheet_id": "5B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_CP_D12",
+   "stem": "A mixture of benzoic acid, aniline, and naphthalene in diethyl ether is shaken with aqueous sodium bicarbonate, and the layers are separated. Which compound is mainly found in the aqueous layer?",
+   "options": {
+    "A": "Aniline, as sodium anilide",
+    "B": "Naphthalene, as a hydrated molecule",
+    "C": "Aniline, as anilinium bicarbonate",
+    "D": "Benzoic acid, as sodium benzoate"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Bicarbonate (the conjugate base of a pKa of about 6.4 acid) deprotonates benzoic acid (pKa 4.2) to form the water-soluble sodium benzoate salt, which moves into the aqueous layer. Why the others are wrong: A) Sodium anilide would require a very strong base, since aniline is only a very weak acid (pKa about 30). B) Naphthalene is a nonpolar hydrocarbon and has negligible solubility in water. C) Aniline is a weak base (conjugate acid pKa about 4.6) and remains neutral in bicarbonate solution, so it stays in the ether layer.",
+   "trap": "Forgetting that only the ionized form of an acid or base moves into the aqueous layer during extraction.",
+   "topic": "Acid-base extraction",
+   "mastery_sheet_id": "5C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_CP_D13",
+   "stem": "(R)-2-Bromobutane reacts with sodium cyanide in a polar aprotic solvent by an SN2 mechanism. What is the major product?",
+   "options": {
+    "A": "2-Butene, from E2 elimination",
+    "B": "A racemic mixture of 2-methylbutanenitrile enantiomers",
+    "C": "(S)-2-Methylbutanenitrile",
+    "D": "(R)-2-Methylbutanenitrile"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) SN2 proceeds with backside attack and inversion of configuration; the CN group has the same CIP priority rank as Br (above ethyl, methyl, and H), so (R) becomes (S). Why the others are wrong: A) Cyanide is a good nucleophile but a weak base, so substitution rather than elimination is favored. B) A racemic mixture is expected from SN1 with a planar carbocation, but the stated conditions favor SN2. D) Retention of configuration would require attack from the same side as the leaving group, which does not occur in SN2.",
+   "trap": "Assuming SN2 gives racemization or retention instead of inversion.",
+   "topic": "SN2 stereochemistry",
+   "mastery_sheet_id": "5D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_CP_D14",
+   "stem": "In a closed vessel, H₂(g) + I₂(g) ⇌ 2 HI(g), with K_c = 50 at a given temperature. Starting with 1.0 M H₂ and 1.0 M I₂ and no HI, what is the equilibrium concentration of HI?",
+   "options": {
+    "A": "1.56 M",
+    "B": "0.22 M",
+    "C": "0.78 M",
+    "D": "1.00 M"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) K_c = (2x)²/(1 − x)² = 50, so 2x/(1 − x) = 7.07 and x = 0.78; [HI] = 2x = 1.56 M. Why the others are wrong: B) 0.22 M is the equilibrium concentration of each reactant. C) 0.78 M is x, the amount of H₂ consumed, and not the concentration of HI. D) 1.00 M has no basis in the stoichiometry and does not satisfy K_c = 50.",
+   "trap": "Forgetting the stoichiometric coefficient of 2 for HI in the ICE table.",
+   "topic": "Equilibrium calculation",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute",
+    "sources": []
+   }
+  },
+  {
+   "id": "FL06_CP_D15",
+   "stem": "In a coffee-cup calorimeter, 50.0 mL of 1.0 M HCl is mixed with 50.0 mL of 1.0 M NaOH and the temperature rises by 6.7 °C. Assume the solution has a density of 1.00 g/mL and a specific heat of 4.18 J/(g·°C). What is ΔH for the neutralization per mole of water formed?",
+   "options": {
+    "A": "−56 kJ/mol",
+    "B": "−28 kJ/mol",
+    "C": "+56 kJ/mol",
+    "D": "−2.8 kJ/mol"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) q = (100 g)(4.18)(6.7) = 2.8 kJ released to the solution, and 0.050 mol of water formed, so ΔH = −2.8/0.050 = −56 kJ/mol. Why the others are wrong: B) −28 kJ/mol divides by 0.10 mol, which is the total moles of both reactants rather than the moles of water formed. C) +56 kJ/mol has the wrong sign, since the temperature of the solution rises and the reaction is exothermic. D) −2.8 kJ/mol is the heat released in total and has not been divided by moles of water.",
+   "trap": "Forgetting to divide by moles or giving the wrong sign to an exothermic process.",
+   "topic": "Calorimetry",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_%28Physical_and_Theoretical_Chemistry%29/Thermodynamics/Energies_and_Potentials/Enthalpy/Enthalpy_Change_of_Neutralization"
+    ]
+   }
+  }
+ ]
+}

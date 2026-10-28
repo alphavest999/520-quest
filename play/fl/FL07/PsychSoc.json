@@ -1,0 +1,1525 @@
+{
+ "exam": "FL07",
+ "section": "PS",
+ "passages": [
+  {
+   "passage_id": "FL07_PS_P1",
+   "passage_text": "Gate control theory proposes that activity in large-diameter A-beta touch fibers can inhibit transmission of signals carried by small-diameter nociceptive fibers at the level of the spinal cord. Researchers tested this idea in 80 healthy adults randomly assigned to four conditions (n = 20 each). Every participant submerged one hand in 4 degrees C water for at least 30 seconds and could withdraw at any time after that, up to 120 seconds. In the control condition, participants sat quietly. In the vibration condition, a pad vibrating at a moderate frequency was held against the skin of the immersed forearm. In the distraction condition, participants counted backward from 500 by sevens aloud. In the combined condition, both manipulations were applied. Participants rated pain on a 0 to 10 scale at 10, 20, and 30 seconds, and the time at which they withdrew the hand (tolerance) was recorded. Table 1 gives the 30-second ratings and mean tolerance. Figure 1 shows mean ratings over time for the control and vibration conditions.",
+   "table_data": "**Table 1. Pain at 30 s and tolerance (group means)**\n\n| Condition | Pain rating at 30 s (0-10) | Tolerance (s) |\n|---|---|---|\n| Control | 7.1 | 52 |\n| Vibration | 5.2 | 71 |\n| Distraction | 5.8 | 66 |\n| Combined | 4.3 | 88 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Mean pain rating during cold-water immersion",
+    "x_label": "Time in water (s)",
+    "y_label": "Pain rating (0-10)",
+    "series": [
+     {
+      "name": "Control",
+      "points": [
+       [
+        10,
+        3.4
+       ],
+       [
+        20,
+        5.6
+       ],
+       [
+        30,
+        7.1
+       ]
+      ]
+     },
+     {
+      "name": "Vibration",
+      "points": [
+       [
+        10,
+        3.1
+       ],
+       [
+        20,
+        4.3
+       ],
+       [
+        30,
+        5.2
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL07_PS_P1_Q1",
+     "stem": "According to Table 1, the 30-second pain rating in the vibration condition was lower than that in the control condition by approximately what percentage?",
+     "options": {
+      "A": "27%",
+      "B": "73%",
+      "C": "19%",
+      "D": "39%"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) (7.1 - 5.2) / 7.1 = 1.9 / 7.1, or about 27% of the control rating. Why the others are wrong: B) This is the vibration rating expressed as a fraction of control (5.2 / 7.1), not the reduction from it. C) This is the reduction in points (1.9) misread as a percentage, without dividing by the control rating. D) This is the reduction for the combined condition (2.8 / 7.1), not the vibration condition.",
+     "trap": "Reporting the remaining fraction instead of the reduction, or using the wrong condition as the comparison.",
+     "topic": "Gate control theory",
+     "mastery_sheet_id": "6A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_PS_P1_Q2",
+     "stem": "Which mechanism would gate control theory use to explain the lower pain ratings in the vibration condition?",
+     "options": {
+      "A": "Large-diameter fibers activated by vibration excite inhibitory interneurons in the dorsal horn, reducing projection of nociceptive signals to the brain.",
+      "B": "Vibration activates small unmyelinated fibers that release substance P, which depletes the nociceptors of neurotransmitter and lowers their output.",
+      "C": "Vibration temporarily damages the peripheral nociceptors in the forearm skin, so fewer action potentials ever leave the immersed arm toward the spinal cord.",
+      "D": "Vibration increases firing of the thalamic relay neurons, which lets the somatosensory cortex override incoming nociceptive signals directly."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Touch and vibration signals travel on A-beta fibers, which synapse on inhibitory interneurons in the dorsal horn; these 'close the gate' on input from nociceptive A-delta and C fibers. Why the others are wrong: B) Small unmyelinated C fibers carry pain and substance P release would promote, not reduce, pain transmission. C) Vibration of this intensity does not damage nociceptors, and gate control theory is about central modulation, not peripheral damage. D) The gate is proposed to operate in the spinal cord, before the thalamus, and increased thalamic firing would not reduce pain.",
+     "trap": "Assuming that pain relief from touch must come from the periphery or the cortex rather than spinal-level inhibition.",
+     "topic": "Gate control theory",
+     "mastery_sheet_id": "6A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P1_Q3",
+     "stem": "The reduction in pain in the distraction condition is best explained by which of the following?",
+     "options": {
+      "A": "Ascending A-beta fibers recruited by the counting task close the spinal gate by activating inhibitory interneurons in the dorsal horn, as in the vibration condition.",
+      "B": "Reduced blood flow to the immersed hand during counting lowers the number of nociceptors that can reach threshold.",
+      "C": "Descending pathways from the cortex through the periaqueductal gray promote release of endogenous opioids that inhibit spinal pain transmission.",
+      "D": "Habituation of cold receptors in the skin occurs faster during mental effort, so the immersed hand sends fewer signals to the cortex."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Attention-demanding tasks engage top-down modulation: cortical input to the periaqueductal gray activates descending pathways that release endogenous opioids and dampen spinal transmission of pain. Why the others are wrong: A) Counting aloud does not stimulate touch fibers; peripheral gating by A-beta fibers explains vibration, not cognitive distraction. B) There is no reason counting would lower blood flow to the hand, and cold itself would reduce flow in all groups. D) Skin receptors do not adapt differently depending on mental activity; the difference must arise from central processing.",
+     "trap": "Applying the same peripheral gating mechanism to every pain-relief manipulation instead of recognizing top-down modulation.",
+     "topic": "Pain modulation",
+     "mastery_sheet_id": "6A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P1_Q4",
+     "stem": "Compared with the control condition, vibration lowered the 30-second rating by 1.9 points and distraction by 1.3 points, while the combined condition lowered it by 2.8 points. Which conclusion is best supported?",
+     "options": {
+      "A": "The combined effect was larger than the sum of the two separate effects, indicating a synergistic interaction between the two manipulations.",
+      "B": "The combined effect exactly equaled the sum of the two separate effects, so the two manipulations act on entirely independent pathways.",
+      "C": "The combined effect equaled the larger single effect (1.9 points), indicating that distraction adds no benefit when vibration is present.",
+      "D": "The combined effect was slightly smaller than the sum of the two separate effects (3.2 points), suggesting partially overlapping mechanisms."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The sum of the single effects is 1.9 + 1.3 = 3.2, which exceeds the observed 2.8, so the effects were less than fully additive, consistent with some overlap. Why the others are wrong: A) The observed combined reduction (2.8) is smaller than, not larger than, 3.2, so there is no synergy. B) The observed 2.8 does not equal 3.2, so perfect additivity is not shown. C) The combined reduction of 2.8 is well above 1.9, so distraction clearly adds benefit beyond vibration.",
+     "trap": "Comparing the combined effect only to the larger single effect rather than to the sum of both effects.",
+     "topic": "Pain modulation",
+     "mastery_sheet_id": "6A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P1_Q5",
+     "stem": "According to Figure 1, how did the difference in mean pain rating between the control and vibration conditions change over the 30-second immersion?",
+     "options": {
+      "A": "It shrank from 1.9 points at 10 seconds to 0.3 points at 30 seconds.",
+      "B": "It grew from 0.3 points at 10 seconds to 1.9 points at 30 seconds.",
+      "C": "It remained at roughly 1.9 points at each of the three time points.",
+      "D": "It was absent at 10 seconds and reversed in direction by 30 seconds."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At 10 s the ratings are 3.4 and 3.1 (difference 0.3); at 20 s, 5.6 and 4.3 (1.3); at 30 s, 7.1 and 5.2 (1.9). The gap widens as nociceptive input accumulates. Why the others are wrong: A) The values are reversed; the gap is smallest at 10 seconds. C) The gap at 10 seconds was only 0.3 points, so it was not constant. D) There was a small difference at 10 seconds and vibration ratings stayed below control throughout, so there was no reversal.",
+     "trap": "Reading the endpoint difference as if it applied at every time point.",
+     "topic": "Data interpretation",
+     "mastery_sheet_id": "6A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_PS_P2",
+   "passage_text": "Functional fixedness is a cognitive bias that limits a person to using an object only in its customary way. In a version of Duncker's candle problem, 90 undergraduates were randomly assigned to three conditions (n = 30 each). Each participant sat at a table facing a cork wall and received a candle, a book of matches, and a cardboard box of thumbtacks. The task was to attach the candle to the wall so that wax would not drip onto the table, within 10 minutes. The solution is to tack the emptied box to the wall and stand the candle in it. In the \"tacks inside\" condition, the tacks were presented inside the box. In the \"tacks beside\" condition, the tacks lay next to an empty box. In the \"incubation\" condition, tacks were presented inside the box, but after 4 minutes of work each participant spent 3 minutes on an unrelated word puzzle, which was not counted toward the 10 minutes, before returning to the problem. Table 1 summarizes the outcomes. Figure 1 shows the cumulative percentage of each group that had solved the problem by each time point.",
+   "table_data": "**Table 1. Outcomes of the candle problem**\n\n| Condition | Solved within 10 min (n of 30) | Solved (%) | Mean solution time among solvers (s) |\n|---|---|---|---|\n| Tacks inside | 9 | 30 | 436 |\n| Tacks beside | 24 | 80 | 251 |\n| Incubation | 15 | 50 | 389 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Cumulative percentage solved",
+    "x_label": "Time on problem (min)",
+    "y_label": "Participants solved (%)",
+    "series": [
+     {
+      "name": "Tacks inside",
+      "points": [
+       [
+        2,
+        3
+       ],
+       [
+        4,
+        10
+       ],
+       [
+        6,
+        20
+       ],
+       [
+        8,
+        27
+       ],
+       [
+        10,
+        30
+       ]
+      ]
+     },
+     {
+      "name": "Tacks beside",
+      "points": [
+       [
+        2,
+        20
+       ],
+       [
+        4,
+        47
+       ],
+       [
+        6,
+        67
+       ],
+       [
+        8,
+        77
+       ],
+       [
+        10,
+        80
+       ]
+      ]
+     },
+     {
+      "name": "Incubation",
+      "points": [
+       [
+        2,
+        3
+       ],
+       [
+        4,
+        10
+       ],
+       [
+        6,
+        33
+       ],
+       [
+        8,
+        43
+       ],
+       [
+        10,
+        50
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL07_PS_P2_Q1",
+     "stem": "The lower success rate in the 'tacks inside' condition than in the 'tacks beside' condition is most consistent with which explanation?",
+     "options": {
+      "A": "Participants in the tacks-inside condition lacked the working memory capacity needed to hold the candle, matches, and tacks in mind at once.",
+      "B": "Participants perceived the box only as a container for tacks and did not consider it as a platform.",
+      "C": "Participants in the tacks-inside condition relied on an algorithm that guaranteed a solution but required more time than the limit allowed.",
+      "D": "Participants in the tacks-inside condition had been primed by a confirmation bias to search for evidence that a platform was unnecessary."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Presenting the tacks inside the box emphasizes its customary function (holding tacks), so the novel function as a platform is harder to retrieve; this is functional fixedness. Why the others are wrong: A) Working memory demand was identical across conditions, since all participants received the same objects. C) An algorithm guarantees a solution; the difficulty here is a failure of insight, not a slow systematic procedure. D) Confirmation bias concerns seeking evidence for a belief, and nothing in the design induced a belief about platforms.",
+     "trap": "Attributing a difficulty of mental set to memory capacity or to a general bias without tying it to the object's customary use.",
+     "topic": "Functional fixedness",
+     "mastery_sheet_id": "6B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P2_Q2",
+     "stem": "According to Table 1, the percentage of participants who solved the problem was how many times as great in the 'tacks beside' condition as in the 'tacks inside' condition?",
+     "options": {
+      "A": "About 0.4",
+      "B": "About 2.7",
+      "C": "About 1.7",
+      "D": "About 50"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 80 / 30 = 2.67, or about 2.7 times. Why the others are wrong: A) 0.375 is the inverse ratio (30 / 80). C) 1.7 is the ratio of the incubation condition to the tacks-inside condition (50 / 30), not the beside condition. D) 50 is the difference in percentage points (80 - 30), not a ratio.",
+     "trap": "Confusing a difference in percentage points with a ratio, or inverting the ratio.",
+     "topic": "Functional fixedness",
+     "mastery_sheet_id": "6B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_PS_P2_Q3",
+     "stem": "In Figure 1, the 'incubation' curve matches the 'tacks inside' curve through minute 4 and then rises above it. Which interpretation is most consistent with this pattern?",
+     "options": {
+      "A": "The break allowed the initial fixed representation of the box to weaken, making an alternative use easier to retrieve.",
+      "B": "The break increased the participants' motivation to earn a reward, which increased the speed of their systematic trial-and-error search.",
+      "C": "The break provided participants with a hint about the intended solution, so they applied an algorithm after returning.",
+      "D": "The break reduced participants' capacity for selective attention, so they ignored the tacks and attended to the box."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Time away from the problem can let the initial, unhelpful mental set fade so that new interpretations (the box as a shelf) emerge when work resumes; this is an incubation effect. Why the others are wrong: B) No reward was offered, and the curve shows a jump in solutions after the break, not faster systematic search. C) The unrelated word puzzle carried no hint about the solution, so no algorithm was supplied. D) Reduced attention to the tacks would not by itself generate the new use of the box; the explanation requires a change in mental set.",
+     "trap": "Assuming that any improvement after a pause must come from outside help or a change in motivation.",
+     "topic": "Problem solving",
+     "mastery_sheet_id": "6B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P2_Q4",
+     "stem": "Which statement is supported by Figure 1?",
+     "options": {
+      "A": "By minute 4, a larger percentage of the 'tacks beside' group had solved the problem than the 'tacks inside' group ever reached by minute 10.",
+      "B": "By minute 4, the 'incubation' group had solved the problem at about twice the rate of the 'tacks inside' group.",
+      "C": "By minute 10, the 'tacks beside' and 'incubation' groups had solved the problem at similar cumulative rates.",
+      "D": "The percentage solved in the 'tacks beside' group stopped increasing after minute 6 as participants ran out of solutions."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At minute 4 the beside group is at 47%, which already exceeds the 30% that the inside group reached at minute 10. Why the others are wrong: B) At minute 4 the incubation and inside curves are identical (10%), since the break was only afterward. C) At minute 10 the values are 80% and 50%, which are not similar. D) The beside curve still rose from 67% to 80% after minute 6.",
+     "trap": "Missing that the incubation manipulation began only after minute 4.",
+     "topic": "Data interpretation",
+     "mastery_sheet_id": "6B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_PS_P3",
+   "passage_text": "Drive-reduction theory holds that physiological deficits create a drive that organisms are motivated to reduce, whereas incentive theory holds that motivation is also pulled by the value of external rewards. A researcher tested predictions of both theories in 48 rats trained to run down a straight alley for food. In a 2 x 2 design, rats (n = 12 per cell) were food-deprived for either 4 hours or 22 hours before testing and found either 1 or 5 food pellets in a goal box. After training, the mean running speed in the final 50 cm of the alley was measured over five test trials. In a separate group of 12 rats deprived for 22 hours, blood samples were drawn before and after a meal to measure plasma ghrelin. Mean running speeds are shown in Table 1 and Figure 1. Ghrelin was 410 pg/mL before the meal and 190 pg/mL 30 minutes after eating.",
+   "table_data": "**Table 1. Mean running speed (cm/s)**\n\n| Deprivation | 1 pellet | 5 pellets |\n|---|---|---|\n| 4 hours | 22 | 41 |\n| 22 hours | 38 | 61 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Running speed by deprivation and reward size",
+    "x_label": "Hours of food deprivation",
+    "y_label": "Mean running speed (cm/s)",
+    "series": [
+     {
+      "name": "1 pellet",
+      "points": [
+       [
+        4,
+        22
+       ],
+       [
+        22,
+        38
+       ]
+      ]
+     },
+     {
+      "name": "5 pellets",
+      "points": [
+       [
+        4,
+        41
+       ],
+       [
+        22,
+        61
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL07_PS_P3_Q1",
+     "stem": "Which result in Table 1 is best explained by drive-reduction theory?",
+     "options": {
+      "A": "Rats given 5 pellets ran faster than rats given 1 pellet at both levels of deprivation.",
+      "B": "Rats deprived for 22 hours and given 1 pellet ran at nearly the same speed as rats deprived for 4 hours and given 5 pellets.",
+      "C": "Rats deprived for 4 hours ran at a nonzero speed even when they found only a single pellet.",
+      "D": "Rats deprived for 22 hours ran faster than rats deprived for 4 hours at both reward sizes."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A greater physiological deficit (longer deprivation) creates a stronger hunger drive, and the animal is more motivated to act to reduce it. Why the others are wrong: A) Faster running for larger rewards depends on the incentive value of the goal, which is the central claim of incentive theory. B) These two cells (38 versus 41 cm/s) differ in both deprivation and reward, so their similarity does not isolate the effect of deprivation. C) Running at a nonzero speed after brief deprivation reflects incentive and learned expectations and is not a prediction specific to drive reduction.",
+     "trap": "Treating any increase in motivation as evidence for drive reduction, rather than an effect that depends on internal need.",
+     "topic": "Drive reduction theory",
+     "mastery_sheet_id": "6C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P3_Q2",
+     "stem": "In rats deprived for 4 hours, increasing the reward from 1 to 5 pellets raised the running speed by how much?",
+     "options": {
+      "A": "19 cm/s",
+      "B": "16 cm/s",
+      "C": "23 cm/s",
+      "D": "20 cm/s"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 41 - 22 = 19 cm/s. Why the others are wrong: B) 16 cm/s is the effect of deprivation with 1 pellet (38 - 22), not of reward size. C) 23 cm/s is the effect of reward size at 22 hours of deprivation (61 - 38). D) 20 cm/s is the effect of deprivation with 5 pellets (61 - 41).",
+     "trap": "Subtracting along the wrong row or column of a 2 x 2 table.",
+     "topic": "Incentive theory",
+     "mastery_sheet_id": "6C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_PS_P3_Q3",
+     "stem": "The finding that plasma ghrelin fell after the meal supports which statement about the physiological basis of hunger?",
+     "options": {
+      "A": "Ghrelin released by adipose tissue signals long-term energy stores to the ventromedial hypothalamus, and its level rises after eating.",
+      "B": "Ghrelin released by the pancreas lowers blood glucose after a meal, and its level rises with insulin.",
+      "C": "Ghrelin released by the small intestine produces satiety through the vagus nerve, and its level rises as the meal is digested.",
+      "D": "Ghrelin released by the empty stomach stimulates hunger circuits in the lateral hypothalamus, and its level declines after eating."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Ghrelin is secreted by the stomach during fasting and promotes hunger; its decline after the meal fits its role as a hunger signal. Why the others are wrong: A) That description matches leptin, a satiety hormone from fat cells, and ghrelin falls rather than rises after eating. B) Insulin and glucagon come from the pancreas; ghrelin does not act as a glucose-lowering hormone. C) The satiety hormones from the intestine (such as CCK) rise after eating; ghrelin falls.",
+     "trap": "Mixing up ghrelin (hunger) with leptin or intestinal satiety hormones.",
+     "topic": "Hunger regulation",
+     "mastery_sheet_id": "6C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P3_Q4",
+     "stem": "The effect of deprivation was 16 cm/s with 1 pellet and 20 cm/s with 5 pellets. Which conclusion is best supported?",
+     "options": {
+      "A": "Deprivation and reward size each increased speed, and the two effects were approximately additive.",
+      "B": "Deprivation increased speed only when the reward was small, and reward size mattered only at high deprivation.",
+      "C": "Reward size increased speed only in well-fed rats, which supports drive reduction as the sole determinant of motivation.",
+      "D": "The two factors canceled each other, so rats with both high deprivation and a large reward ran at the slowest speed."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Each factor raises speed on its own (16 to 20 cm/s from deprivation, about 19 to 23 cm/s from reward), and the effect of one is nearly unchanged by the level of the other, so the effects roughly add. Why the others are wrong: B) Deprivation raised speed at both reward sizes, and reward size raised speed at both deprivation levels. C) Reward size raised speed at both levels of deprivation, so it did not matter only for well-fed rats. D) The highest speed (61 cm/s) occurred with both high deprivation and a large reward, so the factors did not cancel.",
+     "trap": "Concluding that a small difference between effects means one factor operates alone.",
+     "topic": "Motivation theories",
+     "mastery_sheet_id": "6C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P3_Q5",
+     "stem": "Which feature of the design most strongly allows the researcher to distinguish incentive effects from drive effects?",
+     "options": {
+      "A": "Crossing two levels of deprivation with two reward sizes, so that each factor varies while the other is held constant.",
+      "B": "Using a straight alley rather than a maze, so that the rats' path to the goal box is the same on every trial.",
+      "C": "Measuring running speed only in the final 50 cm, so that the rats' fatigue does not reduce the speed measurement.",
+      "D": "Collecting blood samples from a separate group of rats, so that the sampling does not alter the running behavior."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) A factorial design lets the effects of internal state (deprivation) and external reward (pellet number) be separated and compared. Why the others are wrong: B) A fixed path controls for navigation but does not separate the two motivational sources, which both vary across cells. C) Measuring a restricted segment helps standardize speed but does not distinguish drive from incentive. D) Separating the blood-sampling group controls for stress from sampling but tells nothing about drive versus incentive.",
+     "trap": "Choosing a design detail that improves precision but does not manipulate the two hypothesized factors.",
+     "topic": "Experimental design",
+     "mastery_sheet_id": "6C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_PS_P4",
+   "passage_text": "The dopamine hypothesis of schizophrenia proposes that excess dopamine activity in mesolimbic pathways contributes to positive symptoms, whereas reduced dopamine activity in mesocortical pathways contributes to negative symptoms. In an 8-week double-blind trial, 120 adults with schizophrenia were randomly assigned to a D2 receptor antagonist (n = 60) or placebo (n = 60). Symptoms were scored with the Positive and Negative Syndrome Scale (PANSS); higher subscale scores indicate more severe symptoms. The positive subscale includes hallucinations and delusions, and the negative subscale includes blunted affect and social withdrawal. In a subsample of 8 drug-treated patients, positron emission tomography at week 4 estimated the percentage of striatal D2 receptors occupied by the drug. Clinicians also recorded motor side effects such as muscle rigidity and tremor. All clinicians who rated symptoms and all participants were unaware of group assignment, and ratings were made at baseline and again at week 8. Table 1 gives group results. Figure 1 plots each PET patient's drop in positive-subscale score from baseline to week 8 against D2 occupancy.",
+   "table_data": "**Table 1. PANSS scores and side effects**\n\n| Measure | Drug (n = 60) | Placebo (n = 60) |\n|---|---|---|\n| Positive subscale, baseline | 24.6 | 24.2 |\n| Positive subscale, week 8 | 16.1 | 21.8 |\n| Negative subscale, baseline | 22.3 | 22.5 |\n| Negative subscale, week 8 | 20.9 | 21.9 |\n| Motor side effects, n (%) | 13 (22%) | 3 (5%) |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Improvement versus D2 occupancy (drug group subsample)",
+    "x_label": "Striatal D2 occupancy (%)",
+    "y_label": "Drop in positive subscale score",
+    "series": [
+     {
+      "name": "Patients",
+      "points": [
+       [
+        38,
+        1.5
+       ],
+       [
+        48,
+        3
+       ],
+       [
+        55,
+        5
+       ],
+       [
+        62,
+        7
+       ],
+       [
+        68,
+        9
+       ],
+       [
+        74,
+        11
+       ],
+       [
+        80,
+        11.5
+       ],
+       [
+        87,
+        12
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL07_PS_P4_Q1",
+     "stem": "According to Table 1, the drug group's improvement on the positive subscale exceeded the placebo group's improvement by how many points?",
+     "options": {
+      "A": "8.5",
+      "B": "2.4",
+      "C": "6.1",
+      "D": "5.7"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Drug change = 24.6 - 16.1 = 8.5; placebo change = 24.2 - 21.8 = 2.4; the difference is 8.5 - 2.4 = 6.1. Why the others are wrong: A) 8.5 is the drug group's change alone and ignores the placebo improvement. B) 2.4 is the placebo group's change alone. D) 5.7 is the difference between the week 8 scores (21.8 - 16.1), which ignores the slightly different baselines.",
+     "trap": "Comparing endpoint scores or a single group's change instead of the difference between changes.",
+     "topic": "Schizophrenia treatment",
+     "mastery_sheet_id": "7A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_PS_P4_Q2",
+     "stem": "The small change in negative symptoms in the drug group is most consistent with which idea?",
+     "options": {
+      "A": "Negative symptoms result from excess dopamine in the mesolimbic pathway, which the D2 antagonist cannot reach because of the blood-brain barrier.",
+      "B": "Negative symptoms are caused by excess serotonin in the prefrontal cortex, so a D2 antagonist has no pharmacological target.",
+      "C": "Negative symptoms are linked to low dopamine activity in mesocortical pathways, which a D2 antagonist would not be expected to raise.",
+      "D": "Negative symptoms develop only after months of illness, so they cannot be altered by any medication given for 8 weeks."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Under the dopamine hypothesis, negative symptoms reflect reduced mesocortical dopamine, and blocking D2 receptors does not restore it. Why the others are wrong: A) Excess mesolimbic dopamine is tied to positive symptoms, and the drug evidently crossed into the brain since positive symptoms improved. B) The trial gives no evidence about serotonin, and the hypothesis described in the passage involves dopamine. D) The 8-week trial showed improvement in positive symptoms, so duration alone does not explain the lack of change in negative symptoms.",
+     "trap": "Assuming that a drug that lowers positive symptoms should lower all symptoms of the illness.",
+     "topic": "Dopamine hypothesis",
+     "mastery_sheet_id": "7A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P4_Q3",
+     "stem": "The 2.4-point improvement in the placebo group most likely reflects which of the following?",
+     "options": {
+      "A": "Partial blockade of D2 receptors by the inert tablet, which acts as a weak antagonist.",
+      "B": "Expectancy and nonspecific effects of participation, along with natural fluctuation of symptoms.",
+      "C": "Experimenter bias introduced because clinicians knew which patients had received the drug.",
+      "D": "A ceiling effect that prevented patients in the drug group from improving as much as those given placebo."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Patients given an inactive pill often improve because of expectancy, attention, and regression of symptom severity; this is why a placebo control is needed. Why the others are wrong: A) A placebo is pharmacologically inert and does not occupy receptors. C) The trial was double-blind, so clinicians did not know the assignments. D) The drug group improved more, so there was no ceiling effect limiting it.",
+     "trap": "Treating improvement in a control group as evidence of an active ingredient or of a flaw in the blinding.",
+     "topic": "Clinical trials",
+     "mastery_sheet_id": "7A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P4_Q4",
+     "stem": "Based on Figure 1, which conclusion about D2 occupancy is best supported?",
+     "options": {
+      "A": "Improvement decreased steadily as occupancy increased, with the largest drop in scores at the lowest occupancy.",
+      "B": "Improvement was unrelated to occupancy, since patients at 38% and 87% occupancy both showed some improvement.",
+      "C": "Improvement rose steeply with occupancy up to about 74% and then increased little at higher occupancy.",
+      "D": "Improvement increased in direct proportion to occupancy across the entire range, with no change in slope."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The drop goes from 1.5 at 38% to 11 at 74%, then only to 12 at 87%, indicating a plateau. Why the others are wrong: A) The points show larger drops at higher occupancy, so the relationship is positive. B) Improvement ranged from 1.5 to 12 across the occupancy range, which indicates a strong relationship. D) The slope is steeper at lower occupancy than above 74%, so the relationship is not strictly proportional.",
+     "trap": "Reading any positive value as no relationship, or extending a linear trend past a plateau.",
+     "topic": "Data interpretation",
+     "mastery_sheet_id": "7A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P4_Q5",
+     "stem": "Which of the following best explains the greater frequency of muscle rigidity and tremor in the drug group?",
+     "options": {
+      "A": "The antagonist enhanced D2 transmission in the mesolimbic pathway, which projects to the motor cortex.",
+      "B": "The antagonist raised acetylcholine release in the cerebellum, which disrupted the timing of voluntary movement.",
+      "C": "The antagonist also blocked D2 receptors in the nigrostriatal pathway, which is involved in motor control.",
+      "D": "The antagonist depleted dopamine in the hippocampus, which impaired planning of movement sequences."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Dopamine in the nigrostriatal pathway supports movement through the basal ganglia, and blocking D2 receptors there produces parkinsonian symptoms such as rigidity and tremor. Why the others are wrong: A) An antagonist reduces rather than enhances D2 transmission, and the mesolimbic pathway is involved in reward rather than motor output. B) The passage does not suggest changes in cerebellar acetylcholine, and the antagonist acts on dopamine receptors. D) The hippocampus is involved in memory, and rigidity and tremor point to the basal ganglia.",
+     "trap": "Assigning motor side effects to brain regions chosen by name familiarity rather than by the dopamine pathway involved.",
+     "topic": "Dopamine pathways",
+     "mastery_sheet_id": "7A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_PS_P5",
+   "passage_text": "Groupthink describes a pattern in which pressure for agreement leads cohesive groups to make poor decisions. A researcher assigned 36 four-person groups of university students to three conditions (12 groups each). Each group read a case file about three candidates for a research position and had 30 minutes to choose one. The file was written so that the best candidate could be identified only if members combined information that had been given to individual members alone (unshared information). Groups in the first condition were composed of friends and led by a member who was instructed to state a preferred candidate at the start. Groups in the second condition were also composed of friends, but one member was randomly assigned the role of devil's advocate and told to challenge the emerging consensus. Groups in the third condition were composed of strangers with no leader. Recorded discussions were coded for the percentage of unshared information items mentioned. After deciding, each member rated confidence in the group's choice from 1 to 10. Results are in Table 1.",
+   "table_data": "**Table 1. Group decision outcomes (12 groups per condition)**\n\n| Condition | Groups choosing best candidate | Unshared items mentioned (%) | Mean confidence (1-10) |\n|---|---|---|---|\n| Friends, directive leader | 4 (33%) | 38 | 8.6 |\n| Friends, devil's advocate | 8 (67%) | 64 | 7.2 |\n| Strangers, no leader | 7 (58%) | 60 | 6.8 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL07_PS_P5_Q1",
+     "stem": "Which result in Table 1 is most characteristic of groupthink?",
+     "options": {
+      "A": "Friends with a devil's advocate reported the lowest confidence while choosing the best candidate most often.",
+      "B": "Strangers with no leader mentioned more unshared information than friends with a directive leader and chose correctly more often.",
+      "C": "Friends with a devil's advocate mentioned the largest share of unshared items and rated their confidence below the directive-leader groups.",
+      "D": "Friends with a directive leader reported the highest confidence while choosing the best candidate least often."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Groupthink involves illusions of invulnerability and unanimity and self-censorship, which show up as high confidence alongside poor decisions and little sharing of dissenting information. Why the others are wrong: A) The devil's advocate groups did not have the lowest confidence (the strangers did), and high accuracy is not a sign of groupthink. B) This pattern is the expected result of less cohesion and no directive pressure; it is not itself a symptom of groupthink. C) This describes a group in which dissent was encouraged and decisions were better, the opposite of groupthink.",
+     "trap": "Choosing a result that shows better decisions rather than the combination of high confidence and low quality.",
+     "topic": "Groupthink",
+     "mastery_sheet_id": "7B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P5_Q2",
+     "stem": "By what factor was the proportion of groups choosing the best candidate greater in the devil's advocate condition than in the directive leader condition?",
+     "options": {
+      "A": "1.1",
+      "B": "0.5",
+      "C": "2",
+      "D": "4"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 8/12 divided by 4/12 equals 2. Why the others are wrong: A) 1.1 is the ratio of the devil's advocate groups to the stranger groups (8 / 7), which is a different comparison. B) 0.5 is the inverse ratio (4 / 8). D) 4 is the number of successful groups in the directive condition, not the ratio.",
+     "trap": "Inverting the ratio or reporting a raw count instead of the comparison.",
+     "topic": "Groupthink",
+     "mastery_sheet_id": "7B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_PS_P5_Q3",
+     "stem": "Assigning one member to challenge the emerging consensus most likely improved decisions by doing which of the following?",
+     "options": {
+      "A": "Increasing the group's cohesiveness so that members felt more committed to the first candidate named.",
+      "B": "Increasing deindividuation so that members felt less personally accountable for the choice.",
+      "C": "Reducing self-censorship and normative pressure so that unshared information entered the discussion.",
+      "D": "Increasing social facilitation so that members performed the well-learned task more quickly."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A designated dissenter makes disagreement legitimate, weakens conformity pressure, and encourages sharing of information that contradicts the early preference. Why the others are wrong: A) Greater cohesiveness is an antecedent of groupthink; the friends in both conditions were equally cohesive. B) Deindividuation relates to loss of self-awareness in crowds, not to reasoned dissent in a small discussion. D) Social facilitation concerns performance of simple or well-learned tasks in the presence of others, not complex judgment.",
+     "trap": "Naming a social-psychology term that sounds related to group effects without matching the described mechanism.",
+     "topic": "Groupthink",
+     "mastery_sheet_id": "7B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P5_Q4",
+     "stem": "Which limitation of the design most weakens the conclusion that cohesion by itself caused the poor decisions in the first condition?",
+     "options": {
+      "A": "Cohesion was varied together with leader directiveness, so the two factors cannot be separated.",
+      "B": "Each group contained only four members, so no group was large enough to show conformity pressure.",
+      "C": "Confidence ratings were collected after the decision, so members' ratings could not be influenced by the outcome.",
+      "D": "Groups were assigned to conditions at random, so differences among the groups would not reflect chance."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The directive-leader condition differs from the stranger condition in both cohesion and leadership, so a factorial design would be needed to isolate cohesion. Why the others are wrong: B) Conformity pressure operates in small groups, and four-person groups are typical in such research. C) Collecting confidence after the decision is a procedural choice and does not confound cohesion with leadership. D) Random assignment is a strength of the design, not a limitation, and it is not the main concern.",
+     "trap": "Citing a generic procedural detail instead of the confound that links two manipulated factors.",
+     "topic": "Experimental design",
+     "mastery_sheet_id": "7B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_PS_P6",
+   "passage_text": "Evaluative conditioning refers to changes in liking that result from pairing a neutral stimulus with a stimulus that already evokes a positive or negative reaction. In one study, 90 adults saw images of an unfamiliar brand of pen (Brand X) on a computer screen. Participants were randomly assigned to three groups (n = 30 each). In the positive group, each Brand X image was shown immediately before a pleasant image such as a puppy or a sunset. In the negative group, each Brand X image preceded an unpleasant image such as a spoiled meal. In the random group, Brand X images and pleasant or unpleasant images were shown in random order with no consistent pairing. Before and after the session, participants rated their attitude toward Brand X from -5 (very negative) to +5 (very positive). Table 1 shows mean ratings after 16 pairings. In a second set of participants, ratings were measured after different numbers of pairings, shown in Figure 1. Afterward, all participants rated a similar pen from Brand Y, which had never been shown.",
+   "table_data": "**Table 1. Mean attitude toward Brand X**\n\n| Group | Before | After 16 pairings | Brand Y after session |\n|---|---|---|---|\n| Positive pairing | 0.1 | 2.3 | 1.1 |\n| Negative pairing | -0.1 | -1.9 | -0.8 |\n| Random | 0.0 | 0.2 | 0.1 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Attitude toward Brand X by number of pairings",
+    "x_label": "Number of pairings",
+    "y_label": "Mean attitude rating (-5 to +5)",
+    "series": [
+     {
+      "name": "Positive pairing",
+      "points": [
+       [
+        0,
+        0.1
+       ],
+       [
+        2,
+        0.9
+       ],
+       [
+        4,
+        1.6
+       ],
+       [
+        8,
+        2.1
+       ],
+       [
+        16,
+        2.3
+       ]
+      ]
+     },
+     {
+      "name": "Negative pairing",
+      "points": [
+       [
+        0,
+        -0.1
+       ],
+       [
+        2,
+        -0.7
+       ],
+       [
+        4,
+        -1.3
+       ],
+       [
+        8,
+        -1.7
+       ],
+       [
+        16,
+        -1.9
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL07_PS_P6_Q1",
+     "stem": "In the positive pairing group, which element of the procedure is the unconditioned stimulus?",
+     "options": {
+      "A": "The image of Brand X shown before the pleasant image.",
+      "B": "The positive attitude toward Brand X after the session.",
+      "C": "The computer screen on which the images were presented.",
+      "D": "The pleasant image shown after the pen."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The pleasant image already evokes a positive response without learning, so it is the unconditioned stimulus; the pen becomes the conditioned stimulus. Why the others are wrong: A) Brand X is the neutral stimulus that becomes the conditioned stimulus. B) The learned positive attitude toward the pen is the conditioned response. C) The screen is constant across all groups and does not elicit the response.",
+     "trap": "Confusing the neutral stimulus that acquires meaning with the stimulus that already carries it.",
+     "topic": "Classical conditioning",
+     "mastery_sheet_id": "7C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P6_Q2",
+     "stem": "By how many rating points did the mean attitude toward Brand X change in the negative pairing group between the start and the end of the session?",
+     "options": {
+      "A": "-1.9",
+      "B": "-1.8",
+      "C": "-2.0",
+      "D": "1.8"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) -1.9 - (-0.1) = -1.8. Why the others are wrong: A) -1.9 is the final rating, not the change from the starting rating. C) -2.0 results from adding the baseline instead of subtracting it. D) 1.8 gives the magnitude but loses the direction of the change.",
+     "trap": "Reporting the final value or mishandling the sign of a negative baseline.",
+     "topic": "Classical conditioning",
+     "mastery_sheet_id": "7C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_PS_P6_Q3",
+     "stem": "The purpose of the random group was primarily to rule out which alternative explanation?",
+     "options": {
+      "A": "That participants' attitudes changed because of operant reinforcement for choosing the pleasant images.",
+      "B": "That mere exposure to Brand X and to the images, rather than their consistent pairing, altered the ratings.",
+      "C": "That participants in the positive and negative groups differed from one another in the amount of social desirability bias they showed.",
+      "D": "That the pleasant and unpleasant images had different intensities, which changed the order effects."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The random group sees the same stimuli as the other groups but without contingency, so any change due to exposure alone would appear there too; its ratings barely moved (0.0 to 0.2). Why the others are wrong: A) No responses were reinforced in this procedure, so operant reinforcement is not an alternative explanation here. C) Social desirability would be similar in all groups; the random group does not specifically test it. D) Image intensity is a feature of the stimuli and is not addressed by removing the contingency.",
+     "trap": "Treating a control group as a check against every possible bias instead of the specific contingency being tested.",
+     "topic": "Experimental design",
+     "mastery_sheet_id": "7C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P6_Q4",
+     "stem": "Which statement about learning is best supported by Figure 1?",
+     "options": {
+      "A": "Each additional pairing produced a smaller change in attitude as the number of pairings increased.",
+      "B": "The attitude changed at a constant rate across the 16 pairings in both groups.",
+      "C": "Negative pairings produced a larger change in attitude than positive pairings at every number of pairings.",
+      "D": "Attitudes changed little during the first four pairings and then changed rapidly."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The positive group's rating rose by 0.8 over the first 2 pairings but only 0.2 over the last 8, a negatively accelerated acquisition curve. Why the others are wrong: B) A constant rate would give a straight line, but the curves flatten. C) The positive ratings were larger in magnitude than the negative ratings at 16 pairings (2.3 versus 1.9). D) The largest changes occurred in the earliest pairings, not later.",
+     "trap": "Reading a flattening curve as a constant rate of learning.",
+     "topic": "Classical conditioning",
+     "mastery_sheet_id": "7C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P6_Q5",
+     "stem": "The ratings of Brand Y in Table 1 (1.1 in the positive group and -0.8 in the negative group) are most consistent with which phenomenon?",
+     "options": {
+      "A": "Extinction of the conditioned attitude because Brand Y was never paired with an image.",
+      "B": "Stimulus generalization of the conditioned attitude to a similar pen.",
+      "C": "Spontaneous recovery of the conditioned attitude after a rest period.",
+      "D": "Sensitization to all pens as a result of repeated exposure to emotional images."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A conditioned response can transfer to stimuli similar to the conditioned stimulus, so Brand Y took on a milder form of the attitudes toward Brand X. Why the others are wrong: A) Extinction requires repeated presentation of the conditioned stimulus without the unconditioned stimulus, and Brand Y was never conditioned. C) Spontaneous recovery refers to the return of an extinguished response after a delay, and no extinction occurred. D) Sensitization would raise responses to all stimuli in the same direction, whereas the ratings diverged by group.",
+     "trap": "Naming a conditioning process that involves a different procedure than the one described.",
+     "topic": "Classical conditioning",
+     "mastery_sheet_id": "7C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_PS_P7",
+   "passage_text": "Sociologists consider the family the primary agent of socialization, the process through which children learn the norms and expectations of their society. A research team analyzed a survey of 2,400 adolescents in a metropolitan region who were sorted by household type: two biological parents, a single parent, a stepfamily, or a multigenerational household that included grandparents. Adolescents reported the average weekly hours that at least one adult in the home directly supervised their activities. The researchers obtained grade point average (GPA, 4.0 scale) from school records and asked whether each adolescent expected to complete a four-year college degree. They also recorded household income, which was lowest on average in single-parent households and highest in two-parent households. The researchers were interested in whether differences in supervision and educational outcomes across household types persisted after the survey was weighted to match the region's population, and whether the patterns could be interpreted as evidence of causal effects of family structure. Table 1 presents the unweighted results by household type.",
+   "table_data": "**Table 1. Adolescent outcomes by household type**\n\n| Household type | n | Supervision (hours/week) | Mean GPA | Expect college degree (%) |\n|---|---|---|---|---|\n| Two biological parents | 1,200 | 24 | 3.2 | 78 |\n| Single parent | 600 | 15 | 2.9 | 61 |\n| Stepfamily | 360 | 17 | 2.9 | 64 |\n| Multigenerational | 240 | 29 | 3.1 | 70 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL07_PS_P7_Q1",
+     "stem": "Approximately how many single-parent adolescents in the sample expected to complete a four-year college degree?",
+     "options": {
+      "A": "61",
+      "B": "390",
+      "C": "366",
+      "D": "234"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 0.61 x 600 = 366. Why the others are wrong: A) 61 is the percentage, not the number of adolescents. B) 390 is 0.65 x 600 and is not based on the Table 1 percentage for this group. D) 234 is the number who did not expect a degree (0.39 x 600).",
+     "trap": "Reporting the percentage as a count or computing the complement.",
+     "topic": "Family and socialization",
+     "mastery_sheet_id": "9A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_PS_P7_Q2",
+     "stem": "What is the mean weekly supervision across all 2,400 adolescents in the sample?",
+     "options": {
+      "A": "About 22 hours, the midpoint of the highest and lowest group means",
+      "B": "About 24 hours, the value for the largest group",
+      "C": "About 17 hours, the mean for stepfamily adolescents",
+      "D": "About 21 hours"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The weighted mean is (1,200 x 24 + 600 x 15 + 360 x 17 + 240 x 29) / 2,400 = 50,880 / 2,400 = 21.2 hours. Why the others are wrong: A) The midpoint of the extreme group means ignores how many adolescents are in each household type. B) The largest group's mean describes only that group, not the entire sample. C) The stepfamily mean describes only one subgroup, not the entire sample.",
+     "trap": "Averaging group means without weighting by group size.",
+     "topic": "Family and socialization",
+     "mastery_sheet_id": "9A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_PS_P7_Q3",
+     "stem": "A reader concludes that growing up in a single-parent household reduces educational outcomes. Which additional information from the passage most seriously challenges this causal claim?",
+     "options": {
+      "A": "Multigenerational households had the highest supervision, which shows that more adults always lead to better grades.",
+      "B": "Single-parent households also had the lowest average income, which could explain both the household type and the outcomes.",
+      "C": "Stepfamilies had GPAs similar to single-parent households, which shows that household structure itself has no effect on grades.",
+      "D": "Two-parent households contained the largest number of adolescents, which makes their mean GPA more precise."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Household income is a plausible confounder that is related to both family structure and educational outcomes, so the association cannot be read as causal. Why the others are wrong: A) The multigenerational GPA (3.1) was below the two-parent GPA (3.2), so more adults do not 'always' improve grades; this also does not address the confound. C) Similar GPAs in two household types does not show that structure has no effect and does not address confounding by income. D) Precision from sample size is unrelated to whether a correlation reflects causation.",
+     "trap": "Treating a correlation between family type and outcomes as causal without considering shared third variables.",
+     "topic": "Correlation and confounding",
+     "mastery_sheet_id": "9A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P7_Q4",
+     "stem": "Which statement best reflects the conflict perspective on these findings?",
+     "options": {
+      "A": "Families transmit unequal resources and advantages across generations, so differences in outcomes reproduce existing social class inequality.",
+      "B": "Families perform essential functions such as raising children, and differences in outcomes reflect temporary problems of adaptation by the institution.",
+      "C": "Families create meanings through everyday interaction, and the adolescent's outcome depends on how the adolescent defines the household.",
+      "D": "Families maintain solidarity through shared rituals, so each household type contributes in the same way to social cohesion."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Conflict theory emphasizes how institutions such as the family distribute power and resources unequally and help reproduce social stratification. Why the others are wrong: B) This describes the structural-functionalist view of the family as a stable institution performing needed functions. C) This describes the symbolic interactionist emphasis on meanings created in interaction. D) This is closer to a Durkheimian functionalist argument about ritual and cohesion.",
+     "trap": "Confusing the functionalist and conflict perspectives on institutions.",
+     "topic": "Sociological perspectives",
+     "mastery_sheet_id": "9A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_PS_P8",
+   "passage_text": "Migration scholars distinguish push factors, which drive people away from an origin, from pull factors, which attract them to a destination. A national statistics office compiled data on emigration from four provinces of a middle-income country to a wealthier neighboring country over one year. For each province, officials calculated the emigration rate per 1,000 residents using population and the number of recorded emigrants. They also recorded the provincial unemployment rate and the percentage of households with a relative already living in the destination country (a measure of established migrant networks). The average wage in the destination country was about three times the wage in any of the four provinces. The recorded emigrants were those who registered a change of residence with consular offices, so informal moves were not counted. Population figures came from the most recent national census. Table 1 gives the data. Figure 1 plots each province's emigration rate against its unemployment rate.",
+   "table_data": "**Table 1. Provincial emigration data**\n\n| Province | Population | Emigrants | Unemployment (%) | Households with relative abroad (%) |\n|---|---|---|---|---|\n| A | 2,000,000 | 24,000 | 14 | 40 |\n| B | 1,500,000 | 9,000 | 8 | 25 |\n| C | 800,000 | 1,600 | 5 | 10 |\n| D | 3,000,000 | 45,000 | 16 | 48 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Emigration rate versus unemployment",
+    "x_label": "Provincial unemployment rate (%)",
+    "y_label": "Emigration rate (per 1,000 residents)",
+    "series": [
+     {
+      "name": "Provinces",
+      "points": [
+       [
+        14,
+        12
+       ],
+       [
+        8,
+        6
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        16,
+        15
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL07_PS_P8_Q1",
+     "stem": "What was the emigration rate for Province B, in emigrants per 1,000 residents?",
+     "options": {
+      "A": "6",
+      "B": "0.6",
+      "C": "60",
+      "D": "16.7"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 9,000 / 1,500,000 = 0.006, or 6 per 1,000. Why the others are wrong: B) 0.6 is the rate per 100 residents (0.6%), not per 1,000. C) 60 is a misplaced decimal; the rate per 10,000 would be 60. D) 16.7 is the population per emigrant divided by 10 and is not a rate.",
+     "trap": "Misplacing the decimal when converting a proportion to a per-1,000 rate.",
+     "topic": "Migration",
+     "mastery_sheet_id": "9B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_PS_P8_Q2",
+     "stem": "Which of the following is best classified as a pull factor in this scenario?",
+     "options": {
+      "A": "High unemployment rates in Provinces A and D.",
+      "B": "Low wages relative to living costs in each province of origin.",
+      "C": "Average wages in the destination country about three times those in the provinces.",
+      "D": "The lack of available jobs for new graduates in Province C."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Pull factors are attractive features of the destination, such as higher wages and job availability. Why the others are wrong: A) Unemployment at the place of origin is a push factor. B) Low purchasing power at the origin is a push factor, since it is a condition of the origin. D) A scarcity of jobs at home is a push factor.",
+     "trap": "Labeling any economic factor as a pull factor without checking whether it describes the origin or the destination.",
+     "topic": "Push and pull factors",
+     "mastery_sheet_id": "9B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P8_Q3",
+     "stem": "The higher emigration rates in provinces where more households have a relative abroad are most consistent with which concept?",
+     "options": {
+      "A": "Urban ecology, in which cities develop concentric zones that attract new migrants to specific neighborhoods of a city.",
+      "B": "Demographic transition, in which falling mortality is followed by falling fertility as a country industrializes.",
+      "C": "Rationalization, in which social life becomes increasingly governed by efficiency and formal rules.",
+      "D": "Chain migration, in which established migrants provide information, housing, and jobs that lower the cost and risk of moving."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Social networks of earlier migrants reduce barriers for those who follow, which produces chain migration and clustering of origin communities. Why the others are wrong: A) Urban ecology concerns spatial patterns within cities, not the effect of networks on emigration from provinces. B) Demographic transition addresses birth and death rates, not network effects on migration. C) Rationalization is a Weberian concept about the organization of institutions and does not explain network migration.",
+     "trap": "Selecting a demography or sociology term that sounds relevant but describes a different process.",
+     "topic": "Migration",
+     "mastery_sheet_id": "9B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P8_Q4",
+     "stem": "The researchers conclude that unemployed individuals are the ones most likely to emigrate. Why is this conclusion not justified by Figure 1?",
+     "options": {
+      "A": "The scatter plot contains only four points, so a pattern in the data can never be detected.",
+      "B": "Unemployment and emigration rates are both expressed as percentages, so they cannot be compared directly.",
+      "C": "The relationship in the figure is negative, which contradicts the claim that unemployment promotes emigration.",
+      "D": "The data are at the province level, so they cannot show that the people who left were the unemployed ones."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Inferring individual behavior from group-level correlations is the ecological fallacy; individual-level data on migrants' employment would be needed. Why the others are wrong: A) Four points are few, but the issue is the level of analysis, and a pattern can be seen in them. B) Variables measured in different units can still be correlated and plotted together. C) The figure shows a positive relationship: higher unemployment goes with higher emigration.",
+     "trap": "Reading an aggregate-level association as proof about the individuals within the aggregate.",
+     "topic": "Correlation and confounding",
+     "mastery_sheet_id": "9B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_PS_P9",
+   "passage_text": "Sociologists studying gender stratification often compare women's and men's earnings after statistically adjusting for differences in worker characteristics. A researcher analyzed payroll records for 8,000 full-time employees (4,000 women and 4,000 men) at a large set of firms. The outcome was median hourly wage. All firms used similar full-time job classifications, and wages excluded bonuses and overtime pay. Women and men in the sample were similar in age on average. Table 1 reports the ratio of women's to men's wages (1.00 would indicate equal pay) under four statistical models that added control variables cumulatively. The researcher also computed the unadjusted ratio separately by age group, shown in Figure 1. Occupational data showed that 70% of employees in the lowest-paying job categories were women, and that the median hourly wage of occupations with a majority of women was lower than that of occupations with a majority of men even when the two types of occupations required the same level of education.",
+   "table_data": "**Table 1. Women's to men's hourly wage ratio**\n\n| Model | Controls | Ratio |\n|---|---|---|\n| 1 | None | 0.82 |\n| 2 | Education, years of experience | 0.86 |\n| 3 | Model 2 + weekly hours | 0.89 |\n| 4 | Model 3 + occupation and industry | 0.94 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Unadjusted women-to-men wage ratio by age",
+    "x_label": "Age group (midpoint, years)",
+    "y_label": "Wage ratio (women/men)",
+    "series": [
+     {
+      "name": "Ratio",
+      "points": [
+       [
+        27,
+        0.95
+       ],
+       [
+        32,
+        0.9
+       ],
+       [
+        37,
+        0.85
+       ],
+       [
+        42,
+        0.82
+       ],
+       [
+        47,
+        0.8
+       ],
+       [
+        52,
+        0.79
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL07_PS_P9_Q1",
+     "stem": "According to Table 1, women earned what percentage less than men per hour after all of the controls in Model 4 were included?",
+     "options": {
+      "A": "18%",
+      "B": "14%",
+      "C": "6%",
+      "D": "94%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 1.00 - 0.94 = 0.06, a 6% shortfall remained after controls. Why the others are wrong: A) 18% is the unadjusted gap from Model 1. B) 14% is the gap after Model 2's education and experience controls and is not the final model. D) 94% is the women's earnings as a share of men's, not the shortfall.",
+     "trap": "Reporting the ratio itself or an intermediate model's gap instead of the final residual gap.",
+     "topic": "Gender inequality",
+     "mastery_sheet_id": "10A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_PS_P9_Q2",
+     "stem": "What fraction of the unadjusted gap (Model 1) is accounted for by the difference between Model 2 and Model 4, namely weekly hours, occupation, and industry?",
+     "options": {
+      "A": "About 8%",
+      "B": "About 33%",
+      "C": "About 67%",
+      "D": "About 44%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The ratio rises from 0.86 to 0.94, an 8-point change, out of an unadjusted gap of 18 points: 8 / 18 = 0.44. Why the others are wrong: A) 8% is the percentage-point change itself, not its share of the unadjusted gap. B) 33% would be 6 / 18, the remaining unexplained part of the gap, rather than the part accounted for. C) 67% would be 12 / 18, which is not tied to the model differences.",
+     "trap": "Using the percentage-point change rather than a proportion of the total gap.",
+     "topic": "Gender inequality",
+     "mastery_sheet_id": "10A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_PS_P9_Q3",
+     "stem": "Which interpretation of Figure 1 is most consistent with sociological research on gender and work?",
+     "options": {
+      "A": "The widening gap at older ages is consistent with women's wages falling in real terms as they retire from the labor force.",
+      "B": "The widening gap at older ages is consistent with older men having less education than older women in every cohort.",
+      "C": "The narrowing of the gap at older ages reflects younger women entering higher-paying occupations over time.",
+      "D": "The widening gap at older ages is consistent with career interruptions and caregiving penalties that accumulate over a woman's working life."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Mothers often face wage penalties, reduced hours, and slower promotion, so a gap that widens through the child-rearing and mid-career years is consistent with these cumulative effects. Why the others are wrong: A) The data are for full-time employees and show a wider gap rather than retirement-related decline. B) The passage reports no education differences by age, and education was controlled in Model 2 without eliminating the gap. C) The figure shows the gap widening (the ratio falls) with age, not narrowing.",
+     "trap": "Reading the direction of a trend backward or assuming a cohort explanation not supported by the data.",
+     "topic": "Gender inequality",
+     "mastery_sheet_id": "10A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P9_Q4",
+     "stem": "Why might Model 4 understate the role of discrimination in the wage gap?",
+     "options": {
+      "A": "Controlling for occupation increases the sample size and so changes the meaning of the median wage.",
+      "B": "Occupation is measured at the firm level and so cannot be compared across the different firms in the sample.",
+      "C": "Discrimination can occur only when employers know the gender of the workers, and occupation hides this information.",
+      "D": "Sorting into lower-paying occupations may itself reflect barriers and the devaluation of work done mostly by women."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) If women are channeled into occupations that pay less because of hiring practices, expectations, or devaluation of female-dominated work, adjusting for occupation removes part of the gap that is itself an outcome of discrimination. Why the others are wrong: A) Adding controls does not change the sample size of a regression with complete data. B) Nothing in the passage says occupation was measured at the firm level; it was a variable for each employee. C) Discrimination can occur through many processes, including structural ones, and does not require such secrecy.",
+     "trap": "Assuming that an adjusted gap measures only discrimination-free pay differences.",
+     "topic": "Gender inequality",
+     "mastery_sheet_id": "10A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_PS_P10",
+   "passage_text": "A sleep-hygiene program was tested for its effect on a standardized attention score (higher is better; population SD about 15 points). Three independent two-group randomized trials compared the program with usual care, using the same outcome measure and the same two-sided significance level (alpha = 0.05). Study A enrolled 100 participants per group, Study B enrolled 2,000 per group, and Study C enrolled 20 per group. For each study, the researchers calculated the difference between group means, Cohen's d (the mean difference divided by the pooled standard deviation), the 95% confidence interval for the difference, and a p value from a two-sample test. Results are shown in Table 1. The pre-specified primary analysis in every study was the difference between group means on the attention score at 12 weeks, and all participants were analyzed in the groups to which they were randomized. A news report on Study B described the program as having a 'significant benefit,' and a report on Study C described the program as having 'no effect.'",
+   "table_data": "**Table 1. Results of three trials**\n\n| Study | n per group | Mean difference | Cohen's d | 95% CI | p |\n|---|---|---|---|---|---|\n| A | 100 | 6.0 | 0.40 | 1.8 to 10.2 | 0.005 |\n| B | 2,000 | 1.0 | 0.07 | 0.1 to 1.9 | 0.035 |\n| C | 20 | 6.0 | 0.40 | -3.3 to 15.3 | 0.21 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL07_PS_P10_Q1",
+     "stem": "Which statement best compares Study B with Study A?",
+     "options": {
+      "A": "Study B has a larger effect size and a larger p value because its sample is much larger.",
+      "B": "Study B has a smaller effect size but is statistically significant because its sample is much larger.",
+      "C": "Study B has the same effect size and the same p value because both studies used the same outcome measure.",
+      "D": "Study B has a smaller effect size and a nonsignificant p value because its confidence interval is narrower."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Cohen's d is 0.07 for B versus 0.40 for A, but the large sample (2,000 per group) shrinks the standard error so that even a tiny difference gives p = 0.035. Why the others are wrong: A) Study B's effect size (0.07) is smaller, not larger, than that of A. C) The effect sizes and p values in Table 1 differ between the two studies. D) Study B's p value of 0.035 is below 0.05, so it is significant, and a narrower interval does not imply nonsignificance.",
+     "trap": "Equating statistical significance with a large or practically important effect.",
+     "topic": "p values and effect size",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P10_Q2",
+     "stem": "The news report that Study C found 'no effect' is a misinterpretation mainly because:",
+     "options": {
+      "A": "The p value of 0.21 means there is a 21% chance that the program has no effect on attention.",
+      "B": "The mean difference of 6.0 points is the same as in Study B, so the program must have a significant effect.",
+      "C": "The interval includes both no effect and a large benefit, so the study was too small to rule out an effect the same size as Study A's.",
+      "D": "The confidence interval is centered at 6.0 and therefore proves that the true difference equals 6.0 points."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A nonsignificant result with a wide interval (-3.3 to 15.3) is inconclusive; Study C has the same d (0.40) as Study A but only 20 per group, so it lacked power. Why the others are wrong: A) A p value is the probability of data at least this extreme if the null hypothesis is true, not the probability that the null is true. B) Study B's difference was 1.0, not 6.0; the mean difference of 6.0 was in Studies A and C. D) An interval gives a range of plausible values and does not prove that the true value equals the center.",
+     "trap": "Reading a p value as the probability that the null hypothesis is true or a nonsignificant result as proof of no effect.",
+     "topic": "p values and effect size",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_PS_P10_Q3",
+     "stem": "Using Table 1, what is the Cohen's d for Study A?",
+     "options": {
+      "A": "0.06",
+      "B": "2.5",
+      "C": "0.20",
+      "D": "0.40"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) d = mean difference / SD = 6.0 / 15 = 0.40. Why the others are wrong: A) 0.06 results from dividing by a pooled SD that is too large, such as 100 instead of 15. B) 2.5 is the inverse ratio (15 / 6). C) 0.20 is half the effect size and comes from dividing the difference by 30.",
+     "trap": "Inverting the ratio or dividing by the wrong standard deviation.",
+     "topic": "p values and effect size",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_PS_P10_Q4",
+     "stem": "Suppose the sleep program has no true effect and 20 independent trials like these are each tested at alpha = 0.05. About how many are expected to be statistically significant?",
+     "options": {
+      "A": "0",
+      "B": "1",
+      "C": "5",
+      "D": "19"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) With a true null, the Type I error rate is 5%, so 0.05 x 20 = 1 trial is expected to give a significant result by chance. Why the others are wrong: A) Zero would require a Type I error rate of 0, which alpha = 0.05 does not provide. C) Five would be 25% of the trials, not 5%. D) Nineteen is the expected number of nonsignificant results.",
+     "trap": "Assuming that when the null is true no trial will reach significance, or reversing significant and nonsignificant counts.",
+     "topic": "Type I error",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://bookdown.org/dorothy_bishop/Evaluating-What-Works/phacking.html"
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL07_PS_D1",
+   "stem": "A teacher wants to strengthen a ninth-grader's belief that she can succeed in algebra. According to Bandura, which approach is likely to be the most powerful source of self-efficacy?",
+   "options": {
+    "A": "Having her carefully observe a classmate of similar ability solve a problem and describe each of the steps used.",
+    "B": "Telling her before each test that she is clearly capable and that the material is easy for her.",
+    "C": "Structuring a series of problems of gradually increasing difficulty so that she experiences repeated success on her own.",
+    "D": "Teaching her breathing exercises to lower her physiological arousal before each quiz."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Mastery experiences, in which a person succeeds through her own effort, are the strongest source of self-efficacy in Bandura's account. Why the others are wrong: A) Vicarious experience is a recognized source of self-efficacy but is generally weaker than personal success. B) Verbal persuasion is useful but tends to be weaker and less durable than actual mastery. D) Lowering arousal addresses physiological states, another source, which is generally weaker than mastery experiences.",
+   "trap": "Picking verbal encouragement because it is the most common classroom practice rather than the strongest source.",
+   "topic": "Self-efficacy",
+   "mastery_sheet_id": "8A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D2",
+   "stem": "Female students taking a difficult mathematics test score lower when told 'this test has shown gender differences in the past' than when told 'this test shows no gender differences.' This pattern is best explained by which of the following?",
+   "options": {
+    "A": "Students who are told about group differences adopt an external locus of control and make less effort on the test.",
+    "B": "Concern about confirming a negative group stereotype creates anxiety that uses working memory resources needed for the test.",
+    "C": "Students who are told about group differences lower their self-esteem through an upward social comparison with male peers.",
+    "D": "Students who are told about group differences are treated differently by their teachers, who then come to expect poorer performance from them."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) This is stereotype threat: awareness of a negative stereotype about one's group produces evaluative anxiety that depletes cognitive resources and lowers performance. Why the others are wrong: A) The effect does not depend on loss of effort; stereotype-threatened people often try harder, and the mechanism is anxiety and load. C) The manipulation concerns the stereotype being relevant to the test, not social comparison with specific peers. D) The students took the test with the same instructions apart from the statement, and teacher expectancy (Pygmalion effect) is a different phenomenon.",
+   "trap": "Attributing a stereotype threat effect to reduced effort or to a teacher expectancy effect.",
+   "topic": "Stereotype threat",
+   "mastery_sheet_id": "8A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D3",
+   "stem": "After receiving a high grade, a student says, 'I worked hard and I am good at this subject.' After receiving a low grade on a later exam, the same student says, 'The exam was unfair and the questions were tricky.' This pattern most clearly illustrates:",
+   "options": {
+    "A": "the self-serving bias.",
+    "B": "the fundamental attribution error.",
+    "C": "the actor-observer effect.",
+    "D": "the just-world hypothesis."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Crediting internal causes for success and external causes for failure protects self-esteem and is the self-serving bias. Why the others are wrong: B) The fundamental attribution error is overestimating dispositional causes for other people's behavior. C) The actor-observer effect refers to attributing one's own behavior to the situation but others' behavior to dispositions, without regard to success versus failure. D) The just-world hypothesis is the belief that people get what they deserve.",
+   "trap": "Choosing another attribution concept without noticing that the pattern depends on the outcome being a success or a failure.",
+   "topic": "Attribution",
+   "mastery_sheet_id": "8A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D4",
+   "stem": "On an Implicit Association Test, a participant responds faster when images of older adults share a response key with negative words than when they share a key with positive words. This result is usually interpreted as evidence of:",
+   "options": {
+    "A": "a deliberate and consciously endorsed belief that older adults are worse than younger adults.",
+    "B": "a failure of attention that leads to random errors on the incongruent trials.",
+    "C": "a stronger automatic association between older adults and negative concepts.",
+    "D": "a lower motivation to respond accurately on trials that pair older adults with positive words."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) The IAT infers the strength of automatic associations from response speed; faster responses on a pairing suggest a stronger association. Why the others are wrong: A) The IAT measures implicit associations, which often differ from explicit, consciously endorsed beliefs. B) The faster responding on a specific pairing is a systematic pattern and not a random error of attention. D) The test is interpreted in terms of association strength rather than motivation to be accurate.",
+   "trap": "Treating a response-time difference as evidence of a stated, conscious belief.",
+   "topic": "Implicit bias",
+   "mastery_sheet_id": "8B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D5",
+   "stem": "Participants were divided into two groups by a coin toss and then allocated points between an anonymous member of their own group and an anonymous member of the other group. Most gave more points to the member of their own group. This finding is best explained by:",
+   "options": {
+    "A": "realistic conflict theory, which proposes that groups compete over scarce resources and so develop hostility.",
+    "B": "social identity theory, which proposes that people enhance self-esteem by favoring groups to which they belong.",
+    "C": "the contact hypothesis, which proposes that prejudice declines with repeated cooperative interaction between members of the groups.",
+    "D": "the mere exposure effect, which proposes that familiarity with a stimulus increases liking."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Even arbitrary groups produce in-group favoritism because belonging to a group contributes to social identity and self-esteem. Why the others are wrong: A) No competition over resources existed between the arbitrary groups, which is required for realistic conflict theory. C) The participants had no contact or interaction with anyone, so the contact hypothesis does not apply. D) The participants were not exposed repeatedly to anyone, so mere exposure cannot explain the allocation.",
+   "trap": "Assuming that in-group favoritism requires competition or prior contact.",
+   "topic": "In-group favoritism",
+   "mastery_sheet_id": "8B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D6",
+   "stem": "A manager interviews a job candidate who is exceptionally well-dressed and articulate. Without further evidence, the manager also rates the candidate as highly dependable and honest. This tendency is best described as:",
+   "options": {
+    "A": "the confirmation bias.",
+    "B": "the self-fulfilling prophecy.",
+    "C": "the false consensus effect.",
+    "D": "the halo effect."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) A single salient positive characteristic leads to favorable inferences about unrelated traits, which is the halo effect. Why the others are wrong: A) Confirmation bias is the tendency to seek out or favor information that supports an existing belief. B) A self-fulfilling prophecy occurs when an expectation leads to behavior that causes the expectation to come true. C) The false consensus effect is overestimating how many others share one's views.",
+   "trap": "Confusing generalization of one trait with seeking evidence for an expectation.",
+   "topic": "Halo effect",
+   "mastery_sheet_id": "8B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D7",
+   "stem": "In an iterated prisoner's dilemma game that lasts many rounds, which strategy tends to lead to the highest and most stable level of mutual cooperation?",
+   "options": {
+    "A": "Defecting on every round, because defection gives a higher payoff than cooperation regardless of the other player's choice.",
+    "B": "Cooperating on every round regardless of what the other player has done in the earlier rounds.",
+    "C": "Beginning by cooperating and then repeating the other player's previous move on each subsequent round.",
+    "D": "Alternating between cooperation and defection at random so that the other player cannot predict the next move."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Tit-for-tat is nice, retaliatory, and forgiving: it begins with cooperation, punishes defection once, and returns to cooperation, which sustains mutual cooperation. Why the others are wrong: A) Defection is the dominant strategy in a single round, but in repeated games it leads both players to low payoffs. B) Unconditional cooperation can be exploited by a defecting partner and does not discourage defection. D) Random play gives the partner no basis for trust and does not establish cooperation.",
+   "trap": "Applying the one-shot dominant strategy to repeated interactions.",
+   "topic": "Cooperation and conflict",
+   "mastery_sheet_id": "8C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D8",
+   "stem": "Participants watched a student receive painful electric shocks and were then given an easy chance to leave. Those who had been instructed to imagine the student's feelings were far more likely to stay and help, even though they could leave without consequences. This finding best supports:",
+   "options": {
+    "A": "the negative-state relief model, which holds that people help in order to reduce their own distress.",
+    "B": "the bystander effect, which holds that responsibility is diffused among onlookers.",
+    "C": "the empathy-altruism hypothesis, which holds that empathic concern can motivate helping for its own sake.",
+    "D": "social exchange theory, which holds that people help only when the rewards exceed the costs."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) When escape is easy, helping by empathic people cannot be explained by wanting to avoid distress, which supports the claim that empathy can produce truly altruistic motivation. Why the others are wrong: A) The negative-state relief model would predict that easy escape reduces helping, because escaping would reduce distress as well. B) Only one person observed the situation, so diffusion of responsibility is not relevant. D) Social exchange theory predicts that helping declines when costs are high and rewards low, which does not explain staying when leaving is easy.",
+   "trap": "Explaining helping with self-interest in a situation designed to rule out self-interest.",
+   "topic": "Altruism and empathy",
+   "mastery_sheet_id": "8C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D9",
+   "stem": "Two rival groups of boys at a summer camp showed intense hostility after competing in tournaments. Which intervention was most effective in reducing the hostility in the classic study of these groups?",
+   "options": {
+    "A": "Giving the two groups shared tasks, such as fixing a water supply, that could only be completed by working together.",
+    "B": "Holding a series of additional competitions in which the groups were mixed into new teams.",
+    "C": "Having the camp leaders deliver talks about the importance of tolerance and sportsmanship.",
+    "D": "Arranging pleasant social events such as shared meals during which the two groups could interact freely with each other."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Superordinate goals, which require cooperation to achieve and cannot be reached by one group alone, reduced intergroup conflict in Sherif's work. Why the others are wrong: B) More competition, even in mixed teams, would keep competition as the dominant feature of the relationship. C) Exhortation alone has little effect on entrenched intergroup hostility. D) Simple contact without shared goals did not reduce hostility, and the groups used the meals to trade insults.",
+   "trap": "Assuming that contact alone, without interdependence, will reduce prejudice.",
+   "topic": "Conflict resolution",
+   "mastery_sheet_id": "8C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D10",
+   "stem": "A person stares at a bright green square for 30 seconds and then looks at a blank white wall, seeing a red square. Which of the following best explains this afterimage?",
+   "options": {
+    "A": "Cells that signal green become fatigued, so the red-green opponent channel signals red when the white light strikes the retina.",
+    "B": "The red-sensitive cones in the retina become more sensitive after prolonged darkness, so they dominate the response to white light.",
+    "C": "The retina's rod cells adapt to the green stimulus and then signal red when a stimulus is removed.",
+    "D": "The visual cortex fills in the missing part of the image by using stored memories of previous red objects."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Opponent-process theory holds that red-green cells are antagonistic; after fatigue of the green response, the rebound produces a red signal when the stimulus is replaced by white. Why the others are wrong: B) There was no prolonged darkness, and trichromatic cone sensitivity alone does not produce a complementary color. C) Rods do not mediate color vision and do not signal red. D) Afterimages arise from adaptation of retinal and thalamic neurons and not from stored memories.",
+   "trap": "Explaining an afterimage with the trichromatic theory alone, which cannot account for complementary colors.",
+   "topic": "Color vision",
+   "mastery_sheet_id": "6A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D11",
+   "stem": "After seeing several news stories about plane crashes, a person overestimates the likelihood of dying in a plane crash relative to a car crash and decides to drive a long distance instead of flying. This is best explained by:",
+   "options": {
+    "A": "the representativeness heuristic, because the person judges the probability by how similar an event is to a typical case.",
+    "B": "anchoring and adjustment, because the person's estimate is biased toward the first number encountered.",
+    "C": "the overconfidence effect, because the person believes that his own judgments are more accurate than they are.",
+    "D": "the availability heuristic, because vivid and recent examples come to mind easily."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) People judge the frequency of events by how easily examples come to mind, so vivid media coverage inflates perceived risk. Why the others are wrong: A) Representativeness concerns judging whether an item belongs to a category based on resemblance, not the ease of recalling examples. B) No initial number served as an anchor in this scenario. C) Overconfidence refers to excessive certainty in one's judgments, whereas here the error is in estimating frequency.",
+   "trap": "Naming a heuristic with a similar-sounding feature rather than the ease of recall.",
+   "topic": "Decision heuristics",
+   "mastery_sheet_id": "6B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D12",
+   "stem": "A patient with bilateral damage to the amygdala is shown pictures of faces displaying different emotions. Compared with healthy controls, which finding is most likely?",
+   "options": {
+    "A": "Impaired ability to produce fluent speech and to understand the grammar of spoken sentences.",
+    "B": "Impaired recognition of fearful facial expressions and reduced fear responses to previously threatening stimuli.",
+    "C": "Inability to form new explicit memories of events while recognizing emotional expressions normally.",
+    "D": "Loss of the ability to recognize familiar faces despite normal recognition of emotional expression."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The amygdala is central to processing fear and threat and to emotional conditioning; its damage impairs fear recognition and learned fear responses. Why the others are wrong: A) Fluent speech and grammar depend on Broca's and Wernicke's areas, which are not mentioned. C) Inability to form new explicit memories is characteristic of hippocampal damage. D) Difficulty recognizing familiar faces is prosopagnosia, associated with damage to the fusiform area.",
+   "trap": "Linking the amygdala to memory formation in general rather than emotion and fear processing.",
+   "topic": "Emotion and the brain",
+   "mastery_sheet_id": "6C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D13",
+   "stem": "Dogs first exposed to inescapable shocks later failed to jump a barrier to escape shocks in a new setting, whereas dogs that had first been exposed to escapable shocks learned the barrier response readily. This difference supports which conclusion?",
+   "options": {
+    "A": "Exposure to any electric shock reduces motor activity through damage to the dogs' motor neurons.",
+    "B": "The perception that outcomes are uncontrollable, not the shock itself, produces the later passivity.",
+    "C": "The dogs given inescapable shock had higher motivation to avoid the barrier because it signaled danger.",
+    "D": "The dogs given escapable shock had experienced classical conditioning of fear, which enhanced avoidance."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Both groups received the same amount of shock, yet only those unable to control it showed helplessness, indicating that lack of perceived control is the key factor. Why the others are wrong: A) Both groups received shocks, so shock alone cannot explain the difference. C) The inescapable-shock dogs did not avoid the barrier more; they failed to escape. D) The result concerns controllability of shock and not classical conditioning of fear.",
+   "trap": "Attributing helplessness to the aversive stimulus itself instead of to loss of control.",
+   "topic": "Learned helplessness",
+   "mastery_sheet_id": "7A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D14",
+   "stem": "A country has seen life expectancy rise from 45 to 70 years over several decades, with the leading causes of death shifting from infectious diseases to cardiovascular disease and cancer. Which of the following developments would most likely accompany this shift?",
+   "options": {
+    "A": "A rising infant mortality rate as chronic diseases become more common among young parents.",
+    "B": "Improved sanitation and nutrition, followed by an increasing proportion of the population at older ages.",
+    "C": "A shift of the population pyramid toward a larger proportion of children as death rates among adults decline.",
+    "D": "A stable death rate as declines in infectious mortality are offset by increases in chronic disease."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The epidemiologic transition is driven by sanitation, nutrition, and medicine reducing infectious deaths, so more people survive to older ages where chronic diseases are the leading causes of death. Why the others are wrong: A) Infant mortality falls during this transition because infectious diseases are a main cause of infant deaths. C) A longer life expectancy and falling fertility raise the share of older adults rather than children. D) Life expectancy rose from 45 to 70, so the overall death rate fell.",
+   "trap": "Overlooking that falling infectious mortality raises the age structure of the population.",
+   "topic": "Epidemiologic transition",
+   "mastery_sheet_id": "9B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_PS_D15",
+   "stem": "Students with the lowest 10% of scores on a first math test are enrolled in a tutoring program. On a second test, their average score rises considerably. Which alternative explanation must be ruled out before concluding that the tutoring caused the improvement?",
+   "options": {
+    "A": "Regression to the mean, because extreme scores tend to be closer to average when measured again.",
+    "B": "Selection bias from random assignment, because the students were not allowed to choose the program.",
+    "C": "Demand characteristics from double blinding, because the students did not know whether they were tutored.",
+    "D": "Ceiling effects on the second test, because students who scored low initially had no room to improve."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Groups selected for extreme scores tend to score nearer the average on retest owing to chance variation in measurement, which can mimic a treatment effect without a control group. Why the others are wrong: B) The students were selected based on low scores and not randomly assigned, and random assignment would not produce selection bias. C) Nothing in the scenario involves blinding, and a double-blind design would reduce rather than create demand characteristics. D) Low scorers have room to improve; ceiling effects affect high scorers.",
+   "trap": "Assuming that improvement in a low-scoring group after an intervention reflects the intervention.",
+   "topic": "Regression to the mean",
+   "mastery_sheet_id": "SIRS",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

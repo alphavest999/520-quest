@@ -1,0 +1,142 @@
+[
+  {
+    "id": "bp987-001",
+    "type": "data_reading",
+    "passage_id": "bp987",
+    "passage_text": "Researchers studied the effect of light intensity on the photosynthetic rate of young sunflower (*Helianthus annuus*) plants. Four light intensities (400, 800, 1200, and 1600 µmol photons m⁻² s⁻¹) were applied in a controlled growth chamber. For each intensity, the net photosynthetic rate (µmol CO₂ m⁻² s⁻¹), stomatal conductance (mol H₂O m⁻² s⁻¹), and leaf temperature (°C) were recorded after 48 h of exposure. The results are summarized in Table 1 below. The data reveal a clear upward trend in photosynthetic rate with increasing light, but the rate of increase diminishes at higher intensities, suggesting a light-saturation point. The stomatal conductance also rises with light intensity, indicating stomatal opening as a response to increased photon flux. Leaf temperature shows a modest rise, which may influence enzyme activity and CO₂ diffusion.",
+    "table_data": [
+      {
+        "Light_Intensity_(µmol_photons_m⁻²_s⁻¹)": 400,
+        "Photosynthetic_Rate_(µmol_CO₂_m⁻²_s⁻¹)": 12.0,
+        "Stomatal_Conductance_(mol_H₂O_m⁻²_s⁻¹)": 0.3,
+        "Leaf_Temperature_(°C)": 22.1
+      },
+      {
+        "Light_Intensity_(µmol_photons_m⁻²_s⁻¹)": 800,
+        "Photosynthetic_Rate_(µmol_CO₂_m⁻²_s⁻¹)": 22.0,
+        "Stomatal_Conductance_(mol_H₂O_m⁻²_s⁻¹)": 0.45,
+        "Leaf_Temperature_(°C)": 23.4
+      },
+      {
+        "Light_Intensity_(µmol_photons_m⁻²_s⁻¹)": 1200,
+        "Photosynthetic_Rate_(µmol_CO₂_m⁻²_s⁻¹)": 28.0,
+        "Stomatal_Conductance_(mol_H₂O_m⁻²_s⁻¹)": 0.52,
+        "Leaf_Temperature_(°C)": 24
+      },
+      {
+        "Light_Intensity_(µmol_photons_m⁻²_s⁻¹)": 1600,
+        "Photosynthetic_Rate_(µmol_CO₂_m⁻²_s⁻¹)": 31.0,
+        "Stomatal_Conductance_(mol_H₂O_m⁻²_s⁻¹)": 0.55,
+        "Leaf_Temperature_(°C)": 24.5
+      }
+    ],
+    "stem": "Which light intensity produced the highest net photosynthetic rate in the experiment?",
+    "options": {
+      "A": "400 µmol photons m⁻² s⁻¹",
+      "B": "800 µmol photons m⁻² s⁻¹",
+      "C": "1200 µmol photons m⁻² s⁻¹",
+      "D": "1600 µmol photons m⁻² s⁻¹"
+    },
+    "correct": "D",
+    "explanation": "Correct: D) The 1600 µmol photons m⁻² s⁻¹ row gives the highest net rate, 31.0 µmol CO₂ m⁻² s⁻¹. Why the others are wrong: A) 400 gave 12.0, the lowest. B) 800 gave 22.0, lower than 31.0. C) 1200 gave 28.0, lower than 31.0.",
+    "trap": "Assuming the rate peaks at 1200 µmol photons m⁻² s⁻¹ because the gain from 800 to 1200 is larger than from 1200 to 1600, although the absolute rate is still higher at 1600.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-23T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp987-002",
+    "type": "experimental_design",
+    "passage_id": "bp987",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "In this experiment, which variable was the independent (manipulated) variable?",
+    "options": {
+      "A": "Net photosynthetic rate",
+      "B": "Stomatal conductance",
+      "C": "Leaf temperature",
+      "D": "Light intensity"
+    },
+    "correct": "D",
+    "explanation": "Correct: Light intensity (400-1600 µmol photons m⁻² s⁻¹) was the factor set by the researchers; the other measurements were recorded as responses. Why the others are wrong: A) net photosynthetic rate was measured as the outcome, not set. B) stomatal conductance was recorded as a response. C) leaf temperature was recorded as a response.",
+    "trap": "Choosing net photosynthetic rate because it is the main quantity in the table, confusing the measured outcome with the manipulated variable.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-23T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp987-003",
+    "type": "calculation",
+    "passage_id": "bp987",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Calculate the slope of the relationship between light intensity and net photosynthetic rate using the first two data points (400 and 800 µmol photons m⁻² s⁻¹).",
+    "options": {
+      "A": "0.025 µmol CO₂ per µmol photons",
+      "B": "0.030 µmol CO₂ per µmol photons",
+      "C": "0.055 µmol CO₂ per µmol photons",
+      "D": "0.0125 µmol CO₂ per µmol photons"
+    },
+    "correct": "A",
+    "explanation": "Correct: A) Slope = (22.0 − 12.0)/(800 − 400) = 10.0/400 = 0.025 µmol CO₂ per µmol photons. Why the others are wrong: B) 0.030 divides a single rate by its intensity (12.0/400) instead of using the differences. C) 0.055 divides the 800 µmol rate itself (22.0) by the 400-unit interval instead of the change in rate. D) 0.0125 divides the 10.0 change by 800 (the intensity value) instead of by the 400-unit change in intensity.",
+    "trap": "Using an absolute rate or intensity value (for example 22.0/400) instead of the change in rate over the change in light intensity.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-23T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp987-004",
+    "type": "trap",
+    "passage_id": "bp987",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following statements is a common misconception about light intensity and photosynthesis?",
+    "options": {
+      "A": "Photosynthetic rate continues to increase indefinitely with light intensity.",
+      "B": "Stomatal conductance increases with light intensity.",
+      "C": "Leaf temperature rises slightly with higher light intensity.",
+      "D": "Higher light intensity can lead to photoinhibition if too intense."
+    },
+    "correct": "A",
+    "explanation": "The data show a diminishing return at higher light intensities, indicating a saturation point. Photosynthetic rate does not increase indefinitely.",
+    "trap": "Picking photoinhibition (D) because the table shows no decline, even though photoinhibition at excessive light is a real effect; the misconception is that the rate rises indefinitely.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-23T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp987-005",
+    "type": "link",
+    "passage_id": "bp987",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which description best fits the relationship between light intensity and net photosynthetic rate in Table 1?",
+    "options": {
+      "A": "The rate rises by the same amount per unit light across the whole range (constant slope).",
+      "B": "The rate rises with light, but the gain per unit light gets smaller at higher intensities.",
+      "C": "The rate rises to a maximum at 1200 µmol photons m⁻² s⁻¹ and then falls.",
+      "D": "The rate decreases as light intensity increases."
+    },
+    "correct": "B",
+    "explanation": "Correct: B) The slopes between successive points are 0.025, 0.015 and 0.0075 µmol CO₂ per µmol photons, so the rate always rises but with diminishing returns (approaching saturation). Why the others are wrong: A) a constant slope would require equal slopes; they fall from 0.025 to 0.0075. C) the rate is higher at 1600 (31.0) than at 1200 (28.0), so there is no peak at 1200. D) every increase in light raised the rate, so it does not decrease.",
+    "trap": "Assuming the leveling-off means the rate peaks and declines, when the rate is still rising at 1600 but by a smaller amount.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-23T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  }
+]

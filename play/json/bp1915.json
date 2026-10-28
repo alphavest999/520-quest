@@ -1,0 +1,88 @@
+{
+  "passage_id": "bp1915",
+  "passage": "The Fitzgerald group investigated turnover of p53, a regulatory protein that is rapidly degraded in proliferating cells. To measure stability without confounding new synthesis, cells were treated with cycloheximide, an inhibitor of translation elongation, and harvested at the times shown. Lysates were resolved by SDS-PAGE, transferred to a membrane, and probed with an antibody against p53; band intensities were quantified and normalized to a loading control. Degradation of p53 was assumed to follow first-order kinetics. The researchers hoped to compare half-lives under normal and stressed conditions and to learn whether proteasome inhibition would stabilize the protein. Results from unstressed cells are shown; each value is the mean of three biological replicates, with errors below 5% of the mean. Equal total protein was loaded in every lane, as confirmed by the loading control. All procedures followed the laboratory's standard operating protocols, and raw data were archived before analysis.",
+  "table": "Table 1. Decay of p53\n\n| Time after cycloheximide (min) | p53 remaining (%) |\n|---|---|\n| 0 | 100 |\n| 45 | 50 |\n| 90 | 25 |\n| 135 | 12.5 |",
+  "questions": [
+    {
+      "stem": "What fraction of p53 remains 90 minutes after cycloheximide treatment?",
+      "options": {
+        "A": "50%",
+        "B": "75%",
+        "C": "25%",
+        "D": "12.5%"
+      },
+      "correct": "C",
+      "explanation": "At 90 min, two half-lives have elapsed (100 → 50 → 25%).",
+      "topic": "Protein turnover: data interpretation",
+      "trap": "Counting one half-life (50%) or three (12.5%) instead of the two half-lives that have elapsed; with a 45-minute half-life, 75% would be the amount lost.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1915-1"
+    },
+    {
+      "stem": "Why is cycloheximide used in this experiment?",
+      "options": {
+        "A": "It accelerates proteasomal degradation of all proteins",
+        "B": "It increases transcription of the gene",
+        "C": "It labels the protein for detection by antibody",
+        "D": "It blocks new synthesis so that the loss of existing protein can be followed"
+      },
+      "correct": "D",
+      "explanation": "Without blocking translation, newly synthesized protein would obscure the decay of the pre-existing pool.",
+      "topic": "Cell biology techniques: experimental design",
+      "trap": "Thinking cycloheximide accelerates degradation or labels the protein, rather than blocking translation so the decline reflects decay of the existing pool only.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1915-2"
+    },
+    {
+      "stem": "If the decay continues to be first-order, what percentage of p53 remains after 180 minutes?",
+      "options": {
+        "A": "12.5%",
+        "B": "3.125%",
+        "C": "93.75%",
+        "D": "6.25%"
+      },
+      "correct": "D",
+      "explanation": "180 min = 4 half-lives of 45 min, so 100 × (1/2)^4 = 6.25%.",
+      "topic": "First-order kinetics: half-life calculation",
+      "trap": "Miscounting the half-lives (3 gives 12.5%, 5 gives 3.125%) or reporting the 93.75% lost instead of the 6.25% remaining.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "5E",
+      "id": "bp1915-3"
+    },
+    {
+      "stem": "Which statement about first-order decay is INCORRECT?",
+      "options": {
+        "A": "The half-life is independent of starting concentration",
+        "B": "The half-life increases as the starting amount of protein increases",
+        "C": "The half-life equals ln 2 divided by the rate constant",
+        "D": "The rate of decay is proportional to the amount remaining"
+      },
+      "correct": "B",
+      "explanation": "In first-order kinetics, t½ = ln 2/k and does not depend on starting concentration.",
+      "topic": "Kinetics: trap on half-life",
+      "trap": "Believing a larger starting amount means a longer half-life; in first-order decay the half-life (ln 2 / k) is independent of the starting amount.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "5E",
+      "id": "bp1915-4"
+    },
+    {
+      "stem": "p53 turnover is typically controlled by which system?",
+      "options": {
+        "A": "Glycosylation in the Golgi apparatus that prevents degradation",
+        "B": "Ubiquitination and degradation by the proteasome",
+        "C": "Phosphorylation by glycolytic kinases that leads to secretion",
+        "D": "Lysosomal degradation of the ribosome"
+      },
+      "correct": "B",
+      "explanation": "Polyubiquitin chains (K48-linked) mark proteins for proteasomal degradation; proteasome inhibitors such as MG132 stabilize short-lived regulatory proteins.",
+      "topic": "Protein degradation: ubiquitin–proteasome link",
+      "trap": "Choosing a glycosylation, phosphorylation or lysosomal option because it sounds like regulation, when short-lived regulators are tagged with ubiquitin for proteasomal degradation.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1915-5"
+    }
+  ],
+  "accuracy_verified": true
+}

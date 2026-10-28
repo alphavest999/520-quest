@@ -1,0 +1,1492 @@
+{
+ "exam": "FL05",
+ "section": "PS",
+ "passages": [
+  {
+   "passage_id": "FL05_PS_P1",
+   "passage_text": "Researchers recruited 200 pairs of monozygotic (MZ) and 200 pairs of dizygotic (DZ) same-sex adult twins who were reared together. Each twin completed a validated Big Five inventory, and the within-pair correlation for each trait was computed separately for MZ and DZ pairs. Heritability was estimated with Falconer's formula, h² = 2(rMZ − rDZ). Under the simple model used, the variance not explained by heritability and shared environment was attributed to nonshared environment plus measurement error, estimated as 1 − rMZ. In a second analysis, a separate longitudinal sample of 1,500 adults completed the same inventory twice, ten years apart, and the rank-order stability (test–retest correlation) of composite trait scores was computed within each starting-age group. Zygosity was confirmed by genotyping, and all participants gave informed consent. Twins were recruited from a national registry, and pairs in which either twin had a diagnosed psychiatric disorder were excluded. The inventory used 60 items per trait rated on a five-point agreement scale, and all scores were standardized and adjusted for age and sex before correlations were computed. The authors caution that the estimates describe the sampled population and its range of environments. Twin correlations are shown in Table 1, and ten-year stability by starting age is shown in Figure 1.",
+   "table_data": "| Trait | rMZ | rDZ |\n|---|---|---|\n| Extraversion | 0.52 | 0.24 |\n| Neuroticism | 0.46 | 0.20 |\n| Openness | 0.58 | 0.31 |\n| Conscientiousness | 0.44 | 0.22 |\n| Agreeableness | 0.40 | 0.20 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Ten-year rank-order stability of composite Big Five scores",
+    "x_label": "Age at first testing (years)",
+    "y_label": "Test-retest correlation",
+    "series": [
+     {
+      "name": "Composite trait score",
+      "points": [
+       [
+        20,
+        0.55
+       ],
+       [
+        30,
+        0.65
+       ],
+       [
+        40,
+        0.72
+       ],
+       [
+        50,
+        0.75
+       ],
+       [
+        60,
+        0.77
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_PS_P1_Q1",
+     "stem": "According to Falconer's formula and the data in Table 1, what is the estimated heritability of Openness?",
+     "options": {
+      "A": "0.58",
+      "B": "0.54",
+      "C": "0.89",
+      "D": "0.27"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 2(0.58 − 0.31) = 0.54. Why the others are wrong: A) This is simply the MZ correlation, which includes shared environment and genes together. C) This adds the two correlations instead of subtracting them. D) This is the raw MZ–DZ difference and omits the doubling step.",
+     "trap": "Forgetting to double the MZ–DZ difference (reporting 0.27) or using rMZ alone as if it were heritability.",
+     "topic": "Heritability in twin studies",
+     "mastery_sheet_id": "7A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_PS_P1_Q2",
+     "stem": "Under the model described, which trait has the largest proportion of variance attributable to nonshared environment plus measurement error?",
+     "options": {
+      "A": "Extraversion",
+      "B": "Openness",
+      "C": "Neuroticism",
+      "D": "Agreeableness"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) 1 − rMZ = 0.60, the largest among the five traits. Why the others are wrong: A) 1 − 0.52 = 0.48, which is smaller than the Agreeableness residual. B) 1 − 0.58 = 0.42, the smallest residual, since Openness has the highest MZ correlation. C) 1 − 0.46 = 0.54, which is large but still below the Agreeableness residual.",
+     "trap": "Choosing the trait with the largest heritability or the largest rMZ − rDZ gap instead of the largest 1 − rMZ residual.",
+     "topic": "Twin studies and environmental variance",
+     "mastery_sheet_id": "7A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_PS_P1_Q3",
+     "stem": "Which statement best describes what Figure 1 shows about personality stability?",
+     "options": {
+      "A": "Individuals' relative standing on traits becomes more consistent across a decade as people age, though average levels could still change",
+      "B": "The decreasing stability of older adults indicates that genetic influence on personality weakens in later decades as experiences accumulate",
+      "C": "Personality traits are fully fixed by age 20, and the positive correlations at every starting age mainly reflect measurement error in the inventory",
+      "D": "Test-retest correlations rise with age mainly because older adults score higher on every trait at the second testing than at the first one"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) rank-order stability rose from 0.55 to 0.77, which concerns relative position, not mean-level change. Why the others are wrong: B) The curve increases with age; it does not decrease, and the figure says nothing about genetic influence. C) Correlations well below 1.0 at all ages show that substantial change in rank order still occurs, including at age 20. D) Rank-order correlations are insensitive to uniform shifts in mean level, so higher scores would not raise them.",
+     "trap": "Confusing rank-order stability (relative position) with mean-level stability, or reading a correlation below 1 as 'no stability'.",
+     "topic": "Personality stability across the lifespan",
+     "mastery_sheet_id": "7A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P1_Q4",
+     "stem": "The twin data estimate the heritability of Extraversion at 0.56. Which interpretation is most appropriate?",
+     "options": {
+      "A": "About 56% of any one person's Extraversion is caused by that person's genes, with the remaining 44% caused by upbringing and chance",
+      "B": "The estimate would be the same in every population and every environment in which Extraversion is measured by the inventory",
+      "C": "Extraversion cannot be changed by experience in the 56% of people who carry the relevant genetic variants for the trait",
+      "D": "In this population, about 56% of the variation in Extraversion scores among individuals is associated with genetic differences"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) heritability is a population-level variance statistic. Why the others are wrong: A) Heritability does not partition an individual's trait into causal percentages. B) Heritability depends on the genetic and environmental variance of the specific population studied. C) Heritability does not identify subgroups with fixed traits or imply immutability.",
+     "trap": "Treating heritability as the percent of an individual's trait that is 'genetic' or as fixed across populations.",
+     "topic": "Interpreting heritability",
+     "mastery_sheet_id": "7A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P1_Q5",
+     "stem": "Suppose MZ twins' parents treat them more alike than DZ twins' parents in ways that influence personality. How would this violation of the equal-environments assumption most likely affect the Falconer estimate?",
+     "options": {
+      "A": "It would inflate the estimate, because the extra MZ similarity due to environment would be attributed to genes",
+      "B": "It would leave the estimate unchanged, because Falconer's formula already subtracts out all environmental effects",
+      "C": "It would make the estimate negative, because environmental correlations are always larger in DZ pairs",
+      "D": "It would deflate the estimate, because shared treatment would make MZ and DZ pairs equally similar"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) the larger rMZ − rDZ gap is partly environmental. Why the others are wrong: B) The formula assumes equal environments and cannot remove unequal environmental similarity. C) There is no basis for DZ pairs having larger environmental correlations here. D) Greater MZ than DZ treatment similarity widens, not narrows, the correlation gap.",
+     "trap": "Assuming twin methods automatically remove environmental confounds, rather than relying on the equal-environments assumption.",
+     "topic": "Twin study assumptions",
+     "mastery_sheet_id": "7A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_PS_P2",
+   "passage_text": "In a replication of classic helping research, 320 undergraduates took part in a computer-mediated study of 'online group discussions.' Each participant sat in an individual cubicle and was randomly assigned to one of four conditions (n = 80 each). Through headphones, the participant heard another discussant, actually a recording, begin to choke and call for help. In the Alone condition, the participant believed the choking discussant was the only other person in the discussion. In the Two-bystander condition, the participant believed one additional discussant was listening; in the Five-bystander condition, four additional discussants. In the Five-bystander-with-model condition, a second recorded voice announced within 5 seconds, 'I'm going for help.' Helping was defined as leaving the cubicle to alert the experimenter within 60 seconds. Latency to help was recorded for participants who helped. Results are shown in Table 1. All participants were fully debriefed afterward. Before the session, participants completed a brief questionnaire on prior first-aid training, which did not differ across conditions. Sessions were run individually over two weeks, and the order of conditions was randomized across time slots to avoid confounds with the day or the experimenter.",
+   "table_data": "| Condition | n | Participants who helped | % helping | Mean latency of helpers (s) |\n|---|---|---|---|---|\n| Alone | 80 | 68 | 85% | 14 |\n| Two bystanders | 80 | 52 | 65% | 22 |\n| Five bystanders | 80 | 36 | 45% | 38 |\n| Five bystanders with model | 80 | 64 | 80% | 17 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL05_PS_P2_Q1",
+     "stem": "By how many percentage points did helping decrease from the Alone condition to the Five-bystander condition?",
+     "options": {
+      "A": "40 percentage points",
+      "B": "36 percentage points",
+      "C": "47 percentage points",
+      "D": "20 percentage points"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 85% − 45% = 40. Why the others are wrong: B) 36 is the number of helpers in the Five-bystander group, not a difference in percentages. C) 40 / 85 is a 47% relative decrease, which is not a percentage-point difference. D) This is the drop from Alone to the Two-bystander condition (85% − 65%).",
+     "trap": "Reporting a relative percent decrease (47%) as if it were a difference in percentage points.",
+     "topic": "Bystander effect",
+     "mastery_sheet_id": "7B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_PS_P2_Q2",
+     "stem": "The high helping rate in the Five-bystander-with-model condition (80%) most strongly suggests that:",
+     "options": {
+      "A": "participants in groups helped more because they were deindividuated and so lost awareness of their personal moral standards",
+      "B": "social facilitation raised arousal so that participants in the model condition performed the dominant response of not helping at all",
+      "C": "seeing another person act reduced diffusion of responsibility and defined the situation as an emergency, so the bystander effect is not inevitable",
+      "D": "group size has no causal influence on helping, because the same number of bystanders was present as in the Five-bystander condition and the effect disappeared"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) a model who helps changes both responsibility and interpretation. Why the others are wrong: A) Deindividuation lowers self-awareness and would predict less, not more, prosocial action. B) This misapplies social facilitation; the dominant response here was increased helping, not the reverse. D) The 45% versus 80% contrast occurs at equal group size, but the Alone versus Five-bystander contrast still shows an effect of group size.",
+     "trap": "Concluding that equal group size means group size never matters, instead of seeing that modeling moderates the bystander effect.",
+     "topic": "Bystander effect and diffusion of responsibility",
+     "mastery_sheet_id": "7B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P2_Q3",
+     "stem": "Why was random assignment to the four conditions important in this study?",
+     "options": {
+      "A": "It prevents participants from guessing the purpose of the study, thereby removing demand characteristics entirely",
+      "B": "It makes preexisting differences such as helpfulness approximately equal across conditions, supporting causal inference about condition effects",
+      "C": "It eliminates the need for a control condition, because every participant experiences every level of the independent variable in turn",
+      "D": "It guarantees the participants are representative of all adults, allowing the observed helping rates to be generalized to the public"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) random assignment equates groups on average. Why the others are wrong: A) Random assignment does not hide the study's purpose or remove demand characteristics. C) Assignment to separate groups is a between-subjects design, so a comparison condition (Alone) is still needed. D) Random assignment affects internal validity, whereas representativeness depends on random sampling.",
+     "trap": "Mixing up random assignment (internal validity) with random sampling (external validity).",
+     "topic": "Experimental design",
+     "mastery_sheet_id": "7B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P2_Q4",
+     "stem": "A critic argues that helping a recorded voice through headphones differs from helping a person in a real emergency. This criticism most directly concerns the study's:",
+     "options": {
+      "A": "internal validity, because random assignment cannot establish whether group size actually changed helping",
+      "B": "construct validity of the independent variable, because the number of bystanders was never manipulated by the experimenters",
+      "C": "external validity, because the laboratory setting and recorded emergency may not generalize to real helping",
+      "D": "reliability, because repeated helping responses by the same participant were inconsistent across trials"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) the concern is about generalizing beyond the lab. Why the others are wrong: A) Random assignment protects internal validity; the criticism concerns realism. B) The number of bystanders was manipulated; the criticism concerns realism of the emergency. D) Participants were measured once, and the criticism does not concern consistency.",
+     "trap": "Calling every methodological criticism a threat to internal validity.",
+     "topic": "Validity in social psychology experiments",
+     "mastery_sheet_id": "7B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_PS_P3",
+   "passage_text": "Undergraduates (N = 240) read a persuasive message advocating a new comprehensive-examination requirement for graduation. The study used a 2 × 2 × 2 between-subjects design with 30 participants per cell. The message contained either strong arguments (specific, verifiable evidence) or weak arguments (vague, anecdotal claims). It was attributed either to a professor of education who chairs a university board (high expertise) or to a high-school student (low expertise). Finally, participants were told that the requirement would take effect either next year, so it would apply to them (high personal relevance), or in ten years, so it would not (low personal relevance). Afterward, participants rated their agreement with the policy on a scale from 1 (strongly oppose) to 9 (strongly favor). Mean agreement for each cell is shown in Table 1. The expertise and relevance manipulations were checked with a brief questionnaire at the end of the session, and participants who failed to recall the source of the message were excluded and replaced. Argument strength was pretested with an independent sample who rated the arguments' quality. All messages were of equal length (about 300 words) and were read on a computer screen at the participant's own pace in a quiet room.",
+   "table_data": "| Personal relevance | Argument quality | Expert source | Nonexpert source |\n|---|---|---|---|\n| High | Strong | 7.8 | 7.6 |\n| High | Weak | 3.2 | 3.0 |\n| Low | Strong | 6.9 | 5.1 |\n| Low | Weak | 6.2 | 4.0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL05_PS_P3_Q1",
+     "stem": "Averaging across source expertise, how much higher was agreement with strong arguments than with weak arguments among high-relevance participants?",
+     "options": {
+      "A": "4.8 points",
+      "B": "0.9 points",
+      "C": "4.4 points",
+      "D": "4.6 points"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) strong mean = (7.8 + 7.6)/2 = 7.7; weak mean = (3.2 + 3.0)/2 = 3.1; difference 4.6. Why the others are wrong: A) This subtracts mismatched cells (7.8 − 3.0) rather than averaging across both sources. B) This is the strong-versus-weak difference for the low-relevance participants, not the high-relevance participants. C) This subtracts mismatched cells (7.6 − 3.2) rather than averaging across both sources.",
+     "trap": "Using single cells rather than averaging across both source conditions, or reading the low-relevance rows by mistake.",
+     "topic": "Elaboration likelihood model",
+     "mastery_sheet_id": "7C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_PS_P3_Q2",
+     "stem": "Which statement best describes the low-relevance results?",
+     "options": {
+      "A": "Agreement did not depend on either argument quality or source expertise, consistent with no message processing",
+      "B": "Agreement depended more on source expertise than on argument quality, consistent with peripheral processing",
+      "C": "Agreement depended more on argument quality than on source expertise, consistent with central-route processing",
+      "D": "Agreement depended on argument quality only when the source was an expert, consistent with systematic processing"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) expert minus nonexpert averages about 2.0 while strong minus weak averages 0.9. Why the others are wrong: A) Agreement changed by about 1.8 to 2.2 points with source expertise, so processing cues clearly mattered. C) This describes the high-relevance pattern, in which the quality difference was 4.6 points. D) The quality difference was small for both sources (1.1 for the nonexpert source and 0.7 for the expert source), not selective to experts.",
+     "trap": "Assuming any attitude change reflects careful processing; peripheral cues such as expertise can drive change when motivation is low.",
+     "topic": "Peripheral versus central routes",
+     "mastery_sheet_id": "7C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P3_Q3",
+     "stem": "How many participants read a message containing weak arguments?",
+     "options": {
+      "A": "60",
+      "B": "120",
+      "C": "30",
+      "D": "240"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) two relevance levels × two source levels × 30 participants = 120. Why the others are wrong: A) This counts only one relevance level, or half of the weak-argument participants. C) This is the size of a single cell, not all cells with weak arguments. D) This is the entire sample and includes participants who read strong arguments.",
+     "trap": "Reading a single cell size or the total N rather than summing the cells that share a level of one factor.",
+     "topic": "Factorial design",
+     "mastery_sheet_id": "7C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_PS_P3_Q4",
+     "stem": "A follow-up testing the same participants one month later would most likely find that attitudes formed by high-relevance participants were:",
+     "options": {
+      "A": "more persistent only for participants who read weak arguments, because those arguments required more effort",
+      "B": "more persistent, more resistant to counter-persuasion, and more predictive of behavior than low-relevance attitudes",
+      "C": "less persistent, because attitudes formed through careful thought are easily overturned by later persuasive messages from others",
+      "D": "equally persistent, because the durability of an attitude depends only on how large the initial change in attitude was"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) central-route attitudes are generally more durable. Why the others are wrong: A) Weak arguments were rejected by high-relevance participants, and extra effort does not explain durability. C) Central-route attitudes are generally more resistant, not less. D) Durability depends on the processing route, not just on the amount of change.",
+     "trap": "Assuming the size of initial change, not the processing route, determines how durable an attitude is.",
+     "topic": "Persuasion and attitude strength",
+     "mastery_sheet_id": "7C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P3_Q5",
+     "stem": "Participants high in need for cognition read the same messages under the low-relevance condition. Compared with participants low in need for cognition, they would most likely show:",
+     "options": {
+      "A": "a smaller difference between strong and weak arguments, because they would rely more heavily on source expertise as a mental shortcut",
+      "B": "a larger difference between expert and nonexpert sources, because they are more sensitive to social status cues in persuasion",
+      "C": "a larger difference between strong and weak arguments, because they enjoy effortful thinking and process centrally despite low relevance",
+      "D": "no difference in processing, because need for cognition affects the route only when the message is personally relevant"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) need for cognition raises elaboration. Why the others are wrong: A) People high in need for cognition rely less on peripheral cues. B) This reverses the expected effect of dispositional motivation to think. D) Need for cognition is a dispositional motivator that operates across relevance levels.",
+     "trap": "Assuming low personal relevance forces peripheral processing for everyone, ignoring dispositional motivation.",
+     "topic": "Need for cognition and the ELM",
+     "mastery_sheet_id": "7C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_PS_P4",
+   "passage_text": "Undergraduates (N = 200; 40 per condition) took part in what they believed was a study of impression formation. Each participant read a short profile of a fellow student and then completed a 7-point state self-esteem scale (1 = very low, 7 = very high). The profile described a student who was academically superior (upward comparison) or struggling (downward comparison), and who was either similar to the participant (same major and class year) or dissimilar (different major and class year). A fifth control group read a neutral weather report. Participants were randomly assigned to conditions, and the scale was completed privately. The standard deviation in each condition was approximately 1.0. Condition means are shown in Table 1 and Figure 1. Profiles were matched for length and writing style, and a manipulation check confirmed that participants perceived upward targets as more successful and similar targets as more like themselves. Participants were told the study concerned first impressions, and a debriefing followed.",
+   "table_data": "| Condition | n | Mean state self-esteem | SD |\n|---|---|---|---|\n| Upward, similar target | 40 | 3.9 | 1.0 |\n| Upward, dissimilar target | 40 | 4.8 | 1.0 |\n| Downward, similar target | 40 | 5.6 | 1.0 |\n| Downward, dissimilar target | 40 | 5.2 | 1.0 |\n| Control (weather report) | 40 | 4.9 | 1.0 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Mean state self-esteem by condition",
+    "x_label": "Condition",
+    "y_label": "Mean state self-esteem (1-7)",
+    "series": [
+     {
+      "name": "Mean",
+      "points": [
+       [
+        "Upward, similar",
+        3.9
+       ],
+       [
+        "Upward, dissimilar",
+        4.8
+       ],
+       [
+        "Downward, similar",
+        5.6
+       ],
+       [
+        "Downward, dissimilar",
+        5.2
+       ],
+       [
+        "Control",
+        4.9
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_PS_P4_Q1",
+     "stem": "Using the control group as the reference, what is the approximate magnitude of Cohen's d for the upward, similar condition?",
+     "options": {
+      "A": "1.0, a large effect",
+      "B": "4.0, a very large effect",
+      "C": "0.1, a negligible effect",
+      "D": "0.4, a small-to-medium effect"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) (4.9 − 3.9)/1.0 = 1.0. Why the others are wrong: B) This multiplies by 4 rather than dividing the mean difference by the SD. C) This would correspond to a 0.1-point mean difference, not a 1.0-point difference. D) This does not match the 1.0-point mean difference when the SD is 1.0.",
+     "trap": "Reporting the raw mean difference without standardizing, or misapplying the SD.",
+     "topic": "Effect size and social comparison",
+     "mastery_sheet_id": "8A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://openstax.org/books/introductory-business-statistics-2e/pages/10-2-cohens-standards-for-small-medium-and-large-effect-sizes"
+      ]
+     }
+    },
+    {
+     "id": "FL05_PS_P4_Q2",
+     "stem": "The upward, dissimilar condition (4.8) did not differ meaningfully from the control (4.9). Which explanation best fits social comparison theory?",
+     "options": {
+      "A": "People form their self-concept primarily through reflected appraisals from parents, which a stranger's profile cannot supply",
+      "B": "People protect their self-esteem by attributing a dissimilar target's success to luck, which the data directly demonstrate",
+      "C": "People adjust their self-esteem only when a downward comparison is available, so any upward comparison is ignored",
+      "D": "Comparisons are most informative with similar others, so a dissimilar high achiever is not relevant to one's own standing"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) comparison is most informative and threatening when targets are similar. Why the others are wrong: A) This describes the looking-glass self, which does not explain why similarity mattered here. B) No attribution measure was collected, so the data do not demonstrate this process. C) The similar upward target did lower self-esteem, so upward comparisons are not ignored.",
+     "trap": "Assuming any upward comparison threatens self-esteem regardless of the target's relevance.",
+     "topic": "Social comparison theory",
+     "mastery_sheet_id": "8A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P4_Q3",
+     "stem": "The researchers next want to test whether the effect of comparison direction depends on participants' pre-measured trait self-esteem (high versus low). Which design would best address this?",
+     "options": {
+      "A": "Add trait self-esteem as a second between-subjects factor and test its interaction with comparison direction",
+      "B": "Correlate trait self-esteem with state self-esteem within the control group alone to test the effect of comparison",
+      "C": "Measure state self-esteem twice for each participant and test for a main effect of time in the five conditions",
+      "D": "Compare only the high-trait-self-esteem participants across conditions, because this isolates the main effect of comparison direction"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) a moderator is tested as an interaction. Why the others are wrong: B) The control group has no comparison manipulation. C) A time effect does not test whether trait level changes the comparison effect. D) Dropping low-trait participants cannot test whether trait self-esteem changes the effect.",
+     "trap": "Testing a main effect in one subgroup rather than an interaction, which is what moderation requires.",
+     "topic": "Moderator variables and factorial design",
+     "mastery_sheet_id": "8A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P4_Q4",
+     "stem": "Which finding from a real-world setting would best parallel the big-fish-little-pond effect?",
+     "options": {
+      "A": "Students in a less selective school report lower academic self-concept because their classmates have lower test scores",
+      "B": "Students in both types of school report the same academic self-concept because it depends solely on absolute ability",
+      "C": "Students enrolled in a highly selective school report higher academic self-concept than equally able students in a less selective school",
+      "D": "Equally able students enrolled in a highly selective school report lower academic self-concept than those in a less selective school"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) upward comparison with high achievers lowers self-concept. Why the others are wrong: A) Lower-achieving peers provide downward comparisons that tend to raise self-concept. B) Self-concept depends on relative standing, as the comparison data show. C) This reverses the effect; selective schools supply upward comparisons.",
+     "trap": "Assuming prestigious environments always raise self-concept, ignoring social comparison with higher-achieving peers.",
+     "topic": "Self-concept and social comparison",
+     "mastery_sheet_id": "8A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_PS_P5",
+   "passage_text": "Researchers administered a race Implicit Association Test (IAT) to 150 White participants. In the IAT, participants rapidly sort face and word stimuli using two response keys. In the 'compatible' block, one key was assigned to White faces and pleasant words and the other key to Black faces and unpleasant words; in the 'incompatible' block, the pairings were reversed. The order of the two blocks was counterbalanced across participants. Participants also completed an explicit feeling-thermometer measure of attitudes toward each group. In a separate laboratory task, the distance at which each participant chose to sit from a Black confederate was recorded as a behavioral index. Two weeks later, participants repeated the IAT. A larger IAT D score indicates a stronger association of White with pleasant. Results are summarized in Table 1. All participants completed the IAT on a laptop in a quiet laboratory, performed practice trials before each block, and were instructed to respond as quickly and accurately as possible. The confederate was blind to participants' IAT scores, and the seating task occurred in a waiting room before the participants believed the study had started. Latencies were averaged after removing responses that were extremely fast or slow.",
+   "table_data": "| Measure | Result |\n|---|---|\n| Mean latency, compatible block | 720 ms |\n| Mean latency, incompatible block | 905 ms |\n| Mean IAT D score | 0.45 |\n| Correlation, IAT D with explicit thermometer difference | r = 0.18 |\n| Correlation, IAT D with seating distance | r = 0.25 |\n| Correlation, explicit thermometer with seating distance | r = 0.12 |\n| Test-retest correlation of IAT D (two weeks) | r = 0.50 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL05_PS_P5_Q1",
+     "stem": "Which conclusion is best supported by the block latencies in Table 1?",
+     "options": {
+      "A": "Participants paired White faces with pleasant words faster than Black faces with pleasant words, indicating a stronger automatic White-pleasant association",
+      "B": "Participants consciously endorsed more negative attitudes toward Black individuals, as indicated by the 185 ms latency difference between blocks",
+      "C": "Participants had more practice in the incompatible block, which lowered their accuracy relative to the compatible block",
+      "D": "Participants were slower in the compatible block because they had to override their stereotype-consistent responses on each trial"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) faster compatible responses (720 ms versus 905 ms) reflect easier pairings. Why the others are wrong: B) The IAT measures response speed, which does not show conscious endorsement; explicit attitudes were measured separately. C) Practice effects were handled by counterbalancing, and accuracy was not reported. D) The incompatible block, not the compatible block, was slower.",
+     "trap": "Equating a faster implicit pairing with consciously held prejudice.",
+     "topic": "Implicit bias and the IAT",
+     "mastery_sheet_id": "8B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P5_Q2",
+     "stem": "Approximately what proportion of the variance in explicit thermometer scores is shared with IAT D scores?",
+     "options": {
+      "A": "About 9%",
+      "B": "About 36%",
+      "C": "About 3%",
+      "D": "About 18%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) r² = 0.18² = 0.032. Why the others are wrong: A) This is the shared variance for r = 0.30, not r = 0.18. B) This squares 0.6 or doubles the correlation, neither of which matches r = 0.18. D) This treats the correlation coefficient itself as the proportion of shared variance.",
+     "trap": "Reading r as the proportion of shared variance instead of squaring it.",
+     "topic": "Correlation and shared variance",
+     "mastery_sheet_id": "8B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.scribbr.com/?p=376063"
+      ]
+     }
+    },
+    {
+     "id": "FL05_PS_P5_Q3",
+     "stem": "The two-week test-retest correlation of 0.50 for the IAT suggests that:",
+     "options": {
+      "A": "the explicit measure is more reliable than the IAT, because the explicit measure correlates 0.12 with seating distance",
+      "B": "the IAT is a valid measure of discriminatory behavior, because scores are partly stable over a two-week interval",
+      "C": "an individual's IAT score is only moderately reliable, so one score is a limited basis for classifying a person",
+      "D": "the IAT is perfectly reliable, because the correlation is statistically different from zero"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) moderate reliability limits individual-level inference. Why the others are wrong: A) Correlation with behavior reflects predictive validity, not test-retest reliability. B) Reliability does not establish validity. D) Statistical significance does not equal high reliability.",
+     "trap": "Equating a statistically significant correlation with high reliability or validity.",
+     "topic": "Reliability and validity",
+     "mastery_sheet_id": "8B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P5_Q4",
+     "stem": "Why did the researchers counterbalance the order of the compatible and incompatible blocks?",
+     "options": {
+      "A": "To increase the correlation between the IAT and explicit attitudes by matching task conditions",
+      "B": "To ensure that participants could not form conscious attitudes about the groups while sorting words",
+      "C": "To make the test-retest correlation equal across the first and second administrations",
+      "D": "To keep practice or fatigue effects from being confounded with the type of pairing"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) order effects would otherwise bias the latency comparison. Why the others are wrong: A) Counterbalancing is not designed to raise correlations. B) Counterbalancing does not prevent conscious attitudes. C) Counterbalancing block order does not equalize test-retest correlations.",
+     "trap": "Thinking counterbalancing controls participants' beliefs rather than order effects.",
+     "topic": "Counterbalancing",
+     "mastery_sheet_id": "8B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_PS_P6",
+   "passage_text": "In a study of cooperation, 300 undergraduates (75 per condition) played a prisoner's dilemma for points later exchanged for lottery tickets. On each round, each player privately chose to Cooperate or Defect. Payoffs (own points, partner's points) were: both cooperate, 3 and 3; one defects while the other cooperates, 5 for the defector and 0 for the cooperator; both defect, 1 and 1. Participants were randomly assigned to one of four conditions. In the first, they played a single anonymous round with a stranger with no communication. In the second, they played a single round after two minutes of face-to-face discussion with their partner. In the third, they played ten rounds against a programmed partner using tit-for-tat (cooperate on round 1, then copy the participant's previous move). In the fourth, they played ten rounds against a programmed partner who always defected. Table 1 gives the mean percentage of cooperative choices. Participants in all conditions received written instructions and a payoff chart before play, and they were told that partners would never be identified afterward. Programmed partners were described only as other participants in an adjoining room. Participants who had played a similar game before were not recruited, so that familiarity with the strategies would not influence the results.",
+   "table_data": "| Condition | Mean % of participants' choices that were cooperative |\n|---|---|\n| One round, no communication | 38% |\n| One round, after discussion | 71% |\n| Ten rounds, tit-for-tat partner | 78% |\n| Ten rounds, always-defect partner | 15% |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL05_PS_P6_Q1",
+     "stem": "In the single-round, no-communication condition, why is defection the rational choice by payoff alone?",
+     "options": {
+      "A": "Defection earns more only when the partner also defects, because mutual defection yields 1 point each and cooperation yields 3 each",
+      "B": "Defection pays more than cooperation whatever the partner does (5 versus 3 if the partner cooperates, 1 versus 0 if not)",
+      "C": "Defection earns more than cooperation only after the first round, once the partner's strategy can be observed",
+      "D": "Defection guarantees the highest joint payoff for the pair, because the defector's gain exceeds the partner's loss"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) defection is a dominant strategy. Why the others are wrong: A) 3 > 1, so mutual defection is worse than mutual cooperation, and defection still beats cooperation against a cooperating partner. C) In a one-round game there is no later round, and the dominance holds for any partner choice. D) Joint payoff is highest (6) under mutual cooperation, not when one defects (5).",
+     "trap": "Confusing the individually rational choice (defect) with the jointly best outcome (mutual cooperation).",
+     "topic": "Prisoner's dilemma",
+     "mastery_sheet_id": "8C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P6_Q2",
+     "stem": "Over ten rounds, how many points would a player using tit-for-tat earn against a partner who always defects?",
+     "options": {
+      "A": "30 points",
+      "B": "14 points",
+      "C": "9 points",
+      "D": "10 points"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) round 1: 0 (cooperate versus defect); rounds 2-10: 1 each (mutual defection) = 9. Why the others are wrong: A) This is the total for ten rounds of mutual cooperation, which the defecting partner prevents. B) This is the always-defect partner's total (5 + 9), not the tit-for-tat player's. D) This assumes mutual defection (1 point) occurs on all ten rounds, ignoring the opening cooperation that earned 0.",
+     "trap": "Forgetting that tit-for-tat cooperates on the first round and is exploited exactly once.",
+     "topic": "Payoff calculation in repeated games",
+     "mastery_sheet_id": "8C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_PS_P6_Q3",
+     "stem": "The rise in cooperation from 38% to 71% after a two-minute discussion is best explained by:",
+     "options": {
+      "A": "communication allowing participants to build trust and make verbal commitments, though not binding",
+      "B": "communication producing deindividuation, which reduced concern over the partner's welfare",
+      "C": "communication changing the payoffs so that cooperation became the dominant strategy in the single round of play",
+      "D": "communication increasing the number of rounds, which allowed reciprocity to develop over time"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 'cheap talk' raises trust and cooperation. Why the others are wrong: B) Discussion makes partners more identifiable, not less, and generally increases concern. C) The payoff matrix was unchanged. D) The condition still had a single round.",
+     "trap": "Assuming cooperation rises only when incentives change.",
+     "topic": "Cooperation and communication",
+     "mastery_sheet_id": "8C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P6_Q4",
+     "stem": "The very low cooperation (15%) with the always-defect partner is most consistent with:",
+     "options": {
+      "A": "the mere-exposure effect, in which repeated exposure to the partner increased liking",
+      "B": "frustration-aggression, in which a lack of reward from cooperation led participants to harm the partner",
+      "C": "a superordinate goal, in which participants shifted toward a shared objective with the partner, which would reduce cooperation",
+      "D": "reciprocity, in which people match a partner's behavior"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) participants returned defection with defection. Why the others are wrong: A) Liking would raise cooperation, which was low in this condition. B) The data do not show aggression; the drop in cooperation is consistent with a simple payoff-based response. C) A shared goal would increase cooperation, not decrease it.",
+     "trap": "Reading lowered cooperation as aggression rather than reciprocity.",
+     "topic": "Reciprocity and conflict",
+     "mastery_sheet_id": "8C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_PS_P7",
+   "passage_text": "Sociologists used a national longitudinal dataset to compare the percentage of young adults who had completed a bachelor's degree by age 25, grouped by childhood family-income quartile, for two birth cohorts (1970 and 1990). For the 1990 cohort, the researchers also recorded the number of books in the home, as a proxy for cultural capital, and the percentage of students whose teachers expected them to attend college, measured at age 15. Degree completion by cohort is shown in Figure 1, and the 1990-cohort indicators are in Table 1. The authors note that families in higher income quartiles also differ in parental education, neighborhood school funding, and access to tutoring, and that income cannot be randomly assigned. Quartile 1 is the lowest-income group and Quartile 4 the highest. Each quartile contained several thousand respondents, and the survey weights were applied so the estimates represent all young adults in each cohort. Respondents were followed through annual interviews until age 25, and cases with missing degree information were excluded. Teachers' expectations were reported independently of the students' own grades or test scores.",
+   "table_data": "| Income quartile (1990 cohort) | Median books in home | % with teacher expecting college |\n|---|---|---|\n| Q1 (lowest) | 25 | 31% |\n| Q2 | 60 | 44% |\n| Q3 | 120 | 63% |\n| Q4 (highest) | 240 | 82% |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Bachelor's degree completion by age 25, by childhood income quartile",
+    "x_label": "Income quartile (1 = lowest)",
+    "y_label": "% completing bachelor's degree",
+    "series": [
+     {
+      "name": "1970 cohort",
+      "points": [
+       [
+        1,
+        6
+       ],
+       [
+        2,
+        14
+       ],
+       [
+        3,
+        26
+       ],
+       [
+        4,
+        55
+       ]
+      ]
+     },
+     {
+      "name": "1990 cohort",
+      "points": [
+       [
+        1,
+        12
+       ],
+       [
+        2,
+        24
+       ],
+       [
+        3,
+        38
+       ],
+       [
+        4,
+        62
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_PS_P7_Q1",
+     "stem": "Which statement about the change from the 1970 to the 1990 cohort is best supported by Figure 1?",
+     "options": {
+      "A": "Degree completion rose in every quartile, and the top-minus-bottom gap shrank by roughly half across the two cohorts",
+      "B": "Completion rose in every quartile, but the top-minus-bottom gap stayed about the same (49 versus 50 points)",
+      "C": "Degree completion rose only in the lowest quartile, which closed the gap in educational attainment",
+      "D": "Degree completion rose in every quartile, and the top-minus-bottom gap widened by about ten percentage points"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 55 − 6 = 49 and 62 − 12 = 50. Why the others are wrong: A) The absolute gap was nearly unchanged, although the ratio of Q4 to Q1 fell. C) The other quartiles rose too (14 to 24, 26 to 38, 55 to 62), and the gap remained about 50 points. D) 49 to 50 points is a one-point change, not ten.",
+     "trap": "Judging inequality by the ratio between groups alone and missing that the absolute gap did not change.",
+     "topic": "Social class and educational attainment",
+     "mastery_sheet_id": "9A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P7_Q2",
+     "stem": "The pattern of books in the home across quartiles in Table 1 is best used by sociologists to illustrate which concept?",
+     "options": {
+      "A": "Anomie, in which a rapid change in norms leaves members of a group without clear guidelines for behavior",
+      "B": "Relative deprivation, in which people judge their own situation by comparing it to a reference group of similar others",
+      "C": "Social capital, in which a child's network of relationships gives access to jobs and institutional resources",
+      "D": "Cultural capital, in which higher-status families pass on knowledge and habits valued by schools"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Bourdieu's concept. Why the others are wrong: A) Anomie describes normlessness, which is not shown by book ownership. B) The data do not measure subjective comparison. C) Books are cultural resources, not network ties.",
+     "trap": "Mixing up cultural capital (knowledge, tastes, books) with social capital (networks).",
+     "topic": "Cultural capital",
+     "mastery_sheet_id": "9A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P7_Q3",
+     "stem": "Why can the researchers not conclude from these data that raising a family's income would, by itself, raise a child's chance of completing a degree?",
+     "options": {
+      "A": "The dataset is longitudinal, and longitudinal designs cannot adequately measure an outcome that occurs after childhood",
+      "B": "Degree completion is a categorical outcome, so its relationship to a quartile variable cannot be described statistically",
+      "C": "Income is confounded with parental education and school funding and was not randomly assigned, so the data show association only",
+      "D": "The data are drawn from two separate birth cohorts, which makes any comparison across quartiles within one cohort invalid"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) confounding prevents causal claims. Why the others are wrong: A) Longitudinal designs are especially well suited to later outcomes. B) Categorical outcomes can be related to ordinal predictors. D) Comparison within a cohort is valid; cohort differences do not undermine it.",
+     "trap": "Assuming a large longitudinal dataset establishes causation.",
+     "topic": "Correlation versus causation",
+     "mastery_sheet_id": "9A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P7_Q4",
+     "stem": "The higher percentage of teachers in Q4 who expect college attendance (82% versus 31%) could widen outcome gaps through which process?",
+     "options": {
+      "A": "Cognitive dissonance, in which students change their attitudes after being induced to act against their beliefs",
+      "B": "The halo effect, in which one favorable trait of a student leads teachers to infer other favorable traits",
+      "C": "A self-fulfilling prophecy, in which expectations shape treatment and effort, so students confirm them",
+      "D": "Social loafing, in which students reduce effort when their contributions are pooled in a group"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) teacher expectation effect. Why the others are wrong: A) Dissonance concerns attitude-behavior conflict, not expectation effects. B) This is a perceptual bias and does not describe how expectations become outcomes. D) Social loafing is about group work, not teacher expectations.",
+     "trap": "Naming a related social psychology bias rather than the mechanism by which expectations produce confirming outcomes.",
+     "topic": "Education and stratification",
+     "mastery_sheet_id": "9A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_PS_P8",
+   "passage_text": "Demographers compared two countries with similar total populations of about 40 million. Country X is a low-income country; Country Y is a high-income country. Indicators were drawn from national censuses and vital registration systems. The total dependency ratio was defined as the number of people aged 0-14 plus those aged 65 and older, per 100 people aged 15-64. The total fertility rate (TFR) is the average number of children a woman would have over her lifetime at current age-specific rates; the replacement level in low-mortality countries is about 2.1. Table 1 gives the indicators, and Figure 1 shows the age distribution. Country Y has had net immigration of near zero over the past decade. Mortality statistics were adjusted for incomplete death registration in Country X using survey data. Life expectancy at birth is the average number of years a newborn would live if current age-specific death rates persisted. Both countries' fertility rates were measured in the same recent year, and the percentages in each age group are rounded to whole numbers.",
+   "table_data": "| Indicator | Country X | Country Y |\n|---|---|---|\n| % aged 0-14 | 38 | 14 |\n| % aged 15-64 | 58 | 63 |\n| % aged 65+ | 4 | 23 |\n| Total fertility rate | 4.6 | 1.3 |\n| Life expectancy at birth (years) | 62 | 84 |\n| Leading causes of death | Diarrheal disease, respiratory infection, malaria | Heart disease, cancer, stroke |\n| % urban | 31 | 88 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Percentage of population by age group",
+    "x_label": "Age group",
+    "y_label": "% of population",
+    "series": [
+     {
+      "name": "Country X",
+      "points": [
+       [
+        "0-14",
+        38
+       ],
+       [
+        "15-64",
+        58
+       ],
+       [
+        "65+",
+        4
+       ]
+      ]
+     },
+     {
+      "name": "Country Y",
+      "points": [
+       [
+        "0-14",
+        14
+       ],
+       [
+        "15-64",
+        63
+       ],
+       [
+        "65+",
+        23
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_PS_P8_Q1",
+     "stem": "What is the total dependency ratio for Country X?",
+     "options": {
+      "A": "About 42 dependents per 100 people aged 15-64",
+      "B": "About 72 dependents per 100 people aged 15-64",
+      "C": "About 58 dependents per 100 people aged 15-64",
+      "D": "About 66 dependents per 100 people aged 15-64"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) (38 + 4)/58 = 0.72. Why the others are wrong: A) This is the sum of the percentages (38 + 4) without dividing by the working-age share. C) This is the working-age percentage itself, not the dependency ratio. D) 38/58 = 0.66 is only the youth dependency ratio.",
+     "trap": "Giving the youth dependency ratio alone or leaving out the division by the working-age population.",
+     "topic": "Dependency ratio",
+     "mastery_sheet_id": "9B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_PS_P8_Q2",
+     "stem": "Country X's age structure, with a broad base, implies that even if its TFR fell immediately to replacement level, its population would likely:",
+     "options": {
+      "A": "continue growing for decades, because large youth cohorts will move into childbearing ages (population momentum)",
+      "B": "become older at a faster pace than Country Y, because a broad base leads to a larger proportion of older adults",
+      "C": "stop growing immediately, because growth depends only on the current TFR and not on the age structure",
+      "D": "begin shrinking within a decade, because replacement fertility always causes immediate population decline in a country"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) large youth cohorts keep births high. Why the others are wrong: B) The broad base would keep the population young for a long time. C) Age structure produces momentum. D) Replacement fertility leads to stability only after the age structure adjusts.",
+     "trap": "Assuming population growth stops the moment fertility reaches replacement level.",
+     "topic": "Population momentum",
+     "mastery_sheet_id": "9B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P8_Q3",
+     "stem": "With a TFR of 1.3 and near-zero net immigration, Country Y's population is expected to:",
+     "options": {
+      "A": "shrink and age over time, because fertility is well below replacement and the 65+ group is large",
+      "B": "grow slowly over time, because the proportion aged 15-64 is larger than that of Country X",
+      "C": "grow rapidly over time, because life expectancy at birth is high and deaths are infrequent",
+      "D": "remain constant over time, because high-income countries always reach a stable stationary population"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) TFR below 2.1 without migration means decline. Why the others are wrong: B) Working-age share does not determine growth; births are too few. C) Low mortality alone does not drive growth when births are far below replacement. D) Stability would need about replacement fertility, not 1.3.",
+     "trap": "Assuming low mortality implies growth regardless of fertility.",
+     "topic": "Fertility and population decline",
+     "mastery_sheet_id": "9B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P8_Q4",
+     "stem": "The causes of death listed in Table 1 are consistent with which stage description from the epidemiologic transition?",
+     "options": {
+      "A": "Country Y is earlier in the transition, dominated by infectious disease, while Country X is later, dominated by chronic disease",
+      "B": "Both countries are in the same stage, because leading causes of death do not change as life expectancy increases",
+      "C": "Country X is earlier, dominated by infectious disease, while Country Y is later, dominated by chronic degenerative disease",
+      "D": "Country X is later in the transition, because high fertility is associated with deaths from heart disease and cancer in young adults"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) the shift from infectious to chronic disease marks the transition. Why the others are wrong: A) This reverses the countries' positions. B) Causes of death change as life expectancy rises. D) High fertility and infectious disease go together in early stages.",
+     "trap": "Reversing the order of the transition: infectious disease comes first, chronic disease later.",
+     "topic": "Epidemiologic transition",
+     "mastery_sheet_id": "9B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_PS_P9",
+   "passage_text": "Economists compared household income distributions in two countries, A and B. Households were ranked by pre-tax income and divided into quintiles, and the share of total national income held by each quintile is shown in Table 1. Figure 1 plots each country's Lorenz curve, which gives the cumulative percentage of income held by the poorest cumulative percentage of households, together with the line of perfect equality. The Gini coefficient equals 1 minus twice the area under the Lorenz curve, with the area expressed as a fraction of the unit square; here, the area was approximated with the trapezoid rule across the quintile points. A Gini of 0 indicates perfect equality and a Gini of 1 indicates that a single household holds all income. Later, a policy simulation transferred income through taxes and benefits within Country A. Income was measured at the household level before taxes and transfers, and households were adjusted for size so that large and small households could be compared. Ten million households were ranked in each country, and the data came from comparable national income surveys. The authors report shares as percentages that sum to 100 within each country.",
+   "table_data": "| Income quintile (poorest to richest) | Country A share of income (%) | Country B share of income (%) |\n|---|---|---|\n| Q1 | 4 | 8 |\n| Q2 | 9 | 13 |\n| Q3 | 14 | 17 |\n| Q4 | 22 | 23 |\n| Q5 | 51 | 39 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Lorenz curves",
+    "x_label": "Cumulative % of households (poorest first)",
+    "y_label": "Cumulative % of income",
+    "series": [
+     {
+      "name": "Perfect equality",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        20,
+        20
+       ],
+       [
+        40,
+        40
+       ],
+       [
+        60,
+        60
+       ],
+       [
+        80,
+        80
+       ],
+       [
+        100,
+        100
+       ]
+      ]
+     },
+     {
+      "name": "Country A",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        20,
+        4
+       ],
+       [
+        40,
+        13
+       ],
+       [
+        60,
+        27
+       ],
+       [
+        80,
+        49
+       ],
+       [
+        100,
+        100
+       ]
+      ]
+     },
+     {
+      "name": "Country B",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        20,
+        8
+       ],
+       [
+        40,
+        21
+       ],
+       [
+        60,
+        38
+       ],
+       [
+        80,
+        61
+       ],
+       [
+        100,
+        100
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_PS_P9_Q1",
+     "stem": "Using the trapezoid approximation described, what is the Gini coefficient of Country A?",
+     "options": {
+      "A": "About 0.57",
+      "B": "About 0.43",
+      "C": "About 0.71",
+      "D": "About 0.29"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) area ≈ 0.1 × (0.04 + 0.17 + 0.40 + 0.76 + 1.49) = 0.286; Gini = 1 − 2(0.286) = 0.43. Why the others are wrong: A) This is the area under the curve doubled (2 × 0.286), not 1 minus that number. C) This is 1 minus the area (1 − 0.286), which omits the doubling step. D) This is Country B's Gini coefficient (1 − 2 × 0.356 = 0.29).",
+     "trap": "Reporting twice the area under the Lorenz curve instead of 1 minus twice that area.",
+     "topic": "Gini coefficient",
+     "mastery_sheet_id": "10A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_PS_P9_Q2",
+     "stem": "What is the ratio of the richest to the poorest quintile's income share in Country B?",
+     "options": {
+      "A": "About 0.2",
+      "B": "About 4.9",
+      "C": "About 12.8",
+      "D": "About 3.0"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 39/8 = 4.875. Why the others are wrong: A) This inverts the ratio, giving poorest to richest (8/39). C) This is Country A's ratio (51/4), not Country B's. D) This is 39/13, comparing the richest quintile with the second-poorest instead of the poorest.",
+     "trap": "Using the other country's column or inverting the ratio.",
+     "topic": "Income inequality measures",
+     "mastery_sheet_id": "10A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_PS_P9_Q3",
+     "stem": "How many more percentage points of national income does the poorest 60% of households hold in Country B than in Country A?",
+     "options": {
+      "A": "12 percentage points",
+      "B": "4 percentage points",
+      "C": "11 percentage points",
+      "D": "8 percentage points"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) B holds 38% and A holds 27%; 38 − 27 = 11. Why the others are wrong: A) This is the difference in the richest-quintile shares (51 − 39), not the cumulative share held by the poorest 60%. B) This is the difference in the poorest-quintile shares (8 − 4), not the cumulative share held by the poorest 60%. D) This is the gap at the poorest 40% of households (21 − 13), not at 60%.",
+     "trap": "Using single-quintile shares instead of cumulative shares at the 60% mark.",
+     "topic": "Reading Lorenz curves",
+     "mastery_sheet_id": "10A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P9_Q4",
+     "stem": "Which statement identifies a limitation of using the Gini coefficient alone to compare countries?",
+     "options": {
+      "A": "The Gini coefficient measures only the income share of the richest quintile and ignores the shares of all other households",
+      "B": "The Gini coefficient cannot be computed unless every household in the country has exactly the same income as the others",
+      "C": "Two countries with very different Lorenz curves, such as one with a poor bottom and one with a rich top, can share a Gini",
+      "D": "The Gini coefficient ranges from -1 to 1, so negative values cannot be directly compared with positive values"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) the Gini summarizes the whole curve in one number. Why the others are wrong: A) It uses the entire distribution, not only the top share. B) It is defined for unequal distributions and equals 0 only for exact equality. D) The Gini ranges from 0 to 1.",
+     "trap": "Assuming a single summary index reveals where in the distribution inequality is located.",
+     "topic": "Gini coefficient limitations",
+     "mastery_sheet_id": "10A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P9_Q5",
+     "stem": "In the simulation, 5 percentage points of national income are moved from the richest quintile to the poorest quintile in Country A. What is the new approximate Gini coefficient?",
+     "options": {
+      "A": "About 0.25",
+      "B": "About 0.35",
+      "C": "About 0.38",
+      "D": "About 0.43"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) new shares 9, 9, 14, 22, 46 give cumulative 0.09, 0.18, 0.32, 0.54, 1.00; area = 0.326; Gini = 0.35. Why the others are wrong: A) This assumes a much larger redistribution than 5 percentage points of national income. C) A transfer of only 3 percentage points would give about 0.38, which is smaller than the stated shift. D) This is the original Gini, as if the transfer made no difference.",
+     "trap": "Assuming a transfer between the extreme quintiles leaves the Gini unchanged, or miscalculating the new cumulative shares.",
+     "topic": "Redistribution and Gini",
+     "mastery_sheet_id": "10A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_PS_P10",
+   "passage_text": "A university health office estimated nightly sleep duration (hours) among its 40,000 students. Sample A was a simple random sample (n = 400). Sample B was a simple random sample (n = 1,600). Sample C was a volunteer sample recruited by an online posting (n = 1,600). Standard errors were computed as SD/√n, and 95% confidence intervals as mean ± 1.96 SE. The population is assumed to have a standard deviation of about 1.6 hours. Results are shown in Table 1. Figure 1 shows how the half-width of the 95% confidence interval would change with sample size if the standard deviation stays at 1.6 hours. The health office sent the random samples by email to students drawn from the full enrollment list, and the response rate was close to 100% for both random samples because participation was a course requirement. Sleep duration was self-reported using a one-week diary and averaged across nights. Volunteers for Sample C responded to a posting on a social-media page about student wellness.",
+   "table_data": "| Sample | n | Mean (h) | SD (h) | SE (h) | 95% CI (h) |\n|---|---|---|---|---|---|\n| A (random) | 400 | 6.8 | 1.6 | 0.08 | 6.64 to 6.96 |\n| B (random) | 1,600 | 6.8 | 1.6 | 0.04 | 6.72 to 6.88 |\n| C (volunteer) | 1,600 | 6.1 | 1.5 | 0.04 | 6.03 to 6.17 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Half-width of 95% CI versus sample size (SD = 1.6 h)",
+    "x_label": "Sample size (n)",
+    "y_label": "CI half-width (hours)",
+    "series": [
+     {
+      "name": "Half-width",
+      "points": [
+       [
+        100,
+        0.314
+       ],
+       [
+        400,
+        0.157
+       ],
+       [
+        900,
+        0.105
+       ],
+       [
+        1600,
+        0.078
+       ],
+       [
+        2500,
+        0.063
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_PS_P10_Q1",
+     "stem": "To reduce the 95% CI half-width in Sample B (0.078 h) by half, the health office would need a random sample of about:",
+     "options": {
+      "A": "3,200 students",
+      "B": "6,400 students",
+      "C": "4,000 students",
+      "D": "2,400 students"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) halving the SE requires quadrupling n: 1,600 × 4 = 6,400. Why the others are wrong: A) Doubling n reduces the SE only by a factor of √2, not by half. C) This is an arbitrary increase and gives an SE of about 0.025, not 0.02. D) This adds half to n, which reduces the half-width by far less than half.",
+     "trap": "Assuming that doubling n halves the interval; precision improves with the square root of n.",
+     "topic": "Confidence intervals and sample size",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Standard_error"
+      ]
+     }
+    },
+    {
+     "id": "FL05_PS_P10_Q2",
+     "stem": "Which is the correct interpretation of the 95% confidence interval for Sample A (6.64 to 6.96 hours)?",
+     "options": {
+      "A": "About 95% of repeated samples of 400 students would have a sample mean of exactly 6.8 hours",
+      "B": "About 95% of individual students in the population sleep between 6.64 and 6.96 hours per night",
+      "C": "There is a 95% probability that the true population mean lies between 6.64 and 6.96 hours for this particular interval",
+      "D": "If sampling were repeated many times, about 95% of the intervals constructed would contain the true population mean"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) this is the frequentist meaning of the interval. Why the others are wrong: A) Sample means vary around the population mean. B) The interval concerns the mean, not individual values; individuals vary with an SD of 1.6 hours. C) The true mean is fixed, so a computed interval either contains it or not.",
+     "trap": "Reading a 95% CI as the range containing 95% of individual observations.",
+     "topic": "Interpreting confidence intervals",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P10_Q3",
+     "stem": "Sample C has the same n as Sample B and a similarly narrow interval, yet its mean differs by 0.7 hours. The best explanation is that:",
+     "options": {
+      "A": "self-selection bias in a volunteer sample is not fixed by a large n, so the interval is precise but may be inaccurate",
+      "B": "the narrow interval proves that Sample C is representative of all 40,000 students in the university",
+      "C": "the larger sample size of Sample C produces a smaller mean through the central limit theorem, even though n is the same",
+      "D": "the difference arises only from random sampling error, which is expected to be about 0.7 hours at n = 1,600"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) bias is distinct from sampling error. Why the others are wrong: B) A narrow interval reflects precision, not representativeness. C) Sample size does not shift the mean; n is equal across B and C. D) The SE is about 0.04, so a 0.7 hour difference is far larger than expected from random error.",
+     "trap": "Believing that a large sample size or narrow CI fixes bias from a non-random sample.",
+     "topic": "Sampling bias versus sampling error",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_PS_P10_Q4",
+     "stem": "What would be the approximate 99% confidence interval for Sample A, using a multiplier of 2.58?",
+     "options": {
+      "A": "About 6.39 to 7.21 hours",
+      "B": "About 6.72 to 6.88 hours",
+      "C": "About 6.59 to 7.01 hours",
+      "D": "About 6.64 to 6.96 hours"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 2.58 × 0.08 = 0.206; 6.8 ± 0.21. Why the others are wrong: A) This divides the SD by 10 instead of by 20 to get the SE, which doubles the margin. B) This is the 95% interval for Sample B (SE = 0.04), not the 99% interval for Sample A. D) This is the 95% interval, whose multiplier is 1.96.",
+     "trap": "Using the right multiplier but forgetting that the interval is symmetric, or using the 95% interval.",
+     "topic": "Confidence level and width",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_PS_P10_Q5",
+     "stem": "According to Figure 1, about how much does the half-width decrease when n increases from 900 to 2,500?",
+     "options": {
+      "A": "About 0.04 hours",
+      "B": "About 0.17 hours",
+      "C": "About 0.10 hours",
+      "D": "About 0.01 hours"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 0.105 − 0.063 = 0.042. Why the others are wrong: B) This is the decrease from n = 100 to n = 400 (0.314 − 0.157). C) This is nearly the entire half-width at n = 900, rather than the decrease. D) This is much smaller than the plotted decrease of about 0.04 hours.",
+     "trap": "Overlooking diminishing returns: later increases in n buy much smaller gains in precision than early ones.",
+     "topic": "Reading graphs of precision",
+     "mastery_sheet_id": "SIRS",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL05_PS_D1",
+   "stem": "In a signal detection task, a radiologist is told that missing a tumor will be penalized less than raising a false alarm. Compared with before, the radiologist will most likely:",
+   "options": {
+    "A": "decrease sensitivity (d'), producing fewer hits and more false alarms through poorer discrimination",
+    "B": "adopt a more liberal criterion, producing more hits and more false alarms with no change in sensitivity at all",
+    "C": "increase sensitivity (d'), producing more hits and fewer false alarms through better discrimination of signal from noise",
+    "D": "adopt a more conservative criterion, producing fewer hits and false alarms without a change in sensitivity"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) a higher response criterion lowers both. Why the others are wrong: A) The described payoffs shift the criterion and do not degrade sensitivity. B) A liberal criterion would follow from penalizing misses, not false alarms. C) Payoff changes move the criterion; they do not change the ability to discriminate.",
+   "trap": "Attributing a payoff-driven change in responding to a change in sensitivity instead of a shift in response criterion.",
+   "topic": "Signal detection theory",
+   "mastery_sheet_id": "6A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D2",
+   "stem": "After staring at a bright green square for 30 seconds, a person looks at a white wall and briefly sees a red square. This afterimage is best explained by:",
+   "options": {
+    "A": "opponent-process theory, in which fatigue of green-signaling cells lets the red half of the red-green channel dominate",
+    "B": "feature detection theory, in which cortical cells tuned to red edges are activated by the white wall",
+    "C": "trichromatic theory, in which the long-wavelength cones are stimulated more strongly by white light after adaptation",
+    "D": "color constancy, in which the brain subtracts the green illumination from the scene to perceive the wall's true color"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) the paired opponent channel rebounds. Why the others are wrong: B) Afterimages arise from adaptation in the color-opponent channels, not edge detectors. C) Trichromatic theory describes three cone types and does not explain the complementary afterimage. D) Color constancy concerns stable perceived color under changing illumination, not afterimages.",
+   "trap": "Using trichromatic theory (cone types) for a phenomenon that requires opponent channels.",
+   "topic": "Color vision",
+   "mastery_sheet_id": "6A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D3",
+   "stem": "After bumping a shin, a person rubs it and the pain lessens. According to gate-control theory, this occurs because:",
+   "options": {
+    "A": "activity in vestibular receptors in the inner ear closes the spinal gate and reduces transmission from pain fibers",
+    "B": "activity in small-diameter pain fibers opens the spinal gate and increases transmission of signals from large-diameter touch fibers",
+    "C": "activity in large-diameter touch fibers closes the spinal gate and reduces transmission of signals from small-diameter pain fibers",
+    "D": "activity in olfactory receptors adapts the spinal gate and reduces transmission from pain fibers"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) touch inhibits nociceptive transmission. Why the others are wrong: A) Vestibular receptors signal balance and are not part of the gate-control mechanism. B) This reverses which fibers close the gate. D) Olfactory adaptation is unrelated to the spinal gate mechanism.",
+   "trap": "Reversing which fiber type closes the gate.",
+   "topic": "Pain gate control",
+   "mastery_sheet_id": "6A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D4",
+   "stem": "A person memorizes the 12-digit string 149217761945 by recalling it as 1492, 1776, and 1945. This strategy improves recall primarily by:",
+   "options": {
+    "A": "increasing the duration of the sensory register so that all twelve digits remain available at once for recall",
+    "B": "producing state-dependent retrieval cues that match the mood present at the time when the digits were learned",
+    "C": "transferring items to long-term storage by repeating them aloud over and over until they become automatic",
+    "D": "grouping items into meaningful units, so limited working-memory capacity holds more information"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) chunking. Why the others are wrong: A) Chunking acts on working memory, not the sensory register. B) No mood match is involved in this grouping strategy. C) This describes maintenance rehearsal, which is not the strategy described.",
+   "trap": "Confusing chunking with rote rehearsal or with expanding the capacity of sensory memory.",
+   "topic": "Working memory and chunking",
+   "mastery_sheet_id": "6B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D5",
+   "stem": "A participant is given a candle, a box of tacks, and matches and is asked to attach the candle to a wall. The participant fails to use the tack box as a platform because it has been presented as a container. This failure best illustrates:",
+   "options": {
+    "A": "confirmation bias, in which a participant seeks evidence supporting a first solution and ignores evidence against it",
+    "B": "the availability heuristic, in which a participant judges likely solutions by how easily examples come to mind",
+    "C": "algorithmic problem solving, in which a participant systematically tries every possible solution in sequence",
+    "D": "functional fixedness, in which a familiar use of an object impedes seeing a new use"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Duncker's candle problem. Why the others are wrong: A) This describes evidence selection, not the inability to repurpose an object. B) This is a judgment heuristic about frequency, not a block against re-using an object. C) An algorithm would eventually reach the solution, and this failure is a mental set.",
+   "trap": "Calling functional fixedness a type of confirmation bias.",
+   "topic": "Problem solving",
+   "mastery_sheet_id": "6B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D6",
+   "stem": "Average raw scores on standardized IQ tests increased by roughly 3 points per decade across the 20th century in many countries. Which statement about this observation is accurate?",
+   "options": {
+    "A": "It is called the Flynn effect, and it is typically attributed to environmental changes such as nutrition and schooling",
+    "B": "It is called the Flynn effect, and it shows that IQ tests measure only the effects of formal schooling and nothing else",
+    "C": "It is called the Flynn effect, and it demonstrates that the heritability of intelligence within a population is essentially zero",
+    "D": "It is called the Terman effect, and it is attributed to rapid genetic selection for higher intelligence across generations"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) environmental, rapid change. Why the others are wrong: B) The observation does not show that tests measure only schooling. C) Rising averages do not show zero heritability. D) The effect is named for Flynn, and genetic change in so few generations is not the explanation.",
+   "trap": "Interpreting a population-level rise in scores as proof of genetic change or zero heritability.",
+   "topic": "Intelligence and the Flynn effect",
+   "mastery_sheet_id": "6B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D7",
+   "stem": "A parent stops requiring a child to do the dishes after the child has completed all homework for the week. The child's homework completion increases. This is an example of:",
+   "options": {
+    "A": "positive reinforcement, because adding a pleasant stimulus increased the behavior",
+    "B": "negative reinforcement, because removing an aversive stimulus increased behavior",
+    "C": "positive punishment, because adding an aversive stimulus decreased behavior",
+    "D": "negative punishment, because removing a pleasant stimulus decreased the behavior"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) removal of chores strengthens behavior. Why the others are wrong: A) Nothing was added. C) Nothing was added and the behavior increased. D) A chore is not pleasant, and the behavior increased.",
+   "trap": "Treating 'negative' as meaning bad or as punishment instead of meaning that a stimulus is removed.",
+   "topic": "Operant conditioning",
+   "mastery_sheet_id": "6C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D8",
+   "stem": "In Selye's general adaptation syndrome, which stage is characterized by sustained elevated cortisol and apparent coping, with resources gradually being depleted?",
+   "options": {
+    "A": "The resistance stage, in which the body keeps mobilizing defenses against a persistent stressor",
+    "B": "The exhaustion stage, in which the body's resources are depleted and vulnerability to illness is greatest",
+    "C": "The recovery stage, in which cortisol returns to baseline and the stressor has ended",
+    "D": "The alarm stage, in which the sympathetic nervous system is first activated and the body is briefly in shock"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) resistance follows alarm. Why the others are wrong: B) Exhaustion follows resistance, after depletion. C) This stage is not part of Selye's three-stage model. D) This occurs first and is brief.",
+   "trap": "Assigning high cortisol only to the alarm stage.",
+   "topic": "Stress and cortisol",
+   "mastery_sheet_id": "6C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D9",
+   "stem": "A railroad worker survives an accident in which an iron rod destroys much of his left prefrontal cortex. He later becomes impulsive and unable to plan, although his memory and speech are intact. This pattern most directly illustrates that the frontal lobes are involved in:",
+   "options": {
+    "A": "visual processing, because the frontal lobes receive input from the retina through the lateral geniculate nucleus",
+    "B": "language comprehension, because the frontal lobes contain Wernicke's area, which supports understanding of speech",
+    "C": "executive functions such as planning and impulse control",
+    "D": "emotional memory formation, because the amygdala relays information about threats to the prefrontal cortex for storage"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) prefrontal cortex. Why the others are wrong: A) Visual input goes to the occipital lobe. B) Wernicke's area is in the temporal lobe, and speech was intact. D) The amygdala, not the frontal lobe, is central to emotional memory, and memory was intact.",
+   "trap": "Confusing frontal executive control with language areas or amygdala-based emotional memory.",
+   "topic": "Frontal lobe function",
+   "mastery_sheet_id": "6C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D10",
+   "stem": "The dopamine hypothesis of schizophrenia is supported by the observation that typical antipsychotic drugs:",
+   "options": {
+    "A": "increase GABA release and are most effective at reducing disorganized speech and catatonia",
+    "B": "block D2 receptors and are most effective at reducing positive symptoms such as hallucinations and delusions",
+    "C": "block serotonin reuptake and are most effective at reducing both positive and negative symptoms equally",
+    "D": "increase dopamine release and are most effective at reducing negative symptoms such as flat affect and social withdrawal"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) D2 antagonism. Why the others are wrong: A) Typical antipsychotics act on dopamine D2 receptors, not GABA. C) This describes antidepressants, not typical antipsychotics. D) Typical antipsychotics reduce dopamine activity.",
+   "trap": "Assuming antipsychotics raise dopamine or treat negative symptoms best.",
+   "topic": "Schizophrenia and dopamine",
+   "mastery_sheet_id": "7A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D11",
+   "stem": "Children watch an adult strike an inflatable doll and then see the adult praised for it. Later, the children show more aggression toward the doll. This outcome is best explained by:",
+   "options": {
+    "A": "classical conditioning, in which the doll becomes a conditioned stimulus that elicits an unconditioned aggressive response",
+    "B": "vicarious reinforcement within observational learning, in which observing a model's rewarded behavior increases imitation",
+    "C": "the foot-in-the-door technique, in which agreeing to a small request increases compliance with a larger one",
+    "D": "sensitization, in which the repeated presentation of a strong stimulus increases the intensity of a response"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Bandura. Why the others are wrong: A) There was no pairing of a neutral stimulus with an unconditioned one. C) No requests were made. D) Sensitization involves repeated exposure to a stimulus, not observing a model.",
+   "trap": "Calling imitation of a rewarded model classical conditioning.",
+   "topic": "Observational learning",
+   "mastery_sheet_id": "7C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D12",
+   "stem": "A 17-year-old has explored several career options and religious views but has not yet committed to any of them. According to Marcia's identity statuses, this adolescent is in:",
+   "options": {
+    "A": "foreclosure, characterized by commitment without prior exploration",
+    "B": "identity achievement, characterized by commitment after a period of exploration",
+    "C": "moratorium, characterized by active exploration without commitment",
+    "D": "identity diffusion, characterized by neither exploration nor commitment"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) exploration and no commitment. Why the others are wrong: A) Commitment without exploration is foreclosure. B) Achievement requires commitment. D) Diffusion lacks exploration.",
+   "trap": "Mixing up foreclosure (commitment without exploration) and moratorium (exploration without commitment).",
+   "topic": "Identity development",
+   "mastery_sheet_id": "8A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D13",
+   "stem": "In an Asch-type conformity study, participants judge line lengths after confederates unanimously give a wrong answer. Which change would most likely reduce conformity substantially?",
+   "options": {
+    "A": "Telling participants that the group is composed of strangers, which increases the importance of social approval",
+    "B": "Increasing the unanimous group from three to fifteen confederates, which gives stronger normative pressure",
+    "C": "Having participants state their answers publicly after everyone else has spoken, which increases accountability",
+    "D": "Having one confederate give the correct answer, breaking the unanimity of the group"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) a single ally lowers conformity. Why the others are wrong: A) This is unlikely to reduce conformity and may keep it unchanged. B) Conformity levels off after about three or four confederates. C) Public responding tends to increase conformity.",
+   "trap": "Assuming conformity rises steadily with group size or with public responding.",
+   "topic": "Conformity",
+   "mastery_sheet_id": "7B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D14",
+   "stem": "A sociologist notes that a school's stated purpose is education but that it also, unintentionally, provides daycare so parents can work and creates friendship networks. In Merton's terms, daycare and friendship networks are:",
+   "options": {
+    "A": "dysfunctions, which are consequences that disrupt the stability of the social system",
+    "B": "manifest functions, which are the intended and recognized consequences of an institution",
+    "C": "anomic functions, which arise when norms break down and members lose guidance",
+    "D": "latent functions, which are unintended and often unrecognized consequences"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Merton's latent function. Why the others are wrong: A) The described consequences support, rather than disrupt, stability. B) Education is the manifest function. C) Anomie is Durkheim's term for normlessness and is not a type of function.",
+   "trap": "Calling unintended benefits 'manifest' because they are visible.",
+   "topic": "Functionalism",
+   "mastery_sheet_id": "9A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_PS_D15",
+   "stem": "A researcher tests 20 unrelated hypotheses at alpha = 0.05 and reports the one that gave p = 0.03. The principal concern is that:",
+   "options": {
+    "A": "the chance of at least one Type I error across the 20 tests exceeds 5%, so the finding may be a false positive",
+    "B": "the p-value of 0.03 means there is a 97% probability that the hypothesis is true",
+    "C": "the sample size would need to be reduced, because large samples always create statistically significant results",
+    "D": "the chance of a Type II error is zero, because a p-value below 0.05 rules out failing to detect an effect"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) multiple comparisons. Why the others are wrong: B) A p-value is not the probability that a hypothesis is true. C) This is not the concern; the issue is the number of tests. D) A significant result in one test does not remove Type II risk elsewhere.",
+   "trap": "Treating p = 0.03 as the probability the hypothesis is true and ignoring multiple testing.",
+   "topic": "Statistical inference",
+   "mastery_sheet_id": "SIRS",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

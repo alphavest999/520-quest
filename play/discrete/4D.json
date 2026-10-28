@@ -1,0 +1,462 @@
+[
+ {
+  "id": "d_4D_1",
+  "type": "discrete",
+  "stem": "Light travels from air (n = 1.0) into glass (n = 1.5) at an angle of incidence of 30 degrees. The sine of the refraction angle is:",
+  "options": {
+   "A": "1/3",
+   "B": "1/2",
+   "C": "3/4",
+   "D": "2/3"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Snell's law n1 sin(theta1) = n2 sin(theta2) gives sin(theta2) = (1.0 x 0.5)/1.5 = 1/3. Why the others are wrong: B) 1/2 is sin(30) itself and ignores refraction. C) 3/4 does not follow from the ratio and results from misapplying it. D) 2/3 inverts the ratio of indices (n2/n1 = 1.5 in the wrong place).",
+  "trap": "Inverting the ratio of refractive indices.",
+  "topic": "Snell's law",
+  "mastery_sheet_id": "4D",
+  "difficulty": "515",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://direct.physicsclassroom.com/calcpad/refrn/Equation-Overview",
+    "https://openstax.org/books/physics/pages/16-key-equations"
+   ]
+  }
+ },
+ {
+  "id": "d_4D_2",
+  "type": "discrete",
+  "stem": "Light in a material of refractive index 2.0 strikes an interface with air (n = 1.0). The critical angle is:",
+  "options": {
+   "A": "45 degrees",
+   "B": "60 degrees",
+   "C": "30 degrees",
+   "D": "90 degrees"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) sin(theta_c) = n2/n1 = 1.0/2.0 = 0.5, so the critical angle is 30 degrees. Why the others are wrong: A) 45 degrees would need sin(theta_c) = 0.71, i.e., n1 of about 1.41. B) 60 degrees would need sin(theta_c) = 0.87, a different index ratio. D) 90 degrees is grazing refraction, which is not the critical angle for n1 = 2.0.",
+  "trap": "Using n1/n2, which would exceed 1.",
+  "topic": "Total internal reflection",
+  "mastery_sheet_id": "4D",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://direct.physicsclassroom.com/calcpad/refrn/Equation-Overview",
+    "https://openstax.org/books/physics/pages/16-key-equations"
+   ]
+  }
+ },
+ {
+  "id": "d_4D_3",
+  "type": "discrete",
+  "stem": "The speed of light in a transparent medium with n = 1.5 is approximately (c = 3.0 x 10^8 m/s):",
+  "options": {
+   "A": "4.5 x 10^8 m/s",
+   "B": "2.0 x 10^8 m/s",
+   "C": "1.5 x 10^8 m/s",
+   "D": "3.0 x 10^8 m/s"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) v = c/n = 3.0 x 10^8 / 1.5 = 2.0 x 10^8 m/s. Why the others are wrong: A) 4.5 x 10^8 multiplies by n, which would make light faster than c. C) 1.5 x 10^8 divides c by 2 rather than by n. D) 3.0 x 10^8 is the vacuum speed, but light slows in a medium.",
+  "trap": "Multiplying by n rather than dividing.",
+  "topic": "Speed of light in a medium",
+  "mastery_sheet_id": "4D",
+  "difficulty": "525",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.redcrab-software.com/en/Calculator/Optics/Refractive-Index",
+    "https://www.careers360.com/question-what-is-the-formula-for-calculating-a-mediums-refractive-index"
+   ]
+  }
+ },
+ {
+  "id": "d_4D_4",
+  "type": "discrete",
+  "stem": "An object is placed 30 cm from a converging lens of focal length 10 cm. The image is located:",
+  "options": {
+   "A": "15 cm from the lens, virtual and upright",
+   "B": "7.5 cm from the lens, real and inverted",
+   "C": "30 cm from the lens, real and inverted",
+   "D": "15 cm from the lens, real and inverted"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) 1/i = 1/f - 1/o = 1/10 - 1/30 = 2/30, so i = 15 cm; a positive image distance means real and inverted. Why the others are wrong: A) 15 cm is right, but a virtual upright image requires the object inside the focal length. B) 7.5 cm is a reciprocal arithmetic error. C) 30 cm would require the object to be at 2f = 20 cm, not 30 cm.",
+  "trap": "Arithmetic errors with reciprocals.",
+  "topic": "Thin lens equation",
+  "mastery_sheet_id": "4D",
+  "difficulty": "516",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://direct.physicsclassroom.com/calcpad/refrn/Equation-Overview",
+    "https://openstax.org/books/physics/pages/16-key-equations"
+   ]
+  }
+ },
+ {
+  "id": "d_4D_5",
+  "type": "discrete",
+  "stem": "A diverging lens forms an image of a real object that is always:",
+  "options": {
+   "A": "real, inverted and reduced",
+   "B": "virtual, upright and reduced",
+   "C": "virtual, upright and enlarged",
+   "D": "real, inverted and enlarged"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) A diverging lens has negative f and gives only a virtual, upright, reduced image of a real object. Why the others are wrong: A) real images require converging optics. C) enlarged virtual images need a converging lens used as a magnifier or a concave mirror. D) real, enlarged images come from a converging lens with the object between f and 2f.",
+  "trap": "Applying converging lens image rules to a diverging lens.",
+  "topic": "Diverging lenses",
+  "mastery_sheet_id": "4D",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4D_6",
+  "type": "discrete",
+  "stem": "An object is placed between a concave mirror and its focal point. The image is:",
+  "options": {
+   "A": "virtual, upright and enlarged",
+   "B": "real, inverted and enlarged",
+   "C": "real, inverted and reduced",
+   "D": "virtual, upright and reduced"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Inside the focal length of a concave mirror the reflected rays diverge, forming a virtual, upright, magnified image behind the mirror. Why the others are wrong: B) real, inverted, enlarged images occur when the object is between f and 2f. C) real, inverted, reduced images occur when the object is beyond 2f. D) virtual, reduced images are formed by convex mirrors, not by a concave mirror.",
+  "trap": "Remembering the magnifying makeup-mirror effect backward.",
+  "topic": "Concave mirror imaging",
+  "mastery_sheet_id": "4D",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4D_7",
+  "type": "discrete",
+  "stem": "A corrective lens has a focal length of 0.50 m. Its power is:",
+  "options": {
+   "A": "+0.50 diopters",
+   "B": "+5.0 diopters",
+   "C": "-2.0 diopters",
+   "D": "+2.0 diopters"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) P = 1/f = 1/0.50 m = +2.0 diopters, positive for a converging lens. Why the others are wrong: A) +0.50 is the focal length in meters, not the power. B) +5.0 comes from using 0.2 m or a unit error. C) -2.0 has the right magnitude but a negative sign, which describes a diverging lens.",
+  "trap": "Inverting focal length or unit confusion.",
+  "topic": "Lens power",
+  "mastery_sheet_id": "4D",
+  "difficulty": "517",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://direct.physicsclassroom.com/calcpad/refrn/Equation-Overview",
+    "https://openstax.org/books/physics/pages/16-key-equations"
+   ]
+  }
+ },
+ {
+  "id": "d_4D_8",
+  "type": "discrete",
+  "stem": "In a double-slit experiment, wavelength of the light is doubled while slit separation and screen distance are unchanged. The spacing between adjacent bright fringes:",
+  "options": {
+   "A": "halves",
+   "B": "quadruples",
+   "C": "doubles",
+   "D": "stays the same"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Fringe spacing = lambda L / d, directly proportional to wavelength, so doubling lambda doubles the spacing. Why the others are wrong: A) halving would require an inverse relationship, which does not exist. B) quadrupling would require a squared dependence on wavelength. D) wavelength is in the numerator, so spacing does change.",
+  "trap": "Applying an inverse relationship.",
+  "topic": "Double slit interference",
+  "mastery_sheet_id": "4D",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4D_9",
+  "type": "discrete",
+  "stem": "Two coherent waves of wavelength lambda arrive at a point after traveling paths that differ by 3 lambda. The interference at that point is:",
+  "options": {
+   "A": "destructive",
+   "B": "partially destructive",
+   "C": "dependent on amplitude only",
+   "D": "constructive"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) A path difference of an integer multiple of lambda (here 3 lambda) gives constructive interference. Why the others are wrong: A) destructive interference requires a half-integer multiple of lambda. B) integer path differences give fully constructive, not partial, results for equal waves. C) for a given phase difference, the type of interference is set by the path difference, not the amplitude alone.",
+  "trap": "Treating any nonzero path difference as destructive.",
+  "topic": "Constructive interference",
+  "mastery_sheet_id": "4D",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4D_10",
+  "type": "discrete",
+  "stem": "Unpolarized light of intensity I0 passes through a single ideal polarizer. The transmitted intensity is:",
+  "options": {
+   "A": "I0",
+   "B": "I0/2",
+   "C": "I0/4",
+   "D": "0"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) An ideal polarizer transmits half of unpolarized light, the component along its axis, so I = I0/2. Why the others are wrong: A) I0 would require no loss, but half the light is blocked. C) I0/4 arises after a second polarizer at 45 degrees, not with one. D) zero would require crossed polarizers, not a single one.",
+  "trap": "Applying Malus's law cos^2 to unpolarized light.",
+  "topic": "Polarization",
+  "mastery_sheet_id": "4D",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4D_11",
+  "type": "discrete",
+  "stem": "A red apple appears red under white light because its surface:",
+  "options": {
+   "A": "absorbs red wavelengths and reflects the others",
+   "B": "emits red light by fluorescence",
+   "C": "reflects red wavelengths and absorbs most other visible wavelengths",
+   "D": "transmits only red light"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) The perceived color is what is reflected or scattered; the apple reflects red and absorbs most other visible wavelengths. Why the others are wrong: A) absorbing red and reflecting the others would make it look cyan. B) an apple under white light is not fluorescing; it reflects light. D) an apple is opaque and does not transmit light.",
+  "trap": "Assuming that the color seen is the color absorbed.",
+  "topic": "Absorption and color",
+  "mastery_sheet_id": "4D",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4D_12",
+  "type": "discrete",
+  "stem": "A siren moves toward a stationary observer. Compared with the emitted sound, the sound detected by the observer has:",
+  "options": {
+   "A": "a higher frequency and a shorter wavelength, with unchanged speed",
+   "B": "a higher frequency and a higher speed",
+   "C": "a lower frequency and a longer wavelength",
+   "D": "a higher frequency and a longer wavelength"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Wavefronts bunch up in front of a source moving toward the observer, shortening the wavelength and raising the frequency, while the speed is set by the medium and is unchanged. Why the others are wrong: B) the speed of sound is determined by the medium, not by source motion. C) lower frequency and longer wavelength apply to a receding source. D) wavelength is shortened, not lengthened, for an approaching source.",
+  "trap": "Believing that the speed of sound changes with source motion.",
+  "topic": "Doppler effect",
+  "mastery_sheet_id": "4D",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4D_13",
+  "type": "discrete",
+  "stem": "The intensity of a sound increases by a factor of 1000. The sound intensity level increases by:",
+  "options": {
+   "A": "3 dB",
+   "B": "1000 dB",
+   "C": "30 dB",
+   "D": "100 dB"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Delta beta = 10 log(I2/I1) = 10 log(1000) = 30 dB. Why the others are wrong: A) 3 dB is log(1000) without the factor of 10. B) 1000 dB treats the intensity ratio itself as decibels. D) 100 dB misuses the logarithm and does not follow from 10 log(1000).",
+  "trap": "Forgetting the factor of 10 in the decibel formula.",
+  "topic": "Decibel scale",
+  "mastery_sheet_id": "4D",
+  "difficulty": "519",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://hyperphysics.gsu.edu/hbase/Ph4060/p406i.html",
+    "https://personalpages.manchester.ac.uk/staff/richard.baker/BasicAcoustics/4_inverse_square_law.html"
+   ]
+  }
+ },
+ {
+  "id": "d_4D_14",
+  "type": "discrete",
+  "stem": "A listener moves from 5 m to 10 m from a point source of sound in open air. The intensity level changes by approximately:",
+  "options": {
+   "A": "-6 dB",
+   "B": "-3 dB",
+   "C": "-12 dB",
+   "D": "-10 dB"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Intensity varies as 1/r^2, so doubling the distance cuts intensity to 1/4, and 10 log(1/4) = about -6 dB. Why the others are wrong: B) -3 dB corresponds to halving the intensity. C) -12 dB corresponds to a factor of 16 reduction. D) -10 dB corresponds to a factor of 10 reduction.",
+  "trap": "Believing intensity halves when distance doubles.",
+  "topic": "Inverse-square law for sound",
+  "mastery_sheet_id": "4D",
+  "difficulty": "524",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://hyperphysics.gsu.edu/hbase/Ph4060/p406i.html",
+    "https://personalpages.manchester.ac.uk/staff/richard.baker/BasicAcoustics/4_inverse_square_law.html"
+   ]
+  }
+ },
+ {
+  "id": "d_4D_15",
+  "type": "discrete",
+  "stem": "A sound wave in air enters water, where the speed of sound is greater. Which quantity remains constant?",
+  "options": {
+   "A": "wavelength",
+   "B": "speed",
+   "C": "amplitude of pressure",
+   "D": "frequency"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Frequency is set by the source and stays the same across a boundary, while speed and wavelength change. Why the others are wrong: A) wavelength increases in the faster medium since lambda = v/f. B) speed differs by definition, since the medium has changed. C) pressure amplitude changes because part of the wave is reflected and impedance differs.",
+  "trap": "Assuming wavelength is constant.",
+  "topic": "Sound crossing media",
+  "mastery_sheet_id": "4D",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4D_16",
+  "type": "discrete",
+  "stem": "A pipe closed at one end has length 0.25 m. If the speed of sound is 340 m/s, the fundamental frequency is:",
+  "options": {
+   "A": "170 Hz",
+   "B": "340 Hz",
+   "C": "680 Hz",
+   "D": "1360 Hz"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) For a pipe closed at one end, f1 = v/(4L) = 340/(4 x 0.25) = 340 Hz. Why the others are wrong: A) 170 Hz uses 8L or 4L with L = 0.5, a wrong length factor. C) 680 Hz is the open pipe result v/(2L) for L = 0.25 m. D) 1360 Hz is v/L, which does not match either pipe fundamental.",
+  "trap": "Using the open-pipe formula for a closed pipe.",
+  "topic": "Standing waves in pipes",
+  "mastery_sheet_id": "4D",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://fiveable.me/honors-physics/unit-14/4-sound-interference-resonance/study-guide/kd76XMRGsF232s0i"
+   ]
+  }
+ },
+ {
+  "id": "d_4D_17",
+  "type": "discrete",
+  "stem": "Two tuning forks of frequency 440 Hz and 444 Hz sound simultaneously. The beat frequency heard is:",
+  "options": {
+   "A": "442 Hz",
+   "B": "884 Hz",
+   "C": "4 Hz",
+   "D": "2 Hz"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Beat frequency = |f1 - f2| = |444 - 440| = 4 Hz. Why the others are wrong: A) 442 Hz is the average pitch heard, not the beat rate. B) 884 Hz is the sum of the frequencies. D) 2 Hz is half the difference, which is not the beat rate.",
+  "trap": "Adding or averaging the two frequencies instead of taking their absolute difference.",
+  "topic": "Beats",
+  "mastery_sheet_id": "4D",
+  "difficulty": "525",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://fiveable.me/honors-physics/unit-14/4-sound-interference-resonance/study-guide/kd76XMRGsF232s0i"
+   ]
+  }
+ },
+ {
+  "id": "d_4D_18",
+  "type": "discrete",
+  "stem": "A gel is applied between an ultrasound probe and the skin because it:",
+  "options": {
+   "A": "reduces reflection at the boundary by eliminating the air gap with a large impedance mismatch",
+   "B": "increases the speed of sound in tissue",
+   "C": "absorbs low-frequency noise",
+   "D": "polarizes the sound waves"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Air versus tissue is a large acoustic impedance mismatch that reflects most of the sound; gel removes the air gap and gives a better match, so more sound enters the body. Why the others are wrong: B) gel does not change the speed of sound in tissue. C) gel is not a noise absorber; its role is impedance matching. D) sound is a longitudinal wave and cannot be polarized.",
+  "trap": "Thinking the gel changes the sound itself rather than removing the air layer that would reflect it.",
+  "topic": "Ultrasound and acoustic impedance",
+  "mastery_sheet_id": "4D",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4D_19",
+  "type": "discrete",
+  "stem": "Which type of electromagnetic radiation has photons with the greatest energy?",
+  "options": {
+   "A": "visible light",
+   "B": "ultraviolet light",
+   "C": "infrared light",
+   "D": "microwaves"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) E = hf, and of these options ultraviolet has the highest frequency, so its photons carry the most energy. Why the others are wrong: A) visible light has a lower frequency than UV and so lower photon energy. C) infrared has a still lower frequency and less energy per photon. D) microwaves have the lowest frequency of the group and the least energy per photon.",
+  "trap": "Associating energy with wavelength directly.",
+  "topic": "Photon energy across the spectrum",
+  "mastery_sheet_id": "4D",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4D_20",
+  "type": "discrete",
+  "stem": "When white light passes through a glass prism, violet light is bent more than red because:",
+  "options": {
+   "A": "violet light travels faster in glass",
+   "B": "violet light has less energy",
+   "C": "red light is reflected",
+   "D": "glass has a higher refractive index for shorter wavelengths"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) In normal dispersion n increases as wavelength decreases, so violet light is refracted more than red. Why the others are wrong: A) violet travels slower, not faster, in glass (v = c/n with larger n). B) violet photons have more energy, and energy is not what bends the light. C) red light is transmitted and refracted, not reflected, and reflection does not explain the spread.",
+  "trap": "Believing shorter wavelength travels faster in matter.",
+  "topic": "Dispersion in a prism",
+  "mastery_sheet_id": "4D",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4D_21",
+  "type": "discrete",
+  "stem": "In Doppler ultrasound, the echo from red blood cells moving toward the probe has:",
+  "options": {
+   "A": "a lower frequency than the emitted sound",
+   "B": "the same frequency",
+   "C": "a higher speed in the blood",
+   "D": "a higher frequency than the emitted sound"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Echoes from reflectors moving toward the probe are Doppler-shifted upward in frequency. Why the others are wrong: A) a lower frequency indicates cells moving away from the probe. B) motion produces a nonzero shift, so the frequency is not the same. C) the speed of sound in blood depends on the medium and is not changed by cell motion.",
+  "trap": "Reversing the shift direction for approaching cells.",
+  "topic": "Doppler ultrasound",
+  "mastery_sheet_id": "4D",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ }
+]

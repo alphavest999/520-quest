@@ -1,0 +1,1580 @@
+{
+ "exam": "FL01",
+ "section": "CP",
+ "passages": [
+  {
+   "passage_id": "FL01_CP_P1",
+   "passage_text": "A student studies a 0.50 kg wooden block sliding from rest down a 2.0 m long plank whose angle θ with the horizontal can be adjusted. For each angle, the student releases the block, uses photogates to measure the time needed to travel the full 2.0 m, and averages five trials. The plank surface is uniform, and separate measurements gave a coefficient of static friction of 0.25 and a coefficient of kinetic friction of 0.20 between block and plank. Use g = 9.8 m/s² and neglect air resistance. At 10° the block did not move when released, even after a gentle tap. The student reasons that the acceleration down the plank depends on both the component of gravity along the plank and the friction force opposing the motion, and she compares predictions from a free-body diagram analysis with her data. The predicted times agreed with the measured times to within 2%. Results for the other angles are shown in Table 1 and Figure 1.",
+   "table_data": "| Angle θ (degrees) | Mean time for 2.0 m (s) |\n|---|---|\n| 10 | No motion |\n| 20 | 1.63 |\n| 30 | 1.12 |\n| 40 | 0.91 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Mean sliding time versus plank angle",
+    "x_label": "Angle (degrees)",
+    "y_label": "Time for 2.0 m (s)",
+    "series": [
+     {
+      "name": "Block",
+      "points": [
+       [
+        20,
+        1.63
+       ],
+       [
+        30,
+        1.12
+       ],
+       [
+        40,
+        0.91
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_CP_P1_Q1",
+     "stem": "What is the acceleration of the block down the plank at an angle of 30°?",
+     "options": {
+      "A": "3.2 m/s²",
+      "B": "4.9 m/s²",
+      "C": "8.5 m/s²",
+      "D": "1.7 m/s²"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) a = g(sinθ − μk cosθ) = 9.8(0.500 − 0.20 × 0.866) = 3.2 m/s². Why the others are wrong: B) 4.9 m/s² is g sin 30° and ignores friction. C) 8.5 m/s² is g cos 30°, which is the component of gravity perpendicular to the plank. D) 1.7 m/s² is only the deceleration due to friction (μk g cos 30°), not the net acceleration.",
+     "trap": "Using g sinθ alone and forgetting that kinetic friction subtracts from the net force along the plank.",
+     "topic": "Inclined plane acceleration with friction",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://collegephysicsanswers.com/openstax-solutions/show-acceleration-any-object-down-incline-where-friction-behaves-simply-where-0",
+       "https://www.physicsforums.com/threads/finding-the-acceleration-of-a-block-on-an-inclined-plane-with-friction.1084184/"
+      ]
+     }
+    },
+    {
+     "id": "FL01_CP_P1_Q2",
+     "stem": "Which statement best explains why the block did not slide at 10°?",
+     "options": {
+      "A": "Kinetic friction exceeded the component of gravity along the plank.",
+      "B": "The normal force from the plank was zero at that angle.",
+      "C": "The component of gravity along the plank was smaller than the maximum static friction force.",
+      "D": "The weight of the block was balanced by the normal force, so no net force acted on it."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) At 10°, mg sinθ is about 0.85 N while the maximum static friction is μs mg cosθ, about 1.2 N, so static friction can fully cancel the gravitational pull along the plank (tan 10° < 0.25). Why the others are wrong: A) Kinetic friction only acts once the block is sliding, and it is smaller than the maximum static friction. B) The normal force is mg cosθ, which is nonzero at every angle below 90°. D) The normal force balances only the perpendicular component of weight, not the full weight; the issue is the balance along the plank.",
+     "trap": "Saying the weight is balanced by the normal force, which ignores that the normal force balances only the perpendicular component.",
+     "topic": "Static friction threshold on an incline",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P1_Q3",
+     "stem": "What is the magnitude of the kinetic friction force on the block while it slides at 30°?",
+     "options": {
+      "A": "0.85 N",
+      "B": "0.98 N",
+      "C": "2.5 N",
+      "D": "0.49 N"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) f = μk N = μk m g cosθ = 0.20 × 0.50 × 9.8 × 0.866 = 0.85 N. Why the others are wrong: B) 0.98 N is μk m g, which uses the full weight instead of the normal force on an incline. C) 2.5 N is mg sin 30°, the driving component of gravity, not friction. D) 0.49 N results from using sin 30° instead of cos 30° for the normal force.",
+     "trap": "Using the full weight mg as the normal force on a tilted surface instead of mg cosθ.",
+     "topic": "Friction force on an incline",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://collegephysicsanswers.com/openstax-solutions/show-acceleration-any-object-down-incline-where-friction-behaves-simply-where-0",
+       "https://www.physicsforums.com/threads/finding-the-acceleration-of-a-block-on-an-inclined-plane-with-friction.1084184/"
+      ]
+     }
+    },
+    {
+     "id": "FL01_CP_P1_Q4",
+     "stem": "What is the speed of the block at the bottom of the plank when θ = 40°?",
+     "options": {
+      "A": "3.1 m/s",
+      "B": "6.3 m/s",
+      "C": "4.4 m/s",
+      "D": "8.8 m/s"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The mean time is 0.91 s over 2.0 m from rest, so a = 2d/t² = 4.8 m/s², and v = at = 4.8 × 0.91 = 4.4 m/s (equivalently v = 2d/t). Why the others are wrong: A) 3.1 m/s is 4.4/√2 and has no basis in the data; it would result from mishandling the square root in v = √(2ad). B) 6.3 m/s is √(2gd), the speed that would result from dropping through 2.0 m with no plank, ignoring both the angle and friction. D) 8.8 m/s is double the correct final speed, which would result from applying the factor of 2 in v = 2d/t twice.",
+     "trap": "Treating the average speed (d/t = 2.2 m/s) as the final speed.",
+     "topic": "Kinematics from time data",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P1_Q5",
+     "stem": "What is the work done by kinetic friction on the block over the full 2.0 m at 30°?",
+     "options": {
+      "A": "+1.7 J",
+      "B": "−4.9 J",
+      "C": "−0.85 J",
+      "D": "−1.7 J"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) W = −f d = −(0.85 N)(2.0 m) = −1.7 J; friction opposes the displacement, so the work is negative. Why the others are wrong: A) +1.7 J has the correct magnitude but the wrong sign; friction points opposite to the motion. B) −4.9 J reuses the value of mg sin 30° (4.9 N) as if it were an energy; the distance of 2.0 m is not applied, and friction, not gravity, is asked about. C) −0.85 J omits multiplying by the 2.0 m distance, so it is only the force value.",
+     "trap": "Reporting the friction force in newtons as the work, or giving work done by friction a positive sign.",
+     "topic": "Work done by friction",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://phys.libretexts.org/Bookshelves/University_Physics/University_Physics_(OpenStax)/Book%3A_University_Physics_I_-_Mechanics_Sound_Oscillations_and_Waves_(OpenStax)/06%3A_Applications_of_Newton's_Laws/6.05%3A_Friction_(Part_2)",
+       "https://www.physicsclassroom.com/mop/Work-and-Energy/Work/QG9help"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_CP_P2",
+   "passage_text": "Atherosclerotic plaque narrows arteries, and a physician models the effect with a horizontal rigid tube whose radius changes along its length. Blood is treated as an ideal, incompressible fluid of density 1060 kg/m³ with no viscosity. In the normal segment the radius is 4.0 mm and the blood speed is 0.30 m/s. Narrowed segments of smaller radius are considered one at a time. Using the continuity equation and Bernoulli's equation, the speed in each narrowed segment and the drop in pressure relative to the normal segment were calculated and are given in Table 1. Figure 1 plots speed against radius. In a real artery, viscosity cannot be ignored. For steady laminar flow of a viscous fluid in a long, narrow tube, Poiseuille's law states that the volumetric flow rate is proportional to the pressure difference across the tube and to the fourth power of the tube radius, and inversely proportional to the tube length and the fluid viscosity.",
+   "table_data": "| Radius (mm) | Speed (m/s) | Pressure drop relative to normal segment (Pa) |\n|---|---|---|\n| 4.0 | 0.30 | 0 |\n| 3.0 | 0.53 | 103 |\n| 2.0 | 1.20 | 716 |\n| 1.5 | 2.13 | 2364 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Blood speed versus vessel radius",
+    "x_label": "Radius (mm)",
+    "y_label": "Speed (m/s)",
+    "series": [
+     {
+      "name": "Model",
+      "points": [
+       [
+        1.5,
+        2.13
+       ],
+       [
+        2.0,
+        1.2
+       ],
+       [
+        3.0,
+        0.53
+       ],
+       [
+        4.0,
+        0.3
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_CP_P2_Q1",
+     "stem": "What is the volumetric flow rate of blood through the normal segment?",
+     "options": {
+      "A": "3.8 mL/s",
+      "B": "60 mL/s",
+      "C": "15 mL/s",
+      "D": "1.5 mL/s"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Q = Av = π(4.0 × 10⁻³ m)²(0.30 m/s) = 1.5 × 10⁻⁵ m³/s, which is 15 cm³/s = 15 mL/s. Why the others are wrong: A) 3.8 mL/s is one quarter of the correct value and would come from dividing by 4. B) 60 mL/s is four times the correct value, as if the radius were doubled. D) 1.5 mL/s is off by a factor of ten from a unit conversion error (1 m³ = 10⁶ mL).",
+     "trap": "Converting m³/s to mL/s incorrectly, or using the diameter or radius without squaring it.",
+     "topic": "Continuity and flow rate",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://phys.libretexts.org/Bookshelves/University_Physics/Physics_(Boundless)/10%3A_Fluids/10.5%3A_Fluids_in_Motion",
+       "https://renderer.jackwestin.com/resources/mcat-content/fluids/continuity-equation"
+      ]
+     }
+    },
+    {
+     "id": "FL01_CP_P2_Q2",
+     "stem": "Exercise increases the total flow rate through the model by 50% while the geometry is unchanged. What is the speed in the 2.0 mm radius segment?",
+     "options": {
+      "A": "2.7 m/s",
+      "B": "1.8 m/s",
+      "C": "1.5 m/s",
+      "D": "0.8 m/s"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) For a fixed cross-sectional area, speed is proportional to flow rate, so v = 1.20 × 1.5 = 1.8 m/s. Why the others are wrong: A) 2.7 m/s results from multiplying by 1.5 twice, as if speed scaled with the square of flow rate. C) 1.5 m/s adds 0.30 m/s to the tabulated speed rather than scaling it. D) 0.8 m/s divides by 1.5 instead of multiplying, which would imply flow rate decreased.",
+     "trap": "Applying the 50% increase as an additive change or squaring it instead of scaling speed proportionally.",
+     "topic": "Continuity equation scaling",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://phys.libretexts.org/Bookshelves/University_Physics/Physics_(Boundless)/10%3A_Fluids/10.5%3A_Fluids_in_Motion",
+       "https://renderer.jackwestin.com/resources/mcat-content/fluids/continuity-equation"
+      ]
+     }
+    },
+    {
+     "id": "FL01_CP_P2_Q3",
+     "stem": "According to Table 1, the pressure drop in the 2.0 mm segment is 716 Pa. Approximately what is this in mmHg? (1 mmHg = 133 Pa)",
+     "options": {
+      "A": "54 mmHg",
+      "B": "5.4 mmHg",
+      "C": "0.54 mmHg",
+      "D": "716 mmHg"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 716 Pa ÷ 133 Pa/mmHg = 5.4 mmHg. Pressure falls in the narrow segment because its higher speed means higher kinetic energy per volume (Bernoulli). Why the others are wrong: A) 54 mmHg is a factor of ten too large. C) 0.54 mmHg is a factor of ten too small. D) 716 mmHg reports the value in pascals with the wrong unit and no conversion.",
+     "trap": "Misplacing the decimal in a unit conversion, or forgetting to convert Pa to mmHg.",
+     "topic": "Bernoulli pressure and units",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_CP_P2_Q4",
+     "stem": "In a real viscous artery of fixed length and fixed pressure difference, what happens to the volumetric flow rate if the radius is cut in half?",
+     "options": {
+      "A": "It decreases by a factor of 16.",
+      "B": "It decreases by a factor of 4.",
+      "C": "It decreases by a factor of 2.",
+      "D": "It increases by a factor of 4."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Poiseuille's law gives Q ∝ r⁴, so halving r reduces Q by (1/2)⁴ = 1/16. Why the others are wrong: B) A factor of 4 is the result of the ideal-fluid continuity relation (speed ∝ 1/r²) and neglects the r⁴ dependence of viscous flow. C) A factor of 2 would imply flow rate is directly proportional to radius. D) Flow does not increase; in the narrower tube resistance rises sharply, so flow falls.",
+     "trap": "Using the continuity-equation relation for speed (1/r²) instead of the r⁴ dependence of viscous flow rate.",
+     "topic": "Poiseuille's law",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_CP_P3",
+   "passage_text": "A concentration cell is built from two copper electrodes, each immersed in its own beaker of aqueous CuSO₄, with the beakers joined by a salt bridge. The Cu²⁺ concentration in one beaker is fixed at 1.0 M, and the concentration in the other beaker is varied. At 25 °C the cell potential is given by E = (0.0592/n) log([Cu²⁺] in the concentrated half-cell ÷ [Cu²⁺] in the dilute half-cell), where n = 2 for this reaction. For each dilute concentration, the open-circuit potential was measured with a voltmeter of very high resistance. The cell was then connected across a 100 Ω resistor, and the potential difference across the resistor was measured. The results appear in Table 1, and Figure 1 plots the open-circuit potential against −log[Cu²⁺] of the dilute half-cell. The difference between the open-circuit potential and the potential across the resistor is due to the internal resistance of the cell, which behaves like a resistor in series with an ideal source.",
+   "table_data": "| [Cu²⁺] in dilute half-cell (M) | Open-circuit E (V) | Potential across 100 Ω resistor (V) |\n|---|---|---|\n| 0.10 | 0.0296 | 0.0274 |\n| 0.010 | 0.0592 | 0.0548 |\n| 0.0010 | 0.0888 | 0.0822 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Open-circuit potential versus -log[Cu2+] of the dilute half-cell",
+    "x_label": "-log [Cu2+] (dilute half-cell)",
+    "y_label": "Open-circuit E (V)",
+    "series": [
+     {
+      "name": "Concentration cell",
+      "points": [
+       [
+        1,
+        0.0296
+       ],
+       [
+        2,
+        0.0592
+       ],
+       [
+        3,
+        0.0888
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_CP_P3_Q1",
+     "stem": "Which description of the electrode reactions and electron flow is correct when the cell operates?",
+     "options": {
+      "A": "Cu(s) is oxidized in the 1.0 M half-cell, and electrons flow through the wire toward the dilute half-cell.",
+      "B": "Cu(s) is oxidized in the dilute half-cell, and electrons flow through the wire toward the 1.0 M half-cell.",
+      "C": "Cu²⁺ is reduced in the dilute half-cell, and electrons flow through the wire toward the dilute half-cell.",
+      "D": "Cu(s) is oxidized in the dilute half-cell, and electrons flow through the wire toward the dilute half-cell."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The spontaneous process evens out the concentrations: Cu oxidizes in the dilute cell (anode), raising its [Cu²⁺], and electrons travel to the 1.0 M cell where Cu²⁺ is reduced (cathode), lowering that [Cu²⁺]. Why the others are wrong: A) Oxidizing in the concentrated cell would make concentrations more unequal, which is not spontaneous. C) Reduction takes place at the cathode, which is the 1.0 M half-cell, and electrons always flow toward the cathode. D) Electrons flow from anode to cathode, so they cannot flow toward the anode.",
+     "trap": "Forgetting that electrons flow from the anode to the cathode through the external wire.",
+     "topic": "Concentration cell electrode identification",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P3_Q2",
+     "stem": "What open-circuit potential is expected when the dilute half-cell is 1.0 × 10⁻⁴ M Cu²⁺?",
+     "options": {
+      "A": "0.059 V",
+      "B": "0.118 V",
+      "C": "0.237 V",
+      "D": "0.030 V"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) E = 0.0296 × log(1.0/1.0 × 10⁻⁴) = 0.0296 × 4 = 0.118 V, consistent with the linear trend in Figure 1. Why the others are wrong: A) 0.059 V corresponds to a dilute concentration of 0.010 M (log = 2). C) 0.237 V comes from using 0.0592 instead of 0.0296 (forgetting to divide by n = 2). D) 0.030 V corresponds to a dilute concentration of 0.10 M (log = 1).",
+     "trap": "Using 0.0592 without dividing by n = 2 electrons.",
+     "topic": "Nernst equation calculation",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_CP_P3_Q3",
+     "stem": "When the dilute half-cell is 0.010 M, what is the current through the 100 Ω resistor?",
+     "options": {
+      "A": "0.55 mA",
+      "B": "0.59 mA",
+      "C": "5.5 A",
+      "D": "0.055 mA"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) I = V/R = 0.0548 V ÷ 100 Ω = 5.5 × 10⁻⁴ A = 0.55 mA, using the potential actually measured across the resistor. Why the others are wrong: B) 0.59 mA uses the open-circuit potential (0.0592 V), which is not the voltage across the resistor under load. C) 5.5 A is a factor of 10⁴ too large, a conversion error. D) 0.055 mA is a factor of ten too small.",
+     "trap": "Using the open-circuit EMF rather than the terminal potential across the resistor in Ohm's law.",
+     "topic": "Ohm's law with a galvanic cell",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.pa.uky.edu/~kwng/fall2017/PHY%20232/Lecture%20slides/Class%2022%20Oct%2013%20-%20Resistors%20in%20series%20and%20parallel.pdf",
+       "https://urlectures.web.illinois.edu/Lecture03.pdf"
+      ]
+     }
+    },
+    {
+     "id": "FL01_CP_P3_Q4",
+     "stem": "Based on the 0.010 M row of Table 1, what is the internal resistance of the cell?",
+     "options": {
+      "A": "8.0 Ω",
+      "B": "80 Ω",
+      "C": "0.80 Ω",
+      "D": "108 Ω"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The internal drop is 0.0592 − 0.0548 = 0.0044 V at I = 5.48 × 10⁻⁴ A, so r = 0.0044/5.48 × 10⁻⁴ = 8.0 Ω. Why the others are wrong: B) 80 Ω is a factor of ten too large. C) 0.80 Ω is a factor of ten too small. D) 108 Ω is the total series resistance (load plus internal), not the internal resistance alone.",
+     "trap": "Reporting the total circuit resistance rather than subtracting the 100 Ω load.",
+     "topic": "Internal resistance",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.pa.uky.edu/~kwng/fall2017/PHY%20232/Lecture%20slides/Class%2022%20Oct%2013%20-%20Resistors%20in%20series%20and%20parallel.pdf",
+       "https://urlectures.web.illinois.edu/Lecture03.pdf"
+      ]
+     }
+    },
+    {
+     "id": "FL01_CP_P3_Q5",
+     "stem": "If the cell is left connected across the resistor for a long time, what happens to the open-circuit potential?",
+     "options": {
+      "A": "It increases because Cu²⁺ accumulates in the dilute half-cell.",
+      "B": "It decreases toward zero as the two Cu²⁺ concentrations approach each other.",
+      "C": "It remains constant because the copper electrodes are not consumed overall.",
+      "D": "It decreases toward zero because the copper electrodes become identical in mass."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Discharge raises [Cu²⁺] in the dilute cell and lowers it in the concentrated cell, so the log term in the Nernst equation falls toward zero, and E reaches 0 V at equilibrium (Q = 1, ΔG = 0). Why the others are wrong: A) Accumulating Cu²⁺ in the dilute side reduces the concentration ratio, so E falls rather than rises. C) Although copper metal is conserved, the potential depends on the concentration ratio, which changes. D) The potential depends on ion concentrations, not on electrode masses.",
+     "trap": "Assuming E is fixed because the electrode material is unchanged, when it depends on concentration ratio.",
+     "topic": "Nernst equation and equilibrium",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_CP_P4",
+   "passage_text": "Doppler ultrasound estimates blood speed by measuring the frequency shift of echoes from moving red blood cells. A probe emits sound of frequency f₀ = 5.0 MHz into soft tissue, in which sound travels at c = 1540 m/s. For blood moving at speed v much less than c, with the beam making an angle θ with the flow direction, the magnitude of the frequency shift is Δf = 2f₀v cosθ / c. A technician tests a phantom in which fluid flows at a constant 0.50 m/s, varying the angle between the probe and the flow. The measured shifts agree with the equation and are shown in Table 1. In a separate measurement through deep tissue, the echo returning from a boundary had an intensity equal to one-thousandth of the intensity of the transmitted pulse. The technician reports attenuation in decibels, where the change in sound level is β = 10 log(I₂/I₁). Assume sound is a longitudinal wave in all media discussed.",
+   "table_data": "| Angle θ (degrees) | Frequency shift Δf (Hz) |\n|---|---|\n| 0 | 3247 |\n| 30 | 2812 |\n| 45 | 2296 |\n| 60 | 1623 |\n| 90 | 0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_CP_P4_Q1",
+     "stem": "At θ = 0°, what frequency shift would be measured for blood flowing at 0.80 m/s?",
+     "options": {
+      "A": "2600 Hz",
+      "B": "3250 Hz",
+      "C": "8300 Hz",
+      "D": "5200 Hz"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Δf is proportional to v. At 0°, 3247 Hz × (0.80/0.50) = 5195 Hz, about 5200 Hz. Why the others are wrong: A) 2600 Hz is half the correct value and would come from wrongly applying cos 60° or halving. B) 3250 Hz is the value for 0.50 m/s and does not account for the faster flow. C) 8300 Hz multiplies by 1.6 twice, treating Δf as proportional to v².",
+     "trap": "Squaring the speed ratio even though the shift is linear in v.",
+     "topic": "Doppler shift calculation",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_CP_P4_Q2",
+     "stem": "Why does the equation for Δf contain a factor of 2?",
+     "options": {
+      "A": "The ultrasound travels to the blood and back, doubling the wavelength.",
+      "B": "Blood cells move in both directions along the vessel, so two shifts add together.",
+      "C": "Sound waves in tissue have both longitudinal and transverse components, each shifted once.",
+      "D": "The blood cells first act as moving receivers of the transmitted wave and then as moving sources of the reflected wave, so the shift occurs twice."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A moving observer hears a shifted frequency, and the cell then re-emits that shifted frequency as a moving source, giving a second shift of nearly the same size. Why the others are wrong: A) The round trip does not change the wavelength by a factor of 2; the shift arises from motion. B) Blood flows in only one direction, and opposite directions would give shifts of opposite sign, not additive. C) Sound in fluids is purely longitudinal, as the passage states.",
+     "trap": "Attributing the factor of 2 to the round-trip distance rather than to the double Doppler effect.",
+     "topic": "Doppler effect (moving observer and source)",
+     "mastery_sheet_id": "4D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P4_Q3",
+     "stem": "What is the wavelength of the 5.0 MHz ultrasound in soft tissue?",
+     "options": {
+      "A": "3.1 mm",
+      "B": "0.31 mm",
+      "C": "0.031 mm",
+      "D": "7.7 mm"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) λ = c/f = 1540 m/s ÷ 5.0 × 10⁶ Hz = 3.1 × 10⁻⁴ m = 0.31 mm. Why the others are wrong: A) 3.1 mm is a factor of ten too large. C) 0.031 mm is a factor of ten too small. D) 7.7 mm comes from dividing f by c in the wrong units or confusing MHz with kHz (1540/2.0 × 10⁵).",
+     "trap": "Mishandling powers of ten when converting MHz to Hz or meters to millimeters.",
+     "topic": "Wave speed, frequency, wavelength",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://nysora.com/pocus/physics/",
+       "https://internal.varsitytutors.com/practice/subjects/mcat-chemical-and-physical-foundations-of-biological-systems/help/4d-wave-properties-propagation"
+      ]
+     }
+    },
+    {
+     "id": "FL01_CP_P4_Q4",
+     "stem": "What is the attenuation, in decibels, of the echo described in the passage relative to the transmitted pulse?",
+     "options": {
+      "A": "20 dB",
+      "B": "3 dB",
+      "C": "30 dB",
+      "D": "300 dB"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) β = 10 log(10⁻³) = −30 dB, so the echo is 30 dB below the transmitted pulse. Why the others are wrong: A) 20 dB would correspond to a hundredfold decrease in intensity. B) 3 dB would correspond to roughly a factor of 2 and results from forgetting the factor of 10 times the logarithm exponent. D) 300 dB is a factor of ten too large, arising from multiplying the exponent by 100.",
+     "trap": "Taking the logarithm exponent (3) as the decibel value, which forgets to multiply by 10.",
+     "topic": "Sound intensity level in decibels",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_CP_P5",
+   "passage_text": "Technetium-99m (Tc-99m) is a metastable nuclear isomer widely used for diagnostic imaging. It is obtained from a generator in which molybdenum-99 (atomic number 42) undergoes β⁻ decay, producing Tc-99m. Tc-99m then decays to the ground state of technetium-99 by emitting a gamma photon of energy 140 keV. A technician isolates a sample of pure Tc-99m and measures its activity in a dose calibrator every 6.0 hours for one day. The data in Table 1 show that the activity is halved during each 6.0 hour interval. Figure 1 plots the natural logarithm of the activity against time. Use hc = 1240 eV·nm. A decay constant λ and the half-life t½ are related by t½ = ln 2/λ, where ln 2 = 0.693. Radioactive decay is a first-order process, so the activity A at time t obeys A = A₀e^(−λt), and a plot of ln A against t is a straight line with slope −λ. Because the gamma photon carries no charge and no mass, the emission leaves the nucleus with the same numbers of protons and neutrons that it had before the transition. Clinically, the short half-life limits the radiation dose to the patient.",
+   "table_data": "| Time (h) | Activity (MBq) |\n|---|---|\n| 0 | 400 |\n| 6 | 200 |\n| 12 | 100 |\n| 18 | 50 |\n| 24 | 25 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Natural logarithm of activity versus time",
+    "x_label": "Time (h)",
+    "y_label": "ln(Activity in MBq)",
+    "series": [
+     {
+      "name": "Tc-99m",
+      "points": [
+       [
+        0,
+        5.99
+       ],
+       [
+        6,
+        5.3
+       ],
+       [
+        12,
+        4.61
+       ],
+       [
+        18,
+        3.91
+       ],
+       [
+        24,
+        3.22
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_CP_P5_Q1",
+     "stem": "What is the decay constant of Tc-99m?",
+     "options": {
+      "A": "0.17 h⁻¹",
+      "B": "0.12 h⁻¹",
+      "C": "8.7 h⁻¹",
+      "D": "4.2 h⁻¹"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) λ = ln 2 / t½ = 0.693 / 6.0 h = 0.12 h⁻¹, which is also the magnitude of the slope in Figure 1 (−0.116 h⁻¹). Why the others are wrong: A) 0.17 h⁻¹ is 1/6.0 and omits the factor of ln 2. C) 8.7 h⁻¹ is t½/ln 2, an inverted relationship. D) 4.2 h⁻¹ is 6.0 × 0.693, which multiplies rather than divides.",
+     "trap": "Using 1/t½ as the decay constant and forgetting the ln 2 factor.",
+     "topic": "Decay constant and half-life",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_CP_P5_Q2",
+     "stem": "If the sample were measured again 30 hours after the first measurement, what activity would be expected?",
+     "options": {
+      "A": "6.3 MBq",
+      "B": "25 MBq",
+      "C": "12.5 MBq",
+      "D": "50 MBq"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 30 h is five half-lives, so A = 400 MBq / 2⁵ = 12.5 MBq. Why the others are wrong: A) 6.3 MBq corresponds to six half-lives (36 h). B) 25 MBq is the measured value at 24 h (four half-lives). D) 50 MBq is the measured value at 18 h (three half-lives).",
+     "trap": "Miscounting half-lives (30 h/6 h = 5) or reading the nearest table value.",
+     "topic": "Exponential radioactive decay",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_CP_P5_Q3",
+     "stem": "Which statement correctly describes the decay of Tc-99m to Tc-99?",
+     "options": {
+      "A": "The nucleus emits a β⁻ particle, increasing the atomic number by 1.",
+      "B": "The nucleus emits a gamma photon and moves to a lower energy state, with its mass number and atomic number unchanged.",
+      "C": "The nucleus emits an α particle, decreasing the mass number by 4.",
+      "D": "The nucleus captures an inner electron, decreasing the atomic number by 1."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) An isomeric transition releases excess nuclear energy as a gamma photon only, so protons and neutrons are the same before and after (99m to 99). Why the others are wrong: A) β⁻ decay is how Mo-99 becomes Tc-99m, not how Tc-99m becomes Tc-99; the product here is still technetium. C) An α decay would produce a different element with A = 95. D) Electron capture would give molybdenum (Z = 42), but the product is technetium-99.",
+     "trap": "Confusing the beta decay that forms Tc-99m with the gamma emission by which Tc-99m decays.",
+     "topic": "Types of nuclear decay",
+     "mastery_sheet_id": "4E",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P5_Q4",
+     "stem": "What is the wavelength of the 140 keV gamma photon?",
+     "options": {
+      "A": "8.9 nm",
+      "B": "0.89 pm",
+      "C": "89 pm",
+      "D": "8.9 pm"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) λ = hc/E = 1240 eV·nm ÷ 1.40 × 10⁵ eV = 8.9 × 10⁻³ nm = 8.9 pm. Why the others are wrong: A) 8.9 nm is a factor of 1000 too large, from mixing up nm and pm. B) 0.89 pm is a factor of ten too small. C) 89 pm is a factor of ten too large.",
+     "trap": "Losing track of the factor of 1000 between nanometers and picometers.",
+     "topic": "Photon energy and wavelength",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_CP_P6",
+   "passage_text": "Colligative properties depend on the number of dissolved particles rather than their identity. A student measures the freezing-point depression, ΔTf, of aqueous solutions that are each 0.50 molal. The van't Hoff factor i is defined as the measured ΔTf divided by the ΔTf expected if the solute did not dissociate (Kf = 1.86 °C·kg/mol for water). The ideal values of i are 1 for glucose, 2 for NaCl, 3 for CaCl₂, and 2 for MgSO₄. Results are given in Table 1. For comparison, the boiling-point elevation constant of water is Kb = 0.512 °C·kg/mol. For osmotic pressure, Π = iMRT, with R = 0.0821 L·atm/(mol·K). Assume that for these dilute solutions the molarity is approximately equal to the molality, and that measured i values at 0.50 m apply at 25 °C. The student also notes that all measurements used the same pure solvent, that the solutes are non-volatile, and that the measured values differ from the ideal ones for some salts because interactions between ions in solution reduce their effective independence. Molar masses should be taken from a periodic table when needed.",
+   "table_data": "| Solute (0.50 m) | Measured ΔTf (°C) | Measured i |\n|---|---|---|\n| Glucose | 0.93 | 1.00 |\n| NaCl | 1.80 | 1.94 |\n| CaCl₂ | 2.62 | 2.82 |\n| MgSO₄ | 1.10 | 1.18 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_CP_P6_Q1",
+     "stem": "What freezing-point depression is expected for a 0.20 m aqueous glucose solution?",
+     "options": {
+      "A": "0.93 °C",
+      "B": "0.74 °C",
+      "C": "0.37 °C",
+      "D": "0.19 °C"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Glucose does not dissociate, so ΔTf = i Kf m = 1 × 1.86 × 0.20 = 0.37 °C. Why the others are wrong: A) 0.93 °C is the value at 0.50 m and ignores the lower concentration. B) 0.74 °C would result from multiplying by 2 as if glucose dissociated into two ions. D) 0.19 °C is roughly Kf × m divided by 2, an arbitrary halving.",
+     "trap": "Applying a van't Hoff factor greater than 1 to a nonelectrolyte.",
+     "topic": "Freezing point depression",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_CP_P6_Q2",
+     "stem": "Which explanation best accounts for the van't Hoff factor of MgSO₄ being much lower than 2?",
+     "options": {
+      "A": "MgSO₄ is a molecular compound that does not dissociate in water.",
+      "B": "Mg²⁺ ions react with water to form Mg(s) and H₂.",
+      "C": "The sulfate ion is much larger than chloride, so it lowers the freezing point of water less per ion.",
+      "D": "The highly charged Mg²⁺ and SO₄²⁻ ions associate into ion pairs, reducing the effective number of independent particles."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Divalent ions have high charge density and attract each other strongly, so some stay paired even in solution; the measured i is therefore only 1.18. Why the others are wrong: A) MgSO₄ is an ionic salt that dissolves to give ions; incomplete dissociation does not mean no dissociation (i = 1.18 > 1). B) Magnesium ions are not reduced by water under these conditions. C) Colligative properties depend on particle number, not ion size.",
+     "trap": "Assuming colligative effects depend on the size or identity of ions rather than on particle count.",
+     "topic": "van't Hoff factor and ion pairing",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P6_Q3",
+     "stem": "Approximately what osmotic pressure would a 0.50 M NaCl solution have at 25 °C, using the measured i from Table 1?",
+     "options": {
+      "A": "12 atm",
+      "B": "36 atm",
+      "C": "48 atm",
+      "D": "24 atm"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Π = iMRT = 1.94 × 0.50 × 0.0821 × 298 = 23.7 atm, or about 24 atm. Why the others are wrong: A) 12 atm is the value with i = 1 and ignores dissociation. B) 36 atm would arise from using i = 3, the value for CaCl₂. C) 48 atm comes from doubling the correct answer, for example by using i = 2 and then doubling again.",
+     "trap": "Omitting the van't Hoff factor, or using the wrong number of ions.",
+     "topic": "Osmotic pressure",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_CP_P6_Q4",
+     "stem": "What is the boiling point of the 0.50 m glucose solution at 1 atm?",
+     "options": {
+      "A": "99.74 °C",
+      "B": "100.93 °C",
+      "C": "100.51 °C",
+      "D": "100.26 °C"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) ΔTb = i Kb m = 1 × 0.512 × 0.50 = 0.26 °C, which raises the boiling point from 100.00 °C to 100.26 °C. Why the others are wrong: A) 99.74 °C subtracts the elevation, but dissolved solute raises the boiling point. B) 100.93 °C uses Kf (and the freezing-point value 0.93) rather than Kb. C) 100.51 °C results from doubling ΔTb, treating glucose as dissociating into two particles.",
+     "trap": "Using the freezing-point constant for a boiling-point calculation.",
+     "topic": "Boiling point elevation",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_CP_P6_Q5",
+     "stem": "What mass of CaCl₂ (molar mass 111 g/mol) should be dissolved in 500 g of water to prepare a 0.50 m solution?",
+     "options": {
+      "A": "55.5 g",
+      "B": "13.9 g",
+      "C": "27.7 g",
+      "D": "111 g"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Moles needed = 0.50 mol/kg × 0.500 kg = 0.25 mol, and 0.25 mol × 111 g/mol = 27.7 g. Why the others are wrong: A) 55.5 g is for 1.0 kg of water (0.50 mol). B) 13.9 g is 0.125 mol, half the required amount, as if only 250 g of water were used. D) 111 g is a full mole, which would give 2.0 m in 500 g of water.",
+     "trap": "Using the full kilogram of solvent when only 500 g is used.",
+     "topic": "Molality preparation",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_CP_P7",
+   "passage_text": "A student compares boiling points to evaluate the role of intermolecular forces. Table 1 lists four compounds of nearly equal molar mass but different functional groups, along with their normal boiling points. Figure 1 shows the normal boiling points of the straight-chain alkanes from methane (C₁) to hexane (C₆). Pentane and diethyl ether are both volatile liquids that cannot donate hydrogen bonds to themselves. Butanone has a carbonyl group but no O–H bond. 1-Butanol has an O–H group. The student notes that a boiling point reflects the energy needed to overcome intermolecular attractions in the liquid, such as London dispersion forces, dipole–dipole interactions, and hydrogen bonding. London dispersion forces generally increase with the number of electrons and with the surface area available for contact between molecules. The student hypothesizes that the functional group matters more than molar mass when molar masses are similar. The boiling points in the table were measured at 1 atm. The student expects that, among compounds of similar size and shape, the strongest net intermolecular attractions will produce the highest boiling point, and she will test this idea against both datasets.",
+   "table_data": "| Compound | Molar mass (g/mol) | Functional group | Normal boiling point (°C) |\n|---|---|---|---|\n| Pentane | 72 | Alkane | 36 |\n| Diethyl ether | 74 | Ether | 35 |\n| Butanone | 72 | Ketone | 80 |\n| 1-Butanol | 74 | Alcohol | 117 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Boiling point of straight-chain alkanes",
+    "x_label": "Number of carbon atoms",
+    "y_label": "Normal boiling point (°C)",
+    "series": [
+     {
+      "name": "n-Alkanes",
+      "points": [
+       [
+        1,
+        -162
+       ],
+       [
+        2,
+        -89
+       ],
+       [
+        3,
+        -42
+       ],
+       [
+        4,
+        -1
+       ],
+       [
+        5,
+        36
+       ],
+       [
+        6,
+        69
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_CP_P7_Q1",
+     "stem": "Which intermolecular force best explains why 1-butanol has the highest boiling point in Table 1?",
+     "options": {
+      "A": "Stronger London dispersion forces because 1-butanol has a larger molar mass than pentane",
+      "B": "Hydrogen bonding between O–H groups of neighboring molecules, in addition to dispersion forces",
+      "C": "Covalent bonding between neighboring 1-butanol molecules",
+      "D": "Ion–dipole interactions between 1-butanol molecules"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 1-Butanol has an O–H group that is both a hydrogen-bond donor and acceptor, giving much stronger attractions than the other compounds of similar mass. Why the others are wrong: A) The molar mass differs by only 2 g/mol from pentane (72 vs 74), so dispersion forces cannot account for a 81 °C difference. C) Liquid butanol consists of discrete molecules; the intermolecular attractions are non-covalent. D) No ions are present in pure 1-butanol.",
+     "trap": "Attributing a large boiling point difference to molar mass when masses are nearly identical.",
+     "topic": "Hydrogen bonding and boiling point",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P7_Q2",
+     "stem": "Diethyl ether has a polar C–O–C bond, yet its boiling point is almost the same as that of pentane. What is the best explanation?",
+     "options": {
+      "A": "Diethyl ether is nonpolar, so its only intermolecular force is dispersion, unlike pentane.",
+      "B": "Pentane forms hydrogen bonds that offset its lack of a dipole.",
+      "C": "Diethyl ether has only a weak net dipole and cannot hydrogen bond to itself, so dispersion forces dominate in both liquids.",
+      "D": "Diethyl ether forms hydrogen bonds with itself, but these are canceled by its larger molar mass."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The bent C–O–C geometry produces a modest dipole, but without an O–H group there is no hydrogen bonding, and the dispersion forces of two similar-sized molecules are comparable. Why the others are wrong: A) Diethyl ether is polar; it is the extent of that polarity that is small. B) Pentane has no electronegative atoms and cannot hydrogen bond. D) Diethyl ether has no hydrogen on oxygen, so it cannot donate hydrogen bonds to itself.",
+     "trap": "Assuming any molecule with oxygen can hydrogen bond with itself.",
+     "topic": "Intermolecular forces in ethers",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P7_Q3",
+     "stem": "Based on the trend in Figure 1, which value is the most reasonable estimate of the boiling point of heptane (C₇)?",
+     "options": {
+      "A": "About 70 °C",
+      "B": "About 130 °C",
+      "C": "About 40 °C",
+      "D": "About 100 °C"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The increments per added carbon are shrinking (about 73, 47, 41, 37, 33 °C), so the next increment is roughly 30 °C: 69 + ~30 ≈ 100 °C. Why the others are wrong: A) About 70 °C would imply that adding a carbon has almost no effect, contradicting the clear upward trend. B) About 130 °C would require an increase of 60 °C, larger than recent increments. C) About 40 °C would be below the boiling point of hexane, contradicting the trend.",
+     "trap": "Extending the trend as if the increment per carbon were constant or growing rather than shrinking.",
+     "topic": "Boiling point trends in alkanes",
+     "mastery_sheet_id": "5B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P7_Q4",
+     "stem": "Butanone boils about 44 °C higher than pentane despite the same molar mass. What is the best explanation?",
+     "options": {
+      "A": "Butanone has a permanent dipole from its polar C=O bond, adding dipole–dipole attractions to dispersion forces.",
+      "B": "Butanone forms hydrogen bonds between carbonyl oxygens and C–H bonds as strongly as an alcohol does.",
+      "C": "Butanone has a much larger surface area than pentane.",
+      "D": "Butanone has more electrons than pentane, so its dispersion forces are far stronger."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The polarized carbonyl group gives butanone a sizeable molecular dipole, so molecules attract each other beyond dispersion forces alone. Why the others are wrong: B) Butanone has no hydrogen bonded to an electronegative atom, so it cannot form strong hydrogen bonds with itself, and C–H···O interactions are weak. C) Both molecules are four- to five-carbon chains of similar shape and surface area. D) The electron counts are nearly the same (butanone 40, pentane 42), so dispersion forces are similar.",
+     "trap": "Treating a carbonyl compound as a hydrogen-bond donor because it contains oxygen.",
+     "topic": "Dipole-dipole forces",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_CP_P8",
+   "passage_text": "A student analyzes an over-the-counter tablet mixture containing ibuprofen, aspirin, caffeine, and acetaminophen. Thin-layer chromatography (TLC) is run on silica gel plates with an ethyl acetate/hexane mobile phase. In 50% ethyl acetate, the solvent front traveled 8.0 cm, and the spot distances are in Table 1. Figure 1 shows the retention factor (Rf) of each compound as the percentage of ethyl acetate in the mobile phase changes. Silica gel is a polar stationary phase. In a separate experiment, the student extracts an aqueous caffeine solution with dichloromethane (DCM). The partition coefficient K for caffeine is 4.0, defined as the concentration in DCM divided by the concentration in water. To separate ibuprofen (a carboxylic acid with pKa ≈ 4.4) from caffeine, the student dissolves the mixture in diethyl ether and shakes it with aqueous sodium bicarbonate (pH ≈ 8.3), then separates the layers. The two layers are immiscible, and the student assumes that the extraction reaches equilibrium each time the layers are shaken together. Spots are visualized under ultraviolet light, since all four compounds absorb UV.",
+   "table_data": "| Compound | Distance traveled (cm) | Rf (50% ethyl acetate) |\n|---|---|---|\n| Ibuprofen | 6.4 | 0.80 |\n| Aspirin | 4.0 | 0.50 |\n| Caffeine | 2.8 | 0.35 |\n| Acetaminophen | 1.6 | 0.20 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Rf versus percentage of ethyl acetate",
+    "x_label": "Ethyl acetate in mobile phase (%)",
+    "y_label": "Rf",
+    "series": [
+     {
+      "name": "Ibuprofen",
+      "points": [
+       [
+        20,
+        0.55
+       ],
+       [
+        50,
+        0.8
+       ],
+       [
+        80,
+        0.92
+       ]
+      ]
+     },
+     {
+      "name": "Aspirin",
+      "points": [
+       [
+        20,
+        0.25
+       ],
+       [
+        50,
+        0.5
+       ],
+       [
+        80,
+        0.7
+       ]
+      ]
+     },
+     {
+      "name": "Caffeine",
+      "points": [
+       [
+        20,
+        0.1
+       ],
+       [
+        50,
+        0.35
+       ],
+       [
+        80,
+        0.6
+       ]
+      ]
+     },
+     {
+      "name": "Acetaminophen",
+      "points": [
+       [
+        20,
+        0.05
+       ],
+       [
+        50,
+        0.2
+       ],
+       [
+        80,
+        0.45
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_CP_P8_Q1",
+     "stem": "In a repeat run with 50% ethyl acetate, the solvent front travels 10.0 cm. How far will the aspirin spot travel?",
+     "options": {
+      "A": "4.0 cm",
+      "B": "6.3 cm",
+      "C": "8.0 cm",
+      "D": "5.0 cm"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Rf depends on the system, not the plate length, so the distance is 0.50 × 10.0 cm = 5.0 cm. Why the others are wrong: A) 4.0 cm is the distance in the original run with an 8.0 cm solvent front. B) 6.3 cm is 10.0 ÷ 1.6 and has no basis. C) 8.0 cm is the original solvent front distance, not the spot distance.",
+     "trap": "Assuming the spot distance stays fixed when the solvent front distance changes.",
+     "topic": "TLC Rf calculation",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_CP_P8_Q2",
+     "stem": "Why does acetaminophen have the lowest Rf in Table 1?",
+     "options": {
+      "A": "It is the least polar, so it dissolves poorly in the mobile phase.",
+      "B": "It has the lowest molar mass and so diffuses the slowest.",
+      "C": "It forms covalent bonds with the silica gel.",
+      "D": "It is the most polar of the four compounds, so it adsorbs most strongly to the polar silica and is carried least by the mobile phase."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Compounds that hydrogen bond strongly (phenol and amide groups) interact with silica's surface and are retained. Why the others are wrong: A) Nonpolar compounds interact weakly with silica and travel farther (higher Rf), as ibuprofen does. B) Rf is governed by relative affinity for the phases, not by diffusion rate or molar mass alone. C) Adsorption to silica is by reversible noncovalent interactions, which is what makes chromatographic separation possible.",
+     "trap": "Thinking that polar compounds move farthest on a polar stationary phase.",
+     "topic": "Polarity and chromatography",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P8_Q3",
+     "stem": "Which mobile phase composition in Figure 1 gives the greatest difference in Rf between aspirin and acetaminophen?",
+     "options": {
+      "A": "50% ethyl acetate",
+      "B": "20% ethyl acetate",
+      "C": "80% ethyl acetate",
+      "D": "The difference is identical at all three compositions."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The Rf differences are 0.25 − 0.05 = 0.20 at 20%, 0.50 − 0.20 = 0.30 at 50%, and 0.70 − 0.45 = 0.25 at 80%. Why the others are wrong: B) At 20% the difference is only 0.20. C) At 80% the difference is 0.25, smaller than at 50%. D) The differences are 0.20, 0.30, and 0.25, so they are not identical.",
+     "trap": "Choosing the composition where spots travel farthest rather than where they are most separated.",
+     "topic": "Optimizing chromatographic separation",
+     "mastery_sheet_id": "5C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P8_Q4",
+     "stem": "After the ether solution is shaken with aqueous NaHCO₃, which species is found mainly in the aqueous layer?",
+     "options": {
+      "A": "Ibuprofen as its carboxylate anion",
+      "B": "Caffeine as its protonated cation",
+      "C": "Ibuprofen in its neutral acid form",
+      "D": "Both ibuprofen and caffeine in their neutral forms"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At pH 8.3 (well above pKa 4.4) ibuprofen is deprotonated to an ionic carboxylate that is water-soluble, while neutral caffeine stays in the ether. Why the others are wrong: B) Caffeine is only a very weak base, so at pH 8.3 it is neutral and stays in the organic layer. C) Neutral ibuprofen is more soluble in ether than in water, and the base converts it to its ionic form. D) Only the ionized species moves into water, so the two compounds are separated rather than remaining together.",
+     "trap": "Forgetting that deprotonating an acid makes it ionic and water-soluble.",
+     "topic": "Acid-base extraction",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P8_Q5",
+     "stem": "A 100 mL aqueous caffeine solution is shaken once with 50 mL of DCM. What fraction of the caffeine is extracted into the DCM?",
+     "options": {
+      "A": "80%",
+      "B": "50%",
+      "C": "33%",
+      "D": "67%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) K = (n_DCM/50)/(n_aq/100) = 4.0, so n_DCM/n_aq = 2.0, and the fraction extracted is 2/(2 + 1) = 0.67. Why the others are wrong: A) 80% is the result for equal volumes of the two solvents (K/(K + 1)). B) 50% would require K = 2.0 for these volumes, but K = 4.0 strongly favors DCM. C) 33% is the fraction left in the water, not the fraction extracted.",
+     "trap": "Ignoring the difference in volumes and using K/(K + 1), or reporting the fraction left behind.",
+     "topic": "Partition coefficient and extraction",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_CP_P9",
+   "passage_text": "A student examines how the structure of an alkyl bromide affects its rate of nucleophilic substitution. In one set of experiments, each alkyl bromide reacts with sodium iodide in acetone, a polar aprotic solvent, under conditions that favor a bimolecular mechanism (SN2). In a second set, the same alkyl bromides are allowed to react with a solvent of aqueous ethanol (solvolysis), under conditions that favor a unimolecular mechanism (SN1). Approximate relative rates, set to 1 for the slowest measurable reaction in each series, are shown in Table 1. In addition, the student treats optically pure (R)-2-bromobutane with sodium iodide in acetone and analyzes the product with a polarimeter. A second experiment compares the rate of the reaction of iodide with 1-bromobutane in acetone with the rate in water, a polar protic solvent. The student also plans to double the concentration of nucleophile in the solvolysis reaction of tert-butyl bromide. Throughout, the leaving group is bromide, and temperature is held constant. The student's goal is to connect each observation to the mechanism by which the reaction proceeds, and to the effects of substrate structure, solvent, and nucleophile on the rate.",
+   "table_data": "| Alkyl bromide | Relative SN2 rate (NaI, acetone) | Relative SN1 rate (aqueous ethanol) |\n|---|---|---|\n| Methyl | 30 | 1 |\n| Ethyl | 1 | 2 |\n| Isopropyl | 0.025 | 43 |\n| tert-Butyl | < 0.001 | 1 × 10⁸ |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_CP_P9_Q1",
+     "stem": "Why does tert-butyl bromide react so much faster than methyl bromide under SN1 conditions?",
+     "options": {
+      "A": "The tert-butyl carbon is less hindered, so the nucleophile attacks more easily.",
+      "B": "Bromide is a better leaving group from tertiary carbons because it is more basic there.",
+      "C": "The rate-determining step forms a tertiary carbocation, which is stabilized by electron donation from three alkyl groups.",
+      "D": "The tert-butyl group can donate a proton to the solvent, which accelerates the reaction."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) In SN1 the slow step is ionization to a carbocation; alkyl groups stabilize the positive charge by hyperconjugation and induction, so tertiary is fastest and methyl is slowest. Why the others are wrong: A) The tertiary carbon is the most crowded, which is why it is slowest in SN2. B) A better leaving group is a weaker base, and the leaving group is the same (Br⁻) in all cases. D) The mechanism is carbocation formation and capture, not proton donation.",
+     "trap": "Reasoning from steric hindrance, which controls SN2, instead of carbocation stability for SN1.",
+     "topic": "SN1 carbocation stability",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P9_Q2",
+     "stem": "What is the major product of the reaction of (R)-2-bromobutane with NaI in acetone?",
+     "options": {
+      "A": "(R)-2-iodobutane",
+      "B": "A racemic mixture of 2-iodobutane",
+      "C": "(S)-2-iodobutane",
+      "D": "(S)-2-iodobutane and 1-iodobutane in equal amounts"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) SN2 proceeds by backside attack and inversion of configuration. Iodide takes the same CIP priority position as bromine, so R becomes S. Why the others are wrong: A) Retention would result from a double-inversion or front-side attack, which is not the SN2 mechanism. B) A racemic product is characteristic of SN1 through a planar carbocation, not SN2. D) No rearrangement or substitution at C1 occurs; iodide substitutes at the carbon bearing the bromine.",
+     "trap": "Predicting racemization for every substitution at a stereocenter, rather than inversion for SN2.",
+     "topic": "SN2 stereochemistry",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P9_Q3",
+     "stem": "How would the rate of the SN2 reaction of iodide with 1-bromobutane change when the solvent is changed from acetone to water?",
+     "options": {
+      "A": "It would increase, because water is more polar and stabilizes the transition state more.",
+      "B": "It would increase, because water can donate protons to the nucleophile.",
+      "C": "It would decrease, because water hydrogen bonds to iodide and lowers its nucleophilicity.",
+      "D": "It would not change, because the substrate is the same."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Polar protic solvents solvate anions through hydrogen bonds, creating a shell that hinders attack; polar aprotic solvents leave the nucleophile 'bare' and more reactive. Why the others are wrong: A) Greater polarity helps SN1 ionization, but SN2 nucleophiles lose reactivity when strongly solvated. B) Protonation of the nucleophile would make it less nucleophilic. D) Solvent strongly affects nucleophile reactivity even with the same substrate.",
+     "trap": "Assuming a more polar solvent always speeds substitution reactions.",
+     "topic": "Solvent effects on SN2",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P9_Q4",
+     "stem": "If the concentration of nucleophile is doubled in the solvolysis of tert-butyl bromide under SN1 conditions, how will the rate change?",
+     "options": {
+      "A": "It will double because the rate depends on both substrate and nucleophile.",
+      "B": "It will not change appreciably, since the rate-determining step does not involve the nucleophile.",
+      "C": "It will quadruple because the rate is second order in nucleophile.",
+      "D": "It will decrease because the added nucleophile competes with the solvent."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The SN1 rate law is rate = k[RBr]; ionization of the C–Br bond is slow, and the nucleophile attacks afterward in a fast step. Why the others are wrong: A) A doubling would be seen for SN2, whose rate law is first order in each reactant. C) There is no second-order dependence on nucleophile in either mechanism. D) Added nucleophile does not slow ionization, which is the rate-determining step.",
+     "trap": "Applying the SN2 rate law, which includes nucleophile concentration, to an SN1 reaction.",
+     "topic": "SN1 rate law",
+     "mastery_sheet_id": "5D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_CP_P10",
+   "passage_text": "A chemist studies the unimolecular isomerization of a compound in solution. The reaction is first order, and its rate constant k was measured at four temperatures, giving the data in Table 1. Figure 1 plots ln k against 1/T, where T is in kelvin, and the points fall on a straight line. The Arrhenius equation, k = A exp(−Ea/RT), describes the data, and R = 8.314 J/(mol·K). The overall reaction has ΔH° = −40 kJ/mol and ΔS° = −100 J/(mol·K), and both values are assumed to be independent of temperature over the range studied. In a second experiment, the chemist adds a catalyst that provides an alternative pathway for the same reaction, and she observes that the rate constant at 300 K increases substantially. The chemist reasons that the catalyst changes the kinetics of the reaction but not its thermodynamics. She also notes that the rate constant of a first-order reaction has units of inverse time, and that the half-life of such a reaction does not depend on the starting concentration. The same sample volume and solvent were used for all runs, and the temperature of each run was held constant by a thermostatted bath.",
+   "table_data": "| Temperature (K) | k (s⁻¹) |\n|---|---|\n| 300 | 1.00 × 10⁻³ |\n| 310 | 2.17 × 10⁻³ |\n| 320 | 4.50 × 10⁻³ |\n| 330 | 8.91 × 10⁻³ |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Arrhenius plot",
+    "x_label": "1/T (10^-3 K^-1)",
+    "y_label": "ln k",
+    "series": [
+     {
+      "name": "Uncatalyzed",
+      "points": [
+       [
+        3.333,
+        -6.91
+       ],
+       [
+        3.226,
+        -6.13
+       ],
+       [
+        3.125,
+        -5.4
+       ],
+       [
+        3.03,
+        -4.72
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_CP_P10_Q1",
+     "stem": "The slope of the line in Figure 1 is approximately −7.2 × 10³ K. What is the activation energy of the reaction?",
+     "options": {
+      "A": "7.2 kJ/mol",
+      "B": "0.87 kJ/mol",
+      "C": "120 kJ/mol",
+      "D": "60 kJ/mol"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The slope equals −Ea/R, so Ea = (7.2 × 10³ K)(8.314 J/mol·K) = 6.0 × 10⁴ J/mol = 60 kJ/mol. Why the others are wrong: A) 7.2 kJ/mol would result from ignoring R and converting units to kJ only. B) 0.87 kJ/mol is the result of dividing by R rather than multiplying. C) 120 kJ/mol is double the correct value and would come from an extra factor of 2 that is not in the Arrhenius relation.",
+     "trap": "Dividing the slope by R rather than multiplying by it, or forgetting that the slope is −Ea/R.",
+     "topic": "Arrhenius plot",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_CP_P10_Q2",
+     "stem": "What is the half-life of the compound at 320 K?",
+     "options": {
+      "A": "222 s",
+      "B": "154 s",
+      "C": "3.1 × 10⁻³ s",
+      "D": "308 s"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) For first-order kinetics, t½ = ln 2 / k = 0.693 / (4.50 × 10⁻³ s⁻¹) = 154 s. Why the others are wrong: A) 222 s is 1/k, which omits the factor of ln 2. C) 3.1 × 10⁻³ s is 0.693 × k, which multiplies instead of divides. D) 308 s is twice the correct half-life.",
+     "trap": "Using 1/k as the half-life and leaving out ln 2.",
+     "topic": "First-order half-life",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chem-textbook.ucalgary.ca/?p=7936",
+       "https://chem.libretexts.org/Courses/Mount_Royal_University/Chem_1202/Unit_4%3A_Chemical_Kinetics/4.5_Half-Lives_and_Radioactive_Decay_Kinetics"
+      ]
+     }
+    },
+    {
+     "id": "FL01_CP_P10_Q3",
+     "stem": "How does the catalyst affect the reaction?",
+     "options": {
+      "A": "It lowers ΔG° of the reaction, making the products more stable.",
+      "B": "It lowers the activation energy and leaves ΔG° and the equilibrium constant unchanged.",
+      "C": "It increases the equilibrium constant by increasing the forward rate only.",
+      "D": "It raises the energy of the reactants so they are closer to the transition state."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A catalyst provides a pathway with lower Ea, speeding forward and reverse reactions equally, so K and the thermodynamic quantities (ΔH°, ΔG°) are unchanged. Why the others are wrong: A) ΔG° depends on the energies of reactants and products, which a catalyst does not change. C) A catalyst accelerates the forward and reverse reactions equally, so K is not changed. D) A catalyst lowers the energy of the transition state relative to reactants; it does not raise the reactants' energy.",
+     "trap": "Believing a catalyst makes a reaction more spontaneous by changing ΔG°.",
+     "topic": "Catalysis and thermodynamics",
+     "mastery_sheet_id": "5E",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_CP_P10_Q4",
+     "stem": "What is ΔG° for the reaction at 300 K?",
+     "options": {
+      "A": "−10 kJ/mol",
+      "B": "−70 kJ/mol",
+      "C": "+10 kJ/mol",
+      "D": "−30 kJ/mol"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) ΔG° = ΔH° − TΔS° = −40 kJ/mol − (300 K)(−0.100 kJ/mol·K) = −40 + 30 = −10 kJ/mol. Why the others are wrong: B) −70 kJ/mol results from a sign error, −40 − 30. C) +10 kJ/mol would result from reversing the sign of the whole calculation. D) −30 kJ/mol would arise from using a different temperature or neglecting the 300 K factor.",
+     "trap": "Mishandling the sign of ΔS° or forgetting to convert J to kJ.",
+     "topic": "Gibbs free energy",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chem.libretexts.org/Courses/University_of_Kentucky/UK:_General_Chemistry/16:_Thermodynamics/16.4:_Gibbs_Energy",
+       "https://opentextbc.ca/introductorychemistryclone/chapter/gibbs-free-energy/"
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL01_CP_D1",
+   "stem": "A ball is thrown horizontally at 20 m/s from the edge of a 45 m cliff. Neglecting air resistance and using g = 10 m/s², how far from the base of the cliff does it land?",
+   "options": {
+    "A": "60 m",
+    "B": "30 m",
+    "C": "90 m",
+    "D": "120 m"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Fall time: 45 = ½(10)t², so t = 3 s. Horizontal distance = 20 m/s × 3 s = 60 m. Why the others are wrong: B) 30 m uses a 1.5 s fall time, which corresponds to dropping 11 m rather than 45 m. C) 90 m would require a 4.5 s fall time (using h/g). D) 120 m comes from using t = 6 s, double the correct fall time.",
+   "trap": "Mixing up the fall-time formula, for example using t = h/g instead of √(2h/g).",
+   "topic": "Projectile motion",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://omnicalculator.com/physics/horizontal-projectile-motion",
+     "https://www.esaral.com/what-is-horizontal-projectile-motion"
+    ]
+   }
+  },
+  {
+   "id": "FL01_CP_D2",
+   "stem": "A 40 kg child sits 1.5 m from the pivot of a uniform seesaw. At what distance from the pivot on the other side must a 30 kg child sit to balance the seesaw?",
+   "options": {
+    "A": "2.0 m",
+    "B": "1.1 m",
+    "C": "1.5 m",
+    "D": "3.0 m"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) At balance the torques are equal: 40(1.5) = 30d, so d = 2.0 m. The lighter child needs a longer lever arm. Why the others are wrong: B) 1.1 m results from inverting the ratio (1.5 × 30/40). C) 1.5 m would only balance if the masses were equal. D) 3.0 m would be correct only if the mass ratio were 2:1.",
+   "trap": "Inverting the mass ratio so the lighter child sits closer to the pivot.",
+   "topic": "Rotational equilibrium",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.pearson.com/channels/physics/study-guides/torque-and-rotational-equilibrium-study-notes"
+    ]
+   }
+  },
+  {
+   "id": "FL01_CP_D3",
+   "stem": "What is the approximate absolute pressure at the bottom of a lake at a depth of 10 m? (Density of water = 1000 kg/m³, g = 9.8 m/s², atmospheric pressure = 1.0 × 10⁵ Pa)",
+   "options": {
+    "A": "1.0 × 10⁵ Pa",
+    "B": "9.8 × 10⁴ Pa",
+    "C": "2.0 × 10⁵ Pa",
+    "D": "3.0 × 10⁵ Pa"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) P = P_atm + ρgh = 1.0 × 10⁵ + (1000)(9.8)(10) = 1.0 × 10⁵ + 0.98 × 10⁵ ≈ 2.0 × 10⁵ Pa. Why the others are wrong: A) 1.0 × 10⁵ Pa is only atmospheric pressure and ignores the water. B) 9.8 × 10⁴ Pa is the gauge pressure and omits the atmosphere. D) 3.0 × 10⁵ Pa would be reached at about 20 m depth.",
+   "trap": "Giving gauge pressure when absolute pressure is asked for.",
+   "topic": "Hydrostatic pressure",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://fiveable.me/principles-physics-i/key-terms/hydrostatic-pressure",
+     "https://cms.jackwestin.com/blog/hydrostatic-pressure/"
+    ]
+   }
+  },
+  {
+   "id": "FL01_CP_D4",
+   "stem": "In the circuit, a 12 V battery is connected in series to a 4.0 Ω resistor, which is in series with a parallel combination of a 6.0 Ω resistor and a 3.0 Ω resistor. What is the current through the 6.0 Ω resistor?",
+   "options": {
+    "A": "1.3 A",
+    "B": "2.0 A",
+    "C": "1.0 A",
+    "D": "0.67 A"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) The parallel pair equals (6 × 3)/(6 + 3) = 2.0 Ω, so the total is 6.0 Ω and I = 2.0 A. The parallel pair has 2.0 A × 2.0 Ω = 4.0 V across it, so I(6 Ω) = 4.0/6.0 = 0.67 A. Why the others are wrong: A) 1.3 A is the current in the 3.0 Ω resistor (4.0/3.0). B) 2.0 A is the total current from the battery, which splits between the two parallel branches. C) 1.0 A would result from an equal split or wrong voltage.",
+   "trap": "Giving the total current instead of the current in one parallel branch.",
+   "topic": "Series-parallel circuits",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.pa.uky.edu/~kwng/fall2017/PHY%20232/Lecture%20slides/Class%2022%20Oct%2013%20-%20Resistors%20in%20series%20and%20parallel.pdf",
+     "https://urlectures.web.illinois.edu/Lecture03.pdf"
+    ]
+   }
+  },
+  {
+   "id": "FL01_CP_D5",
+   "stem": "A parallel-plate capacitor remains connected to a battery while the plate separation is doubled. What happens to the energy stored in the capacitor?",
+   "options": {
+    "A": "It doubles.",
+    "B": "It is reduced to one quarter of its original value.",
+    "C": "It is reduced to half its original value.",
+    "D": "It stays the same."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) C = ε₀A/d, so doubling d halves C. With V fixed by the battery, U = ½CV² is halved. Why the others are wrong: A) Doubling d does not increase C or U; capacitance falls when plates are farther apart. B) A quarter would apply if both C and V were halved, but V is held fixed by the battery. D) U depends on C, which changed.",
+   "trap": "Assuming charge is fixed rather than voltage when the battery remains connected.",
+   "topic": "Capacitors",
+   "mastery_sheet_id": "4C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_CP_D6",
+   "stem": "An object is placed 30 cm from a converging lens with focal length 10 cm. Which describes the image?",
+   "options": {
+    "A": "Virtual, upright, and larger than the object",
+    "B": "Real, inverted, and smaller than the object",
+    "C": "Real, inverted, and the same size as the object",
+    "D": "Virtual, upright, and smaller than the object"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) 1/v = 1/10 − 1/30 = 1/15, so v = +15 cm (real, on the opposite side). Magnification = −15/30 = −0.5, so the image is inverted and half the size. Why the others are wrong: A) A virtual, upright, magnified image occurs only when the object is inside the focal length. C) A same-size real image occurs when the object is at 2f (20 cm). D) A converging lens makes virtual images only for objects inside f, and these are enlarged.",
+   "trap": "Mixing up the 2f case (same size) with an object beyond 2f (smaller).",
+   "topic": "Thin lens equation",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://learningcentre.nelson.com/teacher/9780070722224/olc2/dl/699370/ONS10_se_Ch12_sec12_2_page494to501.pdf"
+    ]
+   }
+  },
+  {
+   "id": "FL01_CP_D7",
+   "stem": "A pipe closed at one end and open at the other has length 0.85 m. If the speed of sound is 340 m/s, what is the fundamental frequency?",
+   "options": {
+    "A": "100 Hz",
+    "B": "200 Hz",
+    "C": "400 Hz",
+    "D": "50 Hz"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) A closed pipe has a node at the closed end and antinode at the open end, so λ = 4L = 3.4 m and f = 340/3.4 = 100 Hz. Why the others are wrong: B) 200 Hz is the fundamental of a pipe open at both ends (v/2L). C) 400 Hz is the fundamental if the wavelength were L. D) 50 Hz would apply to an 1.7 m pipe or λ = 2 × 3.4.",
+   "trap": "Using λ = 2L, which applies to a pipe open at both ends.",
+   "topic": "Standing waves in pipes",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://fiveable.me/ap-physics-1-revised/key-terms/fundamental-frequency.md"
+    ]
+   }
+  },
+  {
+   "id": "FL01_CP_D8",
+   "stem": "Light of wavelength 400 nm strikes a metal with work function 2.0 eV. Use hc = 1240 eV·nm. What is the maximum kinetic energy of ejected electrons?",
+   "options": {
+    "A": "2.0 eV",
+    "B": "3.1 eV",
+    "C": "1.1 eV",
+    "D": "5.1 eV"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) The photon energy is 1240/400 = 3.1 eV, so KEmax = hf − φ = 3.1 − 2.0 = 1.1 eV. Why the others are wrong: A) 2.0 eV is the work function, the minimum energy needed to free an electron. B) 3.1 eV is the total photon energy, not the kinetic energy left after overcoming the work function. D) 5.1 eV adds the work function instead of subtracting it.",
+   "trap": "Adding the work function to the photon energy instead of subtracting it.",
+   "topic": "Photoelectric effect",
+   "mastery_sheet_id": "4E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute",
+    "sources": []
+   }
+  },
+  {
+   "id": "FL01_CP_D9",
+   "stem": "The Ksp of AgCl is 1.8 × 10⁻¹⁰. What is the equilibrium concentration of Ag⁺ in a saturated solution of AgCl that is also 0.10 M in NaCl?",
+   "options": {
+    "A": "1.3 × 10⁻⁵ M",
+    "B": "1.8 × 10⁻¹⁰ M",
+    "C": "1.8 × 10⁻¹¹ M",
+    "D": "1.8 × 10⁻⁹ M"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) [Ag⁺] = Ksp/[Cl⁻] = 1.8 × 10⁻¹⁰ / 0.10 = 1.8 × 10⁻⁹ M, because of the common-ion effect. Why the others are wrong: A) 1.3 × 10⁻⁵ M is the solubility in pure water (√Ksp), without the common ion. B) 1.8 × 10⁻¹⁰ M is Ksp itself, not a concentration. C) 1.8 × 10⁻¹¹ M comes from dividing by 10 instead of dividing by 0.10.",
+   "trap": "Using the pure-water solubility (square root of Ksp) despite the common ion present.",
+   "topic": "Common-ion effect",
+   "mastery_sheet_id": "5A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Equilibria/Heterogeneous_Equilibria/Common_Ion_Effect",
+     "https://web.chemteam.info/Equilibrium/Common-ion-effect.html"
+    ]
+   }
+  },
+  {
+   "id": "FL01_CP_D10",
+   "stem": "Carbon dioxide has polar C=O bonds, yet the CO₂ molecule is nonpolar. Which explains this?",
+   "options": {
+    "A": "The molecule is linear, so the two bond dipoles cancel.",
+    "B": "The C=O bonds are actually nonpolar because carbon and oxygen have equal electronegativity.",
+    "C": "The molecule is bent, which gives dipoles that cancel.",
+    "D": "Carbon dioxide has lone pairs on carbon that cancel the dipoles."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) VSEPR predicts linear geometry with two electron domains on carbon; the equal and opposite dipoles give a net dipole moment of zero. Why the others are wrong: B) Oxygen is significantly more electronegative than carbon, so each C=O bond is polar. C) A bent shape (like water or SO₂) leaves a net dipole. D) Carbon in CO₂ has no lone pairs.",
+   "trap": "Assuming that polar bonds always produce a polar molecule.",
+   "topic": "Molecular polarity and geometry",
+   "mastery_sheet_id": "5B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_CP_D11",
+   "stem": "In SDS-PAGE, a mixture of proteins of 15 kDa, 50 kDa, and 150 kDa is separated. Which statement is correct after the run?",
+   "options": {
+    "A": "The 15 kDa protein migrates farthest toward the anode.",
+    "B": "The 150 kDa protein migrates farthest toward the anode.",
+    "C": "All three proteins migrate the same distance because SDS gives them equal charge.",
+    "D": "The proteins migrate toward the cathode, with the smallest protein moving most."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) SDS coats proteins with negative charge in proportion to their mass, so separation is determined by size: smaller proteins move through the gel matrix more easily and migrate farther toward the positive electrode. Why the others are wrong: B) Larger proteins are slowed more by the gel pores and so migrate less. C) Equal charge-to-mass ratio does not equalize migration; the gel acts as a sieve. D) SDS-coated proteins are negatively charged and move to the anode (positive electrode).",
+   "trap": "Forgetting that SDS-coated proteins have similar charge density, so size alone determines mobility.",
+   "topic": "Gel electrophoresis",
+   "mastery_sheet_id": "5C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_CP_D12",
+   "stem": "Alanine is dissolved in a solution of pH 1.0. Which statement describes the predominant form of the amino acid?",
+   "options": {
+    "A": "It is a zwitterion with no net charge.",
+    "B": "The amino group is protonated and the carboxylate is deprotonated, with net charge −1.",
+    "C": "Both the amino group and the carboxyl group are protonated, and the net charge is +1.",
+    "D": "The amino group is neutral and the carboxylic acid is deprotonated, with net charge −1."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) At pH well below the carboxyl pKa (~2.3), the COOH is protonated (neutral) and the amino group (pKa ~9.7) is protonated (+1), so the net charge is +1. Why the others are wrong: A) The zwitterion predominates near the isoelectric point (pH ≈ 6), not at pH 1. B) At pH 1 the carboxyl is protonated, so the net charge cannot be −1. D) At low pH the amine is protonated, and the net charge is not negative.",
+   "trap": "Assuming the zwitterion is the dominant form at any pH.",
+   "topic": "Amino acid protonation states",
+   "mastery_sheet_id": "5D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_CP_D13",
+   "stem": "1-Propanol is treated with pyridinium chlorochromate (PCC) in dichloromethane. What is the major organic product?",
+   "options": {
+    "A": "Propanoic acid",
+    "B": "Propanal",
+    "C": "Propanone",
+    "D": "Propene"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) PCC is a mild oxidant that, in anhydrous conditions, stops at the aldehyde stage for a primary alcohol. Why the others are wrong: A) Propanoic acid would result from stronger aqueous oxidants such as chromic acid (Jones). C) Propanone is the oxidation product of 2-propanol, a secondary alcohol. D) PCC is not a dehydrating agent, so no alkene forms.",
+   "trap": "Over-oxidizing a primary alcohol to the carboxylic acid when a mild oxidant is used.",
+   "topic": "Alcohol oxidation",
+   "mastery_sheet_id": "5D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_CP_D14",
+   "stem": "Given C(s) + O₂(g) → CO₂(g), ΔH = −394 kJ/mol, and CO(g) + ½O₂(g) → CO₂(g), ΔH = −283 kJ/mol, what is ΔH for C(s) + ½O₂(g) → CO(g)?",
+   "options": {
+    "A": "−111 kJ/mol",
+    "B": "−677 kJ/mol",
+    "C": "+111 kJ/mol",
+    "D": "−283 kJ/mol"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Reverse the second reaction (+283) and add it to the first (−394): −394 + 283 = −111 kJ/mol. Why the others are wrong: B) −677 kJ/mol adds both values without reversing the second equation. C) +111 kJ/mol has the correct magnitude but the wrong sign. D) −283 kJ/mol is the value for oxidizing CO to CO₂, not for forming CO.",
+   "trap": "Forgetting to reverse an equation (and flip the sign of ΔH) when applying Hess's law.",
+   "topic": "Hess's law",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chem.libretexts.org/Courses/Valley_City_State_University/Chem_121/Chapter_7%3A_Thermochemistry/7.6%3A_Hess%E2%80%99s_Law",
+     "https://chem.libretexts.org/Courses/Brevard_College/CHE_104%3A_Principles_of_Chemistry_II/04%3A_Thermochemistry_and_Thermodynamics/4.12%3A_Hess's_Law"
+    ]
+   }
+  },
+  {
+   "id": "FL01_CP_D15",
+   "stem": "The Haber process, N₂(g) + 3H₂(g) ⇌ 2NH₃(g), is exothermic. What is the effect of increasing the temperature on the equilibrium constant K and the equilibrium yield of NH₃?",
+   "options": {
+    "A": "K increases, and the equilibrium yield of NH₃ increases.",
+    "B": "K decreases, and the equilibrium yield of NH₃ decreases.",
+    "C": "K is unchanged, and the equilibrium yield of NH₃ decreases.",
+    "D": "K decreases, and the equilibrium yield of NH₃ increases."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) For an exothermic reaction, heat acts as a product, so adding heat shifts the equilibrium toward reactants. K, which depends only on temperature, decreases, and so does the NH₃ yield. Why the others are wrong: A) K and yield rise with temperature for an endothermic reaction only. C) K is temperature dependent, so it changes when T changes. D) K and the equilibrium composition are linked; a smaller K means less product, not more.",
+   "trap": "Thinking K is constant when temperature changes (only concentration changes leave K unchanged).",
+   "topic": "Le Chatelier and temperature",
+   "mastery_sheet_id": "5E",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

@@ -1,0 +1,769 @@
+[
+ {
+  "id": "d_6A_1",
+  "type": "discrete",
+  "stem": "Which feature best characterizes rod photoreceptors?",
+  "options": {
+   "A": "High sensitivity in dim light but poor color discrimination and low acuity",
+   "B": "Concentrated in the fovea and responsible for color vision",
+   "C": "Require bright light and provide high spatial acuity",
+   "D": "Three types sensitive to different wavelengths"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Rods contain rhodopsin, are abundant in the periphery, and function in dim light with low acuity and no color discrimination. Why the others are wrong: B) Foveal concentration and color vision describe cones. C) Needing bright light and giving high acuity also describes cones. D) Three wavelength-sensitive types describes cones; rods are a single type.",
+  "trap": "Assigning color vision and acuity to rods because they are more numerous.",
+  "topic": "Rods and cones",
+  "mastery_sheet_id": "6A",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_2",
+  "type": "discrete",
+  "stem": "A person with damage limited to the fovea would most likely have difficulty with:",
+  "options": {
+   "A": "seeing in dim light at the periphery",
+   "B": "reading fine print and distinguishing colors in bright light",
+   "C": "detecting motion at the edge of the visual field",
+   "D": "adapting to darkness"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The fovea is packed with cones, which support fine acuity and color vision in bright light, so damage impairs reading and color discrimination. Why the others are wrong: A) Dim-light peripheral vision relies on rods, which are outside the fovea. C) Motion detection at the visual field edge depends on peripheral rod-rich retina. D) Dark adaptation is a rod function (rhodopsin regeneration).",
+  "trap": "Thinking central vision relies on rods.",
+  "topic": "Fovea",
+  "mastery_sheet_id": "6A",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_3",
+  "type": "discrete",
+  "stem": "The absolute threshold is best defined as the:",
+  "options": {
+   "A": "minimum difference between two stimuli detected 50% of the time",
+   "B": "intensity at which a stimulus is detected 100% of the time",
+   "C": "minimum stimulus intensity detected 50% of the time",
+   "D": "intensity at which a stimulus becomes painful"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) The absolute threshold is the minimum stimulus intensity detected 50% of the time, since detection is probabilistic. Why the others are wrong: A) This describes the difference threshold (just noticeable difference), which concerns two stimuli. B) There is no intensity at which detection is a certain 100%, because of noise. D) The point where a stimulus becomes painful is a pain threshold, not the absolute threshold.",
+  "trap": "Confusing absolute threshold with the difference threshold.",
+  "topic": "Absolute threshold",
+  "mastery_sheet_id": "6A",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_4",
+  "type": "discrete",
+  "stem": "A person can just notice a 2 g difference when holding a 100 g weight. According to Weber's law, what difference is needed to just notice a change from a 500 g weight?",
+  "options": {
+   "A": "2 g",
+   "B": "5 g",
+   "C": "50 g",
+   "D": "10 g"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Weber's law says JND is proportional to baseline: fraction = 2/100 = 0.02, and 0.02 × 500 g = 10 g. Why the others are wrong: A) 2 g treats the JND as a constant, ignoring proportionality. B) 5 g divides 500 by 100 rather than applying the 0.02 fraction. C) 50 g applies a 10% fraction, ten times too large.",
+  "trap": "Assuming the JND is constant rather than proportional to baseline.",
+  "topic": "Weber's law",
+  "mastery_sheet_id": "6A",
+  "difficulty": "516",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://elvers.us/perception/WebersLaw/",
+    "https://www.vedantu.com/physics/webers-law"
+   ]
+  }
+ },
+ {
+  "id": "d_6A_5",
+  "type": "discrete",
+  "stem": "In a signal detection task, a participant is told that missing a signal carries a heavy penalty while false alarms carry none. What is most likely to happen?",
+  "options": {
+   "A": "The participant adopts a liberal criterion, increasing both hits and false alarms",
+   "B": "The participant adopts a conservative criterion, reducing false alarms",
+   "C": "Sensitivity (d') decreases substantially",
+   "D": "The absolute threshold drops to zero"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Payoffs shift response bias, so with a heavy penalty for misses the participant adopts a liberal criterion, raising both hits and false alarms. Why the others are wrong: B) A conservative criterion would follow heavy penalties for false alarms, the opposite situation. C) Sensitivity (d') reflects signal discriminability, not payoffs, and does not change. D) The absolute threshold is not driven to zero by incentives.",
+  "trap": "Interpreting a shift in response bias as a change in sensory sensitivity.",
+  "topic": "Signal detection theory",
+  "mastery_sheet_id": "6A",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_6",
+  "type": "discrete",
+  "stem": "After a few minutes in a room, you no longer notice a perfume odor. This is an example of:",
+  "options": {
+   "A": "habituation to a cognitive expectation",
+   "B": "sensory adaptation",
+   "C": "absolute threshold elevation due to damage",
+   "D": "selective attention to the odor"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) A decrease in receptor responsiveness to a constant stimulus is sensory adaptation. Why the others are wrong: A) Habituation is a central decline in response to repeated stimuli and is not tied to a cognitive expectation here. C) No damage occurred; the odor is noticed again when the stimulus changes. D) Selective attention would be a shift of focus, not a fading of perception under constant stimulation.",
+  "trap": "Confusing sensory adaptation (receptor-level) with habituation (central).",
+  "topic": "Sensory adaptation",
+  "mastery_sheet_id": "6A",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_7",
+  "type": "discrete",
+  "stem": "Staring at a green image and then seeing a red afterimage on a white wall is best explained by:",
+  "options": {
+   "A": "trichromatic theory of cone types alone",
+   "B": "the volley principle",
+   "C": "opponent-process theory in retinal ganglion and thalamic cells",
+   "D": "lateral inhibition in the cochlea"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Opponent-process theory explains afterimages: fatigue of green-signaling members of the red-green pair produces a rebound red signal. Why the others are wrong: A) Trichromatic theory explains receptor-level color matching, not afterimages. B) The volley principle concerns auditory frequency coding. D) The cochlea is in the ear, not the visual system.",
+  "trap": "Using trichromatic theory to explain afterimages.",
+  "topic": "Opponent-process theory",
+  "mastery_sheet_id": "6A",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_8",
+  "type": "discrete",
+  "stem": "According to place theory, high-frequency sounds are encoded by hair cells located:",
+  "options": {
+   "A": "near the apex of the basilar membrane",
+   "B": "in the semicircular canals",
+   "C": "at the tympanic membrane",
+   "D": "near the base of the basilar membrane"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The base of the basilar membrane is narrow and stiff and vibrates maximally to high frequencies. Why the others are wrong: A) The apex is wide and flexible, tuned to low frequencies. B) The semicircular canals handle balance, not pitch. C) The tympanic membrane transmits vibrations but has no frequency-tuned hair cells.",
+  "trap": "Reversing base and apex tuning.",
+  "topic": "Place theory",
+  "mastery_sheet_id": "6A",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_9",
+  "type": "discrete",
+  "stem": "In hearing, mechanical energy is converted to neural signals by:",
+  "options": {
+   "A": "hair cells in the organ of Corti bending against the tectorial membrane",
+   "B": "the ossicles vibrating the round window",
+   "C": "photoreceptors in the cochlea",
+   "D": "the tympanic membrane generating action potentials"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Hair cells in the organ of Corti are bent against the tectorial membrane, opening ion channels and depolarizing them (transduction). Why the others are wrong: B) The ossicles amplify mechanical vibration and push on the oval window, not the round window, without transducing. C) The cochlea contains hair cells, not photoreceptors. D) The eardrum vibrates mechanically and does not generate action potentials.",
+  "trap": "Thinking the eardrum or ossicles perform transduction.",
+  "topic": "Auditory transduction",
+  "mastery_sheet_id": "6A",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_10",
+  "type": "discrete",
+  "stem": "Which structures detect rotational head movement?",
+  "options": {
+   "A": "Otolith organs (utricle and saccule)",
+   "B": "Semicircular canals",
+   "C": "Cochlea",
+   "D": "Tympanic membrane"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Fluid in the three semicircular canals lags behind head rotation, bending hair cells. Why the others are wrong: A) The utricle and saccule sense linear acceleration and gravity. C) The cochlea is for hearing. D) The tympanic membrane transmits sound vibration.",
+  "trap": "Confusing canals (rotation) with otoliths (linear).",
+  "topic": "Vestibular sense",
+  "mastery_sheet_id": "6A",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_11",
+  "type": "discrete",
+  "stem": "Olfaction differs from other senses because olfactory information:",
+  "options": {
+   "A": "is processed only in the brainstem",
+   "B": "travels through the optic nerve",
+   "C": "reaches the olfactory cortex and limbic structures without first relaying through the thalamus",
+   "D": "requires mechanoreceptors"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Olfactory bulb axons project directly to the piriform cortex, amygdala, and limbic structures without a thalamic relay first. Why the others are wrong: A) Olfactory processing is not limited to the brainstem. B) Olfaction travels via cranial nerve I, not the optic nerve (II). D) Olfaction uses chemoreceptors, not mechanoreceptors.",
+  "trap": "Assuming all senses relay through the thalamus first.",
+  "topic": "Olfactory pathway",
+  "mastery_sheet_id": "6A",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_12",
+  "type": "discrete",
+  "stem": "Which taste quality is primarily triggered by glutamate?",
+  "options": {
+   "A": "Sweet",
+   "B": "Bitter",
+   "C": "Sour",
+   "D": "Umami"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Umami (savory) receptors respond to glutamate. Why the others are wrong: A) Sweet receptors detect sugars. B) Bitter receptors detect potential toxins such as alkaloids. C) Sour receptors detect acids (H+).",
+  "trap": "Matching the savory taste of MSG to saltiness rather than to its own glutamate-sensing receptor.",
+  "topic": "Taste",
+  "mastery_sheet_id": "6A",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_13",
+  "type": "discrete",
+  "stem": "Rubbing a bumped elbow reduces pain according to the gate control theory because:",
+  "options": {
+   "A": "large-diameter touch fibers activate inhibitory interneurons that close the spinal gate",
+   "B": "pain fibers are destroyed",
+   "C": "the thalamus blocks all signals",
+   "D": "endorphins are always released at the cortex"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Large-diameter A-beta touch fibers activate inhibitory interneurons in the dorsal horn, closing the gate on small nociceptive fibers. Why the others are wrong: B) Pain fibers are not destroyed by rubbing. C) The thalamus does not block all signals. D) Endorphin release is not always cortical and is not the proposed gate mechanism.",
+  "trap": "Assuming the gate is closed by pain fibers themselves.",
+  "topic": "Gate control theory of pain",
+  "mastery_sheet_id": "6A",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_14",
+  "type": "discrete",
+  "stem": "Which type of fiber carries fast, sharp pain?",
+  "options": {
+   "A": "Unmyelinated C fibers",
+   "B": "Myelinated A-delta fibers",
+   "C": "A-beta fibers",
+   "D": "Motor neuron axons"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Myelinated A-delta fibers conduct quickly and carry fast, sharp pain. Why the others are wrong: A) Unmyelinated C fibers carry slow, dull, burning pain. C) A-beta fibers carry touch. D) Motor neuron axons are efferent and carry commands, not pain.",
+  "trap": "Swapping the roles of A-delta and C fibers.",
+  "topic": "Pain fibers",
+  "mastery_sheet_id": "6A",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_15",
+  "type": "discrete",
+  "stem": "The face and hands occupy disproportionately large areas of the somatosensory cortex because:",
+  "options": {
+   "A": "they contain more muscle mass",
+   "B": "they are closer to the brain",
+   "C": "they have high receptor density and fine sensory discrimination",
+   "D": "they send larger motor signals"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Cortical representation reflects receptor density and fine discrimination, so sensitive regions like the face and hands get more cortex. Why the others are wrong: A) Muscle mass does not determine sensory maps. B) Proximity to the brain is irrelevant. D) Motor output relates to the motor cortex, not somatosensory area.",
+  "trap": "Thinking cortical area reflects body part size.",
+  "topic": "Somatosensory cortex",
+  "mastery_sheet_id": "6A",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_16",
+  "type": "discrete",
+  "stem": "Proprioception relies primarily on receptors located in:",
+  "options": {
+   "A": "the cochlea",
+   "B": "the retina",
+   "C": "the olfactory epithelium",
+   "D": "muscles, tendons, and joints"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Muscle spindles, Golgi tendon organs, and joint receptors signal body position. Why the others are wrong: A) The cochlea serves hearing. B) The retina serves vision. C) The olfactory epithelium serves smell.",
+  "trap": "Equating proprioception with the vestibular system alone.",
+  "topic": "Proprioception",
+  "mastery_sheet_id": "6A",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_17",
+  "type": "discrete",
+  "stem": "Lateral inhibition in the retina enhances:",
+  "options": {
+   "A": "contrast at edges",
+   "B": "color constancy",
+   "C": "absolute threshold",
+   "D": "pupil size"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Stimulated cells inhibit their neighbors, sharpening contrast at edges. Why the others are wrong: B) Color constancy involves cortical processing and not lateral inhibition. C) Absolute threshold is a detection limit not set by lateral inhibition. D) Pupil size is controlled by the iris muscles via autonomic input.",
+  "trap": "Thinking lateral inhibition blurs or reduces contrast, when neighboring suppression actually sharpens edges.",
+  "topic": "Lateral inhibition",
+  "mastery_sheet_id": "6A",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_18",
+  "type": "discrete",
+  "stem": "A tumor pressing on the optic chiasm typically produces:",
+  "options": {
+   "A": "blindness in one eye",
+   "B": "bitemporal hemianopia",
+   "C": "homonymous hemianopia",
+   "D": "loss of central vision in both eyes only"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Crossing nasal retinal fibers carry the temporal visual fields, so a chiasm lesion produces bitemporal hemianopia. Why the others are wrong: A) One-eye blindness results from optic nerve damage before the chiasm. C) Homonymous hemianopia follows post-chiasm (tract or cortex) lesions. D) Loss of central vision in both eyes is not the typical chiasm pattern.",
+  "trap": "Forgetting that nasal fibers cross.",
+  "topic": "Visual pathway lesions",
+  "mastery_sheet_id": "6A",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_19",
+  "type": "discrete",
+  "stem": "Hubel and Wiesel discovered that neurons in the primary visual cortex:",
+  "options": {
+   "A": "respond only to color",
+   "B": "are identical in firing across stimuli",
+   "C": "respond selectively to specific features such as edge orientation",
+   "D": "are found only in the retina"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) V1 simple and complex cells respond selectively to features such as edge orientation. Why the others are wrong: A) V1 neurons are not color-only responders. B) Neurons fire selectively, not identically across stimuli. D) Cortical neurons are found in the brain, not only the retina.",
+  "trap": "Assuming V1 neurons respond to whole objects.",
+  "topic": "Feature detection",
+  "mastery_sheet_id": "6A",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_20",
+  "type": "discrete",
+  "stem": "Why does it take about 20-30 minutes to see well after moving from bright light into a dark room?",
+  "options": {
+   "A": "Cones need time to produce color pigment",
+   "B": "The pupil takes that long to constrict",
+   "C": "The optic nerve stops firing",
+   "D": "Rhodopsin in rods must regenerate"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Bleached rhodopsin in rods slowly regenerates over 20-30 minutes, raising rod sensitivity. Why the others are wrong: A) Cones do not need to synthesize color pigment and adapt faster. B) The pupil dilates, not constricts, in dim light and does so within seconds. C) The optic nerve keeps firing; retinal sensitivity is what changes.",
+  "trap": "Attributing dark adaptation primarily to pupil changes, when pupil dilation is fast and rhodopsin regeneration is slow.",
+  "topic": "Dark adaptation",
+  "mastery_sheet_id": "6A",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_21",
+  "type": "discrete",
+  "stem": "Sensory transduction refers to:",
+  "options": {
+   "A": "conversion of physical stimulus energy into neural signals",
+   "B": "conscious interpretation of a stimulus",
+   "C": "adaptation to constant stimuli",
+   "D": "the storage of sensory input"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Transduction is the conversion of physical stimulus energy into neural signals (graded or action potentials) by receptors. Why the others are wrong: B) Conscious interpretation of a stimulus is perception. C) Reduced response to constant stimuli is adaptation. D) Storage of sensory input is memory, not transduction.",
+  "trap": "Mixing up transduction (energy conversion at receptors) with perception (interpretation in the brain).",
+  "topic": "Transduction",
+  "mastery_sheet_id": "6A",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_22",
+  "type": "discrete",
+  "stem": "Which structure serves as the main relay for most sensory information en route to the cortex?",
+  "options": {
+   "A": "Hypothalamus",
+   "B": "Thalamus",
+   "C": "Cerebellum",
+   "D": "Hippocampus"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The thalamus relays visual, auditory, and somatosensory input to the cortex (olfaction being the exception). Why the others are wrong: A) The hypothalamus regulates homeostasis and hormones. C) The cerebellum coordinates movement and balance. D) The hippocampus forms new declarative memories.",
+  "trap": "Confusing the thalamus, the sensory relay, with the similarly named hypothalamus, which regulates homeostasis.",
+  "topic": "Sensory relay",
+  "mastery_sheet_id": "6A",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_23",
+  "type": "discrete",
+  "stem": "In darkness, vertebrate photoreceptors:",
+  "options": {
+   "A": "are hyperpolarized and release no glutamate",
+   "B": "fire action potentials",
+   "C": "are depolarized and continuously release glutamate",
+   "D": "are inactive"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) In darkness the dark current keeps photoreceptors depolarized so they continuously release glutamate; light closes Na+ channels and hyperpolarizes them. Why the others are wrong: A) Hyperpolarization with no glutamate release occurs in light. B) Photoreceptors use graded potentials, not action potentials. D) They are highly active in darkness, not inactive.",
+  "trap": "Expecting light to depolarize photoreceptors.",
+  "topic": "Photoreceptor physiology",
+  "mastery_sheet_id": "6A",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_24",
+  "type": "discrete",
+  "stem": "In dim light, the pupil dilates due to action of the:",
+  "options": {
+   "A": "circular muscle under parasympathetic control",
+   "B": "lens ciliary muscle",
+   "C": "cornea",
+   "D": "radial muscle of the iris under sympathetic control"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) In dim light, sympathetic stimulation contracts the iris radial muscle, widening the pupil. Why the others are wrong: A) Parasympathetic contraction of the circular muscle constricts the pupil. B) The ciliary muscle adjusts lens shape for accommodation. C) The cornea is a fixed refractive surface and does not control pupil size.",
+  "trap": "Swapping sympathetic and parasympathetic effects.",
+  "topic": "Pupillary response",
+  "mastery_sheet_id": "6A",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_25",
+  "type": "discrete",
+  "stem": "Which physical property of a sound wave determines its perceived loudness?",
+  "options": {
+   "A": "Amplitude",
+   "B": "Frequency",
+   "C": "Wavelength",
+   "D": "Complexity of waveform"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Larger amplitude means higher intensity and a louder perceived sound. Why the others are wrong: B) Frequency determines pitch. C) Wavelength is inversely tied to frequency and thus also relates to pitch. D) Waveform complexity determines timbre.",
+  "trap": "Equating loudness with pitch, when amplitude sets loudness and frequency sets pitch.",
+  "topic": "Sound properties",
+  "mastery_sheet_id": "6A",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_26",
+  "type": "discrete",
+  "stem": "Two instruments play the same note at the same loudness, yet sound different. This difference is attributed to:",
+  "options": {
+   "A": "amplitude",
+   "B": "timbre, from differing harmonic overtones",
+   "C": "frequency",
+   "D": "wavelength of the fundamental"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Timbre arises from the differing harmonic overtone patterns of complex waves, so the same note sounds different. Why the others are wrong: A) Amplitude (loudness) is stated to be equal. C) The fundamental frequency (pitch) is the same note. D) The wavelength of the fundamental is identical for the same pitch.",
+  "trap": "Treating timbre as a loudness effect.",
+  "topic": "Timbre",
+  "mastery_sheet_id": "6A",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_27",
+  "type": "discrete",
+  "stem": "Low-frequency sounds up to about 1000 Hz are thought to be encoded in part by:",
+  "options": {
+   "A": "place along the cochlea only",
+   "B": "retinal ganglion cells",
+   "C": "the firing rate of auditory neurons matching the sound frequency (volley principle)",
+   "D": "the vestibular nerve"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Auditory nerve firing synchronizes with low frequencies, with groups of neurons firing in volleys (volley principle). Why the others are wrong: A) Place coding alone does not explain low-pitch perception. B) Retinal ganglion cells are part of vision. D) The vestibular nerve carries balance, not hearing, information.",
+  "trap": "Assuming only place coding explains pitch.",
+  "topic": "Frequency theory",
+  "mastery_sheet_id": "6A",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_28",
+  "type": "discrete",
+  "stem": "Red-green color blindness is more common in males because the genes are:",
+  "options": {
+   "A": "Y-linked",
+   "B": "autosomal dominant",
+   "C": "mitochondrial",
+   "D": "X-linked recessive"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The genes are X-linked recessive; males have one X, so a single recessive allele is expressed. Why the others are wrong: A) Y-linked inheritance would affect only males and be passed father to son, which is not the pattern. B) Autosomal dominance would affect the sexes equally. C) Mitochondrial inheritance is maternal and affects both sexes equally.",
+  "trap": "Assuming it is autosomal dominant.",
+  "topic": "Color vision deficiency",
+  "mastery_sheet_id": "6A",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_29",
+  "type": "discrete",
+  "stem": "The correct sequence of sound transmission through the middle ear is:",
+  "options": {
+   "A": "tympanic membrane, malleus, incus, stapes, oval window",
+   "B": "tympanic membrane, stapes, incus, malleus, oval window",
+   "C": "oval window, malleus, incus, stapes, tympanic membrane",
+   "D": "malleus, tympanic membrane, incus, stapes, round window"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Sound vibrates the tympanic membrane, then the malleus, incus, and stapes, which pushes on the oval window. Why the others are wrong: B) This reverses the order of the ossicles. C) This runs the chain backward from the inner ear. D) The malleus attaches to the tympanic membrane first, and the stapes leads to the oval window, not the round window.",
+  "trap": "Reversing the ossicle chain order or ending at the round window instead of the oval window.",
+  "topic": "Ear anatomy",
+  "mastery_sheet_id": "6A",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_30",
+  "type": "discrete",
+  "stem": "The blind spot is caused by:",
+  "options": {
+   "A": "a lesion in the occipital lobe",
+   "B": "the absence of photoreceptors where the optic nerve exits the retina",
+   "C": "damage to the fovea",
+   "D": "the lens being cloudy"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The optic disc, where the optic nerve exits, has no rods or cones, producing the blind spot. Why the others are wrong: A) An occipital lesion causes a field defect that is not the normal physiologic blind spot. C) Fovea damage impairs central acuity, not the blind spot. D) A cloudy lens (cataract) blurs vision generally.",
+  "trap": "Confusing the optic disc with the fovea.",
+  "topic": "Blind spot",
+  "mastery_sheet_id": "6A",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_31",
+  "type": "discrete",
+  "stem": "Damage to the ossicles or tympanic membrane would cause:",
+  "options": {
+   "A": "sensorineural hearing loss",
+   "B": "tinnitus only",
+   "C": "conduction hearing loss",
+   "D": "vestibular loss exclusively"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Damage to the ossicles or tympanic membrane impairs mechanical sound transmission, causing conduction hearing loss. Why the others are wrong: A) Sensorineural loss involves hair cells or the auditory nerve. B) Tinnitus is a ringing sensation, not the deficit from mechanical damage. D) The vestibular system serves balance, not sound conduction.",
+  "trap": "Mixing up conduction and sensorineural causes.",
+  "topic": "Conduction vs sensorineural hearing loss",
+  "mastery_sheet_id": "6A",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_32",
+  "type": "discrete",
+  "stem": "After spinning and stopping abruptly, a person feels dizzy because:",
+  "options": {
+   "A": "the cochlea overstimulates",
+   "B": "proprioceptors fatigue",
+   "C": "the retina is overstimulated",
+   "D": "fluid in the semicircular canals continues to move"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Inertia keeps endolymph in the semicircular canals moving after you stop, bending hair cells and signaling continued rotation. Why the others are wrong: A) The cochlea encodes sound, not rotation. B) Proprioceptor fatigue does not produce this illusion. C) The retina is not the source of the vestibular dizziness.",
+  "trap": "Attributing dizziness to the cochlea.",
+  "topic": "Spinning and dizziness",
+  "mastery_sheet_id": "6A",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_33",
+  "type": "discrete",
+  "stem": "Supertasters typically have:",
+  "options": {
+   "A": "a higher density of fungiform papillae and taste buds",
+   "B": "no taste buds",
+   "C": "less bitterness sensitivity",
+   "D": "decreased smell"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Supertasters have a higher density of fungiform papillae and taste buds, intensifying taste. Why the others are wrong: B) They have more, not zero, taste buds. C) They are more, not less, sensitive to bitterness. D) Smell is not reduced in supertasters.",
+  "trap": "Assuming supertasters are less sensitive.",
+  "topic": "Supertasters",
+  "mastery_sheet_id": "6A",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_34",
+  "type": "discrete",
+  "stem": "If an image is held perfectly stable on the retina, it fades from perception. This illustrates:",
+  "options": {
+   "A": "lack of rods",
+   "B": "the need for change in stimulation to maintain neural responses",
+   "C": "blind spot formation",
+   "D": "color constancy"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Sensory systems respond to change, so a perfectly stabilized retinal image fades; eye micromovements normally prevent this. Why the others are wrong: A) A lack of rods would not cause fading of a stabilized image. C) The blind spot is a fixed anatomical gap, not an effect of stability. D) Color constancy is stable color perception under changing light.",
+  "trap": "Overlooking constant stimulation reducing neural response.",
+  "topic": "Fading of stabilized images",
+  "mastery_sheet_id": "6A",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_35",
+  "type": "discrete",
+  "stem": "Pheromones are detected primarily by:",
+  "options": {
+   "A": "photoreceptors",
+   "B": "hair cells",
+   "C": "olfactory chemoreceptors, with the vomeronasal organ in many mammals",
+   "D": "Pacinian corpuscles"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Pheromones are chemical signals detected by olfactory chemoreceptors, with the vomeronasal organ in many mammals. Why the others are wrong: A) Photoreceptors detect light. B) Hair cells detect mechanical stimuli in hearing and balance. D) Pacinian corpuscles detect deep pressure and vibration.",
+  "trap": "Picking a non-chemical receptor type, forgetting that pheromones are detected by chemoreception.",
+  "topic": "Pheromones",
+  "mastery_sheet_id": "6A",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_36",
+  "type": "discrete",
+  "stem": "Which receptor responds best to deep pressure and vibration?",
+  "options": {
+   "A": "Meissner corpuscle",
+   "B": "Merkel disk",
+   "C": "Free nerve ending",
+   "D": "Pacinian corpuscle"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Pacinian corpuscles are large, deep, rapidly adapting mechanoreceptors tuned to deep pressure and vibration. Why the others are wrong: A) Meissner corpuscles sense light touch. B) Merkel disks sense sustained touch and texture. C) Free nerve endings sense pain and temperature.",
+  "trap": "Confusing Meissner corpuscles (light touch) with Pacinian corpuscles (deep pressure and vibration).",
+  "topic": "Touch receptors",
+  "mastery_sheet_id": "6A",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_37",
+  "type": "discrete",
+  "stem": "The just noticeable difference (JND) is:",
+  "options": {
+   "A": "the smallest change in a stimulus that can be detected",
+   "B": "the weakest stimulus detectable",
+   "C": "the largest stimulus tolerated",
+   "D": "the time to adapt"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The JND is the smallest detectable change in a stimulus, the difference threshold. Why the others are wrong: B) The weakest detectable stimulus is the absolute threshold. C) The largest tolerated stimulus is a tolerance or pain limit. D) The time to adapt is unrelated to JND.",
+  "trap": "Confusing the JND (difference threshold) with the absolute threshold for detecting any stimulus.",
+  "topic": "Difference threshold",
+  "mastery_sheet_id": "6A",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_38",
+  "type": "discrete",
+  "stem": "Which scenario best exemplifies sensation rather than perception?",
+  "options": {
+   "A": "Recognizing a friend's face in a crowd",
+   "B": "Retinal photoreceptors absorbing photons of light",
+   "C": "Interpreting a melody",
+   "D": "Judging an object's size from distance"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Sensation is detection and transduction, such as photoreceptors absorbing photons, whereas perception is interpretation. Why the others are wrong: A) Recognizing a face requires cognitive interpretation. C) Interpreting a melody is organized perception. D) Judging size from distance is depth and size perception.",
+  "trap": "Blurring detection and interpretation.",
+  "topic": "Sensation versus perception",
+  "mastery_sheet_id": "6A",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_39",
+  "type": "discrete",
+  "stem": "Prolonged exposure to loud noise causes permanent hearing loss primarily by destroying:",
+  "options": {
+   "A": "the ossicles",
+   "B": "the vestibular nerve",
+   "C": "hair cells in the organ of Corti",
+   "D": "the Eustachian tube"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Loud noise destroys hair cells in the organ of Corti, which do not regenerate in mammals. Why the others are wrong: A) The ossicles are not the primary target of noise damage. B) The vestibular nerve serves balance. D) The Eustachian tube equalizes pressure and is not harmed by noise.",
+  "trap": "Assuming hair cells regenerate in humans.",
+  "topic": "Cochlear damage",
+  "mastery_sheet_id": "6A",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_6A_40",
+  "type": "discrete",
+  "stem": "Fibers from retinal ganglion cells form the:",
+  "options": {
+   "A": "optic tract only",
+   "B": "oculomotor nerve",
+   "C": "vestibulocochlear nerve",
+   "D": "optic nerve"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Ganglion cell axons exit the eye as the optic nerve (CN II). Why the others are wrong: A) Axons form the optic tract only after the chiasm, so 'only' is wrong; they first form the nerve. B) The oculomotor nerve (III) moves the eye. C) The vestibulocochlear nerve (VIII) carries hearing and balance.",
+  "trap": "Mixing up cranial nerve identities or choosing the post-chiasm tract instead of the optic nerve.",
+  "topic": "Visual acuity and ganglion cells",
+  "mastery_sheet_id": "6A",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ }
+]

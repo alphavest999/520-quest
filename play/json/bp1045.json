@@ -1,0 +1,138 @@
+[
+  {
+    "id": "bp1045-01",
+    "type": "question",
+    "passage_id": "bp1045",
+    "passage_text": "Researchers investigated the effect of a novel dietary supplement on resting metabolic rate (RMR) in healthy adults. In a randomized, double‑blind, placebo‑controlled study, 120 participants were assigned to one of four groups: placebo (n=30), low‑dose supplement (n=30), medium‑dose supplement (n=30), and high‑dose supplement (n=30). RMR was measured using indirect calorimetry after a 12‑hour fast, and results were recorded in kilocalories per day. The study also recorded body composition via dual‑energy X‑ray absorptiometry (DXA) to assess changes in lean mass. Participants were monitored for 12 weeks, with RMR measured at baseline, 6 weeks, and 12 weeks. The primary outcome was the change in RMR from baseline to 12 weeks. Secondary outcomes included changes in lean body mass and fat mass. The study aimed to determine whether the supplement could safely increase metabolic rate without adverse effects on body composition. Table 1 gives the mean RMR of each group at 12 weeks.",
+    "table_data": [
+      {
+        "Group": "Placebo",
+        "Mean RMR (kcal/day)": 1650,
+        "SD": 120
+      },
+      {
+        "Group": "Low‑dose",
+        "Mean RMR (kcal/day)": 1705,
+        "SD": 115
+      },
+      {
+        "Group": "Medium‑dose",
+        "Mean RMR (kcal/day)": 1760,
+        "SD": 110
+      },
+      {
+        "Group": "High‑dose",
+        "Mean RMR (kcal/day)": 1820,
+        "SD": 105
+      }
+    ],
+    "stem": "Based on the data presented in Table 1, which statement best describes the trend in mean resting metabolic rate across the supplement dosage groups?",
+    "options": {
+      "A": "The mean RMR decreases as the supplement dose increases.",
+      "B": "The mean RMR remains unchanged across all dosage groups.",
+      "C": "The mean RMR increases with higher supplement doses.",
+      "D": "The mean RMR peaks at the low‑dose group and then declines."
+    },
+    "correct": "C",
+    "explanation": "The table shows a progressive increase in mean RMR from 1650 kcal/day in the placebo group to 1820 kcal/day in the high‑dose group, indicating a dose‑dependent rise.",
+    "trap": "Reading the SD column (which falls from 120 to 105 as dose rises) as the outcome, which would suggest a decrease with dose (option A).",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T14:30:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp1045-02",
+    "type": "question",
+    "passage_id": "bp1045",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which experimental design element is essential to attribute changes in RMR to the supplement rather than to other factors?",
+    "options": {
+      "A": "Using a larger sample size of 120 participants.",
+      "B": "Randomly assigning participants to placebo or supplement groups.",
+      "C": "Measuring RMR only at baseline.",
+      "D": "Allowing participants to choose their supplement dose."
+    },
+    "correct": "B",
+    "explanation": "Randomization ensures that known and unknown confounders are evenly distributed across groups, allowing causal inference about the supplement’s effect.",
+    "trap": "Believing that a large sample of 120 participants by itself rules out confounding, when only random assignment balances other factors across groups.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T14:32:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1045-03",
+    "type": "question",
+    "passage_id": "bp1045",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Assuming the SD of 105 kcal/day describes the spread of individual RMR values in the high-dose group, calculate the 95% confidence interval for the group mean RMR (n = 30).",
+    "options": {
+      "A": "1782–1858 kcal/day",
+      "B": "1801–1839 kcal/day",
+      "C": "1614–2026 kcal/day",
+      "D": "1813–1827 kcal/day"
+    },
+    "correct": "A",
+    "explanation": "Correct: A. SE = 105/√30 = 19.2 kcal/day; 95% CI = 1820 ± 1.96 × 19.2 = 1820 ± 37.6, about 1782–1858 kcal/day. Why the others are wrong: B) 1801–1839 is 1820 ± 19.2, one SE without the 1.96 multiplier. C) 1614–2026 is 1820 ± 1.96 × 105, using the SD instead of the SE (no division by √n). D) 1813–1827 is 1820 ± 1.96 × 105/30, dividing the SD by n rather than by √n.",
+    "trap": "Forgetting the 1.96 multiplier, using the SD in place of the SE, or dividing the SD by n instead of √n, each of which gives an interval of the wrong width.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T14:34:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1045-04",
+    "type": "question",
+    "passage_id": "bp1045",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which of the following statements is NOT supported by the passage and Table 1?",
+    "options": {
+      "A": "Mean RMR rose at each successive supplement dose (placebo < low < medium < high).",
+      "B": "Participants were randomized in equal numbers (n = 30) to four groups.",
+      "C": "RMR was measured by indirect calorimetry after a 12-hour fast.",
+      "D": "The supplement increased lean body mass."
+    },
+    "correct": "D",
+    "explanation": "Correct: No lean-mass results are presented; DXA was a secondary measurement only, so an effect on lean mass cannot be claimed. Why the others are wrong: A) the table shows 1650 < 1705 < 1760 < 1820 kcal/day. B) the passage states four groups of 30. C) the passage states indirect calorimetry after a 12-hour fast.",
+    "trap": "Assuming the supplement raised lean mass because DXA lean-mass assessment is mentioned, though no lean-mass data are reported.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T14:36:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp1045-05",
+    "type": "question",
+    "passage_id": "bp1045",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Approximately what percent higher was the mean RMR of the high-dose group than that of the placebo group?",
+    "options": {
+      "A": "5.8%",
+      "B": "10.3%",
+      "C": "9.3%",
+      "D": "17.0%"
+    },
+    "correct": "B",
+    "explanation": "Correct: (1820 − 1650)/1650 × 100 = 170/1650 × 100 ≈ 10.3%. Why the others are wrong: A) 5.8% is 105/1820, i.e. the SD as a fraction of the mean. C) 9.3% divides the 170 difference by the high-dose mean instead of the placebo reference. D) 17.0% has no basis in the data; it would require dividing the 170 kcal/day difference by 1,000 kcal/day, which is not a group mean.",
+    "trap": "Dividing the difference by the high-dose mean rather than the placebo reference value.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T14:38:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  }
+]

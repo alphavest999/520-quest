@@ -1,0 +1,1477 @@
+{
+ "exam": "FL02",
+ "section": "CP",
+ "passages": [
+  {
+   "passage_id": "FL02_CP_P1",
+   "passage_text": "A student studies a mass-spring oscillator using a cart of adjustable mass on a horizontal, essentially frictionless air track. One end of an ideal spring is fixed to the track and the other end is attached to the cart. For each trial, the student pulls the cart 5.0 cm from equilibrium, releases it from rest, and uses a photogate to time 10 complete oscillations, from which the period T is calculated. The mass of the spring is negligible compared with that of the cart. The student varies the cart mass and repeats the measurement, then plots T² against mass to test the relationship between period and mass. Table 1 gives the periods and Figure 1 shows T² versus mass. In a separate demonstration, the same spring is hung vertically from a support and a 0.20 kg mass is attached to it. Use g = 10 m/s² where needed. Before each run, the student checks that the track is level by confirming that the cart does not drift, and each reported period is the average of three runs that agreed to within 1%.",
+   "table_data": "| Cart mass (kg) | Period T (s) |\n|---|---|\n| 0.10 | 0.44 |\n| 0.20 | 0.63 |\n| 0.30 | 0.77 |\n| 0.40 | 0.89 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. T² versus cart mass",
+    "x_label": "Mass (kg)",
+    "y_label": "T² (s²)",
+    "series": [
+     {
+      "name": "Data",
+      "points": [
+       [
+        0.1,
+        0.2
+       ],
+       [
+        0.2,
+        0.39
+       ],
+       [
+        0.3,
+        0.59
+       ],
+       [
+        0.4,
+        0.79
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_CP_P1_Q1",
+     "stem": "Based on the slope of the line in Figure 1, what is the spring constant?",
+     "options": {
+      "A": "78 N/m",
+      "B": "2.0 N/m",
+      "C": "0.51 N/m",
+      "D": "20 N/m"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The slope of T² vs m is 4π²/k, about 1.97 s²/kg, so k = 4π²/1.97 ≈ 20 N/m. Why the others are wrong: A) 78 N/m multiplies the slope by 4π² instead of dividing. B) 2.0 N/m uses the slope itself as k and ignores the 4π² factor. C) 0.51 N/m takes the reciprocal of the slope without the 4π² factor.",
+     "trap": "Treating the slope of T² versus m as k directly, instead of recognizing that slope = 4π²/k.",
+     "topic": "Spring constant from T² vs m",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P1_Q2",
+     "stem": "What is the maximum speed of the 0.20 kg cart during its oscillation at an amplitude of 5.0 cm?",
+     "options": {
+      "A": "0.25 m/s",
+      "B": "0.50 m/s",
+      "C": "0.71 m/s",
+      "D": "5.0 m/s"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Energy conservation: ½kA² = ½mv²max, so v = A√(k/m) = 0.050 × √(20/0.20) = 0.050 × 10 = 0.50 m/s. Why the others are wrong: A) 0.25 m/s is v², i.e., the square root was not taken. C) 0.71 m/s results from dropping the ½ from the spring energy only (kA² = ½mv²). D) 5.0 m/s uses v = Ak/m, which is dimensionally incorrect.",
+     "trap": "Forgetting to take the square root after solving ½kA² = ½mv² for v².",
+     "topic": "Maximum speed in SHM",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.lehman.cuny.edu/faculty/anchordoqui/files/141_4.pdf",
+       "https://web.physics.ucsb.edu/~lecturedemonstrations/Composer/Pages/40.12.html"
+      ]
+     }
+    },
+    {
+     "id": "FL02_CP_P1_Q3",
+     "stem": "If the student doubled the initial displacement of the cart from 5.0 cm to 10.0 cm, the period of oscillation would:",
+     "options": {
+      "A": "double.",
+      "B": "remain unchanged.",
+      "C": "increase by a factor of √2.",
+      "D": "decrease by half."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) For an ideal spring, T = 2π√(m/k) does not depend on amplitude, so the period stays the same. Why the others are wrong: A) double. Would require the period to be proportional to amplitude, which it is not. C) increase by a factor of √2. Confuses the amplitude dependence with the √m dependence. D) decrease by half. Incorrectly assumes a larger amplitude means a stiffer restoring force overall.",
+     "trap": "Assuming a larger amplitude means a longer trip and therefore a longer period.",
+     "topic": "Period independent of amplitude",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P1_Q4",
+     "stem": "When the 0.20 kg mass hangs at rest from the same spring in the vertical demonstration, the spring is stretched from its relaxed length by approximately:",
+     "options": {
+      "A": "0.010 m",
+      "B": "0.10 m",
+      "C": "0.20 m",
+      "D": "40 m"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At equilibrium kx = mg, so x = mg/k = (0.20)(10)/20 = 0.10 m. Why the others are wrong: A) 0.010 m is m/k and omits g. C) 0.20 m is twice the equilibrium stretch, the maximum stretch if the mass were released from the unstretched position. D) 40 m multiplies mg by k instead of dividing.",
+     "trap": "Using x = m/k or x = mk/g and losing the weight force in the equilibrium condition.",
+     "topic": "Equilibrium stretch of hanging spring",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.lehman.cuny.edu/faculty/anchordoqui/files/141_4.pdf",
+       "https://web.physics.ucsb.edu/~lecturedemonstrations/Composer/Pages/40.12.html"
+      ]
+     }
+    },
+    {
+     "id": "FL02_CP_P1_Q5",
+     "stem": "At what displacement from equilibrium are the kinetic and potential energies of the oscillating cart equal when the amplitude is 5.0 cm?",
+     "options": {
+      "A": "2.5 cm",
+      "B": "0 cm",
+      "C": "5.0 cm",
+      "D": "3.5 cm"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) KE = PE means ½kx² = ½(½kA²), so x = A/√2 = 5.0/1.414 ≈ 3.5 cm. Why the others are wrong: A) 2.5 cm uses x = A/2, which gives PE = ¼ of the total, not half. B) 0 cm at equilibrium the energy is entirely kinetic. C) 5.0 cm at the turning point the energy is entirely potential.",
+     "trap": "Assuming equal energies occur at half the amplitude rather than at A/√2.",
+     "topic": "Energy partition in SHM",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_CP_P2",
+   "passage_text": "Students investigate collisions between two carts on a low-friction track. Cart A has a mass of 0.50 kg and cart B has a mass of 0.30 kg. In each trial cart B starts at rest and cart A is launched toward it at 1.20 m/s. Velocities are measured with motion sensors just before and just after the carts interact, and the positive direction is the initial direction of cart A. In Trial 1, the carts are fitted with magnetic bumpers that repel one another, so the carts never actually touch. In Trial 2, the bumpers are replaced with Velcro strips so that the carts stick together after impact. The students then compare total momentum and total kinetic energy before and after each collision, assuming that external forces during the brief collisions are negligible. Results are given in Table 1. In a follow-up analysis of Trial 1, the students estimate that the repulsive interaction lasted 0.030 s.",
+   "table_data": "| Trial | Coupling | v of A before (m/s) | v of A after (m/s) | v of B after (m/s) |\n|---|---|---|---|---|\n| 1 | Magnetic bumpers | 1.20 | 0.30 | 1.50 |\n| 2 | Velcro | 1.20 | 0.75 | 0.75 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL02_CP_P2_Q1",
+     "stem": "What is the total momentum of the two-cart system after the collision in Trial 2?",
+     "options": {
+      "A": "0.38 kg·m/s",
+      "B": "0.23 kg·m/s",
+      "C": "0.75 kg·m/s",
+      "D": "0.60 kg·m/s"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Momentum is conserved: p = (0.50 + 0.30)(0.75) = 0.60 kg·m/s, equal to the initial 0.50 × 1.20 = 0.60 kg·m/s. Why the others are wrong: A) 0.38 kg·m/s counts only cart A (0.50 × 0.75). B) 0.23 kg·m/s counts only cart B (0.30 × 0.75). C) 0.75 kg·m/s is the common velocity, not a momentum.",
+     "trap": "Counting the momentum of only one cart after a collision in which both move together.",
+     "topic": "Momentum conservation",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_CP_P2_Q2",
+     "stem": "How much kinetic energy is lost in the collision in Trial 2?",
+     "options": {
+      "A": "0.36 J",
+      "B": "0.23 J",
+      "C": "0.14 J",
+      "D": "0 J"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Initial KE = ½(0.50)(1.20)² = 0.360 J. Final KE = ½(0.80)(0.75)² = 0.225 J. Loss = 0.135 J ≈ 0.14 J. Why the others are wrong: A) 0.36 J is the entire initial kinetic energy. B) 0.23 J is the final kinetic energy rather than the loss. D) 0 J assumes that momentum conservation also implies kinetic energy conservation.",
+     "trap": "Assuming that because momentum is conserved, kinetic energy must be conserved too.",
+     "topic": "Inelastic collision energy loss",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_CP_P2_Q3",
+     "stem": "Which observation best supports classifying Trial 1 as an elastic collision?",
+     "options": {
+      "A": "The carts move apart after the interaction.",
+      "B": "The total kinetic energy after the collision equals the total kinetic energy before it.",
+      "C": "Total momentum is the same before and after.",
+      "D": "Cart A's speed decreases while cart B's speed increases."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) KE after = ½(0.50)(0.30)² + ½(0.30)(1.50)² = 0.0225 + 0.3375 = 0.360 J, equal to the initial 0.360 J, which defines an elastic collision. Why the others are wrong: A) The carts move apart after the interaction. Carts also separate in many inelastic collisions where they bounce with some energy lost. C) Total momentum is the same before and after. Momentum is conserved in all collisions, elastic or not, when external forces are negligible. D) Cart A's speed decreases while cart B's speed increases. This occurs in any collision in which a moving cart strikes a stationary one.",
+     "trap": "Using momentum conservation (true for every collision) as evidence that a collision is elastic.",
+     "topic": "Elastic collision criterion",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P2_Q4",
+     "stem": "What is the average magnitude of the force exerted on cart B during the 0.030 s interaction in Trial 1?",
+     "options": {
+      "A": "15 N",
+      "B": "50 N",
+      "C": "0.45 N",
+      "D": "0.014 N"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Impulse = Δp of B = 0.30 × 1.50 = 0.45 kg·m/s, so F = 0.45/0.030 = 15 N. Why the others are wrong: B) 50 N is Δv/Δt and ignores the mass of cart B. C) 0.45 N is the impulse (in N·s) and not divided by the time. D) 0.014 N multiplies the impulse by the time instead of dividing.",
+     "trap": "Dividing the change in velocity by time (an acceleration) and forgetting to multiply by mass.",
+     "topic": "Impulse and average force",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_CP_P3",
+   "passage_text": "A student uses a spring scale to study buoyant forces. A solid metal block of unknown composition is suspended from the scale and its weight is recorded in air. The block is then fully submerged, without touching the container, first in water (density 1000 kg/m³) and then in an unidentified liquid X, and the apparent weight is recorded each time. The scale reading is the tension in the string, which equals the weight of the block minus the buoyant force. Data are shown in Table 1. The student assumes that the block is incompressible and that neither liquid is absorbed by the block. In a second experiment, the student places a small cube of wood, with a density of 600 kg/m³, into liquid X and observes that it floats at rest. Use g = 10 m/s². The student repeats each reading three times and finds that the scale readings are reproducible to within 0.05 N. Care is taken to remove air bubbles from the surface of the block before it is submerged, and the block is suspended by a thin string whose volume and weight are assumed to be negligible.",
+   "table_data": "| Medium | Scale reading (N) |\n|---|---|\n| Air | 4.0 |\n| Water | 3.0 |\n| Liquid X | 3.2 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL02_CP_P3_Q1",
+     "stem": "What is the density of the metal block?",
+     "options": {
+      "A": "1.3 × 10³ kg/m³",
+      "B": "3.0 × 10³ kg/m³",
+      "C": "8.0 × 10² kg/m³",
+      "D": "4.0 × 10³ kg/m³"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) In water B = 4.0 − 3.0 = 1.0 N = ρ_water·V·g, so V = 1.0/(1000 × 10) = 1.0 × 10⁻⁴ m³. Density = m/V = 0.40 kg/1.0 × 10⁻⁴ m³ = 4.0 × 10³ kg/m³. Why the others are wrong: A) 1.3 × 10³ kg/m³ uses the apparent weight (3.0 N) as if it were the buoyant force. B) 3.0 × 10³ kg/m³ divides the apparent weight by the volume, which is not the true weight. C) 8.0 × 10² kg/m³ is the density of liquid X, not of the block.",
+     "trap": "Using the scale reading in a fluid as the buoyant force instead of the difference from the weight in air.",
+     "topic": "Density from apparent weight",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Archimedes%27_principle",
+       "https://phys.libretexts.org/Bookshelves/University_Physics/Physics_(Boundless)/10%3A_Fluids/10.3%3A_Archimedes_Principle"
+      ]
+     }
+    },
+    {
+     "id": "FL02_CP_P3_Q2",
+     "stem": "What is the density of liquid X?",
+     "options": {
+      "A": "3.2 × 10³ kg/m³",
+      "B": "1.25 × 10³ kg/m³",
+      "C": "8.0 × 10² kg/m³",
+      "D": "1.0 × 10³ kg/m³"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Buoyant force in X is 4.0 − 3.2 = 0.8 N. Since the same volume is displaced, ρ_X = 1000 × (0.8/1.0) = 800 kg/m³. Why the others are wrong: A) 3.2 × 10³ kg/m³ reads the apparent weight as if it were a density. B) 1.25 × 10³ kg/m³ inverts the ratio of buoyant forces. D) 1.0 × 10³ kg/m³ assumes the liquid is water because the block was fully submerged in both.",
+     "trap": "Inverting the ratio of buoyant forces when comparing two liquids.",
+     "topic": "Comparing buoyant forces",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Archimedes%27_principle",
+       "https://phys.libretexts.org/Bookshelves/University_Physics/Physics_(Boundless)/10%3A_Fluids/10.3%3A_Archimedes_Principle"
+      ]
+     }
+    },
+    {
+     "id": "FL02_CP_P3_Q3",
+     "stem": "What fraction of the wooden cube's volume is submerged when it floats in liquid X?",
+     "options": {
+      "A": "0.60",
+      "B": "0.75",
+      "C": "1.33",
+      "D": "0.25"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Floating: ρ_wood·V·g = ρ_X·V_sub·g, so V_sub/V = 600/800 = 0.75. Why the others are wrong: A) 0.60 is the wood density as a fraction of water, not of liquid X. C) 1.33 exceeds 1, which is impossible for a floating object, and results from inverting the density ratio. D) 0.25 is the fraction of the cube above the surface.",
+     "trap": "Inverting the density ratio, or using the density of water instead of the fluid in which the object floats.",
+     "topic": "Floating objects",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P3_Q4",
+     "stem": "What is the gauge pressure at a depth of 0.50 m in liquid X?",
+     "options": {
+      "A": "5.0 kPa",
+      "B": "4.0 kPa",
+      "C": "105 kPa",
+      "D": "8.0 kPa"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) P_gauge = ρgh = (800)(10)(0.50) = 4000 Pa = 4.0 kPa. Why the others are wrong: A) 5.0 kPa uses the density of water. C) 105 kPa adds atmospheric pressure, which would give the absolute pressure, not the gauge pressure. D) 8.0 kPa corresponds to a depth of 1.0 m.",
+     "trap": "Adding atmospheric pressure to a question that asks for gauge pressure.",
+     "topic": "Hydrostatic gauge pressure",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.edinformatics.com/math_science/hydrostatic_pressure.htm",
+       "https://www.tutorchase.com/notes/a-level-ocr/physics/5-4-3-hydrostatic-pressure-and-depth-p--gh"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_CP_P4",
+   "passage_text": "A student builds an RC circuit from a 12.0 V battery, a resistor, a switch, and an initially uncharged capacitor connected in series. When the switch is closed at t = 0, a voltmeter placed across the capacitor records the voltage as a function of time. Circuit 1 uses R = 50 kΩ and C = 200 µF, and the data are plotted in Figure 1. The student then builds two more circuits and records the time needed for the capacitor voltage to reach 7.6 V, which is approximately 63% of the battery voltage. The results are given in Table 1. Throughout the experiment, the battery is considered ideal and the connecting wires have negligible resistance. The student also notes that the capacitor is a nonpolarized type and that the voltmeter has an internal resistance much larger than R, so that it draws a negligible current from the circuit. Before each trial, the capacitor is discharged by briefly shorting its leads, and the temperature of the room is held constant.",
+   "table_data": "| Circuit | R (kΩ) | C (µF) | Time to reach 7.6 V (s) |\n|---|---|---|---|\n| 1 | 50 | 200 | 10 |\n| 2 | 50 | 400 | 20 |\n| 3 | 100 | 200 | 20 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Capacitor voltage versus time (Circuit 1)",
+    "x_label": "Time (s)",
+    "y_label": "Capacitor voltage (V)",
+    "series": [
+     {
+      "name": "Circuit 1",
+      "points": [
+       [
+        0,
+        0.0
+       ],
+       [
+        5,
+        4.72
+       ],
+       [
+        10,
+        7.59
+       ],
+       [
+        15,
+        9.32
+       ],
+       [
+        20,
+        10.38
+       ],
+       [
+        30,
+        11.4
+       ],
+       [
+        40,
+        11.78
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_CP_P4_Q1",
+     "stem": "What is the time constant of Circuit 1?",
+     "options": {
+      "A": "6.9 s",
+      "B": "10 s",
+      "C": "1.0 × 10⁷ s",
+      "D": "20 s"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) τ = RC = (50 × 10³ Ω)(200 × 10⁻⁶ F) = 10 s, matching the time to reach about 63% of the final voltage. Why the others are wrong: A) 6.9 s is τ ln 2, the half-time of charging, not the time constant. C) 1.0 × 10⁷ s multiplies kΩ by µF without converting units. D) 20 s is 2τ, when the voltage is about 86% of its final value.",
+     "trap": "Mixing up the time constant (63%) with a half-time (50%).",
+     "topic": "RC time constant",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://neurophysics.ucsd.edu/courses/physics_4L/RC_review.pdf",
+       "https://www.varsitytutors.com/practice/subjects/ap-physics-c-electricity-and-magnetism/lessons/resistor-capacitor-rc-circuits"
+      ]
+     }
+    },
+    {
+     "id": "FL02_CP_P4_Q2",
+     "stem": "What is the energy stored in the capacitor in Circuit 1 after it is fully charged?",
+     "options": {
+      "A": "2.9 × 10⁻² J",
+      "B": "2.4 × 10⁻³ J",
+      "C": "1.4 × 10⁻² J",
+      "D": "1.2 × 10⁻³ J"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) U = ½CV² = ½(200 × 10⁻⁶)(12)² = 1.44 × 10⁻² J. Why the others are wrong: A) 2.9 × 10⁻² J omits the factor of ½. B) 2.4 × 10⁻³ J is the charge Q = CV in coulombs, not an energy. D) 1.2 × 10⁻³ J uses ½CV without squaring the voltage.",
+     "trap": "Forgetting to square the voltage or to include the ½ in the stored energy formula.",
+     "topic": "Capacitor energy",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://neurophysics.ucsd.edu/courses/physics_4L/RC_review.pdf",
+       "https://www.varsitytutors.com/practice/subjects/ap-physics-c-electricity-and-magnetism/lessons/resistor-capacitor-rc-circuits"
+      ]
+     }
+    },
+    {
+     "id": "FL02_CP_P4_Q3",
+     "stem": "A fourth circuit uses R = 25 kΩ and C = 400 µF. How long will it take the capacitor voltage to reach 7.6 V?",
+     "options": {
+      "A": "10 s",
+      "B": "20 s",
+      "C": "5 s",
+      "D": "40 s"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) τ = RC = (25 × 10³)(400 × 10⁻⁶) = 10 s, identical to Circuit 1, so the time to reach 63% is the same. Why the others are wrong: B) 20 s assumes that doubling C doubles the time without accounting for halving R. C) 5 s assumes that halving R alone sets the time. D) 40 s multiplies the effect of both changes instead of combining the product RC.",
+     "trap": "Changing only one factor in RC mentally and ignoring that the other factor changed in the opposite direction.",
+     "topic": "RC product reasoning",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P4_Q4",
+     "stem": "What is the current through the resistor in Circuit 1 at t = 10 s?",
+     "options": {
+      "A": "2.4 × 10⁻⁴ A",
+      "B": "1.5 × 10⁻⁴ A",
+      "C": "1.2 × 10⁻⁴ A",
+      "D": "8.8 × 10⁻⁵ A"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) At t = 10 s the capacitor voltage is 7.6 V, so the resistor has 12 − 7.6 = 4.4 V across it. I = 4.4/50,000 = 8.8 × 10⁻⁵ A. Why the others are wrong: A) 2.4 × 10⁻⁴ A is the initial current V/R at t = 0. B) 1.5 × 10⁻⁴ A uses the capacitor voltage fraction (0.63 × 240 µA) rather than the remaining fraction. C) 1.2 × 10⁻⁴ A assumes that the current has dropped to half of its initial value.",
+     "trap": "Using the capacitor voltage rather than the voltage across the resistor to find the current.",
+     "topic": "Current in charging RC circuit",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_CP_P4_Q5",
+     "stem": "After Circuit 1 is fully charged, the battery is disconnected and a dielectric with κ = 2 is inserted to fill the space between the plates of the capacitor. The potential difference across the capacitor is now:",
+     "options": {
+      "A": "12 V",
+      "B": "24 V",
+      "C": "3.0 V",
+      "D": "6.0 V"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) With the battery disconnected, Q is constant. Inserting the dielectric doubles C, so V = Q/C halves to 6.0 V. Why the others are wrong: A) 12 V would be correct only if the battery stayed connected. B) 24 V assumes that the voltage doubles when C doubles. C) 3.0 V reduces the voltage by a factor of four.",
+     "trap": "Applying the constant-voltage condition (battery connected) when the battery has been removed.",
+     "topic": "Dielectric in isolated capacitor",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_CP_P5",
+   "passage_text": "A student electroplates silver onto a small brass key in an electrolytic cell. The cell contains an aqueous solution of AgNO₃, a silver anode, and the key as the cathode, all connected to a constant-current power supply that delivers 0.500 A. The key is removed, rinsed, dried, and weighed at 10-minute intervals, and the increase in its mass is recorded as the mass of deposited silver. Table 1 and Figure 1 show the results. The molar mass of silver is 108 g/mol, and Faraday's constant is 96,500 C/mol e⁻. The student assumes that silver deposition is the only electrode process at the cathode, that the current efficiency is close to 100%, and that the mass of the silver anode decreases as the key's mass increases. Later the student wonders what would happen if the AgNO₃ solution were replaced with CuSO₄ under identical conditions. The key is cleaned with dilute acid before each run, and the power supply is checked with an ammeter to confirm that the current stays constant at 0.500 A.",
+   "table_data": "| Plating time (min) | Mass of Ag deposited (g) |\n|---|---|\n| 10 | 0.34 |\n| 20 | 0.67 |\n| 30 | 1.01 |\n| 40 | 1.34 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Mass of silver deposited versus time",
+    "x_label": "Time (min)",
+    "y_label": "Mass of Ag (g)",
+    "series": [
+     {
+      "name": "Ag",
+      "points": [
+       [
+        10,
+        0.34
+       ],
+       [
+        20,
+        0.67
+       ],
+       [
+        30,
+        1.01
+       ],
+       [
+        40,
+        1.34
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_CP_P5_Q1",
+     "stem": "How many moles of electrons pass through the cell in 20 minutes?",
+     "options": {
+      "A": "3.1 × 10⁻³ mol",
+      "B": "6.2 × 10⁻³ mol",
+      "C": "1.2 × 10⁻² mol",
+      "D": "1.0 × 10⁻⁴ mol"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Q = It = (0.500)(1200 s) = 600 C. Moles of e⁻ = 600/96,500 = 6.2 × 10⁻³ mol. Why the others are wrong: A) 3.1 × 10⁻³ mol uses only 10 minutes (600 s). C) 1.2 × 10⁻² mol doubles the answer, as if two electrons were transferred per electron passed. D) 1.0 × 10⁻⁴ mol uses time in minutes instead of seconds.",
+     "trap": "Using time in minutes in Q = It, which requires seconds.",
+     "topic": "Faraday's law",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_CP_P5_Q2",
+     "stem": "If the cell used CuSO₄(aq) instead of AgNO₃ under identical conditions, the mass of copper deposited in 20 minutes would be closest to:",
+     "options": {
+      "A": "0.40 g",
+      "B": "0.67 g",
+      "C": "0.20 g",
+      "D": "0.10 g"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Moles of e⁻ = 6.2 × 10⁻³ mol, and Cu²⁺ + 2e⁻ → Cu gives 3.1 × 10⁻³ mol Cu. Mass = 3.1 × 10⁻³ × 63.5 ≈ 0.20 g. Why the others are wrong: A) 0.40 g forgets that two electrons are needed per Cu atom. B) 0.67 g is the silver mass at 20 min. D) 0.10 g halves the copper amount a second time.",
+     "trap": "Forgetting that Cu²⁺ requires two electrons per atom deposited.",
+     "topic": "Electrolysis stoichiometry",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.vedantu.com/chemistry/faradays-laws-of-electrolysis",
+       "https://www.pw.live/chapter-electrochemistry/quantitative-aspects-of-electrolysis"
+      ]
+     }
+    },
+    {
+     "id": "FL02_CP_P5_Q3",
+     "stem": "Which statement about the plating cell is correct?",
+     "options": {
+      "A": "The key is the anode, where Ag⁺ is oxidized.",
+      "B": "The key is connected to the negative terminal, and Ag⁺ is reduced at its surface.",
+      "C": "The silver electrode is the cathode, where Ag is reduced.",
+      "D": "Electrons flow through the solution from the silver electrode to the key."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) In an electrolytic cell, the cathode is the site of reduction and is connected to the negative terminal of the power supply; Ag⁺ + e⁻ → Ag deposits on the key. Why the others are wrong: A) The key is the anode, where Ag⁺ is oxidized. Reduction, not oxidation, occurs at the surface where metal deposits. C) The silver electrode is the cathode, where Ag is reduced. The silver electrode dissolves, so it is the anode and undergoes oxidation. D) Electrons flow through the solution from the silver electrode to the key. electrons flow through the external wire, while ions carry current in solution.",
+     "trap": "Applying the galvanic-cell sign convention (cathode positive) to an electrolytic cell.",
+     "topic": "Electrolytic cell electrodes",
+     "mastery_sheet_id": "4C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P5_Q4",
+     "stem": "If the current were increased to 1.00 A, the slope of the line in Figure 1 would be closest to:",
+     "options": {
+      "A": "0.067 g/min",
+      "B": "0.034 g/min",
+      "C": "0.017 g/min",
+      "D": "0.13 g/min"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The present slope is about 0.0335 g/min. Mass deposited is proportional to current, so doubling the current doubles the slope to ≈ 0.067 g/min. Why the others are wrong: B) 0.034 g/min assumes the deposition rate does not depend on current. C) 0.017 g/min halves the slope instead of doubling. D) 0.13 g/min quadruples the slope.",
+     "trap": "Assuming a rate that depends on charge is independent of current.",
+     "topic": "Current and deposition rate",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_CP_P6",
+   "passage_text": "In a demonstration of wave interference, a student passes monochromatic light from a laser through a pair of narrow parallel slits and observes the resulting pattern on a screen placed 2.00 m from the slits. The pattern consists of evenly spaced bright and dark fringes near the center of the screen. The student changes the slit separation d, measures the distance Δy between adjacent bright fringes, and records the values in Table 1. For small angles, the fringe spacing is given by Δy = λL/d, where λ is the wavelength and L is the distance to the screen. The student then replaces the first laser with a second laser of a different color, uses the slits with d = 0.40 mm, and measures a fringe spacing of 2.5 mm. Finally, the student wonders how the pattern would change if the entire apparatus were submerged in water (refractive index 1.33). The slits are narrow compared with their separation, and the laser beam is wide enough to illuminate both slits uniformly.",
+   "table_data": "| Slit separation d (mm) | Fringe spacing Δy (mm) |\n|---|---|\n| 0.20 | 6.0 |\n| 0.30 | 4.0 |\n| 0.40 | 3.0 |\n| 0.60 | 2.0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL02_CP_P6_Q1",
+     "stem": "What is the wavelength of the first laser?",
+     "options": {
+      "A": "300 nm",
+      "B": "1200 nm",
+      "C": "6.0 nm",
+      "D": "600 nm"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) λ = Δy·d/L = (6.0 × 10⁻³ m)(0.20 × 10⁻³ m)/(2.00 m) = 6.0 × 10⁻⁷ m = 600 nm. Why the others are wrong: A) 300 nm divides by an extra factor of 2. B) 1200 nm doubles the value by using 2L or 2d. C) 6.0 nm has a power-of-ten error from mixing mm and m.",
+     "trap": "Mixing millimeters and meters in Δy = λL/d.",
+     "topic": "Double-slit wavelength",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_CP_P6_Q2",
+     "stem": "What is the wavelength of the second laser?",
+     "options": {
+      "A": "720 nm",
+      "B": "500 nm",
+      "C": "1000 nm",
+      "D": "250 nm"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) λ = Δy·d/L = (2.5 × 10⁻³)(0.40 × 10⁻³)/2.00 = 5.0 × 10⁻⁷ m = 500 nm. Why the others are wrong: A) 720 nm assumes spacing is inversely proportional to wavelength. C) 1000 nm doubles the correct value. D) 250 nm halves the correct value.",
+     "trap": "Inverting the proportionality between fringe spacing and wavelength.",
+     "topic": "Double-slit wavelength",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_CP_P6_Q3",
+     "stem": "When the apparatus is submerged in water, the light's wavelength and frequency, relative to their values in air, are:",
+     "options": {
+      "A": "longer wavelength and the same frequency.",
+      "B": "shorter wavelength and the same frequency.",
+      "C": "the same wavelength and lower frequency.",
+      "D": "shorter wavelength and higher frequency."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Frequency is set by the source and does not change on entering a medium. Since v = c/n decreases, λ = v/f decreases by a factor of 1.33, and the fringe spacing decreases accordingly. Why the others are wrong: A) longer wavelength and the same frequency. Speed decreases in water, so wavelength cannot increase at constant frequency. C) the same wavelength and lower frequency. Frequency is fixed by the source, not the medium. D) shorter wavelength and higher frequency. Frequency does not change when light changes media.",
+     "trap": "Thinking that frequency changes when light enters a new medium.",
+     "topic": "Refraction and wavelength",
+     "mastery_sheet_id": "4D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P6_Q4",
+     "stem": "For the first laser, what is the path difference between light from the two slits at the first dark fringe on either side of the central bright fringe?",
+     "options": {
+      "A": "600 nm",
+      "B": "300 nm",
+      "C": "150 nm",
+      "D": "900 nm"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Destructive interference first occurs at a path difference of λ/2 = 600/2 = 300 nm. Why the others are wrong: A) 600 nm is one full wavelength, which gives the first bright fringe. C) 150 nm is λ/4, which gives partial interference. D) 900 nm is 3λ/2, the second dark fringe.",
+     "trap": "Confusing the path difference for the first dark fringe (λ/2) with that for the first bright fringe (λ).",
+     "topic": "Destructive interference condition",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_CP_P7",
+   "passage_text": "The emission spectrum of atomic hydrogen contains several series of lines. The Balmer series consists of visible lines produced when electrons relax from higher energy levels (n ≥ 3) to the n = 2 level. In the Bohr model, the energy of the nth level is Eₙ = −13.6 eV/n². A student heats hydrogen gas in a discharge tube, passes the emitted light through a diffraction grating, and measures the wavelengths of the four most prominent visible lines. The values, along with the transitions assigned by the student using the relationship λ (nm) = 1240 eV·nm/ΔE, are listed in Table 1. The student observes that the spacing between successive lines decreases toward shorter wavelength and that the lines appear to converge toward a limit. Further study extends the analysis to the Lyman series, in which electrons relax to the n = 1 level. The grating is calibrated with a lamp of known wavelengths, and the student uses a spectrometer to read each line to the nearest nanometer. The student also assumes the hydrogen nuclei are infinitely massive relative to the electron.",
+   "table_data": "| Transition | Wavelength (nm) |\n|---|---|\n| n = 3 → 2 | 656 |\n| n = 4 → 2 | 486 |\n| n = 5 → 2 | 434 |\n| n = 6 → 2 | 410 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL02_CP_P7_Q1",
+     "stem": "What is the energy of the photon emitted in the n = 3 → n = 2 transition?",
+     "options": {
+      "A": "4.91 eV",
+      "B": "1.51 eV",
+      "C": "1.89 eV",
+      "D": "12.1 eV"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) ΔE = E₃ − E₂ = −1.51 − (−3.40) = 1.89 eV (corresponding to 656 nm). Why the others are wrong: A) 4.91 eV adds the magnitudes of the two energy levels instead of subtracting. B) 1.51 eV is the magnitude of the n = 3 level only. D) 12.1 eV is the n = 3 → n = 1 energy, which belongs to the Lyman series.",
+     "trap": "Adding the magnitudes of the two levels rather than finding the difference.",
+     "topic": "Bohr energy levels",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_CP_P7_Q2",
+     "stem": "What is the shortest wavelength in the Balmer series (the series limit)?",
+     "options": {
+      "A": "656 nm",
+      "B": "91 nm",
+      "C": "410 nm",
+      "D": "365 nm"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The limit corresponds to n = ∞ → 2, ΔE = 3.40 eV, so λ = 1240/3.40 ≈ 365 nm. Why the others are wrong: A) 656 nm is the longest Balmer wavelength (n = 3 → 2). B) 91 nm is the Lyman series limit (n = ∞ → 1). C) 410 nm is the n = 6 → 2 line, not the limit.",
+     "trap": "Choosing the last observed line instead of the theoretical limit as n goes to infinity.",
+     "topic": "Balmer series limit",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_CP_P7_Q3",
+     "stem": "What is the minimum photon energy needed to ionize a hydrogen atom that is initially in the n = 2 level?",
+     "options": {
+      "A": "3.40 eV",
+      "B": "13.6 eV",
+      "C": "10.2 eV",
+      "D": "1.89 eV"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Ionization requires raising the electron from E₂ = −3.40 eV to 0, so 3.40 eV is needed. Why the others are wrong: B) 13.6 eV is the ionization energy from the ground state, n = 1. C) 10.2 eV is the energy of the n = 1 → 2 excitation. D) 1.89 eV is the n = 2 → 3 excitation energy.",
+     "trap": "Using the ground-state ionization energy for an atom that is already excited.",
+     "topic": "Ionization from excited state",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P7_Q4",
+     "stem": "The n = 2 → n = 1 transition in hydrogen would emit light that is most likely:",
+     "options": {
+      "A": "visible, at about 656 nm.",
+      "B": "ultraviolet, at about 122 nm.",
+      "C": "infrared, at about 1900 nm.",
+      "D": "X-ray, at about 1 nm."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) ΔE = 13.6(1 − 1/4) = 10.2 eV, so λ = 1240/10.2 ≈ 122 nm, which is shorter than visible wavelengths, so it is ultraviolet. Why the others are wrong: A) visible, at about 656 nm. Is the n = 3 → 2 Balmer line. C) infrared, at about 1900 nm. Would require an energy gap of only 0.65 eV. D) X-ray, at about 1 nm. Would require roughly 1240 eV, far larger than any hydrogen transition.",
+     "trap": "Assuming that all hydrogen transitions to a lower level fall in the visible range.",
+     "topic": "Lyman series region",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_CP_P8",
+   "passage_text": "A student titrates 25.0 mL of a 0.100 M solution of a weak monoprotic acid, HA, with 0.100 M NaOH at 25 °C. A calibrated pH meter is used to record the pH after each addition of titrant, and the solution is stirred throughout. The data are listed in Table 1 and plotted in Figure 1. The student identifies the equivalence point from the steepest part of the curve and uses the volumes before the equivalence point to analyze the buffer region. The student notes that the acid has only one acidic proton and that the activities of the ions in these dilute solutions can be approximated by their concentrations. Water's ion product is Kw = 1.0 × 10⁻¹⁴ at this temperature. Several common indicators and their approximate transition ranges are: methyl orange (3.1–4.4), methyl red (4.4–6.2), bromothymol blue (6.0–7.6), and phenolphthalein (8.2–10.0). The pH meter is calibrated with buffers at pH 4.00 and 10.00 before the titration, and the burette is read to the nearest 0.01 mL. Carbon dioxide absorption from the air is assumed to be negligible.",
+   "table_data": "| Volume NaOH added (mL) | pH |\n|---|---|\n| 0 | 2.88 |\n| 6.25 | 4.28 |\n| 12.5 | 4.76 |\n| 18.75 | 5.24 |\n| 25 | 8.73 |\n| 30 | 11.96 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Titration curve of HA with NaOH",
+    "x_label": "Volume NaOH (mL)",
+    "y_label": "pH",
+    "series": [
+     {
+      "name": "pH",
+      "points": [
+       [
+        0,
+        2.88
+       ],
+       [
+        6.25,
+        4.28
+       ],
+       [
+        12.5,
+        4.76
+       ],
+       [
+        18.75,
+        5.24
+       ],
+       [
+        25.0,
+        8.73
+       ],
+       [
+        30.0,
+        11.96
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_CP_P8_Q1",
+     "stem": "Based on the data, the acid dissociation constant of HA is closest to:",
+     "options": {
+      "A": "1.7 × 10⁻⁵",
+      "B": "1.3 × 10⁻³",
+      "C": "5.8 × 10⁻¹⁰",
+      "D": "1.9 × 10⁻⁹"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At the half-equivalence point (12.5 mL), [A⁻] = [HA], so pH = pKa = 4.76 and Ka = 10⁻⁴·⁷⁶ ≈ 1.7 × 10⁻⁵. Why the others are wrong: B) 1.3 × 10⁻³ is the initial [H⁺] (from pH 2.88), not Ka. C) 5.8 × 10⁻¹⁰ is Kb of the conjugate base. D) 1.9 × 10⁻⁹ is [H⁺] at the equivalence point (pH 8.73), not Ka.",
+     "trap": "Reading the initial [H⁺] as Ka instead of using the half-equivalence point.",
+     "topic": "pKa from titration",
+     "mastery_sheet_id": "5A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P8_Q2",
+     "stem": "Why is the pH at the equivalence point (25.0 mL) greater than 7?",
+     "options": {
+      "A": "Excess NaOH remains in the solution.",
+      "B": "Na⁺ hydrolyzes to produce OH⁻.",
+      "C": "The conjugate base A⁻ reacts with water to produce OH⁻.",
+      "D": "HA is completely dissociated at this point."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) At equivalence all HA has been converted to A⁻, a weak base: A⁻ + H₂O ⇌ HA + OH⁻, so the solution is basic. Why the others are wrong: A) Excess NaOH remains in the solution. At equivalence NaOH has been added in exactly stoichiometric amount, with no excess. B) Na⁺ hydrolyzes to produce OH⁻. Na⁺ is the cation of a strong base and does not hydrolyze. D) HA is completely dissociated at this point. HA has been consumed; it is not the species determining pH, and it is a weak acid anyway.",
+     "trap": "Thinking the equivalence point of any acid-base titration must have pH 7.",
+     "topic": "Salt hydrolysis at equivalence",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P8_Q3",
+     "stem": "What is the ratio [A⁻]/[HA] after 18.75 mL of NaOH has been added?",
+     "options": {
+      "A": "0.33",
+      "B": "3.0",
+      "C": "0.75",
+      "D": "1.5"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) NaOH added = 1.875 mmol, so A⁻ = 1.875 mmol and HA remaining = 2.50 − 1.875 = 0.625 mmol, giving 3.0. Consistent with pH = 4.76 + log 3 = 5.24. Why the others are wrong: A) 0.33 is the ratio at 6.25 mL, where A⁻ is one-third of HA. C) 0.75 is the fraction of the equivalence volume added, not the concentration ratio. D) 1.5 incorrectly takes the ratio as 18.75/12.5.",
+     "trap": "Using the ratio of volumes added instead of the ratio of moles of conjugate base to remaining acid.",
+     "topic": "Buffer ratio",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_CP_P8_Q4",
+     "stem": "Which indicator is most suitable for detecting the equivalence point of this titration?",
+     "options": {
+      "A": "Methyl orange",
+      "B": "Methyl red",
+      "C": "Bromothymol blue",
+      "D": "Phenolphthalein"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The equivalence pH is 8.73 and the vertical region spans roughly pH 7 to 11. Phenolphthalein (8.2–10.0) changes color within that range. Why the others are wrong: A) Methyl orange changes color at pH 3.1–4.4, well before the equivalence point. B) Methyl red changes between 4.4 and 6.2, within the buffer region. C) Bromothymol blue changes between 6.0 and 7.6, before the equivalence point of a weak acid-strong base titration.",
+     "trap": "Choosing an indicator with a midpoint near 7 for every titration.",
+     "topic": "Indicator selection",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P8_Q5",
+     "stem": "If a different weak acid with pKa = 3.2 at the same concentration and volume were titrated with the same NaOH solution, which change would be observed relative to Figure 1?",
+     "options": {
+      "A": "The equivalence point would still be at 25.0 mL, but the pH at 12.5 mL would be about 3.2.",
+      "B": "The equivalence point would occur at a smaller volume of NaOH.",
+      "C": "The pH at 12.5 mL would still be 4.76.",
+      "D": "The pH at the equivalence point would be higher than 8.73."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The equivalence volume depends only on moles of acid and base (unchanged), while the half-equivalence pH equals pKa. Why the others are wrong: B) The equivalence point would occur at a smaller volume of NaOH. a stronger weak acid has the same number of moles, so the same volume of base is needed. C) The pH at 12.5 mL would still be 4.76. the half-equivalence pH equals the pKa of the acid, which is now lower. D) The pH at the equivalence point would be higher than 8.73. a weaker conjugate base is produced, so the equivalence pH would be lower.",
+     "trap": "Assuming that a stronger acid reaches equivalence with less base.",
+     "topic": "Effect of acid strength on curve",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_CP_P9",
+   "passage_text": "A student separates a mixture containing 1.00 g each of benzoic acid (pKa ≈ 4.2), aniline (conjugate acid pKa ≈ 4.6), and naphthalene using liquid-liquid extraction. The mixture is dissolved in diethyl ether (density 0.71 g/mL) and shaken in a separatory funnel with 1 M NaOH(aq). The layers are separated, and the ether layer is next shaken with 1 M HCl(aq). The layers are again separated, and the remaining ether layer is dried and evaporated. The NaOH layer is acidified with concentrated HCl until it is strongly acidic, and a precipitate is collected by filtration. The HCl layer is made basic with NaOH, and the compound that separates is extracted back into fresh ether and recovered by evaporation. Each isolated compound is weighed and its identity is confirmed by melting point. The masses of each compound found in each fraction are shown in Table 1. The student is careful to vent the funnel after each shaking and to allow the layers to separate completely before draining.",
+   "table_data": "| Fraction | Benzoic acid (g) | Aniline (g) | Naphthalene (g) |\n|---|---|---|---|\n| Original ether layer after both washes | 0.02 | 0.01 | 0.98 |\n| NaOH layer after acidification | 0.93 | 0.00 | 0.00 |\n| HCl layer after basification | 0.00 | 0.88 | 0.00 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL02_CP_P9_Q1",
+     "stem": "Which species is present in the aqueous NaOH layer after the first extraction?",
+     "options": {
+      "A": "Sodium benzoate",
+      "B": "Benzoic acid",
+      "C": "Anilinium chloride",
+      "D": "Naphthalene"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) NaOH deprotonates benzoic acid (pKa 4.2), giving the ionic, water-soluble benzoate salt, which moves into the aqueous layer. Why the others are wrong: B) Benzoic acid the neutral acid would stay predominantly in the ether layer. C) Anilinium chloride no HCl has been added at this stage, and aniline is not protonated by NaOH. D) Naphthalene a neutral nonpolar hydrocarbon that remains in ether.",
+     "trap": "Forgetting that a charged species is what partitions into the aqueous phase.",
+     "topic": "Acid-base extraction",
+     "mastery_sheet_id": "5D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P9_Q2",
+     "stem": "Why does a precipitate form when concentrated HCl is added to the NaOH extract?",
+     "options": {
+      "A": "Chloride ions react with sodium benzoate to form an insoluble salt.",
+      "B": "Naphthalene is oxidized by the acid.",
+      "C": "Aniline is deprotonated to its neutral, insoluble form.",
+      "D": "Benzoate is protonated to neutral benzoic acid, which has low solubility in water."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Adding strong acid lowers the pH below the pKa, converting benzoate to the neutral acid, which is far less soluble in water and comes out of solution. Why the others are wrong: A) Chloride ions react with sodium benzoate to form an insoluble salt. NaCl is soluble, and chloride does not form an insoluble salt with benzoate. B) Naphthalene is oxidized by the acid. Naphthalene is not in the NaOH layer, and HCl does not oxidize it. C) Aniline is deprotonated to its neutral, insoluble form. Aniline was not in the NaOH layer, and acid would protonate it, not deprotonate it.",
+     "trap": "Thinking the precipitate is a new compound rather than the re-protonated neutral acid.",
+     "topic": "Reprecipitation of carboxylic acid",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P9_Q3",
+     "stem": "What percentage of the aniline in the original mixture is accounted for across all fractions in Table 1 (isolated HCl-layer fraction plus the aniline remaining in the ether layer)?",
+     "options": {
+      "A": "88%",
+      "B": "99%",
+      "C": "89%",
+      "D": "12%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Recovered aniline = 0.88 g + 0.01 g = 0.89 g out of 1.00 g, or 89%. Why the others are wrong: A) 88% counts only the aniline in the HCl fraction. B) 99% sums the aniline and naphthalene in the original ether fraction (0.01 + 0.98 g), which is not aniline recovery. D) 12% is 100% minus the 88% in the HCl fraction, a loss figure that ignores the 0.01 g found in the ether layer.",
+     "trap": "Ignoring the small amounts of a compound found in other fractions when computing total recovery.",
+     "topic": "Percent recovery",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_CP_P9_Q4",
+     "stem": "In the separatory funnel during the first extraction, the ether layer is located:",
+     "options": {
+      "A": "on top of the aqueous layer, because ether is less dense than water.",
+      "B": "below the aqueous layer, because ether is more polar than water.",
+      "C": "mixed with the aqueous layer, because ether dissolves in water.",
+      "D": "below the aqueous layer, because the NaOH solution is less dense."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Diethyl ether (0.71 g/mL) is less dense than the aqueous solution, so it floats on top, and the aqueous NaOH layer is drained from the bottom. Why the others are wrong: B) below the aqueous layer, because ether is more polar than water. polarity does not determine layer position, and ether is less polar than water. C) mixed with the aqueous layer, because ether dissolves in water. ether is only slightly soluble in water and forms a separate layer. D) below the aqueous layer, because the NaOH solution is less dense. 1 M NaOH is denser than water, not less dense than ether.",
+     "trap": "Assuming the organic layer is always the bottom layer.",
+     "topic": "Layer position in extraction",
+     "mastery_sheet_id": "5C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_CP_P10",
+   "passage_text": "Dinitrogen tetroxide and nitrogen dioxide interconvert according to 2 NO₂(g) ⇌ N₂O₄(g). NO₂ is a brown gas, while N₂O₄ is colorless. A student seals samples of the gas mixture in identical flasks at a total pressure of 1 atm and measures the equilibrium constant Kp (in atm⁻¹) at several temperatures by comparing the absorbance of NO₂ at its characteristic wavelength. Calorimetric experiments done separately give ΔH° = −57.2 kJ per mole of reaction as written, and the student assumes ΔH° and ΔS° are independent of temperature. The Kp values are given in Table 1, and a plot of ln Kp against 1000/T is shown in Figure 1. The student uses R = 8.314 J/(mol·K) and a specific heat of water of 4.18 J/(g·K). The flasks are allowed to reach thermal equilibrium in a water bath for 30 minutes before each measurement, and the gases are assumed to behave ideally. Kp is defined as the equilibrium partial pressure of N₂O₄ divided by the square of the equilibrium partial pressure of NO₂.",
+   "table_data": "| Temperature (K) | Kp |\n|---|---|\n| 273 | 56 |\n| 298 | 6.8 |\n| 325 | 1 |\n| 350 | 0.22 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. van't Hoff plot",
+    "x_label": "1000/T (K⁻¹)",
+    "y_label": "ln Kp",
+    "series": [
+     {
+      "name": "ln Kp",
+      "points": [
+       [
+        2.86,
+        -1.51
+       ],
+       [
+        3.08,
+        0.0
+       ],
+       [
+        3.36,
+        1.92
+       ],
+       [
+        3.66,
+        4.03
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_CP_P10_Q1",
+     "stem": "What is ΔG° at 298 K for the reaction as written?",
+     "options": {
+      "A": "−4.7 kJ/mol",
+      "B": "+4.7 kJ/mol",
+      "C": "−2.1 kJ/mol",
+      "D": "−57.2 kJ/mol"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) ΔG° = −RT ln K = −(8.314)(298)(ln 6.8) = −(2478)(1.92) ≈ −4.7 × 10³ J/mol. Why the others are wrong: B) +4.7 kJ/mol has the wrong sign; K > 1 means the reaction is spontaneous under standard conditions. C) −2.1 kJ/mol uses log₁₀ K rather than the natural logarithm. D) −57.2 kJ/mol is ΔH°, not ΔG°.",
+     "trap": "Using log₁₀ instead of ln in ΔG° = −RT ln K, or getting the sign wrong.",
+     "topic": "ΔG from equilibrium constant",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chem.libretexts.org/Courses/National_Chiao_Tung_University/Chemistry_2/02%253A_Chemical_Equilibrium_(OpenSTAX)/2.02%253A_Free_Energy_and_the_Equilibrium_Constant",
+       "https://chem.libretexts.org/Courses/Smith_College/advanced_general_chemistry/06%3A_Thermodynamics/6.05%3A_Free_Energy"
+      ]
+     }
+    },
+    {
+     "id": "FL02_CP_P10_Q2",
+     "stem": "What is ΔS° for the reaction at 298 K?",
+     "options": {
+      "A": "+176 J/(mol·K)",
+      "B": "−192 J/(mol·K)",
+      "C": "−176 J/(mol·K)",
+      "D": "−16 J/(mol·K)"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) ΔS° = (ΔH° − ΔG°)/T = (−57,200 + 4,700)/298 ≈ −176 J/(mol·K), consistent with fewer moles of gas on the product side. Why the others are wrong: A) +176 J/(mol·K) has the wrong sign; two moles of gas become one, so disorder decreases. B) −192 J/(mol·K) is ΔH°/T, ignoring ΔG°. D) −16 J/(mol·K) is ΔG°/T, not ΔS°.",
+     "trap": "Computing ΔS as ΔH/T or ΔG/T instead of (ΔH − ΔG)/T.",
+     "topic": "Entropy from ΔG and ΔH",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chem.libretexts.org/Courses/National_Chiao_Tung_University/Chemistry_2/02%253A_Chemical_Equilibrium_(OpenSTAX)/2.02%253A_Free_Energy_and_the_Equilibrium_Constant",
+       "https://chem.libretexts.org/Courses/Smith_College/advanced_general_chemistry/06%3A_Thermodynamics/6.05%3A_Free_Energy"
+      ]
+     }
+    },
+    {
+     "id": "FL02_CP_P10_Q3",
+     "stem": "A sealed flask of the gas mixture at equilibrium is moved from an ice-water bath (273 K) to a water bath at 350 K. Which observation is expected?",
+     "options": {
+      "A": "The color of the gas lightens as more N₂O₄ forms.",
+      "B": "The color does not change because the pressure is the same.",
+      "C": "The color of the gas darkens as more NO₂ forms.",
+      "D": "The color first lightens and then darkens as equilibrium is reached."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The forward reaction is exothermic, so raising T shifts the equilibrium toward NO₂ (K decreases from 56 to 0.22), and the brown color intensifies. Why the others are wrong: A) The color of the gas lightens as more N₂O₄ forms. Heating an exothermic reaction favors reactants, not products. B) The color does not change because the pressure is the same. Temperature, not pressure, controls K, and K changes with temperature. D) The color first lightens and then darkens as equilibrium is reached. there is no basis for an initial opposing shift.",
+     "trap": "Thinking that a temperature increase always favors the products.",
+     "topic": "Temperature effect on equilibrium",
+     "mastery_sheet_id": "5E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P10_Q4",
+     "stem": "What is the slope of a plot of ln Kp against 1/T (with T in kelvin)?",
+     "options": {
+      "A": "+6.9 × 10³ K",
+      "B": "−6.9 × 10³ K",
+      "C": "+5.7 × 10⁴ K",
+      "D": "−1.8 × 10² K"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The van't Hoff relation is ln K = −ΔH°/(RT) + ΔS°/R, so the slope against 1/T is −ΔH°/R = 57,200/8.314 ≈ +6.9 × 10³ K (equivalent to +6.9 per unit of 1000/T, as in Figure 1). Why the others are wrong: B) −6.9 × 10³ K has the wrong sign for an exothermic reaction, whose ln K decreases as 1/T decreases. C) +5.7 × 10⁴ K is ΔH° in J without dividing by R. D) −1.8 × 10² K is ΔS°, not related to the slope.",
+     "trap": "Forgetting the negative sign in −ΔH/R when the reaction is exothermic.",
+     "topic": "van't Hoff plot",
+     "mastery_sheet_id": "5E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_CP_P10_Q5",
+     "stem": "The heat released when 0.50 mol of N₂O₄ forms is absorbed by 500 g of water. The temperature rise of the water is closest to:",
+     "options": {
+      "A": "14 K",
+      "B": "27 K",
+      "C": "6.8 K",
+      "D": "0.014 K"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 0.50 mol N₂O₄ formed releases 0.50 × 57.2 = 28.6 kJ. ΔT = 28,600/(500 × 4.18) = 13.7 K ≈ 14 K. Why the others are wrong: B) 27 K uses the heat for 1.0 mol of reaction (57.2 kJ), i.e., does not scale to 0.50 mol. C) 6.8 K halves the correct answer by halving the heat a second time. D) 0.014 K uses kJ in place of J in the q = mcΔT equation.",
+     "trap": "Mixing kJ with J when using q = mcΔT.",
+     "topic": "Calorimetry",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL02_CP_D1",
+   "stem": "A 1200 kg car travels around a flat circular curve of radius 30 m. If the coefficient of static friction between the tires and road is 0.60, the maximum speed at which the car can round the curve without skidding is closest to (use g = 10 m/s²):",
+   "options": {
+    "A": "13 m/s",
+    "B": "17 m/s",
+    "C": "6.0 m/s",
+    "D": "180 m/s"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Friction supplies the centripetal force: μmg = mv²/r, so v = √(μgr) = √(0.60 × 10 × 30) = √180 ≈ 13 m/s. Why the others are wrong: B) 17 m/s is √(gr) = √300, which omits the coefficient of friction. C) 6.0 m/s is μg, which ignores both the radius and the square root. D) 180 m/s is v² in m²/s², not a speed.",
+   "trap": "Leaving out the square root, so that v² is reported as v.",
+   "topic": "Circular motion with friction",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://ux1.eiu.edu/~cfadd/1350/06CirMtn/FlatCurve.html",
+     "https://phys.libretexts.org/Courses/Gettysburg_College/Phys_111%3A_Physics_Symmetry_and_Conservation/02%3A_Forces_and_Kinematics/2.07%3A_N7)_Circular_Motion/2.7.01%3A_Banking"
+    ]
+   }
+  },
+  {
+   "id": "FL02_CP_D2",
+   "stem": "A 2.0 kg object is lifted vertically at constant speed through a height of 3.0 m in 4.0 s. What is the average power delivered to the object (g = 10 m/s²)?",
+   "options": {
+    "A": "60 W",
+    "B": "7.5 W",
+    "C": "15 W",
+    "D": "30 W"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Work = mgh = (2.0)(10)(3.0) = 60 J, so P = W/t = 60/4.0 = 15 W. Why the others are wrong: A) 60 W is the work in joules and is not divided by time. B) 7.5 W uses t = 8.0 s, doubling the time. D) 30 W uses t = 2.0 s instead of 4.0 s.",
+   "trap": "Reporting work as power without dividing by the time interval.",
+   "topic": "Work and power",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute",
+    "sources": []
+   }
+  },
+  {
+   "id": "FL02_CP_D3",
+   "stem": "Blood flows through a horizontal vessel under a constant pressure difference. If the radius of the vessel is halved (all else constant), laminar flow rate changes by a factor of:",
+   "options": {
+    "A": "1/2",
+    "B": "1/4",
+    "C": "1/8",
+    "D": "1/16"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Poiseuille's law gives Q ∝ r⁴, so halving r reduces Q by (1/2)⁴ = 1/16. Why the others are wrong: A) 1/2 assumes flow rate is proportional to radius. B) 1/4 assumes flow rate is proportional to cross-sectional area (r²). C) 1/8 assumes flow rate is proportional to r³.",
+   "trap": "Using the area (r²) dependence from continuity instead of the r⁴ dependence of viscous flow.",
+   "topic": "Poiseuille's law",
+   "mastery_sheet_id": "4B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_CP_D4",
+   "stem": "A 60 W light bulb is designed to operate at 120 V. What is the resistance of the filament during operation?",
+   "options": {
+    "A": "0.50 Ω",
+    "B": "7200 Ω",
+    "C": "2.0 Ω",
+    "D": "240 Ω"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) P = V²/R, so R = V²/P = (120)²/60 = 240 Ω. Why the others are wrong: A) 0.50 Ω is 60/120 = 0.50, which is the current in amperes. B) 7200 Ω multiplies V² by P instead of dividing. C) 2.0 Ω is the inverse of the current, 120/60.",
+   "trap": "Confusing the current (P/V) with the resistance.",
+   "topic": "Electric power and resistance",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.physicsclassroom.com/mop/Electric-Circuits/P-V-I-R-Cost-Calculations/QG3help",
+     "https://howwhy.nfshost.com/circuits/power.html"
+    ]
+   }
+  },
+  {
+   "id": "FL02_CP_D5",
+   "stem": "A galvanic cell is made from Zn/Zn²⁺ (E° = −0.76 V) and Cu/Cu²⁺ (E° = +0.34 V) half-cells. What is ΔG° for the overall reaction? (F = 96,500 C/mol)",
+   "options": {
+    "A": "−106 kJ/mol",
+    "B": "+212 kJ/mol",
+    "C": "−212 kJ/mol",
+    "D": "−1.1 kJ/mol"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) E°cell = 0.34 − (−0.76) = 1.10 V and n = 2, so ΔG° = −nFE° = −(2)(96,500)(1.10) = −212 kJ/mol. Why the others are wrong: A) −106 kJ/mol uses n = 1. B) +212 kJ/mol has the wrong sign; a positive E°cell gives a negative ΔG°. D) −1.1 kJ/mol reflects E°cell alone without n or F.",
+   "trap": "Using n = 1 when two electrons are transferred.",
+   "topic": "Cell potential and free energy",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://boisestate.pressbooks.pub/chemistry/chapter/16-4-potential-free-energy-equilibrium/",
+     "https://principlesofchemistryopencourse.pressbooks.tru.ca/chapter/6-4/"
+    ]
+   }
+  },
+  {
+   "id": "FL02_CP_D6",
+   "stem": "A sound has its intensity increased by a factor of 100. By how many decibels does the sound intensity level increase?",
+   "options": {
+    "A": "20 dB",
+    "B": "100 dB",
+    "C": "2 dB",
+    "D": "10 dB"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) ΔL = 10 log(I₂/I₁) = 10 log(100) = 20 dB. Why the others are wrong: B) 100 dB treats the intensity ratio as the number of decibels. C) 2 dB uses log(100) without multiplying by 10. D) 10 dB corresponds to a factor of 10 in intensity.",
+   "trap": "Forgetting that decibels are logarithmic and multiplying by 10 after taking the log.",
+   "topic": "Sound intensity level",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://web.pa.msu.edu/courses/1997fall/PHY231/tgl/l34/tsld005.htm",
+     "https://www.cyberphysics.co.uk/topics/waves/sound/decibelHigher.html"
+    ]
+   }
+  },
+  {
+   "id": "FL02_CP_D7",
+   "stem": "A concave mirror has a focal length of 10 cm. An object is placed 30 cm in front of the mirror. The image is:",
+   "options": {
+    "A": "virtual, upright, and located 15 cm behind the mirror.",
+    "B": "real, inverted, and located 30 cm from the mirror.",
+    "C": "real, inverted, and located 15 cm from the mirror.",
+    "D": "real, upright, and located 7.5 cm from the mirror."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) 1/s′ = 1/f − 1/s = 1/10 − 1/30 = 2/30, so s′ = 15 cm (positive, real). Magnification = −15/30 = −0.5, so the image is inverted and reduced. Why the others are wrong: A) virtual, upright, and located 15 cm behind the mirror. A virtual image forms only when the object is inside the focal length. B) real, inverted, and located 30 cm from the mirror. An image 30 cm from the mirror would require the object to be at 15 cm; an object at 2f = 20 cm gives an image at 20 cm. D) real, upright, and located 7.5 cm from the mirror. real images from a single mirror are always inverted.",
+   "trap": "Assuming that an object beyond the focal point can form a virtual image.",
+   "topic": "Spherical mirror image",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.physicsclassroom.com/calcpad/Reflection-and-Mirrors/Equation-Overview",
+     "https://boxsand.physics.oregonstate.edu/files/genphys/Media-2/Optics/Thin%20Lens/PDF/MirrorsThinLens.pdf"
+    ]
+   }
+  },
+  {
+   "id": "FL02_CP_D8",
+   "stem": "A nucleus of ²³⁸₉₂U undergoes one alpha decay followed by two successive β⁻ decays. The resulting nuclide is:",
+   "options": {
+    "A": "²³⁰₉₀Th",
+    "B": "²³⁴₉₀Th",
+    "C": "²³⁴₉₂U",
+    "D": "²³⁴₉₄Pu"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Alpha decay gives ²³⁴₉₀Th. Each β⁻ increases Z by 1 without changing A, so the final nuclide is ²³⁴₉₂U. Why the others are wrong: A) ²³⁰₉₀Th would require two alpha decays followed by two β⁻ decays (A drops by 8, not 4). B) ²³⁴₉₀Th is the product after alpha decay only. D) ²³⁴₉₄Pu would result from four beta-minus decays.",
+   "trap": "Subtracting two from the atomic number for each beta decay instead of adding one.",
+   "topic": "Nuclear decay chains",
+   "mastery_sheet_id": "4E",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_CP_D9",
+   "stem": "The Ksp of Ag₂CrO₄ is 1.1 × 10⁻¹². What is its molar solubility in pure water?",
+   "options": {
+    "A": "1.0 × 10⁻⁶ M",
+    "B": "1.3 × 10⁻⁴ M",
+    "C": "2.8 × 10⁻¹³ M",
+    "D": "6.5 × 10⁻⁵ M"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Ksp = [Ag⁺]²[CrO₄²⁻] = (2s)²(s) = 4s³, so s = (1.1 × 10⁻¹²/4)^(1/3) = 6.5 × 10⁻⁵ M. Why the others are wrong: A) 1.0 × 10⁻⁶ M is √Ksp, which treats the salt as a 1:1 electrolyte. B) 1.3 × 10⁻⁴ M is [Ag⁺] = 2s, not the molar solubility. C) 2.8 × 10⁻¹³ M is Ksp/4, without taking the cube root.",
+   "trap": "Applying the 1:1 formula s = √Ksp to a salt that dissociates into three ions.",
+   "topic": "Ksp and solubility",
+   "mastery_sheet_id": "5A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://zimmer.csufresno.edu/~davidz/Chem105/InClass/InClass02Ans.html"
+    ]
+   }
+  },
+  {
+   "id": "FL02_CP_D10",
+   "stem": "At room temperature, Br₂ is a liquid while Cl₂ is a gas. The best explanation is that:",
+   "options": {
+    "A": "Br₂ has permanent dipole–dipole interactions.",
+    "B": "Br₂ forms hydrogen bonds between molecules.",
+    "C": "Br₂ has a larger, more polarizable electron cloud and therefore stronger London dispersion forces.",
+    "D": "The Br–Br covalent bond is stronger than the Cl–Cl bond."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Both are nonpolar, so dispersion forces determine boiling points. Larger molecules with more electrons are more polarizable, giving stronger dispersion forces. Why the others are wrong: A) Br₂ has permanent dipole–dipole interactions. Both are nonpolar diatomic molecules with no permanent dipole. B) Br₂ forms hydrogen bonds between molecules. Hydrogen bonding requires H bonded to N, O, or F. D) The Br–Br covalent bond is stronger than the Cl–Cl bond. The Br–Br bond is weaker, and covalent bond strength does not affect boiling points.",
+   "trap": "Attributing a difference between nonpolar molecules to dipoles or covalent bond strength.",
+   "topic": "London dispersion forces",
+   "mastery_sheet_id": "5B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_CP_D11",
+   "stem": "What is the molecular geometry of XeF₄?",
+   "options": {
+    "A": "Square planar",
+    "B": "Tetrahedral",
+    "C": "Seesaw",
+    "D": "Square pyramidal"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Xe has 4 bonding pairs and 2 lone pairs (6 electron domains, octahedral electron geometry); the lone pairs occupy opposite positions, so the molecular geometry is square planar. Why the others are wrong: B) Tetrahedral would apply to four bonding pairs and no lone pairs. C) Seesaw applies to four bonding pairs and one lone pair, as in SF₄. D) Square pyramidal applies to five bonding pairs and one lone pair.",
+   "trap": "Counting only the bonded atoms and ignoring the two lone pairs on xenon.",
+   "topic": "VSEPR geometry",
+   "mastery_sheet_id": "5B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_CP_D12",
+   "stem": "A neutral compound has a distribution coefficient K = [organic]/[aqueous] = 4.0 between diethyl ether and water. If 100 mL of aqueous solution is shaken once with 100 mL of ether, what fraction of the compound ends up in the ether layer?",
+   "options": {
+    "A": "25%",
+    "B": "20%",
+    "C": "80%",
+    "D": "40%"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) With equal volumes, the amount in each phase is proportional to its concentration: ether:water = 4:1, so 4/5 = 80% is in the ether. Why the others are wrong: A) 25% is the fraction in the ether if the ratio were 1:4. B) 20% is the fraction remaining in the water, not in the ether. D) 40% halves the correct fraction without justification.",
+   "trap": "Reporting the fraction remaining in the aqueous layer or inverting the ratio.",
+   "topic": "Distribution coefficient",
+   "mastery_sheet_id": "5C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute",
+    "sources": []
+   }
+  },
+  {
+   "id": "FL02_CP_D13",
+   "stem": "A mixture of proteins is separated by size-exclusion (gel filtration) chromatography. Which protein elutes first?",
+   "options": {
+    "A": "The largest protein, because it is excluded from the pores of the beads.",
+    "B": "The smallest protein, because it moves fastest through the pores.",
+    "C": "The most positively charged protein, because it binds the beads least.",
+    "D": "The most hydrophobic protein, because it is repelled by water."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Large molecules cannot enter the pores and take a shorter path through the column, so they elute first. Smaller molecules enter pores and are delayed. Why the others are wrong: B) The smallest protein, because it moves fastest through the pores. small proteins enter pores and take a longer path, so they elute last. C) The most positively charged protein, because it binds the beads least. charge does not determine elution in size-exclusion chromatography. D) The most hydrophobic protein, because it is repelled by water. hydrophobicity is the basis of reversed-phase or hydrophobic interaction chromatography, not size exclusion.",
+   "trap": "Assuming that smaller molecules always move through a column faster.",
+   "topic": "Size-exclusion chromatography",
+   "mastery_sheet_id": "5C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_CP_D14",
+   "stem": "Ethyl acetate is heated with excess aqueous NaOH. Which products are formed, and why does the reaction go essentially to completion?",
+   "options": {
+    "A": "Acetic acid and ethanol; the equilibrium is shifted by removing water.",
+    "B": "Ethyl acetate and water; no reaction occurs with hydroxide.",
+    "C": "Acetaldehyde and sodium ethoxide; hydroxide reduces the ester.",
+    "D": "Sodium acetate and ethanol; the carboxylic acid is deprotonated by the base, driving the reaction forward."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Base-promoted ester hydrolysis (saponification) produces a carboxylic acid, which is immediately deprotonated by hydroxide to give the stable carboxylate, making the overall process irreversible. Why the others are wrong: A) Acetic acid and ethanol; the equilibrium is shifted by removing water. these are the products of acid-catalyzed hydrolysis, which is reversible. B) Ethyl acetate and water; no reaction occurs with hydroxide. Hydroxide attacks the ester carbonyl carbon readily. C) Acetaldehyde and sodium ethoxide; hydroxide reduces the ester. hydroxide is a nucleophile, not a reducing agent.",
+   "trap": "Giving the neutral carboxylic acid as the product of a base-promoted hydrolysis.",
+   "topic": "Saponification",
+   "mastery_sheet_id": "5D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_CP_D15",
+   "stem": "The following initial rate data were obtained for A + B → products: [A] = 0.10 M, [B] = 0.10 M, rate = 2.0 × 10⁻³ M/s; [A] = 0.20 M, [B] = 0.10 M, rate = 4.0 × 10⁻³ M/s; [A] = 0.20 M, [B] = 0.20 M, rate = 1.6 × 10⁻² M/s. What is the overall order of the reaction?",
+   "options": {
+    "A": "2",
+    "B": "3",
+    "C": "4",
+    "D": "1"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Doubling [A] doubles the rate (first order in A). Doubling [B] quadruples the rate (second order in B). Overall order = 1 + 2 = 3. Why the others are wrong: A) 2 treats doubling [B] as doubling the rate, giving 1 + 1. C) 4 adds the rate-ratio exponents incorrectly (e.g., 2 + 2). D) 1 counts only the order in A.",
+   "trap": "Confusing the factor by which the rate changes (4) with the exponent (2).",
+   "topic": "Rate law from initial rates",
+   "mastery_sheet_id": "5E",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

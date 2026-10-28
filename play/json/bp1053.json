@@ -1,0 +1,138 @@
+[
+  {
+    "id": "bp1053_q1",
+    "type": "question",
+    "passage_id": "bp1053",
+    "passage_text": "Researchers studied the effect of varying concentrations of a novel antimicrobial peptide on bacterial growth rates in a controlled in vitro environment. They used a 96‑well microplate assay with four concentration levels (0, 5, 10, 20 µg/mL) and measured optical density at 600 nm after 24 hours. The experiment was performed in triplicate for each concentration. Additionally, they assessed the peptide’s cytotoxicity on a human keratinocyte cell line (HaCaT) using a lactate dehydrogenase release assay at the same concentrations. The data were recorded in Table 1. The researchers hypothesized that higher peptide concentrations would reduce bacterial growth while maintaining low cytotoxicity. Statistical analysis involved one‑way ANOVA followed by Tukey’s post‑hoc test to compare mean OD values among groups. The results indicated a significant reduction in bacterial OD at 10 and 20 µg/mL (p < 0.01) and negligible cytotoxicity up to 20 µg/mL (LDH release < 5 % of maximal release from detergent-lysed cells). These findings suggest the peptide is a promising candidate for topical antimicrobial therapy.",
+    "table_data": [
+      {
+        "Concentration (µg/mL)": 0,
+        "Mean OD600": 1,
+        "Mean LDH release (%)": 2.5
+      },
+      {
+        "Concentration (µg/mL)": 5,
+        "Mean OD600": 0.7,
+        "Mean LDH release (%)": 3
+      },
+      {
+        "Concentration (µg/mL)": 10,
+        "Mean OD600": 0.35,
+        "Mean LDH release (%)": 4
+      },
+      {
+        "Concentration (µg/mL)": 20,
+        "Mean OD600": 0.3,
+        "Mean LDH release (%)": 4.5
+      }
+    ],
+    "stem": "Based on Table 1, which concentration of the antimicrobial peptide resulted in the lowest mean optical density (OD600) after 24 hours?",
+    "options": {
+      "A": "0 µg/mL",
+      "B": "5 µg/mL",
+      "C": "10 µg/mL",
+      "D": "20 µg/mL"
+    },
+    "correct": "D",
+    "explanation": "The lowest mean OD600 value (0.30) is observed at the highest peptide concentration (20 µg/mL), indicating the greatest reduction in bacterial growth.",
+    "trap": "Choosing 10 ug/mL because its OD600 (0.35) is close to the 20 ug/mL value (0.30).",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  },
+  {
+    "id": "bp1053_q2",
+    "type": "question",
+    "passage_id": "bp1053",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following best describes the experimental design used to assess the peptide’s cytotoxicity?",
+    "options": {
+      "A": "In vivo mouse model",
+      "B": "Human keratinocyte HaCaT cells with LDH assay",
+      "C": "Bacterial culture only",
+      "D": "No cytotoxicity assessment"
+    },
+    "correct": "B",
+    "explanation": "The study employed HaCaT cells and measured lactate dehydrogenase release to evaluate cytotoxicity, a standard in vitro method for assessing cell membrane integrity.",
+    "trap": "Assuming a human cell line implies an in vivo animal model.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:02:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1053_q3",
+    "type": "question",
+    "passage_id": "bp1053",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "If the mean OD600 at 0 µg/mL is 1.00 and at 20 µg/mL is 0.30, what is the percent reduction in bacterial growth at 20 µg/mL?",
+    "options": {
+      "A": "30 %",
+      "B": "50 %",
+      "C": "70 %",
+      "D": "90 %"
+    },
+    "correct": "C",
+    "explanation": "Percent reduction = [(1.00 – 0.30)/1.00] × 100 = 70 %. This calculation reflects the decrease in bacterial optical density relative to the untreated control.",
+    "trap": "Reporting the remaining OD (30%) as the reduction instead of subtracting it from 100%.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:04:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1053_q4",
+    "type": "question",
+    "passage_id": "bp1053",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which statement is NOT supported by Table 1?",
+    "options": {
+      "A": "Mean LDH release increased with each higher peptide concentration but stayed below 5% at every concentration tested.",
+      "B": "Mean OD600 decreased with each increase in peptide concentration.",
+      "C": "The mean OD600 at 10 µg/mL was less than half the mean OD600 at 0 µg/mL.",
+      "D": "The mean OD600 at 20 µg/mL was higher than at 5 µg/mL."
+    },
+    "correct": "D",
+    "explanation": "Correct: Table 1 gives OD600 of 0.30 at 20 µg/mL and 0.70 at 5 µg/mL, so the 20 µg/mL value is lower, not higher. Why the others are wrong: A) LDH release rises 2.5, 3, 4, 4.5% and never reaches 5%. B) OD600 falls 1.00, 0.70, 0.35, 0.30 as concentration rises. C) 0.35 is less than half of 1.00.",
+    "trap": "Skimming the values and reading the plateau between 10 and 20 ug/mL as a rise in OD600 at the highest dose.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:06:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  },
+  {
+    "id": "bp1053_q5",
+    "type": "question",
+    "passage_id": "bp1053",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "OD600 of bacteria-containing wells was read after peptide treatment. Which additional control would best show that a lower OD600 reflects reduced bacterial growth and not light absorbance by the peptide itself?",
+    "options": {
+      "A": "Wells containing medium and peptide at each concentration but no bacteria",
+      "B": "Wells containing bacteria with no peptide",
+      "C": "HaCaT cells with no peptide",
+      "D": "Measuring LDH release in the bacterial wells"
+    },
+    "correct": "A",
+    "explanation": "Correct: Peptide-in-medium wells without bacteria measure any OD600 contributed by the peptide, so it can be separated from bacterial turbidity. Why the others are wrong: B) this is the 0 ug/mL group already in the design and does not test peptide absorbance. C) HaCaT cells address cytotoxicity, not the OD600 reading of bacteria. D) LDH release is a mammalian cell membrane-damage assay and does not address absorbance by the peptide.",
+    "trap": "Picking the untreated bacterial control, which is already in the experiment and does not address peptide absorbance.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:08:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  }
+]

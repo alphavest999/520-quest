@@ -1,0 +1,154 @@
+[
+  {
+    "id": "bp1587-1",
+    "type": "question",
+    "passage_id": "bp1587",
+    "passage_text": "Researchers studied the effect of a novel antiviral compound, AV‑42, on the replication of influenza A virus in MDCK cell cultures. In a controlled experiment, cells were infected at multiplicity of infection (MOI) 0.1 and then treated with varying concentrations of AV‑42 (0, 0.5, 1, 2, 4 µM). Viral RNA levels were quantified by qRT‑PCR at 24, 48, and 72 hours post‑infection. Additionally, cell viability was assessed using an MTT assay to evaluate cytotoxicity. The table lists total cells per well and MTT viability expressed as a percentage of the untreated (0 µM) infected wells at each time point. The data indicated a dose‑dependent reduction in viral RNA, with 4 µM achieving a 95% decrease at 72 h. However, viability dropped to 70% at the same concentration, suggesting a narrow therapeutic window. Researchers also performed a time‑of‑addition assay, revealing that AV‑42 most effectively inhibited viral replication when added within 2 hours of infection. These findings support further preclinical development of AV‑42 as a potential antiviral agent, but underscore the need for optimization to reduce host cell toxicity.",
+    "table_data": [
+      {
+        "Time (h)": "24",
+        "Population (cells)": "1.2e6",
+        "Drug concentration (µM)": "0",
+        "Viability (%)": "100"
+      },
+      {
+        "Time (h)": "24",
+        "Population (cells)": "1.2e6",
+        "Drug concentration (µM)": "4",
+        "Viability (%)": "70"
+      },
+      {
+        "Time (h)": "48",
+        "Population (cells)": "1.0e6",
+        "Drug concentration (µM)": "0",
+        "Viability (%)": "100"
+      },
+      {
+        "Time (h)": "48",
+        "Population (cells)": "1.0e6",
+        "Drug concentration (µM)": "4",
+        "Viability (%)": "70"
+      },
+      {
+        "Time (h)": "72",
+        "Population (cells)": "0.8e6",
+        "Drug concentration (µM)": "0",
+        "Viability (%)": "100"
+      },
+      {
+        "Time (h)": "72",
+        "Population (cells)": "0.8e6",
+        "Drug concentration (µM)": "4",
+        "Viability (%)": "70"
+      }
+    ],
+    "stem": "According to the passage, which AV‑42 concentration produced the greatest reduction in viral RNA at 72 h?",
+    "options": {
+      "A": "0 µM",
+      "B": "0.5 µM",
+      "C": "1 µM",
+      "D": "4 µM"
+    },
+    "correct": "D",
+    "explanation": "Correct: The passage reports a dose‑dependent reduction in viral RNA, with 4 µM, the highest concentration, giving a 95% decrease at 72 h. Why the others are wrong: A) 0 µM is the untreated control, with no reduction. B) 0.5 µM is a lower dose than 4 µM, so the dose‑dependent reduction is smaller. C) 1 µM is a lower dose than 4 µM, so the dose‑dependent reduction is smaller.",
+    "trap": "Looking for viral RNA values in the table, which lists only viability and cell population.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1587-2",
+    "type": "question",
+    "passage_id": "bp1587",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which experimental control is missing from the described study?",
+    "options": {
+      "A": "Mock‑infected cells (no virus)",
+      "B": "Untreated infected cells (0 µM AV‑42)",
+      "C": "Sampling at multiple time points (24, 48 and 72 h)",
+      "D": "Multiple drug concentrations (0.5–4 µM)"
+    },
+    "correct": "A",
+    "explanation": "The passage describes infected cells at several AV-42 doses and times, but no mock-infected (virus-free) cells, which are needed to separate virus effects from drug or handling effects on viability.",
+    "trap": "The 0 µM infected control, multiple time points and multiple doses are all described in the passage; only the mock-infected control is absent.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1587-3",
+    "type": "question",
+    "passage_id": "bp1587",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "The passage reports a 95% decrease in viral RNA at 72 h with 4 µM AV‑42 relative to the 0 µM control. What fold reduction in viral RNA does this represent?",
+    "options": {
+      "A": "5-fold",
+      "B": "10-fold",
+      "C": "20-fold",
+      "D": "95-fold"
+    },
+    "correct": "C",
+    "explanation": "Correct: A 95% decrease leaves 5% of the control level, and 100/5 = 20, a 20-fold reduction. Why the others are wrong: A) 5-fold corresponds to an 80% decrease. B) 10-fold corresponds to a 90% decrease. D) 95-fold would leave about 1% of the control level, a 99% decrease.",
+    "trap": "Students quote 95 as the fold change, but a 95% decrease leaves 5% of the control, which is a 20-fold reduction.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1587-4",
+    "type": "question",
+    "passage_id": "bp1587",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following is NOT supported by the passage?",
+    "options": {
+      "A": "AV‑42 inhibited viral replication most effectively when added within 2 hours of infection.",
+      "B": "The therapeutic window of AV‑42 appears narrow because of cytotoxicity.",
+      "C": "4 µM AV‑42 reduced viral RNA by 95% at 72 h.",
+      "D": "Cell viability remained at 100% at 4 µM."
+    },
+    "correct": "D",
+    "explanation": "Correct: The passage and table show viability falling to 70% at 4 µM. Why the others are wrong: A) the time‑of‑addition assay showed best inhibition when AV‑42 was added within 2 hours of infection. B) the passage states the viability drop suggests a narrow therapeutic window. C) the passage reports a 95% decrease at 72 h.",
+    "trap": "Skimming past the viability data and accepting the claim of no toxicity.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1587-5",
+    "type": "question",
+    "passage_id": "bp1587",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "AV‑42 at 4 µM reduced viral RNA by 95% but lowered viability to 70%. What does the passage mean by a narrow therapeutic window?",
+    "options": {
+      "A": "The concentration that strongly reduces viral RNA is close to a concentration that harms host cells.",
+      "B": "AV‑42 works only if added at exactly 24 hours after infection.",
+      "C": "AV‑42 has no antiviral activity at any tested concentration.",
+      "D": "The MTT assay measures viral RNA directly, so the 70% viability is a viral measurement."
+    },
+    "correct": "A",
+    "explanation": "Correct: A narrow window means effective and toxic concentrations are close together, as with 95% RNA reduction accompanied by 30% loss of viability. Why the others are wrong: B) the time‑of‑addition result favors addition within 2 hours, not at 24 hours. C) 4 µM reduced viral RNA by 95%. D) the MTT assay measures cell viability, not viral RNA (qRT‑PCR does).",
+    "trap": "Confusing the viability assay (MTT) with the viral RNA assay (qRT-PCR).",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  }
+]

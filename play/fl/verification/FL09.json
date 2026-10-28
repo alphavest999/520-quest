@@ -1,0 +1,71 @@
+{
+ "logname": "FL09",
+ "in_scope": 46,
+ "matched_recompute": 46,
+ "fixed": {
+  "FL09_BB_P10_Q4": "distractor D 130 -> 90 mg/dL; explanation for C and D corrected",
+  "FL09_PS_P5_Q1": "option B 31 -> 40 children (option text was false)",
+  "FL09_PS_P9_Q2": "option C 52% -> 51% (105/205)"
+ },
+ "note_fixes": "Keys were all correct; fixes were to distractors/explanations.",
+ "verified_true": 37,
+ "unverified_reason": "WebSearch budget exhausted before confirming: calorimetry (CP_D3), hydraulic volume conservation (CP_P3_Q2), torque (CP_D1), inelastic collision (CP_D2), buoyancy (CP_D4), P=V^2/R (CP_D5), pI/charge/electrophoresis direction (CP_P9_Q5), ABO AB x O (BB_P3_Q2), carrier probability (BB_D5). Recomputed and correct but left false.",
+ "searches": [
+  [
+   "Henderson-Hasselbalch equation",
+   "confirmed pH=pKa+log(A-/HA) (LibreTexts, U Arizona)"
+  ],
+  [
+   "Gibbs free energy dG=dH-TdS phase transition",
+   "confirmed dG=dH-TdS; dS=dH/T at equilibrium is a derived step"
+  ],
+  [
+   "Friedewald equation",
+   "confirmed LDL-C=TC-HDL-C-TG/5 (PMC sources)"
+  ],
+  [
+   "isoelectric point histidine",
+   "confirmed pI = mean of bracketing pKa values, His ~7.6"
+  ],
+  [
+   "beta oxidation palmitate",
+   "confirmed 7 cycles, 8 acetyl-CoA"
+  ],
+  [
+   "ABO inheritance",
+   "confirmed IAi x IBi gives 1/4 each A,B,AB,O; AB x O result in source was unreliable"
+  ],
+  [
+   "Doppler moving source",
+   "confirmed f=f0 v/(v-vs)"
+  ],
+  [
+   "thin lens equation",
+   "confirmed 1/f=1/do+1/di, M=-di/do"
+  ],
+  [
+   "photoelectric effect",
+   "confirmed Kmax=hf-phi, hc~1240 eV nm"
+  ],
+  [
+   "freezing point depression",
+   "confirmed dTf=i Kf m, CaCl2 i=3 ideal"
+  ],
+  [
+   "Weber's law",
+   "confirmed JND proportional to baseline"
+  ],
+  [
+   "positive predictive value",
+   "confirmed PPV=TP/(TP+FP), Bayes form"
+  ],
+  [
+   "familywise error",
+   "confirmed 1-(1-a)^k, ~0.64 for 20 tests"
+  ],
+  [
+   "Cohen's d",
+   "confirmed mean difference / pooled SD; sqrt of average variance variant noted"
+  ]
+ ]
+}

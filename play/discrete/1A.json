@@ -1,0 +1,450 @@
+[
+ {
+  "id": "d_1A_1",
+  "type": "discrete",
+  "stem": "Glycine has pKa values of 2.3 (carboxyl) and 9.6 (amino). What is the approximate isoelectric point of glycine?",
+  "options": {
+   "A": "6.0",
+   "B": "4.0",
+   "C": "7.9",
+   "D": "11.9"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The pI of an amino acid with a nonionizable side chain is the average of its two pKa values: (2.3 + 9.6)/2 = 5.95, about 6.0. Why the others are wrong: B) 4.0 matches no combination of the pKa values and is not the midpoint of anything relevant. C) 7.9 is not the midpoint of 2.3 and 9.6 (it would require other pKa values). D) 11.9 is the sum 2.3 + 9.6 rather than the average.",
+  "trap": "Adding the pKa values instead of averaging them, or picking one pKa.",
+  "topic": "Isoelectric point",
+  "mastery_sheet_id": "1A",
+  "difficulty": "517",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.masterorganicchemistry.com/2023/02/09/isoelectric-point-calculation"
+   ]
+  }
+ },
+ {
+  "id": "d_1A_2",
+  "type": "discrete",
+  "stem": "Aspartate has pKa values of 2.0 (alpha-carboxyl), 3.9 (side chain), and 9.9 (amino). What is its approximate pI?",
+  "options": {
+   "A": "6.0",
+   "B": "6.9",
+   "C": "9.9",
+   "D": "3.0"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The net-zero zwitterion lies between the two lowest pKa values (the two carboxyl groups): (2.0 + 3.9)/2 = 2.95, about 3.0. Why the others are wrong: A) 6.0 is roughly the average of the alpha-carboxyl and amino pKa values as for a neutral amino acid, ignoring the acidic side chain. B) 6.9 averages the side-chain (3.9) and amino (9.9) pKa values, which flank a net -1 species rather than the neutral one. C) 9.9 is simply the amino-group pKa, not a pI.",
+  "trap": "Averaging the carboxyl and amino pKa values as with a neutral amino acid, ignoring the acidic side chain.",
+  "topic": "Isoelectric point",
+  "mastery_sheet_id": "1A",
+  "difficulty": "522",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.masterorganicchemistry.com/2023/02/09/isoelectric-point-calculation"
+   ]
+  }
+ },
+ {
+  "id": "d_1A_3",
+  "type": "discrete",
+  "stem": "Rotation about the C-N bond of a peptide linkage is restricted. What best explains this?",
+  "options": {
+   "A": "The nitrogen is sp3 hybridized and bulky",
+   "B": "Hydrogen bonding between adjacent residues locks the bond",
+   "C": "The bond is an ionic linkage between the carbonyl carbon and nitrogen",
+   "D": "Resonance gives the bond partial double-bond character"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Delocalization of the nitrogen lone pair into the carbonyl gives the C-N bond partial double-bond character, making the amide group planar and rigid. Why the others are wrong: A) The amide nitrogen is effectively planar (sp2-like) because of resonance, not a bulky sp3 center. B) Hydrogen bonds between residues stabilize secondary structure but do not cause the restricted rotation within the bond itself. C) The C-N bond is a covalent amide bond, not an ionic linkage.",
+  "trap": "Thinking a peptide bond is a single bond that rotates freely like other C-N single bonds.",
+  "topic": "Peptide bond properties",
+  "mastery_sheet_id": "1A",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_4",
+  "type": "discrete",
+  "stem": "Which standard amino acid is NOT optically active?",
+  "options": {
+   "A": "Alanine",
+   "B": "Proline",
+   "C": "Glycine",
+   "D": "Cysteine"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Glycine's side chain is H, so its alpha carbon has two identical substituents and is not a stereocenter. Why the others are wrong: A) Alanine has four different groups (H, NH3+, COO-, CH3) on the alpha carbon, so it is chiral. B) Proline is chiral; its ring links the side chain to the nitrogen but the alpha carbon still has four different groups. D) Cysteine is chiral (it is R by CIP priorities only because sulfur raises the CH2SH priority).",
+  "trap": "Assuming proline's ring or cysteine's R designation makes it achiral.",
+  "topic": "Amino acid stereochemistry",
+  "mastery_sheet_id": "1A",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_5",
+  "type": "discrete",
+  "stem": "Disulfide bonds are common in secreted proteins but rare in cytosolic proteins. What is the best explanation?",
+  "options": {
+   "A": "The cytosol is a reducing environment that keeps cysteines as free thiols",
+   "B": "Cysteine is absent from cytosolic proteins",
+   "C": "Disulfide bonds can only form between two different polypeptide chains",
+   "D": "The cytosol has a much lower pH that protonates sulfur irreversibly"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Disulfide formation is an oxidation; the cytosol is rich in glutathione and other reducing agents, whereas the ER and extracellular space are oxidizing. Why the others are wrong: B) Cytosolic proteins do contain cysteines, which stay as free thiols. C) Disulfide bonds form both within a chain (tertiary) and between chains, so this is not a restriction to interchain bonds. D) Cytosolic pH is near neutral, and protonation of sulfur is not what prevents disulfide formation.",
+  "trap": "Believing disulfide bonds only join separate chains, so confusing them with quaternary-only structure.",
+  "topic": "Disulfide bonds",
+  "mastery_sheet_id": "1A",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_6",
+  "type": "discrete",
+  "stem": "In an alpha helix, which interaction stabilizes the structure?",
+  "options": {
+   "A": "Hydrogen bonds between side chains of residues i and i+4",
+   "B": "Hydrogen bonds between the backbone C=O of residue i and N-H of residue i+4",
+   "C": "Disulfide bonds between cysteine residues along the helix",
+   "D": "Ionic bonds between the N- and C-termini of the polypeptide"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The helix is held by backbone hydrogen bonds between the C=O of residue i and the N-H of residue i+4, running parallel to the helix axis. Why the others are wrong: A) Side chains point outward from the helix and do not form the repeating i to i+4 hydrogen-bond pattern; this describes side chains instead of backbone atoms. C) Disulfide bonds are covalent tertiary-structure links, not what stabilizes a helix. D) Interactions between the termini are not the stabilizing force of a helix.",
+  "trap": "Attributing secondary structure to side-chain interactions, which define tertiary structure.",
+  "topic": "Secondary structure",
+  "mastery_sheet_id": "1A",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_7",
+  "type": "discrete",
+  "stem": "Proline is often found at turns and is called a helix breaker. Why?",
+  "options": {
+   "A": "It is highly negatively charged and repels the helix",
+   "B": "It is too hydrophobic to remain in the helix interior",
+   "C": "It forms disulfide bonds that kink the backbone",
+   "D": "Its amide nitrogen has no hydrogen to donate and its ring restricts the phi angle"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Proline's backbone N is bonded to its ring and so cannot donate an H-bond, and the ring locks the phi angle, kinking the chain. Why the others are wrong: A) Proline is uncharged, so there is no charge repulsion with the helix. B) Hydrophobicity does not disrupt helices (leucine is common in helices). C) Proline has no sulfur and cannot form disulfide bonds.",
+  "trap": "Blaming charge or hydrophobicity rather than backbone geometry and loss of the N-H donor.",
+  "topic": "Secondary structure",
+  "mastery_sheet_id": "1A",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_8",
+  "type": "discrete",
+  "stem": "On a Lineweaver-Burk plot, two lines with and without an inhibitor intersect on the y-axis. Which inhibitor type is this?",
+  "options": {
+   "A": "Competitive",
+   "B": "Noncompetitive",
+   "C": "Uncompetitive",
+   "D": "Irreversible covalent"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Lines that share a y-intercept (1/Vmax) mean Vmax is unchanged while apparent Km increases, characteristic of competitive inhibition. Why the others are wrong: B) Noncompetitive inhibition gives lines that intersect on the x-axis (Vmax falls, Km unchanged). C) Uncompetitive inhibition gives parallel lines (both Vmax and Km fall). D) Irreversible covalent inhibitors permanently remove active enzyme, lowering Vmax like noncompetitive inhibitors, so the y-intercept would change.",
+  "trap": "Mixing up which intercept stays constant for competitive versus noncompetitive inhibition.",
+  "topic": "Enzyme inhibition kinetics",
+  "mastery_sheet_id": "1A",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_9",
+  "type": "discrete",
+  "stem": "A protein is treated with 8 M urea and loses its activity. Which statement is most accurate?",
+  "options": {
+   "A": "Noncovalent interactions are disrupted while the primary structure remains intact",
+   "B": "Peptide bonds are hydrolyzed",
+   "C": "The amino acid sequence is rearranged",
+   "D": "Only the quaternary structure is affected"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Urea disrupts hydrogen bonds and hydrophobic interactions, unfolding secondary through quaternary structure while leaving covalent peptide bonds intact. Why the others are wrong: B) Peptide bond hydrolysis requires strong acid with heat or proteases, not urea. C) The amino acid sequence is covalently fixed and cannot rearrange. D) Urea also unfolds tertiary and secondary structure, not just quaternary.",
+  "trap": "Equating denaturation with breaking the peptide backbone, so assuming it is irreversible by definition.",
+  "topic": "Protein denaturation",
+  "mastery_sheet_id": "1A",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_10",
+  "type": "discrete",
+  "stem": "A protein is a heterodimer of 40 kDa and 25 kDa subunits joined by a disulfide bond. SDS-PAGE is run in the presence of beta-mercaptoethanol. What bands appear?",
+  "options": {
+   "A": "One band at 65 kDa",
+   "B": "Two bands, at 40 kDa and 25 kDa",
+   "C": "One band at about 32.5 kDa",
+   "D": "Three bands at 65, 40, and 25 kDa"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) SDS denatures the protein and coats it with uniform negative charge, and beta-mercaptoethanol reduces the disulfide, so the 40 and 25 kDa subunits separate by mass. Why the others are wrong: A) A single 65 kDa band would appear only without a reducing agent, since the disulfide would hold the dimer together. C) 32.5 kDa is an arithmetic average that has no physical basis. D) Three bands (65, 40, 25) would require incomplete reduction, which excess beta-mercaptoethanol avoids.",
+  "trap": "Forgetting that a reducing agent breaks disulfides, leaving subunits as separate bands.",
+  "topic": "SDS-PAGE",
+  "mastery_sheet_id": "1A",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.sigmaaldrich.com/US/en/product/mm/444203"
+   ]
+  }
+ },
+ {
+  "id": "d_1A_11",
+  "type": "discrete",
+  "stem": "A protein with pI 8.5 is placed in a native gel at pH 7.4. Toward which electrode does it migrate?",
+  "options": {
+   "A": "The cathode, because it is net positively charged",
+   "B": "The anode, because it is net positively charged",
+   "C": "The cathode, because it is net negatively charged",
+   "D": "It does not migrate because its pI is above 7"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) When pH < pI the protein is protonated and net positive, so it migrates toward the negative electrode (cathode). Why the others are wrong: B) A net positive species does not move to the anode (the positive electrode). C) Negative charge would require pH above the pI, but 7.4 is below 8.5. D) Only pH equal to the pI gives no net migration; the pI being above 7 does not stop movement.",
+  "trap": "Reversing the relation between pH, pI, and net charge.",
+  "topic": "Electrophoresis and pI",
+  "mastery_sheet_id": "1A",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_12",
+  "type": "discrete",
+  "stem": "An enzyme has Vmax of 100 umol/min and Km of 2 mM. What is the initial velocity at [S] = 6 mM?",
+  "options": {
+   "A": "50 umol/min",
+   "B": "67 umol/min",
+   "C": "75 umol/min",
+   "D": "86 umol/min"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) v = Vmax[S]/(Km + [S]) = 100(6)/(2 + 6) = 75 umol/min. Why the others are wrong: A) 50 umol/min would occur at [S] = Km, not at 6 mM. B) 67 results from using a denominator of 9 (Km + [S] mistakenly summed as 3 + 6). D) 86 results from using a denominator of 7.",
+  "trap": "Assuming velocity is Vmax/2 whenever substrate exceeds Km, or mis-adding in the denominator.",
+  "topic": "Michaelis-Menten kinetics",
+  "mastery_sheet_id": "1A",
+  "difficulty": "516",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://old.goldbook.iupac.org/plain/M03892-plain.html"
+   ]
+  }
+ },
+ {
+  "id": "d_1A_13",
+  "type": "discrete",
+  "stem": "In exercising muscle, pH falls and CO2 rises. How does this affect hemoglobin?",
+  "options": {
+   "A": "The curve shifts left, increasing O2 affinity",
+   "B": "Hemoglobin changes to a hyperbolic curve like myoglobin",
+   "C": "The oxygen-binding curve shifts right, increasing O2 release",
+   "D": "P50 decreases so more oxygen is unloaded"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Lower pH and higher CO2 stabilize the T state (Bohr effect), decreasing O2 affinity and shifting the curve right, so more O2 is released to the muscle. Why the others are wrong: A) A left shift would mean greater affinity and less unloading, the opposite of the Bohr effect. B) A hyperbolic curve reflects a monomer like myoglobin; hemoglobin stays sigmoidal. D) A lower P50 means higher affinity, whereas the Bohr effect raises P50.",
+  "trap": "Confusing a right shift with higher affinity.",
+  "topic": "Hemoglobin and the Bohr effect",
+  "mastery_sheet_id": "1A",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_14",
+  "type": "discrete",
+  "stem": "Which statement about an enzyme-catalyzed reaction is correct?",
+  "options": {
+   "A": "The enzyme makes an endergonic reaction spontaneous",
+   "B": "The enzyme shifts the equilibrium toward products",
+   "C": "The enzyme raises the energy of the transition state",
+   "D": "The enzyme lowers the activation energy without changing the overall delta G"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Catalysts stabilize the transition state, lowering the activation energy, but do not alter delta G or the equilibrium constant. Why the others are wrong: A) An enzyme cannot make an endergonic reaction spontaneous because it does not change delta G. B) An enzyme does not shift the equilibrium, since it speeds forward and reverse reactions equally. C) Enzymes lower, not raise, the transition-state energy.",
+  "trap": "Thinking catalysts change thermodynamics instead of only kinetics.",
+  "topic": "Enzyme thermodynamics",
+  "mastery_sheet_id": "1A",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_15",
+  "type": "discrete",
+  "stem": "Trypsinogen is secreted by the pancreas and activated by enteropeptidase in the duodenum. What is the main advantage of this arrangement?",
+  "options": {
+   "A": "It prevents the protease from digesting pancreatic tissue before reaching the intestine",
+   "B": "It increases the Vmax of trypsin",
+   "C": "It allows trypsin to act as an allosteric activator of lipases",
+   "D": "It converts trypsinogen to a competitive inhibitor"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Secreting an inactive zymogen that is cleaved only at its site of action (the duodenum) protects the producing pancreatic tissue from self-digestion. Why the others are wrong: B) Activation by cleavage does not change Vmax relative to the mature enzyme. C) Trypsin is a protease and is not an allosteric activator of lipases. D) The zymogen is not converted into a competitive inhibitor.",
+  "trap": "Believing zymogens are activated by phosphorylation like many signaling enzymes.",
+  "topic": "Zymogens and covalent regulation",
+  "mastery_sheet_id": "1A",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_16",
+  "type": "discrete",
+  "stem": "Phosphorylation of a serine residue can alter a protein's conformation primarily because it",
+  "options": {
+   "A": "converts serine to a hydrophobic residue",
+   "B": "adds negative charge that can create or disrupt electrostatic interactions",
+   "C": "creates a new peptide bond",
+   "D": "removes the hydroxyl group as water"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The phosphate group carries about two negative charges at physiological pH, forming new salt bridges or repelling nearby negative groups. Why the others are wrong: A) Phosphoserine is more polar and charged, not more hydrophobic. C) Phosphorylation forms a phosphoester, not a new peptide bond. D) The hydroxyl oxygen is esterified to phosphate rather than lost as water.",
+  "trap": "Overlooking that charge, not hydrophobicity, drives the conformational change.",
+  "topic": "Post-translational modification",
+  "mastery_sheet_id": "1A",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_17",
+  "type": "discrete",
+  "stem": "A DNA-binding protein needs surface residues to interact with the phosphate backbone. Which pair would be most favorable?",
+  "options": {
+   "A": "Aspartate and glutamate",
+   "B": "Leucine and valine",
+   "C": "Serine and alanine",
+   "D": "Lysine and arginine"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Lysine and arginine are protonated and positively charged at physiological pH, forming electrostatic contacts with the negatively charged phosphate backbone. Why the others are wrong: A) Aspartate and glutamate are negatively charged and would repel phosphates. B) Leucine and valine are hydrophobic and cannot form electrostatic contacts. C) Serine and alanine lack a charge for interacting with phosphates.",
+  "trap": "Choosing negatively charged residues because DNA is an acid.",
+  "topic": "Amino acid side chains",
+  "mastery_sheet_id": "1A",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_18",
+  "type": "discrete",
+  "stem": "A transmembrane segment of an integral protein spans the lipid bilayer as an alpha helix. Which residues most likely compose it?",
+  "options": {
+   "A": "Lysine, arginine, and histidine",
+   "B": "Aspartate, glutamate, and serine",
+   "C": "Leucine, isoleucine, valine, and phenylalanine",
+   "D": "Glutamine, asparagine, and threonine"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Nonpolar side chains interact favorably with the hydrophobic fatty acid tails of the bilayer core. Why the others are wrong: A) Lysine, arginine, and histidine are basic and charged, which is energetically unfavorable inside the bilayer core. B) Aspartate, glutamate, and serine are acidic or polar and would be unfavorable inside the bilayer core. D) Glutamine, asparagine, and threonine are polar uncharged residues that do not suit the hydrophobic core.",
+  "trap": "Choosing polar residues to satisfy backbone hydrogen bonding.",
+  "topic": "Membrane protein structure",
+  "mastery_sheet_id": "1A",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_19",
+  "type": "discrete",
+  "stem": "Alanine has a carboxyl pKa of 2.3. At pH 2.3, what is the ratio of the fully protonated form to the zwitterion?",
+  "options": {
+   "A": "10:1",
+   "B": "1:1",
+   "C": "1:10",
+   "D": "1:100"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) By Henderson-Hasselbalch, when pH = pKa the protonated and deprotonated forms are present in equal amounts, a 1:1 ratio. Why the others are wrong: A) 10:1 would occur at a pH one unit below the pKa. C) 1:10 would occur at a pH one unit above the pKa. D) 1:100 would occur at a pH two units above the pKa.",
+  "trap": "Forgetting pH = pKa gives equal concentrations.",
+  "topic": "Amino acid titration",
+  "mastery_sheet_id": "1A",
+  "difficulty": "523",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.masterorganicchemistry.com/2023/02/09/isoelectric-point-calculation"
+   ]
+  }
+ },
+ {
+  "id": "d_1A_20",
+  "type": "discrete",
+  "stem": "Myoglobin's oxygen-binding curve is hyperbolic whereas hemoglobin's is sigmoidal. Which is the best explanation?",
+  "options": {
+   "A": "Myoglobin binds O2 less tightly than hemoglobin",
+   "B": "Myoglobin is a monomer lacking subunit cooperativity",
+   "C": "Myoglobin has four heme groups that interact allosterically",
+   "D": "Hemoglobin lacks a heme group"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Cooperativity requires multiple interacting subunits; hemoglobin's tetramer undergoes T-to-R transitions while myoglobin, a monomer, binds a single O2 independently. Why the others are wrong: A) Myoglobin has higher, not lower, O2 affinity than hemoglobin. C) Myoglobin has a single heme and therefore cannot interact allosterically. D) Hemoglobin contains four heme groups.",
+  "trap": "Assuming hyperbolic curves mean lower affinity.",
+  "topic": "Quaternary structure and cooperativity",
+  "mastery_sheet_id": "1A",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_21",
+  "type": "discrete",
+  "stem": "Peptide bond hydrolysis is thermodynamically favorable, yet proteins are stable in water for long periods. Why?",
+  "options": {
+   "A": "The reaction has a positive delta G",
+   "B": "Water does not contact the peptide bond",
+   "C": "The reaction has a high activation energy and is kinetically slow",
+   "D": "Proteins are stabilized by a negative entropy of hydrolysis"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Spontaneity (negative delta G) says nothing about rate; the uncatalyzed reaction has a large activation barrier and is kinetically slow. Why the others are wrong: A) Delta G of peptide hydrolysis is negative, not positive. B) Water does contact exposed peptide bonds, so access is not the issue. D) Entropy increases on cleavage, so it does not stabilize the intact protein.",
+  "trap": "Equating thermodynamic spontaneity with rapid reaction.",
+  "topic": "Peptide bond thermodynamics",
+  "mastery_sheet_id": "1A",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1A_22",
+  "type": "discrete",
+  "stem": "An inhibitor binds only to the enzyme-substrate complex. How does it affect Vmax and apparent Km?",
+  "options": {
+   "A": "Vmax unchanged, Km increases",
+   "B": "Both decrease",
+   "C": "Vmax decreases, Km unchanged",
+   "D": "Vmax increases, Km decreases"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Uncompetitive inhibition removes ES complex, lowering Vmax; it also pulls the equilibrium toward ES, increasing apparent affinity so apparent Km falls. Why the others are wrong: A) Vmax unchanged with a higher Km describes competitive inhibition. C) Vmax decreasing with unchanged Km describes noncompetitive inhibition. D) Vmax cannot increase in the presence of an inhibitor.",
+  "trap": "Treating all non-competitive-type inhibitors as leaving Km unchanged.",
+  "topic": "Enzyme inhibition kinetics",
+  "mastery_sheet_id": "1A",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ }
+]

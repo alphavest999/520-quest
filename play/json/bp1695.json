@@ -1,0 +1,142 @@
+[
+  {
+    "id": "bp1695_q1",
+    "type": "bp",
+    "passage_id": "bp1695",
+    "passage_text": "Researchers studied the effect of a novel antioxidant on oxidative stress markers in cultured human fibroblasts. Cells were divided into four groups: A (control, no treatment), B (low-dose antioxidant), C (high-dose antioxidant), and D (antioxidant plus a known pro-oxidant). After 48 hours, the levels of reactive oxygen species (ROS) were quantified by fluorescence intensity, and the expression of the antioxidant enzyme superoxide dismutase (SOD) was measured via qPCR. The data are summarized in Table 1. The authors concluded that the antioxidant dose-dependently reduced ROS and upregulated SOD, but the addition of the pro-oxidant in group D partially reversed these effects. They suggested that the antioxidant could be beneficial in conditions of oxidative stress, pending further in vivo validation.",
+    "table_data": [
+      {
+        "Sample": "A",
+        "Treatment": "None",
+        "ROS (a.u.)": "100.0",
+        "SOD (fold change)": "1.0"
+      },
+      {
+        "Sample": "B",
+        "Treatment": "Low-dose antioxidant",
+        "ROS (a.u.)": "70.0",
+        "SOD (fold change)": "1.4"
+      },
+      {
+        "Sample": "C",
+        "Treatment": "High-dose antioxidant",
+        "ROS (a.u.)": "45.0",
+        "SOD (fold change)": "1.9"
+      },
+      {
+        "Sample": "D",
+        "Treatment": "Antioxidant + pro-oxidant",
+        "ROS (a.u.)": "80.0",
+        "SOD (fold change)": "1.2"
+      }
+    ],
+    "stem": "Based on Table 1, which statement most accurately reflects the observed data?",
+    "options": {
+      "A": "ROS levels increased with higher antioxidant doses.",
+      "B": "SOD expression decreased in the antioxidant-treated groups.",
+      "C": "The pro-oxidant addition in group D partially mitigated the antioxidant’s effect.",
+      "D": "Group A exhibited the lowest ROS levels among all groups."
+    },
+    "correct": "C",
+    "explanation": "The table shows ROS decreasing from 100 in group A to 45 in group C, indicating a dose-dependent reduction. Group D’s ROS (80) is higher than group C but lower than group A, demonstrating partial mitigation by the pro-oxidant. SOD expression rises with antioxidant treatment, not decreases.",
+    "trap": "Option A incorrectly interprets the trend as an increase with dose; Option B incorrectly states a decrease in SOD; Option D incorrectly claims group A has the lowest ROS.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1695_q2",
+    "type": "bp",
+    "passage_id": "bp1695",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "If the researchers wanted to eliminate the potential confounding effect of cell passage number, which experimental design modification would be most appropriate?",
+    "options": {
+      "A": "Use cells from a single passage for all groups.",
+      "B": "Increase the number of replicates per group.",
+      "C": "Randomly assign cells from different passages to each group.",
+      "D": "Add a vehicle control group."
+    },
+    "correct": "A",
+    "explanation": "Using cells from a single passage ensures that passage-related changes (e.g., senescence, altered gene expression) affect all groups equally, thereby controlling for this confounder. Random assignment (C) would still allow passage differences to influence results.",
+    "trap": "Option B focuses on sample size rather than confounding control; Option D introduces another variable without addressing passage number.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1695_q3",
+    "type": "bp",
+    "passage_id": "bp1695",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "What is the percent decrease in ROS from group A to group C?",
+    "options": {
+      "A": "15%",
+      "B": "25%",
+      "C": "55%",
+      "D": "70%"
+    },
+    "correct": "C",
+    "explanation": "Percent decrease = [(100 - 45)/100] × 100 = 55%.",
+    "trap": "Choosing 70% by reading group B's ROS value (70) as the decrease instead of computing the fall from 100 to 45 for group C.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1695_q4",
+    "type": "bp",
+    "passage_id": "bp1695",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which statement is the most appropriate caution when interpreting this experiment?",
+    "options": {
+      "A": "Results in cultured fibroblasts may not translate to living organisms.",
+      "B": "Group A (no treatment) cannot serve as a control.",
+      "C": "Fold change cannot be used to report qPCR data.",
+      "D": "Fluorescence cannot be used to measure ROS."
+    },
+    "correct": "A",
+    "explanation": "Correct: A) The data come from cultured cells over 48 hours, and the authors themselves note that in vivo validation is needed. Why the others are wrong: B) An untreated group is the standard baseline control. C) Fold change is a standard way to report relative qPCR expression. D) Fluorescent probes are a standard way to quantify ROS.",
+    "trap": "Treating standard, accepted methods (fold change, fluorescence, an untreated control) as flaws, while overlooking the real limit that cell-culture results may not hold in vivo.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1695_q5",
+    "type": "bp",
+    "passage_id": "bp1695",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which future study would most directly build on these findings?",
+    "options": {
+      "A": "Test the antioxidant in a mouse model of induced oxidative stress.",
+      "B": "Measure ROS levels in human skin biopsies from patients with aging.",
+      "C": "Perform a meta‑analysis of antioxidant supplements in humans.",
+      "D": "Investigate the antioxidant’s effect on mitochondrial DNA mutations in yeast."
+    },
+    "correct": "A",
+    "explanation": "An in vivo mouse model would directly test the antioxidant’s efficacy under physiological oxidative stress, bridging the gap between in vitro and clinical relevance.",
+    "trap": "Option B, while relevant, does not directly test the antioxidant’s effect; Option C is too broad; Option D uses a different organism.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  }
+]

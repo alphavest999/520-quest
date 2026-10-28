@@ -1,0 +1,88 @@
+{
+  "passage_id": "bp1349",
+  "passage": "A screening group in the Marchetti laboratory identified a compound that suppresses glutamate dehydrogenase activity in cell lysates. To learn how it acts, the group measured initial velocities of the purified enzyme at several α-ketoglutarate concentrations, with and without 40 µM compound. Assays were buffered at pH 7.4 and kept at 30 °C, and the enzyme concentration was held constant. The compound has no structural resemblance to α-ketoglutarate, and a preliminary docking study placed it in a hydrophobic pocket far from the catalytic residues. The researchers recorded velocities as µmol of product per minute and fit each data set to the Michaelis–Menten equation. They then compared the fitted constants with and without compound, expecting the pattern to reveal whether the compound binds the free enzyme, the enzyme–substrate complex, or both with equal affinity. Enzyme purity exceeded 95% by SDS-PAGE, and solvent carrier alone had no effect on activity. All procedures followed the laboratory's standard operating protocols, and raw data were archived before analysis.",
+  "table": "Table 1. Velocity of glutamate dehydrogenase with and without compound\n\n| [S] (µM) | v, control (µmol/min) | v, 40 µM compound (µmol/min) |\n|---|---|---|\n| 12.5 | 40 | 20 |\n| 25 | 66.7 | 33.3 |\n| 50 | 100 | 50 |\n| 100 | 133.3 | 66.7 |\n| 200 | 160 | 80 |\n| 400 | 177.8 | 88.9 |",
+  "questions": [
+    {
+      "stem": "Which pattern does Table 1 show?",
+      "options": {
+        "A": "The ratio of inhibited to control velocity is about the same at every [S]",
+        "B": "The ratio falls steadily as [S] increases",
+        "C": "The ratio of inhibited to control velocity rises steadily as [S] increases",
+        "D": "The inhibited velocity exceeds the control velocity at the lowest [S]"
+      },
+      "correct": "A",
+      "explanation": "At each [S], v(inhibited)/v(control) = 1/2, so the compound lowers velocity by a constant factor.",
+      "topic": "Enzyme kinetics: data interpretation",
+      "trap": "Expecting inhibition to weaken at high substrate, as with a competitor, rather than checking that the inhibited-to-control ratio stays at 0.5 in every row.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1349-1"
+    },
+    {
+      "stem": "Which experiment would best confirm that the compound does not compete with substrate for the active site?",
+      "options": {
+        "A": "Show that the compound's potency decreases as [S] increases",
+        "B": "Show that raising [S] to very high levels does not restore the control Vmax",
+        "C": "Show that Km increases linearly with compound concentration",
+        "D": "Show that the compound's structure matches the substrate"
+      },
+      "correct": "B",
+      "explanation": "Failure of high [S] to overcome inhibition indicates the inhibitor does not simply compete for the substrate-binding site.",
+      "topic": "Enzyme inhibition: experimental design",
+      "trap": "Choosing the option that describes competitive behavior (potency falling as [S] rises), which is the opposite of the evidence that the compound does not compete.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1349-2"
+    },
+    {
+      "stem": "If the uninhibited Vmax is 200 µmol/min, what is the apparent Vmax with the compound?",
+      "options": {
+        "A": "198 µmol/min",
+        "B": "100 µmol/min",
+        "C": "66.7 µmol/min",
+        "D": "400 µmol/min"
+      },
+      "correct": "B",
+      "explanation": "Vmax,app = Vmax/α = 200/2 = 100 µmol/min, as seen in the saturating-substrate rows.",
+      "topic": "Enzyme inhibition: Vmax calculation",
+      "trap": "Choosing 198 µmol/min, as if the compound barely changed Vmax, or confusing Vmax with the 66.7 µmol/min velocity measured at a single substrate level.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1349-3"
+    },
+    {
+      "stem": "Which statement about pure noncompetitive inhibition is INCORRECT?",
+      "options": {
+        "A": "The apparent Km increases because the inhibitor competes with substrate",
+        "B": "The apparent Vmax decreases",
+        "C": "Lineweaver–Burk lines intersect on the x-axis",
+        "D": "The inhibitor can bind both free enzyme and enzyme–substrate complex"
+      },
+      "correct": "A",
+      "explanation": "Pure noncompetitive inhibitors leave Km unchanged. Because binding occurs at a distinct site, the lines in a double-reciprocal plot share an x-intercept (−1/Km).",
+      "topic": "Enzyme inhibition: trap on Km vs Vmax",
+      "trap": "Assuming every inhibitor raises Km because it 'competes' with substrate, which is true only for competitive inhibitors and not for pure noncompetitive ones.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1349-4"
+    },
+    {
+      "stem": "Which cellular regulatory phenomenon most closely resembles this inhibition pattern?",
+      "options": {
+        "A": "Product activation of the same enzyme by direct covalent change",
+        "B": "Substrate-level competition by a structural analog",
+        "C": "Irreversible inhibition by transition-state mimicry at the active site",
+        "D": "Allosteric inhibition at a site distinct from the active site"
+      },
+      "correct": "D",
+      "explanation": "Binding at a distinct regulatory (allosteric) site that lowers catalytic capacity reproduces the noncompetitive pattern, as with feedback inhibition in metabolic pathways.",
+      "topic": "Metabolic regulation: allosteric link",
+      "trap": "Choosing competition by a structural analog because inhibition is involved, although this compound resembles no substrate and binds far from the active site.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1349-5"
+    }
+  ],
+  "accuracy_verified": true
+}

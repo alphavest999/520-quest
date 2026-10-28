@@ -1,0 +1,1526 @@
+{
+ "exam": "FL04",
+ "section": "PS",
+ "passages": [
+  {
+   "passage_id": "FL04_PS_P1",
+   "passage_text": "Researchers measured olfactory function in 40 adults aged 20 to 30 (young group) and 40 adults aged 70 to 80 (older group). All were nonsmokers with no history of head trauma. To find each detection threshold, participants sniffed sets of three jars with their eyes closed. One jar held amyl acetate (a banana-like odorant) diluted in odorless mineral oil, and two held oil alone. Participants had to pick the jar that smelled different, and the concentration rose stepwise until the participant chose correctly on two consecutive sets. Participants then tried to name 12 common odorants, each from a list of four choices, and rated the intensity of one clearly detectable odor on a 0 to 100 scale. A subset of 15 participants per group repeated the threshold test after 3 minutes of continuous exposure to the odorant. Results are in Table 1. The investigators noted that olfactory receptor neurons project to the olfactory bulb and from there to the piriform cortex and amygdala without first relaying through the thalamus, and that the number of functional receptor neurons declines with age.",
+   "table_data": "**Table 1. Olfactory measures (group means)**\n\n| Measure | Young | Older |\n|---|---|---|\n| Detection threshold (% v/v amyl acetate) | 0.012 | 0.048 |\n| Odorants correctly named (of 12) | 10.4 | 7.1 |\n| Rated intensity (0-100) | 62 | 45 |\n| Threshold after 3-min exposure (% v/v, subset) | 0.031 | 0.090 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_PS_P1_Q1",
+     "stem": "According to Table 1, the older group's mean detection threshold for amyl acetate was how many times that of the young group?",
+     "options": {
+      "A": "3.6",
+      "B": "4",
+      "C": "0.25",
+      "D": "0.036"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 0.048 / 0.012 = 4, so older adults needed four times the concentration, indicating lower sensitivity. Why the others are wrong: A) This does not correspond to any ratio of the baseline thresholds in Table 1. C) This is the inverse ratio (young/older); the older group's threshold is the larger one. D) This is the simple difference (0.048 - 0.012), not a ratio.",
+     "trap": "Dividing the wrong way or subtracting instead of taking a ratio, which flips or distorts the size of the sensitivity difference.",
+     "topic": "Absolute threshold",
+     "mastery_sheet_id": "6A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_PS_P1_Q2",
+     "stem": "Including two jars of oil alone in each set, rather than asking whether a single jar had any odor, most directly helped the researchers to:",
+     "options": {
+      "A": "blind the experimenters to participants' age group.",
+      "B": "measure sensory adaptation to the odorant.",
+      "C": "reduce the influence of each participant's response bias (willingness to say 'yes') on the measured threshold.",
+      "D": "increase the intensity ratings of the older group."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A forced-choice format with blanks measures what participants can actually discriminate, in line with signal detection ideas, because liberal or conservative reporting habits cannot inflate or deflate the threshold. Why the others are wrong: A) Blinding the experimenters concerns who scores the data; the jar format does not conceal participants' age. B) Adaptation was tested separately by prolonged exposure, not by the jar arrangement. D) Intensity was rated in a separate task and was not changed by the forced-choice design.",
+     "trap": "Assuming a yes/no detection task is equivalent; it confounds true sensitivity with willingness to report a smell.",
+     "topic": "Signal detection and response bias",
+     "mastery_sheet_id": "6A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P1_Q3",
+     "stem": "The higher thresholds measured after 3 minutes of exposure most likely reflect:",
+     "options": {
+      "A": "sensory memory, the brief storage of the odor after it ends.",
+      "B": "sensitization, an increased response to repeated stimuli.",
+      "C": "sensory adaptation, a reduced response of receptors to a constant stimulus.",
+      "D": "perceptual constancy, perceiving the odor as the same at different concentrations."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Sustained exposure to an unchanging odorant lowers receptor responsiveness, so a higher concentration is needed to detect it. Why the others are wrong: A) Sensory memory concerns short-term persistence of a stimulus trace, not a rise in the threshold during constant exposure. B) Sensitization would lower the threshold, but thresholds rose in both groups. D) Constancy involves a stable percept despite changing stimulation; here detection actually got worse.",
+     "trap": "Confusing adaptation (declining response to constant input) with sensitization or habituation of attention.",
+     "topic": "Sensory adaptation",
+     "mastery_sheet_id": "6A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P1_Q4",
+     "stem": "Based on the pathway described in the passage, which observation is best explained by the olfactory system's lack of a thalamic relay?",
+     "options": {
+      "A": "Odor intensity ratings are lower in older adults.",
+      "B": "Odors can rapidly evoke strong emotions and autobiographical memories.",
+      "C": "Taste perception depends on the same receptor cells as smell.",
+      "D": "Adaptation to a constant odor occurs within minutes."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Olfactory input reaches limbic structures such as the amygdala directly, which supports tight links between smell, emotion and memory. Why the others are wrong: A) This reflects fewer receptor neurons and is not explained by the pathway's anatomy. C) Taste and smell use different receptor cells, and this claim does not follow from the passage. D) Adaptation occurs at the receptor and neural level for all senses, including those that use the thalamus.",
+     "trap": "Assuming every sense is routed through the thalamus first; smell is the major exception.",
+     "topic": "Olfactory pathway",
+     "mastery_sheet_id": "6A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P1_Q5",
+     "stem": "The age-group comparison used in the study is a cross-sectional design. Which statement is a valid limitation of that design?",
+     "options": {
+      "A": "Repeated testing of the same participants would cause practice effects.",
+      "B": "Differences might reflect cohort differences, such as lifetime exposure to pollutants, rather than aging itself.",
+      "C": "Participants were not randomly assigned to young and old groups, so no comparison can be made.",
+      "D": "Because the groups are of equal size, the result must be due to chance."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Different age groups differ in birth cohort and life experience, so aging cannot be isolated as the cause of the difference. Why the others are wrong: A) Each participant is tested at one time in a cross-sectional design; repeated measures describe a longitudinal one. C) Age cannot be randomly assigned in any design; the limitation is confounding by cohort, not the impossibility of comparison. D) Equal group sizes do not create chance findings; they generally help statistical power.",
+     "trap": "Treating an age difference in a single-time comparison as proof that aging caused it, ignoring cohort effects.",
+     "topic": "Cross-sectional vs longitudinal designs",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_PS_P2",
+   "passage_text": "Researchers tested whether misleading information received after an event alters eyewitness memory. One hundred eighty adults watched the same 3-minute video of a minor car collision in which a stop sign was clearly visible. Participants were randomly assigned to one of three conditions (n = 60 each). Control participants received no post-event information. Early-misinformation participants read a written summary 10 minutes after the video that mentioned \"the yield sign.\" Late-misinformation participants read the same summary 7 days after the video. All participants were tested on day 8 with a two-alternative forced-choice question: \"Which sign did the car pass: stop or yield?\" Table 1 shows the design and Figure 1 shows the percentage of participants who correctly chose the stop sign. The authors suggested that memory for an event is reconstructed at retrieval, and that a weaker original trace is easier to supplement or replace with later suggestions. The same experimenter, instructions, and video were used in every condition, and participants were not told that the summary might contain errors.",
+   "table_data": "**Table 1. Design**\n\n| Condition | n | Misleading summary read | Test |\n|---|---|---|---|\n| Control | 60 | Never | Day 8 |\n| Early misinformation | 60 | Day 0 (10 min after video) | Day 8 |\n| Late misinformation | 60 | Day 7 | Day 8 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Correct stop-sign choices",
+    "x_label": "Condition (1 = Control, 2 = Early misinformation, 3 = Late misinformation)",
+    "y_label": "Correct choices (%)",
+    "series": [
+     {
+      "name": "Correct stop-sign choice",
+      "points": [
+       [
+        1,
+        85
+       ],
+       [
+        2,
+        60
+       ],
+       [
+        3,
+        40
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_PS_P2_Q1",
+     "stem": "The lower accuracy of the two misinformation groups is best described as which memory phenomenon?",
+     "options": {
+      "A": "Proactive interference, in which previously learned material blocks the later encoding and retrieval of newer information.",
+      "B": "Flashbulb memory, in which emotionally significant events are retained with unusual vividness and high confidence.",
+      "C": "The misinformation effect, in which later information is incorporated into the memory of an event.",
+      "D": "Anterograde amnesia, in which new long-term memories cannot be formed after damage to the hippocampus."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Post-event suggestion about a yield sign reduced correct reports of the stop sign, which is the misinformation effect. Why the others are wrong: A) Proactive interference involves old learning disrupting new learning, but here the new information disrupted the earlier event. B) A minor collision video is not an emotionally significant event, and flashbulb memories would not explain lower accuracy. D) Participants were healthy and had no brain injury.",
+     "trap": "Choosing a familiar memory term (interference or amnesia) without matching the direction of the effect: later information altering an earlier memory.",
+     "topic": "Misinformation effect",
+     "mastery_sheet_id": "6B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P2_Q2",
+     "stem": "How many more participants in the control condition than in the late-misinformation condition correctly chose the stop sign?",
+     "options": {
+      "A": "12",
+      "B": "27",
+      "C": "45",
+      "D": "15"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Control: 85% of 60 = 51 participants. Late: 40% of 60 = 24 participants. 51 - 24 = 27. Why the others are wrong: A) This is 36 - 24, the gap between the early and late groups. C) This is the difference in percentage points (85 - 40), not in numbers of people. D) This is 51 - 36, the gap between the control and early groups.",
+     "trap": "Subtracting percentages and reporting the result as a count of participants.",
+     "topic": "Reading graphs",
+     "mastery_sheet_id": "6B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_PS_P2_Q3",
+     "stem": "Which explanation best accounts for the larger effect of misinformation in the late condition than in the early condition?",
+     "options": {
+      "A": "Participants in the late condition had paid less attention while watching the video, so the stop sign was never encoded into memory at all.",
+      "B": "By day 7 the original memory had weakened, so the suggestion conflicted less and was more easily integrated.",
+      "C": "Consolidation over the week made the original memory more fragile, so it was easily overwritten by any new written information.",
+      "D": "Late summaries were processed only by implicit memory systems, which are largely unaffected by the passage of time."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Forgetting during the delay leaves a weaker original trace, which makes later suggestions easier to accept; this is the authors' proposed mechanism. Why the others are wrong: A) Random assignment makes attention at encoding equal across conditions, and the control group shows the sign was encoded. C) Consolidation generally stabilizes a memory rather than making it more fragile. D) Reading a written summary is explicit, and nothing in the design indicates that implicit memory was the route of influence.",
+     "trap": "Attributing a group difference to unequal encoding even though random assignment makes encoding equivalent across groups.",
+     "topic": "Memory reconstruction",
+     "mastery_sheet_id": "6B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P2_Q4",
+     "stem": "Which analysis is most appropriate for testing whether the proportion of correct stop-sign choices differs among the three conditions?",
+     "options": {
+      "A": "A paired-samples t-test, because every participant watched the same video and provided a response.",
+      "B": "A Pearson correlation between condition number and participants' ages to check the sample for bias.",
+      "C": "A one-way ANOVA on each participant's response, because the outcome is measured on a continuous scale.",
+      "D": "A chi-square test of independence on a 3 x 2 table of condition by correct or incorrect response."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Each participant is in one condition and gave a categorical (correct or incorrect) answer, so a chi-square test compares the proportions across groups. Why the others are wrong: A) Groups are independent, with one response per participant, so a paired test does not apply. B) Age was not analyzed and a correlation with condition number does not compare accuracy. C) The outcome is binary rather than continuous, which does not meet the assumptions of ANOVA.",
+     "trap": "Choosing a familiar parametric test without checking whether the outcome is categorical and the groups independent.",
+     "topic": "Chi-square test",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_PS_P3",
+   "passage_text": "Researchers studied fear conditioning in 36 adult rats. On Day 1, each rat heard a 30-second tone that ended with a brief mild footshock, repeated 5 times. On Day 2, rats heard the tone alone in 5 blocks of trials (extinction training). On Day 3, the tone was presented alone again to test recall. Freezing, the absence of all movement except breathing, was scored from video as a percentage of tone time. Twelve rats each received one of three treatments before training: sham surgery (Control), a lesion of the basolateral amygdala (Amygdala lesion), or Day 2 infusions of muscimol, a GABA-A receptor agonist that silences neurons, into the ventromedial prefrontal cortex (vmPFC inactivated). Freezing at the end of Day 1 and on Day 3 is shown in Table 1, and freezing across Day 2 extinction blocks is shown in Figure 1 for the Control and vmPFC-inactivated groups. The investigators interpreted extinction as new learning that suppresses the conditioned response rather than erasure of the original association.",
+   "table_data": "**Table 1. Freezing to the tone (%, group means)**\n\n| Group | End of Day 1 | Day 3 recall |\n|---|---|---|\n| Control | 70 | 25 |\n| Amygdala lesion | 8 | 6 |\n| vmPFC inactivated | 68 | 62 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Freezing across Day 2 extinction blocks",
+    "x_label": "Extinction block",
+    "y_label": "Freezing (%)",
+    "series": [
+     {
+      "name": "Control",
+      "points": [
+       [
+        1,
+        65
+       ],
+       [
+        2,
+        50
+       ],
+       [
+        3,
+        35
+       ],
+       [
+        4,
+        25
+       ],
+       [
+        5,
+        20
+       ]
+      ]
+     },
+     {
+      "name": "vmPFC inactivated",
+      "points": [
+       [
+        1,
+        66
+       ],
+       [
+        2,
+        60
+       ],
+       [
+        3,
+        58
+       ],
+       [
+        4,
+        56
+       ],
+       [
+        5,
+        55
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_PS_P3_Q1",
+     "stem": "In this experiment, the tone and the footshock are, respectively:",
+     "options": {
+      "A": "the unconditioned stimulus and the conditioned stimulus.",
+      "B": "the conditioned response and the unconditioned response.",
+      "C": "the neutral stimulus and the conditioned stimulus.",
+      "D": "the conditioned stimulus and the unconditioned stimulus."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The tone begins neutral and comes to elicit fear after pairing (CS), while the shock naturally elicits fear (US). Why the others are wrong: A) This reverses the roles; the shock needs no learning to produce a fear response. B) Responses are behaviors such as freezing, whereas the tone and shock are stimuli. C) The tone starts as neutral but becomes the conditioned stimulus; the shock is not conditioned.",
+     "trap": "Confusing stimuli with responses, or reversing which stimulus is learned and which is innate.",
+     "topic": "Classical conditioning terms",
+     "mastery_sheet_id": "6C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P3_Q2",
+     "stem": "The amygdala-lesioned rats froze very little at the end of Day 1. Which additional control would best show that this reflects impaired fear learning rather than an inability to freeze?",
+     "options": {
+      "A": "Measure freezing or flinching of lesioned rats in response to the footshock itself.",
+      "B": "Extend extinction training for lesioned rats to 10 blocks.",
+      "C": "Replace the tone with a light for the control rats.",
+      "D": "Sacrifice the animals before Day 3 to confirm lesion placement."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) If shock still produces an unconditioned response, the lesion likely did not simply abolish the motor or sensory ability to react, supporting a learning or expression deficit. Why the others are wrong: B) Extinction of a response that is not expressed would not clarify why it is absent on Day 1. C) Changing the stimulus in controls does not test the lesioned animals' basic capacity to respond. D) Verifying placement is useful but does not test whether the rats can freeze or sense shock.",
+     "trap": "Assuming a lesion effect on a behavior proves a role in learning without ruling out sensory or motor deficits.",
+     "topic": "Amygdala and fear",
+     "mastery_sheet_id": "6C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P3_Q3",
+     "stem": "In the Control group, freezing rose slightly from the end of Day 2 (20%) to Day 3 (25%). This is most consistent with:",
+     "options": {
+      "A": "stimulus generalization to a new tone.",
+      "B": "acquisition of a second conditioned stimulus.",
+      "C": "spontaneous recovery of the conditioned response after a delay.",
+      "D": "complete erasure of the original memory."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A partial return of a response after extinction and a rest interval suggests the original association was suppressed rather than erased. Why the others are wrong: A) The same tone was used, so there was no new stimulus to generalize to. B) No new CS-US pairing took place on Day 2 or Day 3. D) If the memory had been erased, freezing would not rebound.",
+     "trap": "Reading any small rise in responding as noise instead of recognizing the known recovery phenomenon.",
+     "topic": "Extinction and spontaneous recovery",
+     "mastery_sheet_id": "6C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P3_Q4",
+     "stem": "By what percentage did Control freezing fall from extinction block 1 to block 5 in Figure 1?",
+     "options": {
+      "A": "About 69%",
+      "B": "About 45%",
+      "C": "About 31%",
+      "D": "About 3.3%"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The fall was 65 - 20 = 45 points, and 45/65 is about 0.69, or 69%. Why the others are wrong: B) This is the absolute drop in percentage points, not the relative decline. C) This is the fraction remaining (20/65), not the fraction lost. D) This is the ratio 65/20 misread as a percent.",
+     "trap": "Giving percentage points when the question asks for relative percent change.",
+     "topic": "Extinction data",
+     "mastery_sheet_id": "6C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_PS_P3_Q5",
+     "stem": "The vmPFC-inactivated group showed little extinction. These data best support the idea that the vmPFC:",
+     "options": {
+      "A": "is necessary for the initial acquisition of fear.",
+      "B": "produces the unconditioned response to shock.",
+      "C": "stores the tone-shock association exclusively.",
+      "D": "exerts top-down inhibitory control over amygdala-driven fear responses."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Silencing vmPFC left freezing high across blocks and on Day 3, consistent with a prefrontal role in suppressing the amygdala's fear output during extinction. Why the others are wrong: A) Freezing at the end of Day 1 was as high as in Control, and the vmPFC was silenced only on Day 2. B) The unconditioned response was not measured, and no data link it to the vmPFC. C) The amygdala lesion abolished freezing, pointing to the amygdala rather than vmPFC as critical for the conditioned fear.",
+     "trap": "Assuming a region that disrupts extinction must also be needed for acquisition.",
+     "topic": "Prefrontal regulation of emotion",
+     "mastery_sheet_id": "6C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_PS_P4",
+   "passage_text": "The facial feedback hypothesis proposes that changes in facial muscle activity can influence the emotions a person experiences. One hundred twenty adults were told that the study concerned motor coordination while performing tasks with the mouth. Participants were randomly assigned to hold a pen in one of three ways while rating 12 cartoons for funniness on a scale from 0 (not at all funny) to 9 (extremely funny). Holding the pen between the teeth with the lips open forced the muscles of a smile (n = 40). Holding it with the lips only prevented a smile or produced a pout (n = 40). In the neutral condition, participants held the pen in the non-dominant hand and did not use the mouth (n = 40). Mean ratings are shown in Table 1. The authors argued that sensory feedback from the face contributes to the experience of emotion, and they noted that other laboratories have reported smaller effects with this procedure.",
+   "table_data": "**Table 1. Mean funniness ratings (0-9)**\n\n| Condition | n | Mean | SD |\n|---|---|---|---|\n| Teeth (smile) | 40 | 5.8 | 1.2 |\n| Hand (neutral) | 40 | 5.2 | 1.2 |\n| Lips (no smile) | 40 | 4.6 | 1.2 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_PS_P4_Q1",
+     "stem": "Which theory of emotion most directly predicts that the facial posture manipulation would change reported amusement?",
+     "options": {
+      "A": "The Cannon-Bard theory, which holds that emotional experience and bodily responses arise simultaneously and independently.",
+      "B": "The James-Lange theory, which holds that emotional experience follows from the perception of bodily responses.",
+      "C": "The Lazarus appraisal theory, which holds that a cognitive appraisal of the stimulus must precede any emotional experience.",
+      "D": "The Yerkes-Dodson law, which holds that performance is best at a moderate level of physiological arousal."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) If feedback from facial muscles is perceived as a bodily response and shapes the feeling, emotion follows the body, as the James-Lange theory proposes. Why the others are wrong: A) This theory predicts that body state does not drive emotion, so it would predict no effect of posture. C) Appraisal theory places cognition before emotion and does not predict that muscle posture alone changes feelings. D) This is a relationship between arousal and task performance, not a theory of how emotions arise.",
+     "trap": "Choosing the most familiar emotion theory rather than the one in which bodily feedback precedes the feeling.",
+     "topic": "James-Lange theory",
+     "mastery_sheet_id": "7A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P4_Q2",
+     "stem": "What does the inclusion of the neutral condition allow the researchers to conclude?",
+     "options": {
+      "A": "The smiling posture raised ratings and the non-smiling posture lowered them relative to baseline.",
+      "B": "Only the smiling posture altered ratings, because the lips condition was equal to the neutral baseline.",
+      "C": "Only the non-smiling posture altered ratings, because the teeth condition was equal to the neutral baseline.",
+      "D": "Neither posture altered ratings, because the neutral condition fell between the other two condition means."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Relative to the neutral mean of 5.2, the teeth condition was 0.6 higher (5.8) and the lips condition was 0.6 lower (4.6), so both directions of change are seen. Why the others are wrong: B) The lips mean (4.6) is below the neutral mean, not equal to it. C) The teeth mean (5.8) is above the neutral mean, not equal to it. D) A middle position for the neutral condition is expected if both postures have effects in opposite directions.",
+     "trap": "Interpreting the middle value of a baseline group as evidence that the manipulation had no effect.",
+     "topic": "Baseline comparison",
+     "mastery_sheet_id": "7A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P4_Q3",
+     "stem": "What is the standard error of the mean rating for the teeth (smile) condition? (Use the square root of 40 = 6.3.)",
+     "options": {
+      "A": "0.03",
+      "B": "0.30",
+      "C": "7.6",
+      "D": "0.19"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) SEM = SD / square root of n = 1.2 / 6.3, which is about 0.19. Why the others are wrong: A) This divides the SD by n (1.2 / 40) rather than by the square root of n. B) This divides the SD by 4, which is not a function of the sample size here. C) This multiplies the SD by the square root of n (1.2 x 6.3) rather than dividing.",
+     "trap": "Dividing the standard deviation by n instead of by the square root of n.",
+     "topic": "Standard error",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.mathwords.com/s/standard_error.htm",
+       "https://casrai.org/statistics/standard-error"
+      ]
+     }
+    },
+    {
+     "id": "FL04_PS_P4_Q4",
+     "stem": "The participants were told the study concerned motor coordination. This feature of the design most directly reduces which threat to validity?",
+     "options": {
+      "A": "Selection bias, in which the groups already differ before the manipulation because of nonrandom assignment.",
+      "B": "Demand characteristics, in which participants guess the hypothesis and respond accordingly.",
+      "C": "Regression to the mean, in which extreme initial scores drift toward the average when participants are retested.",
+      "D": "Attrition, in which participants drop out of one condition more often than they drop out of another."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A cover story keeps participants from realizing that smiling and amusement are the focus, so their ratings are less likely to reflect what they think the study predicts. Why the others are wrong: A) Selection bias is handled by random assignment, not by a cover story. C) Regression to the mean concerns repeated measures on extreme scorers, and there was a single rating session. D) Attrition concerns participants leaving the study and is unaffected by what they are told about its purpose.",
+     "trap": "Naming a generic validity threat without linking it to the specific feature of the procedure.",
+     "topic": "Demand characteristics",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_PS_P5",
+   "passage_text": "Researchers presented a hypothetical moral dilemma to 200 participants in four age groups (n = 50 each): a man considers stealing an expensive drug he cannot afford to save his dying wife. Each participant explained whether the man should steal and why. Two trained raters, blind to age, classified the reasoning as preconventional (focused on punishment or personal gain), conventional (focused on social approval, laws, and duty to maintain order), or postconventional (focused on abstract principles of justice that may override specific laws). The percentage of participants in each age group whose reasoning fell into each level is shown in Figure 1. The authors proposed that, as adolescents take on more social roles and learn the expectations of peers, schools, and communities, reasoning shifts from self-interest toward shared social norms. They noted that each participant was interviewed only once. Agreement between the two raters was high (kappa = 0.85), and participants were told that there were no right or wrong answers.",
+   "table_data": "",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Reasoning level by age group",
+    "x_label": "Age group (years)",
+    "y_label": "Participants (%)",
+    "series": [
+     {
+      "name": "Preconventional",
+      "points": [
+       [
+        10,
+        70
+       ],
+       [
+        13,
+        45
+       ],
+       [
+        16,
+        20
+       ],
+       [
+        20,
+        8
+       ]
+      ]
+     },
+     {
+      "name": "Conventional",
+      "points": [
+       [
+        10,
+        28
+       ],
+       [
+        13,
+        50
+       ],
+       [
+        16,
+        68
+       ],
+       [
+        20,
+        70
+       ]
+      ]
+     },
+     {
+      "name": "Postconventional",
+      "points": [
+       [
+        10,
+        2
+       ],
+       [
+        13,
+        5
+       ],
+       [
+        16,
+        12
+       ],
+       [
+        20,
+        22
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_PS_P5_Q1",
+     "stem": "A participant says the man should not steal the drug because breaking the law would damage the order that holds society together. This reasoning is best classified as",
+     "options": {
+      "A": "preconventional, because it is motivated by avoiding punishment.",
+      "B": "preconventional, because it treats the exchange of favors as a fair bargain.",
+      "C": "postconventional, because it is based on universal principles that can override the law.",
+      "D": "conventional, because it is based on upholding laws and the social order."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Appeals to law and the maintenance of social order are the hallmark of conventional reasoning. Why the others are wrong: A) The participant does not mention punishment to the self. B) Nothing in the answer concerns an exchange of favors for personal benefit. C) A postconventional answer would place abstract justice above the law, whereas this answer defends the law.",
+     "trap": "Matching on the word law to the wrong level without noticing that the law is being defended rather than judged by a higher principle.",
+     "topic": "Kohlberg levels",
+     "mastery_sheet_id": "7B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P5_Q2",
+     "stem": "How many of the 16-year-olds used conventional reasoning?",
+     "options": {
+      "A": "68",
+      "B": "10",
+      "C": "34",
+      "D": "17"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 68% of 50 participants = 34. Why the others are wrong: A) This reports the percentage as if it were a count. B) This is 20% of 50, the number using preconventional reasoning. D) This is half of 34 and has no basis in the data.",
+     "trap": "Reporting a percentage as a count when each group has 50 rather than 100 participants.",
+     "topic": "Reading graphs",
+     "mastery_sheet_id": "7B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_PS_P5_Q3",
+     "stem": "The rise in conventional reasoning between the ages of 10 and 16 is most consistent with the influence of which process?",
+     "options": {
+      "A": "Socialization, in which family, peers, and schools transmit the norms of the society.",
+      "B": "Deindividuation, in which anonymity within a crowd reduces the sense of personal responsibility.",
+      "C": "Social facilitation, in which the presence of an audience improves performance on simple tasks.",
+      "D": "Groupthink, in which a cohesive group suppresses dissent in order to reach quick agreement."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Learning the norms of one's society through interaction with family, peers, and institutions is socialization, which the authors propose as the driver. Why the others are wrong: B) Deindividuation concerns reduced restraint in anonymous groups, which would not increase adherence to norms. C) Social facilitation concerns task performance in the presence of others. D) Groupthink describes decision making in a cohesive group, not individual moral development.",
+     "trap": "Picking a group-behavior term because it sounds social without checking whether it describes the learning of norms.",
+     "topic": "Socialization",
+     "mastery_sheet_id": "7B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P5_Q4",
+     "stem": "Which statement about the data in Figure 1 is supported?",
+     "options": {
+      "A": "Preconventional reasoning was more common than conventional reasoning among the 13-year-olds.",
+      "B": "Postconventional reasoning was the most common level among the 20-year-olds.",
+      "C": "The percentage of participants using preconventional reasoning increased with each older age group.",
+      "D": "At age 16, conventional reasoning was more than three times as common as preconventional reasoning."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) At age 16 the values are 68% and 20%, a ratio of 3.4. Why the others are wrong: A) At age 13 conventional (50%) exceeded preconventional (45%). B) At age 20 postconventional was 22% and conventional was 70%. C) Preconventional reasoning fell from 70% to 8% with age.",
+     "trap": "Reading the wrong series or age group, or reversing the direction of a trend.",
+     "topic": "Reading graphs",
+     "mastery_sheet_id": "7B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_PS_P6",
+   "passage_text": "Researchers tested compliance among 300 homeowners in similar neighborhoods. Each was randomly assigned to one of three conditions (n = 100 each). In the small-request condition, a canvasser asked the resident to sign a short petition supporting safer streets, which all residents agreed to do. A week later, a different canvasser asked the resident to install a large 'Drive Carefully' sign in the front yard. In the paid-small-request condition, the first request was the same, but residents were given a $5 voucher for signing. The second request was identical. In the large-request-only condition, residents were approached only with the sign request. Compliance with the sign request, scored by whether a sign was installed within two days, is shown in Table 1. A chi-square test across the three conditions was significant (p < 0.001). The investigators concluded that agreeing to a small request can change how people see themselves, increasing later compliance with larger requests, unless the first action can be attributed to an outside reward.",
+   "table_data": "**Table 1. Compliance with the sign request**\n\n| Condition | Residents | Installed sign, n | Percent |\n|---|---|---|---|\n| Small request | 100 | 46 | 46% |\n| Paid small request | 100 | 24 | 24% |\n| Large request only | 100 | 17 | 17% |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_PS_P6_Q1",
+     "stem": "Asking for a small request first, then a larger one, is an example of which compliance technique?",
+     "options": {
+      "A": "Door-in-the-face",
+      "B": "Lowballing",
+      "C": "Foot-in-the-door",
+      "D": "That's-not-all"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Agreement with a small initial request increases the likelihood of agreement with a later larger request. Why the others are wrong: A) This starts with a large request that is refused before a smaller one is made. B) This involves changing the terms of an agreed request to be less favorable. D) This sweetens an offer before the target decides, and no sweetener was used here.",
+     "trap": "Mixing up foot-in-the-door and door-in-the-face because both involve two requests.",
+     "topic": "Compliance techniques",
+     "mastery_sheet_id": "7C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P6_Q2",
+     "stem": "The lower compliance in the paid-small-request condition is best explained by:",
+     "options": {
+      "A": "classical conditioning, because the voucher became a conditioned stimulus.",
+      "B": "the mere exposure effect, because they saw the petition twice.",
+      "C": "reactance, because the canvassers refused to pay more.",
+      "D": "self-perception: with an external reward available, residents attributed signing to the voucher rather than to their own beliefs."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Payment provides sufficient external justification for the first act, so people do not infer a strong personal commitment to the cause. Why the others are wrong: A) No pairing procedure was used, and this would predict higher compliance. B) Exposure was equal in both small-request conditions. C) No data indicate that residents sought more money or that freedom was threatened.",
+     "trap": "Assuming a reward always increases later cooperation, when it can undercut intrinsic attribution.",
+     "topic": "Self-perception theory",
+     "mastery_sheet_id": "7C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P6_Q3",
+     "stem": "The compliance rate in the small-request condition was approximately how many times that in the large-request-only condition?",
+     "options": {
+      "A": "2.7",
+      "B": "29",
+      "C": "1.9",
+      "D": "0.37"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 46% / 17% is about 2.7. Why the others are wrong: B) This is the percentage-point difference (46 - 17), not a ratio. C) This is the ratio of the small-request to paid condition (46/24), not to the large-request-only condition. D) This is the inverse ratio (17/46).",
+     "trap": "Subtracting percentages when asked for how many times larger.",
+     "topic": "Comparing proportions",
+     "mastery_sheet_id": "7C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_PS_P6_Q4",
+     "stem": "Why is a chi-square test an appropriate analysis for these data?",
+     "options": {
+      "A": "The outcome is a continuous measure that is normally distributed.",
+      "B": "The same residents were measured repeatedly over time.",
+      "C": "The outcome is categorical (sign installed or not), and the test compares frequencies across independent groups.",
+      "D": "The researchers wanted to calculate a correlation between two continuous variables."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Chi-square assesses whether observed counts across categories differ from what would be expected by chance. Why the others are wrong: A) Installing a sign is a yes/no outcome, so the data are not continuous. B) Each resident belonged to only one condition, so groups are independent. D) The analysis compares group frequencies, not two continuous variables.",
+     "trap": "Defaulting to a t-test or ANOVA without checking whether the outcome is categorical.",
+     "topic": "Chi-square test",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P6_Q5",
+     "stem": "A different team first asks residents to host a large billboard, which is almost always refused, and then asks for the yard sign. This approach would most directly rely on:",
+     "options": {
+      "A": "self-perception of consistent commitment to the cause.",
+      "B": "the central route of persuasion through strong arguments.",
+      "C": "the norm of reciprocity, because the second request appears to be a concession.",
+      "D": "operant extinction of the refusal behavior."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The door-in-the-face technique works because a person who sees a concession feels pressure to reciprocate. Why the others are wrong: A) This explains foot-in-the-door because it relies on an agreed first action. B) The technique alters social pressure rather than argument quality. D) No reinforcement schedule is involved.",
+     "trap": "Applying the same explanation (consistency) to both techniques, rather than concession and reciprocity here.",
+     "topic": "Door-in-the-face",
+     "mastery_sheet_id": "7C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_PS_P7",
+   "passage_text": "A school-based study examined whether giving students graded mastery experiences changes math self-efficacy. A total of 160 seventh-graders were randomly assigned to an intervention group (n = 80) or a control group (n = 80). Intervention students completed a 6-month program of problems that began at a manageable level and increased in difficulty only after success. Controls attended regular class. At baseline, 3 months, and 6 months, students rated their confidence in solving specific types of math problems on a scale from 1 (not at all confident) to 7 (completely confident). A standardized math test was given at baseline and at 6 months. Self-efficacy over time is shown in Figure 1. Mean math test scores (out of 100) were 62 at baseline and 74 at 6 months for the intervention group, and 61 at baseline and 65 at 6 months for the control group. Across all students, the change in self-efficacy from baseline to 6 months correlated with the change in test score at r = 0.52. The investigators discussed that self-efficacy differs from global self-esteem.",
+   "table_data": "",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Mean math self-efficacy",
+    "x_label": "Months since baseline",
+    "y_label": "Self-efficacy (1-7)",
+    "series": [
+     {
+      "name": "Intervention",
+      "points": [
+       [
+        0,
+        3.8
+       ],
+       [
+        3,
+        5.1
+       ],
+       [
+        6,
+        5.6
+       ]
+      ]
+     },
+     {
+      "name": "Control",
+      "points": [
+       [
+        0,
+        3.9
+       ],
+       [
+        3,
+        4.0
+       ],
+       [
+        6,
+        4.1
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_PS_P7_Q1",
+     "stem": "The intervention's design of graded successes is most directly based on which source of self-efficacy proposed by Bandura?",
+     "options": {
+      "A": "Vicarious experience",
+      "B": "Mastery experiences",
+      "C": "Verbal persuasion",
+      "D": "Physiological and emotional states"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Repeated personal success at a task is the strongest source of efficacy beliefs. Why the others are wrong: A) This arises from watching similar others succeed, which was not part of the program. C) This involves encouragement from others, not completed successes. D) This refers to interpreting arousal and mood, which was not manipulated.",
+     "trap": "Choosing a source that sounds supportive rather than the one defined by one's own successes.",
+     "topic": "Self-efficacy",
+     "mastery_sheet_id": "8A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P7_Q2",
+     "stem": "What was the difference between the groups in mean improvement in math test score from baseline to 6 months?",
+     "options": {
+      "A": "12 points",
+      "B": "8 points",
+      "C": "9 points",
+      "D": "4 points"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Intervention improved 74 - 62 = 12 and control 65 - 61 = 4, and 12 - 4 = 8. Why the others are wrong: A) This is the intervention group's improvement alone. C) This is the difference in final scores (74 - 65), which ignores baseline differences. D) This is the control group's improvement alone.",
+     "trap": "Comparing final scores instead of comparing change from each group's own baseline.",
+     "topic": "Interpreting change scores",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_PS_P7_Q3",
+     "stem": "Approximately what proportion of the variance in math score change is shared with self-efficacy change?",
+     "options": {
+      "A": "52%",
+      "B": "5.2%",
+      "C": "73%",
+      "D": "27%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The coefficient of determination is r squared, 0.52 x 0.52 = 0.27. Why the others are wrong: A) This is the correlation coefficient itself, not r squared. B) This is a decimal-shift error. C) This is the variance not shared (1 - 0.27).",
+     "trap": "Reading r as the proportion of variance explained.",
+     "topic": "Correlation and variance",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.scribbr.com/?p=376063",
+       "https://www.mathwords.com/c/coefficient_of_determination.htm"
+      ]
+     }
+    },
+    {
+     "id": "FL04_PS_P7_Q4",
+     "stem": "Which statement best distinguishes self-efficacy from self-esteem?",
+     "options": {
+      "A": "Self-efficacy is the discrepancy between the actual self and the ideal self, whereas self-esteem is the actual self-concept.",
+      "B": "Self-efficacy is determined at birth, whereas self-esteem is learned.",
+      "C": "Self-efficacy refers to how others evaluate a person, whereas self-esteem is private.",
+      "D": "Self-efficacy is a belief about one's ability to succeed at specific tasks, whereas self-esteem is a global evaluation of one's own worth."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Efficacy is task-specific and tied to capability, while esteem is a broad affective appraisal of the self. Why the others are wrong: A) This is a description of self-discrepancy, not efficacy. B) Efficacy beliefs are learned and changed, as shown in this study. C) Both are self-evaluations; the distinction is in scope, not audience.",
+     "trap": "Treating the two as synonyms for confidence rather than task-specific versus global.",
+     "topic": "Self-concept",
+     "mastery_sheet_id": "8A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_PS_P8",
+   "passage_text": "Researchers examined how outcomes affect explanations of behavior. In a laboratory study, 120 students took a bogus 'social perceptiveness' test and were randomly told they had either succeeded or failed, regardless of their actual answers. Actors (n = 60) received feedback on their own test, 30 told of success and 30 of failure. Observers (n = 60) watched an actor of the same sex receive the feedback and were told only the actor's result, again 30 in each outcome condition. All participants then rated, on 1 to 7 scales, how much the result was due to internal causes (the actor's ability and effort) and how much to external causes (luck and test difficulty). Higher numbers indicate stronger agreement. Mean ratings are shown in Table 1. The investigators measured self-esteem before the study and found no differences between conditions. They suggested that the actors' pattern helps to protect or enhance self-esteem, while observers tend to under-weight situational factors when explaining another person's outcome.",
+   "table_data": "**Table 1. Mean attribution ratings (1-7)**\n\n| Rater / outcome | Internal | External |\n|---|---|---|\n| Actor, success | 5.8 | 2.9 |\n| Actor, failure | 3.1 | 5.4 |\n| Observer, success | 4.9 | 4.0 |\n| Observer, failure | 4.8 | 4.2 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_PS_P8_Q1",
+     "stem": "The actors' ratings are an example of which attributional bias?",
+     "options": {
+      "A": "Self-serving bias",
+      "B": "Just-world hypothesis",
+      "C": "Confirmation bias",
+      "D": "Halo effect"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Actors credited success to internal causes and blamed failure on external ones, protecting self-esteem. Why the others are wrong: B) This is the belief that people get what they deserve, which would involve judging others' outcomes. C) This is a preference for evidence that matches expectations, not a pattern of causal attributions. D) This is a general positive impression generalizing to other traits.",
+     "trap": "Choosing a bias that matches the word 'self' or 'bias' without matching the direction of attributions.",
+     "topic": "Self-serving bias",
+     "mastery_sheet_id": "8B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P8_Q2",
+     "stem": "Which interpretation of the observers' ratings is most consistent with the table?",
+     "options": {
+      "A": "Observers favored internal over external explanations of the actor's outcome, whether the actor succeeded or failed.",
+      "B": "Observers favored external explanations whenever the actor failed.",
+      "C": "Observers' ratings were identical for success and failure.",
+      "D": "Observers attributed outcomes mainly to luck."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Internal ratings exceeded external ratings in both observer conditions (4.9 vs 4.0 and 4.8 vs 4.2), a pattern consistent with the fundamental attribution error. Why the others are wrong: B) In the observer-failure row, internal (4.8) exceeded external (4.2). C) The ratings were close but not identical, and the claim about the pattern is about direction rather than equality. D) Luck is an external cause, and external ratings were below internal ones.",
+     "trap": "Reading the actor rows when asked about observers, since the actors show the opposite pattern.",
+     "topic": "Fundamental attribution error",
+     "mastery_sheet_id": "8B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P8_Q3",
+     "stem": "Why were participants told they had succeeded or failed regardless of their actual answers?",
+     "options": {
+      "A": "So that every participant would think they were performing well.",
+      "B": "So that observers would have the same abilities as actors.",
+      "C": "So that the outcome would be independent of real ability, isolating the effect of the outcome itself on attributions.",
+      "D": "To avoid the need for a control condition."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Random feedback removes real performance differences as a confound, so differences in attribution can be tied to the outcome. Why the others are wrong: A) Half of the actors were told they failed. B) Observers were not tested and abilities were not the point. D) Random assignment to success or failure serves as the comparison, and it does not replace controls.",
+     "trap": "Assuming real feedback would be more valid, when it would confound ability with outcome.",
+     "topic": "Random assignment and deception",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P8_Q4",
+     "stem": "In the failure conditions, by how much did actors' mean internal rating fall below observers' mean internal rating?",
+     "options": {
+      "A": "2.3",
+      "B": "0.6",
+      "C": "1.7",
+      "D": "2.7"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Observer failure internal (4.8) minus actor failure internal (3.1) equals 1.7, reflecting the actor-observer difference. Why the others are wrong: A) This is the difference in external ratings (5.4 - 3.1), mixing rows and columns. B) This is the difference in actor and observer external ratings for failure (5.4 - 4.8). D) This is the actors' internal difference between success and failure (5.8 - 3.1).",
+     "trap": "Subtracting values from the wrong rows or columns in a two-factor table.",
+     "topic": "Actor-observer difference",
+     "mastery_sheet_id": "8B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_PS_P9",
+   "passage_text": "In a longitudinal study, researchers observed 120 mothers at home when their infants were 3 and 6 months old and rated each mother's sensitivity (prompt, accurate responses to the infant's signals) as high (n = 60) or low (n = 60). At 12 months each infant took part in the Strange Situation, a laboratory procedure with brief separations from and reunions with the caregiver in an unfamiliar room. Observers classified each infant as secure, insecure-avoidant, insecure-resistant, or disorganized; classifications are shown in Table 1. Observers also rated infant distress (0 = none, 7 = extreme) at baseline, during the first separation, and at the first reunion. Mean ratings for the three organized patterns are shown in Figure 1. The raters of infant behavior were unaware of the maternal sensitivity ratings. All families were recruited from one large metropolitan area in a single region and were closely similar in income and in maternal education.",
+   "table_data": "**Table 1. Strange Situation classification (number of infants)**\n\n| Maternal sensitivity | Secure | Avoidant | Resistant | Disorganized | Total |\n|---|---|---|---|---|---|\n| High | 42 | 8 | 4 | 6 | 60 |\n| Low | 18 | 18 | 12 | 12 | 60 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Mean infant distress by episode",
+    "x_label": "Episode (1 = Baseline, 2 = Separation, 3 = Reunion)",
+    "y_label": "Distress rating (0-7)",
+    "series": [
+     {
+      "name": "Secure",
+      "points": [
+       [
+        1,
+        1.0
+       ],
+       [
+        2,
+        4.0
+       ],
+       [
+        3,
+        1.5
+       ]
+      ]
+     },
+     {
+      "name": "Avoidant",
+      "points": [
+       [
+        1,
+        1.0
+       ],
+       [
+        2,
+        1.5
+       ],
+       [
+        3,
+        1.2
+       ]
+      ]
+     },
+     {
+      "name": "Resistant",
+      "points": [
+       [
+        1,
+        1.2
+       ],
+       [
+        2,
+        4.5
+       ],
+       [
+        3,
+        4.8
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_PS_P9_Q1",
+     "stem": "Across all 120 infants, what percentage were classified as secure?",
+     "options": {
+      "A": "60%",
+      "B": "70%",
+      "C": "30%",
+      "D": "50%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Secure infants = 42 + 18 = 60, and 60 / 120 = 50%. Why the others are wrong: A) This is the number of secure infants (60) written as a percentage. B) This is the proportion secure in the high-sensitivity group alone (42 / 60). C) This is the proportion secure in the low-sensitivity group alone (18 / 60).",
+     "trap": "Using the percentage from one subgroup, or the raw count, instead of pooling both groups and dividing by the total.",
+     "topic": "Weighted proportions",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_PS_P9_Q2",
+     "stem": "Which series in Figure 1 represents the pattern in which the infant seeks contact at reunion but is not comforted and remains distressed?",
+     "options": {
+      "A": "Secure, because the infant is upset at separation and returns to the caregiver for comfort.",
+      "B": "Avoidant, because the infant shows little distress and turns away from the caregiver on reunion.",
+      "C": "Resistant, because the infant is highly distressed at separation and remains so at reunion.",
+      "D": "None of the series, because that pattern is defined only for disorganized infants."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The resistant (ambivalent) pattern shows distress that rises at separation and stays high at reunion (4.5 to 4.8). Why the others are wrong: A) Secure infants calm at reunion (4.0 to 1.5), showing that contact comforts them. B) Avoidant infants show little distress at any point and do not seek contact. D) Disorganized infants show contradictory or confused behavior and were not plotted in Figure 1, so the claim is false and the pattern still appears.",
+     "trap": "Matching on distress at separation alone and ignoring what happens at reunion, which is what separates the patterns.",
+     "topic": "Attachment styles",
+     "mastery_sheet_id": "8C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P9_Q3",
+     "stem": "Compared with the high-sensitivity group, how many times as large was the proportion of infants in the low-sensitivity group who were classified as insecure (any type)?",
+     "options": {
+      "A": "About 1.4",
+      "B": "About 0.43",
+      "C": "About 40",
+      "D": "About 2.3"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Insecure in the low group = 18 + 12 + 12 = 42 of 60 (70%). Insecure in the high group = 8 + 4 + 6 = 18 of 60 (30%). 70 / 30 is about 2.3. Why the others are wrong: A) This is 70 / 50, comparing the low group with the overall rate. B) This inverts the ratio (30 / 70). C) This is the difference in percentage points (70 - 30) rather than a ratio.",
+     "trap": "Inverting the ratio or reporting a difference in percentage points when the question asks for a ratio.",
+     "topic": "Comparing proportions",
+     "mastery_sheet_id": "8C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_PS_P9_Q4",
+     "stem": "Which alternative explanation could account for the association between maternal sensitivity and infant security even though sensitivity was measured before the Strange Situation?",
+     "options": {
+      "A": "Insecure attachment at 12 months could have caused the lower maternal sensitivity that was measured at 3 and 6 months.",
+      "B": "Infant temperament, such as irritability, could both hinder caregiving and increase insecure behavior.",
+      "C": "The Strange Situation observers could have been influenced by knowing each mother's earlier sensitivity rating.",
+      "D": "The measure of distress may not have been reliable, because it used only a 0 to 7 rating scale."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A third variable, such as an infant trait that affects both caregiving and attachment behavior, is a confound that the observational design does not rule out. Why the others are wrong: A) Sensitivity was measured at 3 and 6 months, before the 12-month classification, so a later outcome cannot cause it. C) The passage states that behavior raters were unaware of the sensitivity ratings. D) A rating scale of this kind does not make the measure unreliable and would not by itself explain a group association.",
+     "trap": "Proposing reverse causation or rater bias without checking the timeline and the blinding described in the passage.",
+     "topic": "Confounding and temperament",
+     "mastery_sheet_id": "8C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P9_Q5",
+     "stem": "A secure infant explores the room while the caregiver is present but returns to the caregiver when upset. According to attachment theory, this behavior shows that the caregiver serves as",
+     "options": {
+      "A": "a conditioned stimulus that has become associated with feeding through classical conditioning.",
+      "B": "a secure base for exploration and a safe haven for comfort.",
+      "C": "a model whose behavior the infant imitates and is later reinforced for imitating.",
+      "D": "a source of contact comfort that matters mainly when the infant is hungry."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Ainsworth described the attachment figure as a secure base for exploration and a safe haven in distress. Why the others are wrong: A) Attachment theory emphasizes responsiveness and not pairing with feeding as a conditioning process. C) Imitation and reinforcement belong to social learning theory, not to this description. D) Harlow's work showed that contact comfort is valued independent of feeding.",
+     "trap": "Explaining attachment as feeding or conditioning rather than as responsive caregiving that supports exploration.",
+     "topic": "Secure base",
+     "mastery_sheet_id": "8C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_PS_P10",
+   "passage_text": "Demographers reviewed national statistics for one country across four years, shown in Table 1. Crude birth rate (CBR) and crude death rate (CDR) are births and deaths per 1,000 people per year. The net migration rate (NMR) is immigrants minus emigrants per 1,000 people per year. The total growth rate per 1,000 equals CBR - CDR + NMR. During this period, the country built clean water systems and vaccination programs, and many young adults left rural villages to work abroad before return migration began in the 2010s. Figure 1 plots CBR and CDR. The researchers noted that the later fall in CBR coincided with the shift in NMR from negative to positive, but cautioned that the data came from only four time points for a single country. Return migrants were counted as immigrants, and all rates came from official national registries that used the same standard definitions in each year.",
+   "table_data": "**Table 1. National demographic data**\n\n| Year | CBR | CDR | NMR | Population (millions) |\n|---|---|---|---|---|\n| 1970 | 40 | 20 | -2 | 30 |\n| 1985 | 36 | 10 | -4 | 40 |\n| 2000 | 24 | 7 | -3 | 52 |\n| 2015 | 12 | 9 | +1 | 59 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Crude birth and death rates",
+    "x_label": "Year",
+    "y_label": "Rate per 1,000 people",
+    "series": [
+     {
+      "name": "CBR",
+      "points": [
+       [
+        1970,
+        40
+       ],
+       [
+        1985,
+        36
+       ],
+       [
+        2000,
+        24
+       ],
+       [
+        2015,
+        12
+       ]
+      ]
+     },
+     {
+      "name": "CDR",
+      "points": [
+       [
+        1970,
+        20
+       ],
+       [
+        1985,
+        10
+       ],
+       [
+        2000,
+        7
+       ],
+       [
+        2015,
+        9
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_PS_P10_Q1",
+     "stem": "What was the country's total annual growth rate in 2000, as a percentage?",
+     "options": {
+      "A": "14%",
+      "B": "1.7%",
+      "C": "2.0%",
+      "D": "1.4%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Total growth = 24 - 7 + (-3) = 14 per 1,000, which is 1.4%. Why the others are wrong: A) This leaves the rate per 1,000 as if it were a percentage. B) This is the rate of natural increase (17 per 1,000) with migration ignored. C) This adds the emigration term (24 - 7 + 3 = 20 per 1,000) when it should be subtracted.",
+     "trap": "Forgetting that rates per 1,000 must be divided by 10 to give a percentage, or mishandling the sign of net migration.",
+     "topic": "Population growth rate",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_PS_P10_Q2",
+     "stem": "Which stage of the demographic transition and which process best explain the large gap between CBR and CDR in 1985?",
+     "options": {
+      "A": "Stage 1, because both birth and death rates were still high and the population was roughly stable.",
+      "B": "Stage 2, because mortality fell with sanitation and medicine while fertility stayed high.",
+      "C": "Stage 3, because declining fertility had already brought the birth rate close to the death rate.",
+      "D": "Stage 4, because both rates were low and population growth had nearly stopped completely."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) In 1985 the CDR (10) had fallen well below the CBR (36), which is characteristic of the early expanding stage where public health measures cut death rates first. Why the others are wrong: A) In stage 1 both rates are high and nearly equal, but here they differ by 26 per 1,000. C) In stage 3 fertility has declined substantially, whereas the CBR here is still 36. D) In stage 4 both rates are low and similar, which does not match a CBR of 36.",
+     "trap": "Choosing a stage from the size of one rate rather than from the relationship between the birth and death rates.",
+     "topic": "Demographic transition",
+     "mastery_sheet_id": "9B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_PS_P10_Q3",
+     "stem": "Approximately how many people did the country gain or lose through net migration in 2000?",
+     "options": {
+      "A": "A net gain of about 156,000 people",
+      "B": "A net loss of about 1,560,000 people",
+      "C": "A net loss of about 156,000 people",
+      "D": "A net loss of about 3,000 people"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) NMR = -3 per 1,000 and the population was 52 million (52,000 thousand), so net migration = -3 x 52,000 = -156,000. Why the others are wrong: A) This has the right size but the wrong sign, as emigrants outnumbered immigrants. B) This is off by a factor of 10. D) This is the rate itself (3 per 1,000) and has not been multiplied by the population.",
+     "trap": "Using the rate per 1,000 as if it were a number of people, or losing track of the sign and the factor of 1,000.",
+     "topic": "Net migration",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_PS_P10_Q4",
+     "stem": "The researchers noted that CBR fell while NMR shifted from negative to positive. Why does this not show that immigration lowered the birth rate?",
+     "options": {
+      "A": "Both trends could reflect broader development, such as urbanization, so causation is unsupported.",
+      "B": "Net migration rates cannot be meaningfully compared with birth rates because they are measured in different units.",
+      "C": "The birth rate had already reached its lowest possible value before the direction of migration changed.",
+      "D": "Four years of data are enough to prove an association but not enough to calculate any rate."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Two variables that change over time together can both be driven by a third process, and correlation from four points in one country cannot establish causation. Why the others are wrong: B) Both are rates per 1,000 people, so the units do not prevent comparison. C) The CBR continued to fall from 24 to 12 after 2000, when NMR was still negative. D) The rates are given for each year, and the limitation concerns inferring causation rather than computing rates.",
+     "trap": "Treating a temporal association between two trends as proof that one caused the other.",
+     "topic": "Correlation vs. causation",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL04_PS_D1",
+   "stem": "A person can just notice the difference between a 40 g weight and a 42 g weight. According to Weber's law, about how much heavier than a 100 g weight must a comparison weight be for the difference to just be noticeable?",
+   "options": {
+    "A": "5 g",
+    "B": "2 g",
+    "C": "10 g",
+    "D": "0.5 g"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The Weber fraction is 2/40 = 0.05, so the JND at 100 g is 0.05 x 100 = 5 g. Why the others are wrong: B) This assumes the JND is a constant amount regardless of the base weight. C) This would imply a fraction of 10%, which is twice the measured fraction. D) This is a decimal misplacement of the fraction.",
+   "trap": "Assuming the just-noticeable difference is a fixed amount rather than a fixed proportion.",
+   "topic": "Weber's law",
+   "mastery_sheet_id": "6A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://elvers.us/perception/WebersLaw/",
+     "https://sk.sagepub.com/ency/edvol/embed/the-sage-encyclopedia-of-research-design-2e/chpt/weber-fechner-law"
+    ]
+   }
+  },
+  {
+   "id": "FL04_PS_D2",
+   "stem": "A patient has damage to hair cells located at the base of the cochlea, near the oval window. Which hearing change is most likely?",
+   "options": {
+    "A": "Loss of sensitivity to high-frequency sounds.",
+    "B": "Loss of sensitivity to low-frequency sounds.",
+    "C": "Loss of the sense of balance.",
+    "D": "Loss of perception of loudness at all frequencies equally."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The basilar membrane is narrow and stiff at the base, which responds to high frequencies, whereas the apex responds to low frequencies. Why the others are wrong: B) The apex of the cochlea encodes low frequencies. C) Balance depends on the vestibular organs, not the cochlear hair cells. D) Place coding means damage is localized to certain frequencies.",
+   "trap": "Reversing base and apex, which gives low frequency rather than high.",
+   "topic": "Cochlea and place theory",
+   "mastery_sheet_id": "6A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_PS_D3",
+   "stem": "A sleeper is awakened and reports a vivid dream. The EEG shows low-amplitude, high-frequency activity, and rapid eye movements are visible. Which additional observation would be expected during this stage?",
+   "options": {
+    "A": "Slow, high-amplitude delta waves.",
+    "B": "Temporary paralysis of the skeletal muscles.",
+    "C": "Sleep spindles and K-complexes.",
+    "D": "Increased muscle tone and sleepwalking."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) REM sleep features brain activity resembling waking with muscle atonia, which prevents acting out dreams. Why the others are wrong: A) Delta waves characterize slow-wave sleep, not REM. C) These characterize stage N2 sleep. D) Sleepwalking occurs in slow-wave sleep, and REM is associated with muscle atonia.",
+   "trap": "Matching 'brain activity resembles waking' to wakefulness and forgetting that REM has atonia.",
+   "topic": "Sleep stages",
+   "mastery_sheet_id": "6B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_PS_D4",
+   "stem": "According to the Yerkes-Dodson law, a student who is preparing to perform a very difficult task will do best at which level of arousal?",
+   "options": {
+    "A": "The highest possible level of arousal.",
+    "B": "No arousal at all.",
+    "C": "A relatively low to moderate level of arousal.",
+    "D": "A level of arousal independent of task difficulty."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Optimal arousal is lower for complex or difficult tasks and higher for simple, well-learned ones. Why the others are wrong: A) High arousal tends to impair performance on difficult tasks. B) Performance requires some arousal and declines at very low levels. D) The law specifically ties optimal arousal to task difficulty.",
+   "trap": "Believing more arousal always improves performance regardless of task difficulty.",
+   "topic": "Arousal and performance",
+   "mastery_sheet_id": "6C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_PS_D5",
+   "stem": "Hallucinations and delusions in schizophrenia are most commonly linked with overactivity of dopamine signaling in which pathway?",
+   "options": {
+    "A": "The nigrostriatal pathway",
+    "B": "The hypothalamic-pituitary pathway",
+    "C": "The corticospinal pathway",
+    "D": "The mesolimbic pathway"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Excess dopamine activity in mesolimbic circuitry is linked to positive symptoms, and many antipsychotics block D2 receptors. Why the others are wrong: A) Loss of dopamine neurons here causes the motor symptoms of Parkinson's disease. B) This is a neuroendocrine axis and is not the main pathway for psychosis. C) This is a motor pathway and does not use dopamine as its main transmitter.",
+   "trap": "Connecting dopamine with the pathway for Parkinson's disease instead of the one for psychosis.",
+   "topic": "Dopamine pathways",
+   "mastery_sheet_id": "7A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_PS_D6",
+   "stem": "Before a discussion, members of a jury each favor a moderately harsh penalty. After the discussion, the group favors an even harsher penalty than any member's original view. This outcome is best explained by:",
+   "options": {
+    "A": "group polarization.",
+    "B": "groupthink.",
+    "C": "social loafing.",
+    "D": "the bystander effect."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Discussion tends to strengthen the existing leaning of the group through exposure to persuasive arguments and social comparison. Why the others are wrong: B) Groupthink involves suppression of dissent to preserve harmony, with poor decisions as a hallmark. C) This concerns reduced individual effort rather than shifted opinions. D) This concerns reduced helping in emergencies.",
+   "trap": "Choosing groupthink for any bad group decision rather than noting the move to a more extreme shared position.",
+   "topic": "Group polarization",
+   "mastery_sheet_id": "7B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_PS_D7",
+   "stem": "A smoker who believes that smoking is harmful tells himself, 'I'd rather enjoy a shorter life than worry about every risk.' This is best explained by:",
+   "options": {
+    "A": "cognitive dissonance reduction by changing one's cognition.",
+    "B": "the foot-in-the-door effect.",
+    "C": "operant punishment of smoking.",
+    "D": "the mere exposure effect."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Dissonance between behavior and belief is reduced by altering or adding beliefs that justify the behavior. Why the others are wrong: B) This is a compliance technique that does not explain justification of a behavior. C) The statement does not describe consequences that decrease behavior. D) This is a preference from repeated exposure.",
+   "trap": "Missing that the person is changing a belief to fit behavior rather than changing the behavior.",
+   "topic": "Cognitive dissonance",
+   "mastery_sheet_id": "7C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_PS_D8",
+   "stem": "A teenager decides she is a gifted singer because classmates keep praising her voice, and she pictures how they see her and judges herself accordingly. Which concept best describes how her self-concept is forming?",
+   "options": {
+    "A": "Self-serving bias",
+    "B": "Social comparison",
+    "C": "The looking-glass self",
+    "D": "Self-efficacy through mastery experience"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Cooley's looking-glass self holds that people build self-concept by imagining how others perceive and judge them, then adopting that reflected appraisal. Why the others are wrong: A) Self-serving bias is crediting successes to oneself and blaming failures on external causes, which is not described here. B) Social comparison involves evaluating oneself against other people's abilities, whereas here she is reacting to others' views of her. D) Self-efficacy through mastery comes from her own successful performances, not from imagined appraisals by others.",
+   "trap": "Picking social comparison because other people are involved, instead of noticing that she is internalizing how others judge her.",
+   "topic": "Looking-glass self",
+   "mastery_sheet_id": "8A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_PS_D9",
+   "stem": "In a classic field experiment, rival groups of boys that had previously been hostile came to cooperate after being given shared goals that none could achieve alone. This best illustrates which strategy for reducing prejudice?",
+   "options": {
+    "A": "Contact under conditions with superordinate goals.",
+    "B": "Using illusory correlations.",
+    "C": "Emphasizing realistic group conflict.",
+    "D": "Reinforcing in-group favoritism."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Cooperation toward common goals is a key condition for contact to reduce intergroup conflict. Why the others are wrong: B) These link groups with traits and often foster stereotypes. C) Competition over resources increases hostility. D) This raises, not lowers, intergroup bias.",
+   "trap": "Choosing a mechanism that causes prejudice instead of reducing it.",
+   "topic": "Contact hypothesis",
+   "mastery_sheet_id": "8B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_PS_D10",
+   "stem": "A waiter is polite and formal when serving customers in the dining room but jokes and curses with colleagues in the kitchen. Which concept best describes this?",
+   "options": {
+    "A": "Role conflict",
+    "B": "Social facilitation",
+    "C": "Dramaturgical approach, with front-stage and back-stage behavior",
+    "D": "Self-fulfilling prophecy"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Goffman described social life as performance, with impression management in front stages and relaxed behavior back stage. Why the others are wrong: A) This arises when incompatible demands of two roles collide. B) This is a performance change due to the presence of others on a task. D) This is a belief that leads to behavior that makes it come true.",
+   "trap": "Confusing the switch between settings with conflict between roles.",
+   "topic": "Impression management",
+   "mastery_sheet_id": "8C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_PS_D11",
+   "stem": "In Merton's strain theory, a person who accepts the cultural goal of financial success but turns to illegal means because legitimate means are blocked is classified as a:",
+   "options": {
+    "A": "conformist.",
+    "B": "innovator.",
+    "C": "ritualist.",
+    "D": "retreatist."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Innovation means accepting cultural goals while rejecting the socially approved means. Why the others are wrong: A) This person accepts both goals and means. C) This person abandons the goals but follows the means. D) This person rejects both the goals and the means.",
+   "trap": "Selecting the label by sound (e.g., 'conformist' for success-seeking) instead of the goals-means grid.",
+   "topic": "Strain theory",
+   "mastery_sheet_id": "9A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_PS_D12",
+   "stem": "In a small farming village where everyone does similar work, shares the same beliefs, and cohesion rests on likeness, Durkheim would describe the society's solidarity as:",
+   "options": {
+    "A": "organic solidarity.",
+    "B": "anomie.",
+    "C": "the iron cage of rationality.",
+    "D": "mechanical solidarity."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Mechanical solidarity arises from shared beliefs and similar roles, typical of small traditional societies. Why the others are wrong: A) This arises from interdependence among specialized roles in complex societies. B) This is a state of normlessness that arises when social regulation weakens. C) This is Weber's idea of rationalization and bureaucracy.",
+   "trap": "Assuming 'organic' fits a rural or natural setting, when it refers to interdependent specialization.",
+   "topic": "Durkheim's solidarity",
+   "mastery_sheet_id": "9A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_PS_D13",
+   "stem": "A town has a mid-year population of 80,000. In one year there are 1,200 births and 640 deaths, and migration is zero. What is the rate of natural increase?",
+   "options": {
+    "A": "7 per 1,000",
+    "B": "15 per 1,000",
+    "C": "8 per 1,000",
+    "D": "0.7 per 1,000"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Natural increase = births minus deaths = 560, and 560/80,000 x 1,000 = 7 per 1,000. Why the others are wrong: B) This is the crude birth rate (1,200/80,000), not the net increase. C) This is the crude death rate (640/80,000). D) This is a decimal error, since 0.7% is 7 per 1,000.",
+   "trap": "Reporting the birth rate or confusing a percentage with a per-1,000 rate.",
+   "topic": "Rate of natural increase",
+   "mastery_sheet_id": "9B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://fiveable.me/ap-hug/key-terms/natural-increase-rate.md"
+    ]
+   }
+  },
+  {
+   "id": "FL04_PS_D14",
+   "stem": "A student whose parents regularly took her to museums and who speaks in a style favored by teachers performs well in school. Which concept best explains this advantage?",
+   "options": {
+    "A": "Social capital",
+    "B": "Cultural capital",
+    "C": "Anomie",
+    "D": "Relative deprivation"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Bourdieu's cultural capital refers to knowledge, tastes and styles that confer advantage in institutions. Why the others are wrong: A) This refers to the resources through networks and relationships rather than familiarity with culture. C) This is a state of normlessness. D) This is perceived disadvantage relative to a comparison group.",
+   "trap": "Selecting social capital because both include 'capital' and family involvement.",
+   "topic": "Cultural capital",
+   "mastery_sheet_id": "10A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_PS_D15",
+   "stem": "A researcher runs 20 independent hypothesis tests, each at alpha = 0.05, on data in which every null hypothesis is true. About how many statistically significant results would be expected by chance?",
+   "options": {
+    "A": "0",
+    "B": "1",
+    "C": "5",
+    "D": "20"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Each test has a 5% false-positive chance, so 20 x 0.05 = 1 expected false positive. Why the others are wrong: A) A true null hypothesis can still be rejected at the rate alpha. C) This is 25% of 20 (or 5% of 100), not alpha times the number of tests. D) This would require every test to produce a false positive.",
+   "trap": "Assuming that if no effects exist, no results will reach significance.",
+   "topic": "Type I error and multiple comparisons",
+   "mastery_sheet_id": "SIRS",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.biostathandbook.com/multiplecomparisons.html"
+    ]
+   }
+  }
+ ]
+}

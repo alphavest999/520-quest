@@ -1,0 +1,155 @@
+[
+  {
+    "id": 1,
+    "type": "question",
+    "passage_id": "bp1098",
+    "passage_text": "Researchers studied the effect of a novel cognitive training program on reaction times in adults aged 25-35. The study employed a randomized controlled design with two equal-sized groups: a training group that received 30 minutes of the program daily for four weeks, and a control group that engaged in non-cognitive leisure activities for the same duration. Reaction times were measured using a computerized simple reaction time task at baseline, immediately after the intervention, and at a 4‑week follow‑up. The training group exhibited a mean reduction of 45 ms (SD = 12 ms) immediately post‑intervention, whereas the control group’s mean change was 5 ms (SD = 10 ms). At follow‑up, the training group’s mean reaction time remained 30 ms faster than baseline (SD = 15 ms), while the control group returned to its baseline mean. The study concluded that the training program produces a short‑term improvement in reaction time that partially sustains over a month. The authors suggest that the program may enhance attentional resource allocation, potentially benefiting occupations requiring rapid decision making.",
+    "table_data": {
+      "columns": [
+        "Group",
+        "Mean Reaction Time (ms)",
+        "Standard Deviation (ms)"
+      ],
+      "rows": [
+        [
+          "Training",
+          "350",
+          "12"
+        ],
+        [
+          "Control",
+          "360",
+          "10"
+        ],
+        [
+          "Training (Post‑Intervention)",
+          "305",
+          "12"
+        ],
+        [
+          "Control (Post‑Intervention)",
+          "355",
+          "10"
+        ],
+        [
+          "Training (Follow‑Up)",
+          "320",
+          "15"
+        ],
+        [
+          "Control (Follow‑Up)",
+          "360",
+          "10"
+        ]
+      ]
+    },
+    "stem": "Based on the table, what is the mean difference in reaction time between the training and control groups immediately after the intervention?",
+    "options": {
+      "A": "45 ms",
+      "B": "50 ms",
+      "C": "40 ms",
+      "D": "55 ms"
+    },
+    "correct": "B",
+    "explanation": "Correct: B) Immediately after the intervention the training mean is 305 ms and the control mean is 355 ms; 355 − 305 = 50 ms. Why the others are wrong: A) 45 ms is the training group's own change from baseline (350 − 305). C) 40 ms is the difference between the two groups' changes (45 − 5), not between their post-intervention means. D) 55 ms compares the control baseline (360) with the training post-intervention value (305).",
+    "trap": "Reporting the training group's own 45 ms drop from baseline instead of the 50 ms gap between the two groups' post-intervention means.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  },
+  {
+    "id": 2,
+    "type": "question",
+    "passage_id": "bp1098",
+    "passage_text": "",
+    "table_data": {},
+    "stem": "Which experimental design best controls for potential confounding variables in this study?",
+    "options": {
+      "A": "Cross‑sectional design",
+      "B": "Randomized controlled trial",
+      "C": "Case‑control study",
+      "D": "Longitudinal cohort study"
+    },
+    "correct": "B",
+    "explanation": "A randomized controlled trial (RCT) randomly assigns participants to intervention and control groups, thereby balancing known and unknown confounders across groups. This design is the gold standard for testing causal effects of interventions.",
+    "trap": "Students might choose a longitudinal cohort study because the study follows participants over time, but this design does not randomize assignment.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:02:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": 3,
+    "type": "question",
+    "passage_id": "bp1098",
+    "passage_text": "",
+    "table_data": {},
+    "stem": "Calculate the Cohen’s d effect size for the immediate post‑intervention reaction time difference between the training and control groups.",
+    "options": {
+      "A": "2.27",
+      "B": "4.17",
+      "C": "4.53",
+      "D": "50.0"
+    },
+    "correct": "C",
+    "explanation": "Correct: C) SD_pooled = √[(12² + 10²)/2] = √122 ≈ 11.05 ms; d = (355 − 305)/11.05 = 50/11.05 ≈ 4.53 (very large because the table SDs are small). Why the others are wrong: A) 2.27 divides by the sum of the SDs (22). B) 4.17 divides by the training SD alone (12). D) 50.0 is the raw difference in ms, not a standardized effect size.",
+    "trap": "Dividing the 50 ms difference by one SD or by the sum of the SDs, or reporting the raw 50 ms, instead of dividing by the pooled SD of about 11.05 ms.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:04:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": 4,
+    "type": "question",
+    "passage_id": "bp1098",
+    "passage_text": "",
+    "table_data": {},
+    "stem": "Which of the following statements is NOT supported by the table?",
+    "options": {
+      "A": "The training group's mean reaction time at follow‑up (320 ms) was faster than its baseline (350 ms).",
+      "B": "The training group's improvement from baseline was the same size at follow‑up as immediately after the intervention.",
+      "C": "The control group's mean reaction time at follow‑up equaled its baseline.",
+      "D": "The gap between the groups was larger immediately after the intervention than at baseline."
+    },
+    "correct": "B",
+    "explanation": "Correct: B) The improvement was 45 ms (350 to 305) immediately after the intervention but 30 ms (350 to 320) at follow‑up, so it was not the same size. Why the others are wrong: A) 320 ms is lower than 350 ms. C) both values are 360 ms. D) the gap was 10 ms at baseline (360 minus 350) and 50 ms after the intervention.",
+    "trap": "Overlooking that 15 ms of the 45 ms gain was lost between the post-intervention and follow-up measurements.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:06:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  },
+  {
+    "id": 5,
+    "type": "question",
+    "passage_id": "bp1098",
+    "passage_text": "",
+    "table_data": {},
+    "stem": "What fraction of the training group's immediate improvement (baseline to post‑intervention) was retained at follow‑up?",
+    "options": {
+      "A": "About 33%",
+      "B": "About 50%",
+      "C": "About 67%",
+      "D": "100%"
+    },
+    "correct": "C",
+    "explanation": "Correct: The immediate improvement was 45 ms and the improvement at follow‑up was 30 ms; 30/45 is about 67%. Why the others are wrong: A) 33% is the fraction lost (15/45), not retained. B) 50% would require a 22.5 ms improvement. D) 100% would mean follow‑up equaled the post‑intervention mean of 305 ms; it was 320 ms.",
+    "trap": "Option A tempts readers to report the fraction lost (15/45) rather than the fraction retained.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:08:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  }
+]

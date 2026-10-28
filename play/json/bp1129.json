@@ -1,0 +1,148 @@
+[
+  {
+    "id": "bp1129_q1",
+    "type": "question",
+    "passage_id": "bp1129",
+    "passage_text": "Researchers at the University of Greenfield investigated the growth dynamics of two bacterial strains, Strain A and Strain B, under identical laboratory conditions. Over a 10‑day period, they measured colony forming units (CFUs) at 0, 2, 4, 6, 8, and 10 days. The data suggested that Strain A exhibited a rapid initial growth phase followed by a plateau, whereas Strain B grew steadily throughout the observation period. The researchers hypothesized that the difference might be due to variations in metabolic pathways affecting nutrient uptake. To test this, they planned to conduct a series of experiments manipulating glucose concentrations and measuring the resulting growth curves. The table below summarizes the raw CFU counts for both strains.",
+    "table_data": [
+      {
+        "Time (days)": 0,
+        "Strain A CFU": 12000,
+        "Strain B CFU": 11000
+      },
+      {
+        "Time (days)": 2,
+        "Strain A CFU": 48000,
+        "Strain B CFU": 15000
+      },
+      {
+        "Time (days)": 4,
+        "Strain A CFU": 110000,
+        "Strain B CFU": 20000
+      },
+      {
+        "Time (days)": 6,
+        "Strain A CFU": 120000,
+        "Strain B CFU": 28000
+      },
+      {
+        "Time (days)": 8,
+        "Strain A CFU": 120000,
+        "Strain B CFU": 36000
+      },
+      {
+        "Time (days)": 10,
+        "Strain A CFU": 120000,
+        "Strain B CFU": 44000
+      }
+    ],
+    "stem": "Based on the data presented, which statement best describes the growth pattern of Strain A over the 10‑day period?",
+    "options": {
+      "A": "Strain A shows exponential growth throughout the entire period.",
+      "B": "Strain A grows rapidly initially and then levels off, indicating a plateau.",
+      "C": "Strain A grows steadily without any changes in rate.",
+      "D": "Strain A declines after day 6."
+    },
+    "correct": "B",
+    "explanation": "The CFU counts for Strain A increase sharply from day 0 to day 4, then remain nearly constant from day 6 onward, indicating a rapid initial phase followed by a plateau.",
+    "trap": "Option A is tempting because of the large early increase, but the data show no continued exponential rise after day 4.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1129_q2",
+    "type": "question",
+    "passage_id": "bp1129",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which experimental design would best test the hypothesis that glucose concentration affects the growth rate of Strain B?",
+    "options": {
+      "A": "Measure CFU counts of Strain B in a single culture with a fixed glucose concentration over 10 days.",
+      "B": "Compare CFU counts of Strain B and Strain A in the same glucose concentration.",
+      "C": "Grow Strain B in multiple cultures with varying glucose concentrations (e.g., 0.5%, 1%, 2%) and measure CFU counts at identical time points.",
+      "D": "Introduce a different nutrient to Strain B and observe changes in CFU counts."
+    },
+    "correct": "C",
+    "explanation": "To isolate the effect of glucose, multiple cultures with different glucose levels should be compared while keeping all other variables constant.",
+    "trap": "Option A fails to test the variable of interest; Option B compares two strains instead of glucose levels.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1129_q3",
+    "type": "question",
+    "passage_id": "bp1129",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Using the data for Strain B, calculate the compound (geometric) average daily growth rate between day 2 and day 10.",
+    "options": {
+      "A": "14%",
+      "B": "24%",
+      "C": "22.5%",
+      "D": "30.0%"
+    },
+    "correct": "A",
+    "explanation": "Correct: A) Growth from 1.5×10⁴ to 4.4×10⁴ CFU over 8 days: (4.4/1.5)^(1/8) - 1 = 0.144, or about 14% per day. Why the others are wrong: B) 24% divides the total percent increase (193%) by 8 days, ignoring compounding. C) 22.5% does not follow from the data. D) 30.0% does not follow from the data.",
+    "trap": "Dividing the total percent increase (about 193%) by 8 days gives roughly 24% per day, which overstates the compound daily rate.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": "bp1129_q4",
+    "type": "question",
+    "passage_id": "bp1129",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following is a potential confounding factor that could invalidate the conclusion that glucose concentration affects Strain B growth?",
+    "options": {
+      "A": "Recording the glucose concentration of each culture.",
+      "B": "Maintaining identical temperature and pH across all cultures.",
+      "C": "Varying the inoculum size between cultures.",
+      "D": "Measuring CFU counts at the same time points."
+    },
+    "correct": "C",
+    "explanation": "Correct: C) Different starting inocula change the CFU trajectory independently of glucose, confounding the comparison. Why the others are wrong: A) Recording glucose concentration is the independent variable being documented, not a confound. B) Identical temperature and pH remove confounding. D) Measuring at the same time points keeps the comparison fair.",
+    "trap": "Treating a control measure (same temperature, pH or time points) as a confound; only a variable that differs between cultures and affects growth, such as inoculum size, can confound.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1129_q5",
+    "type": "question",
+    "passage_id": "bp1129",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Assuming exponential growth between day 0 and day 2, what is the approximate doubling time of Strain A?",
+    "options": {
+      "A": "0.5 days",
+      "B": "1 day",
+      "C": "2 days",
+      "D": "4 days"
+    },
+    "correct": "B",
+    "explanation": "Correct: B) Strain A rose from 12,000 to 48,000 CFU, a 4-fold increase, which is 2 doublings in 2 days, so the doubling time is 1 day. Why the others are wrong: A) 0.5 days would give 4 doublings, a 16-fold increase, in 2 days. C) 2 days is the length of the interval, not the time per doubling. D) 4 is the fold change, not a time.",
+    "trap": "Reporting the length of the interval (2 days) or the fold change (4) instead of counting the two doublings in the 4-fold rise.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  }
+]

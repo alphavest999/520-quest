@@ -1,0 +1,851 @@
+[
+ {
+  "id": "d_4C_1",
+  "type": "discrete",
+  "stem": "In a galvanic cell, electrons flow through the external wire from:",
+  "options": {
+   "A": "the cathode, where oxidation occurs, to the anode",
+   "B": "the anode, where reduction occurs, to the cathode",
+   "C": "the cathode, where reduction occurs, to the anode",
+   "D": "the anode, where oxidation occurs, to the cathode, where reduction occurs"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Oxidation at the anode releases electrons that travel through the external wire to the cathode, where they reduce a species. Why the others are wrong: A) reverses the electrode roles; oxidation never occurs at the cathode and electrons do not flow cathode to anode. B) reduction occurs at the cathode, not the anode, so this mislabels the anode's process. C) electrons flow from anode to cathode, so this reverses the direction even though reduction at the cathode is right.",
+  "trap": "Mixing up the direction of electron flow with conventional current.",
+  "topic": "Galvanic cell electron flow",
+  "mastery_sheet_id": "4C",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_2",
+  "type": "discrete",
+  "stem": "Given E0(Cu2+/Cu) = +0.34 V and E0(Zn2+/Zn) = -0.76 V, the standard cell potential for a Zn/Cu galvanic cell is:",
+  "options": {
+   "A": "+1.10 V",
+   "B": "+0.42 V",
+   "C": "-1.10 V",
+   "D": "+0.76 V"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) E0cell = E0cathode - E0anode = 0.34 - (-0.76) = +1.10 V, with Cu as the cathode and Zn as the anode. Why the others are wrong: B) +0.42 comes from 0.76 - 0.34, mishandling the signs of the potentials. C) -1.10 V swaps the electrodes, which would describe the nonspontaneous reverse cell. D) +0.76 V uses only the zinc half-cell and ignores copper.",
+  "trap": "Adding rather than subtracting anode potential, or confusing signs.",
+  "topic": "Standard cell potential",
+  "mastery_sheet_id": "4C",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4C_3",
+  "type": "discrete",
+  "stem": "A galvanic cell transfers 2 mol of electrons per mole of reaction and has E0 = 1.10 V. Using F = 96,500 C/mol, delta G0 is approximately:",
+  "options": {
+   "A": "+212 kJ/mol",
+   "B": "-212 kJ/mol",
+   "C": "-106 kJ/mol",
+   "D": "-110 kJ/mol"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) delta G0 = -nFE0 = -2 x 96,500 x 1.10 = -212,300 J/mol, about -212 kJ/mol. Why the others are wrong: A) +212 kJ/mol has the right magnitude but the wrong sign; a positive E0 means delta G0 is negative. C) -106 kJ/mol uses n = 1 and neglects the two electrons transferred. D) -110 kJ/mol uses 1.10 as if it were kJ, without multiplying by nF.",
+  "trap": "Forgetting n or the negative sign in delta G = -nFE.",
+  "topic": "Gibbs free energy and cell potential",
+  "mastery_sheet_id": "4C",
+  "difficulty": "525",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://chem.libretexts.org/Courses/Brevard_College/CHE_104%3A_Principles_of_Chemistry_II/04%3A_Thermochemistry_and_Thermodynamics/4.23%3A_The_Gibbs_Free_Energy_and_Cell_Voltage"
+   ]
+  }
+ },
+ {
+  "id": "d_4C_4",
+  "type": "discrete",
+  "stem": "A cell has E0 = 1.10 V, n = 2 and Q = 100. Using E = E0 - (0.06/n) log Q, the cell potential is:",
+  "options": {
+   "A": "1.16 V",
+   "B": "1.07 V",
+   "C": "1.04 V",
+   "D": "0.50 V"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) E = 1.10 - (0.06/2) x log(100) = 1.10 - 0.03 x 2 = 1.04 V. Why the others are wrong: A) 1.16 V adds the correction instead of subtracting it; Q > 1 lowers the potential. B) 1.07 V comes from log(100) taken as 1, or from using the wrong n. D) 0.50 V is an arithmetic error and a far larger correction than 0.06 V.",
+  "trap": "Using the wrong sign or forgetting that log 100 = 2.",
+  "topic": "Nernst equation",
+  "mastery_sheet_id": "4C",
+  "difficulty": "516",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://goldbook.iupac.org/terms/view/09068",
+    "https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Supplemental_Modules_(Analytical_Chemistry)/Electrochemistry/Nonstandard_Conditions:_The_Nernst_Equation"
+   ]
+  }
+ },
+ {
+  "id": "d_4C_5",
+  "type": "discrete",
+  "stem": "Which statement correctly describes an electrolytic cell?",
+  "options": {
+   "A": "It converts spontaneous reaction energy into current, with oxidation at the cathode",
+   "B": "It has a positive E0cell and delta G less than zero",
+   "C": "It has reduction at the anode because the anode is negative",
+   "D": "It uses an external power source to drive a nonspontaneous redox reaction, with reduction at the cathode"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) An electrolytic cell uses an external power source to drive a nonspontaneous reaction (delta G > 0, E0cell < 0), and reduction still occurs at the cathode. Why the others are wrong: A) describes a galvanic cell, and oxidation never occurs at the cathode. B) a positive E0cell with negative delta G describes a spontaneous galvanic cell. C) reduction occurs at the cathode, not the anode, in every cell; only the electrode's sign changes.",
+  "trap": "Assuming electrode roles flip in electrolytic cells.",
+  "topic": "Electrolytic cell characteristics",
+  "mastery_sheet_id": "4C",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_6",
+  "type": "discrete",
+  "stem": "A current of 2.0 A is passed through a solution of Cu2+ for 4825 s. Using F = 96,500 C/mol and Cu = 63.5 g/mol, the mass of copper deposited is approximately:",
+  "options": {
+   "A": "1.6 g",
+   "B": "3.2 g",
+   "C": "6.4 g",
+   "D": "32 g"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Q = I t = 2.0 x 4825 = 9650 C = 0.10 mol e-; Cu2+ needs 2 e-, giving 0.05 mol x 63.5 g/mol = about 3.2 g. Why the others are wrong: A) 1.6 g divides by the 2 electrons a second time. C) 6.4 g treats 0.10 mol e- as 0.10 mol Cu, ignoring the 2 e- stoichiometry. D) 32 g is a power-of-ten error.",
+  "trap": "Forgetting to divide moles of electrons by the charge on the ion.",
+  "topic": "Faraday's law of electrolysis",
+  "mastery_sheet_id": "4C",
+  "difficulty": "526",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://goldbook.iupac.org/terms/view/09075"
+   ]
+  }
+ },
+ {
+  "id": "d_4C_7",
+  "type": "discrete",
+  "stem": "The primary role of a salt bridge in a galvanic cell is to:",
+  "options": {
+   "A": "transfer electrons between half-cells",
+   "B": "increase the standard cell potential",
+   "C": "maintain electrical neutrality in each half-cell by allowing ion migration",
+   "D": "prevent oxidation of the anode"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) A salt bridge allows ion migration that neutralizes the charge buildup from the half-reactions, keeping each half-cell electrically neutral. Why the others are wrong: A) electrons travel only through the external wire, not through the bridge. B) the bridge does not change the standard cell potential, which depends on the half-reactions. D) the anode is meant to oxidize; the bridge does not protect it.",
+  "trap": "Thinking the salt bridge carries electrons.",
+  "topic": "Salt bridge function",
+  "mastery_sheet_id": "4C",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_8",
+  "type": "discrete",
+  "stem": "When a galvanic cell reaches equilibrium, which is true?",
+  "options": {
+   "A": "E = 0 and Q = K",
+   "B": "E = E0 and Q = 1",
+   "C": "delta G is negative and E = 0",
+   "D": "E = E0 and Q = K"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) At equilibrium delta G = 0, so E = 0 and Q = K; the battery is dead. Why the others are wrong: B) E = E0 only at Q = 1 under standard conditions, not at equilibrium. C) delta G is zero, not negative, at equilibrium. D) E = E0 holds only at standard conditions, and at Q = K the potential is zero.",
+  "trap": "Confusing the standard potential with the actual potential.",
+  "topic": "Equilibrium and cell potential",
+  "mastery_sheet_id": "4C",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_9",
+  "type": "discrete",
+  "stem": "A redox reaction has a positive standard cell potential. Which must be true?",
+  "options": {
+   "A": "delta G0 is positive and K is greater than 1",
+   "B": "delta G0 is negative and K is less than 1",
+   "C": "delta G0 is positive and K is less than 1",
+   "D": "delta G0 is negative and K is greater than 1"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) delta G0 = -nFE0 = -RT ln K, so a positive E0 gives a negative delta G0 and K greater than 1. Why the others are wrong: A) a positive delta G0 would correspond to a negative E0, and K greater than 1 requires a negative delta G0. B) delta G0 is negative but K is then greater than 1, not less. C) a positive delta G0 and K less than 1 describe a nonspontaneous reaction with negative E0.",
+  "trap": "Mixing the signs of delta G0 and ln K.",
+  "topic": "Relationship between E0 and K",
+  "mastery_sheet_id": "4C",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_10",
+  "type": "discrete",
+  "stem": "Given the standard reduction potentials Li+/Li = -3.04 V, Zn2+/Zn = -0.76 V, Cu2+/Cu = +0.34 V and Ag+/Ag = +0.80 V, the strongest oxidizing agent is:",
+  "options": {
+   "A": "Li",
+   "B": "Zn",
+   "C": "Ag+",
+   "D": "Cu2+"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) The species with the most positive reduction potential (Ag+ at +0.80 V) is most readily reduced, so it is the strongest oxidizing agent. Why the others are wrong: A) Li is a reducing agent, and its Li+/Li potential is the most negative. B) Zn is a reducing agent whose oxidized form Zn2+ is a weak oxidizer. D) Cu2+ at +0.34 V is a weaker oxidizer than Ag+ at +0.80 V.",
+  "trap": "Selecting the metal with the most negative E0 (the strongest reducing agent) as the oxidizer.",
+  "topic": "Oxidizing and reducing agents",
+  "mastery_sheet_id": "4C",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_11",
+  "type": "discrete",
+  "stem": "During recharging of a lead-acid or lithium-ion battery, the cell functions as:",
+  "options": {
+   "A": "an electrolytic cell, driving the reverse of the discharge reaction",
+   "B": "a galvanic cell with reversed electrodes",
+   "C": "a concentration cell",
+   "D": "a fuel cell"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Recharging uses an external source to force the nonspontaneous reverse reaction, so the cell acts as an electrolytic cell. Why the others are wrong: B) a galvanic cell produces current spontaneously and cannot be recharged by simply reversing electrodes. C) a concentration cell runs on a concentration gradient, not on the discharge chemistry reversal. D) a fuel cell is continuously supplied with reactants and is not a recharged battery.",
+  "trap": "Assuming that the cell stays galvanic during charging.",
+  "topic": "Rechargeable batteries",
+  "mastery_sheet_id": "4C",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_12",
+  "type": "discrete",
+  "stem": "In a concentration cell with Cu electrodes in 0.1 M and 1.0 M Cu2+ solutions, electrons flow externally from:",
+  "options": {
+   "A": "the 1.0 M half-cell to the 0.1 M half-cell",
+   "B": "the 0.1 M half-cell to the 1.0 M half-cell",
+   "C": "neither, because E0 = 0",
+   "D": "the cathode to the anode"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The dilute half-cell is the anode, where Cu oxidizes to raise its concentration, so electrons flow from 0.1 M to 1.0 M. Why the others are wrong: A) this reverses the direction; the concentrated cell is the cathode where Cu2+ is reduced. C) E0 is zero, but E = -(0.06/n) log Q is nonzero when concentrations differ, so current flows. D) electrons do flow anode to cathode, so cathode to anode is backward.",
+  "trap": "Concluding no current because E0 = 0.",
+  "topic": "Concentration cells",
+  "mastery_sheet_id": "4C",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_13",
+  "type": "discrete",
+  "stem": "In a Zn(s)|Zn2+||Cu2+|Cu(s) galvanic cell operating for a long time, which statement is true?",
+  "options": {
+   "A": "the zinc electrode gains mass and the copper electrode loses mass",
+   "B": "the zinc electrode loses mass and the copper electrode gains mass",
+   "C": "both electrodes gain mass",
+   "D": "both electrodes remain constant in mass"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Zinc is oxidized to Zn2+ at the anode and loses mass, while Cu2+ is reduced and plates onto the copper cathode, which gains mass. Why the others are wrong: A) reverses the roles of the electrodes, as zinc would not gain mass. C) the anode is consumed, so both cannot gain mass. D) net redox occurs, so the masses change.",
+  "trap": "Reversing the anode and cathode roles, so assigning mass gain to the zinc electrode.",
+  "topic": "Electrode mass changes",
+  "mastery_sheet_id": "4C",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_14",
+  "type": "discrete",
+  "stem": "When the half-reaction Ag+ + e- -> Ag (E0 = +0.80 V) is multiplied by 2 to balance electrons in a full reaction, the E0 for the half-reaction becomes:",
+  "options": {
+   "A": "+1.60 V",
+   "B": "+0.40 V",
+   "C": "-0.80 V",
+   "D": "+0.80 V"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Reduction potential is intensive and does not scale with stoichiometric coefficients, so E0 stays +0.80 V. Why the others are wrong: A) +1.60 V scales E0 by 2, as if it were extensive. B) +0.40 V halves E0, which is likewise not how potentials behave. C) -0.80 V flips the sign, which applies only to reversing the half-reaction.",
+  "trap": "Scaling E0 with stoichiometric coefficients as if it were an extensive quantity like delta G.",
+  "topic": "Intensive nature of standard potential",
+  "mastery_sheet_id": "4C",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_15",
+  "type": "discrete",
+  "stem": "In the electrolysis of molten NaCl, the products at the cathode and anode are, respectively:",
+  "options": {
+   "A": "Na(l) and Cl2(g)",
+   "B": "Cl2(g) and Na(l)",
+   "C": "H2(g) and Cl2(g)",
+   "D": "Na(l) and O2(g)"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) In molten NaCl, Na+ is reduced to Na(l) at the cathode and Cl- is oxidized to Cl2(g) at the anode. Why the others are wrong: B) reverses the electrode roles; sodium cations cannot be oxidized to Na and chloride is not reduced to Cl2. C) H2 requires water, which is absent in the molten salt, and the Cl2 half is the only correct piece. D) O2 would require water; no oxygen source exists in molten NaCl, and chloride is oxidized instead.",
+  "trap": "Applying aqueous electrolysis products to a molten salt.",
+  "topic": "Electrolysis of molten salt",
+  "mastery_sheet_id": "4C",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_16",
+  "type": "discrete",
+  "stem": "In the cell notation Zn(s)|Zn2+(aq)||Cu2+(aq)|Cu(s), the species on the left of the double line represents:",
+  "options": {
+   "A": "the cathode half-cell where reduction occurs",
+   "B": "the salt bridge",
+   "C": "the anode half-cell where oxidation occurs",
+   "D": "the electrolytic cell"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) By convention the anode, where oxidation occurs, is written on the left and the cathode on the right, so zinc is the anode. Why the others are wrong: A) the cathode is on the right of the double line, not the left. B) the salt bridge is the double line itself, not a species on its left. D) this notation describes a spontaneous galvanic cell, not an electrolytic one.",
+  "trap": "Reading cell notation backward.",
+  "topic": "Cell notation",
+  "mastery_sheet_id": "4C",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_17",
+  "type": "discrete",
+  "stem": "A resistor of 4 ohms is connected across a 12 V battery with negligible internal resistance. The current is:",
+  "options": {
+   "A": "0.33 A",
+   "B": "3 A",
+   "C": "8 A",
+   "D": "48 A"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Ohm's law gives I = V/R = 12/4 = 3 A. Why the others are wrong: A) 0.33 A inverts the ratio and divides resistance by voltage. C) 8 A subtracts the resistance from the voltage. D) 48 A multiplies voltage by resistance.",
+  "trap": "Inverting Ohm's law and dividing resistance by voltage instead of voltage by resistance.",
+  "topic": "Ohm's law",
+  "mastery_sheet_id": "4C",
+  "difficulty": "525",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4C_18",
+  "type": "discrete",
+  "stem": "Three resistors of 2, 3 and 5 ohms are connected in series with a 20 V battery. The current in the circuit is:",
+  "options": {
+   "A": "20 A",
+   "B": "0.5 A",
+   "C": "10 A",
+   "D": "2 A"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Series resistances add to Req = 2 + 3 + 5 = 10 ohms, so I = 20/10 = 2 A. Why the others are wrong: A) 20 A ignores the resistance, reporting the voltage as current. B) 0.5 A inverts the ratio to R/V = 10/20. C) 10 is the equivalent resistance in ohms, not the current.",
+  "trap": "Reporting equivalent resistance rather than current.",
+  "topic": "Resistors in series",
+  "mastery_sheet_id": "4C",
+  "difficulty": "516",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4C_19",
+  "type": "discrete",
+  "stem": "A 12 ohm resistor and a 4 ohm resistor are connected in parallel. The equivalent resistance is:",
+  "options": {
+   "A": "8 ohms",
+   "B": "16 ohms",
+   "C": "3 ohms",
+   "D": "6 ohms"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) In parallel 1/Req = 1/12 + 1/4 = 4/12, so Req = 3 ohms, which is less than the smallest resistor. Why the others are wrong: A) 8 ohms is the arithmetic average, which is larger than the true parallel value. B) 16 ohms is the series sum, not the parallel value. D) 6 ohms exceeds the 4 ohm resistor, which is impossible for a parallel combination.",
+  "trap": "Adding parallel resistors or averaging them.",
+  "topic": "Resistors in parallel",
+  "mastery_sheet_id": "4C",
+  "difficulty": "521",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4C_20",
+  "type": "discrete",
+  "stem": "A 5 ohm resistor carries a current of 2 A. The power dissipated is:",
+  "options": {
+   "A": "20 W",
+   "B": "10 W",
+   "C": "2.5 W",
+   "D": "50 W"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) P = I^2 R = (2)^2 x 5 = 20 W. Why the others are wrong: B) 10 W uses P = IR, which has the wrong units and form. C) 2.5 W comes from dividing R by I^2 or similar, a wrong formula. D) 50 W uses I x R^2, which is not a power relation.",
+  "trap": "Using P = IR or forgetting to square the current.",
+  "topic": "Electrical power",
+  "mastery_sheet_id": "4C",
+  "difficulty": "526",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4C_21",
+  "type": "discrete",
+  "stem": "The separation between the plates of an isolated parallel-plate capacitor is doubled while the plate area is unchanged. The capacitance:",
+  "options": {
+   "A": "is halved",
+   "B": "is doubled",
+   "C": "is quadrupled",
+   "D": "is unchanged"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) C = kappa epsilon0 A / d, so capacitance is inversely proportional to plate separation and halves when d doubles. Why the others are wrong: B) doubling would apply if C were proportional to d, but the relationship is inverse. C) quadrupling would require a squared dependence, which does not exist here. D) separation matters directly, since it sets the field for a given charge and hence the capacitance.",
+  "trap": "Mixing up the direct and inverse relation to separation.",
+  "topic": "Parallel-plate capacitor",
+  "mastery_sheet_id": "4C",
+  "difficulty": "517",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.pas.rochester.edu/~dmw/phy122/Lectures/Lect_19b.pdf"
+   ]
+  }
+ },
+ {
+  "id": "d_4C_22",
+  "type": "discrete",
+  "stem": "Two identical 4 microfarad capacitors are connected in series. The equivalent capacitance is:",
+  "options": {
+   "A": "8 microfarads",
+   "B": "2 microfarads",
+   "C": "4 microfarads",
+   "D": "1 microfarad"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) In series 1/Ceq = 1/4 + 1/4 = 1/2, so Ceq = 2 microfarads. Why the others are wrong: A) 8 microfarads is the parallel result, where capacitances add. C) 4 microfarads ignores the second capacitor. D) 1 microfarad does not follow from the series rule.",
+  "trap": "Using the resistor series rule for capacitors.",
+  "topic": "Capacitors in series",
+  "mastery_sheet_id": "4C",
+  "difficulty": "522",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4C_23",
+  "type": "discrete",
+  "stem": "A dielectric is inserted into a charged capacitor that has been disconnected from the battery. Which change occurs?",
+  "options": {
+   "A": "the voltage across the capacitor increases",
+   "B": "the charge on the plates increases",
+   "C": "the voltage across the capacitor decreases",
+   "D": "the charge on the plates decreases"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) With the battery disconnected, Q is fixed; the dielectric raises C by kappa, so V = Q/C falls. Why the others are wrong: A) an increase in V would require a decrease in C, but the dielectric raises C. B) charge cannot increase on an isolated capacitor since there is no source. D) charge cannot leave an isolated capacitor, so it stays constant.",
+  "trap": "Assuming charge changes when the capacitor is isolated.",
+  "topic": "Dielectrics in capacitors",
+  "mastery_sheet_id": "4C",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_24",
+  "type": "discrete",
+  "stem": "A 10 microfarad capacitor is charged to 10 V. The energy stored is:",
+  "options": {
+   "A": "1 x 10^-3 J",
+   "B": "1 x 10^-4 J",
+   "C": "5 x 10^-3 J",
+   "D": "5 x 10^-4 J"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) U = 1/2 C V^2 = 0.5 x 10^-5 F x 100 V^2 = 5 x 10^-4 J. Why the others are wrong: A) 1 x 10^-3 J omits the factor of one half (CV^2). B) 1 x 10^-4 J is a power-of-ten error and omits the half. C) 5 x 10^-3 J has the right coefficient but is off by a factor of 10.",
+  "trap": "Dropping the one half or using CV.",
+  "topic": "Energy stored in a capacitor",
+  "mastery_sheet_id": "4C",
+  "difficulty": "518",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://you.stonybrook.edu/phy335spring2022/files/2022/01/lecture2.pdf"
+   ]
+  }
+ },
+ {
+  "id": "d_4C_25",
+  "type": "discrete",
+  "stem": "Kirchhoff's junction rule is a statement of the conservation of:",
+  "options": {
+   "A": "charge",
+   "B": "energy",
+   "C": "momentum",
+   "D": "power"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The junction rule says current entering a junction equals current leaving, which is conservation of charge. Why the others are wrong: B) energy conservation underlies the loop rule, not the junction rule. C) momentum is not what the junction rule balances. D) power is a rate of energy transfer and is not what is conserved at a junction.",
+  "trap": "Swapping the junction and loop rules.",
+  "topic": "Kirchhoff's rules",
+  "mastery_sheet_id": "4C",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_26",
+  "type": "discrete",
+  "stem": "To measure the voltage across a resistor and the current through it, a voltmeter and ammeter should be connected, respectively:",
+  "options": {
+   "A": "in series with the resistor and in parallel with the resistor",
+   "B": "both in series",
+   "C": "both in parallel",
+   "D": "in parallel with the resistor and in series with the resistor"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) A voltmeter reads a potential difference, so it goes in parallel (high resistance); an ammeter measures current, so it goes in series (low resistance). Why the others are wrong: A) this reverses the placements and would short out the circuit through the ammeter. B) a voltmeter in series would block current and read no potential difference across the resistor. C) an ammeter in parallel is nearly a short circuit and would not measure the resistor's current.",
+  "trap": "Reversing meter placements, putting the voltmeter in series and the ammeter in parallel.",
+  "topic": "Meters in circuits",
+  "mastery_sheet_id": "4C",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_27",
+  "type": "discrete",
+  "stem": "A wire's length is doubled and its radius is doubled, with the same material. Its resistance changes by a factor of:",
+  "options": {
+   "A": "2",
+   "B": "1/2",
+   "C": "4",
+   "D": "1/4"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) R = rho L / A with A proportional to r^2; L doubles and A quadruples, so R is multiplied by 2/4 = 1/2. Why the others are wrong: A) 2 accounts for the length but ignores the larger area. C) 4 would require both changes to raise resistance, but a wider wire lowers it. D) 1/4 accounts for the quadrupled area but ignores the doubled length.",
+  "trap": "Treating area as proportional to radius, not radius squared.",
+  "topic": "Resistivity",
+  "mastery_sheet_id": "4C",
+  "difficulty": "519",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4C_28",
+  "type": "discrete",
+  "stem": "A battery has an emf of 12 V and an internal resistance of 0.5 ohm. When it delivers 2 A, the terminal voltage is:",
+  "options": {
+   "A": "12 V",
+   "B": "13 V",
+   "C": "11 V",
+   "D": "1 V"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Terminal voltage V = emf - I r = 12 - 2 x 0.5 = 11 V. Why the others are wrong: A) 12 V ignores internal resistance and applies only at zero current. B) 13 V adds the internal drop instead of subtracting it. D) 1 V is just the internal voltage drop (2 x 0.5), not the terminal voltage.",
+  "trap": "Ignoring internal resistance when a battery delivers current.",
+  "topic": "Internal resistance of a battery",
+  "mastery_sheet_id": "4C",
+  "difficulty": "524",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4C_29",
+  "type": "discrete",
+  "stem": "A 1 kilohm resistor is connected in series with a 2 microfarad capacitor. The time constant of the circuit is:",
+  "options": {
+   "A": "0.5 ms",
+   "B": "2 s",
+   "C": "2 microseconds",
+   "D": "2 ms"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) tau = RC = 1000 ohm x 2 x 10^-6 F = 2 x 10^-3 s = 2 ms. Why the others are wrong: A) 0.5 ms inverts the product, using 1/(RC)-like scaling rather than RC. B) 2 s mishandles the micro prefix, treating microfarads as farads times 10^-3. C) 2 microseconds ignores the kilo prefix on the resistance.",
+  "trap": "Making prefix conversion errors with kilo and micro when computing the RC product.",
+  "topic": "RC time constant",
+  "mastery_sheet_id": "4C",
+  "difficulty": "515",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.pas.rochester.edu/~dmw/phy122/Lectures/Lect_19b.pdf"
+   ]
+  }
+ },
+ {
+  "id": "d_4C_30",
+  "type": "discrete",
+  "stem": "Three identical bulbs are wired in parallel to a battery. If one bulb burns out, the other two:",
+  "options": {
+   "A": "maintain the same brightness",
+   "B": "go out",
+   "C": "become brighter",
+   "D": "become dimmer"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Each parallel branch is connected directly across the battery and has the full voltage, so the remaining bulbs are unaffected. Why the others are wrong: B) going out would happen in a series circuit, not parallel. C) the voltage across each branch does not change, so the brightness does not increase. D) each branch keeps the full battery voltage and current, so they do not dim.",
+  "trap": "Treating a parallel circuit as if it were a series circuit.",
+  "topic": "Household parallel circuits",
+  "mastery_sheet_id": "4C",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_31",
+  "type": "discrete",
+  "stem": "Two bulbs are in series with a battery. If one filament breaks, the other bulb:",
+  "options": {
+   "A": "gets brighter",
+   "B": "goes out",
+   "C": "stays equally bright",
+   "D": "becomes dimmer but stays on"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) A broken filament opens the only path, so current stops everywhere in the series loop. Why the others are wrong: A) with no current, the other bulb cannot get brighter. C) current is the same in all series elements, and with none flowing the bulb is off. D) current is zero, not reduced, so the bulb is off rather than dim.",
+  "trap": "Applying the parallel behavior to series.",
+  "topic": "Series circuits",
+  "mastery_sheet_id": "4C",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_32",
+  "type": "discrete",
+  "stem": "A resistor is added in parallel to an existing circuit powered by an ideal battery. The total current drawn from the battery:",
+  "options": {
+   "A": "decreases",
+   "B": "stays the same",
+   "C": "increases",
+   "D": "drops to zero"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) A parallel branch lowers the equivalent resistance, so I = V/Req increases for an ideal battery. Why the others are wrong: A) resistance falls, so current cannot decrease. B) the added path draws additional current, so the total changes. D) the current would fall to zero only with an open circuit.",
+  "trap": "Believing that adding any resistor increases resistance.",
+  "topic": "Total current changes",
+  "mastery_sheet_id": "4C",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_33",
+  "type": "discrete",
+  "stem": "A 2 ohm and a 4 ohm resistor are connected in series with a 12 V battery. The voltage across the 4 ohm resistor is:",
+  "options": {
+   "A": "4 V",
+   "B": "6 V",
+   "C": "12 V",
+   "D": "8 V"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The series resistance is 6 ohms, so I = 12/6 = 2 A, and the 4 ohm resistor drops V = 2 x 4 = 8 V. Why the others are wrong: A) 4 V is the voltage across the 2 ohm resistor. B) 6 V assumes the voltage splits equally between unequal resistors. C) 12 V is the total battery voltage, not the part across one resistor.",
+  "trap": "Splitting voltage equally between unequal resistors.",
+  "topic": "Voltage divider",
+  "mastery_sheet_id": "4C",
+  "difficulty": "521",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4C_34",
+  "type": "discrete",
+  "stem": "In a metal wire connected to a battery, conventional current flows:",
+  "options": {
+   "A": "from the positive terminal toward the negative terminal, opposite to electron flow",
+   "B": "from the negative terminal toward the positive terminal",
+   "C": "in the same direction as electron flow",
+   "D": "in alternating directions"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Conventional current is defined as the flow of positive charge, from the positive to the negative terminal, opposite to electron motion. Why the others are wrong: B) this describes the direction electrons move, not conventional current. C) conventional current is opposite to electron flow, not the same. D) a battery provides DC, which has a constant direction.",
+  "trap": "Equating conventional current with electron flow.",
+  "topic": "Direction of current",
+  "mastery_sheet_id": "4C",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_35",
+  "type": "discrete",
+  "stem": "A potential difference of 10 V is applied across a uniform wire 2 m long. The electric field inside the wire is:",
+  "options": {
+   "A": "20 V/m",
+   "B": "0.2 V/m",
+   "C": "5 V/m",
+   "D": "10 V/m"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) E = V/L = 10 V / 2 m = 5 V/m. Why the others are wrong: A) 20 V/m multiplies voltage by length. B) 0.2 V/m inverts the ratio to L/V. D) 10 V/m ignores the length.",
+  "trap": "Multiplying instead of dividing by length.",
+  "topic": "Electric field in a wire",
+  "mastery_sheet_id": "4C",
+  "difficulty": "517",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4C_36",
+  "type": "discrete",
+  "stem": "A semiconductor diode in a circuit:",
+  "options": {
+   "A": "conducts equally in both directions",
+   "B": "conducts current primarily in one direction",
+   "C": "stores charge like a capacitor",
+   "D": "has resistance that increases with voltage in the forward direction"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) A diode has low resistance in forward bias and very high resistance in reverse bias, so it conducts primarily in one direction. Why the others are wrong: A) equal conduction both ways describes an ohmic resistor, not a diode. C) storing charge describes a capacitor. D) a forward-biased diode's resistance falls with increasing voltage; it does not rise.",
+  "trap": "Treating a diode as an ohmic resistor.",
+  "topic": "Diodes",
+  "mastery_sheet_id": "4C",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_37",
+  "type": "discrete",
+  "stem": "Myelination speeds nerve conduction mainly because it:",
+  "options": {
+   "A": "decreases membrane resistance",
+   "B": "increases membrane capacitance",
+   "C": "adds more ion channels along the sheath",
+   "D": "increases membrane resistance and decreases membrane capacitance"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Myelin acts as extra insulation, raising membrane resistance and lowering capacitance, so less current leaks and less charge is needed to depolarize the next node. Why the others are wrong: A) lower resistance would increase leakage and slow conduction. B) higher capacitance would slow charging of the membrane. C) ion channels are concentrated at the nodes of Ranvier, not along the sheath.",
+  "trap": "Assuming that myelin adds capacitance.",
+  "topic": "Neuronal membrane as a circuit",
+  "mastery_sheet_id": "4C",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4C_38",
+  "type": "discrete",
+  "stem": "Two resistors of 10 ohms and 20 ohms are connected in parallel across a 20 V source. Which statement is correct?",
+  "options": {
+   "A": "the 20 ohm resistor dissipates more power",
+   "B": "the 10 ohm resistor dissipates more power",
+   "C": "both dissipate equal power",
+   "D": "the 10 ohm resistor carries less current"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) In parallel each resistor has the same voltage, so P = V^2/R is larger for the smaller resistor: 40 W for 10 ohms versus 20 W for 20 ohms. Why the others are wrong: A) the larger resistance gives less power at equal voltage. C) equal power would need equal resistance. D) the 10 ohm resistor carries more current (2 A versus 1 A).",
+  "trap": "Using P = I^2 R in a parallel arrangement.",
+  "topic": "Power in parallel resistors",
+  "mastery_sheet_id": "4C",
+  "difficulty": "518",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4C_39",
+  "type": "discrete",
+  "stem": "The plates of a capacitor are 1 cm apart and connected to a 100 V battery. The uniform electric field between the plates is:",
+  "options": {
+   "A": "10^2 V/m",
+   "B": "10^6 V/m",
+   "C": "10^4 V/m",
+   "D": "10^-2 V/m"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) E = V/d = 100 V / 0.01 m = 10^4 V/m, after converting 1 cm to 0.01 m. Why the others are wrong: A) 10^2 V/m treats the 1 cm as 1 m. B) 10^6 V/m multiplies by an extra factor of 100 from the wrong conversion. D) 10^-2 V/m inverts the ratio.",
+  "trap": "Forgetting to convert centimeters to meters.",
+  "topic": "Capacitor electric field",
+  "mastery_sheet_id": "4C",
+  "difficulty": "523",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4C_40",
+  "type": "discrete",
+  "stem": "A 4 ohm resistor is in series with a parallel pair of 6 ohm and 3 ohm resistors, all powered by a 12 V battery. The current through the 6 ohm resistor is approximately:",
+  "options": {
+   "A": "0.67 A",
+   "B": "0.33 A",
+   "C": "1.33 A",
+   "D": "2.0 A"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The parallel pair is 2 ohms, so the total is 6 ohms and I = 2 A; the parallel voltage is 12 - 2 x 4 = 4 V, so I(6 ohm) = 4/6 = 0.67 A. Why the others are wrong: B) 0.33 A has no basis in this circuit and is an arithmetic slip. C) 1.33 A is the current through the 3 ohm branch (4/3). D) 2.0 A is the total current, not the branch current.",
+  "trap": "Giving total current rather than branch current.",
+  "topic": "Series-parallel combination",
+  "mastery_sheet_id": "4C",
+  "difficulty": "528",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ }
+]

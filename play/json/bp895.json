@@ -1,0 +1,117 @@
+[
+  {
+    "id": "bp895-1",
+    "type": "passage",
+    "passage_id": "bp895",
+    "passage_text": "Researchers at the University of Metropolis used NMR spectroscopy to determine the pKa values of the side chains of four amino acids: aspartic acid, lysine, histidine, and glutamic acid. The experiment involved preparing 0.1 M solutions of each amino acid in 10 mM phosphate buffer and recording ¹H NMR chemical shifts while incrementally adjusting the pH from 1.0 to 12.0. The resulting titration curves were fitted to the Henderson–Hasselbalch equation to extract the pKa values. The data were then compared to literature values to assess the influence of ionic strength and temperature on the measurements. The study also examined how the protonation state of each side chain affects the overall charge of the amino acid at physiological pH.",
+    "table_data": "| Amino Acid | Side‑Chain pKa (acidic) | Side‑Chain pKa (basic) |\n|------------|------------------------|------------------------|\n| Aspartic Acid | 3.9 | — |\n| Lysine | — | 10.5 |\n| Histidine | — | 6.0 |\n| Glutamic Acid | 4.3 | — |",
+    "stem": "Which amino acid has the lowest side‑chain pKa among those listed?",
+    "options": {
+      "A": "Aspartic acid",
+      "B": "Lysine",
+      "C": "Histidine",
+      "D": "Glutamic acid"
+    },
+    "correct": "A",
+    "explanation": "Correct: A) Aspartic acid's side-chain pKa (3.9) is the lowest of the four listed (3.9, 10.5, 6.0 and 4.3). Why the others are wrong: B) lysine's 10.5 is the highest. C) histidine's 6.0 is higher than 3.9. D) glutamic acid's 4.3 is slightly higher than 3.9.",
+    "trap": "Confusing the side‑chain pKa with the pKa of the α‑amino or α‑carboxyl groups.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  },
+  {
+    "id": "bp895-2",
+    "type": "discrete",
+    "passage_id": "bp895",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "At pH 7.0, which of the four side chains in Table 1 is predominantly in its protonated (conjugate acid) form?",
+    "options": {
+      "A": "Aspartic acid side chain",
+      "B": "Lysine side chain",
+      "C": "Histidine side chain",
+      "D": "Glutamic acid side chain"
+    },
+    "correct": "B",
+    "explanation": "Correct: B) The lysine side-chain pKa (10.5) is far above pH 7.0, so the group is almost entirely protonated. Why the others are wrong: A) The aspartic acid side-chain pKa is 3.9, well below 7.0, so it is almost entirely deprotonated. C) The histidine side-chain pKa is 6.0, below 7.0, so about 91% is deprotonated. D) The glutamic acid side-chain pKa is 4.3, well below 7.0, so it is almost entirely deprotonated.",
+    "trap": "Assuming acidic side chains such as aspartic and glutamic acid are protonated at pH 7.0 because they are called acids; at pH above the pKa the deprotonated form predominates.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  },
+  {
+    "id": "bp895-3",
+    "type": "discrete",
+    "passage_id": "bp895",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Using the Henderson–Hasselbalch equation, calculate the fraction of protonated side chain of lysine (pKa = 10.5) at pH 7.0.",
+    "options": {
+      "A": "0.9997",
+      "B": "0.9999",
+      "C": "0.9995",
+      "D": "0.999"
+    },
+    "correct": "A",
+    "explanation": "Correct: A) Fraction protonated = 1/(1 + 10^(pH − pKa)) = 1/(1 + 10^(7 − 10.5)) = 1/(1 + 0.00032) = 0.9997. Why the others are wrong: B) 0.9999 would require a pH of about 6.5. C) 0.9995 would require a pH of about 7.2. D) 0.999 would require a pH of about 7.5.",
+    "trap": "Using the wrong sign in the exponent (pKa‑pH instead of pH‑pKa) or forgetting to convert to a fraction.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  },
+  {
+    "id": "bp895-4",
+    "type": "discrete",
+    "passage_id": "bp895",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which of the following statements is NOT supported by Table 1?",
+    "options": {
+      "A": "Lysine is the only side chain in the table with a pKa above 7.",
+      "B": "The aspartic acid and glutamic acid side chains both have pKa values below 5.",
+      "C": "At pH 7.0, the histidine side chain is predominantly protonated.",
+      "D": "Histidine has the side-chain pKa closest to physiological pH."
+    },
+    "correct": "C",
+    "explanation": "Correct: C) Histidine's side-chain pKa is 6.0, so at pH 7.0 (one unit above) the ratio of deprotonated to protonated is 10:1 and the group is mostly deprotonated. Why the others are wrong: A) The pKa values are 3.9, 6.0, 4.3 and 10.5, so only lysine exceeds 7. B) 3.9 and 4.3 are both below 5. D) At pH 7.0 histidine's pKa (6.0) is 1.0 unit away, versus 2.7 for glutamic acid and 3.1 for aspartic acid and 3.5 for lysine.",
+    "trap": "Treating histidine as protonated at pH 7.0 because its pKa is near physiological pH; when pH exceeds the pKa the deprotonated form predominates.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  },
+  {
+    "id": "bp895-5",
+    "type": "discrete",
+    "passage_id": "bp895",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "At pH 7.0, what is the ratio [A⁻]/[HA] for a group with pKa 6.0?",
+    "options": {
+      "A": "10:1",
+      "B": "1:10",
+      "C": "1:1",
+      "D": "100:1"
+    },
+    "correct": "A",
+    "explanation": "pH = pKa + log([A⁻]/[HA]) ⇒ log([A⁻]/[HA]) = 7.0 − 6.0 = 1, so the ratio is 10:1 (about 91% deprotonated).",
+    "trap": "Inverting the logarithm (using pKa minus pH) gives 1:10, the tempting reversed ratio; when pH is above the pKa the deprotonated form A- predominates.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  }
+]

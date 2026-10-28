@@ -1,0 +1,1532 @@
+{
+ "exam": "FL03",
+ "section": "BB",
+ "passages": [
+  {
+   "passage_id": "FL03_BB_P1",
+   "passage_text": "A dehydrogenase (Enzyme Q) was assayed at several substrate concentrations with no inhibitor, with Inhibitor A (40 micromolar), and with Inhibitor B (40 micromolar). Initial velocities (v, in micromoles of product per minute) are given in Table 1. Reciprocal values were then plotted as a Lineweaver-Burk (double-reciprocal) graph, with 1/v on the y-axis and 1/[S] on the x-axis; the plotted values are shown in the figure. Enzyme concentration was identical in all assays, each reaction was monitored for the first two minutes so that substrate depletion was negligible, and temperature and pH were held constant at the optimum for the enzyme. Each velocity is the mean of three replicate assays.\n\nOn a Lineweaver-Burk plot, the y-intercept equals 1/Vmax and the x-intercept equals -1/Km. Inhibitor A resembles the substrate in structure, whereas Inhibitor B bears no resemblance to the substrate and was found to bind at a site distant from the active site. Neither inhibitor is consumed by the enzyme, and both bind reversibly. The investigators wished to classify each inhibitor and to estimate how strongly Inhibitor A binds the enzyme.",
+   "table_data": "| [S] (mM) | v, no inhibitor | v, + Inhibitor A | v, + Inhibitor B |\n|---|---|---|---|\n| 0.5 | 20.0 | 7.7 | 10.0 |\n| 1 | 33.3 | 14.3 | 16.7 |\n| 2 | 50.0 | 25.0 | 25.0 |\n| 4 | 66.7 | 40.0 | 33.3 |\n| 8 | 80.0 | 57.1 | 40.0 |",
+   "graph": {
+    "type": "line",
+    "title": "Lineweaver-Burk plot of Enzyme Q",
+    "x_label": "1/[S] (mM^-1)",
+    "y_label": "1/v (min per micromole)",
+    "series": [
+     {
+      "name": "No inhibitor",
+      "points": [
+       [
+        0.125,
+        0.0125
+       ],
+       [
+        0.25,
+        0.015
+       ],
+       [
+        0.5,
+        0.02
+       ],
+       [
+        1,
+        0.03
+       ],
+       [
+        2,
+        0.05
+       ]
+      ]
+     },
+     {
+      "name": "Inhibitor A",
+      "points": [
+       [
+        0.125,
+        0.0175
+       ],
+       [
+        0.25,
+        0.025
+       ],
+       [
+        0.5,
+        0.04
+       ],
+       [
+        1,
+        0.07
+       ],
+       [
+        2,
+        0.13
+       ]
+      ]
+     },
+     {
+      "name": "Inhibitor B",
+      "points": [
+       [
+        0.125,
+        0.025
+       ],
+       [
+        0.25,
+        0.03
+       ],
+       [
+        0.5,
+        0.04
+       ],
+       [
+        1,
+        0.06
+       ],
+       [
+        2,
+        0.1
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL03_BB_P1_Q1",
+     "stem": "The Lineweaver-Burk plot indicates that Inhibitor A is a:",
+     "options": {
+      "A": "noncompetitive inhibitor, because the lines share the same y-intercept while the slopes differ.",
+      "B": "competitive inhibitor, because the y-intercept is unchanged while the x-intercept moves closer to zero.",
+      "C": "noncompetitive inhibitor, because Vmax is lowered and the x-intercept stays at the same position.",
+      "D": "uncompetitive inhibitor, because both intercepts shift while the slope remains the same as uninhibited."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The A line crosses the y-axis at the same point as the uninhibited line (Vmax unchanged) but has a smaller-magnitude x-intercept, so the apparent Km is larger; this is competitive inhibition. Why the others are wrong: A) Noncompetitive inhibition lowers Vmax (raises the y-intercept) and leaves the x-intercept in place; the shared feature here is the y-intercept, which fits competitive inhibition. C) Vmax is not lowered with A; the plot shows that the y-intercept stays at 0.01. D) Uncompetitive inhibition gives parallel lines; the A line has a steeper slope (0.06 versus 0.02).",
+     "trap": "Mixing up which intercept stays fixed: shared y-intercept means Vmax is unchanged (competitive), shared x-intercept means Km is unchanged (noncompetitive).",
+     "topic": "Lineweaver-Burk analysis",
+     "mastery_sheet_id": "1A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P1_Q2",
+     "stem": "Assuming simple competitive inhibition, with Inhibitor A at 40 micromolar, the inhibition constant (Ki) is closest to:",
+     "options": {
+      "A": "13 micromolar",
+      "B": "40 micromolar",
+      "C": "20 micromolar",
+      "D": "120 micromolar"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The A line is 1/v = 0.06(1/[S]) + 0.01, so its x-intercept is -0.01/0.06, giving apparent Km = 6 mM. The uninhibited line gives Km = 2 mM. The ratio is 3 = 1 + [I]/Ki = 1 + 40/Ki, so Ki = 20 micromolar. Why the others are wrong: A) This results from 40/3, which treats the Km ratio of 3 as equal to [I]/Ki instead of 1 + [I]/Ki. B) This would require the apparent Km to double (1 + 40/40 = 2), but it tripled. D) This multiplies [I] by the Km ratio (40 x 3) rather than solving 3 = 1 + 40/Ki.",
+     "trap": "Setting the Km ratio equal to [I]/Ki and forgetting the 1 in the factor (1 + [I]/Ki).",
+     "topic": "Competitive inhibition constant",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://labs.plb.ucdavis.edu/courses/bis/105/lectures/EnzKinetics2.pdf",
+       "https://theory.labster.com/Competitive_inhibition"
+      ]
+     }
+    },
+    {
+     "id": "FL03_BB_P1_Q3",
+     "stem": "What are the apparent Vmax and Km of Enzyme Q in the presence of Inhibitor B?",
+     "options": {
+      "A": "Vmax = 50 micromoles/min and Km = 2 mM",
+      "B": "Vmax = 100 micromoles/min and Km = 6 mM",
+      "C": "Vmax = 50 micromoles/min and Km = 1 mM",
+      "D": "Vmax = 100 micromoles/min and Km = 4 mM"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The B line has y-intercept 0.02, so Vmax = 1/0.02 = 50. Its slope is 0.04 and Km/Vmax = 0.04 gives Km = 2 mM, the same as without inhibitor (the line meets the uninhibited line at the x-intercept of -0.5). Why the others are wrong: B) These are the values obtained with Inhibitor A, not B. C) Vmax is correct, but Km is unchanged by a noncompetitive inhibitor and is not halved. D) The y-intercept of 0.02 gives Vmax of 50, not 100, and the x-intercept corresponds to Km = 2 mM.",
+     "trap": "Taking the intercept values directly instead of inverting them (y-intercept = 1/Vmax, x-intercept = -1/Km).",
+     "topic": "Lineweaver-Burk analysis",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL03_BB_P1_Q4",
+     "stem": "Substrate concentration is raised to 100 mM in assays that contain either inhibitor. Compared with the uninhibited enzyme at 100 mM, which prediction is best supported by the data?",
+     "options": {
+      "A": "Velocity with both inhibitors approaches the uninhibited value, because high [S] displaces any reversible inhibitor.",
+      "B": "Velocity with Inhibitor B approaches the uninhibited value, whereas velocity with Inhibitor A remains near half of it.",
+      "C": "Velocity with both inhibitors remains near half of the uninhibited value, because reversible inhibitors cannot be outcompeted.",
+      "D": "Velocity with Inhibitor A approaches the uninhibited value, whereas velocity with Inhibitor B remains near half of it."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Competitive inhibition is overcome by high [S] (v = 100x100/106, about 94 with A, versus about 98 uninhibited), whereas B reduces Vmax to 50 and cannot be overcome by more substrate. Why the others are wrong: A) Only a competitor for the active site can be displaced; B acts elsewhere and lowers Vmax. B) The roles are reversed: A is competitive and is overcome, while B lowers Vmax. C) Reversible competitive inhibitors can be outcompeted; A leaves Vmax unchanged.",
+     "trap": "Assuming that any reversible inhibitor can be overcome with excess substrate, rather than only competitive ones.",
+     "topic": "Enzyme inhibition types",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P1_Q5",
+     "stem": "The data are most consistent with Inhibitor B decreasing the rate of catalysis by:",
+     "options": {
+      "A": "occupying the active site and preventing the substrate from binding, thereby raising the apparent Km.",
+      "B": "binding a site outside the active site and lowering the effective amount of functional enzyme.",
+      "C": "binding only to the enzyme-substrate complex and locking the substrate in place, thereby lowering both Km and Vmax.",
+      "D": "covalently modifying the active-site residue and permanently destroying part of the enzyme."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Binding with similar affinity to free enzyme and enzyme-substrate complex, away from the active site, lowers Vmax without altering substrate binding (Km), which is noncompetitive inhibition. Why the others are wrong: A) This describes competitive inhibition, in which Km rises and Vmax is unchanged. C) This describes uncompetitive inhibition, which would give parallel lines; the B line is not parallel to the control. D) The passage states that B binds reversibly, and covalent modification would be irreversible.",
+     "trap": "Equating any decrease in Vmax with irreversible damage, even though noncompetitive inhibitors bind reversibly at a remote site.",
+     "topic": "Enzyme inhibition mechanisms",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_BB_P2",
+   "passage_text": "The lac operon of E. coli encodes beta-galactosidase (lacZ). In the wild-type operon, the lac repressor (encoded by lacI) binds the operator and blocks transcription unless allolactose, an isomer of lactose, is present. The catabolite activator protein (CAP, encoded by crp) binds cAMP and stimulates transcription from the lac promoter; cAMP levels are low when glucose is abundant.\n\nResearchers grew several strains in three media: glycerol without lactose, glycerol with lactose, and glucose with lactose. Beta-galactosidase activity was measured in arbitrary units (Table 1). The lacO-c strain carries a mutation in the operator, and the lacI-s strain carries a mutation that alters the repressor so that it no longer binds allolactose. In the partial diploid strains, a second copy of the operon was carried on an F' plasmid; the genotype written before the slash is on the chromosome, and the genotype after the slash is on the plasmid. Assume that the strains differ only in the genotypes listed and that cultures were harvested in the exponential growth phase.",
+   "table_data": "| Strain | Glycerol, no lactose | Glycerol + lactose | Glucose + lactose |\n|---|---|---|---|\n| Wild type | 1 | 100 | 2 |\n| lacI- | 100 | 100 | 3 |\n| lacO-c | 100 | 100 | 3 |\n| lacI-s | 1 | 1 | 1 |\n| Delta-crp | 1 | 3 | 2 |\n| lacI- lacZ+ / lacI+ lacZ- (F') | 1 | 100 | 2 |\n| lacI-s lacZ+ / lacI+ lacZ+ (F') | 1 | 2 | 1 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL03_BB_P2_Q1",
+     "stem": "The high beta-galactosidase activity of the lacI- strain in glycerol without lactose is best explained by the fact that in this strain:",
+     "options": {
+      "A": "allolactose is produced at a high basal rate even without lactose in the medium.",
+      "B": "no functional repressor is made, so lacZ is transcribed continuously.",
+      "C": "CAP is permanently inactive, so the lac promoter is never activated at all.",
+      "D": "the operator sequence cannot be bound by RNA polymerase under any condition."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Loss of the repressor removes the block at the operator, producing constitutive expression when cAMP is high (glycerol medium). Why the others are wrong: A) The strain's behavior reflects the repressor defect, not a source of inducer. C) Inactive CAP would lower expression, as in the Delta-crp strain. D) A defective polymerase-operator interaction would lower, not raise, expression.",
+     "trap": "Thinking the repressor is an activator, so that its loss should lower expression.",
+     "topic": "lac repressor",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P2_Q2",
+     "stem": "The lacI- lacZ+ / lacI+ lacZ- partial diploid shows inducible expression like the wild type. This result indicates that the lacI+ product:",
+     "options": {
+      "A": "replaces the operator sequence on the chromosome by homologous recombination.",
+      "B": "is an enzyme that degrades the beta-galactosidase made from the lacZ+ gene.",
+      "C": "is a diffusible protein that can act on the lacZ+ operator in trans.",
+      "D": "acts only on the same DNA molecule that encodes it, as a cis-acting site."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The repressor made from the plasmid copy reaches the chromosomal operator, restoring regulation, so lacI acts in trans. Why the others are wrong: A) Proteins do not replace DNA sequences; they bind to them. B) Nothing in the data suggests degradation; regulation is of transcription. D) A cis-only action would leave the lacZ+ copy unrepressed and constitutive.",
+     "trap": "Confusing the trans-acting repressor with the cis-acting operator, which affects only its own DNA.",
+     "topic": "cis versus trans regulation",
+     "mastery_sheet_id": "1B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P2_Q3",
+     "stem": "Wild-type cells grown in glucose plus lactose show low beta-galactosidase activity (2 units) even though allolactose is present. The most likely explanation is that:",
+     "options": {
+      "A": "glucose lowers cAMP, so CAP does not bind and the promoter is poorly activated.",
+      "B": "glucose induces mutations in the lacZ gene during growth.",
+      "C": "glucose causes the repressor to bind allolactose more tightly and remain off the operator.",
+      "D": "lactose cannot be taken into cells that are growing in glucose."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Without cAMP-CAP, RNA polymerase binds the lac promoter weakly; the Delta-crp strain shows the same dependence. Why the others are wrong: B) The effect is reversible regulation, not mutation. C) If the repressor remained bound, the lacI- strain would not also show low expression in glucose. D) This does not account for lacI- and lacO-c strains also being low in glucose.",
+     "trap": "Attributing the low expression in glucose to the repressor, even though lacI- cells are also low.",
+     "topic": "Catabolite repression",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P2_Q4",
+     "stem": "In the lacI-s lacZ+ / lacI+ lacZ+ partial diploid with glycerol and lactose, expression is only 2 units. This indicates that lacI-s is:",
+     "options": {
+      "A": "a loss-of-function allele that impairs binding of the repressor to the operator DNA.",
+      "B": "an operator mutation that acts only in cis on the same DNA molecule as the mutation.",
+      "C": "dominant, because the mutant repressor stays bound to both operators.",
+      "D": "recessive, because the wild-type repressor still releases the operators in lactose."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The mutant repressor cannot release in response to allolactose, so even in the presence of the wild-type repressor both operators remain blocked. Why the others are wrong: A) The mutant binds DNA tightly; it fails to respond to the inducer. B) Operator mutations are cis-acting and cause constitutive expression, as in lacO-c. D) A recessive allele would allow normal induction in the presence of the lacI+ copy.",
+     "trap": "Assuming a repressor mutation must be recessive as with loss-of-function lacI- alleles.",
+     "topic": "Dominant repressor mutants",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_BB_P3",
+   "passage_text": "In Labrador retrievers, coat color depends on two genes. At the B locus, the dominant allele B produces black pigment and the recessive allele b produces brown pigment. At the E locus, the dominant allele E allows pigment to be deposited in the hair, while dogs that are homozygous ee are yellow regardless of their genotype at the B locus.\n\nBreeders crossed dogs heterozygous at both loci (BbEe x BbEe) and recorded the coat colors of 640 puppies. In a separate test cross, a BbEe dog was crossed with a bbee dog. The observed and expected results for the dihybrid cross are shown in Table 1. A chi-square test was performed to determine whether the observed numbers fit the expected ratio; with 2 degrees of freedom, the critical value at p = 0.05 is 5.99.\n\nThe two loci were found to be on different chromosomes. Assume complete penetrance and no other modifying genes.",
+   "table_data": "| Phenotype | Observed | Expected |\n|---|---|---|\n| Black | 352 | 360 |\n| Brown | 118 | 120 |\n| Yellow | 170 | 160 |\n| Total | 640 | 640 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL03_BB_P3_Q1",
+     "stem": "The inheritance pattern at the E locus relative to the B locus is an example of:",
+     "options": {
+      "A": "incomplete dominance, giving a 1:2:1 ratio.",
+      "B": "recessive epistasis, giving a 9:3:4 ratio.",
+      "C": "complete dominance at both loci, giving a 9:3:3:1 ratio.",
+      "D": "codominance, giving a 1:1 ratio."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Genotype ee masks the B-locus alleles, so the 9 B_E_ : 3 bbE_ : 4 (B_ee + bbee) dihybrid ratio emerges. Why the others are wrong: A) Heterozygotes are not intermediate in this cross. C) Four distinct phenotypes are not seen; the two yellow classes are indistinguishable. D) No heterozygote shows both parental phenotypes.",
+     "trap": "Expecting the classical 9:3:3:1 ratio without recognizing that one gene masks the other.",
+     "topic": "Epistasis",
+     "mastery_sheet_id": "1C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P3_Q2",
+     "stem": "Among the yellow puppies from the BbEe x BbEe cross, what fraction is expected to be genotype BBee?",
+     "options": {
+      "A": "1/4",
+      "B": "1/2",
+      "C": "1/3",
+      "D": "1/16"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Yellow puppies are 4/16 of the total (BBee, 2 Bbee, bbee); BBee is 1 of those 4, or 1/4. Why the others are wrong: B) Only the Bbee genotype is 2 of 4. C) This divides by 3, as if only three yellow genotypes were equally likely. D) This is the fraction of all puppies, not of the yellow ones.",
+     "trap": "Using the fraction of the total offspring (1/16) instead of the fraction within the yellow class.",
+     "topic": "Conditional probability",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL03_BB_P3_Q3",
+     "stem": "Using the observed and expected values in Table 1, the chi-square statistic is closest to:",
+     "options": {
+      "A": "0.42",
+      "B": "8.4",
+      "C": "1.7",
+      "D": "0.84"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Chi-square = (352-360)^2/360 + (118-120)^2/120 + (170-160)^2/160 = 0.178 + 0.033 + 0.625, which is about 0.84, below 5.99. Why the others are wrong: A) This is half the correct value; dividing by degrees of freedom is not part of the statistic. B) This is off by a factor of 10. C) This is double the correct value, as if the deviations were counted twice.",
+     "trap": "Dividing by the observed instead of the expected values, or forgetting to square the deviations.",
+     "topic": "Chi-square",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "Statology / MathBench chi-square tables (critical value 5.99, df 2)"
+      ]
+     }
+    },
+    {
+     "id": "FL03_BB_P3_Q4",
+     "stem": "Based on the chi-square statistic, which conclusion is justified?",
+     "options": {
+      "A": "The results should be rejected because observed and expected values are not identical.",
+      "B": "The data do not differ significantly from the 9:3:4 ratio, so the null hypothesis is not rejected.",
+      "C": "The data prove that epistasis is present with certainty.",
+      "D": "The data differ significantly from 9:3:4, so the loci are linked."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A statistic of 0.84 is lower than the 5.99 critical value at 2 degrees of freedom, so the deviation can be due to chance. Why the others are wrong: A) Small deviations are expected from random sampling. C) Statistics fail to reject the null, but do not prove a hypothesis. D) The statistic is below the critical value; linkage would not be implied even if it were above.",
+     "trap": "Treating any difference between observed and expected values as evidence against the model.",
+     "topic": "Hypothesis testing",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P3_Q5",
+     "stem": "In the test cross BbEe x bbee, what fraction of the puppies is expected to be yellow?",
+     "options": {
+      "A": "1/2",
+      "B": "1/8",
+      "C": "3/4",
+      "D": "1/4"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) All ee puppies are yellow; Ee x ee gives 1/2 ee, regardless of B-locus genotype. Black and brown are each 1/4. Why the others are wrong: B) This would require three independent heterozygous crosses. C) This would apply to a cross between two Ee parents, where the E_ fraction is 3/4. D) This is the expected fraction of black or brown puppies, not yellow.",
+     "trap": "Using the 4/16 result from the dihybrid cross rather than the Ee x ee ratio.",
+     "topic": "Test cross",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_BB_P4",
+   "passage_text": "Glucose-6-phosphate dehydrogenase (G6PD) catalyzes the first, rate-limiting step of the oxidative phase of the pentose phosphate pathway. Mature erythrocytes lack mitochondria and depend on this pathway for NADPH, which glutathione reductase uses to regenerate reduced glutathione (GSH) from its oxidized form (GSSG). GSH is needed to detoxify hydrogen peroxide.\n\nResearchers incubated red blood cells from healthy volunteers and from volunteers with a partial G6PD deficiency with or without an oxidant drug that generates hydrogen peroxide. They measured NADPH production rate, the GSH/GSSG ratio, and the percentage of cells lysed (hemolysis) after 4 hours. Results are in Table 1.\n\nCells from both groups maintained similar glycolytic flux and ATP levels. Deficient cells had normal levels of glutathione reductase and total glutathione. Heinz bodies (precipitates of oxidized hemoglobin) formed only in cells with a low GSH/GSSG ratio. The oxidant did not change the number of cells in any sample at the start of the incubation, and hemolysis was determined by release of hemoglobin into the medium.",
+   "table_data": "| Group | Oxidant | NADPH production (nmol/min per 10^9 cells) | GSH/GSSG ratio | Hemolysis (%) |\n|---|---|---|---|---|\n| Normal | No | 100 | 400 | 1 |\n| Normal | Yes | 100 | 150 | 2 |\n| G6PD deficient | No | 10 | 200 | 2 |\n| G6PD deficient | Yes | 10 | 10 | 45 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL03_BB_P4_Q1",
+     "stem": "The reaction catalyzed by G6PD directly produces:",
+     "options": {
+      "A": "ATP and ribulose-5-phosphate from ADP and glucose-6-phosphate.",
+      "B": "NADH and pyruvate from glucose-6-phosphate and NAD+.",
+      "C": "NADPH and 6-phosphogluconolactone from glucose-6-phosphate and NADP+.",
+      "D": "FADH2 and fructose-6-phosphate from glucose-6-phosphate."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) G6PD oxidizes glucose-6-phosphate and reduces NADP+ to NADPH in the first committed step of the pathway. Why the others are wrong: A) The pathway does not generate ATP, and ribulose-5-phosphate is formed later. B) These products are of glycolysis, not the pentose phosphate pathway. D) Fructose-6-phosphate arises by isomerization in glycolysis without FAD.",
+     "trap": "Mixing up NADPH of the pentose phosphate pathway with NADH of glycolysis.",
+     "topic": "Pentose phosphate pathway",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P4_Q2",
+     "stem": "Erythrocytes are especially vulnerable to G6PD deficiency because they:",
+     "options": {
+      "A": "synthesize large amounts of fatty acids that require NADPH.",
+      "B": "have the highest rate of oxidative phosphorylation of any cell.",
+      "C": "do not carry out glycolysis, relying only on the pentose phosphate pathway.",
+      "D": "lack mitochondria and have no other major source of NADPH."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Without mitochondria, red cells cannot use mitochondrial NADPH-generating routes, so the pentose phosphate pathway is the main source. Why the others are wrong: A) Red cells do not synthesize fatty acids in bulk. B) Red cells have no mitochondria, so no oxidative phosphorylation. C) Red cells depend on glycolysis for ATP; the data say flux was similar.",
+     "trap": "Assuming red cells are rich in mitochondria because they carry oxygen.",
+     "topic": "Erythrocyte metabolism",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P4_Q3",
+     "stem": "Which statement best explains why hemolysis rises to 45% in deficient cells exposed to the oxidant?",
+     "options": {
+      "A": "Total glutathione is lower in deficient cells, so less peroxide can be neutralized.",
+      "B": "Low NADPH production limits regeneration of GSH, so peroxide damage to cell components is unchecked.",
+      "C": "The oxidant lowers ATP levels in deficient cells only.",
+      "D": "The oxidant inhibits glutathione reductase specifically in deficient cells."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Glutathione reductase needs NADPH; without it GSSG accumulates (ratio drops to 10), Heinz bodies form, and membranes are damaged. Why the others are wrong: A) Total glutathione was normal; the problem is its reduction state. C) ATP levels were similar in both groups. D) Glutathione reductase levels were normal and the oxidant affected normal cells much less.",
+     "trap": "Blaming total glutathione or ATP content when the data show the problem is NADPH supply for regeneration.",
+     "topic": "Oxidative stress in G6PD deficiency",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P4_Q4",
+     "stem": "Compared with normal cells, the fall in the GSH/GSSG ratio caused by the oxidant in deficient cells is approximately how many times greater (fold decline)?",
+     "options": {
+      "A": "7.5 times",
+      "B": "20 times",
+      "C": "1.9 times",
+      "D": "2.7 times"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Normal ratio fell 400 to 150, a 2.67-fold decline; deficient fell 200 to 10, a 20-fold decline; 20/2.67 is about 7.5. Why the others are wrong: B) This is the fold decline in deficient cells only. C) This does not correspond to the ratio of the two fold declines. D) This is the fold decline in normal cells only.",
+     "trap": "Reporting one group's fold change instead of the ratio of the two fold changes.",
+     "topic": "Fold change",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_BB_P5",
+   "passage_text": "A family has a recessive disorder caused by a single-nucleotide substitution in exon 4 of a gene. The substitution destroys the only EcoRI recognition site in a 1,200-bp region surrounding the exon. DNA from each family member was amplified by PCR with primers that flank the region, using a heat-stable DNA polymerase and 30 cycles of denaturation at 95 degrees C, annealing at 58 degrees C, and extension at 72 degrees C. Each product was digested with EcoRI and resolved on an agarose gel stained with a DNA-binding dye. A no-template control was run in parallel, containing all reagents except genomic DNA.\n\nThe wild-type allele yields fragments of 800 bp and 400 bp after digestion. The mutant allele remains 1,200 bp. Fragment sizes seen on the gel are listed in Table 1. A student calculated that PCR doubles the number of target molecules in each cycle under ideal conditions. Samples were loaded in adjacent lanes, and a ladder of known fragment lengths was included so that the sizes of the bands could be estimated. The sample from the unrelated control was known not to carry the mutation.",
+   "table_data": "| Lane | Sample | Bands observed (bp) |\n|---|---|---|\n| 1 | Size ladder | Markers only |\n| 2 | No-template control | None |\n| 3 | Unrelated control | 800, 400 |\n| 4 | Mother | 1,200, 800, 400 |\n| 5 | Father | 1,200, 800, 400 |\n| 6 | Affected child | 1,200 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL03_BB_P5_Q1",
+     "stem": "Based on Table 1, which individuals are heterozygous for the mutation?",
+     "options": {
+      "A": "The unrelated control and the affected child",
+      "B": "The affected child only, because the child displays the disease",
+      "C": "The mother and the father",
+      "D": "The mother, the father, and the affected child, because all three carry at least one mutant allele"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Heterozygotes carry one uncut mutant allele (1,200 bp) and one cut wild-type allele (800 and 400 bp), which is the pattern in lanes 4 and 5. Why the others are wrong: A) The control shows only 800 and 400 bp (homozygous wild type) and the child shows only 1,200 bp (homozygous mutant). B) The child has only the 1,200-bp band, indicating two mutant alleles; a heterozygote would also show cut fragments. D) The child carries two mutant copies and is therefore homozygous, not heterozygous.",
+     "trap": "Counting everyone who carries the mutant allele as heterozygous, including the homozygous affected child.",
+     "topic": "PCR and restriction mapping",
+     "mastery_sheet_id": "2A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P5_Q2",
+     "stem": "A DNA polymerase from a thermophilic bacterium is used in the PCR because it:",
+     "options": {
+      "A": "remains active after repeated exposure to the 95 degrees C denaturation step.",
+      "B": "is able to copy RNA templates directly into cDNA without primers.",
+      "C": "can initiate synthesis de novo without a primer when the template is sufficiently long.",
+      "D": "has proofreading and unwinds the helix using ATP at the annealing step."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Each cycle melts the double-stranded template at 95 degrees C, which would denature most polymerases; a thermostable enzyme avoids replenishing it every cycle. Why the others are wrong: B) Reverse transcriptase copies RNA, and all DNA polymerases require a primer. C) DNA polymerases cannot start synthesis without a primer, which is why primers flank the region. D) Heat, not an ATP-driven helicase, separates the strands in PCR, and the annealing step only lets primers bind.",
+     "trap": "Believing that the polymerase itself separates the strands, rather than the heat of the denaturation step.",
+     "topic": "PCR",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P5_Q3",
+     "stem": "A reaction begins with 100 copies of the target region. Assuming perfect doubling every cycle, approximately how many copies of the amplified region exist after 6 cycles?",
+     "options": {
+      "A": "600",
+      "B": "1,200",
+      "C": "12,800",
+      "D": "6,400"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Copies = 100 x 2^6 = 100 x 64 = 6,400. Why the others are wrong: A) This multiplies by the number of cycles (100 x 6), which would be linear growth. B) This is 100 x 12 (6 cycles x 2), treating doubling as adding a constant amount each cycle. C) This uses 2^7, one cycle too many (100 x 128).",
+     "trap": "Treating amplification as linear (multiplying by cycle number) instead of exponential (2 to the power of cycle number).",
+     "topic": "PCR amplification calculation",
+     "mastery_sheet_id": "2A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL03_BB_P5_Q4",
+     "stem": "On the agarose gel, which statement correctly describes the lane 6 band and the direction of its movement?",
+     "options": {
+      "A": "The 1,200-bp fragment migrates faster than the 400-bp fragment and moves toward the positive electrode.",
+      "B": "The 1,200-bp fragment migrates more slowly than the 400-bp fragment and moves toward the positive electrode.",
+      "C": "The 1,200-bp fragment migrates more slowly than the 400-bp fragment and moves toward the negative electrode.",
+      "D": "The 1,200-bp fragment migrates at the same rate as the 400-bp fragment because the two carry the same charge-to-mass ratio."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) DNA is negatively charged because of its phosphate backbone, so it moves to the anode, and in the gel matrix smaller fragments move farther. Why the others are wrong: A) Larger fragments are retarded more by the gel matrix, so the 1,200-bp fragment moves more slowly than the smaller fragments. C) DNA is negatively charged and moves to the positive electrode. D) Charge-to-mass is similar, but the sieving effect of agarose separates fragments by length.",
+     "trap": "Applying size-exclusion column logic (large molecules first) to a gel, where the smallest fragments run farthest.",
+     "topic": "Gel electrophoresis",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P5_Q5",
+     "stem": "If a band at 1,200 bp had appeared in lane 2 (no-template control), the most likely explanation would be that:",
+     "options": {
+      "A": "reagents or pipetting introduced contaminating template DNA or amplified product.",
+      "B": "the mutant allele was present in the reagents, which means the primers never bound.",
+      "C": "EcoRI digestion was incomplete and generated the larger band from the smaller pieces.",
+      "D": "the size ladder migrated unevenly and appeared as a false band in the next lane."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) With no genomic DNA added, any product must have come from contaminating template or earlier amplicons, so the experiment lacks a clean negative control. Why the others are wrong: B) A product forms only if primers bind to some template, so primer binding did occur. C) Digestion cannot produce a larger fragment, and no template was present for it to arise from. D) The ladder lane is separate and does not account for a band absent a template.",
+     "trap": "Assuming the polymerase can create products without a template, rather than recognizing contamination.",
+     "topic": "PCR controls",
+     "mastery_sheet_id": "2A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_BB_P6",
+   "passage_text": "A bacteriophage infects E. coli and produces progeny by the lytic cycle. In a one-step growth experiment, phage were mixed with bacteria at a low ratio so that nearly all infected cells were infected by one phage. After a short adsorption period, unadsorbed phage were neutralized with antiserum and the culture was diluted, so that the initial concentration of infected cells was 2 x 10^6 per mL and free phage was essentially zero.\n\nAt intervals, two samples were taken. One sample was plated directly to measure free phage. The other was treated with chloroform, which lyses cells and releases intracellular mature phage, and then plated to measure total infectious phage (free plus intracellular). Results are in Figure 1, with phage titer given in units of 10^6 plaque-forming units (PFU) per mL.\n\nA second phage strain, which carries a mutation in a gene encoding a lysis protein, was tested in the same way. Its chloroform-treated titer rose as shown for the wild-type phage, but its free phage titer remained near zero.",
+   "table_data": "",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. One-step growth curve",
+    "x_label": "Time after infection (min)",
+    "y_label": "Titer (10^6 PFU/mL)",
+    "series": [
+     {
+      "name": "Free phage",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        10,
+        0
+       ],
+       [
+        20,
+        0
+       ],
+       [
+        25,
+        2
+       ],
+       [
+        30,
+        30
+       ],
+       [
+        35,
+        80
+       ],
+       [
+        40,
+        100
+       ],
+       [
+        50,
+        100
+       ]
+      ]
+     },
+     {
+      "name": "Total phage (chloroform-treated)",
+      "points": [
+       [
+        0,
+        2
+       ],
+       [
+        5,
+        0.2
+       ],
+       [
+        10,
+        0.2
+       ],
+       [
+        15,
+        0.5
+       ],
+       [
+        20,
+        10
+       ],
+       [
+        25,
+        40
+       ],
+       [
+        30,
+        70
+       ],
+       [
+        35,
+        90
+       ],
+       [
+        40,
+        100
+       ],
+       [
+        50,
+        100
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL03_BB_P6_Q1",
+     "stem": "Based on Figure 1, the latent period of this phage (time before release of progeny phage) is approximately:",
+     "options": {
+      "A": "25 minutes",
+      "B": "50 minutes",
+      "C": "40 minutes",
+      "D": "5 minutes"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Free phage titer remains zero until about 25 minutes, when the first cells lyse. Why the others are wrong: B) This is the last time point, at which the plateau is established. C) This is when the burst is complete. D) At 5 minutes total infectivity is at its lowest, which marks the eclipse period, not the end of latency.",
+     "trap": "Using the first rise of the chloroform curve instead of the first rise of the free-phage curve.",
+     "topic": "One-step growth curve",
+     "mastery_sheet_id": "2B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P6_Q2",
+     "stem": "The average burst size (progeny phage per infected cell) is approximately:",
+     "options": {
+      "A": "50",
+      "B": "0.02",
+      "C": "100",
+      "D": "2"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The plateau is 100 x 10^6 PFU/mL from 2 x 10^6 infected cells per mL, so 100/2 = 50 phage per cell. Why the others are wrong: B) This inverts the ratio. C) This ignores the number of infected cells, using the plateau titer alone. D) This is the initial infected cell concentration, not the burst.",
+     "trap": "Reading the plateau value as the burst size without dividing by the number of infected cells.",
+     "topic": "Burst size",
+     "mastery_sheet_id": "2B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL03_BB_P6_Q3",
+     "stem": "The drop in the chloroform-treated titer during the first 5 to 10 minutes (eclipse) is best explained by the fact that:",
+     "options": {
+      "A": "the cells are not yet infected.",
+      "B": "the phage has lost its genome through mutation.",
+      "C": "infecting virions are disassembled as their genomes enter the host, so infectious particles are absent until new virions assemble.",
+      "D": "most phage are destroyed by the host's immune system."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Before assembly, the parental particles have released their nucleic acid and progeny have not yet formed, so there is little infectivity even inside intact cells. Why the others are wrong: A) The infected centers were already established at 2 x 10^6 per mL. B) Infection subsequently proceeds normally, so the genome remains. D) Bacteria lack an adaptive immune system of this type, and the antiserum acted only on free phage.",
+     "trap": "Interpreting the loss of infectivity as loss of the virus, when it reflects the intracellular stage in which no complete virions exist.",
+     "topic": "Viral replication cycle",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P6_Q4",
+     "stem": "The mutant phage with a defective lysis protein would be expected to produce which result in the one-step growth experiment?",
+     "options": {
+      "A": "Neither titer rises, because the phage cannot replicate.",
+      "B": "Only the free-phage titer rises, because phage bud from cells.",
+      "C": "Both titers rise normally, because lysis is not required to release progeny.",
+      "D": "Infectious progeny accumulate inside intact cells, so the chloroform-treated titer rises while the free titer stays low."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Without lysis the mature virions remain trapped in the cell; chloroform releases them for counting, as the passage describes. Why the others are wrong: A) Replication and assembly are normal, since the chloroform titer rises. B) Bacteriophages of this type exit by lysis, not budding. C) The free titer stays near zero.",
+     "trap": "Assuming a lysis defect would prevent virion assembly, rather than release.",
+     "topic": "Phage lysis",
+     "mastery_sheet_id": "2B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_BB_P7",
+   "passage_text": "Trisomy 21 arises when a gamete carries two copies of chromosome 21. To study the origin of the extra chromosome, researchers examined 150 affected children in whom the extra chromosome was of maternal origin. A DNA marker located close to the centromere of chromosome 21 was typed in each child and mother. In 108 children, the two maternal copies of the marker carried different alleles. In the remaining 42 children, the two maternal copies carried identical alleles. Crossing over near the centromere is rare and was ignored.\n\nThe researchers also examined the frequency of trisomy 21 births in relation to maternal age (Table 1; Figure 1). In humans, oocytes begin meiosis before birth and arrest in prophase I until ovulation, which may occur decades later. Each primary oocyte completes meiosis I at ovulation and then arrests again in metaphase II until fertilization. The age data are approximate population averages and were collected from many centers over several years.",
+   "table_data": "| Maternal age (years) | Trisomy 21 births per 1,000 |\n|---|---|\n| 25 | 0.8 |\n| 30 | 1.0 |\n| 35 | 2.9 |\n| 40 | 10 |\n| 45 | 33 |",
+   "graph": {
+    "type": "line",
+    "title": "Trisomy 21 frequency versus maternal age",
+    "x_label": "Maternal age (years)",
+    "y_label": "Trisomy 21 births per 1,000",
+    "series": [
+     {
+      "name": "Births",
+      "points": [
+       [
+        25,
+        0.8
+       ],
+       [
+        30,
+        1.0
+       ],
+       [
+        35,
+        2.9
+       ],
+       [
+        40,
+        10
+       ],
+       [
+        45,
+        33
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL03_BB_P7_Q1",
+     "stem": "In the 42 children whose two maternal marker copies were identical, the nondisjunction most likely occurred during:",
+     "options": {
+      "A": "meiosis I, when homologous chromosomes failed to separate.",
+      "B": "meiosis I, when sister chromatids failed to separate during prophase.",
+      "C": "mitosis in the zygote, because identical alleles can arise only from mitotic errors.",
+      "D": "meiosis II, when sister chromatids failed to separate."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Sister chromatids are identical copies (apart from rare crossover), so a disomic gamete from failed sister-chromatid separation carries two identical marker alleles near the centromere. Why the others are wrong: A) Failure of homologs to separate gives a gamete with one copy from each homolog, producing two different marker alleles. B) Sister chromatids do not separate in meiosis I during any phase, and this is not the event that nondisjunction involves. C) Identical alleles are expected from meiosis II errors; mitotic errors need not be invoked.",
+     "trap": "Remembering that homologs separate in meiosis I and sister chromatids in meiosis II, then reversing the two.",
+     "topic": "Meiotic nondisjunction",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P7_Q2",
+     "stem": "What percentage of these 150 maternal-origin cases is attributable to errors in meiosis I?",
+     "options": {
+      "A": "72%",
+      "B": "28%",
+      "C": "42%",
+      "D": "36%"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Different maternal alleles indicate meiosis I error: 108/150 = 0.72, or 72%. Why the others are wrong: B) This is 42/150, the meiosis II fraction. C) This is the raw count of meiosis II cases written as a percent, instead of dividing by 150. D) This halves the correct value, as if only one of two meiosis I products carried the error.",
+     "trap": "Using the count of one category as the percentage or choosing the complementary category.",
+     "topic": "Percentage calculation",
+     "mastery_sheet_id": "2C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "PubMed 1347192 (meiotic stage of nondisjunction in trisomy 21, DNA polymorphisms); PMC2265487"
+      ]
+     }
+    },
+    {
+     "id": "FL03_BB_P7_Q3",
+     "stem": "According to Table 1, the risk of trisomy 21 at age 40 is approximately how many times the risk at age 30?",
+     "options": {
+      "A": "2.9 times",
+      "B": "33 times",
+      "C": "10 times",
+      "D": "1.25 times"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 10 per 1,000 divided by 1.0 per 1,000 is 10. Why the others are wrong: A) This is the ratio for age 35 (2.9/1.0), not for age 40. B) This uses the age 45 value rather than age 40. D) This is the ratio of age 30 to age 25 (1.0/0.8), not age 40 to age 30.",
+     "trap": "Reading the neighboring row of the table rather than the row for age 40.",
+     "topic": "Data interpretation",
+     "mastery_sheet_id": "2C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P7_Q4",
+     "stem": "Which feature of oogenesis best explains the pattern in Figure 1?",
+     "options": {
+      "A": "Mutations accumulate in the mitotic divisions of oogonia throughout adult life, as in spermatogenesis.",
+      "B": "Primary oocytes stay arrested in prophase I for decades while cohesion deteriorates.",
+      "C": "Meiosis I is completed before birth, and meiosis II occurs shortly after ovulation.",
+      "D": "Older mothers produce more polar bodies, which carry extra copies of chromosome 21 into the egg."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Prolonged arrest with age-related loss of chromosome cohesion makes missegregation more likely at resumption of meiosis. Why the others are wrong: A) Oogonia complete mitosis before birth; there are no adult mitotic divisions to accumulate mutations. C) Meiosis I is completed only at ovulation; the oocyte arrests in prophase I from fetal life. D) Polar bodies are discarded and do not donate chromosomes to the egg.",
+     "trap": "Importing the spermatogenesis model of continuous divisions, when oocytes are arrested from fetal life.",
+     "topic": "Oogenesis and aging",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_BB_P8",
+   "passage_text": "Glucagon and epinephrine both raise blood glucose, in part by stimulating glycogen breakdown in the liver. Isolated hepatocytes were treated for 10 minutes with several agents. Intracellular cAMP, the fraction of glycogen phosphorylase in the active form, and glucose output were then measured (Table 1; Figure 1).\n\nGlucagon binds a Gs-coupled receptor. Epinephrine acts on beta-adrenergic receptors (Gs-coupled) and on alpha-1 receptors (Gq-coupled). Propranolol is a beta-receptor antagonist. Forskolin directly activates adenylyl cyclase. Cholera toxin permanently locks the alpha subunit of Gs in its GTP-bound state. IBMX inhibits phosphodiesterase, the enzyme that degrades cAMP to AMP. Glucagon and epinephrine were each used at saturating doses. Cells were first incubated in glucose-free buffer for 30 minutes to establish a stable baseline. Cells for each treatment came from the same liver preparation, so that differences between treatments reflect the agent used. Glycogen phosphorylase is activated by phosphorylation by phosphorylase kinase, which is itself activated by protein kinase A or by calcium.",
+   "table_data": "| Treatment | cAMP (pmol/mg) | Active phosphorylase (%) | Glucose output (relative) |\n|---|---|---|---|\n| Basal | 5 | 10 | 1.0 |\n| Glucagon | 80 | 75 | 4.2 |\n| Epinephrine | 60 | 65 | 3.8 |\n| Epinephrine + propranolol | 8 | 20 | 1.8 |\n| Forskolin | 90 | 80 | 4.5 |\n| Glucagon + IBMX | 200 | 90 | 4.8 |\n| Cholera toxin | 120 | 85 | 4.6 |",
+   "graph": {
+    "type": "bar",
+    "title": "Intracellular cAMP by treatment",
+    "x_label": "Treatment",
+    "y_label": "cAMP (pmol/mg)",
+    "series": [
+     {
+      "name": "cAMP",
+      "points": [
+       [
+        "Basal",
+        5
+       ],
+       [
+        "Glucagon",
+        80
+       ],
+       [
+        "Epinephrine",
+        60
+       ],
+       [
+        "Epi + propranolol",
+        8
+       ],
+       [
+        "Forskolin",
+        90
+       ],
+       [
+        "Glucagon + IBMX",
+        200
+       ],
+       [
+        "Cholera toxin",
+        120
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL03_BB_P8_Q1",
+     "stem": "Forskolin raises cAMP and glucose output without a receptor ligand. This indicates that forskolin acts at which step of the pathway?",
+     "options": {
+      "A": "Directly on adenylyl cyclase, downstream of the receptor and the G protein.",
+      "B": "On the glucagon receptor, as a ligand mimic that activates Gs.",
+      "C": "On phosphodiesterase, by increasing the rate at which cAMP is degraded to AMP.",
+      "D": "On glycogen phosphorylase, by directly phosphorylating it to the active form."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Forskolin bypasses the receptor and Gs and activates the enzyme that makes cAMP from ATP, so the downstream response (PKA, phosphorylase kinase, phosphorylase) follows. Why the others are wrong: B) If forskolin acted at the receptor, it would be blocked by receptor antagonists; the passage states it activates the cyclase directly. C) Increasing degradation would lower cAMP, but cAMP rose with forskolin. D) Phosphorylase is activated by phosphorylase kinase, which itself requires PKA; cAMP rose with forskolin, so the effect begins upstream.",
+     "trap": "Assuming any compound that raises cAMP must bind the receptor, ignoring that the cyclase can be activated directly.",
+     "topic": "cAMP second-messenger signaling",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P8_Q2",
+     "stem": "When propranolol was added, epinephrine still raised active phosphorylase from 10% to 20%, even though cAMP stayed near basal. The most likely explanation is that epinephrine:",
+     "options": {
+      "A": "binds the glucagon receptor and activates a second pool of adenylyl cyclase that propranolol cannot reach.",
+      "B": "also activates alpha-1 receptors, which signal through Gq, IP3, and Ca2+ to activate phosphorylase kinase.",
+      "C": "inhibits phosphodiesterase, leaving a small amount of cAMP that was not detected by the assay.",
+      "D": "is converted to glucagon by hepatocyte enzymes, producing a small cAMP-independent response."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Propranolol blocks beta receptors (cAMP rises are lost), but alpha-1 receptors remain, giving a cAMP-independent Ca2+ pathway that partially activates phosphorylase kinase. Why the others are wrong: A) Epinephrine does not bind the glucagon receptor, and cAMP would have risen if a cyclase were activated. C) cAMP stayed near basal, and a phosphodiesterase block would raise cAMP, not leave it unchanged. D) Epinephrine is not converted to glucagon, a peptide hormone with a different structure.",
+     "trap": "Assuming cAMP must account for every effect of epinephrine, overlooking its second receptor class.",
+     "topic": "G protein signaling",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P8_Q3",
+     "stem": "Compared with glucagon alone, adding IBMX increased cAMP by approximately how much, and why?",
+     "options": {
+      "A": "2.5-fold, because IBMX activates adenylyl cyclase directly.",
+      "B": "0.4-fold, because IBMX blocks the glucagon receptor and lowers cAMP.",
+      "C": "2.5-fold, because cAMP degradation by phosphodiesterase was blocked.",
+      "D": "40-fold, because IBMX inhibits the Gs protein and amplifies the signal."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 200/80 = 2.5. With phosphodiesterase inhibited, cAMP made by adenylyl cyclase accumulates. Why the others are wrong: A) The ratio is right, but the passage says IBMX inhibits phosphodiesterase; forskolin activates adenylyl cyclase. B) 0.4 is 80/200, the inverse ratio, and cAMP rose rather than fell. D) The 40-fold value is 200/5, which compares to basal, and IBMX does not act on Gs.",
+     "trap": "Inverting the ratio or comparing with basal rather than with the glucagon-treated cells.",
+     "topic": "cAMP degradation",
+     "mastery_sheet_id": "3A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL03_BB_P8_Q4",
+     "stem": "Cholera toxin raises cAMP in the absence of hormone because it:",
+     "options": {
+      "A": "directly phosphorylates adenylyl cyclase on a serine residue to increase its activity.",
+      "B": "blocks cAMP phosphodiesterase, preventing the breakdown of cAMP.",
+      "C": "mimics glucagon by binding to the glucagon receptor and activating Gs.",
+      "D": "keeps the Gs alpha subunit in its active GTP-bound form, so adenylyl cyclase stays on."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) By blocking GTP hydrolysis by Gs alpha, the toxin leaves it constitutively active, giving persistent cyclase activation and sustained cAMP. Why the others are wrong: A) The passage describes an effect on the Gs alpha subunit, not a kinase-like action on the cyclase. B) The passage attributes the effect to the Gs alpha subunit; IBMX is the phosphodiesterase inhibitor. C) Cholera toxin acts on the G protein itself, not on the receptor.",
+     "trap": "Confusing the G protein locked in its GTP-bound state with receptor activation by a ligand.",
+     "topic": "G protein activation",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_BB_P9",
+   "passage_text": "An indirect ELISA was used to follow the antibody response to a vaccine antigen. Antigen was coated on a plastic plate, wells were blocked with an irrelevant protein, and serial dilutions of a volunteer's serum were added. After washing, an enzyme-linked antibody that recognizes human IgG was added, followed by a substrate that turns yellow. Absorbance (optical density, OD) is proportional to the amount of bound antibody. The titer is the highest dilution with an OD of at least 0.20, the cutoff set at three standard deviations above the mean of blank wells.\n\nThe volunteer received a first dose at day 0 and a booster at day 21. Serum was collected on days 0, 14, and 28 (Table 1; Figure 1). Each serum sample was assayed in duplicate on the same plate, and the values shown are means. Wells that received buffer instead of serum served as blanks. The plate was washed several times between each step to remove unbound material.",
+   "table_data": "| Serum dilution (1:x) | Day 0 | Day 14 | Day 28 |\n|---|---|---|---|\n| 100 | 0.05 | 0.60 | 2.10 |\n| 300 | 0.04 | 0.32 | 1.90 |\n| 900 | 0.04 | 0.15 | 1.45 |\n| 2,700 | 0.03 | 0.08 | 0.80 |\n| 8,100 | 0.03 | 0.05 | 0.30 |",
+   "graph": {
+    "type": "line",
+    "title": "Anti-antigen IgG ELISA signal",
+    "x_label": "Serum dilution (1:x)",
+    "y_label": "OD",
+    "series": [
+     {
+      "name": "Day 0",
+      "points": [
+       [
+        100,
+        0.05
+       ],
+       [
+        300,
+        0.04
+       ],
+       [
+        900,
+        0.04
+       ],
+       [
+        2700,
+        0.03
+       ],
+       [
+        8100,
+        0.03
+       ]
+      ]
+     },
+     {
+      "name": "Day 14",
+      "points": [
+       [
+        100,
+        0.6
+       ],
+       [
+        300,
+        0.32
+       ],
+       [
+        900,
+        0.15
+       ],
+       [
+        2700,
+        0.08
+       ],
+       [
+        8100,
+        0.05
+       ]
+      ]
+     },
+     {
+      "name": "Day 28",
+      "points": [
+       [
+        100,
+        2.1
+       ],
+       [
+        300,
+        1.9
+       ],
+       [
+        900,
+        1.45
+       ],
+       [
+        2700,
+        0.8
+       ],
+       [
+        8100,
+        0.3
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL03_BB_P9_Q1",
+     "stem": "What is the antibody titer on day 28?",
+     "options": {
+      "A": "2,700",
+      "B": "8,100",
+      "C": "900",
+      "D": "300"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At the highest dilution tested (1:8,100) the OD is 0.30, which exceeds the 0.20 cutoff, so the titer is at least 8,100. Why the others are wrong: A) The OD at 1:2,700 is 0.80, but a higher dilution (1:8,100) is still above the cutoff. C) The OD at 1:900 is above cutoff, but higher dilutions are as well. D) This is the day 14 titer, where OD at 1:900 (0.15) has already fallen below 0.20.",
+     "trap": "Selecting the dilution with the highest OD instead of the highest dilution that remains above the cutoff.",
+     "topic": "ELISA titer",
+     "mastery_sheet_id": "3B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P9_Q2",
+     "stem": "By what factor did the titer increase from day 14 to day 28?",
+     "options": {
+      "A": "3-fold",
+      "B": "9-fold",
+      "C": "81-fold",
+      "D": "27-fold"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Day 14 titer is 300 (OD 0.32, whereas 1:900 gives 0.15), and day 28 titer is 8,100, so 8,100/300 = 27. Why the others are wrong: A) This compares neighboring dilution steps, which differ threefold, rather than the full change between titers. B) This results from taking the day 14 titer as 900, even though the OD at 1:900 is below the cutoff. C) This uses a day 14 titer of 100, ignoring that the 1:300 dilution is above cutoff.",
+     "trap": "Using a dilution step or the wrong day 14 end point rather than comparing the two true titers.",
+     "topic": "Titer calculation",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL03_BB_P9_Q3",
+     "stem": "The higher and faster antibody response after the booster is best explained by the action of:",
+     "options": {
+      "A": "memory B cells from the first dose, which respond rapidly and have undergone affinity maturation.",
+      "B": "natural killer cells, which produce IgG directly after recognizing the antigen.",
+      "C": "complement proteins, which store the antigen shape and generate new antibodies on the booster.",
+      "D": "neutrophils, which carry antigen to the spleen and replace the plasma cells that decay after the first dose."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Primed memory B and T cells give a faster, larger secondary response with higher-affinity, class-switched IgG. Why the others are wrong: B) Natural killer cells are innate lymphocytes and do not secrete antibodies. C) Complement helps clear opsonized antigens, but it does not generate or remember antibodies. D) Neutrophils are short-lived, innate phagocytes, and they do not provide immunologic memory.",
+     "trap": "Attributing memory to innate cells, when only B and T lymphocytes provide it.",
+     "topic": "Adaptive immunity",
+     "mastery_sheet_id": "3B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P9_Q4",
+     "stem": "A well with no serum, blocked but otherwise treated identically, shows an OD of 0.04. If this value were high (for example, 1.5), the most likely cause would be:",
+     "options": {
+      "A": "high concentration of IgG in the serum that was added to the well.",
+      "B": "the antigen coating failed, so no antibody could bind and the enzyme remained inactive.",
+      "C": "inadequate blocking, so the enzyme-linked antibody bound directly to the plastic.",
+      "D": "a booster dose that raised the titer of antigen-specific antibody."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Without serum, signal comes from nonspecific binding of the detection antibody, and this is what blocking is intended to reduce. Why the others are wrong: A) No serum was added to this well. B) Failed coating would reduce signal in sample wells, not increase signal in a no-serum well. D) A well with no serum cannot reflect the volunteer's immune response.",
+     "trap": "Reading any signal as specific antibody binding, when blank wells measure background.",
+     "topic": "ELISA controls",
+     "mastery_sheet_id": "3B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P9_Q5",
+     "stem": "The detection antibody recognizes only human IgG. Which statement best explains the low OD at day 14 relative to day 28?",
+     "options": {
+      "A": "IgM predominates early in a primary response, and the detection antibody does not recognize IgM.",
+      "B": "IgG predominates early in a primary response, but its affinity is too low to bind antigen on the plate.",
+      "C": "The detection antibody binds IgM more strongly than IgG, which suppresses the day 28 signal.",
+      "D": "The antibody-secreting plasma cells at day 14 produce IgE, which cannot be adsorbed to plastic."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Class switching to IgG takes time; at day 14, antigen-specific IgM, undetected by an anti-IgG reagent, makes up much of the response. Why the others are wrong: B) IgM, not IgG, predominates early, and the OD reflects amount of binding rather than the lack of any binding. C) The anti-IgG reagent does not bind IgM, and the day 28 signal is high, not suppressed. D) IgE is a minor isotype in a vaccine response, and it can bind to coated antigen if present.",
+     "trap": "Forgetting that an isotype-specific detection reagent reports only that isotype, not the total antibody response.",
+     "topic": "Antibody isotypes",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_BB_P10",
+   "passage_text": "Rod photoreceptors contain rhodopsin, a G protein-coupled receptor bound to 11-cis-retinal, in the membranes of their outer segments. In the dark, cyclic GMP (cGMP) levels are high and cGMP binds to channels in the plasma membrane, holding them open. In light, 11-cis-retinal is converted to all-trans-retinal, which activates rhodopsin, which in turn activates the G protein transducin and a phosphodiesterase (PDE) that hydrolyzes cGMP.\n\nResearchers recorded from isolated rods under four conditions: darkness, dim light, bright light, and bright light in the presence of IBMX, a PDE inhibitor. Membrane potential, relative cGMP concentration, and glutamate release from the synaptic terminal were measured (Table 1). Relative cGMP in darkness was set to 100.\n\nThe channel opened by cGMP is nonselective for cations, and the rod also contains Na+/K+ pumps in the inner segment and K+ channels that are not regulated by cGMP. Glutamate release from rods is voltage-dependent and rises with depolarization.",
+   "table_data": "| Condition | Membrane potential (mV) | Relative cGMP | Glutamate release |\n|---|---|---|---|\n| Dark | -40 | 100 | High |\n| Dim light | -50 | 60 | Intermediate |\n| Bright light | -65 | 10 | Low |\n| Bright light + IBMX | -42 | 90 | High |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL03_BB_P10_Q1",
+     "stem": "The relatively depolarized potential of the rod in darkness (-40 mV) is the result of:",
+     "options": {
+      "A": "Cl- exit through open voltage-gated chloride channels in the outer segment.",
+      "B": "K+ entry through open cGMP-gated channels down its gradient.",
+      "C": "activity of the Na+/K+ pump alone, without any open ion channels.",
+      "D": "Na+ entry through open cGMP-gated channels."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) High cGMP keeps nonselective cation channels open, and the inward Na+ current (dark current) depolarizes the cell compared with the K+ equilibrium potential. Why the others are wrong: A) Cl- is not described as the cause of the dark current. B) K+ would exit down its gradient and the channels are nonselective, dominated by Na+ influx. C) The pump is electrogenic but hyperpolarizing and cannot produce the depolarization.",
+     "trap": "Thinking photoreceptors are hyperpolarized at rest, as most neurons are.",
+     "topic": "Phototransduction",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P10_Q2",
+     "stem": "In bright light, the hyperpolarization of the rod arises because:",
+     "options": {
+      "A": "rhodopsin directly closes the cGMP-gated cation channels by binding them.",
+      "B": "glutamate released in the light binds and inhibits the rod directly.",
+      "C": "PDE activation lowers cGMP, closing the channels.",
+      "D": "light increases cGMP, which opens K+ channels and lets potassium leave."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Light activates transducin and PDE, cGMP falls to 10, and channel closure removes the depolarizing dark current. Why the others are wrong: A) The effect is mediated by the cGMP decrease through a G protein cascade. B) Glutamate release is the output, and falls in light. D) cGMP decreases in light, as in Table 1.",
+     "trap": "Assuming light activates a channel directly, as in ionotropic receptors.",
+     "topic": "G protein cascade",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P10_Q3",
+     "stem": "The result with bright light plus IBMX supports the conclusion that:",
+     "options": {
+      "A": "cGMP breakdown is required for light-induced hyperpolarization.",
+      "B": "glutamate release is independent of membrane potential in rods.",
+      "C": "cGMP breakdown is not involved, because light is still present in the assay.",
+      "D": "IBMX activates rhodopsin even without a photon."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) With PDE blocked, cGMP stays at 90 and the rod remains near -42 mV with high glutamate release despite bright light. Why the others are wrong: B) Release tracked potential in all four conditions. C) The persistence of depolarization indicates the opposite. D) The cell still behaves as in darkness, so there is no activation.",
+     "trap": "Concluding that the presence of the stimulus (light) alone determines the response.",
+     "topic": "Experimental inference",
+     "mastery_sheet_id": "3A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_BB_P10_Q4",
+     "stem": "A diet deficient in vitamin A would be expected to impair night vision mainly because:",
+     "options": {
+      "A": "vitamin A is the metabolic precursor from which rods synthesize cGMP.",
+      "B": "vitamin A is the precursor of retinal, which rhodopsin requires.",
+      "C": "vitamin A activates the PDE directly, independent of transducin.",
+      "D": "vitamin A serves as the neurotransmitter released by rods."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Retinal derives from vitamin A; without it, rhodopsin cannot be regenerated, and rods in dim light are affected first. Why the others are wrong: A) cGMP is made from GTP. C) Activation of PDE depends on transducin. D) Rods use glutamate.",
+     "trap": "Linking vitamin A deficiency to cones or the lens rather than to rhodopsin in rods.",
+     "topic": "Vision and vitamin A",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL03_BB_D1",
+   "stem": "Histidine is often involved in buffering in proteins near physiological pH. This is because the side chain of histidine has:",
+   "options": {
+    "A": "no ionizable groups in its imidazole ring, so it is uncharged at any pH.",
+    "B": "a pKa near 6, so it can accept or release a proton near neutral pH.",
+    "C": "a pKa near 3.9, so it is fully deprotonated and negatively charged at pH 7.4.",
+    "D": "a pKa near 10.5, so it is mostly protonated and cannot act as a buffer at pH 7.4."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The imidazole pKa is about 6, so it is partially protonated near pH 6-7 and is an effective buffer in that range. Why the others are wrong: A) The imidazole ring is ionizable. C) This applies to aspartate. D) This applies to lysine's amino group.",
+   "trap": "Assigning the pKa of lysine or aspartate to histidine.",
+   "topic": "Amino acid ionization",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D2",
+   "stem": "Proline is commonly found at the ends of alpha helices or in turns rather than in the middle of helices because proline:",
+   "options": {
+    "A": "is too hydrophobic to be found in any form of secondary structure.",
+    "B": "forms disulfide bonds that cross-link adjacent helices and prevent folding.",
+    "C": "carries a charged side chain that repels adjacent residues within the helix.",
+    "D": "lacks an amide hydrogen for hydrogen bonding and has a rigid ring."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) The backbone nitrogen of proline is bonded to the side chain and has no hydrogen to donate, and the fixed phi angle introduces a kink. Why the others are wrong: A) Hydrophobicity does not prevent helix formation; many nonpolar residues are in helices. B) Proline has no sulfur. C) Proline's side chain is nonpolar and uncharged.",
+   "trap": "Attributing helix disruption to charge or disulfide bonds rather than to the backbone geometry.",
+   "topic": "Secondary structure",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D3",
+   "stem": "A point mutation changes a codon in an mRNA from CAA (glutamine) to UAA. The most likely consequence for the encoded protein is:",
+   "options": {
+    "A": "a truncated protein due to premature termination of translation.",
+    "B": "a protein with no change at all because the genetic code is degenerate.",
+    "C": "a protein of the same length with a single amino acid substituted.",
+    "D": "a protein with a frameshift in all codons downstream of the change."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) UAA is a stop codon, so translation stops at that position and the protein is shortened. Why the others are wrong: B) Degeneracy applies to synonymous codons, and UAA codes for no amino acid. C) This describes a missense mutation, not a change to a stop codon. D) Frameshifts follow insertions or deletions not divisible by three.",
+   "trap": "Calling any single-base change silent or missense without checking whether the new codon is a stop codon.",
+   "topic": "Mutation types",
+   "mastery_sheet_id": "1B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D4",
+   "stem": "Shortening of the poly-A tail of a eukaryotic mRNA in the cytoplasm is most likely to:",
+   "options": {
+    "A": "increase mRNA stability by exposing the coding region to ribosomes.",
+    "B": "cause introns to be retained in the mature mRNA exported from the nucleus.",
+    "C": "make the mRNA more susceptible to degradation and decrease translation.",
+    "D": "prevent the 5' cap from being added during transcription."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) The poly-A tail and its binding proteins protect against exonucleases and promote translation; shortening commits the mRNA to decay. Why the others are wrong: A) Shortening reduces protection. B) Splicing occurs in the nucleus and is independent of tail length. D) Capping is cotranscriptional and has already occurred.",
+   "trap": "Thinking that a shorter tail is more stable or confusing splicing with polyadenylation.",
+   "topic": "mRNA processing",
+   "mastery_sheet_id": "1B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D5",
+   "stem": "A woman who is a carrier of an X-linked recessive disorder has children with an unaffected man. What is the probability that a child of unknown sex is affected?",
+   "options": {
+    "A": "1/2",
+    "B": "1/4",
+    "C": "1/8",
+    "D": "0"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Half of the sons (1/2 of children) are affected with probability 1/2, so 1/2 x 1/2 = 1/4; daughters are carriers or unaffected. Why the others are wrong: A) This is the probability for a son only. C) This applies a second 1/2 without justification. D) The mother's allele can be transmitted to sons, who have only one X.",
+   "trap": "Stating the probability for sons as the probability for any child.",
+   "topic": "X-linked inheritance",
+   "mastery_sheet_id": "1C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "NHS Genomics Education Programme X-linked recessive inheritance; Memorial Univ. pedigree page"
+    ]
+   }
+  },
+  {
+   "id": "FL03_BB_D6",
+   "stem": "A small island population was founded by 20 individuals, one of whom carried a rare recessive allele. A century later the allele is common on the island. This is best explained by:",
+   "options": {
+    "A": "the founder effect, a form of genetic drift.",
+    "B": "gene flow from the mainland.",
+    "C": "directional selection acting against the recessive allele.",
+    "D": "a high mutation rate on the island."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Small founding samples can poorly represent the source gene pool, and a rare allele can reach high frequency by chance. Why the others are wrong: B) The scenario describes an isolated population. C) Selection against an allele would reduce its frequency. D) Mutation is too slow and the explanation relies on chance sampling.",
+   "trap": "Attributing every change in allele frequency to natural selection.",
+   "topic": "Genetic drift",
+   "mastery_sheet_id": "1C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D7",
+   "stem": "A child with a deficiency of thiamine would be expected to have increased blood levels of pyruvate and lactate because thiamine is a cofactor for:",
+   "options": {
+    "A": "lactate dehydrogenase, which interconverts pyruvate and lactate.",
+    "B": "citrate synthase, which condenses acetyl-CoA with oxaloacetate.",
+    "C": "pyruvate kinase, which forms pyruvate at the end of glycolysis.",
+    "D": "pyruvate dehydrogenase."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Thiamine pyrophosphate is required by pyruvate dehydrogenase (and alpha-ketoglutarate dehydrogenase); a block raises pyruvate, which is converted to lactate. Why the others are wrong: A) LDH uses NADH, and if inhibited, lactate would fall. B) Citrate synthase uses acetyl-CoA and oxaloacetate with no thiamine. C) Pyruvate kinase does not require TPP.",
+   "trap": "Linking thiamine with glycolytic enzymes rather than with the dehydrogenase complexes.",
+   "topic": "Cofactors in metabolism",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D8",
+   "stem": "During prolonged fasting, increased fatty acid oxidation in the liver raises acetyl-CoA. This acetyl-CoA promotes gluconeogenesis by:",
+   "options": {
+    "A": "inhibiting phosphoenolpyruvate carboxykinase.",
+    "B": "activating pyruvate dehydrogenase.",
+    "C": "activating pyruvate carboxylase.",
+    "D": "activating phosphofructokinase-1."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Acetyl-CoA is an allosteric activator of pyruvate carboxylase, which converts pyruvate to oxaloacetate, the first gluconeogenic step. Why the others are wrong: A) This enzyme is induced during fasting. B) Acetyl-CoA inhibits pyruvate dehydrogenase, favoring conservation of pyruvate. D) Glycolysis is inhibited, not activated, during fasting.",
+   "trap": "Assuming acetyl-CoA activates pyruvate dehydrogenase because it is its product.",
+   "topic": "Gluconeogenesis regulation",
+   "mastery_sheet_id": "1D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D9",
+   "stem": "Cholera toxin causes severe diarrhea by modifying the alpha subunit of Gs so that it cannot hydrolyze GTP. The direct result in intestinal epithelial cells is:",
+   "options": {
+    "A": "persistent inhibition of adenylyl cyclase and low cAMP in the cell.",
+    "B": "increased tyrosine phosphorylation by an activated receptor kinase.",
+    "C": "increased IP3 formation and release of Ca2+ from the endoplasmic reticulum.",
+    "D": "persistent activation of adenylyl cyclase and high cAMP."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) A Gs alpha subunit locked in the GTP-bound state continuously stimulates adenylyl cyclase, which raises cAMP and PKA activity, opening the CFTR channel. Why the others are wrong: A) This would result from persistent activation of Gi, not Gs. B) This is not the pathway of a G protein-coupled receptor. C) This is the Gq pathway.",
+   "trap": "Mixing up the Gs, Gi, and Gq pathways.",
+   "topic": "G protein signaling",
+   "mastery_sheet_id": "2A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D10",
+   "stem": "Penicillin is most effective against bacteria that are actively growing because it:",
+   "options": {
+    "A": "blocks DNA gyrase, preventing relaxation of positive supercoils during replication.",
+    "B": "inhibits the 30S ribosomal subunit, causing misreading of mRNA.",
+    "C": "inhibits cross-linking of peptidoglycan during cell wall synthesis.",
+    "D": "disrupts the nuclear membrane of the bacterial cell."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Penicillin blocks transpeptidase, so new wall is weak and cells lyse as they grow and divide. Why the others are wrong: A) Fluoroquinolones act in this manner. B) This applies to aminoglycosides and tetracyclines. D) Bacteria have no nucleus.",
+   "trap": "Assuming all antibiotics act on the ribosome.",
+   "topic": "Antibiotic targets",
+   "mastery_sheet_id": "2B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D11",
+   "stem": "Which of the following tissues is derived from embryonic mesoderm?",
+   "options": {
+    "A": "The epidermis of the skin",
+    "B": "Cardiac muscle",
+    "C": "The retina",
+    "D": "The epithelial lining of the lungs"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The heart muscle, skeletal muscle, kidney, bone, and blood are mesodermal derivatives. Why the others are wrong: A) The epidermis is ectoderm. C) The retina is a neural derivative of ectoderm. D) The respiratory epithelium comes from endoderm.",
+   "trap": "Assuming that all organs of the trunk are endodermal.",
+   "topic": "Germ layers",
+   "mastery_sheet_id": "2C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D12",
+   "stem": "A second exposure to the same antigen produces a faster and larger antibody response mainly because:",
+   "options": {
+    "A": "memory B cells formed during the first exposure are activated quickly.",
+    "B": "antibodies from the first response are still produced by the same B cells at the same rate.",
+    "C": "the antigen is now processed by the innate system alone.",
+    "D": "natural killer cells have learned to recognize the antigen."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Memory B and T cells are long-lived and, on re-exposure, differentiate into plasma cells quickly and produce high-affinity IgG. Why the others are wrong: B) The response is faster and larger, not unchanged. C) Memory is an adaptive process. D) NK cells are part of innate immunity and have no antigen-specific memory.",
+   "trap": "Attributing immunologic memory to innate immune cells.",
+   "topic": "Adaptive immunity",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D13",
+   "stem": "A patient with central diabetes insipidus (deficient ADH secretion) would be expected to excrete:",
+   "options": {
+    "A": "large volumes of dilute urine, with increased plasma osmolarity.",
+    "B": "small volumes of dilute urine, with decreased plasma osmolarity.",
+    "C": "small volumes of concentrated urine, with decreased plasma osmolarity.",
+    "D": "large volumes of urine containing glucose, with normal plasma osmolarity."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Without ADH, aquaporin-2 channels are not inserted in the collecting duct, so water is not reabsorbed. Why the others are wrong: B) With low ADH, water is not reabsorbed. C) This would occur with excess ADH. D) This describes the osmotic diuresis of diabetes mellitus.",
+   "trap": "Confusing diabetes insipidus with diabetes mellitus.",
+   "topic": "ADH and the nephron",
+   "mastery_sheet_id": "3B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D14",
+   "stem": "A person hyperventilates for several minutes. The expected change in arterial blood is:",
+   "options": {
+    "A": "no change, because the buffer system fully compensates immediately.",
+    "B": "increased PCO2 and decreased pH.",
+    "C": "decreased PCO2 and decreased pH.",
+    "D": "decreased PCO2 and increased pH."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Excess ventilation removes CO2, which shifts the bicarbonate equilibrium so that H+ falls, giving a respiratory alkalosis. Why the others are wrong: A) Buffers limit but do not prevent the change. B) This would occur with hypoventilation. C) Less CO2 means less carbonic acid, so pH rises.",
+   "trap": "Reversing the effect of CO2 on pH.",
+   "topic": "Acid-base balance",
+   "mastery_sheet_id": "3B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_BB_D15",
+   "stem": "Which of the following is an effect of sympathetic nervous system stimulation?",
+   "options": {
+    "A": "Constriction of the pupil",
+    "B": "Increased secretion of watery saliva",
+    "C": "Dilation of the bronchioles",
+    "D": "Increased peristalsis"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Sympathetic stimulation increases airflow by dilating the bronchioles, raises heart rate, and decreases digestive activity. Why the others are wrong: A) This is parasympathetic. B) This is predominantly parasympathetic. D) This is parasympathetic.",
+   "trap": "Mixing up the functions of the sympathetic and parasympathetic systems.",
+   "topic": "Autonomic nervous system",
+   "mastery_sheet_id": "3A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

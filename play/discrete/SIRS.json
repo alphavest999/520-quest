@@ -1,0 +1,454 @@
+[
+ {
+  "id": "d_SIRS_1",
+  "type": "discrete",
+  "stem": "Five reaction times (ms) are 4, 6, 6, 8, and 40. Which statement about the data is correct?",
+  "options": {
+   "A": "The median (6) is less affected by the extreme value than the mean (12.8)",
+   "B": "The mean (6) is less affected than the median (12.8)",
+   "C": "The mean and median are both 12.8",
+   "D": "The mode (4) best represents the data"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The mean is 64/5 = 12.8, pulled upward by 40, whereas the median is 6; the median is resistant to outliers. Why the others are wrong: B) This reverses the two values; the median is 6 and the mean is 12.8. C) The median is the middle value, 6. D) The mode is 6, the most frequent value, not 4.",
+  "trap": "Assuming the mean is always the best summary of a data set.",
+  "topic": "Outliers and central tendency",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "515",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_SIRS_2",
+  "type": "discrete",
+  "stem": "A diagnostic test is applied to 300 people: 80 true positives, 20 false negatives, 30 false positives, and 170 true negatives. What is the specificity?",
+  "options": {
+   "A": "80%",
+   "B": "73%",
+   "C": "85%",
+   "D": "89%"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Specificity = TN/(TN + FP) = 170/200 = 85%. Why the others are wrong: A) 80/100 is the sensitivity, TP/(TP + FN). B) 80/110 is the positive predictive value, TP/(TP + FP). D) 170/190 is the negative predictive value, TN/(TN + FN).",
+  "trap": "Mixing up specificity with sensitivity or predictive values.",
+  "topic": "Specificity",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://ncbi.nlm.nih.gov/books/NBK557491"
+   ]
+  }
+ },
+ {
+  "id": "d_SIRS_3",
+  "type": "discrete",
+  "stem": "In a cohort study, 30 of 100 exposed people and 10 of 100 unexposed people develop the disease. What is the relative risk?",
+  "options": {
+   "A": "0.33",
+   "B": "3.0",
+   "C": "20",
+   "D": "2.0"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) RR = (30/100)/(10/100) = 3.0. Why the others are wrong: A) This inverts the ratio of the risks. C) Twenty percentage points is the absolute risk difference, not a ratio. D) This is the relative excess risk, (0.30 - 0.10)/0.10, not the relative risk.",
+  "trap": "Reporting the risk difference as if it were the risk ratio.",
+  "topic": "Relative risk",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "525",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://statpages.info/ctab2x2.html"
+   ]
+  }
+ },
+ {
+  "id": "d_SIRS_4",
+  "type": "discrete",
+  "stem": "In a case-control study, 40 of 100 cases and 20 of 100 controls were exposed. What is the odds ratio for exposure?",
+  "options": {
+   "A": "2.0",
+   "B": "0.375",
+   "C": "1.5",
+   "D": "2.67"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Odds in cases are 40/60 and in controls 20/80, so OR = (40 x 80)/(60 x 20) = 3200/1200 = 2.67. Why the others are wrong: A) This compares only the exposed counts, 40/20, and ignores the unexposed. B) This is the reciprocal of the odds ratio. C) This is 60/40 and ignores the controls entirely.",
+  "trap": "Dividing exposed counts instead of cross-multiplying the 2 x 2 table.",
+  "topic": "Odds ratio",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "516",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://statpages.info/ctab2x2.html"
+   ]
+  }
+ },
+ {
+  "id": "d_SIRS_5",
+  "type": "discrete",
+  "stem": "In a 200-person study, 50 people received a drug and 40 people improved overall. If drug and improvement were independent, how many drug recipients would be expected to improve?",
+  "options": {
+   "A": "20",
+   "B": "25",
+   "C": "40",
+   "D": "10"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Expected = (row total x column total)/grand total = 50 x 40/200 = 10. Why the others are wrong: A) This assumes half of the improvers received the drug. B) This assumes half of the drug group improves. C) This is the total number who improved, ignoring group size.",
+  "trap": "Using observed counts or marginal totals instead of expected counts.",
+  "topic": "Chi-square expected count",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "521",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_SIRS_6",
+  "type": "discrete",
+  "stem": "A researcher performs 20 independent hypothesis tests at alpha = 0.05 when no real effects exist. About how many false positives are expected?",
+  "options": {
+   "A": "5",
+   "B": "1",
+   "C": "0",
+   "D": "20"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Expected false positives = 20 x 0.05 = 1. Why the others are wrong: A) This would require 100 tests at alpha = 0.05. C) Each test carries a 5% chance of Type I error even when the null is true. D) This would be the case only if every test were significant.",
+  "trap": "Believing alpha applies only to the whole set rather than to each test.",
+  "topic": "Multiple comparisons",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "526",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_SIRS_7",
+  "type": "discrete",
+  "stem": "A study reports p = 0.03 for the difference between a drug and placebo. Which interpretation is correct?",
+  "options": {
+   "A": "There is a 3% chance that the null hypothesis is true",
+   "B": "There is a 97% chance that the drug works",
+   "C": "If the null hypothesis were true, results at least this extreme would occur about 3% of the time",
+   "D": "The effect is large"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) The p-value is the probability of data at least this extreme given the null hypothesis. Why the others are wrong: A) The p-value is not the probability that the null hypothesis is true. B) This misreads p as the probability that the effect is real. D) The p-value does not measure effect size.",
+  "trap": "Interpreting p as the probability that the null hypothesis is true.",
+  "topic": "p-value interpretation",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_SIRS_8",
+  "type": "discrete",
+  "stem": "Which change would increase the statistical power of a study?",
+  "options": {
+   "A": "Increasing the sample size",
+   "B": "Decreasing alpha from 0.05 to 0.01",
+   "C": "Increasing the variability in the outcome",
+   "D": "Studying a smaller true effect size"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) A larger sample reduces standard error, making a true effect easier to detect. Why the others are wrong: B) A stricter alpha lowers power. C) More variability lowers power. D) Smaller effects are harder to detect.",
+  "trap": "Thinking that a smaller alpha always makes a study stronger.",
+  "topic": "Statistical power",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_SIRS_9",
+  "type": "discrete",
+  "stem": "A sample of 100 participants has a mean of 50 and a standard deviation of 10. What is the approximate 95% confidence interval for the population mean?",
+  "options": {
+   "A": "48 to 52",
+   "B": "40 to 60",
+   "C": "49 to 51",
+   "D": "30 to 70"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) SE = 10/sqrt(100) = 1, so the interval is about 50 +/- 2. Why the others are wrong: B) This uses 1 SD of the data rather than the standard error. C) This is about +/- 1 SE, roughly a 68% interval. D) This is about +/- 2 SD of the data, an interval for individuals rather than the mean.",
+  "trap": "Using the standard deviation instead of the standard error.",
+  "topic": "Confidence interval",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "527",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://gregorygundersen.com/blog/2021/02/16/standard-error"
+   ]
+  }
+ },
+ {
+  "id": "d_SIRS_10",
+  "type": "discrete",
+  "stem": "A sample of 25 has a standard deviation of 20. If the sample size is increased to 100 with the same SD, the standard error will:",
+  "options": {
+   "A": "drop from 4 to 1",
+   "B": "remain at 4",
+   "C": "drop from 4 to 2",
+   "D": "rise from 4 to 8"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) SE = 20/5 = 4 at n = 25 and 20/10 = 2 at n = 100. Why the others are wrong: A) This assumes SE falls in proportion to n. B) SE depends on n. D) More data cannot increase SE.",
+  "trap": "Believing SE falls in direct proportion to n rather than sqrt(n).",
+  "topic": "Standard error and sample size",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "518",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://gregorygundersen.com/blog/2021/02/16/standard-error"
+   ]
+  }
+ },
+ {
+  "id": "d_SIRS_11",
+  "type": "discrete",
+  "stem": "Two variables are correlated with r = -0.6. What fraction of variance in one variable is explained by the other?",
+  "options": {
+   "A": "60%",
+   "B": "36%",
+   "C": "-36%",
+   "D": "64%"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) r squared = 0.36. Why the others are wrong: A) This treats r itself as the variance explained. C) Variance explained cannot be negative. D) This is 1 - r squared, the variance left unexplained.",
+  "trap": "Treating r as the proportion of variance explained.",
+  "topic": "Coefficient of determination",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "523",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_SIRS_12",
+  "type": "discrete",
+  "stem": "A study finds that coffee drinkers have more lung cancer, but many coffee drinkers also smoke. In this study, smoking is a:",
+  "options": {
+   "A": "dependent variable",
+   "B": "placebo",
+   "C": "control group",
+   "D": "confounding variable"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Smoking is associated with both coffee drinking and lung cancer, creating a spurious association. Why the others are wrong: A) The dependent variable is lung cancer. B) A placebo is an inert treatment. C) A control group is a comparison group, not a variable associated with both.",
+  "trap": "Calling the confounder the outcome variable. Key distinction missed: Smoking is associated with both coffee drinking and lung cancer, creating a spurious association.",
+  "topic": "Confounding",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_SIRS_13",
+  "type": "discrete",
+  "stem": "A survey on exercise habits is posted online and answered only by volunteers. The greatest threat to the study is:",
+  "options": {
+   "A": "observer expectancy limiting internal validity",
+   "B": "regression to the mean",
+   "C": "low statistical power from a large sample",
+   "D": "selection bias limiting external validity"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Volunteers may differ from the target population, so results may not generalize. Why the others are wrong: A) Expectancy refers to experimenter influence. B) This arises in repeated measures with extreme scores. C) Large samples do not reduce power.",
+  "trap": "Confusing generalizability with internal validity.",
+  "topic": "Sampling bias and external validity",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_SIRS_14",
+  "type": "discrete",
+  "stem": "Mean systolic blood pressure is compared across three independent treatment groups. The most appropriate test is:",
+  "options": {
+   "A": "paired t-test",
+   "B": "one-way ANOVA",
+   "C": "chi-square test",
+   "D": "Pearson correlation"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) ANOVA compares means across more than two groups. Why the others are wrong: A) This is for dependent samples. C) This is for categorical frequencies. D) This measures association between two continuous variables.",
+  "trap": "Running multiple t-tests instead of ANOVA. Key distinction missed: ANOVA compares means across more than two groups.",
+  "topic": "Choice of statistical test",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_SIRS_15",
+  "type": "discrete",
+  "stem": "To compare the proportions of smokers in two groups, the most appropriate test is the:",
+  "options": {
+   "A": "ANOVA",
+   "B": "independent t-test",
+   "C": "chi-square test",
+   "D": "linear regression"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Chi-square compares frequencies of categorical outcomes. Why the others are wrong: A) ANOVA compares means. B) A t-test compares means of continuous data. D) Linear regression predicts a continuous outcome.",
+  "trap": "Using a t-test for categorical data. Key distinction missed: Chi-square compares frequencies of categorical outcomes.",
+  "topic": "Categorical data test",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_SIRS_16",
+  "type": "discrete",
+  "stem": "The primary purpose of double blinding in a clinical trial is to:",
+  "options": {
+   "A": "reduce bias from participant and researcher expectations",
+   "B": "increase the sample size",
+   "C": "ensure random assignment",
+   "D": "improve external validity"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Neither participants nor investigators know assignments, limiting expectation effects. Why the others are wrong: B) Blinding does not alter sample size. C) Randomization is a separate procedure. D) Blinding addresses internal validity.",
+  "trap": "Confusing blinding with randomization. Key distinction missed: Neither participants nor investigators know assignments, limiting expectation effects.",
+  "topic": "Double blinding",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_SIRS_17",
+  "type": "discrete",
+  "stem": "Which design is the most efficient for studying risk factors for a very rare disease?",
+  "options": {
+   "A": "Case-control",
+   "B": "Prospective cohort",
+   "C": "Cross-sectional survey",
+   "D": "Randomized controlled trial"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) It starts with cases and compares them with controls. Why the others are wrong: B) A cohort would need a huge sample to accrue cases. C) Rare cases would be missed. D) Assigning risk factors may be unethical and inefficient.",
+  "trap": "Choosing a cohort design for rare outcomes. Key distinction missed: It starts with cases and compares them with controls.",
+  "topic": "Study design for rare disease",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_SIRS_18",
+  "type": "discrete",
+  "stem": "Patients selected for extremely high blood pressure show lower readings at follow-up even without treatment. This is most likely due to:",
+  "options": {
+   "A": "a placebo effect only",
+   "B": "a history effect",
+   "C": "regression to the mean",
+   "D": "observer bias"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Extreme values tend to move toward the average on remeasurement. Why the others are wrong: A) Placebo does not explain a change in untreated people. B) No outside event is described. D) Not suggested.",
+  "trap": "Attributing a change to a treatment. Key distinction missed: Extreme values tend to move toward the average on remeasurement.",
+  "topic": "Regression to the mean",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_SIRS_19",
+  "type": "discrete",
+  "stem": "In a randomized trial, many participants who experience side effects drop out of the treatment arm only. This primarily threatens:",
+  "options": {
+   "A": "external validity only",
+   "B": "internal validity",
+   "C": "test-retest reliability",
+   "D": "face validity"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Differential dropout makes the groups no longer comparable. Why the others are wrong: A) It affects comparisons within the study. C) The issue is not measurement consistency. D) Face validity is about apparent measure relevance.",
+  "trap": "Treating dropout as only a loss of sample size.",
+  "topic": "Attrition bias",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_SIRS_20",
+  "type": "discrete",
+  "stem": "IQ scores are normally distributed with mean 100 and SD 15. About what percentage of people score above 130?",
+  "options": {
+   "A": "16%",
+   "B": "5%",
+   "C": "0.15%",
+   "D": "2.5%"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) 130 is 2 SD above the mean; roughly 2.5% lie above that point. Why the others are wrong: A) This is the percentage above 1 SD. B) This is the two-tailed total beyond 2 SD. C) This is the percentage above 3 SD.",
+  "trap": "Counting both tails when only one is asked. Key distinction missed: 130 is 2 SD above the mean; roughly 2.5% lie above that point.",
+  "topic": "Normal distribution",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "526",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.mathwords.com/e/empirical_rule.htm",
+    "https://math.montana.edu/hayes/powerpoint-lectures/l1_3/10.html"
+   ]
+  }
+ },
+ {
+  "id": "d_SIRS_21",
+  "type": "discrete",
+  "stem": "The same 30 patients' pain scores are measured before and after treatment. The most appropriate test of the mean change is:",
+  "options": {
+   "A": "independent samples t-test",
+   "B": "chi-square test",
+   "C": "one-way ANOVA with three groups",
+   "D": "paired t-test"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The measurements are dependent because they come from the same people. Why the others are wrong: A) This assumes separate groups. B) This is for categorical data. C) There are only two measurements and the data are paired.",
+  "trap": "Treating repeated measures as independent groups.",
+  "topic": "Paired t-test",
+  "mastery_sheet_id": "SIRS",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ }
+]

@@ -1,0 +1,1524 @@
+{
+ "exam": "Mini05",
+ "type": "mini",
+ "section": "CP",
+ "passages": [
+  {
+   "passage_id": "Mini05_CP_P1",
+   "passage_text": "A student studies Rayleigh scattering by suspending polystyrene spheres, each about 50 nm in diameter, in water. A monochromator selects one visible wavelength at a time, and the beam passes through the suspension with the incident intensity held constant at every wavelength. A detector placed at 90° to the beam records the scattered intensity. Because the spheres are much smaller than the wavelength of visible light, the scattered intensity is expected to vary as 1/λ⁴. The student normalizes each reading to the value at 700 nm; the results are shown in Table 1 and plotted in Figure 1. The student then repeats the experiment with spheres about 2 µm in diameter and finds that the scattered intensity is nearly independent of wavelength, so the suspension appears white. The student also notes that the transmitted beam, viewed end-on through a long tube of the 50 nm suspension, looks orange-red. Table 1 lists the intensities relative to the 700 nm reading.",
+   "table_data": "| Wavelength (nm) | Relative scattered intensity (700 nm = 1.00) |\n|---|---|\n| 400 | 9.38 |\n| 450 | 5.86 |\n| 500 | 3.84 |\n| 550 | 2.62 |\n| 600 | 1.85 |\n| 650 | 1.35 |\n| 700 | 1.00 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Relative scattered intensity versus wavelength",
+    "x_label": "Wavelength (nm)",
+    "y_label": "Relative scattered intensity (700 nm = 1.00)",
+    "series": [
+     {
+      "name": "50 nm spheres",
+      "points": [
+       [
+        400,
+        9.38
+       ],
+       [
+        450,
+        5.86
+       ],
+       [
+        500,
+        3.84
+       ],
+       [
+        550,
+        2.62
+       ],
+       [
+        600,
+        1.85
+       ],
+       [
+        650,
+        1.35
+       ],
+       [
+        700,
+        1.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini05_CP_P1_Q1",
+     "stem": "According to the 1/λ⁴ dependence, how many times more strongly are 400 nm photons scattered than 700 nm photons by the 50 nm spheres?",
+     "options": {
+      "A": "1.8 times",
+      "B": "3.1 times",
+      "C": "9.4 times",
+      "D": "5.4 times"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Intensity ∝ 1/λ⁴, so I(400)/I(700) = (700/400)⁴ = 1.75⁴ ≈ 9.4, matching the first row of Table 1 (9.38). Why the others are wrong: A) 1.75 is the wavelength ratio itself, with no exponent applied. B) 1.75² ≈ 3.1 applies a square instead of the fourth power. D) 1.75³ ≈ 5.4 applies a cube instead of the fourth power.",
+     "trap": "Applying the wavelength ratio to the wrong power instead of the fourth power.",
+     "topic": "Rayleigh scaling",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P1_Q2",
+     "stem": "Based on the 1/λ⁴ relationship, what is the relative scattered intensity at 500 nm (700 nm = 1.00)?",
+     "options": {
+      "A": "3.84",
+      "B": "1.40",
+      "C": "1.96",
+      "D": "0.26"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) (700/500)⁴ = 1.4⁴ ≈ 3.84, which agrees with the 500 nm row of Table 1. Why the others are wrong: B) 1.40 is the wavelength ratio, not raised to the fourth power. C) 1.96 is 1.4², a square rather than a fourth power. D) 0.26 is (500/700)⁴, the inverse ratio, which would apply if intensity increased with wavelength.",
+     "trap": "Inverting the ratio so that longer wavelengths scatter more.",
+     "topic": "Rayleigh scaling",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P1_Q3",
+     "stem": "If the student plotted the natural log of the relative scattered intensity against the natural log of the wavelength using the data in Table 1, the plot would be:",
+     "options": {
+      "A": "a straight line with a slope of +4, because the intensity increases with wavelength.",
+      "B": "a curve with a slope that steepens toward longer wavelengths, because the data in Figure 1 are curved.",
+      "C": "a straight line with a slope of −1/4, because the wavelength varies as the fourth root of intensity.",
+      "D": "a straight line with a slope of −4, because I ∝ λ⁻⁴."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Taking logs of I = kλ⁻⁴ gives ln I = ln k − 4 ln λ, a straight line with slope −4. Why the others are wrong: A) The sign is wrong; intensity decreases as wavelength increases. B) Figure 1 is curved on linear axes, but a power law is linear on log-log axes. C) The exponent, not its reciprocal, is the slope of ln I versus ln λ.",
+     "trap": "Reading the curvature on linear axes as evidence against a power law.",
+     "topic": "Log-log analysis",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P1_Q4",
+     "stem": "The larger 2 µm spheres scatter all visible wavelengths about equally. The most likely reason is that:",
+     "options": {
+      "A": "the scattering is no longer governed by the 1/λ⁴ dependence when the particle size is comparable to or larger than the wavelength.",
+      "B": "larger spheres absorb all visible wavelengths equally, so none are scattered.",
+      "C": "light of longer wavelength has more energy per photon, which offsets the 1/λ⁴ dependence.",
+      "D": "the larger spheres are transparent, so no light is scattered."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The 1/λ⁴ law holds only for particles much smaller than the wavelength; for particles near or above it (Mie regime) scattering is only weakly wavelength dependent, so the suspension looks white. Why the others are wrong: B) Absorption is not the explanation; the suspension remains white and scatters strongly. C) Photon energy is inversely proportional to wavelength, so longer wavelengths have less energy. D) Transparency of the material does not prevent scattering by refractive index differences at the interface.",
+     "trap": "Assuming bigger particles must absorb rather than scatter the light.",
+     "topic": "Rayleigh versus Mie scattering",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P1_Q5",
+     "stem": "Why does the transmitted beam through a long tube of the 50 nm suspension look orange-red?",
+     "options": {
+      "A": "Red light has the highest frequency and is therefore the most strongly absorbed by the spheres.",
+      "B": "Blue light is scattered out of the beam more than red light is.",
+      "C": "The spheres emit orange-red light after absorbing blue light in the beam.",
+      "D": "Longer wavelengths are scattered out at 90°, leaving blue light in the transmitted beam."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Blue and violet light are scattered sideways much more strongly than red, so the transmitted beam is depleted of short wavelengths and appears orange-red, as in a sunset. Why the others are wrong: A) Red has the lowest frequency of visible light, and the effect arises from scattering, not absorption. C) Re-emission after absorption is not Rayleigh scattering and would not depend on the wavelength this way. D) This reverses the wavelength dependence; shorter wavelengths scatter more.",
+     "trap": "Reversing which end of the visible spectrum is scattered more strongly.",
+     "topic": "Rayleigh scattering color",
+     "mastery_sheet_id": "4D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini05_CP_P2",
+   "passage_text": "Diagnostic ultrasound transducers emit short pulses of sound that travel through soft tissue at about 1540 m/s, reflect from boundaries, and return to the transducer. As the pulse travels, the tissue absorbs and scatters sound, and the intensity level falls in proportion to distance and to frequency. A change in intensity level in decibels (dB) is ΔL = 10 log(I2/I1), so a loss of 10 dB corresponds to a factor of 10 in intensity. A sonographer examining the liver compares five transducer frequencies. Table 1 lists the wavelength of each pulse in tissue and the attenuation of the sound in liver, in dB per cm of one-way travel. Figure 1 plots attenuation against frequency. The instrument can display an echo only if the total loss on the round trip, to the reflector and back, does not exceed a preset limit. Shorter wavelengths allow the instrument to distinguish reflectors that lie closer together along the beam.",
+   "table_data": "| Frequency (MHz) | Wavelength in tissue (mm) | Attenuation (dB/cm) |\n|---|---|---|\n| 2.0 | 0.77 | 1.4 |\n| 3.5 | 0.44 | 2.45 |\n| 5.0 | 0.31 | 3.5 |\n| 7.5 | 0.21 | 5.25 |\n| 10.0 | 0.15 | 7.0 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Attenuation in liver versus ultrasound frequency",
+    "x_label": "Frequency (MHz)",
+    "y_label": "Attenuation (dB/cm)",
+    "series": [
+     {
+      "name": "Liver",
+      "points": [
+       [
+        2.0,
+        1.4
+       ],
+       [
+        3.5,
+        2.45
+       ],
+       [
+        5.0,
+        3.5
+       ],
+       [
+        7.5,
+        5.25
+       ],
+       [
+        10.0,
+        7.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini05_CP_P2_Q1",
+     "stem": "At 5.0 MHz, what is the total loss, in dB, for an echo that returns from a reflector 4.0 cm deep?",
+     "options": {
+      "A": "28 dB",
+      "B": "14 dB",
+      "C": "3.5 dB",
+      "D": "7.0 dB"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The pulse travels 4.0 cm down and 4.0 cm back, 8.0 cm in all. The loss is 8.0 cm × 3.5 dB/cm = 28 dB. Why the others are wrong: B) This counts only the one-way trip to the reflector (4.0 cm × 3.5 dB/cm) and omits the return trip. C) This is the attenuation per centimeter, not the total loss over the distance traveled. D) This multiplies the attenuation by 2 cm, using the depth divided by two rather than the doubled path.",
+     "trap": "Forgetting that the echo must travel to the reflector and back.",
+     "topic": "Round-trip attenuation",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P2_Q2",
+     "stem": "If the instrument can display echoes with a total round-trip loss of up to 63 dB, what is the greatest depth that can be imaged at 7.5 MHz?",
+     "options": {
+      "A": "12 cm",
+      "B": "6.0 cm",
+      "C": "3.0 cm",
+      "D": "8.4 cm"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Round-trip loss per centimeter of depth is 2 × 5.25 = 10.5 dB. Depth = 63 dB ÷ 10.5 dB/cm = 6.0 cm. Why the others are wrong: A) This uses one-way travel, 63 dB ÷ 5.25 dB/cm, ignoring the round trip. C) This divides the loss by twice the round-trip loss per centimeter, counting the return trip twice. D) This divides the 63 dB limit by the frequency, 7.5 MHz, which is not a loss per centimeter.",
+     "trap": "Dividing by one-way attenuation without doubling for the round trip.",
+     "topic": "Imaging depth",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P2_Q3",
+     "stem": "A sonographer must image a structure 2 cm deep, and then a structure 12 cm deep. Which statement best describes the trade-off between frequency choices?",
+     "options": {
+      "A": "A higher frequency has a longer wavelength and so penetrates deeper, though it resolves fine detail poorly.",
+      "B": "A lower frequency gives finer detail because it has more cycles per unit time, but it cannot reach deep structures.",
+      "C": "A higher frequency gives shorter wavelengths and finer detail, but its greater attenuation limits the depth reached.",
+      "D": "Frequency affects only the speed of sound, so the two choices differ only in the time delay of the echo."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Table 1 shows that wavelength shrinks and attenuation rises as frequency increases. High frequency suits superficial structures; low frequency is needed for deep ones. Why the others are wrong: A) Higher frequency in a given medium means shorter, not longer, wavelength, and it attenuates more. B) Lower frequency gives longer wavelengths and poorer detail, yet it penetrates better. D) The speed of sound in tissue is set by the medium, not by frequency.",
+     "trap": "Assuming a higher frequency always gives a better image regardless of depth.",
+     "topic": "Frequency trade-off",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P2_Q4",
+     "stem": "How long after the pulse is emitted does an echo from a reflector 4.0 cm deep arrive back at the transducer?",
+     "options": {
+      "A": "26 µs",
+      "B": "52 µs",
+      "C": "104 µs",
+      "D": "5.2 ms"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The round trip is 8.0 cm = 0.080 m. t = d/v = 0.080 m ÷ 1540 m/s ≈ 5.2 × 10⁻⁵ s = 52 µs. Why the others are wrong: A) This counts only the one-way travel time and ignores the return trip. C) This doubles the round trip, effectively using a distance of 16 cm. D) This results from using centimeters rather than meters when dividing distance by speed.",
+     "trap": "Using the one-way distance for the time of an echo.",
+     "topic": "Echo timing",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P2_Q5",
+     "stem": "A total loss of 28 dB corresponds to which ratio of returning intensity to original intensity?",
+     "options": {
+      "A": "4.0 × 10⁻²",
+      "B": "1.0 × 10⁻²⁸",
+      "C": "2.8 × 10⁻³",
+      "D": "1.6 × 10⁻³"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) I2/I1 = 10^(−28/10) = 10^(−2.8) ≈ 1.6 × 10⁻³. Why the others are wrong: A) This is the ratio for 14 dB, the one-way loss, not the round-trip loss. B) This treats the decibel value as the exponent of 10 without dividing by 10. C) This takes 28 dB as 2.8 and treats it as a coefficient rather than an exponent.",
+     "trap": "Forgetting that decibels are one tenth of a base-10 logarithm of the ratio.",
+     "topic": "Decibel scale",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini05_CP_P3",
+   "passage_text": "Cesium-137 decays with a half-life of about 30 years. The decay is a beta emission that produces barium-137 in an excited state (¹³⁷ᵐBa), which relaxes to the ground state by emitting a 662 keV gamma ray. A student places a sealed ¹³⁷Cs source at a fixed distance from a Geiger-Müller detector and inserts lead sheets of increasing total thickness between them. At each thickness the detector counts for several minutes, and the background rate is subtracted. For a narrow beam of gamma rays, the transmitted rate follows I = I0e^(−μx), where x is the thickness of absorber and μ is the linear attenuation coefficient. The half-value layer (HVL) is the thickness that reduces the rate by half. Table 1 gives the net count rate and the natural logarithm of that rate. Figure 1 shows the net rate as a function of lead thickness. The lead sheets were of uniform composition and the geometry was not altered between runs.",
+   "table_data": "| Lead thickness (mm) | Net count rate (counts/min) | ln(rate) |\n|---|---|---|\n| 0 | 8000 | 8.99 |\n| 6.0 | 4000 | 8.29 |\n| 12.0 | 2000 | 7.60 |\n| 18.0 | 1000 | 6.91 |\n| 24.0 | 500 | 6.21 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Net count rate versus lead thickness",
+    "x_label": "Lead thickness (mm)",
+    "y_label": "Net count rate (counts/min)",
+    "series": [
+     {
+      "name": "137Cs gamma",
+      "points": [
+       [
+        0,
+        8000
+       ],
+       [
+        6,
+        4000
+       ],
+       [
+        12,
+        2000
+       ],
+       [
+        18,
+        1000
+       ],
+       [
+        24,
+        500
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini05_CP_P3_Q1",
+     "stem": "What thickness of lead is needed to reduce the net count rate to 125 counts/min?",
+     "options": {
+      "A": "30 mm",
+      "B": "48 mm",
+      "C": "384 mm",
+      "D": "36 mm"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) 8000 → 125 is a factor of 64 = 2⁶, requiring six half-value layers: 6 × 6.0 mm = 36 mm. Why the others are wrong: A) This assumes the rate falls by half for each 6 mm but miscounts the halvings by one, stopping at 250 counts/min. B) This corresponds to eight half-value layers, which would reduce the rate to about 31 counts/min. C) This multiplies the HVL by the factor of reduction needed (64 × 6.0 mm = 384 mm), instead of counting halvings.",
+     "trap": "Multiplying the HVL by the ratio of rates rather than counting the number of halvings.",
+     "topic": "Half-value layer",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P3_Q2",
+     "stem": "What is the linear attenuation coefficient μ for lead, as indicated by Table 1?",
+     "options": {
+      "A": "8.7 mm⁻¹",
+      "B": "0.17 mm⁻¹",
+      "C": "0.12 mm⁻¹",
+      "D": "4.2 mm⁻¹"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Because I/I0 = ½ at x = 6.0 mm, μ = ln 2 / HVL = 0.693 / 6.0 mm ≈ 0.12 mm⁻¹. The slope of ln(rate) versus x is −0.115 mm⁻¹ for the same reason. Why the others are wrong: A) This takes the reciprocal, HVL/ln 2, which is a length (the mean free path), not an attenuation coefficient. B) This is 1/HVL and leaves out the ln 2 factor from the exponential decay. D) This multiplies the HVL by ln 2, which gives neither μ nor the mean free path.",
+     "trap": "Using 1/HVL for the attenuation coefficient and forgetting ln 2.",
+     "topic": "Attenuation coefficient",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P3_Q3",
+     "stem": "Which equation correctly represents the nuclear decay of cesium-137 described in the passage?",
+     "options": {
+      "A": "¹³⁷₅₅Cs → ¹³⁷₅₆Ba + ⁰₋₁e + antineutrino",
+      "B": "¹³⁷₅₅Cs → ¹³³₅₃I + ⁴₂He",
+      "C": "¹³⁷₅₅Cs → ¹³⁷₅₄Xe + ⁰₊₁e + neutrino",
+      "D": "¹³⁷₅₅Cs → ¹³⁶₅₅Cs + ¹₀n"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) In beta-minus decay a neutron becomes a proton, raising Z from 55 to 56 and leaving the mass number at 137. Barium has Z = 56, and an electron and an antineutrino are emitted. Why the others are wrong: B) This is an alpha decay, which would lower the mass number by 4; the passage describes beta emission. C) This is positron emission, which lowers Z by 1; the passage's product, barium, has Z = 56. D) This is neutron emission, which does not produce barium.",
+     "trap": "Choosing a decay mode that changes Z in the wrong direction for the stated product.",
+     "topic": "Beta decay",
+     "mastery_sheet_id": "4E",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P3_Q4",
+     "stem": "The source emits an unshielded net rate of 8000 counts/min today. What would the unshielded net rate be 60 years from now, ignoring background?",
+     "options": {
+      "A": "2000 counts/min",
+      "B": "4000 counts/min",
+      "C": "1000 counts/min",
+      "D": "6000 counts/min"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 60 years is two half-lives of 30 years, so the rate is 8000 × (½)² = 2000 counts/min. Why the others are wrong: B) This applies only one half-life (30 years) instead of two. C) This applies three half-lives, which corresponds to 90 years. D) This subtracts a fixed amount of 2000 per 30 years, treating decay as linear rather than exponential.",
+     "trap": "Treating radioactive decay as a linear decrease with time.",
+     "topic": "Half-life",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P3_Q5",
+     "stem": "The values of ln(rate) in Table 1 fall by about 0.69 for every 6.0 mm of lead. What does this show?",
+     "options": {
+      "A": "Each equal thickness of lead removes the same number of gamma rays per minute.",
+      "B": "Each equal thickness of lead removes the same fraction of the gamma rays that reach it, whatever the rate.",
+      "C": "Lead absorbs more of the beam as the beam becomes weaker.",
+      "D": "Photons lose energy gradually, so their frequency drops with increasing thickness."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A constant decrease of ln(rate) per unit thickness means exponential attenuation: the same fraction (here one half per 6.0 mm) is removed from whatever reaches each layer. Why the others are wrong: A) A constant number removed per layer would make the rate itself decrease linearly, which Figure 1 does not show. C) The fraction removed per layer is constant, not larger, for a weaker beam. D) In the narrow-beam model the photons are either removed or transmitted unchanged; their energy is not gradually lowered.",
+     "trap": "Confusing a constant fractional decrease with a constant absolute decrease.",
+     "topic": "Exponential attenuation",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini05_CP_P4",
+   "passage_text": "When a high-energy electron removes a 1s electron from an atom, an electron from the n = 2 level can fall into the vacancy and emit an X-ray photon, called Kα radiation. In 1913 Moseley found that the frequency of this emission depends on the atomic number Z of the target element, which led to the modern periodic table ordered by Z. A simple model treats the outer electron as moving in the field of a nucleus whose charge is partly screened by the single remaining 1s electron, so that E(Kα) ≈ k(Z − 1)², where k is a constant. A laboratory measured the Kα energy of four known targets and of an unknown target X. Table 1 lists the results, along with the square root of each energy. Figure 1 plots the square root of E against Z. An energy in keV corresponds to a wavelength in nanometers of λ = 1.240 / E.",
+   "table_data": "| Target | Z | Kα energy (keV) | √E (keV^½) |\n|---|---|---|---|\n| Fe | 26 | 6.40 | 2.53 |\n| Cu | 29 | 8.05 | 2.84 |\n| Mo | 42 | 17.48 | 4.18 |\n| Ag | 47 | 22.16 | 4.71 |\n| X | ? | 11.22 | 3.35 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Square root of Kα energy versus atomic number",
+    "x_label": "Atomic number Z",
+    "y_label": "√E (keV^½)",
+    "series": [
+     {
+      "name": "Known targets",
+      "points": [
+       [
+        26,
+        2.53
+       ],
+       [
+        29,
+        2.84
+       ],
+       [
+        42,
+        4.18
+       ],
+       [
+        47,
+        4.71
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini05_CP_P4_Q1",
+     "stem": "Using Table 1 and the model in the passage, what is the atomic number of target X?",
+     "options": {
+      "A": "32",
+      "B": "34",
+      "C": "33",
+      "D": "35"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) √E ≈ 0.1015(Z − 1) for the known targets (for Cu, 2.84/28 = 0.1015). For X, Z − 1 = 3.35/0.1015 ≈ 33, so Z = 34. Why the others are wrong: A) This subtracts 1 from the value of Z − 1 (33) instead of adding 1 to reach Z. C) This is the value of Z − 1 itself, not Z. D) This results from rounding √E/0.1015 up and adding 2 for screening.",
+     "trap": "Reporting Z − 1 as the atomic number.",
+     "topic": "Moseley's law",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P4_Q2",
+     "stem": "Which process produces Kα radiation?",
+     "options": {
+      "A": "An n = 1 electron is promoted to n = 2, absorbing a photon.",
+      "B": "An outer electron is removed from the atom, producing a free electron.",
+      "C": "An n = 2 electron falls into a vacancy in the n = 1 shell, emitting a photon.",
+      "D": "The nucleus emits a photon as it drops from an excited nuclear state."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Kα arises after a 1s electron is ejected: an electron from the L shell (n = 2) falls into the K-shell vacancy, and the energy difference is carried off by an X-ray photon. Why the others are wrong: A) This is absorption, not emission, and it requires an empty n = 2 level. B) Ionization of an outer electron does not give a characteristic X-ray line. D) That would be gamma emission, not an atomic electron transition.",
+     "trap": "Confusing characteristic X-ray emission with nuclear gamma emission.",
+     "topic": "Atomic transitions",
+     "mastery_sheet_id": "4E",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P4_Q3",
+     "stem": "The model uses (Z − 1) instead of Z. Which phrase best explains the −1?",
+     "options": {
+      "A": "One proton in the nucleus is neutralized by the electron that was removed from the atom.",
+      "B": "Only Z − 1 of the electrons in the atom are able to fall into the vacancy.",
+      "C": "The remaining 1s electron screens one unit of nuclear charge.",
+      "D": "The photon carries away one unit of charge from the atom when it is emitted."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The n = 2 electron sees the full nuclear charge Z reduced by about one unit because the other 1s electron lies between it and the nucleus. Why the others are wrong: A) The nuclear charge is unchanged by removing an electron. B) The number of electrons that could transition does not enter the energy formula. D) Photons are uncharged and do not change the atom's charge.",
+     "trap": "Assuming screening comes from nuclear changes rather than other electrons.",
+     "topic": "Shielding",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P4_Q4",
+     "stem": "Using the relationship shown in Table 1 and Figure 1, what would be the approximate Kα energy of phosphorus (Z = 15)?",
+     "options": {
+      "A": "2.3 keV",
+      "B": "1.4 keV",
+      "C": "0.14 keV",
+      "D": "2.0 keV"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) √E = 0.1015 × (15 − 1) = 1.42, so E = 1.42² ≈ 2.0 keV. Why the others are wrong: A) This uses Z rather than Z − 1 in the formula: (0.1015 × 15)² = 2.3. B) This reports √E = 1.42 as if it were the energy, without squaring. C) This results from using 0.1015 × 14 = 1.42 and then dividing by ten rather than squaring.",
+     "trap": "Using Z in place of Z − 1 in the formula.",
+     "topic": "Moseley's law",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P4_Q5",
+     "stem": "What is the wavelength of the Kα radiation from the copper target?",
+     "options": {
+      "A": "6.5 nm",
+      "B": "1.54 nm",
+      "C": "0.154 nm",
+      "D": "0.0065 nm"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) λ = 1.240 / E = 1.240 / 8.05 ≈ 0.154 nm. Why the others are wrong: A) This inverts the formula (E/1.240) and so gives the wrong order of magnitude. B) This shifts the decimal place by one. D) This results from using the energy in eV instead of keV in the formula.",
+     "trap": "Inverting the wavelength-energy relationship.",
+     "topic": "Photon wavelength",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini05_CP_P5",
+   "passage_text": "The autoionization of water, 2 H₂O ⇌ H₃O⁺ + OH⁻, is described by the ion-product constant Kw = [H₃O⁺][OH⁻]. Kw is not truly constant; it depends on temperature. A physiology student measured the pH of pure, carbon-dioxide-free water at several temperatures with a calibrated electrode and then calculated Kw from the readings. In pure water the concentrations of H₃O⁺ and OH⁻ are equal, so a neutral solution has pH = ½ pKw. Table 1 gives Kw and the pH of neutral water at five temperatures, and Figure 1 plots the pH of neutral water against temperature. In the laboratory, solutions made for biological work are generally prepared and used near 37 °C rather than 25 °C, and the student wondered how this affects the meaning of a pH reading and what pH should be called neutral at body temperature. Assume all solutions are dilute enough that concentrations may be used in place of activities.",
+   "table_data": "| Temperature (°C) | Kw | pH of neutral water |\n|---|---|---|\n| 0 | 1.1 × 10⁻¹⁵ | 7.47 |\n| 25 | 1.0 × 10⁻¹⁴ | 7.00 |\n| 37 | 2.4 × 10⁻¹⁴ | 6.81 |\n| 50 | 5.5 × 10⁻¹⁴ | 6.63 |\n| 100 | 5.1 × 10⁻¹³ | 6.14 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. pH of neutral water versus temperature",
+    "x_label": "Temperature (°C)",
+    "y_label": "pH of neutral water",
+    "series": [
+     {
+      "name": "Neutral water",
+      "points": [
+       [
+        0,
+        7.47
+       ],
+       [
+        25,
+        7.0
+       ],
+       [
+        37,
+        6.81
+       ],
+       [
+        50,
+        6.63
+       ],
+       [
+        100,
+        6.14
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini05_CP_P5_Q1",
+     "stem": "What can be concluded about the autoionization of water from the trend in Table 1?",
+     "options": {
+      "A": "It is exothermic, because Kw increases as the temperature increases.",
+      "B": "It is endothermic, because Kw increases with temperature.",
+      "C": "It is endothermic, because the pH of neutral water increases as the temperature increases.",
+      "D": "Its enthalpy change is zero, because water remains neutral at every temperature."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Raising the temperature shifts an endothermic equilibrium toward products. Kw increases from 1.1 × 10⁻¹⁵ at 0 °C to 5.1 × 10⁻¹³ at 100 °C, so autoionization absorbs heat. Why the others are wrong: A) An exothermic reaction would have an equilibrium constant that decreases with increasing temperature. C) The pH of neutral water decreases with temperature in Table 1. D) Water stays neutral because [H₃O⁺] = [OH⁻], but that does not imply a zero enthalpy change.",
+     "trap": "Equating 'neutral' with pH 7 at every temperature.",
+     "topic": "Le Chatelier and Kw",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P5_Q2",
+     "stem": "What is the pH of a 1.0 × 10⁻³ M NaOH solution at 37 °C?",
+     "options": {
+      "A": "11.00",
+      "B": "10.38",
+      "C": "3.00",
+      "D": "10.62"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) At 37 °C, pKw = −log(2.4 × 10⁻¹⁴) = 13.62. [OH⁻] = 1.0 × 10⁻³ M, so pOH = 3.00, and pH = 13.62 − 3.00 = 10.62. Why the others are wrong: A) This applies the 25 °C relationship pH = 14 − pOH instead of the value of pKw at 37 °C. B) This subtracts the pOH from 13.38, using an arithmetic error in pKw. C) This is the pOH of the solution, not its pH.",
+     "trap": "Using pH + pOH = 14 at temperatures other than 25 °C.",
+     "topic": "pH at nonstandard temperature",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://antoine.frostburg.edu/chem/senese/101/acidbase/faq/temperature-dependence-Kw.shtml",
+       "https://www.chm.uri.edu/weuler/chm112/lectures/37C-5.html"
+      ]
+     }
+    },
+    {
+     "id": "Mini05_CP_P5_Q3",
+     "stem": "At 50 °C, a solution is found to have a pH of 6.8. This solution is best described as:",
+     "options": {
+      "A": "slightly basic, since its pH exceeds neutral at 50 °C.",
+      "B": "acidic, because its pH of 6.8 is below the familiar neutral value of 7.00.",
+      "C": "neutral, because its pH is within 0.2 of 7 and so close to the neutral point.",
+      "D": "strongly acidic, because pH values below 7 indicate a high H₃O⁺ concentration."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Neutral water at 50 °C has pH 6.63. A solution with pH 6.8 has a lower [H₃O⁺] than neutral water, so [OH⁻] > [H₃O⁺] and the solution is slightly basic. Why the others are wrong: B) The definition of neutrality at 50 °C is pH 6.63, not 7. C) Neutrality is defined by [H₃O⁺] = [OH⁻], which occurs at pH 6.63 at this temperature. D) A pH of 6.8 is far from strongly acidic by any definition.",
+     "trap": "Using pH 7 as the neutral point at all temperatures.",
+     "topic": "Neutrality and temperature",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P5_Q4",
+     "stem": "By what factor is [H₃O⁺] in neutral water at 100 °C greater than in neutral water at 25 °C?",
+     "options": {
+      "A": "51",
+      "B": "0.14",
+      "C": "7.1",
+      "D": "1.3"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) In neutral water [H₃O⁺] = √Kw. The ratio is √(5.1 × 10⁻¹³ / 1.0 × 10⁻¹⁴) = √51 ≈ 7.1 (pH 6.14 vs 7.00 differ by 0.86, and 10^0.86 ≈ 7.2). Why the others are wrong: A) This is the ratio of the Kw values, which is the ratio of products of two concentrations, not of one. B) This is the inverse of the correct factor, which would indicate a decrease. D) This is the difference between the pH values of the two solutions, not the ratio of concentrations.",
+     "trap": "Using the ratio of Kw values for the ratio of H₃O⁺ concentrations.",
+     "topic": "Ion concentrations",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P5_Q5",
+     "stem": "What is [H₃O⁺] in neutral water at 0 °C?",
+     "options": {
+      "A": "3.3 × 10⁻⁸ M",
+      "B": "1.1 × 10⁻¹⁵ M",
+      "C": "1.0 × 10⁻⁷ M",
+      "D": "3.3 × 10⁻⁷ M"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) [H₃O⁺] = √(1.1 × 10⁻¹⁵) = 3.3 × 10⁻⁸ M, in agreement with to the table value of pH 7.47 (10⁻⁷·⁴⁷ ≈ 3.4 × 10⁻⁸ M). Why the others are wrong: B) This is Kw itself, not the square root of Kw. C) This is the value at 25 °C and ignores the temperature dependence. D) This is off by a factor of 10 from the square root of 1.1 × 10⁻¹⁵.",
+     "trap": "Reporting Kw or its 25 °C value instead of its square root at the stated temperature.",
+     "topic": "Neutral [H3O+]",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini05_CP_P6",
+   "passage_text": "Fatty acids are carboxylic acids with long unbranched hydrocarbon tails. Their melting points influence the fluidity of the membranes and fats they form. Researchers compared the melting points of several fatty acids with chains of 12 to 18 carbons. Saturated fatty acids have only single carbon-carbon bonds in the tail. Unsaturated fatty acids contain one or more double bonds. Naturally occurring double bonds are nearly always cis, which puts a rigid bend in the chain. Elaidic acid is the trans isomer of oleic acid, and it is produced during the partial hydrogenation of vegetable oils. Table 1 lists the number of carbons, the number and geometry of double bonds, and the melting point of each acid. In the solid state fatty acids pack in layers, with pairs of carboxyl groups held together by hydrogen bonds. Melting requires enough thermal energy to overcome the attractions between neighboring molecules, so stronger or more extensive contacts between chains should produce a higher melting point.",
+   "table_data": "| Fatty acid | Carbons : double bonds | Double-bond geometry | Melting point (°C) |\n|---|---|---|---|\n| Lauric | 12 : 0 | none | 44 |\n| Myristic | 14 : 0 | none | 54 |\n| Palmitic | 16 : 0 | none | 63 |\n| Stearic | 18 : 0 | none | 70 |\n| Oleic | 18 : 1 | cis | 13 |\n| Elaidic | 18 : 1 | trans | 45 |\n| Linoleic | 18 : 2 | cis, cis | −5 |\n| Linolenic | 18 : 3 | cis, cis, cis | −11 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini05_CP_P6_Q1",
+     "stem": "Which intermolecular force best explains the increase in melting point from lauric acid to stearic acid?",
+     "options": {
+      "A": "Stronger hydrogen bonding between the carboxyl groups of longer chains.",
+      "B": "Stronger ion-dipole attractions between the tails and the surrounding solvent.",
+      "C": "Greater London dispersion forces between the longer tails.",
+      "D": "Stronger covalent bonding between neighboring molecules in the solid."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Each additional CH₂ group adds surface area and polarizability, so dispersion forces between adjacent tails grow stronger and more energy is needed to melt the solid. Why the others are wrong: A) Each molecule has one carboxyl group regardless of chain length, so hydrogen bonding per molecule does not change. B) The acids melt as pure solids; no solvent or ions are involved. D) Melting disrupts intermolecular attractions only; covalent bonds within molecules remain intact.",
+     "trap": "Attributing a trend in chain length to hydrogen bonding at the unchanging carboxyl group.",
+     "topic": "Dispersion forces",
+     "mastery_sheet_id": "5B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P6_Q2",
+     "stem": "Why is the melting point of oleic acid (18:1, cis) much lower than that of stearic acid (18:0)?",
+     "options": {
+      "A": "The cis double bond kinks the chain, so the molecules pack less tightly and have weaker contact between tails.",
+      "B": "The double bond makes the molecule more polar, so it is more soluble in water and melts sooner.",
+      "C": "Oleic acid has fewer carbons than stearic acid, so it has weaker dispersion forces.",
+      "D": "The double bond blocks the carboxyl group from forming hydrogen bonds."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Both have 18 carbons and one carboxyl group. The cis double bond puts a bend in the tail, which prevents close packing and lowers the dispersion contacts between neighbors. Why the others are wrong: B) A single C=C bond adds little polarity and solubility is not what determines melting of the pure solid. C) Both acids have 18 carbons. D) Both acids retain a carboxyl group and the ability to hydrogen bond.",
+     "trap": "Assuming that any double bond lowers the melting point through polarity.",
+     "topic": "Structure and packing",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P6_Q3",
+     "stem": "Elaidic acid (trans) melts at 45 °C, much higher than oleic acid (cis). What is the best explanation?",
+     "options": {
+      "A": "The trans isomer has more carbons than oleic acid and therefore stronger dispersion forces.",
+      "B": "The trans isomer has stronger hydrogen bonds because its carboxyl group sits in a different position.",
+      "C": "The trans bond leaves the chain nearly straight, so molecules pack closely.",
+      "D": "The trans isomer forms covalent cross-links between neighboring chains in the solid state."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A trans double bond keeps the tail extended, resembling a saturated chain. Tight packing in the solid raises the melting point toward that of stearic acid (70 °C). Why the others are wrong: A) The two isomers have the same formula and the same number of carbons. B) The carboxyl group is at the same position in both isomers. D) No covalent cross-links form in a pure fatty acid solid.",
+     "trap": "Thinking that isomers differing only in geometry differ in carbon count or functional group.",
+     "topic": "Cis versus trans",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P6_Q4",
+     "stem": "Based on the trend for saturated acids in Table 1, which melting point is the most reasonable estimate for arachidic acid (20:0)?",
+     "options": {
+      "A": "70 °C",
+      "B": "90 °C",
+      "C": "55 °C",
+      "D": "75 °C"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The increments for each added pair of carbons are 10, 9, and 7 °C, and are decreasing. An increase of about 5 °C gives roughly 75 °C for a chain of 20 carbons. Why the others are wrong: A) This equals the melting point of stearic acid and assumes no increase with two more carbons. B) This extrapolates the early increments of about 10 °C per two carbons, though the increments shrink to 7 °C by stearic acid. C) This assumes the melting point falls as the chain gets longer, opposite to the trend.",
+     "trap": "Extrapolating a linear trend when the increments are clearly shrinking.",
+     "topic": "Trend extrapolation",
+     "mastery_sheet_id": "5B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P6_Q5",
+     "stem": "Compared with a hydrocarbon of similar size, a fatty acid melts at a higher temperature primarily because the carboxyl groups of two molecules can:",
+     "options": {
+      "A": "form a hydrogen-bonded pair in addition to the dispersion forces between tails.",
+      "B": "form ionic bonds with each other, producing a salt.",
+      "C": "form covalent bonds that join the pairs into a polymer.",
+      "D": "repel each other, which pushes the molecules into an ordered lattice."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The O–H of one carboxyl group donates a hydrogen bond to the C=O of its partner, forming cyclic dimers. This adds to the dispersion forces and raises the melting point. Why the others are wrong: B) The carboxylic acid is neutral in the pure solid and does not form ionic bonds. C) No covalent bond forms between fatty acid molecules on melting or freezing. D) Repulsion would not stabilize the solid; hydrogen bonding is the attraction involved.",
+     "trap": "Treating hydrogen bonding as an ionic or covalent interaction.",
+     "topic": "Hydrogen bonding",
+     "mastery_sheet_id": "5B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini05_CP_P7",
+   "passage_text": "Caffeine can be removed from an aqueous solution by liquid-liquid extraction with dichloromethane, an organic solvent that is denser than water and not miscible with it. A student shakes 100 mL of an aqueous solution containing 0.500 g of caffeine with dichloromethane in a separatory funnel, lets the layers separate, and drains the lower layer. Caffeine distributes between the two phases according to the partition coefficient K = [caffeine in dichloromethane] / [caffeine in water], which is 4.6 at the temperature used. For an aqueous volume Va extracted with an organic volume Vo, the fraction of the solute that remains in the aqueous phase after one extraction is 1 / (1 + K·Vo/Va). The student compares three procedures that use a total of 100 mL of dichloromethane. Table 1 gives the fraction of caffeine remaining in the water and the total mass of caffeine collected in the organic phase. In each case equilibrium is reached before the layers are separated, and the organic portions are combined.",
+   "table_data": "| Procedure | Fraction remaining in water | Caffeine collected in organic phase (g) |\n|---|---|---|\n| 1 × 100 mL | 0.179 | 0.411 |\n| 2 × 50 mL | 0.092 | 0.454 |\n| 4 × 25 mL | 0.047 | 0.477 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini05_CP_P7_Q1",
+     "stem": "Which statement best explains why four 25 mL extractions recover more caffeine than one 100 mL extraction?",
+     "options": {
+      "A": "A smaller volume of solvent has a larger partition coefficient for caffeine, so more solute enters each portion.",
+      "B": "Each fresh solvent portion re-establishes equilibrium and removes the same fraction of what remains.",
+      "C": "Smaller portions dissolve a greater mass of caffeine per milliliter of solvent because they reach saturation sooner.",
+      "D": "The caffeine is chemically changed by repeated shaking, which converts it to a form that moves into the organic layer."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Each extraction removes a fixed fraction of what is left. Fractions multiply, and (0.465)⁴ is smaller than 0.179 for the same total solvent volume. Why the others are wrong: A) K is a property of the solute and the two solvents; it does not change with the volume used. C) The extraction operates far below saturation, and the gain does not result from solubility limits. D) Shaking only helps the solute reach equilibrium; no chemical change occurs.",
+     "trap": "Believing that the partition coefficient depends on how the solvent is divided.",
+     "topic": "Multiple extractions",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P7_Q2",
+     "stem": "According to Table 1, how much caffeine remains in the aqueous layer after the single 100 mL extraction?",
+     "options": {
+      "A": "0.411 g",
+      "B": "0.089 g",
+      "C": "0.109 g",
+      "D": "0.179 g"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 0.500 g − 0.411 g = 0.089 g, consistent with 0.500 g × 0.179 = 0.0895 g. Why the others are wrong: A) This is the mass collected in the organic layer, not the mass left in the water. C) This results from dividing the starting mass by K (0.500 / 4.6), which is not how the partition is calculated. D) This is the fraction remaining, 0.179, read as a mass in grams.",
+     "trap": "Reading a fraction as a mass or dividing by K.",
+     "topic": "Mass balance",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P7_Q3",
+     "stem": "Using the fractions in Table 1, how much caffeine is left in the aqueous phase after the two 50 mL extractions?",
+     "options": {
+      "A": "0.454 g",
+      "B": "0.046 g",
+      "C": "0.092 g",
+      "D": "0.250 g"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The fraction remaining is 0.092, so the mass left is 0.500 g × 0.092 ≈ 0.046 g, which equals 0.500 g − 0.454 g. Why the others are wrong: A) This is the mass collected in the organic phase for the 2 × 50 mL procedure, not the mass left in water. C) This is the fraction remaining, 0.092, read as a mass in grams. D) This assumes caffeine is split evenly between the phases, which ignores K = 4.6.",
+     "trap": "Reporting the collected mass or the fraction instead of the mass left behind.",
+     "topic": "Mass balance",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P7_Q4",
+     "stem": "After the layers separate in the separatory funnel, where is most of the caffeine found?",
+     "options": {
+      "A": "In the upper layer, which is the dichloromethane.",
+      "B": "In the lower layer, which is the dichloromethane.",
+      "C": "In the lower layer, which is the water.",
+      "D": "Evenly in both layers, because K is greater than 1."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Because K > 1, caffeine favors dichloromethane, and since dichloromethane is denser than water, it is drained from the bottom of the funnel. Why the others are wrong: A) Dichloromethane is denser than water, so it forms the lower layer. C) The lower layer is the denser solvent, dichloromethane, not the water. D) K = 4.6 means caffeine is about 4.6 times more concentrated in the organic phase, so the distribution is not equal.",
+     "trap": "Assuming the organic layer is always on top.",
+     "topic": "Separatory funnel",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P7_Q5",
+     "stem": "Adding sodium chloride to the aqueous layer before extracting (salting out) is expected to increase the amount of caffeine collected. The most likely reason is that the added salt:",
+     "options": {
+      "A": "makes caffeine less soluble in the aqueous phase, increasing the effective partition coefficient.",
+      "B": "reacts with caffeine to form a salt that dissolves in dichloromethane.",
+      "C": "increases the solubility of dichloromethane in water, enlarging the organic phase.",
+      "D": "lowers the density of water so that the layers separate faster."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Dissolved ions tie up water molecules, so less water is available to dissolve a neutral organic solute. More caffeine moves into dichloromethane, effectively raising K. Why the others are wrong: B) Sodium chloride does not react with neutral caffeine, and an ionic product would favor water, not dichloromethane. C) Salt lowers the mutual solubility of the two solvents. D) Dissolved salt raises the density of water; the effect on extraction is not due to density.",
+     "trap": "Assuming that added salt must react chemically with the solute.",
+     "topic": "Salting out",
+     "mastery_sheet_id": "5C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini05_CP_P8",
+   "passage_text": "Esters can be made from a carboxylic acid and an alcohol under acid catalysis, a process called Fischer esterification. In one study, acetic acid reacted with ethanol in the presence of a catalytic amount of concentrated sulfuric acid: CH₃CO₂H + CH₃CH₂OH ⇌ CH₃CO₂CH₂CH₃ + H₂O. The mixtures were heated until no further change occurred, and the equilibrium constant at the reaction temperature was Keq ≈ 4.0. The mechanism begins when the catalyst protonates the carbonyl oxygen of the acid. The alcohol then adds to the carbonyl carbon, forming a tetrahedral intermediate, and proton transfers followed by loss of water give the ester. Each mixture began with 1.00 mol of acetic acid and varying amounts of ethanol. Table 1 gives the moles of ester present at equilibrium, calculated from Keq, for each ratio. In one additional experiment, ethanol enriched in oxygen-18 was used, and the labeled oxygen was tracked by mass spectrometry in the products.",
+   "table_data": "| Ethanol added (mol) | Ester at equilibrium (mol) |\n|---|---|\n| 0.50 | 0.42 |\n| 1.00 | 0.67 |\n| 3.00 | 0.90 |\n| 10.0 | 0.97 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini05_CP_P8_Q1",
+     "stem": "What is the role of the sulfuric acid in this reaction?",
+     "options": {
+      "A": "It protonates the carbonyl oxygen, activating the carbon toward attack, and is regenerated.",
+      "B": "It deprotonates the alcohol to make it a stronger nucleophile, and it is consumed in the reaction.",
+      "C": "It shifts the equilibrium constant toward the ester by absorbing the water that is produced during the reaction.",
+      "D": "It oxidizes the alcohol to an aldehyde, which then adds to the carboxylic acid to form the ester."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Protonation of the C=O increases the partial positive charge on carbon, so the weakly nucleophilic alcohol can add. The proton is returned at the end, so the acid is a catalyst. Why the others are wrong: B) Under strongly acidic conditions the alcohol is not deprotonated, and a catalyst is not consumed. C) A catalyst changes the rate, not the value of Keq, and the equilibrium is the same without it. D) The reaction does not involve oxidation of the alcohol.",
+     "trap": "Assuming a catalyst alters the equilibrium constant or is consumed.",
+     "topic": "Acid catalysis",
+     "mastery_sheet_id": "5D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P8_Q2",
+     "stem": "Why does using 10.0 mol of ethanol give a higher yield of ester than using 1.00 mol?",
+     "options": {
+      "A": "Increasing a reactant concentration shifts the equilibrium toward products.",
+      "B": "The excess ethanol increases the value of Keq at the reaction temperature.",
+      "C": "The excess ethanol acts as a catalyst and lowers the activation energy.",
+      "D": "The excess ethanol absorbs the water, converting it to ethyl acetate."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Le Chatelier's principle applies: more of one reactant drives the reaction forward until Q = Keq again, so more acid is converted (0.97 mol versus 0.67 mol). Why the others are wrong: B) Keq depends only on temperature, and it is given as constant (4.0). C) The excess affects the position of equilibrium, not the rate or activation energy. D) Water is not converted to the ester; the reaction is not changed by this route.",
+     "trap": "Believing that adding reactant changes the equilibrium constant.",
+     "topic": "Le Chatelier",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P8_Q3",
+     "stem": "In the oxygen-18 experiment, the labeled oxygen of ethanol would be found in:",
+     "options": {
+      "A": "the water only, because the alcohol hydroxyl group is lost.",
+      "B": "both the ester and the water, in equal amounts.",
+      "C": "the ester only, on the ethyl group.",
+      "D": "neither product, because it exchanges with the sulfuric acid."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The alcohol oxygen attacks the carbonyl carbon and stays bonded to the ethyl group. The water that leaves is derived from the acid, so the label ends up in the ester. Why the others are wrong: A) The water formed comes from the carboxylic acid's OH group and the carbonyl oxygen after protonation, not from the alcohol. B) The alcohol oxygen is incorporated into the ester and is not lost. D) The oxygen of the alcohol stays bonded to its carbon throughout.",
+     "trap": "Assuming water is formed from the alcohol hydroxyl group.",
+     "topic": "Mechanism tracing",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P8_Q4",
+     "stem": "Which change, with the reagent ratio kept at 1:1, would most increase the ester yield above 0.67 mol?",
+     "options": {
+      "A": "Increasing the amount of sulfuric acid catalyst tenfold.",
+      "B": "Lowering the reaction temperature to slow the reverse reaction only.",
+      "C": "Removing water as it forms, for example with molecular sieves.",
+      "D": "Heating for less time once equilibrium is reached."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Water is a product. Removing it keeps Q below Keq, so the reaction continues forward and the yield can approach 1.00 mol. Why the others are wrong: A) A larger amount of catalyst speeds approach to equilibrium but does not change the equilibrium yield. B) Lowering the temperature slows both the forward and reverse reactions and does not by itself raise the yield. D) The mixture is already at equilibrium; shortening the heating time cannot give more ester.",
+     "trap": "Confusing speeding up the approach to equilibrium with moving the equilibrium.",
+     "topic": "Driving equilibrium",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini05_CP_P9",
+   "passage_text": "The acidity of benzoic acid derivatives depends on substituents on the ring. A substituent that stabilizes the benzoate anion makes the acid stronger. Hammett substituent constants (σ) describe the electron-donating or electron-withdrawing effect of a group at the para position, with σ = 0 for hydrogen, positive values for electron-withdrawing groups, and negative values for electron-donating groups. For the ionization of benzoic acids in water at 25 °C, a plot of pKa against σ is a straight line with a slope of about −1.0. A chemist compared six para-substituted benzoic acids, as listed in Table 1. The pKa values were measured by titration and σ values were taken from the reference column. Figure 1 shows pKa as a function of σ. A group that withdraws electrons through both inductive and resonance effects can delocalize the negative charge of the carboxylate. A group that donates electrons by resonance has the opposite effect.",
+   "table_data": "| para substituent | σ | pKa |\n|---|---|---|\n| OCH₃ | −0.27 | 4.47 |\n| CH₃ | −0.17 | 4.34 |\n| H | 0.00 | 4.20 |\n| Cl | 0.23 | 3.99 |\n| CN | 0.66 | 3.55 |\n| NO₂ | 0.78 | 3.44 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. pKa of para-substituted benzoic acids versus Hammett σ",
+    "x_label": "σ (para)",
+    "y_label": "pKa",
+    "series": [
+     {
+      "name": "Benzoic acids",
+      "points": [
+       [
+        -0.27,
+        4.47
+       ],
+       [
+        -0.17,
+        4.34
+       ],
+       [
+        0.0,
+        4.2
+       ],
+       [
+        0.23,
+        3.99
+       ],
+       [
+        0.66,
+        3.55
+       ],
+       [
+        0.78,
+        3.44
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini05_CP_P9_Q1",
+     "stem": "Which acid in Table 1 has the greatest tendency to ionize in water?",
+     "options": {
+      "A": "p-Nitrobenzoic acid, since its group best stabilizes the anion.",
+      "B": "p-Methoxybenzoic acid, because the methoxy group donates electron density to the carboxylate.",
+      "C": "Benzoic acid, because it has no substituent to interfere with ionization.",
+      "D": "p-Chlorobenzoic acid, because chlorine has the largest σ of the six groups."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The strongest acid has the lowest pKa, 3.44 for the nitro compound, which has the largest positive σ (0.78). Delocalizing the carboxylate charge stabilizes the anion. Why the others are wrong: B) Donation of electron density destabilizes the carboxylate and gives the highest pKa, the weakest acid. C) Benzoic acid has a pKa of 4.20, higher than five of the others, so it is weaker than several. D) Chlorine's σ is 0.23, smaller than that of CN or NO₂.",
+     "trap": "Selecting the acid with the highest pKa as the strongest.",
+     "topic": "Substituent effects on acidity",
+     "mastery_sheet_id": "5D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P9_Q2",
+     "stem": "How many times larger is Ka for p-nitrobenzoic acid than for benzoic acid?",
+     "options": {
+      "A": "5.8",
+      "B": "0.76",
+      "C": "0.17",
+      "D": "58"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Ka ratio = 10^(4.20 − 3.44) = 10^0.76 ≈ 5.8. Why the others are wrong: B) This is the difference in pKa values, not the ratio of Ka values. C) This is the inverse of the correct ratio, showing the p-nitro acid as weaker. D) This is 10^1.76, adding 1 to the exponent by an arithmetic slip.",
+     "trap": "Reporting the pKa difference as a ratio.",
+     "topic": "pKa and Ka",
+     "mastery_sheet_id": "5D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://scienceready.com.au/pages/pKa",
+       "https://openintrochemistry.pressbooks.tru.ca/?p=1263"
+      ]
+     }
+    },
+    {
+     "id": "Mini05_CP_P9_Q3",
+     "stem": "A substituent has σ = +0.35. Using the line in Figure 1, what pKa would be predicted for the corresponding para-substituted benzoic acid?",
+     "options": {
+      "A": "4.55",
+      "B": "3.55",
+      "C": "3.85",
+      "D": "0.35"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The slope is about −1.0 and the intercept is 4.20, so pKa ≈ 4.20 − 0.35 = 3.85. Why the others are wrong: A) This adds σ to 4.20 rather than subtracting, reversing the slope of the line. B) This is the pKa for σ = 0.66 (CN), not for 0.35. D) This reports σ itself as a pKa.",
+     "trap": "Using a positive slope when the plot clearly decreases.",
+     "topic": "Linear free energy relationship",
+     "mastery_sheet_id": "5D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini05_CP_P9_Q4",
+     "stem": "Why does a para-methoxy group raise the pKa of benzoic acid above 4.20?",
+     "options": {
+      "A": "It withdraws electron density through the sigma bond, which stabilizes the carboxylate.",
+      "B": "It protonates the carboxylate group, which prevents ionization.",
+      "C": "It increases the size of the molecule, so it is less soluble in water.",
+      "D": "It donates electron density by resonance, which destabilizes the negatively charged carboxylate."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A negative σ means electron donation. The extra electron density on the ring opposes the delocalization of negative charge, so the anion is less stable and the acid is weaker. Why the others are wrong: A) Methoxy is a net donor at the para position, as shown by its negative σ. B) An ether oxygen is not acidic enough to protonate the carboxylate in water. C) Solubility does not determine pKa, which describes equilibrium of the dissolved species.",
+     "trap": "Treating oxygen-containing groups as electron-withdrawing in all cases.",
+     "topic": "Resonance donation",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini05_CP_P10",
+   "passage_text": "Surfactants such as sodium dodecyl sulfate (SDS) have a charged sulfate head group and a long hydrocarbon tail. In water the molecules gather at the air-water interface, with the tails directed toward the air. This lowers the surface tension, which is a measure of the energy cost of exposing the interface. At a concentration called the critical micelle concentration (CMC), the molecules also begin to assemble into spherical micelles, in which the tails form a hydrocarbon core and the head groups face the water. A student measured the surface tension of SDS solutions at 25 °C with a tensiometer. Pure water has a surface tension of 72 mN/m. The data are shown in Table 1 and Figure 1. A second series of experiments was carried out in 0.10 M sodium chloride, and the break in the curve appeared at a lower SDS concentration than in pure water, while the plateau value of the surface tension was nearly unchanged.",
+   "table_data": "| [SDS] (mM) | Surface tension (mN/m) |\n|---|---|\n| 0 | 72 |\n| 2 | 60 |\n| 4 | 52 |\n| 6 | 44 |\n| 8 | 38 |\n| 10 | 38 |\n| 15 | 38 |\n| 20 | 38 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Surface tension versus SDS concentration",
+    "x_label": "[SDS] (mM)",
+    "y_label": "Surface tension (mN/m)",
+    "series": [
+     {
+      "name": "SDS in water",
+      "points": [
+       [
+        0,
+        72
+       ],
+       [
+        2,
+        60
+       ],
+       [
+        4,
+        52
+       ],
+       [
+        6,
+        44
+       ],
+       [
+        8,
+        38
+       ],
+       [
+        10,
+        38
+       ],
+       [
+        15,
+        38
+       ],
+       [
+        20,
+        38
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini05_CP_P10_Q1",
+     "stem": "Why does adding SDS lower the surface tension of water below 8 mM?",
+     "options": {
+      "A": "SDS dissolves in the bulk and strengthens the hydrogen-bond network among the water molecules at the surface.",
+      "B": "SDS molecules react with dissolved gases at the surface, which removes the inward pull on surface water.",
+      "C": "SDS forms micelles at every concentration, and these shield the surface from the water beneath it.",
+      "D": "SDS adsorbs at the surface and replaces water there, reducing cohesive hydrogen bonding."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Surface water molecules are pulled inward by hydrogen bonds. SDS tails at the surface interact only weakly with the air and with each other, which lowers the energy cost of the interface. Why the others are wrong: A) Strengthening the surface network would raise the surface tension, not lower it. B) No such chemical reaction is involved in surface activity. C) Micelles form only at and above the CMC, and the tension drops below that point.",
+     "trap": "Assuming a solute always raises surface tension by increasing the solution's cohesion.",
+     "topic": "Surfactants",
+     "mastery_sheet_id": "5B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P10_Q2",
+     "stem": "Why does the surface tension remain at 38 mN/m for concentrations above about 8 mM?",
+     "options": {
+      "A": "The surface becomes saturated with water molecules that block further SDS adsorption.",
+      "B": "The SDS molecules stop dissolving because the solution is supersaturated with them.",
+      "C": "Added SDS forms micelles in the bulk, so the concentration of free monomer at the surface stays roughly constant.",
+      "D": "The SDS molecules decompose when the concentration exceeds the CMC."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Above the CMC, extra surfactant goes into micelles. The free monomer concentration, which sets the surface coverage and the tension, stays near its value at the CMC. Why the others are wrong: A) The surface is saturated with SDS monomers, not with water. B) The added SDS remains in solution as micelles; it does not precipitate. D) SDS is chemically stable under these conditions and does not decompose at higher concentration.",
+     "trap": "Thinking the plateau means the surfactant has stopped dissolving.",
+     "topic": "Critical micelle concentration",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P10_Q3",
+     "stem": "What is the approximate CMC of SDS in pure water, according to Figure 1?",
+     "options": {
+      "A": "4 mM",
+      "B": "20 mM",
+      "C": "38 mM",
+      "D": "8 mM"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The CMC is where the curve breaks from a steep decrease to a plateau. The tension reaches 38 mN/m at 8 mM and does not change thereafter. Why the others are wrong: A) This is the concentration at which the surface tension is 52 mN/m, in the middle of the falling portion. B) This is the highest concentration measured, well into the plateau. C) This is the value of the surface tension on the plateau, not a concentration.",
+     "trap": "Reading the plateau's y-value as the concentration.",
+     "topic": "Graph reading",
+     "mastery_sheet_id": "5B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini05_CP_P10_Q4",
+     "stem": "In 0.10 M NaCl, the CMC of SDS is lower than in pure water. Which explanation is most consistent with this?",
+     "options": {
+      "A": "The chloride ions bond covalently to the hydrocarbon tails, which makes the tails more hydrophobic and favors micelles.",
+      "B": "The added salt raises the surface tension of the water, which pushes SDS molecules out of the surface into micelles.",
+      "C": "The sodium ions convert SDS into a nonionic surfactant that can no longer adsorb at the air-water surface.",
+      "D": "Ions screen repulsion between the sulfate head groups, so micelles form at lower SDS concentration."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Micelles bring many negatively charged heads into close contact. Counterions shield the electrostatic repulsion among heads, which lowers the energetic cost and lowers the CMC. Why the others are wrong: A) Chloride does not form covalent bonds with hydrocarbon tails. B) The reasoning is incorrect; salt has a small effect on surface tension and does not drive micelle formation this way. C) SDS remains an anionic surfactant in the presence of sodium ions.",
+     "trap": "Believing that ions alter the tails rather than screening the charged head groups.",
+     "topic": "Electrostatic screening",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "Mini05_CP_D1",
+   "stem": "A 60 kg student climbs a flight of stairs that rises 5.0 m in 10 s at constant speed. Using g = 10 m/s², what is the average power the student expends against gravity?",
+   "options": {
+    "A": "30 W",
+    "B": "600 W",
+    "C": "3000 W",
+    "D": "300 W"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Work = mgh = 60 × 10 × 5.0 = 3000 J. Power = 3000 J ÷ 10 s = 300 W. Why the others are wrong: A) This divides by 100 instead of 10 s, or divides the work by an extra factor of 10. B) This doubles the work, as if the student had to lift the body weight twice. C) This reports the work in joules (60 × 10 × 5) without dividing by the time.",
+   "trap": "Reporting the work in joules as the power.",
+   "topic": "Work and power",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openbooks.lib.msu.edu/collegephysics1/chapter/power-2"
+    ]
+   }
+  },
+  {
+   "id": "Mini05_CP_D2",
+   "stem": "A uniform seesaw is balanced on a central pivot. A 30 kg child sits 2.0 m from the pivot on one side. How far from the pivot must a 20 kg child sit on the other side for the seesaw to balance?",
+   "options": {
+    "A": "1.3 m",
+    "B": "3.00 m",
+    "C": "2.0 m",
+    "D": "4.5 m"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Torques must balance: 30 × 2.0 = 20 × d, so d = 60/20 = 3.00 m. Why the others are wrong: A) This inverts the ratio of the masses (30/20 and 20/30 confused), giving a distance too small. C) This assumes the second child sits at the same distance regardless of mass. D) This multiplies the distance by the mass ratio squared.",
+   "trap": "Inverting the mass ratio when balancing torques.",
+   "topic": "Rotational equilibrium",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.jove.com/v/12725",
+     "https://personal.math.ubc.ca/~feldman/m121/torque.pdf"
+    ]
+   }
+  },
+  {
+   "id": "Mini05_CP_D3",
+   "stem": "Blood flows steadily through an artery whose radius is reduced by half at a stenosis. Assuming an ideal, incompressible fluid, by what factor does the blood speed at the stenosis change compared to the speed in the normal region?",
+   "options": {
+    "A": "It increases by a factor of 2.",
+    "B": "It increases by a factor of 4, since area falls by 4.",
+    "C": "It decreases by a factor of 4.",
+    "D": "It is unchanged, because the flow rate is the same."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Continuity gives A₁v₁ = A₂v₂. Halving the radius quarters the area, so the speed rises fourfold. Bernoulli's equation then predicts a drop in pressure at the stenosis. Why the others are wrong: A) This applies continuity using the radius ratio rather than the area ratio, which depends on the square of the radius. C) The speed increases when the area decreases for a fixed flow rate. D) The flow rate is the same, but speed times area is what is constant, so the speed changes.",
+   "trap": "Using the ratio of radii instead of the ratio of areas in the continuity equation.",
+   "topic": "Continuity equation",
+   "mastery_sheet_id": "4B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini05_CP_D4",
+   "stem": "A 12 V battery with negligible internal resistance is connected to a 6.0 Ω resistor and a 3.0 Ω resistor in parallel. What is the current in the 6.0 Ω resistor?",
+   "options": {
+    "A": "4.0 A",
+    "B": "2.0 A",
+    "C": "6.0 A",
+    "D": "1.3 A"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Each parallel resistor has the full 12 V across it, so I = V/R = 12/6.0 = 2.0 A. (The 3.0 Ω resistor carries 4.0 A, and the total is 6.0 A.) Why the others are wrong: A) This is the current in the 3.0 Ω resistor, not the 6.0 Ω one. C) This is the total current drawn from the battery. D) This divides the voltage by the sum of the resistances (12/9), as for a series circuit.",
+   "trap": "Applying the series-circuit current formula to resistors in parallel.",
+   "topic": "Parallel circuits",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.grc.nasa.gov/WWW/K-12/airplane/ohmrpar.html",
+     "https://www.electronicsforu.com/special/parallel-and-series-resistor-calculator"
+    ]
+   }
+  },
+  {
+   "id": "Mini05_CP_D5",
+   "stem": "Light of wavelength 600 nm in air enters a glass with a refractive index of 1.50. What is its wavelength in the glass?",
+   "options": {
+    "A": "900 nm",
+    "B": "400 nm",
+    "C": "600 nm",
+    "D": "300 nm"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The frequency is unchanged, and the speed becomes c/n, so λ(glass) = λ(air)/n = 600/1.50 = 400 nm. Why the others are wrong: A) This multiplies the wavelength by the refractive index instead of dividing. C) This confuses the wavelength with the frequency, which does not change at the boundary. D) This divides by 2 rather than by the refractive index of 1.50.",
+   "trap": "Multiplying rather than dividing the wavelength by the refractive index.",
+   "topic": "Refraction",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://arxiv.org/pdf/1907.06504",
+     "https://digfir-published.macmillanusa.com/college_physics_bubble_equation/bubble_ch23_eq08.html"
+    ]
+   }
+  },
+  {
+   "id": "Mini05_CP_D6",
+   "stem": "How many unpaired electrons are in the ground state of Fe³⁺ (atomic number 26)?",
+   "options": {
+    "A": "5",
+    "B": "4",
+    "C": "3",
+    "D": "0"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Neutral Fe is [Ar]3d⁶4s². Fe³⁺ loses the two 4s electrons and one 3d electron, leaving 3d⁵, with one electron in each of the five d orbitals. Why the others are wrong: B) This is the number of unpaired electrons in Fe²⁺ (3d⁶), not Fe³⁺. C) This results from removing electrons from the 3d orbitals rather than the 4s orbital first. D) This assumes all the electrons are paired, as would occur in a noble-gas core only.",
+   "trap": "Removing 3d electrons before the 4s electrons when forming a cation.",
+   "topic": "Electron configuration",
+   "mastery_sheet_id": "4E",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini05_CP_D7",
+   "stem": "The Ksp of AgCl is 1.8 × 10⁻¹⁰ at 25 °C. What is the molar solubility of AgCl in pure water?",
+   "options": {
+    "A": "1.3 × 10⁻⁵ M",
+    "B": "1.8 × 10⁻¹⁰ M",
+    "C": "9.0 × 10⁻¹¹ M",
+    "D": "3.6 × 10⁻¹⁰ M"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) For AgCl(s) ⇌ Ag⁺ + Cl⁻, Ksp = s². Therefore s = √(1.8 × 10⁻¹⁰) = 1.3 × 10⁻⁵ M. Why the others are wrong: B) This takes the Ksp itself as the solubility. C) This divides Ksp by two, an incorrect treatment for a 1:1 salt. D) This doubles the Ksp, which is also unrelated to the equilibrium expression.",
+   "trap": "Using Ksp directly as the solubility instead of taking its square root.",
+   "topic": "Solubility product",
+   "mastery_sheet_id": "5A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chemteam.info/Equilibrium/Solving-Ksp-probs1.html",
+     "https://chem.libretexts.org/Ancillary_Materials/Worksheets/Worksheets%3A_Analytical_Chemistry_II/Solubility_Product"
+    ]
+   }
+  },
+  {
+   "id": "Mini05_CP_D8",
+   "stem": "Which of the following molecules has a nonzero net dipole moment?",
+   "options": {
+    "A": "CO₂",
+    "B": "BF₃",
+    "C": "SO₂",
+    "D": "CCl₄"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) SO₂ is bent because of a lone pair on sulfur, so its two S=O bond dipoles add to a net dipole. The other three molecules are symmetric. Why the others are wrong: A) The two C=O dipoles point in opposite directions in a linear molecule and cancel. B) The three B–F dipoles in a trigonal planar arrangement cancel by symmetry. D) The four C–Cl dipoles in a tetrahedral arrangement cancel by symmetry.",
+   "trap": "Judging polarity from bond polarity alone, without considering geometry.",
+   "topic": "Molecular polarity",
+   "mastery_sheet_id": "5B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini05_CP_D9",
+   "stem": "In a thin-layer chromatography experiment, a compound travels 2.4 cm from the origin while the solvent front travels 8.0 cm. What is the Rf value of the compound?",
+   "options": {
+    "A": "3.3",
+    "B": "0.7",
+    "C": "0.30",
+    "D": "5.6"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Rf = distance traveled by compound ÷ distance traveled by solvent front = 2.4 ÷ 8.0 = 0.30. Why the others are wrong: A) This is the inverse ratio, front distance over spot distance, which is greater than 1. B) This is the fraction of the path the spot did not travel (1 − 0.30). D) This is the difference between the front and spot distances in centimeters.",
+   "trap": "Inverting the Rf ratio so that it exceeds one.",
+   "topic": "Chromatography",
+   "mastery_sheet_id": "5C",
+   "skill": "calculation",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini05_CP_D10",
+   "stem": "D-Glucose and D-galactose differ only in the configuration at carbon 4. What is the stereochemical relationship between them?",
+   "options": {
+    "A": "They are enantiomers.",
+    "B": "They are anomers.",
+    "C": "They are constitutional isomers.",
+    "D": "They are epimers."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Diastereomers that differ at exactly one stereocenter are epimers. Glucose and galactose are C4 epimers. Why the others are wrong: A) Enantiomers differ at every stereocenter, so they would be D and L forms of the same sugar. B) Anomers differ only at the new stereocenter of the cyclic hemiacetal, carbon 1. C) They have the same connectivity and differ only in spatial arrangement.",
+   "trap": "Confusing epimers with anomers or enantiomers.",
+   "topic": "Carbohydrate stereochemistry",
+   "mastery_sheet_id": "5D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini05_CP_D11",
+   "stem": "A reaction has ΔH = +60 kJ/mol and ΔS = +150 J/(mol·K). Above approximately what temperature is the reaction spontaneous?",
+   "options": {
+    "A": "400 K",
+    "B": "0.40 K",
+    "C": "2.5 K",
+    "D": "9000 K"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) ΔG = ΔH − TΔS < 0 when T > ΔH/ΔS = 60,000 J/mol ÷ 150 J/(mol·K) = 400 K. Why the others are wrong: B) This omits the conversion of kJ to J, giving a value 1000 times too small. C) This divides ΔS by ΔH, inverting the ratio and using the same unit error. D) This multiplies ΔH and ΔS rather than dividing them.",
+   "trap": "Mixing kJ and J when computing the crossover temperature.",
+   "topic": "Gibbs free energy",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chem.fsu.edu/chemlab/chm1046course/gibbs.html",
+     "https://www.jove.com/science-education/11428/effects-of-temperature-on-free-energy"
+    ]
+   }
+  },
+  {
+   "id": "Mini05_CP_D12",
+   "stem": "A first-order reaction has a half-life of 20 minutes. What percentage of the reactant remains after 60 minutes?",
+   "options": {
+    "A": "33%",
+    "B": "25%",
+    "C": "6.25%",
+    "D": "12.5%"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) 60 min is three half-lives. The fraction remaining is (½)³ = 1/8 = 12.5%. Why the others are wrong: A) This treats the reaction as linear, losing one third per half-life instead of half. B) This counts only two half-lives. C) This counts four half-lives, corresponding to 80 minutes.",
+   "trap": "Miscounting the number of half-lives in a given time.",
+   "topic": "First-order kinetics",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chem-textbook.ucalgary.ca/?p=7936"
+    ]
+   }
+  }
+ ]
+}

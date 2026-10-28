@@ -1,0 +1,1513 @@
+{
+ "exam": "Mini01",
+ "type": "mini",
+ "section": "BB",
+ "passages": [
+  {
+   "passage_id": "Mini01_BB_P1",
+   "passage_text": "Protein T is a small, single-domain enzyme whose folded structure is rich in alpha helices. A biochemist compared four forms of the protein by thermal denaturation: wild-type (WT); a variant in which a buried leucine was replaced with alanine (L to A); a variant in which a surface lysine was replaced with glutamate (K to E); and a variant in which two residues on neighboring helices were each replaced with cysteine so that a disulfide bond could form (S-S). Each sample was held in identical buffer while the temperature was raised, and the circular dichroism (CD) signal at 222 nm, which reports on helical content, was converted to the fraction of protein folded. The melting temperature (Tm) is the temperature at which half of the protein is folded. Tm values are listed in Table 1, and the melting curves for WT and the S-S variant are shown in Figure 1.\n\nMass spectrometry confirmed that all four proteins had the expected masses, and the S-S variant was purified under oxidizing conditions so that its new disulfide bond was intact.",
+   "table_data": "| Variant | Tm (°C) |\n|---|---|\n| WT | 58 |\n| L to A | 49 |\n| K to E | 57 |\n| S-S | 67 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Fraction of protein T folded versus temperature",
+    "x_label": "Temperature (°C)",
+    "y_label": "Fraction folded",
+    "series": [
+     {
+      "name": "WT",
+      "points": [
+       [
+        40,
+        1.0
+       ],
+       [
+        50,
+        0.9
+       ],
+       [
+        55,
+        0.65
+       ],
+       [
+        60,
+        0.3
+       ],
+       [
+        65,
+        0.1
+       ],
+       [
+        70,
+        0.02
+       ],
+       [
+        75,
+        0.0
+       ],
+       [
+        80,
+        0.0
+       ]
+      ]
+     },
+     {
+      "name": "S-S",
+      "points": [
+       [
+        40,
+        1.0
+       ],
+       [
+        50,
+        0.99
+       ],
+       [
+        55,
+        0.96
+       ],
+       [
+        60,
+        0.85
+       ],
+       [
+        65,
+        0.62
+       ],
+       [
+        70,
+        0.25
+       ],
+       [
+        75,
+        0.05
+       ],
+       [
+        80,
+        0.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini01_BB_P1_Q1",
+     "stem": "According to Table 1, which variant would be mostly unfolded at 50 °C?",
+     "options": {
+      "A": "The L to A variant, because its Tm of 49 °C is below 50 °C",
+      "B": "The WT protein, because it has the lowest Tm of the four forms",
+      "C": "The K to E variant, because any charge reversal destabilizes a protein",
+      "D": "The S-S variant, because covalent crosslinks make proteins rigid and prone to unfolding"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Tm is the temperature at which half the protein is folded, so above 49 °C the L to A variant is more than half unfolded. Why the others are wrong: B) WT has a Tm of 58 °C, which is higher than that of L to A, so it is still mostly folded at 50 °C. C) K to E has a Tm of 57 °C, essentially unchanged; a surface charge swap is not automatically destabilizing. D) The S-S variant has the highest Tm (67 °C); the crosslink stabilizes the fold.",
+     "trap": "Picking the variant with the lowest Tm without noticing that the lowest value in the table belongs to the L to A variant, not WT.",
+     "topic": "Thermal stability and Tm",
+     "mastery_sheet_id": "1A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P1_Q2",
+     "stem": "The higher Tm of the S-S variant is best explained by the disulfide bond:",
+     "options": {
+      "A": "restricting the conformations available to the unfolded chain, which raises the free-energy cost of unfolding",
+      "B": "adding a hydrophobic side chain to the core, which increases the entropy of the folded state",
+      "C": "neutralizing the net charge of the protein so repulsion is removed",
+      "D": "converting alpha helices into beta sheets, which resist heat"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) A covalent crosslink lowers the entropy gained on unfolding, so more thermal energy is required to unfold the protein. Why the others are wrong: B) Cysteines forming a disulfide are not new core hydrophobic contacts, and a more ordered folded state would not be favored by higher entropy. C) Cysteine substitutions at neutral pH do not change net charge in a way that explains a 9 °C rise in Tm. D) The crosslink does not alter the type of secondary structure; the CD signal still reports helical content.",
+     "trap": "Assuming that a stronger bond within the folded state alone explains stabilization, forgetting the entropy effect on the unfolded state.",
+     "topic": "Disulfide bonds and stability",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P1_Q3",
+     "stem": "Replacing the surface lysine with glutamate changed Tm by only 1 °C, whereas replacing the buried leucine with alanine lowered it by 9 °C. Which explanation is most consistent with these results?",
+     "options": {
+      "A": "Surface residues never contribute to stability of any protein",
+      "B": "Leucine is polar and forms hydrogen bonds with water in the folded state",
+      "C": "The buried leucine contributes to hydrophobic packing in the core, which the smaller alanine side chain cannot fully provide",
+      "D": "Alanine is charged at physiological pH and is therefore poorly tolerated in the interior"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Buried nonpolar residues make van der Waals and hydrophobic contacts; leucine to alanine leaves a cavity and weakens packing. Why the others are wrong: A) This overgeneralizes; surface residues can form salt bridges or hydrogen bonds, but this particular swap was minor. B) Leucine is nonpolar and aliphatic; it does not hydrogen bond with water. D) Alanine has a nonpolar methyl side chain and is uncharged at physiological pH.",
+     "trap": "Treating all substitutions as equivalent regardless of whether the residue is buried or exposed.",
+     "topic": "Hydrophobic core",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P1_Q4",
+     "stem": "A loss of CD signal at 222 nm as the sample is heated mainly reflects loss of which structural feature?",
+     "options": {
+      "A": "Quaternary structure, through subunit dissociation",
+      "B": "Peptide bonds, through thermal hydrolysis",
+      "C": "The amino acid sequence, through racemization",
+      "D": "Alpha-helical secondary structure"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Ellipticity near 222 nm is characteristic of helical backbone hydrogen-bonding patterns, which melt during denaturation. Why the others are wrong: A) Protein T is a single-domain protein and has no subunit interface to lose. B) Peptide bonds do not hydrolyze at these temperatures; mass spectrometry would show fragments. C) Primary structure is not changed by this brief heating and CD at 222 nm does not report on it.",
+     "trap": "Confusing denaturation (loss of higher-order structure) with breakage of covalent bonds in the primary structure.",
+     "topic": "Circular dichroism",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P1_Q5",
+     "stem": "Figure 1 shows that at 60 °C about 0.30 of WT and about 0.85 of the S-S variant are folded. The ratio of folded WT to folded S-S protein at 60 °C is closest to:",
+     "options": {
+      "A": "2 : 1",
+      "B": "1 : 3",
+      "C": "1 : 10",
+      "D": "3 : 1"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 0.30 divided by 0.85 is about 0.35, which is about 1 to 3. Why the others are wrong: A) WT has less folded protein than S-S at 60 °C, so the ratio must be below 1. C) This would require a folded WT fraction of about 0.085. D) This inverts the ratio; the S-S variant has more folded protein at 60 °C.",
+     "trap": "Dividing in the wrong order and reporting the inverse ratio.",
+     "topic": "Reading melting curves",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini01_BB_P2",
+   "passage_text": "Three tripeptides were synthesized, each with a free amino terminus and a free carboxyl terminus: peptide 1 (Ala-Glu-Gly), peptide 2 (Lys-Ala-Gly), and peptide 3 (His-Ala-Ala). A researcher wanted to separate the peptides by charge. The isoelectric point (pI) of a peptide is the pH at which its net charge is zero. Approximate pKa values for the ionizable groups in short peptides are given in Table 1; assume that each group ionizes independently.\n\nThe peptides were first compared by paper electrophoresis in a buffer of pH 8.0. In a second experiment, a mixture of the three peptides was applied at pH 5.0 to a cation-exchange column, whose resin carries fixed negatively charged sulfonate groups. The column was washed with the starting buffer, and bound peptides were then eluted with a gradient of increasing NaCl concentration. Fractions were analyzed for peptide content by their absorbance after reaction with a reagent that detects free amino groups.",
+   "table_data": "| Ionizable group | Approximate pKa |\n|---|---|\n| Carboxyl terminus | 3.1 |\n| Glu side chain | 4.3 |\n| His side chain | 6.0 |\n| Amino terminus | 8.0 |\n| Lys side chain | 10.5 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini01_BB_P2_Q1",
+     "stem": "The pI of peptide 1 is closest to:",
+     "options": {
+      "A": "5.6",
+      "B": "3.7",
+      "C": "6.1",
+      "D": "8.0"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The charge goes +1, 0, -1 as the carboxyl terminus (3.1) and then the Glu side chain (4.3) deprotonate; the zero-charge form lies between them, pI = (3.1 + 4.3)/2 = 3.7. Why the others are wrong: A) This would average the amino terminus and Glu pKa values, but the amino terminus is still protonated near the pI. C) This averages the amino terminus (8.0) with the carboxyl terminus (3.1) and ignores the Glu side chain. D) This is the pKa of the amino terminus, which is not the group that sets the neutral point of an acidic peptide.",
+     "trap": "Using only the two terminal groups to compute pI and ignoring the acidic Glu side chain.",
+     "topic": "Peptide pI",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://openstax.org/books/organic-chemistry/pages/26-2-amino-acids-and-the-henderson-hasselbalch-equation-isoelectric-points"
+      ]
+     }
+    },
+    {
+     "id": "Mini01_BB_P2_Q2",
+     "stem": "At pH 7.0, the net charge of peptide 2 is closest to:",
+     "options": {
+      "A": "0",
+      "B": "+1",
+      "C": "-1",
+      "D": "+2"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Lys side chain is +1, the carboxyl terminus is -1, and the amino terminus (pKa 8.0) is about 90% protonated, giving a net charge near +1. Why the others are wrong: A) This would require the amino terminus and Lys side chain to both be deprotonated at pH 7.0. C) This would require the Lys and amino groups to be neutral, which happens only far above pH 10. D) This ignores the negative charge on the ionized carboxyl terminus.",
+     "trap": "Counting the two positive groups and forgetting to subtract the carboxylate.",
+     "topic": "Net charge at a given pH",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://openstax.org/books/organic-chemistry/pages/26-2-amino-acids-and-the-henderson-hasselbalch-equation-isoelectric-points"
+      ]
+     }
+    },
+    {
+     "id": "Mini01_BB_P2_Q3",
+     "stem": "In paper electrophoresis at pH 8.0, peptide 3 (pI 7.0) will most likely:",
+     "options": {
+      "A": "migrate toward the anode, because pH 8.0 is above its pI and it carries a net negative charge",
+      "B": "remain at the origin, because any pH above 7 gives zero net charge",
+      "C": "migrate toward the cathode, because pH 8.0 is above its pI",
+      "D": "migrate toward the cathode, because its His side chain is protonated at pH 8.0"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Above its pI a peptide carries net negative charge and moves toward the positive electrode. Why the others are wrong: B) Zero net charge occurs only at the pI of 7.0, not at all higher pH values. C) Above the pI the net charge is negative, so migration is toward the anode, not the cathode. D) His (pKa 6.0) is mostly deprotonated at pH 8.0, so it does not supply a net positive charge.",
+     "trap": "Mixing up the direction of migration relative to the pI, sending an anionic peptide to the cathode.",
+     "topic": "Electrophoresis",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P2_Q4",
+     "stem": "In the cation-exchange experiment at pH 5.0, which peptide will pass through the column without binding?",
+     "options": {
+      "A": "Peptide 1",
+      "B": "All three peptides bind, because the resin binds every polypeptide at any pH",
+      "C": "Peptide 3",
+      "D": "Peptide 2"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At pH 5.0 peptide 1 has net charge near -1 (Glu and carboxyl deprotonated, amino terminus protonated), so it is repelled by the negative resin. Why the others are wrong: B) Binding depends on net charge; a net negative peptide is not retained. C) Peptide 3 is positively charged (about +1) at pH 5.0 because the amino terminus and mostly protonated His outweigh the carboxylate. D) Peptide 2 is positively charged (+1) at pH 5.0 and binds the sulfonate resin.",
+     "trap": "Forgetting that a cation exchanger retains positively charged molecules, not negatively charged ones.",
+     "topic": "Ion-exchange chromatography",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini01_BB_P3",
+   "passage_text": "Two membrane receptors, R1 and R2, bind the same soluble ligand L. The extracellular domain of each receptor was immobilized on a sensor chip, and ligand at several concentrations was passed over the surface in a surface plasmon resonance (SPR) experiment. Binding was followed in real time to obtain the association rate constant (kon) and the dissociation rate constant (koff) for each receptor, and the fraction of receptor sites occupied at equilibrium (Y) was recorded at each ligand concentration. For simple one-to-one binding, the dissociation constant is Kd = koff/kon, and Y = [L]/(Kd + [L]).\n\nSelected values are given in Table 1, and the full equilibrium binding curves are plotted in Figure 1. The ligand concentration range used in the experiment was chosen to span the Kd values of both receptors. After equilibrium measurements, buffer without ligand was flowed over the chip so that the decay of the bound signal could be followed.",
+   "table_data": "| Receptor | kon (M⁻¹ s⁻¹) | koff (s⁻¹) | Y at 10 nM L | Y at 100 nM L |\n|---|---|---|---|---|\n| R1 | 1 × 10⁶ | 0.010 | 0.50 | 0.91 |\n| R2 | 1 × 10⁶ | 0.10 | 0.09 | 0.50 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Fractional saturation versus ligand concentration",
+    "x_label": "[L] (nM)",
+    "y_label": "Fractional saturation (Y)",
+    "series": [
+     {
+      "name": "R1",
+      "points": [
+       [
+        1,
+        0.09
+       ],
+       [
+        3,
+        0.23
+       ],
+       [
+        10,
+        0.5
+       ],
+       [
+        30,
+        0.75
+       ],
+       [
+        100,
+        0.91
+       ],
+       [
+        300,
+        0.97
+       ],
+       [
+        1000,
+        0.99
+       ]
+      ]
+     },
+     {
+      "name": "R2",
+      "points": [
+       [
+        1,
+        0.01
+       ],
+       [
+        3,
+        0.03
+       ],
+       [
+        10,
+        0.09
+       ],
+       [
+        30,
+        0.23
+       ],
+       [
+        100,
+        0.5
+       ],
+       [
+        300,
+        0.75
+       ],
+       [
+        1000,
+        0.91
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini01_BB_P3_Q1",
+     "stem": "Which conclusion about the two receptors is best supported by Table 1 and Figure 1?",
+     "options": {
+      "A": "R2 binds L with higher affinity, because it requires more ligand to saturate",
+      "B": "The receptors have equal affinity, because kon is identical",
+      "C": "R2 binds L with higher affinity, because its koff is larger",
+      "D": "R1 binds L with higher affinity, because it reaches half-saturation at a lower ligand concentration"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) R1 reaches Y = 0.50 at 10 nM, R2 at 100 nM; the lower Kd means higher affinity. Why the others are wrong: A) Needing more ligand to bind indicates lower, not higher, affinity. B) Affinity depends on the ratio koff/kon, and koff differs tenfold. C) A larger koff means faster release, which lowers affinity.",
+     "trap": "Equating a larger koff or a need for more ligand with tighter binding.",
+     "topic": "Receptor affinity",
+     "mastery_sheet_id": "1A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P3_Q2",
+     "stem": "What is the Kd of receptor R2 for ligand L?",
+     "options": {
+      "A": "100 nM",
+      "B": "0.1 nM",
+      "C": "1 µM",
+      "D": "10 nM"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Kd = koff/kon = 0.10 s⁻¹ / 1 × 10⁶ M⁻¹ s⁻¹ = 1 × 10⁻⁷ M = 100 nM. Why the others are wrong: B) This would result from inverting the ratio and mis-scaling the exponent. C) This would need a koff of 1.0 s⁻¹. D) This is the Kd of R1 (0.010 / 1 × 10⁶).",
+     "trap": "Using kon/koff instead of koff/kon, or slipping a power of ten when converting to nM.",
+     "topic": "Kd from rate constants",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini01_BB_P3_Q3",
+     "stem": "The difference in affinity between R1 and R2 is primarily due to a difference in:",
+     "options": {
+      "A": "the molecular mass of the ligand bound",
+      "B": "how rapidly ligand and receptor associate",
+      "C": "the total number of receptor sites on the chip",
+      "D": "the rate of complex dissociation"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) kon is the same, so the tenfold difference in Kd comes entirely from the tenfold difference in koff. Why the others are wrong: A) The ligand is the same for both receptors. B) kon is identical for the two receptors. C) Y is a fractional occupancy and is independent of how many sites are present.",
+     "trap": "Assuming that tighter binding must come from faster association rather than slower dissociation.",
+     "topic": "Kinetics of binding",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P3_Q4",
+     "stem": "Assuming first-order dissociation, the half-life of the R1-L complex after ligand removal is closest to:",
+     "options": {
+      "A": "69 s",
+      "B": "100 s",
+      "C": "6.9 s",
+      "D": "0.69 s"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) t1/2 = ln 2 / koff = 0.693 / 0.010 s⁻¹ = about 69 s. Why the others are wrong: B) This is 1/koff, the mean lifetime, not the half-life. C) This would correspond to koff = 0.10 s⁻¹, the value for R2. D) This results from mis-scaling the exponent when dividing.",
+     "trap": "Reporting 1/koff (100 s) instead of ln 2/koff for the half-life.",
+     "topic": "Half-life of a complex",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chem-textbook.ucalgary.ca/?p=7936"
+      ]
+     }
+    },
+    {
+     "id": "Mini01_BB_P3_Q5",
+     "stem": "At 10 nM ligand, the fraction of R1 sites occupied compared with the fraction of R2 sites occupied is about:",
+     "options": {
+      "A": "5 times higher",
+      "B": "10 times higher",
+      "C": "the same",
+      "D": "2 times lower"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 0.50 / 0.09 is about 5.5, so R1 is occupied about five times as much as R2. Why the others are wrong: B) The tenfold difference is in Kd, but occupancy at 10 nM is not simply proportional to Kd because R1 is near saturation. C) The two receptors have different Kd values and therefore different occupancy. D) R1 has the lower Kd and is more occupied, not less.",
+     "trap": "Assuming occupancy differs by exactly the ratio of the Kd values.",
+     "topic": "Binding isotherm",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini01_BB_P4",
+   "passage_text": "Plasmid pTX is a circular, double-stranded DNA molecule of 6.0 kb that carries an ampicillin-resistance gene. A student digested samples of pTX with the restriction enzymes EcoRI, BamHI, and HindIII, alone and in combination, and separated the products by agarose gel electrophoresis. Fragment sizes were estimated by comparison with a DNA size ladder; they are listed in Table 1. EcoRI recognizes the palindromic sequence GAATTC and cuts between G and A on each strand, leaving single-stranded 5' overhangs.\n\nThe student then purified a 1.2 kb DNA fragment that had EcoRI-cut ends and no internal EcoRI site. The fragment was mixed with EcoRI-linearized pTX in the presence of DNA ligase and ATP, and the mixture was used to transform E. coli, which were plated on medium containing ampicillin. Colonies were picked, plasmid DNA was prepared, and each preparation was digested with EcoRI to confirm the presence of the insert. The digestion products were then compared with the pattern expected for the original plasmid on the same gel.",
+   "table_data": "| Enzyme(s) | Fragment sizes (kb) |\n|---|---|\n| EcoRI | 6.0 |\n| BamHI | 4.5, 1.5 |\n| HindIII | 4.0, 2.0 |\n| EcoRI + BamHI | 3.5, 1.5, 1.0 |\n| EcoRI + HindIII | 4.0, 1.5, 0.5 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini01_BB_P4_Q1",
+     "stem": "How many HindIII recognition sites are present in pTX?",
+     "options": {
+      "A": "One",
+      "B": "Four",
+      "C": "Two",
+      "D": "Three"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A circular molecule cut at n sites yields n fragments; HindIII gives two fragments, so there are two sites. Why the others are wrong: A) One cut in a circular plasmid yields a single linear 6.0 kb fragment, as seen with EcoRI. B) Four sites would give four fragments; the plasmid is circular, so sites equal fragment number. D) Three sites would give three fragments.",
+     "trap": "Applying the rule for linear DNA (fragments = sites + 1) to a circular plasmid.",
+     "topic": "Restriction mapping",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P4_Q2",
+     "stem": "The data in Table 1 indicate that the EcoRI site lies:",
+     "options": {
+      "A": "within the 1.5 kb BamHI fragment and the 4.0 kb HindIII fragment",
+      "B": "within the 1.5 kb BamHI fragment and the 2.0 kb HindIII fragment",
+      "C": "in the 4.5 kb BamHI and 2.0 kb HindIII fragments",
+      "D": "exactly at one of the two BamHI recognition sites in the plasmid"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) EcoRI converts 4.5 kb to 3.5 + 1.0 (BamHI 1.5 kb fragment unchanged) and 2.0 kb to 1.5 + 0.5 (HindIII 4.0 kb fragment unchanged). Why the others are wrong: A) The 1.5 kb BamHI fragment and the 4.0 kb HindIII fragment remain intact in the double digests, so EcoRI does not cut them. B) The 1.5 kb BamHI fragment appears unchanged in the EcoRI + BamHI digest. D) A cut at a BamHI site would not produce the 3.5 and 1.0 kb fragments and the 4.5 kb fragment would be unchanged.",
+     "trap": "Choosing the fragment that grew smaller instead of the one that was actually split by the second enzyme.",
+     "topic": "Interpreting double digests",
+     "mastery_sheet_id": "1B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P4_Q3",
+     "stem": "Digestion of a recombinant plasmid containing one copy of the 1.2 kb insert with EcoRI is expected to yield:",
+     "options": {
+      "A": "a single linear fragment of 7.2 kb",
+      "B": "fragments of 6.0 kb and 1.2 kb, regardless of the orientation of the insert",
+      "C": "fragments of 4.8 kb and 1.2 kb",
+      "D": "fragments of 6.0 kb and 1.2 kb only if the insert is in a single orientation"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Both junctions regenerate EcoRI sites, so cutting there releases the vector (6.0 kb) and the insert (1.2 kb). Why the others are wrong: A) This would occur only if the junction sites were no longer recognized by EcoRI. C) The vector is 6.0 kb, so subtracting the insert size is not appropriate. D) Both orientations regenerate the same EcoRI sites, so the digest does not depend on orientation.",
+     "trap": "Adding the sizes and expecting one 7.2 kb fragment, forgetting that the junctions are recut by EcoRI.",
+     "topic": "Cloning and verification",
+     "mastery_sheet_id": "1B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini01_BB_P4_Q4",
+     "stem": "In the EcoRI + BamHI digest, which fragment will migrate farthest through the gel toward the positive electrode?",
+     "options": {
+      "A": "The 1.5 kb fragment",
+      "B": "All fragments move equally, because charge per base is constant",
+      "C": "The 1.0 kb fragment",
+      "D": "The 3.5 kb fragment"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) DNA is negatively charged, and shorter fragments pass through the agarose matrix more easily and migrate farther. Why the others are wrong: A) This fragment is larger than 1.0 kb and so travels a shorter distance. B) Charge-to-mass is similar, but the gel sieves by length, so migration differs. D) Larger fragments are retarded by the matrix and migrate the least distance.",
+     "trap": "Thinking that equal charge per base means equal mobility.",
+     "topic": "Gel electrophoresis",
+     "mastery_sheet_id": "1B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P4_Q5",
+     "stem": "Digesting both the insert and the vector with EcoRI before adding ligase is useful because:",
+     "options": {
+      "A": "EcoRI methylates the ends, so the two DNAs recombine without ligase",
+      "B": "EcoRI converts both fragments to single-stranded DNA",
+      "C": "the complementary single-stranded overhangs on the two molecules can base-pair, and ligase then seals the sugar-phosphate backbone",
+      "D": "EcoRI removes the origin of replication from both fragments"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Compatible sticky ends anneal, positioning the 3'-OH and 5'-phosphate for ligase to form phosphodiester bonds. Why the others are wrong: A) EcoRI is a nuclease that cuts DNA; it does not make covalent joins. B) EcoRI leaves double-stranded DNA with short overhangs, not fully single-stranded molecules. D) Cutting at a single site does not remove the origin, and the recombinant plasmid needs it to replicate.",
+     "trap": "Believing the restriction enzyme itself joins the pieces rather than creating compatible ends for ligase.",
+     "topic": "Sticky ends and ligation",
+     "mastery_sheet_id": "1B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini01_BB_P5",
+   "passage_text": "Researchers treated cultured cells with compound C, which activates a transcription factor, and measured changes in the abundance of two messenger RNAs by reverse transcription quantitative PCR (RT-qPCR). Total RNA was extracted after 8 hours of treatment with compound C or with vehicle alone, equal amounts of RNA were converted to complementary DNA, and gene G, gene H, and a reference gene were each amplified. The cycle threshold (Ct) is the PCR cycle at which fluorescence first exceeds a set threshold; a lower Ct means more starting template. The reference gene is expressed at a constant level in these cells. Assuming that each amplification doubles the product every cycle, relative expression is calculated as 2 raised to the power of minus the difference between the treated and vehicle values of (Ct target minus Ct reference).\n\nResults at 8 hours are shown in Table 1. In a separate time course, the fold change in gene G mRNA relative to time zero was measured (Figure 1).",
+   "table_data": "| Gene | Condition | Ct (target) | Ct (reference) |\n|---|---|---|---|\n| G | Vehicle | 24 | 18 |\n| G | Compound C | 21 | 18 |\n| H | Vehicle | 26 | 18 |\n| H | Compound C | 29 | 18 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Gene G mRNA fold change after compound C",
+    "x_label": "Time (h)",
+    "y_label": "Fold change relative to time 0",
+    "series": [
+     {
+      "name": "Gene G",
+      "points": [
+       [
+        0,
+        1
+       ],
+       [
+        2,
+        2.5
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        8,
+        8
+       ],
+       [
+        24,
+        8
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini01_BB_P5_Q1",
+     "stem": "Based on Table 1, treatment with compound C changed the abundance of gene G mRNA by:",
+     "options": {
+      "A": "an 8-fold decrease",
+      "B": "a 3-fold increase",
+      "C": "a 6-fold increase",
+      "D": "an 8-fold increase"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The target Ct fell by 3 cycles with no change in the reference, so abundance rose 2³ = 8-fold. Why the others are wrong: A) A lower Ct indicates more template, so the mRNA increased. B) 3 is the difference in Ct, but each cycle is a doubling, so the fold change is 2³. C) This adds the ΔCt values (3 + 3) rather than raising 2 to the power of the difference.",
+     "trap": "Reporting the Ct difference directly as the fold change instead of using 2 raised to that difference.",
+     "topic": "Delta-delta Ct",
+     "mastery_sheet_id": "1B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini01_BB_P5_Q2",
+     "stem": "Based on Table 1, the relative expression of gene H after compound C treatment is:",
+     "options": {
+      "A": "unchanged, because the reference gene Ct did not change",
+      "B": "0.33 of the vehicle level",
+      "C": "1/8 of the vehicle level",
+      "D": "8 times the vehicle level"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The target Ct rose by 3 cycles, so template fell 2³ = 8-fold, giving a relative expression of 1/8 = 0.125. Why the others are wrong: A) The target Ct increased from 26 to 29 while the reference stayed at 18, so expression changed. B) This takes 1/3 from the Ct difference rather than 2 to the minus 3. D) A higher Ct means less template, so expression decreased.",
+     "trap": "Misreading a higher Ct as higher expression.",
+     "topic": "Interpreting Ct values",
+     "mastery_sheet_id": "1B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini01_BB_P5_Q3",
+     "stem": "The reference gene is included in each RT-qPCR reaction primarily to:",
+     "options": {
+      "A": "amplify the target gene to a higher final yield",
+      "B": "confirm that compound C enters the cells",
+      "C": "correct for differences in the amount of RNA and the efficiency of cDNA synthesis among samples",
+      "D": "act as a primer for reverse transcriptase"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Normalizing to a constitutively expressed gene accounts for loading and reaction efficiency differences so changes in the target are real. Why the others are wrong: A) The reference gene is amplified separately and does not boost the target signal. B) A constant reference gene reports nothing about drug uptake. D) Primers are short oligonucleotides, and the reference gene is a measured target, not a primer.",
+     "trap": "Thinking the reference serves as a positive treatment control instead of a normalizer.",
+     "topic": "qPCR normalization",
+     "mastery_sheet_id": "1B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P5_Q4",
+     "stem": "RNA is first converted to cDNA in this procedure because:",
+     "options": {
+      "A": "PCR polymerase needs a DNA template",
+      "B": "mRNA cannot be quantified by fluorescence of any kind",
+      "C": "DNA polymerase cannot function above 37 °C unless RNA is removed",
+      "D": "RNA does not contain the genetic information of the gene"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Reverse transcriptase uses the mRNA as template to make DNA, which can then be amplified by DNA polymerase. Why the others are wrong: B) Fluorescent detection works on DNA product; the issue is the template requirement, not detection of RNA per se. C) The polymerase used in PCR is thermostable and RNA is not what limits it. D) mRNA carries the sequence information of the gene and is the starting point for this assay.",
+     "trap": "Assuming RNA cannot be amplified because it lacks sequence information.",
+     "topic": "Reverse transcription",
+     "mastery_sheet_id": "1B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P5_Q5",
+     "stem": "The plateau in gene G mRNA between 8 and 24 hours (Figure 1) is most consistent with:",
+     "options": {
+      "A": "transcription of gene G having stopped completely at 8 hours",
+      "B": "degradation of gene G mRNA having stopped at 8 hours",
+      "C": "compound C having been fully metabolized by 8 hours",
+      "D": "synthesis and degradation having balanced"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A steady state arises when production and decay balance, leaving the level constant even though both processes continue. Why the others are wrong: A) If transcription stopped, mRNA would decline as it degraded rather than remain constant. B) If degradation stopped while synthesis continued, the level would keep rising. C) Loss of the drug would lower the mRNA level over time, not hold it constant at 8-fold.",
+     "trap": "Interpreting a flat curve as meaning that all production has stopped rather than balance of two opposing rates.",
+     "topic": "Steady state of mRNA",
+     "mastery_sheet_id": "1B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini01_BB_P6",
+   "passage_text": "To dissect the regulation of a human gene, PRM1, researchers cloned its upstream region into a plasmid placed in front of a firefly luciferase reporter gene. The full-length construct contained a TATA box located 30 bp upstream of the transcription start site and an enhancer element located 1,200 bp upstream. Additional constructs lacked the enhancer, lacked the TATA box, carried the enhancer in the reverse orientation, or carried the enhancer relocated 3 kb downstream of the reporter gene. Each plasmid was transfected into cultured cells together with a second plasmid that constitutively expresses Renilla luciferase. After 24 hours, firefly luciferase activity was divided by Renilla luciferase activity, and the ratio for the full-length construct was set to 100. Results are shown in Table 1.\n\nThe enhancer sequence was found to bind an activating transcription factor that is present in the transfected cell type. Cells were grown under identical conditions, and every construct was tested in triplicate on the same day.",
+   "table_data": "| Construct | Relative reporter activity |\n|---|---|\n| Enhancer deleted | 12 |\n| TATA box deleted | 3 |\n| Enhancer in reverse orientation | 95 |\n| Enhancer moved 3 kb downstream of reporter | 90 |\n| Promoterless vector | 1 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini01_BB_P6_Q1",
+     "stem": "Which conclusion is best supported by the drop in activity from 100 to 12 when the enhancer is deleted?",
+     "options": {
+      "A": "The enhancer encodes part of the luciferase protein",
+      "B": "The enhancer contributes positively to transcription of the reporter gene",
+      "C": "The enhancer represses transcription by binding a repressor",
+      "D": "The enhancer is an essential part of the core promoter that RNA polymerase II requires to start"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Removing a sequence that binds an activator lowers expression, showing that the element normally boosts transcription. Why the others are wrong: A) Enhancers are regulatory DNA sequences and do not provide coding sequence for the reporter. C) Removing a repressor-binding element would raise expression, not lower it. D) Residual activity of 12 shows that transcription can occur without it; essential core elements like the TATA box abolish activity.",
+     "trap": "Confusing an enhancer, which increases transcription, with a core promoter element, which is required for any transcription.",
+     "topic": "Enhancers",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P6_Q2",
+     "stem": "The results for the reverse-orientation and relocated enhancer constructs show that, in this system, the enhancer:",
+     "options": {
+      "A": "is converted to a promoter when moved",
+      "B": "works in any orientation or place",
+      "C": "works only when positioned upstream and in the forward orientation",
+      "D": "must be adjacent to the TATA box to function"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Activity stays near 90-95 after inversion and relocation, a hallmark of enhancer elements. Why the others are wrong: A) Moving it does not provide a TATA box; activity stays about the same, not as a new promoter. C) Activity is retained at 95 and 90 in the other configurations, so this is contradicted. D) The enhancer works from 1,200 bp upstream and even from 3 kb downstream.",
+     "trap": "Applying the strict position and orientation rules of a promoter to an enhancer.",
+     "topic": "Enhancer properties",
+     "mastery_sheet_id": "1B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P6_Q3",
+     "stem": "The near-complete loss of activity when the TATA box is deleted indicates that the TATA box is needed for:",
+     "options": {
+      "A": "assembly of the general transcription factors, including TBP, that position RNA polymerase II at the start site",
+      "B": "splicing of the reporter transcript",
+      "C": "binding of the activating transcription factor at the enhancer",
+      "D": "translation of luciferase mRNA by ribosomes"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The TATA box is bound by TBP in TFIID, nucleating the preinitiation complex; without it basal transcription fails. Why the others are wrong: B) Splicing is a post-transcriptional process and would not reduce transcript production this much. C) The enhancer, not the TATA box, binds the activator, and enhancer deletion only lowered activity to 12. D) The TATA box is a DNA element and not part of the mRNA recognized by ribosomes in this way.",
+     "trap": "Assigning the TATA box a role in post-transcriptional steps rather than initiation.",
+     "topic": "Core promoter",
+     "mastery_sheet_id": "1B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P6_Q4",
+     "stem": "Co-transfection with the Renilla luciferase plasmid is used to:",
+     "options": {
+      "A": "identify the transcription factor bound to the enhancer",
+      "B": "correct for transfection differences",
+      "C": "increase the expression of firefly luciferase",
+      "D": "measure the rate of mRNA degradation of the reporter"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Dividing by an internal constitutive control normalizes for how much plasmid entered the cells and for cell viability. Why the others are wrong: A) The Renilla plasmid carries no information about transcription factor binding. C) Renilla luciferase is a separate reporter and does not increase firefly expression. D) The ratio reports relative activity, not decay of mRNA.",
+     "trap": "Assuming a second reporter measures the biology under study rather than serving as a normalization control.",
+     "topic": "Reporter assay design",
+     "mastery_sheet_id": "1B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini01_BB_P7",
+   "passage_text": "A laboratory colony of 500 flour beetles was used to study the evolution of resistance to an insecticide. Resistance is controlled by a single autosomal locus: allele R is completely dominant to allele r, so RR and Rr beetles survive exposure and rr beetles are susceptible. Beetles in generation 0 were genotyped before any exposure, and the counts are shown in Table 1. The colony mated randomly. In every generation, adult beetles were exposed to the insecticide, and 100% of RR, 100% of Rr, and 20% of rr beetles survived to reproduce. The survivors were then allowed to mate at random to produce the next generation, which was again exposed. The calculated frequency of allele R at the start of each generation is plotted in Figure 1.\n\nAssume that the population is large, that there is no mutation or migration, and that selection is the only factor changing allele frequencies.",
+   "table_data": "| Genotype | Number of beetles in generation 0 |\n|---|---|\n| RR | 20 |\n| Rr | 160 |\n| rr | 320 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Frequency of allele R across generations of insecticide exposure",
+    "x_label": "Generation",
+    "y_label": "Frequency of allele R",
+    "series": [
+     {
+      "name": "Allele R",
+      "points": [
+       [
+        0,
+        0.2
+       ],
+       [
+        1,
+        0.41
+       ],
+       [
+        2,
+        0.568
+       ],
+       [
+        3,
+        0.668
+       ],
+       [
+        4,
+        0.732
+       ],
+       [
+        5,
+        0.777
+       ],
+       [
+        6,
+        0.809
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini01_BB_P7_Q1",
+     "stem": "What is the frequency of allele R in generation 0?",
+     "options": {
+      "A": "0.36",
+      "B": "0.04",
+      "C": "0.20",
+      "D": "0.32"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Allele R copies = 2(20) + 160 = 200 of 1,000 total alleles, so p = 0.20. Why the others are wrong: A) This is the fraction of beetles that carry at least one R allele, 180/500. B) This is the frequency of RR homozygotes, 20/500. D) This is the frequency of heterozygotes, 160/500, not the allele frequency.",
+     "trap": "Using the fraction of beetles with the dominant phenotype or the heterozygote frequency as the allele frequency.",
+     "topic": "Allele frequency",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini01_BB_P7_Q2",
+     "stem": "After the first exposure, the frequency of allele R among the surviving parents is closest to:",
+     "options": {
+      "A": "0.36",
+      "B": "0.50",
+      "C": "0.20",
+      "D": "0.41"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Survivors: 20 RR, 160 Rr, 64 rr (20% of 320); R copies = 2(20) + 160 = 200 of 2(244) = 488 alleles, giving 0.41. Why the others are wrong: A) This is the proportion of beetles carrying R before selection, not the allele frequency among survivors. B) This would require roughly equal numbers of R and r alleles among survivors, which the counts do not give. C) This is the frequency before selection.",
+     "trap": "Forgetting to recompute total alleles after the susceptible beetles are removed.",
+     "topic": "Selection and allele frequency",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini01_BB_P7_Q3",
+     "stem": "In Figure 1, the increase in the frequency of R per generation becomes smaller as R becomes common. The best explanation is that:",
+     "options": {
+      "A": "mutation from R to r increasingly offsets the effect of selection",
+      "B": "as allele r becomes rare, most r copies reside in Rr beetles that survive, so selection removes fewer r alleles each generation",
+      "C": "genetic drift is strongest when an allele is common in a large population",
+      "D": "the insecticide becomes less toxic to rr beetles as generations pass"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Selection acts only on rr phenotypes, and when r is rare nearly all copies are shielded in heterozygotes, so response slows. Why the others are wrong: A) The problem states there is no mutation. C) Drift is weak in large populations, and the question assumes it is absent. D) The survival of rr beetles was fixed at 20% in every generation.",
+     "trap": "Expecting a constant per-generation increase and attributing the slowdown to forces that the passage rules out.",
+     "topic": "Selection against a recessive",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P7_Q4",
+     "stem": "Which mode of natural selection is operating on the resistance trait in this experiment?",
+     "options": {
+      "A": "Directional selection, favoring one extreme",
+      "B": "Sexual selection, because beetles choose mates by phenotype",
+      "C": "Stabilizing selection, because intermediate genotypes are favored",
+      "D": "Disruptive selection, because both extremes are favored"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Allele frequency moves steadily in one direction as the resistant phenotype is favored. Why the others are wrong: B) Mating was random, and survival rather than mate choice drives the change. C) The heterozygote is not favored over RR; the resistant phenotypes are equally fit. D) Only one extreme, resistance, has an advantage.",
+     "trap": "Choosing stabilizing selection because the heterozygote shows the dominant phenotype.",
+     "topic": "Types of selection",
+     "mastery_sheet_id": "1C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P7_Q5",
+     "stem": "Suppose the insecticide is withdrawn after generation 6, and R carriers have lower fertility than rr beetles. The frequency of R is most likely to:",
+     "options": {
+      "A": "decline over subsequent generations, because carriers of R now have lower reproductive fitness",
+      "B": "drop to zero in a single generation",
+      "C": "increase further, because dominant alleles always increase in frequency",
+      "D": "remain at 0.81, because allele frequencies at Hardy-Weinberg proportions never change under any conditions"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Without the benefit of resistance, the fitness cost of R becomes the dominant selective force and R frequency falls. Why the others are wrong: B) The R allele persists in heterozygotes and selection is not so strong as to eliminate it at once. C) Dominance does not by itself determine the direction of selection. D) Hardy-Weinberg stability requires no selection, and the fertility cost is selection.",
+     "trap": "Assuming dominant alleles are favored automatically and ignoring fitness costs.",
+     "topic": "Fitness trade-offs",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini01_BB_P8",
+   "passage_text": "In maize, kernel color is controlled by a gene with alleles P (purple, dominant) and p (yellow), and kernel starch type is controlled by a gene with alleles W (starchy, dominant) and w (waxy). A plant that was heterozygous at both genes was crossed to a plant that was homozygous recessive at both genes (a testcross). The heterozygous parent was the progeny of a cross between a purple, starchy line and a yellow, waxy line. A total of 1,000 kernels from the testcross were scored for color and starch type, and the results are listed in Table 1.\n\nA geneticist who also wished to place a third gene, X, on the same chromosome carried out similar testcrosses and found that recombinant kernels between X and the color gene made up 5% of progeny, whereas recombinant kernels between X and the starch gene made up 17% of progeny. Both genes studied here are on the same chromosome pair, and no double crossovers were detected.",
+   "table_data": "| Phenotype of kernel | Number of kernels |\n|---|---|\n| Purple, starchy | 440 |\n| Purple, waxy | 60 |\n| Yellow, starchy | 60 |\n| Yellow, waxy | 440 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini01_BB_P8_Q1",
+     "stem": "The testcross results are most consistent with which conclusion?",
+     "options": {
+      "A": "The genes assort independently, because all four phenotypes appear",
+      "B": "The yellow and waxy alleles are dominant, because the testcross parent was homozygous recessive",
+      "C": "The color and starch genes are linked, because the parental phenotypes are far more frequent than the recombinant phenotypes",
+      "D": "The genes are on different chromosomes, because recombinants are observed"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Independent assortment predicts four equal classes (1:1:1:1); a large excess of two parental classes indicates linkage. Why the others are wrong: A) Appearance of all classes happens with linkage as well; independent assortment requires equal numbers. B) The homozygous recessive parent shows that its alleles are recessive; it does not make them dominant. D) Recombinants occur for linked genes too, through crossing over.",
+     "trap": "Interpreting the presence of all four phenotype classes as evidence of independent assortment.",
+     "topic": "Linkage",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P8_Q2",
+     "stem": "What is the map distance between the color gene and the starch gene?",
+     "options": {
+      "A": "50 map units",
+      "B": "88 map units",
+      "C": "6 map units",
+      "D": "12 map units"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Recombinants are 60 + 60 = 120 of 1,000 kernels, or 12%, which corresponds to 12 map units. Why the others are wrong: A) This is the maximum recombination frequency, seen for unlinked genes. B) This is the percentage of parental kernels (880/1,000). C) This uses only one recombinant class (60/1,000).",
+     "trap": "Counting only one of the two recombinant classes, or reporting the parental percentage.",
+     "topic": "Map distance",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.pearson.com/channels/calculators/genetic-linkage-map-distance-calculator",
+       "https://passel2.unl.edu/view/lesson/26d8d3fed309/9"
+      ]
+     }
+    },
+    {
+     "id": "Mini01_BB_P8_Q3",
+     "stem": "Which genotype arrangement did the heterozygous parent carry?",
+     "options": {
+      "A": "P w on one chromosome and p W on the homologous chromosome",
+      "B": "P W on both chromosomes",
+      "C": "p w on both chromosomes",
+      "D": "P W on one chromosome and p w on the homologous chromosome"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The most common classes (purple starchy and yellow waxy) are parental, so P travels with W and p with w. Why the others are wrong: A) This arrangement would make purple waxy and yellow starchy the most frequent classes. B) The parent was heterozygous at both genes. C) A parent with this genotype would show only the yellow, waxy phenotype and would not be heterozygous.",
+     "trap": "Reading the arrangement from the recombinant classes instead of the parental classes.",
+     "topic": "Linkage phase",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P8_Q4",
+     "stem": "Recombinant kernels arise from crossing over, which occurs:",
+     "options": {
+      "A": "between sister chromatids during prophase of mitosis",
+      "B": "between nonhomologous chromosomes during anaphase I",
+      "C": "during prophase I of meiosis",
+      "D": "between the two strands of DNA during S phase"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Synapsis of homologs in prophase I forms tetrads in which nonsister chromatids exchange segments. Why the others are wrong: A) Exchange between sister chromatids does not produce new allele combinations, and mitosis is not the source of gametes. B) Homologs separate in anaphase I; exchange occurs earlier, between homologs. D) Replication copies DNA but does not exchange alleles between homologs.",
+     "trap": "Placing crossing over in mitosis or during chromosome separation rather than in homolog pairing.",
+     "topic": "Crossing over",
+     "mastery_sheet_id": "1C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P8_Q5",
+     "stem": "Given the recombination frequencies for gene X, the most likely order of the three genes is:",
+     "options": {
+      "A": "color gene, X, starch gene",
+      "B": "color gene, starch gene, X",
+      "C": "X, starch gene, color gene",
+      "D": "X, color gene, starch gene"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) X is 5 units from the color gene and 17 from the starch gene; because 5 + 12 = 17, the color gene lies between X and the starch gene. Why the others are wrong: A) This would place X between the other two and give X distances that add to 12, not 5 and 17. B) This would make X to starch the smaller distance, but X is farther from the starch gene. C) Distances would then be X to starch 5 and X to color 17, the reverse of the data.",
+     "trap": "Ignoring that map distances are additive when ordering three linked genes.",
+     "topic": "Gene order",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.pearson.com/channels/calculators/genetic-linkage-map-distance-calculator",
+       "https://passel2.unl.edu/view/lesson/26d8d3fed309/9"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini01_BB_P9",
+   "passage_text": "A biochemist examined how cells drive thermodynamically unfavorable phosphorylation reactions by coupling them to reactions that release free energy. Standard free-energy changes at pH 7 (ΔG°') for several reactions are listed in Table 1. In the cell, reaction directions are determined by the actual free-energy change, ΔG = ΔG°' + RT ln Q, where Q is the reaction quotient. For these calculations the temperature is 310 K, and RT is about 2.6 kJ/mol. The biochemist also measured the concentrations of ATP, ADP, and inorganic phosphate (Pi) in a resting muscle cell and found that the ratio [ATP]/([ADP][Pi]) is maintained far above the value at equilibrium for ATP hydrolysis.\n\nGlucose phosphorylation by hexokinase can be written as the sum of glucose + Pi giving glucose 6-phosphate (G6P) + H2O, and ATP hydrolysis. Phosphoenolpyruvate (PEP) transfers its phosphoryl group to ADP in the final step of glycolysis, a reaction that generates ATP even though no oxygen is consumed directly in the step.",
+   "table_data": "| Reaction | ΔG°' (kJ/mol) |\n|---|---|\n| ATP + H2O → ADP + Pi | -30.5 |\n| Glucose + Pi → G6P + H2O | +13.8 |\n| G6P → fructose 6-phosphate (F6P) | +1.7 |\n| PEP + H2O → pyruvate + Pi | -61.9 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini01_BB_P9_Q1",
+     "stem": "What is the ΔG°' of the hexokinase reaction, glucose + ATP → G6P + ADP?",
+     "options": {
+      "A": "-44.3 kJ/mol",
+      "B": "+13.8 kJ/mol",
+      "C": "+44.3 kJ/mol",
+      "D": "-16.7 kJ/mol"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Adding the two coupled reactions gives +13.8 + (-30.5) = -16.7 kJ/mol. Why the others are wrong: A) This adds the magnitudes of both values and treats the phosphorylation as favorable. B) This ignores the contribution of ATP hydrolysis, which is what drives the reaction. C) This subtracts the ATP hydrolysis value instead of adding it.",
+     "trap": "Using the phosphorylation value alone instead of summing it with the ATP hydrolysis value.",
+     "topic": "Coupled reactions",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini01_BB_P9_Q2",
+     "stem": "Why is the actual free energy released by ATP hydrolysis in the cell more negative than the standard value?",
+     "options": {
+      "A": "Because enzymes lower ΔG°' for ATP hydrolysis",
+      "B": "Because ATP is converted to a more stable molecule before hydrolysis",
+      "C": "Because the cell raises the temperature to about 310 K",
+      "D": "Because the ratio [ATP]/([ADP][Pi]) is maintained far above its equilibrium value, the reaction quotient Q for hydrolysis is small"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) ΔG = ΔG°' + RT ln Q; the cell keeps ATP high relative to products, making Q small and ln Q very negative. Why the others are wrong: A) Enzymes change rates, not the free-energy change of a reaction. B) No such conversion occurs; the difference arises from concentrations in ΔG. C) The standard value already refers to a reference state, and a modest temperature does not shift it greatly.",
+     "trap": "Believing that an enzyme can change the thermodynamics of a reaction instead of only its rate.",
+     "topic": "Free energy in cells",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P9_Q3",
+     "stem": "PEP can drive the formation of ATP from ADP because:",
+     "options": {
+      "A": "PEP and ATP have identical ΔG°' values, so the reaction is at equilibrium",
+      "B": "hydrolysis of PEP releases more free energy than ATP hydrolysis, giving PEP a higher phosphoryl transfer potential",
+      "C": "the reaction is driven by loss of pyruvate to the extracellular space",
+      "D": "ATP has a higher phosphoryl transfer potential than PEP"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) PEP's ΔG°' of -61.9 is more negative than that of ATP (-30.5), so transfer of its phosphoryl group to ADP is favorable (net -31.4). Why the others are wrong: A) The values differ by about 31 kJ/mol. C) Nothing in the data suggests pyruvate leaves the cell, and energetics rely on the group transfer values. D) The data show the opposite; transfer from ATP to PEP is unfavorable.",
+     "trap": "Assuming the energy currency (ATP) must always have the highest phosphoryl transfer potential.",
+     "topic": "Phosphoryl transfer potential",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P9_Q4",
+     "stem": "At 310 K, the equilibrium constant for the isomerization G6P to F6P is closest to:",
+     "options": {
+      "A": "0.05",
+      "B": "2",
+      "C": "0.5",
+      "D": "5"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Keq = exp(-ΔG°'/RT) = exp(-1.7/2.6) = exp(-0.65), about 0.5. Why the others are wrong: A) This would correspond to ΔG°' of about +7.8 kJ/mol. B) This would use exp(+0.65) and misses the sign: a positive ΔG°' favors reactant. D) This would correspond to ΔG°' of about -4.2 kJ/mol.",
+     "trap": "Dropping the minus sign in Keq = exp(-ΔG°'/RT) and so predicting that products are favored.",
+     "topic": "Equilibrium constant",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://web02.gonzaga.edu/faculty/cronk/chem245pub/equilibrium_and_free_energy.html",
+       "https://courses.lumenlearning.com/suny-introductorychemistry/chapter/free-energy-under-nonstandard-conditions-2/"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini01_BB_P10",
+   "passage_text": "Ten endurance-trained and ten untrained adults performed a graded exercise test on a cycle ergometer. Intensity was increased stepwise and is expressed as a percentage of each person's maximal oxygen uptake (VO2max). Blood lactate concentration was measured at the end of each stage; mean values are shown in Table 1 and Figure 1. The lactate threshold is the intensity above which blood lactate begins to rise steeply. In a separate analysis, muscle biopsies were taken from the thigh at rest, and the activity of citrate synthase, a mitochondrial matrix enzyme of the citric acid cycle that is used as an indicator of mitochondrial content, was measured. Mean citrate synthase activity was 42 µmol/min per gram of tissue in trained subjects and 20 µmol/min per gram in untrained subjects.\n\nDuring intense exercise, muscle releases lactate into the blood. The liver takes up lactate from the blood. All subjects fasted overnight, avoided strenuous exercise for 48 hours beforehand, and were tested at the same time of day.",
+   "table_data": "| Intensity (% VO2max) | Untrained lactate (mM) | Trained lactate (mM) |\n|---|---|---|\n| 40 | 1.0 | 0.9 |\n| 55 | 1.4 | 1.0 |\n| 70 | 2.8 | 1.3 |\n| 85 | 6.5 | 3.0 |\n| 100 | 11.0 | 9.0 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Blood lactate versus exercise intensity",
+    "x_label": "Intensity (% VO2max)",
+    "y_label": "Blood lactate (mM)",
+    "series": [
+     {
+      "name": "Untrained",
+      "points": [
+       [
+        40,
+        1.0
+       ],
+       [
+        55,
+        1.4
+       ],
+       [
+        70,
+        2.8
+       ],
+       [
+        85,
+        6.5
+       ],
+       [
+        100,
+        11.0
+       ]
+      ]
+     },
+     {
+      "name": "Trained",
+      "points": [
+       [
+        40,
+        0.9
+       ],
+       [
+        55,
+        1.0
+       ],
+       [
+        70,
+        1.3
+       ],
+       [
+        85,
+        3.0
+       ],
+       [
+        100,
+        9.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini01_BB_P10_Q1",
+     "stem": "At 70% VO2max, the blood lactate concentration in untrained subjects compared with trained subjects is about:",
+     "options": {
+      "A": "2 times lower",
+      "B": "the same",
+      "C": "4 times higher",
+      "D": "2 times higher"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) 2.8 mM divided by 1.3 mM is about 2.2, so untrained subjects have roughly twice the lactate. Why the others are wrong: A) Untrained subjects have the higher lactate, so the ratio is greater than 1. B) The two groups differ at 70% VO2max, with 2.8 mM versus 1.3 mM. C) This would require untrained values near 5.2 mM.",
+     "trap": "Reading the lactate difference as a subtraction (1.5 mM) and then misapplying it as a ratio.",
+     "topic": "Reading graphs",
+     "mastery_sheet_id": "1D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P10_Q2",
+     "stem": "The conversion of pyruvate to lactate during intense exercise is metabolically important because it:",
+     "options": {
+      "A": "converts NAD+ to NADH to feed the electron transport chain",
+      "B": "regenerates NAD+ for glycolysis",
+      "C": "generates additional ATP through substrate-level phosphorylation",
+      "D": "synthesizes glucose directly within muscle"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Lactate dehydrogenase oxidizes NADH to NAD+, supplying the NAD+ needed by glyceraldehyde 3-phosphate dehydrogenase. Why the others are wrong: A) The reaction goes the other way, consuming NADH. C) The LDH reaction produces no ATP; its benefit is NAD+ regeneration. D) Muscle lacks glucose 6-phosphatase and does not make free glucose from lactate.",
+     "trap": "Thinking lactate formation produces ATP rather than regenerating the NAD+ cofactor.",
+     "topic": "Lactate and NAD+ regeneration",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P10_Q3",
+     "stem": "Higher citrate synthase activity in trained muscle most likely contributes to the higher lactate threshold because:",
+     "options": {
+      "A": "citrate synthase converts lactate directly to glucose",
+      "B": "mitochondria in trained subjects produce lactate at a lower rate because they lack NADH",
+      "C": "greater mitochondrial content allows more pyruvate to be oxidized aerobically, reducing reliance on lactate formation",
+      "D": "citrate synthase is a glycolytic enzyme that speeds lactate production"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) More mitochondria increase oxidative capacity so that, at a given intensity, less pyruvate is diverted to lactate. Why the others are wrong: A) Citrate synthase condenses acetyl-CoA with oxaloacetate; it does not act on lactate. B) Mitochondria oxidize NADH; the differences arise from more oxidative capacity, not lack of NADH. D) It is a citric acid cycle enzyme in the matrix.",
+     "trap": "Assigning citrate synthase a glycolytic role instead of recognizing it as an index of mitochondrial content.",
+     "topic": "Aerobic capacity",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P10_Q4",
+     "stem": "In the liver, lactate taken up from the blood is mainly:",
+     "options": {
+      "A": "stored directly as lactate in glycogen granules",
+      "B": "made into glucose and released into blood",
+      "C": "excreted unchanged in the bile through the biliary ducts",
+      "D": "converted to fatty acids that are exported as chylomicrons"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) In the Cori cycle the liver oxidizes lactate to pyruvate and synthesizes glucose, which returns to muscle. Why the others are wrong: A) Glycogen is a polymer of glucose, not lactate. C) Bile does not serve as a route for lactate disposal. D) Chylomicrons are made in intestinal cells from dietary fat, and lactate is not channeled this way.",
+     "trap": "Confusing the liver's gluconeogenic fate of lactate with lipid export pathways.",
+     "topic": "Cori cycle",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini01_BB_P10_Q5",
+     "stem": "Between 85% and 100% VO2max, how does the rise in lactate in trained subjects compare with that in untrained subjects?",
+     "options": {
+      "A": "It is larger in trained subjects, 6.0 mM compared with 4.5 mM",
+      "B": "It is larger in untrained subjects, because their final lactate is higher",
+      "C": "It is smaller in trained subjects, 1.5 mM compared with 4.5 mM",
+      "D": "It is the same in both groups, 4.5 mM"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Trained: 9.0 - 3.0 = 6.0 mM; untrained: 11.0 - 6.5 = 4.5 mM. Why the others are wrong: B) The final value is higher in untrained subjects, but the rise is the difference from the 85% value. C) 1.5 mM is not a rise computed from the table for either group. D) Only the untrained subjects have a rise of 4.5 mM.",
+     "trap": "Comparing endpoint values at 100% rather than the change between two stages.",
+     "topic": "Change in a measured value",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "Mini01_BB_D1",
+   "stem": "Which amino acid is most likely to disrupt an alpha helix when it appears in the middle of the helix?",
+   "options": {
+    "A": "Alanine",
+    "B": "Leucine",
+    "C": "Proline",
+    "D": "Glutamate"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Proline's side chain is bonded to its backbone nitrogen, which has no amide hydrogen for hydrogen bonding and restricts rotation, kinking the helix. Why the others are wrong: A) Alanine has a small methyl side chain and is a strong helix-former. B) Leucine is a common residue in helices and fits easily. D) Glutamate readily occurs in helices, although its charge can interact with neighboring side chains.",
+   "trap": "Picking the largest or most polar side chain instead of the one that disrupts backbone hydrogen bonding.",
+   "topic": "Helix-breaking residues",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini01_BB_D2",
+   "stem": "Which feature of a eukaryotic mRNA primarily protects its 5' end from degradation by exonucleases?",
+   "options": {
+    "A": "A Shine-Dalgarno sequence",
+    "B": "A 7-methylguanosine cap",
+    "C": "Removal of introns by spliceosomes",
+    "D": "A poly-A tail"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The 5' cap, added co-transcriptionally, blocks 5'-to-3' exonuclease attack and helps ribosome binding. Why the others are wrong: A) This ribosome binding site occurs in prokaryotic mRNA. C) Splicing removes introns but does not shield the 5' end from exonuclease digestion. D) The poly-A tail protects the 3' end, not the 5' end.",
+   "trap": "Selecting the poly-A tail, which protects the opposite end of the transcript.",
+   "topic": "mRNA processing",
+   "mastery_sheet_id": "1B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini01_BB_D3",
+   "stem": "A woman who carries one copy of the X-linked recessive allele for red-green color blindness has children with a man with normal color vision. What is the probability that a daughter of this couple will be color blind?",
+   "options": {
+    "A": "1/4",
+    "B": "1",
+    "C": "1/2",
+    "D": "0"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) The father gives every daughter a normal X, so a daughter is at most a carrier and cannot be affected. Why the others are wrong: A) This applies the autosomal recessive ratio to an X-linked trait with a normal father. B) This would require the father to be affected as well. C) This is the probability that a son is affected, not a daughter.",
+   "trap": "Using the probability for sons for daughters.",
+   "topic": "X-linked inheritance",
+   "mastery_sheet_id": "1C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini01_BB_D4",
+   "stem": "In the citric acid cycle, which step produces a nucleoside triphosphate by substrate-level phosphorylation?",
+   "options": {
+    "A": "Isocitrate to alpha-ketoglutarate",
+    "B": "Succinate to fumarate",
+    "C": "Succinyl-CoA to succinate",
+    "D": "Malate to oxaloacetate"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Succinyl-CoA synthetase couples cleavage of the thioester bond to formation of GTP (or ATP) from GDP and Pi. Why the others are wrong: A) This step is an oxidative decarboxylation that reduces NAD+ to NADH. B) This step reduces FAD to FADH2 and is catalyzed by a membrane-bound enzyme. D) This step reduces NAD+ to NADH and does not directly make a nucleoside triphosphate.",
+   "trap": "Choosing a step that makes NADH or FADH2, which are not direct phosphorylation reactions.",
+   "topic": "TCA cycle",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini01_BB_D5",
+   "stem": "Hepatocytes of a patient taking a drug for many months show a marked expansion of an organelle that contains cytochrome P450 enzymes. Which organelle has expanded?",
+   "options": {
+    "A": "Peroxisome, a single-membrane organelle for oxidation",
+    "B": "Rough endoplasmic reticulum studded with ribosomes",
+    "C": "Smooth endoplasmic reticulum",
+    "D": "Golgi apparatus, the cisternal stack near the nucleus"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) The smooth ER hosts P450 detoxification enzymes and proliferates when drug exposure is chronic. Why the others are wrong: A) Peroxisomes handle fatty acid oxidation and hydrogen peroxide, not cytochrome P450 drug oxidation. B) This organelle is specialized for the synthesis of secreted and membrane proteins. D) The Golgi modifies and sorts proteins and lipids, not drug metabolism.",
+   "trap": "Selecting the rough ER because it is the most familiar ER type.",
+   "topic": "Organelle function",
+   "mastery_sheet_id": "2A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini01_BB_D6",
+   "stem": "In bacterial conjugation between an F+ donor and an F- recipient, what is transferred, and what is the usual outcome?",
+   "options": {
+    "A": "One strand of the F plasmid passes through a pilus-formed bridge, and the recipient becomes F+",
+    "B": "The entire donor chromosome passes, and the recipient becomes an Hfr cell",
+    "C": "Phage particles carry donor DNA, and the recipient becomes lysogenic",
+    "D": "Free DNA is taken up from the medium, and the recipient becomes antibiotic resistant"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Transfer of a single plasmid strand is replicated in both cells, so the recipient gains the F plasmid. Why the others are wrong: B) Only Hfr cells with an integrated F factor transfer chromosomal genes, and usually only part of the chromosome. C) This describes transduction. D) This describes transformation, not conjugation.",
+   "trap": "Confusing conjugation with transformation or transduction.",
+   "topic": "Bacterial gene transfer",
+   "mastery_sheet_id": "2B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini01_BB_D7",
+   "stem": "A human cell has 46 chromosomes in G1. Which description applies to the same cell in G2?",
+   "options": {
+    "A": "46 chromosomes, 92 chromatids",
+    "B": "92 chromosomes, 92 chromatids",
+    "C": "23 chromosomes, 46 chromatids",
+    "D": "46 chromosomes, 46 chromatids"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) DNA replicates in S phase, so each chromosome has two sister chromatids while the chromosome number stays 46. Why the others are wrong: B) Chromosome count does not double until sister chromatids separate in anaphase. C) The cell remains diploid with 46 chromosomes; halving occurs after meiosis I. D) This would be the G1 state, before replication.",
+   "trap": "Counting chromatids as chromosomes after replication.",
+   "topic": "Cell cycle",
+   "mastery_sheet_id": "2C",
+   "skill": "calculation",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini01_BB_D8",
+   "stem": "A toxin blocks voltage-gated potassium channels in a neuron but leaves voltage-gated sodium channels functional. Compared with a normal action potential, the action potential in the treated neuron will most likely:",
+   "options": {
+    "A": "have a larger hyperpolarization afterward",
+    "B": "have an increased resting membrane potential because K+ leaves faster",
+    "C": "fail to depolarize",
+    "D": "have a prolonged repolarization phase"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Outward K+ current drives repolarization; without it, the membrane remains depolarized longer. Why the others are wrong: A) Hyperpolarization depends on K+ efflux and would be reduced. B) The toxin reduces K+ permeability, so K+ leaves more slowly. C) Depolarization depends on sodium influx through channels that still work.",
+   "trap": "Reversing the roles of sodium and potassium channels in the phases of the action potential.",
+   "topic": "Action potential",
+   "mastery_sheet_id": "3A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini01_BB_D9",
+   "stem": "In which segment of the nephron is the largest fraction of filtered water reabsorbed?",
+   "options": {
+    "A": "Collecting duct",
+    "B": "Proximal convoluted tubule",
+    "C": "Descending limb of the loop of Henle",
+    "D": "Distal convoluted tubule"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) About two-thirds of filtrate water follows active solute reabsorption in the proximal tubule. Why the others are wrong: A) Water reabsorption here varies with ADH and totals far less than the proximal amount. C) This segment reabsorbs a smaller amount, roughly 15% of the filtered water. D) The distal tubule reabsorbs a small fraction, adjusted by hormones.",
+   "trap": "Choosing the collecting duct because ADH regulates it, rather than the segment with the largest volume.",
+   "topic": "Nephron function",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini01_BB_D10",
+   "stem": "Which hormone acts by diffusing across the plasma membrane and binding to an intracellular receptor that regulates gene transcription?",
+   "options": {
+    "A": "Glucagon",
+    "B": "Cortisol",
+    "C": "Epinephrine",
+    "D": "Insulin"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Steroid hormones are lipid soluble and bind cytoplasmic receptors that act as transcription factors. Why the others are wrong: A) Glucagon acts through a cell-surface G protein-coupled receptor and cAMP. C) Epinephrine binds G protein-coupled receptors on the surface of target cells. D) Insulin binds a receptor tyrosine kinase at the cell surface.",
+   "trap": "Choosing a peptide or amine hormone that signals from the cell surface.",
+   "topic": "Hormone mechanisms",
+   "mastery_sheet_id": "3A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini01_BB_D11",
+   "stem": "A decrease in blood pH, as occurs in exercising muscle, affects the oxygen-hemoglobin dissociation curve in which way?",
+   "options": {
+    "A": "It does not shift, because hemoglobin responds only to PO2",
+    "B": "It shifts to the right, lowering hemoglobin affinity for O2 and promoting unloading of O2 in tissues",
+    "C": "It shifts to the left, increasing hemoglobin affinity for O2",
+    "D": "It becomes hyperbolic, because acid disrupts cooperativity"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The Bohr effect: protons and CO2 stabilize the T state, so more oxygen is released at a given PO2. Why the others are wrong: A) Hemoglobin affinity is modulated by pH, CO2, temperature, and 2,3-BPG. C) A leftward shift is produced by alkalosis or decreased temperature. D) The curve remains sigmoidal; acidity only shifts it.",
+   "trap": "Shifting the curve left because lower pH seems like it should increase binding.",
+   "topic": "Bohr effect",
+   "mastery_sheet_id": "3B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini01_BB_D12",
+   "stem": "Which statement describes facilitated diffusion of glucose through a GLUT transporter?",
+   "options": {
+    "A": "It is saturable and moves glucose down its concentration gradient without direct ATP use",
+    "B": "It is not saturable, because it depends on the lipid solubility of glucose",
+    "C": "It requires a sodium gradient to couple glucose entry to sodium movement",
+    "D": "It moves glucose against its gradient using ATP hydrolysis"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Carrier-mediated transport is limited by the number of transporters (saturable) but is passive. Why the others are wrong: B) Glucose is not lipid soluble, and carrier-mediated transport shows saturation. C) That describes secondary active transport by SGLT proteins. D) That describes primary active transport.",
+   "trap": "Mixing up carrier-mediated passive transport with active transport.",
+   "topic": "Membrane transport",
+   "mastery_sheet_id": "2A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

@@ -1,0 +1,117 @@
+[
+  {
+    "id": "bp367_Q1",
+    "type": "passage",
+    "passage_id": "bp367",
+    "passage_text": "Researchers studied the effect of a small-molecule inhibitor, Y, on the kinetic parameters of lactate dehydrogenase (LDH), an enzyme that requires a nicotinamide cofactor. In a series of assays, the enzyme was incubated with 0, 5, or 10 µM inhibitor Y while the substrate concentration was varied. Initial reaction velocities were measured over a 30-second interval and converted to µmol min⁻¹. The investigators plotted the data on a Lineweaver-Burk plot and calculated the apparent Km and Vmax values for each inhibitor concentration, which are summarized in Table 1. The results showed a proportional increase in Km with little change in Vmax, suggesting competitive inhibition. The authors concluded that inhibitor Y binds to the active site and competes with the substrate.",
+    "table_data": "| Inhibitor (µM) | Km (mM) | Vmax (µmol min⁻¹) |\n|---|---|---|\n| 0 | 0.15 | 12.0 |\n| 5 | 0.30 | 11.0 |\n| 10 | 0.45 | 10.0 |",
+    "stem": "In Table 1, which column holds the variable that the experimenters set (the independent variable)?",
+    "options": {
+      "A": "Km (mM)",
+      "B": "Vmax (µmol min⁻¹)",
+      "C": "Inhibitor (µM)",
+      "D": "The ratio of Km to Vmax"
+    },
+    "correct": "C",
+    "explanation": "Correct: C) The inhibitor concentration (0, 5, 10 µM) was chosen by the experimenters; Km and Vmax were measured outcomes. Why the others are wrong: A) Km is calculated from the velocity data, so it is an outcome. B) Vmax is likewise calculated from the data, an outcome. D) The Km to Vmax ratio is a derived quantity, not something the experimenters set.",
+    "trap": "Picking Km or Vmax because they fill most of the table, when they are measured outcomes and the inhibitor concentration is the quantity that was set.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp367_Q2",
+    "type": "passage",
+    "passage_id": "bp367",
+    "passage_text": "Researchers want to confirm that inhibitor Y is a competitive inhibitor of LDH. To design this experiment, they will keep the inhibitor concentration fixed at 5 µM and vary the substrate concentration from 0.05 mM to 1 mM. By measuring the initial velocity at each substrate level, they can plot a Michaelis‑Menten curve and compare it to the control (0 µM inhibitor). If the inhibitor is truly competitive, the curves will intersect at the y‑axis, indicating unchanged Vmax but increased apparent Km.",
+    "table_data": "| Inhibitor (µM) | Km (mM) | Vmax (µmol min⁻¹) |\n|---|---|---|\n| 0 | 0.15 | 12.0 |\n| 5 | 0.30 | 11.0 |\n| 10 | 0.45 | 10.0 |",
+    "stem": "To distinguish competitive from noncompetitive inhibition at a fixed inhibitor concentration, which variable should the researchers vary to build a Lineweaver-Burk plot?",
+    "options": {
+      "A": "Enzyme concentration",
+      "B": "Inhibitor concentration",
+      "C": "Substrate concentration",
+      "D": "Reaction temperature"
+    },
+    "correct": "C",
+    "explanation": "Correct: C) Velocities measured over a range of substrate concentrations give the double-reciprocal plot; competitive inhibition raises the slope but leaves the y-intercept (1/Vmax) unchanged. Why the others are wrong: A) Changing enzyme concentration scales Vmax and does not show how the inhibitor affects apparent Km. B) Inhibitor concentration is the quantity held fixed for each line of the plot. D) Temperature changes many rate constants and is not the variable needed for a Lineweaver-Burk analysis.",
+    "trap": "Varying the inhibitor concentration because it is the variable of interest, when each Lineweaver-Burk line needs a fixed inhibitor level and a range of substrate concentrations.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  },
+  {
+    "id": "bp367_Q3",
+    "type": "passage",
+    "passage_id": "bp367",
+    "passage_text": "The total LDH enzyme concentration in the assay was 0.05 µM. Using the Vmax value from Table 1 at 0 µM inhibitor (12.0 µmol min⁻¹), calculate the catalytic turnover number (kcat) of LDH. Recall that kcat = Vmax / [E]t, where Vmax must be expressed in mol s⁻¹ and [E]t in mol.",
+    "table_data": "| Inhibitor (µM) | Km (mM) | Vmax (µmol min⁻¹) |\n|---|---|---|\n| 0 | 0.15 | 12.0 |\n| 5 | 0.30 | 11.0 |\n| 10 | 0.45 | 10.0 |",
+    "stem": "Assuming simple competitive inhibition and using the Km values in Table 1, what is the approximate Ki of inhibitor Y?",
+    "options": {
+      "A": "2.5 µM",
+      "B": "5 µM",
+      "C": "10 µM",
+      "D": "15 µM"
+    },
+    "correct": "B",
+    "explanation": "Correct: B) Km,app = Km(1 + [I]/Ki). At 5 µM, 0.30 = 0.15(1 + 5/Ki), so 5/Ki = 1 and Ki = 5 µM; at 10 µM this predicts 0.15 x 3 = 0.45 mM, matching the table. Why the others are wrong: A) Ki = 2.5 µM would give a Km,app of 0.45 mM at only 5 µM. C) Ki = 10 µM would give 0.225 mM at 5 µM. D) Ki = 15 µM would give 0.20 mM at 5 µM.",
+    "trap": "Dividing the inhibitor concentration by the 2-fold rise in Km (giving 2.5 µM) instead of by the rise minus one, which is the factor (1 + [I]/Ki) - 1.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  },
+  {
+    "id": "bp367_Q4",
+    "type": "passage",
+    "passage_id": "bp367",
+    "passage_text": "A student misinterprets Table 1 and assumes that the inhibitor concentration is the dependent variable that changes with enzyme activity. They then conclude that increasing inhibitor concentration decreases enzyme activity directly, without considering the effect on Km.",
+    "table_data": "| Inhibitor (µM) | Km (mM) | Vmax (µmol min⁻¹) |\n|---|---|---|\n| 0 | 0.15 | 12.0 |\n| 5 | 0.30 | 11.0 |\n| 10 | 0.45 | 10.0 |",
+    "stem": "Which of the following statements is NOT supported by Table 1?",
+    "options": {
+      "A": "Apparent Km rises in proportion to the inhibitor concentration.",
+      "B": "Vmax falls by more than half at 10 µM inhibitor.",
+      "C": "Vmax changes only slightly (12.0 to 10.0 µmol min⁻¹) across the inhibitor range.",
+      "D": "Apparent Km at 10 µM inhibitor is three times its value without inhibitor."
+    },
+    "correct": "B",
+    "explanation": "Correct: B) Vmax fell only from 12.0 to 10.0 µmol min⁻¹ (about 17%), not by more than half. Why the others are wrong: A) Km rose 0.15, 0.30, 0.45 mM, a straight-line increase with inhibitor concentration. C) Vmax moved only from 12.0 to 10.0. D) 0.45 / 0.15 = 3.",
+    "trap": "Reading the small decline in Vmax as a large one; the data show a large rise in Km and only a slight fall in Vmax, which is the competitive pattern.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  },
+  {
+    "id": "bp367_Q5",
+    "type": "passage",
+    "passage_id": "bp367",
+    "passage_text": "LDH catalyzes the interconversion of pyruvate and lactate with NAD⁺/NADH as a cofactor. In the context of the experiment described above, the presence of NADH is essential for the enzyme’s catalytic cycle. Students often confuse the roles of NAD⁺ and NADH in this reaction.",
+    "table_data": "",
+    "stem": "Which cofactor is required for LDH to function in the direction of lactate → pyruvate?",
+    "options": {
+      "A": "FAD",
+      "B": "NAD⁺",
+      "C": "CoA",
+      "D": "FMN"
+    },
+    "correct": "B",
+    "explanation": "Correct: B) In the lactate to pyruvate direction LDH oxidizes lactate and transfers hydride to NAD⁺, so NAD⁺ is required (NADH is the reduced product). Why the others are wrong: A) FAD is the cofactor of other oxidoreductases such as succinate dehydrogenase. C) CoA carries acyl groups and is not an electron acceptor in this reaction. D) FMN is a flavin cofactor of enzymes such as NADH dehydrogenase, not LDH.",
+    "trap": "Confusing the oxidized and reduced forms of the cofactor; NAD⁺ is needed to oxidize lactate, whereas NADH is needed for the reverse reaction.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  }
+]

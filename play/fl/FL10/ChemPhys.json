@@ -1,0 +1,1626 @@
+{
+ "exam": "FL10",
+ "section": "CP",
+ "passages": [
+  {
+   "passage_id": "FL10_CP_P1",
+   "passage_text": "A physics instructor has students compare three simple machines that each raise a 600 N crate by 1.0 m: an inclined ramp 3.0 m long, a lever with an effort arm of 2.0 m and a load arm of 0.50 m, and a block-and-tackle with four rope segments supporting the load. Students measure the effort force needed to move the crate at constant speed and the distance through which that effort acts (Table 1). Ideal mechanical advantage (IMA) is the ratio of effort distance to load distance, actual mechanical advantage (AMA) is the ratio of load force to effort force, and efficiency is the ratio of work output to work input. Friction at the pivot, in the pulleys, and along the ramp accounts for the gap between ideal and measured values. In a second experiment, the students kept the 1.0 m rise fixed, changed the ramp length, and measured the effort force along the ramp (Figure 1). The ideal curve shows the effort that would be needed if no energy were dissipated.",
+   "table_data": "| Machine | IMA | Effort force (N) | Effort distance (m) | Load distance (m) | AMA |\n|---|---|---|---|---|---|\n| Ramp | 3.0 | 250 | 3.0 | 1.0 | 2.4 |\n| Lever | 4.0 | 160 | 0.40 | 0.10 | 3.75 |\n| Block and tackle | 4.0 | 175 | 4.0 | 1.0 | 3.43 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Effort force versus ramp length (1.0 m rise, 600 N load)",
+    "x_label": "Ramp length (m)",
+    "y_label": "Effort force (N)",
+    "series": [
+     {
+      "name": "Ideal",
+      "points": [
+       [
+        2,
+        300
+       ],
+       [
+        3,
+        200
+       ],
+       [
+        4,
+        150
+       ],
+       [
+        6,
+        100
+       ]
+      ]
+     },
+     {
+      "name": "Measured",
+      "points": [
+       [
+        2,
+        340
+       ],
+       [
+        3,
+        250
+       ],
+       [
+        4,
+        205
+       ],
+       [
+        6,
+        160
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_CP_P1_Q1",
+     "stem": "According to Table 1, the ramp lets the students raise the crate with 250 N instead of 600 N. Which statement best explains why this does not violate energy conservation?",
+     "options": {
+      "A": "The effort acts over 3.0 m instead of 1.0 m, so the ideal work input stays equal to the 600 J gained in potential energy",
+      "B": "The ramp reduces the weight of the crate along the incline, so gravity does less work on it during the lift",
+      "C": "A longer path lowers the crate's gravitational potential energy gain, so less total energy must be supplied overall",
+      "D": "The ramp's normal force does positive work on the crate, so it supplies part of the 600 J of potential energy gained"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) W = Fd; 200 N x 3.0 m = 600 J = mgh, so ideal work input equals the output and only the force-distance split changes. Why the others are wrong: B) Gravity's weight is unchanged; only its component along the incline is smaller, and the longer path compensates. C) The potential energy gain depends only on the 1.0 m height change, not the path length. D) The normal force is perpendicular to the displacement and does no work.",
+     "trap": "Believing a simple machine reduces the work required rather than trading force for distance.",
+     "topic": "Mechanical advantage of ramps",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P1_Q2",
+     "stem": "Based on Table 1, what is the efficiency of the block-and-tackle?",
+     "options": {
+      "A": "86%, because the output work of 600 J is divided by an input work of 700 J",
+      "B": "29%, because the 175 N effort force is divided by the 600 N weight of the load",
+      "C": "75%, because three of the four supporting rope segments transmit useful force",
+      "D": "117%, because the IMA of 4.0 is divided by the AMA of 3.43 for the system"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Output work = 600 N x 1.0 m = 600 J; input = 175 N x 4.0 m = 700 J; 600/700 = 0.857, which also equals AMA/IMA = 3.43/4.0. Why the others are wrong: B) Effort/load is a force ratio and ignores the distances over which the forces act. C) All four segments carry tension; the 3/4 figure has no basis in the data. D) IMA/AMA inverts the ratio and exceeds 100%, which is impossible for a real machine.",
+     "trap": "Dividing forces instead of work, or inverting AMA/IMA.",
+     "topic": "Efficiency of machines",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_CP_P1_Q3",
+     "stem": "Which machine in Table 1 is the most efficient?",
+     "options": {
+      "A": "The lever, because it delivers 60 J of output work for only 64 J of input work, a ratio of 94%",
+      "B": "All three are equally efficient, because each lifts the same load through the same 1.0 m height",
+      "C": "The ramp, because its effort force is the largest and so is least affected by friction losses",
+      "D": "The block and tackle, because its effort distance is the largest of the three machines"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Lever efficiency = (600 x 0.10)/(160 x 0.40) = 60/64 = 94%; ramp = 600/750 = 80%; block and tackle = 600/700 = 86%. Why the others are wrong: B) Output work is identical, but input work differs (750 J, 64 J, and 700 J), so efficiencies differ. C) Efficiency depends on the ratio of output to input work, not on the size of the effort force. D) A large effort distance means more input work for the same output, which lowers efficiency.",
+     "trap": "Assuming identical output work implies identical efficiency.",
+     "topic": "Efficiency of machines",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P1_Q4",
+     "stem": "According to Figure 1, how does the ramp's efficiency change as ramp length increases from 2 m to 6 m, and why?",
+     "options": {
+      "A": "It increases, because the measured and ideal effort curves converge as the ramp becomes longer",
+      "B": "It increases, because a smaller effort force means that less energy is lost to friction overall",
+      "C": "It stays constant, because the ideal work input of 600 J is the same for every ramp length",
+      "D": "It decreases, because the friction force acts over a longer distance and dissipates more energy"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Efficiency = ideal/measured effort: 300/340 = 0.88 at 2 m, 100/160 = 0.63 at 6 m. The friction force is roughly 40-60 N but acts over 2-6 m, so wasted work grows. Why the others are wrong: A) The gap between the curves narrows in newtons, but the ratio measured/ideal widens (1.13 to 1.6). B) Friction work equals force times path length, which grows with ramp length even though the effort force falls. C) Ideal work is constant, but the measured work input (340 N x 2 m = 680 J versus 160 N x 6 m = 960 J) increases.",
+     "trap": "Reading the shrinking absolute gap in newtons as improving efficiency.",
+     "topic": "Mechanical advantage of ramps",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P1_Q5",
+     "stem": "If the lever's effort arm were lengthened to 4.0 m while the 0.50 m load arm and the 600 N load stay the same, what effort force would an ideal (frictionless) lever require?",
+     "options": {
+      "A": "300 N, because doubling the effort arm only halves the force that was needed originally",
+      "B": "75 N",
+      "C": "150 N, because the ideal mechanical advantage stays at 4.0 and friction no longer matters",
+      "D": "480 N, because the longer arm adds weight that must be supported at the effort end"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) IMA = 4.0/0.50 = 8; ideal effort = 600 N / 8 = 75 N (torque balance: F x 4.0 = 600 x 0.50). Why the others are wrong: A) Doubling the arm doubles the IMA, so force is halved from the ideal 150 N to 75 N, not from 600 N. C) Lengthening the effort arm raises IMA to 8, not 4. D) The lever is treated as massless; no extra weight is introduced.",
+     "trap": "Applying the doubling to the measured 160 N or the load rather than the ideal effort.",
+     "topic": "Levers and torque",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://hyperphysics.phy-astr.gsu.edu/hbase/Mechanics/lever.html"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_CP_P2",
+   "passage_text": "Chemists often estimate reaction enthalpies from average bond energies, treating a reaction as the breaking of all bonds in the reactants followed by the formation of all bonds in the products. A student applies this method to three gas-phase reactions: hydrogenation of ethene (C2H4 + H2 → C2H6), combustion of methane (CH4 + 2 O2 → CO2 + 2 H2O, with water as a gas), and ammonia synthesis (N2 + 3 H2 → 2 NH3). Average bond energies are listed in Table 1, and the enthalpy changes calculated by the student are compared in Table 2 with experimental values obtained from calorimetry and tabulated formation enthalpies. Bond energy is defined as the energy required to break one mole of a given bond in the gas phase, so it is always positive. The student notes that the calculated and experimental values agree reasonably well but not exactly, and then asks how adding a catalyst would be expected to affect the enthalpy values.",
+   "table_data": "**Table 1. Average bond energies (kJ/mol)**\n\n| Bond | Energy |\n|---|---|\n| C=C | 614 |\n| C–C | 348 |\n| C–H | 413 |\n| H–H | 436 |\n| O=O | 498 |\n| C=O (in CO2) | 799 |\n| O–H | 463 |\n| N≡N | 941 |\n| N–H | 391 |\n\n**Table 2. Reaction enthalpies (kJ/mol of reaction as written)**\n\n| Reaction | Calculated ΔH | Experimental ΔH |\n|---|---|---|\n| Ethene hydrogenation | −124 | −137 |\n| Methane combustion | −802 | −802 |\n| Ammonia synthesis | −97 | −92 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL10_CP_P2_Q1",
+     "stem": "Using the bond energies in Table 1, which expression gives the calculated ΔH for the hydrogenation of ethene?",
+     "options": {
+      "A": "ΔH = [614 + 436] − 348 = +702 kJ/mol, leaving out the C–H bonds that form in ethane",
+      "B": "ΔH = [614 + 348] − [436 + 413] = +113 kJ/mol, pairing the carbon–carbon bonds against the others",
+      "C": "ΔH = [614 + 4(413) + 436] − [348 + 6(413)] = −124 kJ/mol, with bonds broken minus bonds formed",
+      "D": "ΔH = [348 + 6(413)] − [614 + 4(413) + 436] = +124 kJ/mol, with bonds formed minus bonds broken"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Bonds broken: 614 + 1652 + 436 = 2702 kJ; bonds formed: 348 + 2478 = 2826 kJ; ΔH = broken − formed = −124 kJ/mol (exothermic). Why the others are wrong: A) Ethane's six C–H bonds must be counted in the products (two more form than ethene has), so omitting them gives a large positive value. B) This mixes bonds from both sides and is not a sum of bonds broken minus a sum of bonds formed. D) Reversing the order flips the sign; ΔH is the energy of bonds broken minus the energy of bonds formed.",
+     "trap": "Subtracting in the wrong direction (formed minus broken) and reporting the wrong sign.",
+     "topic": "Bond energies",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chemistrystudent.com/ap-chemistry/6-thermochemistry/bond-enthalpies.html",
+       "https://cognito.org/courses/alevel/chemistry/edexcel/notes/WmFkTml6cGg/8.4-enthalpy-changes-and-bonding"
+      ]
+     }
+    },
+    {
+     "id": "FL10_CP_P2_Q2",
+     "stem": "Which best explains why the calculated and experimental values for ethene hydrogenation differ (−124 versus −137 kJ/mol)?",
+     "options": {
+      "A": "Bond energies refer to liquids rather than gases, so the heat of vaporization of ethane was left out of the sum",
+      "B": "The enthalpy change of a reaction depends on the pathway, and the bond-breaking pathway differs from the experimental one",
+      "C": "The experiment was run at constant volume, so the measured heat equals the internal energy change instead of ΔH",
+      "D": "Tabulated values are averages over many different molecules, so the energies are not exact for ethene and ethane"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Average bond energies are mean values across many compounds; the actual bond strengths in a specific molecule differ somewhat, producing a modest discrepancy. Why the others are wrong: A) Bond energies are defined for gas-phase species, as stated in the passage. B) Enthalpy is a state function and does not depend on pathway. C) The passage gives no evidence of constant-volume conditions, and ΔH and ΔU differ only by ΔnRT, which is small here.",
+     "trap": "Attributing the mismatch to pathway dependence of a state function.",
+     "topic": "Bond energies",
+     "mastery_sheet_id": "5E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P2_Q3",
+     "stem": "How much heat is released when 8.0 g of methane (molar mass 16 g/mol) burns completely according to the reaction in Table 2?",
+     "options": {
+      "A": "401 kJ",
+      "B": "100 kJ, because each gram of methane releases one-eighth of the molar enthalpy change shown",
+      "C": "802 kJ, because the equation gives the heat released per mole of methane, regardless of the amount burned",
+      "D": "1,604 kJ, because two moles of oxygen react for each mole of methane and the heat doubles"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 8.0 g / 16 g/mol = 0.50 mol; 0.50 x 802 kJ/mol = 401 kJ released. Why the others are wrong: B) One-eighth of 802 is about 100, but the amount here is half a mole, not one-eighth. C) 802 kJ applies to a full mole; only 0.50 mol burns. D) The 802 kJ already accounts for all reactants as written, so no further doubling is applied.",
+     "trap": "Forgetting to convert grams to moles before scaling ΔH.",
+     "topic": "Reaction enthalpy",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_CP_P2_Q4",
+     "stem": "A catalyst is added to the ammonia synthesis reaction. How is the calculated ΔH of −97 kJ/mol affected?",
+     "options": {
+      "A": "It becomes less negative, because a faster reaction releases the same heat over a shorter time and so lowers ΔH",
+      "B": "It becomes zero, because the catalyst is regenerated and so the net reaction enthalpy is cancelled out",
+      "C": "It becomes more negative, because the catalyst weakens the N≡N bond and so reduces the energy needed to break it",
+      "D": "It is unchanged, because a catalyst lowers the activation energy without altering the reactant-to-product gap"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) ΔH is a state function set by reactants and products; a catalyst changes only the pathway and activation barrier. Why the others are wrong: A) Rate does not alter the total heat released per mole. B) Regeneration of the catalyst does not cancel the heat released by the net reaction. C) Weakening a bond in a transition state lowers Ea; the tabulated average bond energy and ΔH are properties of the species themselves.",
+     "trap": "Confusing activation energy with reaction enthalpy.",
+     "topic": "Catalysis and enthalpy",
+     "mastery_sheet_id": "5E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_CP_P3",
+   "passage_text": "The partial pressure of oxygen in the alveoli (PAO2) determines how fully hemoglobin is loaded in the pulmonary capillaries. Inspired air is warmed and humidified, so the partial pressure of inspired oxygen is PiO2 = 0.21 x (PB − 47 mm Hg), where PB is barometric pressure and 47 mm Hg is the vapor pressure of water at body temperature. A simplified alveolar gas equation is PAO2 = PiO2 − PaCO2/R, where PaCO2 is the arterial partial pressure of CO2 and R, the respiratory exchange ratio, is 0.8. A physiology class calculated PAO2 for four conditions (Table 1). Figure 1 shows the oxygen–hemoglobin dissociation curve for normal blood at pH 7.40. Gas exchange across the alveolar membrane follows Fick's law: the diffusion rate is proportional to the surface area and the partial pressure difference, and inversely proportional to the membrane thickness. Mixed venous blood returning to the lungs has a PO2 near 40 mm Hg and a PCO2 near 46 mm Hg.",
+   "table_data": "| Condition | PB (mm Hg) | PiO2 (mm Hg) | PaCO2 (mm Hg) | PAO2 (mm Hg) |\n|---|---|---|---|---|\n| Sea level, normal ventilation | 760 | 150 | 40 | 100 |\n| Sea level, hypoventilation | 760 | 150 | 60 | 75 |\n| 3,000 m, normal ventilation | 526 | 101 | 40 | 51 |\n| 3,000 m, hyperventilation | 526 | 101 | 32 | 61 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Oxygen–hemoglobin dissociation curve",
+    "x_label": "PO2 (mm Hg)",
+    "y_label": "Hemoglobin saturation (%)",
+    "series": [
+     {
+      "name": "Normal blood, pH 7.40",
+      "points": [
+       [
+        10,
+        13
+       ],
+       [
+        20,
+        35
+       ],
+       [
+        26,
+        50
+       ],
+       [
+        40,
+        75
+       ],
+       [
+        60,
+        90
+       ],
+       [
+        80,
+        95
+       ],
+       [
+        100,
+        98
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_CP_P3_Q1",
+     "stem": "At sea level, the dry-air PO2 is about 160 mm Hg, yet Table 1 lists PiO2 as 150 mm Hg. What accounts for the difference?",
+     "options": {
+      "A": "Inspired air cools in the nose, so the gas contracts and its oxygen partial pressure drops from 160 to 150",
+      "B": "Oxygen dissolves into airway mucus during inspiration, so the fraction of oxygen in the gas phase falls below 0.21",
+      "C": "Water vapor added in the airways lowers the pressure available to the other gases, so 0.21 x (760 − 47) is about 150 mm Hg",
+      "D": "Carbon dioxide mixes with inspired air in the trachea, so the oxygen fraction is diluted by the exhaled gas"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Humidification adds 47 mm Hg of water vapor, so the dry gas pressure is 713 mm Hg and PiO2 = 0.21 x 713 = 150 mm Hg. Why the others are wrong: A) Inspired air is warmed to body temperature, not cooled, and the effect arises from water vapor rather than gas contraction. B) Dissolution in mucus is negligible for the gas-phase fraction; the 21% composition is unchanged. D) Dead-space CO2 effects are handled in the alveolar gas equation, not in PiO2.",
+     "trap": "Forgetting the water vapor correction in the airways.",
+     "topic": "Alveolar partial pressures",
+     "mastery_sheet_id": "4B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P3_Q2",
+     "stem": "According to Table 1, hyperventilation at 3,000 m raises PAO2 from 51 to 61 mm Hg. Which statement explains this?",
+     "options": {
+      "A": "Hyperventilation increases R, so the amount of CO2 produced per unit of O2 consumed becomes larger",
+      "B": "Hyperventilation raises barometric pressure in the lungs, because the larger tidal volume compresses the gas",
+      "C": "Hyperventilation lowers PaCO2 from 40 to 32 mm Hg, so less is subtracted from PiO2 in the alveolar gas equation",
+      "D": "Hyperventilation raises PiO2, because the faster breathing draws in air with a larger oxygen fraction"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) PAO2 = 101 − 32/0.8 = 61 mm Hg, versus 101 − 40/0.8 = 51 mm Hg; lower PaCO2 raises PAO2 by 10 mm Hg. Why the others are wrong: A) R is fixed at 0.8 in the calculation and is a metabolic property, not changed by ventilation. B) Pressure in the lungs equilibrates with barometric pressure, which is the same 526 mm Hg in both rows. D) PiO2 is 101 mm Hg in both rows; the oxygen fraction of air is fixed at 0.21.",
+     "trap": "Thinking faster breathing changes the composition of inspired air.",
+     "topic": "Alveolar partial pressures",
+     "mastery_sheet_id": "4B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P3_Q3",
+     "stem": "Using Table 1 and Figure 1, the hemoglobin saturation expected at 3,000 m with hyperventilation (assuming arterial PO2 equals PAO2) is closest to:",
+     "options": {
+      "A": "75%, because that is the saturation read at the mixed venous PO2 of 40 mm Hg",
+      "B": "98%, because arterial blood is almost fully saturated regardless of the altitude",
+      "C": "50%, because the curve crosses the half-saturation point near the PAO2 value of 61 mm Hg",
+      "D": "90%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) PAO2 = 61 mm Hg; the curve gives about 90% saturation at 60 mm Hg. Why the others are wrong: A) 75% corresponds to a PO2 of 40 mm Hg, not 61. B) 98% corresponds to a PO2 near 100 mm Hg, which is not reached at this altitude. C) Half-saturation (P50) occurs near 26 mm Hg, far below 61.",
+     "trap": "Using the venous PO2 value, or assuming arterial blood is always nearly saturated.",
+     "topic": "Oxygen-hemoglobin curve",
+     "mastery_sheet_id": "4B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P3_Q4",
+     "stem": "In pulmonary fibrosis, the alveolar membrane thickens to twice its normal thickness, with surface area and partial pressure gradient unchanged. According to Fick's law, the O2 diffusion rate becomes:",
+     "options": {
+      "A": "one-fourth of normal, because diffusion rate depends on the square of the membrane thickness",
+      "B": "one-half of normal",
+      "C": "twice normal, because a thicker membrane provides a greater number of diffusion pathways",
+      "D": "unchanged, because the partial pressure gradient alone determines how fast the gas moves"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Rate is proportional to A x ΔP / thickness, so doubling thickness halves the rate. Why the others are wrong: A) Fick's law is inversely proportional to thickness, not its square. C) Thickness lengthens the diffusion distance and slows transfer. D) Rate depends on the surface area and thickness as well as the pressure gradient.",
+     "trap": "Treating thickness as increasing the diffusion rate or as an inverse-square term.",
+     "topic": "Gas exchange",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_CP_P3_Q5",
+     "stem": "In the hypoventilation condition, PaCO2 rises to 60 mm Hg and the blood becomes more acidic. How does this shift affect the dissociation curve in Figure 1?",
+     "options": {
+      "A": "The curve shifts to the right, so hemoglobin releases more O2 at any given PO2 (the Bohr effect)",
+      "B": "The curve shifts to the left, so hemoglobin binds O2 more tightly at a given PO2 and delivery falls",
+      "C": "The curve becomes steeper, so hemoglobin is fully saturated at a lower PO2 than in normal blood",
+      "D": "The curve is unchanged, because pH affects the lung's gas exchange but not hemoglobin's binding"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Higher CO2 and H+ stabilize the T state of hemoglobin, decreasing affinity and shifting the curve right. Why the others are wrong: B) A leftward shift occurs with alkalosis or low CO2, not acidosis. C) The Bohr effect shifts the curve rather than steepening it, and saturation at a given PO2 falls. D) Hemoglobin affinity is sensitive to pH and CO2, as the Bohr effect shows.",
+     "trap": "Reversing the direction of the Bohr shift.",
+     "topic": "Oxygen-hemoglobin curve",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_CP_P4",
+   "passage_text": "A common model for the electrocardiogram treats the electrical activity of the heart at one instant as an electric dipole. A physics class builds a scaled-up demonstration in vacuum: a charge of +2.0 nC and a charge of −2.0 nC are held 4.0 cm apart, giving a dipole moment p = 8.0 x 10⁻¹¹ C·m. A probe electrode measures the electric potential at distance r from the dipole center, at an angle θ from the dipole axis. For r much larger than the separation, the potential is V = k p cosθ / r², where k = 9.0 x 10⁹ N·m²/C². Table 1 shows measurements at r = 0.50 m for several angles, and Figure 1 shows the potential on the axis (θ = 0°) at several distances. The students then explain that two ECG electrodes placed at different positions around the heart record a potential difference that changes with the orientation of the dipole.",
+   "table_data": "| Angle θ (degrees) | Potential V at r = 0.50 m (V) |\n|---|---|\n| 0 | 2.88 |\n| 30 | 2.49 |\n| 60 | 1.44 |\n| 90 | 0.00 |\n| 120 | −1.44 |\n| 180 | −2.88 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. On-axis potential versus distance (θ = 0°)",
+    "x_label": "Distance r (m)",
+    "y_label": "Potential V (V)",
+    "series": [
+     {
+      "name": "Dipole on axis",
+      "points": [
+       [
+        0.25,
+        11.52
+       ],
+       [
+        0.5,
+        2.88
+       ],
+       [
+        0.75,
+        1.28
+       ],
+       [
+        1.0,
+        0.72
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_CP_P4_Q1",
+     "stem": "Table 1 shows V = 0 at θ = 90°. Which statement best explains this result?",
+     "options": {
+      "A": "The potential of a dipole depends only on the positive charge, whose contribution vanishes at 90°",
+      "B": "The dipole moment points along the bisector, so the probe measures a vanishing component of the dipole",
+      "C": "The electric field of the dipole is zero everywhere along the bisector, so no potential can exist there",
+      "D": "Every point on the perpendicular bisector is equidistant from the two opposite charges, so their potentials cancel"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) V = kq/r1 − kq/r2; at 90° r1 = r2, so V = 0. Potential is a scalar sum, and the bisector is an equipotential. Why the others are wrong: A) Both charges contribute to potential; the negative charge cancels the positive. B) The dipole moment points along the axis, not the bisector, and the cosθ factor goes to zero for a different reason. C) Zero potential does not mean zero field; the field there is nonzero and points parallel to the dipole axis.",
+     "trap": "Equating zero potential with zero electric field.",
+     "topic": "Electric dipole potential",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P4_Q2",
+     "stem": "Based on Figure 1, if the probe moves along the axis from r = 0.50 m to r = 1.0 m, what is the change in potential?",
+     "options": {
+      "A": "It remains at 2.88 V, because the dipole's net charge is zero at any distance",
+      "B": "It falls from 2.88 V to 0.72 V, a decrease by a factor of 4",
+      "C": "It falls from 2.88 V to 0.36 V, a decrease by a factor of 8",
+      "D": "It falls from 2.88 V to 1.44 V, a decrease by a factor of 2"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) V is proportional to 1/r²; doubling r reduces V by 2² = 4 (2.88/4 = 0.72 V), as the figure shows. Why the others are wrong: A) Net neutrality makes the potential fall faster than for a single charge, not remain constant. C) A factor of 8 applies to the dipole's electric field (1/r³), not its potential. D) A factor of 2 would apply to a single point charge (1/r).",
+     "trap": "Applying the 1/r law of a single charge or the 1/r³ field law to the potential.",
+     "topic": "Electric dipole potential",
+     "mastery_sheet_id": "4C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P4_Q3",
+     "stem": "What is the magnitude of the electric field of this dipole on the axis at 1.0 m compared with its value at 0.50 m?",
+     "options": {
+      "A": "One-eighth as large, because the on-axis dipole field decreases as 1/r³, so E falls 8-fold",
+      "B": "One-fourth as large, because the field decreases as 1/r² like the field of a point charge",
+      "C": "The same, because the opposite charges produce fields that cancel everywhere on the axis",
+      "D": "One-half as large, because the field decreases in proportion to distance as for a line charge"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Dipole field magnitude scales as p/r³, so doubling r reduces E by 2³ = 8. Why the others are wrong: B) 1/r² applies to an isolated point charge, whereas a dipole field falls off faster. C) The fields partially cancel but never completely on the axis; a net field remains. D) A linear dependence is not a feature of a dipole.",
+     "trap": "Using the point-charge 1/r² law for a dipole.",
+     "topic": "Electric field of dipoles",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P4_Q4",
+     "stem": "How much work must an external agent do to move a +1.0 µC charge slowly from θ = 180° to θ = 0° along the circle r = 0.50 m?",
+     "options": {
+      "A": "+2.9 µJ, because only the potential at the final point, 2.88 V, is used",
+      "B": "+5.8 µJ",
+      "C": "Zero, because the start and end points are the same distance from the dipole center",
+      "D": "−5.8 µJ, because the field of the dipole does positive work in that direction"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) ΔV = 2.88 − (−2.88) = 5.76 V; W = qΔV = (1.0 x 10⁻⁶ C)(5.76 V) = 5.8 µJ (positive for the external agent). Why the others are wrong: A) The full difference between the two end potentials, 5.76 V, is used; not just one of them. C) Equal distance does not mean equal potential; the cosθ factor gives opposite signs at the ends. D) The sign is for the agent's work: moving a positive charge to higher potential requires positive work.",
+     "trap": "Equating equal distance from the center with equal potential.",
+     "topic": "Electric potential energy",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.savemyexams.com/a-level/physics/aqa/17/revision-notes/7-fields-and-their-consequences/7-5-electric-potential/7-5-3-work-done-on-a-charge/"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_CP_P5",
+   "passage_text": "The energy of a photon is E = hc/λ, which for wavelength in nanometers gives E (eV) = 1240/λ. A biochemistry student surveys regions of the electromagnetic spectrum and the molecular processes that absorb them (Table 1). Absorption of a photon is possible only when its energy matches the gap between two energy levels of the molecule: infrared photons excite vibrations, visible and ultraviolet photons excite valence electrons, and X-rays can eject inner electrons. The student then records absorbance spectra of a purified DNA solution and a purified protein solution (Figure 1), each measured in a cuvette with a 1.0 cm path length. Absorbance follows the Beer–Lambert law, A = εlc, where ε is the molar absorptivity, l the path length, and c the concentration. Nucleic acids absorb most strongly near 260 nm, whereas proteins absorb most strongly near 280 nm because of aromatic side chains. The ratio A260/A280 is commonly used to judge sample purity.",
+   "table_data": "| Region | Wavelength | Photon energy | Typical molecular process |\n|---|---|---|---|\n| Infrared | 10,000 nm | 0.12 eV | Bond vibrations |\n| Visible (green) | 550 nm | 2.25 eV | Retinal excitation |\n| UV-B | 300 nm | 4.1 eV | Electronic transitions in nucleobases |\n| X-ray | 0.10 nm | 12,400 eV | Ionization of inner electrons |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Absorbance spectra (1.0 cm path)",
+    "x_label": "Wavelength (nm)",
+    "y_label": "Absorbance",
+    "series": [
+     {
+      "name": "DNA",
+      "points": [
+       [
+        220,
+        0.45
+       ],
+       [
+        240,
+        0.65
+       ],
+       [
+        260,
+        1.0
+       ],
+       [
+        280,
+        0.55
+       ],
+       [
+        300,
+        0.08
+       ],
+       [
+        320,
+        0.01
+       ]
+      ]
+     },
+     {
+      "name": "Protein",
+      "points": [
+       [
+        220,
+        1.6
+       ],
+       [
+        240,
+        0.4
+       ],
+       [
+        260,
+        0.2
+       ],
+       [
+        280,
+        1.0
+       ],
+       [
+        300,
+        0.12
+       ],
+       [
+        320,
+        0.01
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_CP_P5_Q1",
+     "stem": "What is the energy of a photon at the DNA absorption maximum of 260 nm?",
+     "options": {
+      "A": "477 eV, from multiplying 1.83 eV by the wavelength in nanometers",
+      "B": "4.8 eV",
+      "C": "2.4 eV, from using the 550 nm entry as the closest value in the table",
+      "D": "0.21 eV, from dividing the wavelength by 1240 instead of 1240 by the wavelength"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) E = 1240/260 = 4.77 eV, rounded to 4.8 eV. Why the others are wrong: A) The product has no physical basis; E = 1240/λ. C) The green photon at 550 nm has 2.25 eV; 260 nm photons carry about twice that. D) Energy is inversely proportional to wavelength; inverting the ratio gives 0.21.",
+     "trap": "Inverting the relationship between wavelength and energy.",
+     "topic": "Photon energy",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_CP_P5_Q2",
+     "stem": "Ultraviolet-B photons (300 nm) damage DNA, whereas infrared photons (10,000 nm) of the same total power mainly warm tissue. Which explanation is best?",
+     "options": {
+      "A": "Infrared photons carry more energy per photon, so they are absorbed at the surface and cannot reach DNA in deeper cells",
+      "B": "UV photons carry energies comparable to the electronic transitions of the nucleobases, whereas infrared photons only excite vibrations",
+      "C": "Infrared light is not absorbed by any biological molecules, so it cannot deposit any energy in tissue",
+      "D": "UV photons have longer wavelengths than infrared photons, so they penetrate cell nuclei more readily than infrared"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At 4.1 eV, a UV-B photon can promote nucleobase electrons to excited states, leading to damage such as pyrimidine dimers; a 0.12 eV infrared photon can excite only vibrations, which dissipate as heat. Why the others are wrong: A) Infrared photons have much less energy (0.12 eV versus 4.1 eV). C) Water and many molecules absorb infrared light through vibrational modes, producing heat. D) Ultraviolet wavelengths are shorter than infrared, not longer.",
+     "trap": "Confusing longer wavelength with higher photon energy.",
+     "topic": "Electromagnetic spectrum",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P5_Q3",
+     "stem": "A purified DNA solution has A260/A280 ≈ 1.8 in Figure 1. A student's extract reads A260 = 0.80 and A280 = 0.80. What is the best interpretation?",
+     "options": {
+      "A": "The ratio of 1.0 is lower than for pure DNA, suggesting that protein is also present in the sample extract",
+      "B": "The ratio of 1.0 cannot be interpreted, because absorbance at 280 nm is independent of the composition",
+      "C": "The ratio of 1.0 is lower than for pure DNA, suggesting that the sample contains additional nucleic acid",
+      "D": "The ratio of 1.0 indicates a pure sample, because the two absorbances are equal at their respective maxima"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Pure DNA gives 1.00/0.55 = 1.8; protein gives 0.20/1.00 = 0.2. A sample whose ratio falls between them contains both. Why the others are wrong: B) A280 is strongly influenced by aromatic amino acids, which is why the ratio is used. C) More nucleic acid would keep or raise the ratio, not lower it. D) Pure DNA has a ratio of about 1.8, so equal absorbances indicate contamination.",
+     "trap": "Assuming equal readings at two wavelengths mean a pure sample.",
+     "topic": "Absorption spectroscopy",
+     "mastery_sheet_id": "4D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P5_Q4",
+     "stem": "A DNA solution gives A260 = 0.80 in a 1.0 cm cuvette. What absorbance is expected for the same solution in a 0.50 cm cuvette?",
+     "options": {
+      "A": "0.80, because absorbance depends only on the concentration and molar absorptivity",
+      "B": "0.20, because absorbance changes with the square of the path length",
+      "C": "1.60, because a shorter path length concentrates the light and doubles the absorbance",
+      "D": "0.40"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A = εlc is proportional to l, so halving l halves A: 0.80 × 0.50 = 0.40. Why the others are wrong: A) Path length is part of the Beer–Lambert law and changes the absorbance. B) The dependence on l is linear, not quadratic. C) Absorbance is proportional to path length; a shorter path decreases it.",
+     "trap": "Ignoring the linear dependence of absorbance on path length.",
+     "topic": "Beer–Lambert law",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_CP_P5_Q5",
+     "stem": "Approximately how many times more energy does a 0.10 nm X-ray photon carry than a 550 nm green photon?",
+     "options": {
+      "A": "55 times, because energy changes by a factor of 100 for a 5,500-fold change in wavelength",
+      "B": "550,000 times, because energy is inversely proportional to the square of the wavelength",
+      "C": "5.5 times, because energy changes in proportion to the logarithm of the wavelength ratio",
+      "D": "5,500 times, because photon energy is inversely proportional to wavelength (550/0.10 nm)"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) E is inversely proportional to λ: 550 nm / 0.10 nm = 5,500, consistent with 12,400 eV / 2.25 eV. Why the others are wrong: A) Energy scales linearly with 1/λ, so the factor equals the wavelength ratio. B) The relation is 1/λ, not 1/λ². C) There is no logarithmic dependence in E = hc/λ.",
+     "trap": "Applying an incorrect power law to the wavelength ratio.",
+     "topic": "Photon energy",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_CP_P6",
+   "passage_text": "Radiocarbon dating relies on carbon-14, which forms in the upper atmosphere when cosmic-ray neutrons strike nitrogen-14 and is incorporated into living organisms as CO2 is fixed. While an organism is alive, its carbon contains a constant ratio of 14C to 12C; after death, no new 14C is taken up and the existing 14C decays by beta emission with a half-life of 5,730 years. A laboratory measures the 14C activity of four archaeological samples and compares each with the activity of modern carbon, 15.0 decays per minute per gram of carbon (Table 1). Figure 1 shows the expected fraction of the original 14C remaining as a function of time. The laboratory also notes that very old samples are difficult to date because the remaining 14C activity approaches the background count rate of the detector, and that contamination by carbon from other sources can distort the apparent ages. The laboratory assumes that the atmospheric 14C level was constant over the relevant period.",
+   "table_data": "| Sample | Material | Measured activity (decays/min per g C) |\n|---|---|---|\n| A | Charcoal | 7.50 |\n| B | Bone | 3.75 |\n| C | Textile | 10.6 |\n| D | Shell | 1.88 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Fraction of original 14C remaining versus time",
+    "x_label": "Time since death (years)",
+    "y_label": "Fraction remaining",
+    "series": [
+     {
+      "name": "Radiocarbon decay",
+      "points": [
+       [
+        0,
+        1.0
+       ],
+       [
+        2865,
+        0.707
+       ],
+       [
+        5730,
+        0.5
+       ],
+       [
+        8595,
+        0.354
+       ],
+       [
+        11460,
+        0.25
+       ],
+       [
+        17190,
+        0.125
+       ],
+       [
+        22920,
+        0.0625
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_CP_P6_Q1",
+     "stem": "Which nuclear equation correctly describes the decay of carbon-14 in these samples?",
+     "options": {
+      "A": "14C → 10Be + α (helium nucleus)",
+      "B": "14C → 13C + neutron",
+      "C": "14C → 14B + β⁺ (positron) + neutrino",
+      "D": "14C → 14N + β⁻ (electron) + antineutrino"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Beta-minus decay converts a neutron into a proton, raising Z from 6 to 7 at constant mass number 14: 14N is formed. Why the others are wrong: A) Alpha decay is rare for light nuclei such as carbon and is not the mode of 14C. B) Neutron emission is not observed for 14C; the passage states that it decays by beta emission. C) Positron emission would lower Z to 5; carbon-14 is neutron-rich and decays by beta-minus.",
+     "trap": "Choosing positron emission instead of electron emission for a neutron-rich nucleus.",
+     "topic": "Radioactive decay",
+     "mastery_sheet_id": "4E",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P6_Q2",
+     "stem": "Using Table 1 and Figure 1, what is the age of the bone (Sample B)?",
+     "options": {
+      "A": "5,730 years, because the activity has fallen to one-quarter of its original value",
+      "B": "22,920 years, because one-quarter of the activity corresponds to four half-lives",
+      "C": "11,460 years",
+      "D": "17,190 years, because the bone has lost three-quarters of its original activity"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 3.75/15.0 = 0.25 = (1/2)², so two half-lives: 2 x 5,730 = 11,460 years, as read from Figure 1. Why the others are wrong: A) One half-life leaves 50% (as for Sample A), not 25%. B) Four half-lives would leave 6.25%, not 25%. D) Three half-lives leave 12.5%, as in Sample D.",
+     "trap": "Counting the number of half-lives incorrectly from the remaining fraction.",
+     "topic": "Half-life",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_CP_P6_Q3",
+     "stem": "A bone sample contains additional modern carbon from roots that grew into it after burial. How will the measured radiocarbon age compare with the true age?",
+     "options": {
+      "A": "The apparent age will be younger, because the extra carbon speeds the decay of the original 14C",
+      "B": "The apparent age will be older, because the modern carbon dilutes the fraction of 14C in the sample",
+      "C": "The apparent age will be younger, because the modern carbon raises the measured 14C activity level",
+      "D": "The apparent age will be correct, because the 14C half-life does not depend on the sample's chemical form"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Modern carbon carries the full atmospheric 14C activity, so the mixture shows more 14C than the sample alone and appears younger. Why the others are wrong: A) Nuclear decay rates are not changed by the presence of other carbon. B) Modern carbon contains more 14C per gram than old carbon, so it raises the activity rather than diluting it. D) The half-life is constant, but the measured ratio is altered by the added carbon.",
+     "trap": "Assuming the constant half-life makes the method immune to contamination.",
+     "topic": "Radiocarbon dating",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P6_Q4",
+     "stem": "Why is radiocarbon dating generally unreliable for samples older than about 50,000 years?",
+     "options": {
+      "A": "The 14C half-life increases for older samples, so the decay becomes too slow to measure",
+      "B": "Atmospheric 14C production stopped about 50,000 years ago, so the older reference level is unknown",
+      "C": "All of the 14C has decayed after ten half-lives, so no radiocarbon remains in any sample",
+      "D": "After roughly nine half-lives, less than 0.3% of the original 14C remains, so its activity is close to the detector background"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) (1/2)^8.7 is about 0.0024; with 15 decays/min per g initially, only about 0.04 decays/min per g remains, comparable to the background. Why the others are wrong: A) Half-life is a constant for a given nuclide. B) 14C is produced continuously; variations in production complicate calibration, but production has not stopped. C) Exponential decay never reaches exactly zero; the problem is that the signal is too small to measure reliably.",
+     "trap": "Believing the activity reaches zero after a fixed number of half-lives.",
+     "topic": "Radiocarbon dating",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_CP_P7",
+   "passage_text": "When an ionic solid dissolves in water, the enthalpy of solution can be analyzed as the sum of two steps: the energy required to separate the ions of the crystal into gaseous ions (the lattice energy, a positive quantity as defined here) and the energy released when the gaseous ions are hydrated by water molecules (the enthalpy of hydration, which is negative). A chemistry student collects data for three alkali metal chlorides (Table 1). Lattice energy increases as ionic charges increase and as ionic radii decrease, as expected from Coulomb's law, and hydration enthalpy becomes more negative for ions of higher charge density. The student then dissolves 0.10 mol of each salt in 100 g of water in an insulated calorimeter and compares the temperature changes with predictions. Assume that the specific heat of the solution is 4.18 J/g·K and that the heat capacity of the dissolved salt may be neglected.",
+   "table_data": "| Salt | Lattice energy (kJ/mol) | ΔH hydration, cation (kJ/mol) | ΔH hydration, Cl⁻ (kJ/mol) |\n|---|---|---|---|\n| LiCl | 853 | −519 | −379 |\n| NaCl | 787 | −406 | −379 |\n| KCl | 715 | −322 | −379 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL10_CP_P7_Q1",
+     "stem": "Which statement best explains why Li⁺ has the most negative hydration enthalpy of the three cations in Table 1?",
+     "options": {
+      "A": "Li⁺ has the smallest radius and thus the highest charge density, so it attracts water dipoles most strongly",
+      "B": "Li⁺ has the greatest number of electrons, so its polarizability is highest and ion–dipole forces are strongest",
+      "C": "Li⁺ has the largest radius and thus the lowest charge density, so more water molecules can surround it",
+      "D": "Li⁺ carries a larger charge than Na⁺ or K⁺, so its electrostatic interaction with water is stronger"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Ion–dipole attraction increases with charge density; all three ions are +1, but Li⁺ is the smallest, so its charge density is highest. Why the others are wrong: B) Li⁺ has the fewest electrons of the three, and polarizability is not the main factor. C) Li⁺ is the smallest alkali ion, not the largest. D) All three cations carry the same +1 charge; the difference arises from size.",
+     "trap": "Assuming a larger ion is hydrated more strongly.",
+     "topic": "Ion hydration",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P7_Q2",
+     "stem": "Using Table 1, what is the enthalpy of solution of KCl?",
+     "options": {
+      "A": "−700 kJ/mol, the sum of the hydration enthalpies alone",
+      "B": "+14 kJ/mol",
+      "C": "−14 kJ/mol, obtained by subtracting the lattice energy from the hydration enthalpies",
+      "D": "+715 kJ/mol, the energy needed to separate the ions without accounting for hydration"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) ΔH solution = lattice energy + hydration enthalpies = 715 + (−322 − 379) = 715 − 701 = +14 kJ/mol (endothermic). Why the others are wrong: A) That is only the energy released on hydration; the lattice must first be broken. C) The lattice energy is added (as a positive quantity), not subtracted, giving +14. D) The lattice energy is partly offset by hydration of the separated ions.",
+     "trap": "Omitting either the lattice energy or the hydration terms.",
+     "topic": "Enthalpy of solution",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_CP_P7_Q3",
+     "stem": "When 0.10 mol of LiCl dissolves in 100 g of water in the calorimeter, what temperature change is expected? (Use 4.18 J/g·K.)",
+     "options": {
+      "A": "A decrease of about 11 K, because dissolving salts always absorbs heat from the water",
+      "B": "An increase of about 11 K, because dissolving LiCl is exothermic, with ΔH = −45 kJ/mol",
+      "C": "An increase of about 1.1 K, because the dissolved mass reduces the amount of heat released",
+      "D": "An increase of about 110 K, because the calorimeter prevents any heat from leaving the solution"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) ΔH = 853 − 898 = −45 kJ/mol; 0.10 mol releases 4.5 kJ; ΔT = 4,500 J / (100 g x 4.18 J/g·K) = 10.8 K. Why the others are wrong: A) The sign is negative for LiCl, so the solution warms. C) The 4.5 kJ of heat is distributed in 100 g of water, giving a rise near 11 K, not 1.1 K. D) The 4.5 kJ gives 10.8 K, not 110 K; the calorimeter is insulated but the heat is finite.",
+     "trap": "Assuming that all dissolution processes are endothermic.",
+     "topic": "Calorimetry",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://latextemplates.com/pdfs/university-school-laboratory-report.pdf"
+      ]
+     }
+    },
+    {
+     "id": "FL10_CP_P7_Q4",
+     "stem": "Magnesium oxide has a much higher lattice energy than sodium chloride (about 3,800 versus 787 kJ/mol). Which factor is mainly responsible?",
+     "options": {
+      "A": "The ions of MgO have much larger radii, which increases the Coulombic attraction at the larger distance",
+      "B": "The ions of MgO carry charges of 2+ and 2−, and Coulombic attraction scales with the product of the charges",
+      "C": "MgO has covalent character, so its lattice energy includes the energy of strong shared electron pairs",
+      "D": "MgO contains fewer ions per formula unit, so less energy is distributed over the lattice"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Lattice energy is proportional to q1q2/r; 2+/2− ions give a charge product four times that of 1+/1−, and Mg²⁺ and O²⁻ are also small. Why the others are wrong: A) Larger radii would decrease the Coulombic attraction. C) MgO is considered strongly ionic; the large lattice energy arises mainly from ionic charges. D) Both compounds have one cation and one anion per formula unit.",
+     "trap": "Believing a larger distance strengthens an electrostatic interaction.",
+     "topic": "Lattice energy",
+     "mastery_sheet_id": "5A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_CP_P8",
+   "passage_text": "The vapor pressure of a liquid is the pressure of its vapor in dynamic equilibrium with the liquid in a closed container, and it depends only on temperature and the identity of the liquid. A liquid boils when its vapor pressure equals the external pressure. The Clausius–Clapeyron equation, ln P = −ΔHvap/(RT) + C, relates vapor pressure to absolute temperature, where ΔHvap is the molar enthalpy of vaporization and R = 8.314 J/mol·K. A student measures the vapor pressure of ethanol at four temperatures (Table 1), including its normal boiling point of 78.4 °C (760 torr), and plots ethanol and water vapor pressures against temperature (Figure 1). Between 20 °C and 60 °C, the student calculates an average ΔHvap for ethanol from two data points. Finally, the student considers what happens when ethanol is placed in a flask connected to a vacuum line and in a sealed flask whose volume can be changed with a piston.",
+   "table_data": "| T (°C) | Vapor pressure (torr) | 1/T (x 10⁻³ K⁻¹) | ln P |\n|---|---|---|---|\n| 20 | 43.9 | 3.411 | 3.782 |\n| 40 | 135 | 3.193 | 4.905 |\n| 60 | 352 | 3.002 | 5.864 |\n| 78.4 | 760 | 2.845 | 6.633 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Vapor pressure versus temperature",
+    "x_label": "Temperature (°C)",
+    "y_label": "Vapor pressure (torr)",
+    "series": [
+     {
+      "name": "Ethanol",
+      "points": [
+       [
+        20,
+        43.9
+       ],
+       [
+        40,
+        135
+       ],
+       [
+        60,
+        352
+       ],
+       [
+        78.4,
+        760
+       ]
+      ]
+     },
+     {
+      "name": "Water",
+      "points": [
+       [
+        20,
+        17.5
+       ],
+       [
+        40,
+        55.3
+       ],
+       [
+        60,
+        149.4
+       ],
+       [
+        80,
+        355.1
+       ],
+       [
+        100,
+        760
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_CP_P8_Q1",
+     "stem": "At the top of a mountain, where the atmospheric pressure is about 500 torr, ethanol would boil at a temperature that is:",
+     "options": {
+      "A": "equal to 78.4 °C, because the boiling point is a fixed property determined by the identity of the liquid",
+      "B": "below 78.4 °C, because the lower external pressure reduces the enthalpy of vaporization at constant temperature",
+      "C": "above 78.4 °C, because the lower external pressure strengthens the attractions between ethanol molecules",
+      "D": "below 78.4 °C, because boiling begins once the vapor pressure reaches the lower external pressure of the air"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Boiling occurs when vapor pressure equals external pressure; ethanol reaches 500 torr at a temperature between 60 and 78.4 °C (Table 1). Why the others are wrong: A) The normal boiling point is defined at 760 torr; the actual boiling point depends on the external pressure. B) The answer direction is right, but ΔHvap is not changed by external pressure; it is the lowered requirement that matters. C) Lower external pressure does not alter intermolecular attractions; it only lowers the vapor pressure required to boil.",
+     "trap": "Treating the boiling point as independent of external pressure.",
+     "topic": "Vapor pressure and boiling",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P8_Q2",
+     "stem": "According to Figure 1, at 60 °C ethanol has a higher vapor pressure than water. What does this indicate?",
+     "options": {
+      "A": "Ethanol molecules are held together less strongly than water molecules, so more of them escape into the vapor",
+      "B": "Ethanol has a higher boiling point than water, because it develops its vapor pressure at a lower temperature",
+      "C": "Ethanol has a larger enthalpy of vaporization than water, because its vapor pressure rises more steeply",
+      "D": "Ethanol has stronger intermolecular attractions than water, because it contains a larger alkyl group"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At equal temperature, a higher vapor pressure means weaker net intermolecular forces; water's extensive hydrogen-bond network holds it more strongly. Why the others are wrong: B) Ethanol reaches 760 torr at 78.4 °C, lower than water's 100 °C, so its boiling point is lower. C) A steeper rise reflects a larger ΔHvap, but water's values give a lower pressure at the same temperature. D) A larger nonpolar group raises dispersion forces but not enough to outweigh water's extensive hydrogen bonding.",
+     "trap": "Reading a higher vapor pressure as stronger attractions.",
+     "topic": "Intermolecular forces",
+     "mastery_sheet_id": "5B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P8_Q3",
+     "stem": "Using the 20 °C and 60 °C rows of Table 1, which value is the best estimate of ΔHvap for ethanol?",
+     "options": {
+      "A": "+0.52 kJ/mol, because the temperatures were entered in °C rather than in kelvins",
+      "B": "−42 kJ/mol, because vaporization releases energy as the molecules leave the liquid",
+      "C": "+42 kJ/mol, because vaporization absorbs energy to overcome attractions in the liquid",
+      "D": "+18 kJ/mol, because the slope was calculated with log base 10 instead of the natural log"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Slope = (5.864 − 3.782)/(3.002 − 3.411) x 10³ K = −5,090 K; ΔHvap = 5,090 x 8.314 = 42.3 kJ/mol. Why the others are wrong: A) Using °C gives a nonphysical value near 0.5 kJ/mol; the equation requires absolute temperature. B) Vaporization absorbs energy to overcome attractions; ΔHvap is positive. D) Using log10 would shrink the slope by 2.303, giving about 18 kJ/mol, which is incorrect for ln P.",
+     "trap": "Using Celsius temperatures or the wrong logarithm base in Clausius–Clapeyron.",
+     "topic": "Clausius-Clapeyron",
+     "mastery_sheet_id": "5B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_CP_P8_Q4",
+     "stem": "Liquid ethanol at 40 °C is in equilibrium with its vapor in a sealed flask fitted with a piston. If the piston is pulled out slowly so the volume doubles (some liquid remains), the final equilibrium vapor pressure is:",
+     "options": {
+      "A": "68 torr, half the original value, because the same amount of vapor now fills twice the volume",
+      "B": "0 torr, because the liquid can no longer be in equilibrium once the container volume has changed",
+      "C": "135 torr, the same as before, because liquid evaporates until the vapor pressure is restored",
+      "D": "270 torr, twice the original value, because the added volume allows more liquid to evaporate"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) As long as liquid remains, the vapor pressure depends only on temperature; additional liquid evaporates to restore 135 torr. Why the others are wrong: A) More liquid vaporizes until the pressure is restored to the equilibrium value. B) Equilibrium is re-established at the same temperature after a brief transient. D) Evaporation does not exceed the equilibrium value; it stops when vapor pressure equals 135 torr.",
+     "trap": "Applying Boyle's law to a vapor in equilibrium with its liquid.",
+     "topic": "Vapor pressure",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P8_Q5",
+     "stem": "A plot of ln P versus 1/T for ethanol, as in Table 1, is approximately linear. What is the slope of the best-fit line?",
+     "options": {
+      "A": "About −5.1 x 10³ K, because the slope of ln P versus 1/T equals −ΔHvap/R",
+      "B": "About +5.1 x 10³ K, because the pressure rises as temperature rises",
+      "C": "About −4.2 x 10⁴ K, because the slope equals −ΔHvap without dividing by R",
+      "D": "About −2.2 x 10³ K, because the plot would use log base 10 instead of the natural log"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Slope = −ΔHvap/R = −42,300/8.314 = −5.1 x 10³ K; ln P falls as 1/T increases. Why the others are wrong: B) Pressure increases with T, but 1/T decreases with T, so the slope is negative. C) The slope has units of kelvin because ΔHvap is divided by R. D) With the natural logarithm shown in Table 1, no conversion factor applies.",
+     "trap": "Forgetting that 1/T decreases when temperature increases.",
+     "topic": "Clausius-Clapeyron",
+     "mastery_sheet_id": "5B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_CP_P9",
+   "passage_text": "In reversed-phase high-performance liquid chromatography (RP-HPLC), the stationary phase is nonpolar (silica bonded to C18 chains) and the mobile phase is a polar mixture of water and an organic solvent such as acetonitrile. A student separates four alkylbenzenes on a C18 column at a flow rate of 1.0 mL/min, with the detector at the column outlet. An unretained compound emerges at the dead time t0 = 1.0 min. Retention times for the analytes at 50% acetonitrile are given in Table 1, along with the capacity factor k = (tR − t0)/t0. The student then varies the acetonitrile percentage and measures the retention times of toluene and propylbenzene (Figure 1). The goal is to find a mobile phase that separates the two compounds adequately without making the run excessively long. Peaks were detected by ultraviolet absorbance at 254 nm, and the column temperature was kept constant at 30 °C throughout so that retention times could be compared fairly between runs.",
+   "table_data": "| Compound | Carbons in alkyl group | tR at 50% acetonitrile (min) | k |\n|---|---|---|---|\n| Benzene | 0 | 3.1 | 2.1 |\n| Toluene | 1 | 4.2 | 3.2 |\n| Ethylbenzene | 2 | 5.8 | 4.8 |\n| Propylbenzene | 3 | 8.0 | 7.0 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Retention time versus acetonitrile percentage",
+    "x_label": "Acetonitrile in mobile phase (%)",
+    "y_label": "Retention time (min)",
+    "series": [
+     {
+      "name": "Toluene",
+      "points": [
+       [
+        30,
+        9.5
+       ],
+       [
+        40,
+        6.0
+       ],
+       [
+        50,
+        4.2
+       ],
+       [
+        60,
+        3.1
+       ],
+       [
+        70,
+        2.4
+       ]
+      ]
+     },
+     {
+      "name": "Propylbenzene",
+      "points": [
+       [
+        30,
+        31
+       ],
+       [
+        40,
+        16
+       ],
+       [
+        50,
+        8.0
+       ],
+       [
+        60,
+        4.8
+       ],
+       [
+        70,
+        3.4
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL10_CP_P9_Q1",
+     "stem": "Why do the compounds elute in the order benzene, toluene, ethylbenzene, propylbenzene?",
+     "options": {
+      "A": "The larger alkylbenzenes have stronger hydrogen bonding with silica, so they are held at the column inlet",
+      "B": "The larger, more polar alkylbenzenes dissolve better in the aqueous mobile phase, so they are carried more slowly",
+      "C": "The larger, more nonpolar alkylbenzenes interact more strongly with the C18 stationary phase, so they are retained longer",
+      "D": "The smaller alkylbenzenes have greater mass, so they move more slowly through the packed column"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) In reversed-phase chromatography, hydrophobic interactions with the nonpolar C18 chains increase with the size of the nonpolar group, increasing retention. Why the others are wrong: A) Alkylbenzenes cannot hydrogen bond, and the stationary phase is C18-bonded, not bare silica. B) Alkyl groups are nonpolar, and greater polarity would speed elution in RP-HPLC. D) Smaller alkylbenzenes are lighter and are retained less.",
+     "trap": "Applying normal-phase logic, in which the more polar compound elutes last.",
+     "topic": "Reversed-phase HPLC",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P9_Q2",
+     "stem": "What is the capacity factor k of ethylbenzene?",
+     "options": {
+      "A": "4.8",
+      "B": "5.8, the retention time itself, because the dead time is not subtracted from it",
+      "C": "0.17, the ratio of the dead time to the retention time of the compound",
+      "D": "1.4, the ratio of the retention time to that of toluene at 50% acetonitrile"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) k = (5.8 − 1.0)/1.0 = 4.8. Why the others are wrong: B) The dead time t0 must be subtracted and the result divided by t0. C) 1.0/5.8 = 0.17 is t0/tR, the inverse of a retention ratio, not k. D) 5.8/4.2 = 1.4 is a ratio of retention times, not a capacity factor.",
+     "trap": "Using the retention time rather than the adjusted retention time.",
+     "topic": "Chromatography calculations",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL10_CP_P9_Q3",
+     "stem": "According to Figure 1, retention times of both compounds decrease as the acetonitrile percentage increases. Which statement best explains this?",
+     "options": {
+      "A": "The flow rate increases with acetonitrile, so the analytes cross the column in a shorter time",
+      "B": "The stationary phase swells with acetonitrile, so the analytes are physically pushed out of the C18 chains",
+      "C": "The mobile phase becomes less polar, so the analytes prefer it more and spend less time bound to the stationary phase",
+      "D": "The mobile phase becomes more polar, so the analytes are repelled from it and move through the column faster"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Acetonitrile is less polar than water; a higher fraction makes the mobile phase a stronger eluent for nonpolar analytes. Why the others are wrong: A) The flow rate was held at 1.0 mL/min. B) Retention is governed by partitioning; swelling is not the mechanism. D) Adding acetonitrile decreases the mobile phase polarity.",
+     "trap": "Thinking that increased organic solvent increases polarity.",
+     "topic": "Reversed-phase HPLC",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P9_Q4",
+     "stem": "To maximize the difference in retention time between toluene and propylbenzene, which mobile phase should the student choose and what is the tradeoff?",
+     "options": {
+      "A": "50% acetonitrile, giving about a 3.8 min difference and a run time shorter than that at 70%",
+      "B": "70% acetonitrile, giving about a 21.5 min difference together with the shortest total run time",
+      "C": "30% acetonitrile, giving about a 21.5 min difference but a run time of more than 30 min",
+      "D": "70% acetonitrile, giving about a 1.0 min difference but a run time of less than 4 min"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Differences: 30% = 31 − 9.5 = 21.5 min; 40% = 10 min; 50% = 3.8 min; 60% = 1.7 min; 70% = 1.0 min. A weaker eluent separates better but lengthens the run. Why the others are wrong: A) At 50% the run is shorter than at 30%, but longer than at 70%, so the statement is wrong. B) The 21.5 min difference occurs at 30%, not 70%, where propylbenzene elutes at 31 min. D) At 70% the difference is the smallest, so this option states a tradeoff rather than maximal separation.",
+     "trap": "Assuming the fastest run also gives the best separation.",
+     "topic": "Chromatographic separation",
+     "mastery_sheet_id": "5C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL10_CP_P10",
+   "passage_text": "Alcohol oxidation is a central reaction in organic synthesis. Primary alcohols can be oxidized to aldehydes or carboxylic acids, secondary alcohols to ketones, and tertiary alcohols are generally resistant. A student treats four samples with two chromium(VI) reagents: pyridinium chlorochromate (PCC) in anhydrous dichloromethane, and Jones reagent (CrO3 in aqueous sulfuric acid and acetone). In each case, Cr(VI) is reduced to Cr(III). Products are identified by infrared spectroscopy and yields are determined after purification (Table 1). The student proposes that the difference between PCC and Jones oxidation of a primary alcohol arises because the aldehyde formed in the presence of water can add water reversibly to form a hydrate, which can be oxidized further. Characteristic IR absorptions are: alcohol O–H, broad near 3350 cm⁻¹; carboxylic acid O–H, very broad from 2500 to 3300 cm⁻¹; ketone and aldehyde C=O, near 1715–1725 cm⁻¹; carboxylic acid C=O, near 1710 cm⁻¹. All reactions were run at room temperature and monitored by thin-layer chromatography until the starting alcohol had been consumed.",
+   "table_data": "| Substrate | Reagent | Major product | Key IR bands (cm⁻¹) | Yield (%) |\n|---|---|---|---|---|\n| 1-Butanol | PCC, CH2Cl2 | Butanal | 1725; 2720 | 78 |\n| 1-Butanol | Jones | Butanoic acid | 2500–3300 (broad); 1710 | 85 |\n| 2-Butanol | PCC, CH2Cl2 | Butanone | 1715 | 82 |\n| tert-Butanol | Jones | No reaction | 3350 (broad) | 0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL10_CP_P10_Q1",
+     "stem": "Why does tert-butanol fail to react with Jones reagent in Table 1?",
+     "options": {
+      "A": "Its carbon skeleton is too branched, so Cr(VI) is reduced before oxidation of the alcohol can begin",
+      "B": "Its carbinol carbon is too hindered, so chromate cannot form a chromate ester with the hydroxyl group",
+      "C": "Its hydroxyl group is more acidic than that of other alcohols, so it is protonated and unreactive",
+      "D": "Its carbinol carbon bears no hydrogen, so the elimination step that forms a C=O bond cannot occur"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Oxidation requires loss of the hydrogen on the carbinol carbon along with the chromate leaving group; tertiary alcohols have none. Why the others are wrong: A) Reduction of Cr(VI) is the result of alcohol oxidation, not an independent process that competes with it. B) Tertiary alcohols can form chromate esters; the issue is the absence of the α-hydrogen. C) Tertiary alcohols are less acidic, not more, than primary alcohols, and acidity is not the limiting issue.",
+     "trap": "Attributing the lack of reactivity to steric hindrance of chromate ester formation.",
+     "topic": "Oxidation of alcohols",
+     "mastery_sheet_id": "5D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P10_Q2",
+     "stem": "Which statement best explains why PCC in dichloromethane stops at the aldehyde, whereas Jones reagent converts 1-butanol to the carboxylic acid?",
+     "options": {
+      "A": "With water present, the alcohol is oxidized twice before the aldehyde can leave the chromium complex",
+      "B": "With water present, the aldehyde is protonated, so the carbonyl carbon becomes more resistant to oxidation",
+      "C": "Without water, the chromium reagent is a weaker oxidant, so it cannot oxidize the aldehyde C–H bond",
+      "D": "Without water, no aldehyde hydrate can form, so there is no geminal diol available for further oxidation"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) In aqueous acid, the aldehyde reversibly forms a hydrate (R–CH(OH)2), which has a C–H and an O–H that can be oxidized like an alcohol, giving the acid. Why the others are wrong: A) The oxidation of the aldehyde occurs after it is released, via its hydrate. B) Protonation of the carbonyl makes it more electrophilic and promotes hydration, not resistance. C) PCC is chosen as a mild oxidant, but the key factor is the lack of hydrate formation, not a failure to oxidize C–H bonds.",
+     "trap": "Thinking PCC is simply too weak to oxidize C–H bonds under any conditions.",
+     "topic": "Oxidation of alcohols",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P10_Q3",
+     "stem": "Which IR observation allows the student to distinguish the Jones product of 1-butanol from the PCC product?",
+     "options": {
+      "A": "A very broad O–H absorption spanning about 2500–3300 cm⁻¹, which only the acid has",
+      "B": "A sharp absorption near 2720 cm⁻¹ that arises from the O–H bond of the acid",
+      "C": "The absence of any absorption between 1650 and 1800 cm⁻¹ in the acid product",
+      "D": "A C=O stretch near 1710 cm⁻¹, which is not seen in the aldehyde product"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The carboxylic acid O–H gives a very broad band from 2500 to 3300 cm⁻¹; butanal lacks O–H but shows the aldehyde C–H at 2720 cm⁻¹. Why the others are wrong: B) The 2720 cm⁻¹ band is the aldehyde C–H stretch, found in butanal. C) Both products have a carbonyl group absorbing in that region. D) Both butanal (1725) and butanoic acid (1710) have a C=O stretch, so it cannot discriminate.",
+     "trap": "Using the carbonyl stretch to distinguish two carbonyl-containing products.",
+     "topic": "IR spectroscopy",
+     "mastery_sheet_id": "5D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL10_CP_P10_Q4",
+     "stem": "The overall reduction of Cr(VI) to Cr(III) consumes 3 electrons per chromium. How many moles of Cr(VI) are required to oxidize 1.0 mol of 2-butanol to butanone?",
+     "options": {
+      "A": "0.67 mol, because each alcohol gives up 2 electrons while each Cr(VI) accepts 3",
+      "B": "2.0 mol, because the alcohol carbon changes oxidation state by one for each electron",
+      "C": "1.0 mol, because the oxidation is a one-to-one reaction between the alcohol and chromium",
+      "D": "1.5 mol, because three electrons are transferred for each mole of alcohol oxidized"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The alcohol loses 2 electrons per molecule; Cr(VI) gains 3, so mol Cr = 2/3 = 0.67 per mol alcohol (3 alcohols : 2 Cr). Why the others are wrong: B) The carbinol carbon changes oxidation state by 2 (from 0 to +2), not by 1 or 2 per Cr. C) Electron balance requires 2 electrons from each alcohol and 3 accepted by Cr, so the ratio is not 1:1. D) 1.5 inverts the ratio; each alcohol gives up only 2 electrons, not 3.",
+     "trap": "Inverting the electron ratio when balancing a redox reaction.",
+     "topic": "Redox stoichiometry",
+     "mastery_sheet_id": "5D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Jones_oxidation",
+       "https://www.organic-chemistry.org/namedreactions/jones-oxidation.shtm"
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL10_CP_D1",
+   "stem": "A massless seesaw is balanced at its center. A 30 kg child sits 2.0 m from the pivot. At what distance from the pivot on the opposite side must a 40 kg child sit for the seesaw to balance?",
+   "options": {
+    "A": "1.0 m, from halving the distance of the lighter child because the masses differ",
+    "B": "2.7 m, from dividing the larger mass by the smaller mass and multiplying by 2.0 m",
+    "C": "1.5 m, from the torque balance 30 x 2.0 = 40 x d, with the heavier child closer",
+    "D": "2.0 m, since a seesaw balances only when both children sit at equal distances"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Torque balance: 30 x 2.0 = 40 x d, so d = 1.5 m. Why the others are wrong: A) The distance scales with the inverse mass ratio (0.75), not with one half. B) Inverting the ratio of the masses gives 2.7 m; the heavier child sits closer. D) Equal distances balance only equal masses.",
+   "trap": "Inverting the mass ratio in a torque balance.",
+   "topic": "Torque and equilibrium",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://hyperphysics.phy-astr.gsu.edu/hbase/Mechanics/lever.html"
+    ]
+   }
+  },
+  {
+   "id": "FL10_CP_D2",
+   "stem": "A 0.20 kg ball strikes a wall at 15 m/s and rebounds along the same line at 10 m/s. The contact time is 0.010 s. What is the magnitude of the average force exerted by the wall on the ball?",
+   "options": {
+    "A": "100 N, from using the difference between the speeds, 5 m/s, as the velocity change",
+    "B": "500 N",
+    "C": "200 N, from using only the rebound speed to calculate the change in momentum",
+    "D": "300 N, from using only the incoming speed to calculate the change in momentum"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Δp = 0.20 x (10 − (−15)) = 5.0 kg·m/s; F = Δp/Δt = 5.0/0.010 = 500 N. Why the others are wrong: A) Velocity is a vector, and the direction reverses, so the speeds add. C) Using only 2.0 kg·m/s omits the momentum that must first be removed. D) The ball's momentum changes from −3.0 to +2.0 kg·m/s; using only 3.0 omits the rebound.",
+   "trap": "Subtracting the speeds without accounting for the reversal in direction.",
+   "topic": "Impulse and momentum",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://savemyexams.com/ap/physics/college-board/1-algebra-based/24/revision-notes/linear-momentum/linear-momentum-impulse/impulse-momentum-theorem"
+    ]
+   }
+  },
+  {
+   "id": "FL10_CP_D3",
+   "stem": "When 0.050 mol of NaOH reacts completely with excess HCl in a coffee-cup calorimeter containing 200 g of solution, the reaction releases 57 kJ per mole of NaOH. What is the approximate temperature change? (Specific heat = 4.18 J/g·K.)",
+   "options": {
+    "A": "An increase of about 34 K, from using 0.50 mol rather than 0.050 mol of NaOH",
+    "B": "An increase of about 3.4 K, from 2.85 kJ absorbed by 200 g of solution at 4.18 J/g·K",
+    "C": "A decrease of about 3.4 K, because the neutralization of a strong acid and base is endothermic",
+    "D": "An increase of about 6.8 K, from doubling the result to account for heat absorbed by the vessel"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) q = 0.050 mol x 57 kJ/mol = 2.85 kJ; ΔT = 2,850 J / (200 g x 4.18 J/g·K) = 3.4 K. Why the others are wrong: A) The amount is 0.050 mol, which gives 2.85 kJ rather than 28.5 kJ. C) Heat is released by the reaction and absorbed by the solution, which warms. D) A coffee-cup calorimeter has negligible heat capacity here, and the 200 g of solution already accounts for the heat absorbed.",
+   "trap": "Mismanaging the mole amount or the sign in calorimetry.",
+   "topic": "Calorimetry",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://latextemplates.com/pdfs/university-school-laboratory-report.pdf"
+    ]
+   }
+  },
+  {
+   "id": "FL10_CP_D4",
+   "stem": "A first-order decomposition has a rate constant of 0.0231 min⁻¹. What fraction of the original reactant remains after 90 minutes?",
+   "options": {
+    "A": "1/4, because the half-life is 45 minutes and two half-lives have passed",
+    "B": "1/16, because the half-life is 22.5 minutes and four half-lives have passed",
+    "C": "1/8",
+    "D": "1/2, because a first-order reaction loses half of its reactant in any 90 minute period"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) t½ = ln 2/k = 0.693/0.0231 = 30 min; 90 min is three half-lives, so (1/2)³ = 1/8 remains. Why the others are wrong: A) A half-life of 45 min would require k = 0.0154 min⁻¹. B) A half-life of 22.5 min would require k = 0.0308 min⁻¹. D) Half-life is 30 min, not 90 min.",
+   "trap": "Miscalculating the half-life from the rate constant.",
+   "topic": "First-order kinetics",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chem-textbook.ucalgary.ca/?p=7936"
+    ]
+   }
+  },
+  {
+   "id": "FL10_CP_D5",
+   "stem": "A uniform block with a density of 800 kg/m³ floats at rest in fresh water (density 1,000 kg/m³). What fraction of the block's volume is submerged?",
+   "options": {
+    "A": "20%, because the fraction above water equals the density ratio of block to water",
+    "B": "80%, because the density ratio gives the submerged fraction of the volume",
+    "C": "100%, because any object that floats at rest must be fully surrounded by the fluid",
+    "D": "64%, because the buoyant force depends on the square of the density ratio"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Floating equilibrium: ρ_water V_sub g = ρ_block V g, so V_sub/V = 800/1000 = 0.80. Why the others are wrong: A) 20% is the fraction above water, not below. C) A floating object displaces only its weight in water; the rest is above the surface. D) The fraction is linear in the density ratio.",
+   "trap": "Reporting the exposed fraction instead of the submerged fraction.",
+   "topic": "Buoyancy",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://pressbooks.nscc.ca/heatlightsound/?p=53"
+    ]
+   }
+  },
+  {
+   "id": "FL10_CP_D6",
+   "stem": "Blood flows at 0.30 m/s through an arterial segment of radius 1.0 cm and then enters a stenotic region of radius 0.50 cm. Treating the blood as incompressible, what is its speed in the narrowed region?",
+   "options": {
+    "A": "0.60 m/s, because the speed doubles when the radius is cut in half",
+    "B": "1.2 m/s, because the area falls to one-fourth and so the speed rises fourfold",
+    "C": "4.8 m/s, because the speed increases with the inverse fourth power of the radius",
+    "D": "0.075 m/s, because the speed decreases in a narrower vessel"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Continuity: A1v1 = A2v2; area scales with r², so a half radius gives a quarter of the area and four times the speed: 0.30 x 4 = 1.2 m/s. Why the others are wrong: A) Speed scales with 1/r², so halving the radius quadruples the speed. C) The inverse fourth-power dependence applies to Poiseuille flow resistance, not to speed from continuity. D) Fluid must speed up in a constriction to maintain the same volume flow.",
+   "trap": "Using the radius ratio instead of the area ratio in the continuity equation.",
+   "topic": "Fluid continuity",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://open-exam-prep.com/study-guides/mcat-chemical-physical/fluids-gas-phase/fluid-dynamics"
+    ]
+   }
+  },
+  {
+   "id": "FL10_CP_D7",
+   "stem": "A 6.0 Ω resistor and a 3.0 Ω resistor are connected in parallel across a 12 V battery. What is the total current supplied by the battery?",
+   "options": {
+    "A": "4.0 A, from counting only the current through the 3.0 Ω resistor",
+    "B": "1.3 A, from adding the resistances as if they were in series",
+    "C": "2.0 A, from counting only the current through the 6.0 Ω resistor",
+    "D": "6.0 A"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) R_eq = (6.0 x 3.0)/(6.0 + 3.0) = 2.0 Ω; I = 12/2.0 = 6.0 A (4.0 A + 2.0 A). Why the others are wrong: A) The 4.0 A through the 3.0 Ω resistor is only part of the total current. B) A series combination would give 9.0 Ω, but the resistors share the same voltage in parallel. C) The 2.0 A through the 6.0 Ω resistor is only part of the total current.",
+   "trap": "Adding branch resistances as though they were in series.",
+   "topic": "Resistors and circuits",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://aplusphysics.com/courses/regents/electricity/regents_parallel_circuits.html"
+    ]
+   }
+  },
+  {
+   "id": "FL10_CP_D8",
+   "stem": "A proton (charge 1.6 x 10⁻¹⁹ C) moves at 2.0 x 10⁶ m/s perpendicular to a uniform magnetic field of 0.50 T. What is the magnitude of the magnetic force on the proton?",
+   "options": {
+    "A": "8.0 x 10⁻¹⁴ N, from including a factor of one half as in kinetic energy",
+    "B": "1.6 x 10⁻¹³ N, from F = qvB with sin 90° = 1, using the given charge and speed",
+    "C": "3.2 x 10⁻¹³ N, from doubling the product to account for both field directions",
+    "D": "Zero, because a magnetic force can never act on a moving charged particle"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) F = qvB sin 90° = (1.6 x 10⁻¹⁹)(2.0 x 10⁶)(0.50) = 1.6 x 10⁻¹³ N. Why the others are wrong: A) The factor of one-half belongs to kinetic energy, not magnetic force. C) No factor of 2 appears in F = qvB. D) Magnetic force acts on moving charges; it is zero only when v is parallel to B.",
+   "trap": "Adding extraneous factors to the magnetic force formula.",
+   "topic": "Magnetic force",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openstax.org/books/college-physics/pages/22-4-magnetic-field-strength-force-on-a-moving-charge-in-a-magnetic-field"
+    ]
+   }
+  },
+  {
+   "id": "FL10_CP_D9",
+   "stem": "An object is placed 30 cm in front of a concave mirror of focal length 10 cm. Where is the image, and what are its characteristics?",
+   "options": {
+    "A": "40 cm in front of the mirror; real and inverted",
+    "B": "15 cm in front of the mirror; real and inverted",
+    "C": "15 cm behind the mirror; virtual and upright",
+    "D": "7.5 cm in front of the mirror; real and inverted"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) 1/di = 1/f − 1/do = 1/10 − 1/30 = 2/30, so di = 15 cm; positive di means a real, inverted image in front of the mirror. Why the others are wrong: A) 40 cm is the sum of the object distance and the focal length, which is not the mirror equation. C) A virtual image forms only when the object is inside the focal length. D) 7.5 cm results from an arithmetic error such as halving the focal-length difference.",
+   "trap": "Misusing the mirror equation or confusing real and virtual images.",
+   "topic": "Mirrors",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.physicsclassroom.com/calcpad/Reflection-and-Mirrors/Equation-Overview"
+    ]
+   }
+  },
+  {
+   "id": "FL10_CP_D10",
+   "stem": "An ambulance siren emits a 700 Hz tone and moves at 34 m/s toward a stationary listener. The speed of sound is 340 m/s. What frequency does the listener hear?",
+   "options": {
+    "A": "778 Hz, because an approaching source raises the observed frequency",
+    "B": "770 Hz, from multiplying 700 Hz by 1.10 as an approximation",
+    "C": "636 Hz, the frequency heard if the ambulance were moving away",
+    "D": "700 Hz, because the frequency of a source is unaffected by the motion"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) f' = f v/(v − vs) = 700 x 340/306 = 778 Hz; the frequency is higher for an approaching source. Why the others are wrong: B) The exact calculation uses 340/(340 − 34), not 1.10. C) A receding source gives a lower frequency (700 x 340/374 = 636 Hz). D) The relative motion changes the received wavelength and frequency.",
+   "trap": "Using the receding-source form of the Doppler equation.",
+   "topic": "Doppler effect",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://eta.bibl.u-szeged.hu/2170/3/doppler_effect.html"
+    ]
+   }
+  },
+  {
+   "id": "FL10_CP_D11",
+   "stem": "Light with a photon energy of 4.0 eV strikes a metal whose work function is 2.5 eV. What is the stopping potential needed to halt the most energetic emitted electrons?",
+   "options": {
+    "A": "6.5 V, from adding the photon energy and the work function",
+    "B": "2.5 V, from using the work function as the stopping potential",
+    "C": "1.5 V, from the maximum kinetic energy of 1.5 eV divided by the electron charge",
+    "D": "4.0 V, from using the full photon energy as the stopping potential"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) K_max = hf − φ = 4.0 − 2.5 = 1.5 eV, so the stopping potential is 1.5 V. Why the others are wrong: A) The work function is subtracted, not added. B) The work function is the energy needed to free the electron, not the leftover kinetic energy. D) Part of the photon energy is used to overcome the work function.",
+   "trap": "Adding the work function instead of subtracting it.",
+   "topic": "Photoelectric effect",
+   "mastery_sheet_id": "4E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://cyberphysics.co.uk/topics/atomic/Photoelectric_effect/Photoelectric_effect_stopping_potential.html"
+    ]
+   }
+  },
+  {
+   "id": "FL10_CP_D12",
+   "stem": "A buffer is prepared with 0.20 M sodium acetate and 0.10 M acetic acid (pKa = 4.76). What is the pH of the buffer?",
+   "options": {
+    "A": "4.76, because the pH of a buffer always equals the pKa of its weak acid",
+    "B": "5.36, from using the logarithm of 4 rather than the logarithm of 2",
+    "C": "5.06, from 4.76 plus the log of the 2:1 base-to-acid ratio, 0.30",
+    "D": "4.46, from inverting the ratio of base to acid in the Henderson–Hasselbalch equation"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) pH = pKa + log([A⁻]/[HA]) = 4.76 + log 2 = 4.76 + 0.30 = 5.06. Why the others are wrong: A) pH equals pKa only when the acid and base concentrations are equal. B) The ratio is 0.20/0.10 = 2, not 4. D) The base is in the numerator; inverting gives 4.46.",
+   "trap": "Inverting the base-to-acid ratio in the Henderson-Hasselbalch equation.",
+   "topic": "Buffers",
+   "mastery_sheet_id": "5A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openstax.org/books/organic-chemistry/pages/20-3-biological-acids-and-the-henderson-hasselbalch-equation"
+    ]
+   }
+  },
+  {
+   "id": "FL10_CP_D13",
+   "stem": "n-Pentane boils at 36 °C, whereas 2,2-dimethylpropane (neopentane), an isomer of the same formula, boils at 9.5 °C. Which explanation is best?",
+   "options": {
+    "A": "The n-pentane molecule has a permanent dipole, so dipole–dipole forces raise its boiling point",
+    "B": "The neopentane molecule has a higher molar mass, so more energy is needed to vaporize it",
+    "C": "The n-pentane molecule forms hydrogen bonds, so it is held in the liquid more strongly",
+    "D": "The elongated n-pentane molecules have more surface contact, so London dispersion forces are stronger"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Both are nonpolar hydrocarbons with the same molar mass; the more compact neopentane has less surface area and thus weaker dispersion forces. Why the others are wrong: A) Both are nonpolar; neither has a significant permanent dipole. B) Isomers have identical molar masses. C) Alkanes have no O–H or N–H bonds and cannot hydrogen bond.",
+   "trap": "Looking for polarity or hydrogen bonding in a nonpolar hydrocarbon.",
+   "topic": "Intermolecular forces",
+   "mastery_sheet_id": "5B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_CP_D14",
+   "stem": "On a silica gel TLC plate, compound A moves 1.5 cm and compound B moves 4.0 cm while the solvent front moves 5.0 cm. Which conclusion is justified?",
+   "options": {
+    "A": "A and B have the same polarity, since both spots are inside the solvent front",
+    "B": "A is less polar than B, with Rf values of 0.30 and 0.80, since A is carried farther by the solvent",
+    "C": "B is less polar than A, with Rf values of 0.80 and 0.30, since B interacts less with the polar silica",
+    "D": "B is more polar than A, with Rf values of 0.80 and 0.30, since B interacts more with the silica"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Rf = distance traveled / solvent front distance: A = 1.5/5.0 = 0.30 and B = 4.0/5.0 = 0.80. The polar stationary phase retains polar compounds more strongly. Why the others are wrong: A) Different Rf values show different affinities for the stationary phase. B) The compound that travels farther is the one that interacts less with silica. D) Greater interaction with silica reduces mobility and Rf.",
+   "trap": "Reading a larger Rf as higher polarity on silica.",
+   "topic": "Thin-layer chromatography",
+   "mastery_sheet_id": "5C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL10_CP_D15",
+   "stem": "Methyl bromide, ethyl bromide, isopropyl bromide, and tert-butyl bromide each react with azide in a polar aprotic solvent by an SN2 mechanism. Which reacts fastest, and why?",
+   "options": {
+    "A": "Methyl bromide, because backside attack at the carbon is least hindered by neighboring substituents",
+    "B": "Isopropyl bromide, because a secondary carbon balances steric hindrance against carbocation stability",
+    "C": "All react at the same rate, because the leaving group is bromide in every case",
+    "D": "tert-Butyl bromide, because the most substituted carbon best stabilizes the developing positive charge"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) SN2 rates fall as substitution increases (CH3 > 1° > 2° >> 3°) because steric crowding blocks the backside approach. Why the others are wrong: B) No carbocation forms in the one-step SN2 pathway. C) The leaving group is the same, but the steric environment differs, so the rates differ. D) Carbocation stability governs SN1 rather than SN2 reactions.",
+   "trap": "Applying SN1 carbocation-stability ordering to an SN2 reaction.",
+   "topic": "Nucleophilic substitution",
+   "mastery_sheet_id": "5D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

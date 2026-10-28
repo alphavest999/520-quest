@@ -1,0 +1,138 @@
+[
+  {
+    "id": "bp1329-1",
+    "type": "question",
+    "passage_id": "bp1329",
+    "passage_text": "Researchers conducted a randomized, double‑blind, placebo‑controlled trial to evaluate the antihypertensive effects of a novel compound, Hypertensol, at three different daily doses (10 mg, 20 mg, and 30 mg). A total of 180 adults with stage 1 hypertension were enrolled and randomly assigned to one of the four groups: placebo (n = 30), 10 mg (n = 60), 20 mg (n = 50), or 30 mg (n = 40). Systolic blood pressure (SBP) was measured at baseline and after 12 weeks of treatment. The mean SBP reductions, standard deviations, and sample sizes are summarized in Table 1. The investigators hypothesized a dose‑dependent response, with the 30 mg group expected to show the greatest reduction. Adverse events were mild and comparable across groups. The study’s primary endpoint was the mean change in SBP from baseline to week 12.",
+    "table_data": {
+      "Dose_mg": [
+        10,
+        20,
+        30
+      ],
+      "Mean_SBP_Reduction_mmHg": [
+        7.8,
+        10.2,
+        12.4
+      ],
+      "Std_Dev_mmHg": [
+        2.9,
+        3.1,
+        3.3
+      ],
+      "Sample_Size": [
+        60,
+        50,
+        40
+      ]
+    },
+    "stem": "What is the mean systolic blood pressure (SBP) reduction for the 20 mg dose?",
+    "options": {
+      "A": "8.5 mmHg",
+      "B": "10.2 mmHg",
+      "C": "12.4 mmHg",
+      "D": "15.1 mmHg"
+    },
+    "correct": "B",
+    "explanation": "Table 1 lists the mean SBP reduction for the 20 mg group as 10.2 mmHg. The other options correspond to the 10 mg dose (7.8 mmHg), the 30 mg dose (12.4 mmHg), or an implausible value.",
+    "trap": "Choosing 12.4 mmHg, which is the 30 mg result, because the highest dose is assumed to be the answer rather than reading the 20 mg row.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1329-2",
+    "type": "question",
+    "passage_id": "bp1329",
+    "passage_text": "",
+    "table_data": {},
+    "stem": "Which statement best describes the control group used in this study?",
+    "options": {
+      "A": "Participants received an inert placebo instead of Hypertensol.",
+      "B": "Participants received the 10 mg dose of Hypertensol.",
+      "C": "Participants received no treatment.",
+      "D": "Participants received the 30 mg dose of Hypertensol."
+    },
+    "correct": "A",
+    "explanation": "Correct: The trial was placebo-controlled, so the control group (n = 30) received an inert placebo. Why the others are wrong: B) the 10 mg dose is an active treatment group, not the control. C) the design was placebo-controlled, so controls received a placebo rather than nothing. D) the 30 mg dose is an active treatment group, not the control.",
+    "trap": "Choosing 'no treatment' because a control is usually thought of as untreated, although the passage describes a placebo-controlled design.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1329-3",
+    "type": "question",
+    "passage_id": "bp1329",
+    "passage_text": "",
+    "table_data": {},
+    "stem": "What is the overall mean SBP reduction across all dose groups, weighted by sample size?",
+    "options": {
+      "A": "9.8 mmHg",
+      "B": "10.2 mmHg",
+      "C": "11.0 mmHg",
+      "D": "8.5 mmHg"
+    },
+    "correct": "A",
+    "explanation": "Weighted mean = (10.2×50 + 7.8×60 + 12.4×40) / (50+60+40) = 1474 / 150 ≈ 9.83 mmHg, rounded to 9.8 mmHg.",
+    "trap": "Taking the simple unweighted mean of the dose means (about 10.1) or the 20 mg value (10.2) instead of weighting each mean by its group size.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1329-4",
+    "type": "question",
+    "passage_id": "bp1329",
+    "passage_text": "",
+    "table_data": {},
+    "stem": "Which of the following is NOT a potential confounding variable in this study?",
+    "options": {
+      "A": "Age of participants",
+      "B": "Blood pressure measurement device",
+      "C": "Placebo effect",
+      "D": "Sample size"
+    },
+    "correct": "D",
+    "explanation": "Sample size is a design parameter, not a confounder. Age, measurement device, and placebo effect can bias results if unevenly distributed.",
+    "trap": "Dismissing the measurement device or the placebo effect as non-confounders, when these can bias results and only sample size affects precision rather than distorting the association.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1329-5",
+    "type": "question",
+    "passage_id": "bp1329",
+    "passage_text": "",
+    "table_data": {},
+    "stem": "Which statement best summarizes the study’s conclusion?",
+    "options": {
+      "A": "Higher doses of Hypertensol produce greater SBP reductions.",
+      "B": "No dose‑response relationship was observed.",
+      "C": "The 20 mg dose is the optimal balance of efficacy and safety.",
+      "D": "The 30 mg dose was associated with increased adverse events."
+    },
+    "correct": "A",
+    "explanation": "The data show a clear dose‑dependent trend: 10 mg → 7.8 mmHg, 20 mg → 10.2 mmHg, 30 mg → 12.4 mmHg, supporting a dose‑response relationship.",
+    "trap": "Reading an optimal 20 mg dose into the data (option C), although the passage reports no dose-by-dose safety comparison from which an optimum could be claimed.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  }
+]

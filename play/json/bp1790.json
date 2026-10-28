@@ -1,0 +1,88 @@
+{
+  "passage_id": "bp1790",
+  "passage": "Researchers in the Tanaka laboratory studied three reversible reactions of early carbohydrate metabolism in extracts of rat liver. Each reaction was allowed to reach equilibrium in a sealed reaction vessel at 37 °C and pH 7.0, after which reactants and products were quantified by HPLC to give the equilibrium constant. In a second set of experiments, intact hepatocytes were rapidly freeze-clamped and the steady-state ratio of products to reactants, known as the mass-action ratio Q, was measured for the same reactions. Comparing Q with Keq indicates how far each reaction sits from equilibrium under physiological conditions, and therefore which steps are likely to be regulated. The investigators used R = 8.314 J/(mol·K) and expected values of ΔG°′ to be consistent with literature compilations. All reagents were of analytical grade, and each reaction vessel was degassed to avoid oxidation of sulfhydryl groups. All procedures followed the laboratory's standard operating protocols, and raw data were archived before analysis.",
+  "table": "Table 1. Equilibrium and mass-action ratios\n\n| Reaction | Keq | Q in hepatocytes |\n|---|---|---|\n| glucose + ATP → glucose-6-phosphate + ADP | 652 | 6.52 |\n| fructose-6-phosphate → glucose-6-phosphate | 1.93 | 193 |\n| dihydroxyacetone phosphate → glyceraldehyde-3-phosphate | 0.0545 | 0.0545 |",
+  "questions": [
+    {
+      "stem": "According to Table 1, which reaction operates closest to equilibrium in hepatocytes?",
+      "options": {
+        "A": "Reaction B: fructose-6-phosphate → glucose-6-phosphate",
+        "B": "Reaction A: glucose + ATP → glucose-6-phosphate + ADP",
+        "C": "Reaction C: dihydroxyacetone phosphate → glyceraldehyde-3-phosphate",
+        "D": "None; all three are far from equilibrium"
+      },
+      "correct": "C",
+      "explanation": "Q/Keq near 1 indicates near-equilibrium operation. Reaction C has Q closest to Keq, so it is the least likely to be a regulatory step.",
+      "topic": "Thermodynamics: data interpretation",
+      "accuracy_verified": true,
+      "trap": "Picking the reaction with the largest Keq or the largest Q instead of the one where Q equals Keq.",
+      "mastery_sheet_id": "1D",
+      "id": "bp1790-1"
+    },
+    {
+      "stem": "Which control best confirms that the measured Keq reflects true equilibrium rather than a slow approach?",
+      "options": {
+        "A": "Double the enzyme concentration and observe a faster rate",
+        "B": "Approach equilibrium from both the reactant side and the product side and obtain the same ratio",
+        "C": "Measure only product concentration at a single time point",
+        "D": "Lower the temperature to slow the reaction before quantifying"
+      },
+      "correct": "B",
+      "explanation": "A true equilibrium ratio is independent of the direction of approach; a path-dependent ratio signals the system has not equilibrated.",
+      "topic": "Thermodynamics: experimental design",
+      "accuracy_verified": true,
+      "trap": "Believing a faster rate or a single measurement proves equilibrium, when only reaching the same ratio from both directions shows it.",
+      "mastery_sheet_id": "1D",
+      "id": "bp1790-2"
+    },
+    {
+      "stem": "For reaction B (Keq = 1.93), what is ΔG°′ at 310 K, in kJ/mol?",
+      "options": {
+        "A": "-1.7 kJ/mol",
+        "B": "1.7 kJ/mol",
+        "C": "-0.7 kJ/mol",
+        "D": "-3.9 kJ/mol"
+      },
+      "correct": "A",
+      "explanation": "ΔG°′ = −RT ln Keq = −(0.008314 × 310) × ln(1.93) = -1.7 kJ/mol (literature value -1.7 kJ/mol). Using log10 instead of the natural log, or reversing the sign, gives the wrong values.",
+      "topic": "Thermodynamics: ΔG°′ calculation",
+      "accuracy_verified": true,
+      "trap": "Using log10 instead of the natural log, or dropping the minus sign, which gives -0.7 or +1.7 kJ/mol instead of -1.7.",
+      "mastery_sheet_id": "1D",
+      "id": "bp1790-3"
+    },
+    {
+      "stem": "Which statement is INCORRECT?",
+      "options": {
+        "A": "A reaction with a negative ΔG°′ always proceeds rapidly in the cell",
+        "B": "ΔG°′ is related to the equilibrium constant but not to the reaction rate",
+        "C": "A reaction with positive ΔG°′ can proceed forward if Q is sufficiently small",
+        "D": "Actual ΔG depends on Q as well as ΔG°′"
+      },
+      "correct": "A",
+      "explanation": "Thermodynamics specifies direction, not speed. Rate depends on activation energy and enzyme catalysis.",
+      "topic": "Thermodynamics vs kinetics: trap",
+      "accuracy_verified": true,
+      "trap": "Assuming a negative standard free energy means a reaction is fast in the cell, confusing thermodynamics with kinetics.",
+      "mastery_sheet_id": "1D",
+      "id": "bp1790-4"
+    },
+    {
+      "stem": "Which mechanism allows cells to drive reactions with large positive ΔG°′ forward?",
+      "options": {
+        "A": "Coupling them to a strongly exergonic step such as ATP hydrolysis",
+        "B": "Raising the temperature enough to make Keq equal 1",
+        "C": "Increasing the enzyme concentration to lower ΔG°′",
+        "D": "Removing the catalyst so the reaction is not rate-limited"
+      },
+      "correct": "A",
+      "explanation": "Enzymes do not change ΔG°′. Coupling to ATP hydrolysis (about −30.5 kJ/mol) or keeping Q very low makes the overall ΔG negative.",
+      "topic": "Bioenergetics: coupled reactions",
+      "accuracy_verified": true,
+      "trap": "Thinking an enzyme or higher temperature changes the standard free energy, when cells actually couple the reaction to a strongly exergonic step.",
+      "mastery_sheet_id": "1D",
+      "id": "bp1790-5"
+    }
+  ],
+  "accuracy_verified": true
+}

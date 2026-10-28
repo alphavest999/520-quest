@@ -1,0 +1,772 @@
+[
+ {
+  "id": "d_5D_1",
+  "type": "discrete",
+  "stem": "What is the predominant net charge of glycine (pKa1 2.3, pKa2 9.6) at pH 1?",
+  "options": {
+   "A": "0",
+   "B": "-1",
+   "C": "+2",
+   "D": "+1"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Below pKa1 both groups are protonated (COOH and NH3+), giving a net charge of +1. Why the others are wrong: A) 0 is the zwitterion that predominates between pH 2.3 and 9.6. B) -1 occurs above pKa2 (9.6), when the amino group is deprotonated. C) +2 is impossible for glycine, which has only one cationic group.",
+  "trap": "Assuming the zwitterion predominates at all pH values.",
+  "topic": "Amino acid charge",
+  "mastery_sheet_id": "5D",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_2",
+  "type": "discrete",
+  "stem": "Aspartic acid has pKa values of 1.9 (alpha-COOH), 3.9 (side chain) and 9.8 (alpha-NH3+). What is its pI?",
+  "options": {
+   "A": "2.9",
+   "B": "5.9",
+   "C": "6.9",
+   "D": "3.9"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) pI is the average of the two pKa values flanking the neutral species: (1.9 + 3.9)/2 = 2.9. Why the others are wrong: B) 5.9 averages the lowest and highest pKa values, which do not flank the neutral form. C) 6.9 averages 3.9 and 9.8, which would apply to a basic amino acid. D) 3.9 is a single pKa, not an average.",
+  "trap": "Averaging the wrong pair of pKa values.",
+  "topic": "Isoelectric point",
+  "mastery_sheet_id": "5D",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC9523718/table/tbl1"
+   ]
+  }
+ },
+ {
+  "id": "d_5D_3",
+  "type": "discrete",
+  "stem": "At physiological pH, lysine's side chain is:",
+  "options": {
+   "A": "Deprotonated and negative",
+   "B": "Protonated and positively charged",
+   "C": "Neutral and nonpolar",
+   "D": "Polar and uncharged"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The epsilon-amino group (pKa about 10.5) is protonated at pH 7.4, giving a positive charge. Why the others are wrong: A) Deprotonated and negative describes acidic residues such as Asp and Glu. C) Lysine's side chain is a charged amine, not neutral and nonpolar. D) Lysine's side chain is charged at physiological pH, not polar uncharged.",
+  "trap": "Confusing lysine with an acidic residue.",
+  "topic": "Basic amino acids",
+  "mastery_sheet_id": "5D",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_4",
+  "type": "discrete",
+  "stem": "Which statement describes the peptide bond?",
+  "options": {
+   "A": "It rotates freely",
+   "B": "It is an ionic bond",
+   "C": "It is planar with partial double-bond character due to resonance",
+   "D": "It is a bond between side chains"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Delocalization of the nitrogen lone pair into the carbonyl gives partial double-bond character, restricting rotation and holding six atoms in a plane. Why the others are wrong: A) Free rotation would require a pure single bond. B) The peptide bond is covalent, not ionic. D) It links backbone atoms (carbonyl C and amide N), not side chains.",
+  "trap": "Believing peptide bonds are free to rotate.",
+  "topic": "Peptide bond",
+  "mastery_sheet_id": "5D",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_5",
+  "type": "discrete",
+  "stem": "Which standard amino acid is achiral?",
+  "options": {
+   "A": "Alanine",
+   "B": "Proline",
+   "C": "Serine",
+   "D": "Glycine"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Glycine's alpha carbon bears two hydrogens, so it has no stereocenter and is achiral. Why the others are wrong: A) Alanine has four different groups on its alpha carbon. B) Proline has four different groups on its alpha carbon. C) Serine has four different groups on its alpha carbon.",
+  "trap": "Selecting the smallest chiral residue.",
+  "topic": "Achiral amino acid",
+  "mastery_sheet_id": "5D",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_6",
+  "type": "discrete",
+  "stem": "Most L-amino acids are S, but L-cysteine is R. Why?",
+  "options": {
+   "A": "The CH2SH group outranks COOH in CIP priority",
+   "B": "Cysteine is a D-amino acid",
+   "C": "Sulfur is lighter than carbon",
+   "D": "L-cysteine has no stereocenter"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The sulfur in CH2SH gives the side chain higher CIP priority than COOH, reversing the descriptor to R with the same spatial arrangement as other L-amino acids. Why the others are wrong: B) Cysteine is an L-amino acid, not D. C) Sulfur is heavier than carbon, not lighter, which is why priority changes. D) The alpha carbon of L-cysteine is a stereocenter.",
+  "trap": "Equating L with S in all amino acids.",
+  "topic": "Cysteine stereochemistry",
+  "mastery_sheet_id": "5D",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_7",
+  "type": "discrete",
+  "stem": "Disulfide bonds in proteins form between:",
+  "options": {
+   "A": "Two serine side chains",
+   "B": "Two cysteine side chains upon oxidation",
+   "C": "Backbone carbonyls",
+   "D": "Lysine and aspartate"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Thiol groups on two cysteines are oxidized to an S-S covalent link that stabilizes tertiary or quaternary structure. Why the others are wrong: A) Serine has a hydroxyl, not a thiol, so it cannot form disulfides. C) Backbone carbonyls form hydrogen bonds, not disulfides. D) Lysine and aspartate form salt bridges (ionic), not disulfides.",
+  "trap": "Confusing disulfides with salt bridges.",
+  "topic": "Disulfide bonds",
+  "mastery_sheet_id": "5D",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_8",
+  "type": "discrete",
+  "stem": "Proline is frequently found in turns and disrupts alpha helices because:",
+  "options": {
+   "A": "It is highly charged",
+   "B": "It forms disulfides",
+   "C": "Its cyclic side chain restricts rotation and its amide nitrogen lacks an H for hydrogen bonding",
+   "D": "It is too large"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Proline's ring locks the phi angle and its amide nitrogen has no H, so it cannot donate a helix hydrogen bond. Why the others are wrong: A) Proline is neutral, not highly charged. B) Proline has no thiol and cannot form disulfides. D) Proline is relatively small.",
+  "trap": "Assuming proline disrupts helices due to charge.",
+  "topic": "Proline in helices",
+  "mastery_sheet_id": "5D",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_9",
+  "type": "discrete",
+  "stem": "In beta sheets, hydrogen bonds form between:",
+  "options": {
+   "A": "Side chains of the same residue",
+   "B": "Cysteines",
+   "C": "Carboxyl groups only",
+   "D": "Backbone groups of adjacent strands"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Backbone N-H and C=O groups on neighboring strands hydrogen bond to stabilize the sheet. Why the others are wrong: A) Side chains project above and below the sheet and do not form its hydrogen bonds. B) Cysteines form disulfides, which are covalent rather than hydrogen bonds. C) Hydrogen bonds involve backbone N-H and C=O, not carboxyl groups only.",
+  "trap": "Mixing helix and sheet bonding.",
+  "topic": "Beta sheets",
+  "mastery_sheet_id": "5D",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_10",
+  "type": "discrete",
+  "stem": "Treating a protein with urea would disrupt:",
+  "options": {
+   "A": "Noncovalent interactions, leaving primary structure intact",
+   "B": "Peptide bonds",
+   "C": "The amino acid sequence",
+   "D": "Carbon-carbon bonds"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Urea breaks hydrogen bonds and hydrophobic packing, unfolding the protein while leaving covalent primary structure intact. Why the others are wrong: B) Peptide bonds need hydrolysis, not urea, to break. C) The amino acid sequence is covalent and unchanged by denaturation. D) Carbon-carbon bonds are strong covalent bonds unaffected by urea.",
+  "trap": "Thinking denaturation changes sequence.",
+  "topic": "Protein denaturation",
+  "mastery_sheet_id": "5D",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_11",
+  "type": "discrete",
+  "stem": "Glucose in its cyclic form is a:",
+  "options": {
+   "A": "Ketal",
+   "B": "Hemiacetal",
+   "C": "Ester",
+   "D": "Ether only"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The C5 hydroxyl adds to the aldehyde C1, forming a cyclic hemiacetal. Why the others are wrong: A) A ketal would form from a ketone with two alcohols. C) An ester would form from a carboxylic acid and an alcohol. D) Cyclic glucose has a hemiacetal carbon bearing both OR and OH, not only an ether.",
+  "trap": "Confusing hemiacetal with acetal.",
+  "topic": "Glucose structure",
+  "mastery_sheet_id": "5D",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_12",
+  "type": "discrete",
+  "stem": "Alpha- and beta-D-glucose differ only in configuration at:",
+  "options": {
+   "A": "C2",
+   "B": "C4",
+   "C": "C1, the anomeric carbon",
+   "D": "C6"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Ring closure creates a new stereocenter at C1, the anomeric carbon, where alpha and beta differ. Why the others are wrong: A) A difference at C2 would produce an epimer (mannose), not an anomer. B) A difference at C4 would produce galactose. D) C6 is not a stereocenter in glucose.",
+  "trap": "Calling all stereoisomeric sugars anomers.",
+  "topic": "Anomers",
+  "mastery_sheet_id": "5D",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_13",
+  "type": "discrete",
+  "stem": "D-Glucose and D-galactose differ only at C4. They are:",
+  "options": {
+   "A": "Anomers",
+   "B": "Enantiomers",
+   "C": "Constitutional isomers",
+   "D": "Epimers"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Diastereomers that differ at a single stereocenter are epimers. Why the others are wrong: A) Anomers differ at the anomeric carbon (C1), not C4. B) Enantiomers differ at all stereocenters. C) Constitutional isomers differ in connectivity, but glucose and galactose have the same connectivity.",
+  "trap": "Confusing epimers with enantiomers.",
+  "topic": "Epimers",
+  "mastery_sheet_id": "5D",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_14",
+  "type": "discrete",
+  "stem": "When pure alpha-D-glucose is dissolved in water, its optical rotation changes over time because:",
+  "options": {
+   "A": "The ring opens and reforms, interconverting alpha and beta forms",
+   "B": "The sugar is oxidized",
+   "C": "The sugar becomes a ketose",
+   "D": "Glycosidic bonds hydrolyze"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Through the open-chain aldehyde form, alpha and beta anomers interconvert until equilibrium (mutarotation), changing the rotation. Why the others are wrong: B) Oxidation is not required for mutarotation. C) Conversion to a ketose is not involved; it is isomerization at C1 only. D) Glucose is a monosaccharide with no glycosidic bonds to hydrolyze.",
+  "trap": "Assuming optical rotation changes require reaction.",
+  "topic": "Mutarotation",
+  "mastery_sheet_id": "5D",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_15",
+  "type": "discrete",
+  "stem": "Humans can digest starch but not cellulose because:",
+  "options": {
+   "A": "Cellulose contains peptide bonds",
+   "B": "Cellulose has beta(1-4) linkages that human enzymes cannot cleave",
+   "C": "Starch is a lipid",
+   "D": "Cellulose has alpha(1-6) branches"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Cellulose has beta(1-4) linkages that human enzymes cannot cleave, whereas amylase cleaves alpha linkages in starch. Why the others are wrong: A) Cellulose has glycosidic bonds between glucose units, not peptide bonds. C) Starch is a carbohydrate (glucose polymer), not a lipid. D) Cellulose is unbranched beta(1-4); alpha(1-6) branches are found in starch and glycogen.",
+  "trap": "Assuming the monomer differs, when the anomeric linkage geometry determines enzymatic digestibility.",
+  "topic": "Glycosidic linkages",
+  "mastery_sheet_id": "5D",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_16",
+  "type": "discrete",
+  "stem": "Sucrose does not give a positive Benedict's test because:",
+  "options": {
+   "A": "It has no hydroxyl groups",
+   "B": "It is a ketose only",
+   "C": "Its anomeric carbons are tied up in the glycosidic bond",
+   "D": "It is a lipid"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Both anomeric carbons are tied up in the glycosidic bond, so no free hemiacetal can open to an aldehyde. Why the others are wrong: A) Sucrose has many hydroxyl groups. B) Sucrose is a glucose-fructose disaccharide whose anomeric carbons are locked, not simply a ketose. D) Sucrose is a carbohydrate, not a lipid.",
+  "trap": "Assuming every sugar reduces, even when the anomeric carbons are locked in a glycosidic bond.",
+  "topic": "Reducing sugars",
+  "mastery_sheet_id": "5D",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_17",
+  "type": "discrete",
+  "stem": "A positive Tollens test (silver mirror) indicates:",
+  "options": {
+   "A": "A ketone",
+   "B": "An alkane",
+   "C": "An ether",
+   "D": "An aldehyde"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Aldehydes are oxidized to carboxylates while Ag+ is reduced to metallic silver. Why the others are wrong: A) Ketones resist mild oxidation and give no mirror. B) Alkanes lack oxidizable groups. C) Ethers lack oxidizable groups.",
+  "trap": "Assuming ketones also give a silver mirror, although ketones resist mild oxidation.",
+  "topic": "Tollens reagent",
+  "mastery_sheet_id": "5D",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_18",
+  "type": "discrete",
+  "stem": "Compared with a saturated fatty acid of the same length, a cis-unsaturated fatty acid has a:",
+  "options": {
+   "A": "Lower melting point because of kinks that prevent tight packing",
+   "B": "Higher melting point",
+   "C": "Same melting point",
+   "D": "Higher melting point because of more dispersion"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Cis double bonds introduce bends that reduce packing and dispersion contacts, lowering the melting point. Why the others are wrong: B) Higher melting point is wrong because saturated chains pack more tightly. C) Same melting point ignores the kink effect on packing. D) More dispersion would apply to straight saturated chains, not kinked cis chains.",
+  "trap": "Thinking more double bonds raise melting point.",
+  "topic": "Fatty acid melting point",
+  "mastery_sheet_id": "5D",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_19",
+  "type": "discrete",
+  "stem": "Base hydrolysis of a triacylglycerol yields:",
+  "options": {
+   "A": "Glucose and amino acids",
+   "B": "Glycerol and fatty acid salts",
+   "C": "Cholesterol and phosphate",
+   "D": "Only glycerol"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Saponification produces glycerol and carboxylate salts (soaps). Why the others are wrong: A) Triglycerides contain no sugar or amino acids. C) Cholesterol and phosphate are not triglyceride components. D) Only glycerol ignores the fatty acid salts also formed.",
+  "trap": "Forgetting the products are salts.",
+  "topic": "Saponification",
+  "mastery_sheet_id": "5D",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_20",
+  "type": "discrete",
+  "stem": "At physiological temperatures, cholesterol in membranes:",
+  "options": {
+   "A": "Only increases fluidity",
+   "B": "Forms covalent bonds with phospholipids",
+   "C": "Reduces fluidity at high temperature and prevents tight packing at low temperature",
+   "D": "Is found only in plants"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Cholesterol buffers fluidity: it restrains phospholipid motion at high temperature and prevents tight packing at low temperature. Why the others are wrong: A) Says it only increases fluidity, but it also decreases fluidity at high temperature. B) It does not covalently bind phospholipids; it inserts through noncovalent interactions. D) Cholesterol is found in animal cell membranes, not only in plants.",
+  "trap": "Thinking cholesterol has one effect only.",
+  "topic": "Cholesterol and membranes",
+  "mastery_sheet_id": "5D",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_21",
+  "type": "discrete",
+  "stem": "Steroids are characterized by:",
+  "options": {
+   "A": "A glycerol backbone",
+   "B": "A peptide backbone",
+   "C": "Two fused rings",
+   "D": "Four fused rings"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The steroid nucleus has four fused rings (three six-membered and one five-membered). Why the others are wrong: A) Says a glycerol backbone, but glycerol is found in triglycerides and phospholipids. B) Says a peptide backbone, but steroids are lipids, not peptides. C) Says two fused rings, but the steroid nucleus has four.",
+  "trap": "Confusing steroids with glycerolipids.",
+  "topic": "Steroid structure",
+  "mastery_sheet_id": "5D",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_22",
+  "type": "discrete",
+  "stem": "RNA is less stable than DNA in base because:",
+  "options": {
+   "A": "The 2'-OH can attack the phosphodiester backbone",
+   "B": "RNA has deoxyribose",
+   "C": "RNA lacks phosphate",
+   "D": "RNA has thymine"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The 2'-hydroxyl acts as an internal nucleophile attacking the phosphodiester backbone under basic conditions, cleaving RNA. Why the others are wrong: B) RNA contains ribose, while deoxyribose is DNA's sugar. C) RNA has phosphate in its backbone just like DNA. D) Thymine is found in DNA; RNA has uracil.",
+  "trap": "Thinking deoxyribose is in RNA.",
+  "topic": "RNA stability",
+  "mastery_sheet_id": "5D",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_23",
+  "type": "discrete",
+  "stem": "Which pair contains only purines?",
+  "options": {
+   "A": "Cytosine and thymine",
+   "B": "Adenine and guanine",
+   "C": "Adenine and uracil",
+   "D": "Guanine and cytosine"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Adenine and guanine are the purines, with two fused rings. Why the others are wrong: A) Cytosine and thymine are both single-ring pyrimidines. C) Adenine is a purine but uracil is a pyrimidine. D) Guanine is a purine but cytosine is a pyrimidine.",
+  "trap": "Mixing purine and pyrimidine lists.",
+  "topic": "Purines and pyrimidines",
+  "mastery_sheet_id": "5D",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_24",
+  "type": "discrete",
+  "stem": "In double-stranded DNA, adenine makes up 22% of bases. What percentage is guanine?",
+  "options": {
+   "A": "22%",
+   "B": "44%",
+   "C": "28%",
+   "D": "56%"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Chargaff's rules give A = T = 22% (44% total), leaving 56% split equally: G = C = 28%. Why the others are wrong: A) 22% would equal the A percentage, not G. B) 44% is A + T combined. D) 56% is G + C combined, not G alone.",
+  "trap": "Forgetting that G and C split the remainder.",
+  "topic": "Chargaff's rules",
+  "mastery_sheet_id": "5D",
+  "difficulty": "518",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_5D_25",
+  "type": "discrete",
+  "stem": "In a DNA strand, the phosphodiester bond connects:",
+  "options": {
+   "A": "Two bases",
+   "B": "Two 5' carbons",
+   "C": "Base and sugar of one nucleotide",
+   "D": "The 3' carbon of one sugar and 5' carbon of the next"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) A phosphate bridges the 3'-OH of one sugar and the 5'-OH of the next, forming the backbone. Why the others are wrong: A) Bases are linked by hydrogen bonds across strands, not by phosphodiester bonds. B) Connecting two 5' carbons does not match the 3'-5' linkage. C) Base-to-sugar attachment within a nucleotide is a glycosidic bond, not phosphodiester.",
+  "trap": "Confusing glycosidic and phosphodiester bonds.",
+  "topic": "Phosphodiester linkage",
+  "mastery_sheet_id": "5D",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_26",
+  "type": "discrete",
+  "stem": "Which carboxylic acid derivative is most reactive toward nucleophilic acyl substitution?",
+  "options": {
+   "A": "Acid chloride",
+   "B": "Amide",
+   "C": "Ester",
+   "D": "Carboxylate"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Chloride is an excellent leaving group and offers little resonance donation, so acid chlorides are most reactive. Why the others are wrong: B) Amides have strong resonance donation from N and are least reactive among neutral derivatives. C) Esters are less reactive than acid chlorides because alkoxide is a poorer leaving group. D) Carboxylates are negatively charged and resist nucleophilic attack.",
+  "trap": "Ranking by size rather than leaving group.",
+  "topic": "Acyl derivative reactivity",
+  "mastery_sheet_id": "5D",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_27",
+  "type": "discrete",
+  "stem": "Heating acetic acid and ethanol with an acid catalyst gives:",
+  "options": {
+   "A": "Acetamide",
+   "B": "Ethyl acetate and water",
+   "C": "Acetaldehyde",
+   "D": "Diethyl ether only"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Acid-catalyzed condensation (Fischer esterification) of the acid and alcohol forms ethyl acetate and water. Why the others are wrong: A) No amine is present for amide formation. C) Acetaldehyde would require oxidation or reduction, not condensation. D) Ether formation from ethanol alone is not the favored acid-with-alcohol outcome here.",
+  "trap": "Thinking alcohols make amides.",
+  "topic": "Fischer esterification",
+  "mastery_sheet_id": "5D",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_28",
+  "type": "discrete",
+  "stem": "Peptide bonds are stable in water at neutral pH because:",
+  "options": {
+   "A": "They are ionic",
+   "B": "They are electrophilic like acid chlorides",
+   "C": "Amide resonance makes hydrolysis slow without a catalyst",
+   "D": "Water is unreactive with all bonds"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Amide resonance stabilization raises the barrier, so hydrolysis is slow without a catalyst. Why the others are wrong: A) Peptide bonds are covalent, not ionic. B) Peptide bonds are less electrophilic than acid chlorides. D) Water does react with bonds under catalysis; peptide bonds are just kinetically stable.",
+  "trap": "Thinking low reactivity means thermodynamic stability.",
+  "topic": "Peptide bond stability",
+  "mastery_sheet_id": "5D",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_29",
+  "type": "discrete",
+  "stem": "Cyclization of fructose to a five-membered ring forms a:",
+  "options": {
+   "A": "Hemiacetal",
+   "B": "Acetal",
+   "C": "Anhydride",
+   "D": "Hemiketal"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The ketone at C2 reacts with the C5 hydroxyl to form a cyclic hemiketal (five-membered ring). Why the others are wrong: A) Hemiacetals arise from aldehydes, not ketones. B) An acetal requires two alkoxy groups, not a single intramolecular addition. C) An anhydride requires two carboxyl-derived acyl groups.",
+  "trap": "Confusing ketose and aldose cyclization.",
+  "topic": "Fructose ring form",
+  "mastery_sheet_id": "5D",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_30",
+  "type": "discrete",
+  "stem": "Carboxylic acids are more acidic than alcohols mainly because:",
+  "options": {
+   "A": "The carboxylate is resonance stabilized",
+   "B": "Their O-H bond is longer",
+   "C": "They have more carbons",
+   "D": "They form hydrogen bonds"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The carboxylate conjugate base is resonance stabilized, with charge delocalized over two oxygens. Why the others are wrong: B) A longer O-H bond is not the main reason for acidity. C) Number of carbons does not explain the difference. D) Alcohols also hydrogen bond, so this cannot account for the difference.",
+  "trap": "Attributing acidity to hydrogen bonding or O-H bond features instead of resonance stabilization of the conjugate base.",
+  "topic": "Carboxylic acid acidity",
+  "mastery_sheet_id": "5D",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_31",
+  "type": "discrete",
+  "stem": "Niacin is a precursor for:",
+  "options": {
+   "A": "FAD",
+   "B": "NAD+",
+   "C": "CoA",
+   "D": "Heme"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Niacin (B3) is incorporated into NAD+ and NADP+. Why the others are wrong: A) FAD comes from riboflavin. C) CoA comes from pantothenate. D) Heme is synthesized from glycine and succinyl-CoA, not niacin.",
+  "trap": "Confusing which B vitamin feeds which cofactor, such as attributing FAD or CoA to niacin.",
+  "topic": "Water-soluble vitamins as coenzymes",
+  "mastery_sheet_id": "5D",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_32",
+  "type": "discrete",
+  "stem": "The alpha-amino group of alanine (pKa 9.69) provides its best buffering against added acid or base near which pH?",
+  "options": {
+   "A": "6.0",
+   "B": "4.0",
+   "C": "9.7",
+   "D": "7.4"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) A group buffers best within about one unit of its pKa, where protonated and deprotonated forms are present in similar amounts. Why the others are wrong: A) pH 6.0 is near the pI, where alanine is almost entirely zwitterionic and has minimal buffering. B) pH 4.0 is far from either pKa. D) pH 7.4 is far from either pKa (2.3 and 9.7).",
+  "trap": "Thinking the pI is where an amino acid buffers best.",
+  "topic": "Amino acid buffering",
+  "mastery_sheet_id": "5D",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_33",
+  "type": "discrete",
+  "stem": "The Strecker synthesis from an aldehyde, NH3 and HCN, followed by hydrolysis, gives:",
+  "options": {
+   "A": "A single L-amino acid",
+   "B": "A beta-amino acid",
+   "C": "A fatty acid",
+   "D": "A racemic alpha-amino acid"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Strecker synthesis has no chiral control, so the product is a racemic alpha-amino acid. Why the others are wrong: A) A single L-amino acid would require an enantioselective catalyst or enzyme. B) Beta-amino acids would have the amine on the beta carbon, but Strecker puts it on the alpha carbon. C) A fatty acid is not formed from an aldehyde, ammonia and cyanide.",
+  "trap": "Assuming synthesis produces one enantiomer.",
+  "topic": "Strecker synthesis",
+  "mastery_sheet_id": "5D",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_34",
+  "type": "discrete",
+  "stem": "Which reagent reduces a carboxylic acid to a primary alcohol?",
+  "options": {
+   "A": "LiAlH4",
+   "B": "NaBH4",
+   "C": "PCC",
+   "D": "H2O"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Lithium aluminum hydride is strong enough to reduce carboxylic acids to primary alcohols. Why the others are wrong: B) NaBH4 is too weak to reduce carboxylic acids. C) PCC is an oxidant, not a reducing agent. D) Water is not a reducing agent.",
+  "trap": "Treating NaBH4 and LiAlH4 as equivalent.",
+  "topic": "Hydride reductions",
+  "mastery_sheet_id": "5D",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_35",
+  "type": "discrete",
+  "stem": "PCC oxidizes a primary alcohol to:",
+  "options": {
+   "A": "A carboxylic acid",
+   "B": "An aldehyde",
+   "C": "A ketone",
+   "D": "An ester"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) PCC is a mild oxidant that stops at the aldehyde stage. Why the others are wrong: A) Carboxylic acids result from strong oxidants such as chromic acid. C) A ketone arises from oxidizing a secondary alcohol, not a primary one. D) An ester would require a different coupling, not simple oxidation.",
+  "trap": "Overoxidizing in the answer: assuming PCC takes a primary alcohol all the way to the carboxylic acid like strong oxidants do.",
+  "topic": "Alcohol oxidation",
+  "mastery_sheet_id": "5D",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_36",
+  "type": "discrete",
+  "stem": "Which set contains only fat-soluble vitamins?",
+  "options": {
+   "A": "B, C, D, K",
+   "B": "A, B, C, E",
+   "C": "A, D, E, K",
+   "D": "B, C, E, K"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Vitamins A, D, E and K are lipophilic and stored in fat. Why the others are wrong: A) Choosing B, C, D, K includes water-soluble B vitamins and C. B) Choosing A, B, C, E includes water-soluble B vitamins and C. D) Choosing B, C, E, K includes water-soluble B vitamins and C.",
+  "trap": "Assuming the B vitamins and vitamin C are fat-soluble, or forgetting which letters are lipophilic.",
+  "topic": "Fat-soluble vitamins",
+  "mastery_sheet_id": "5D",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_37",
+  "type": "discrete",
+  "stem": "Collagen's triple helix requires which amino acid at every third position?",
+  "options": {
+   "A": "Cysteine",
+   "B": "Tryptophan",
+   "C": "Leucine",
+   "D": "Glycine"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Glycine's small side chain fits into the crowded core of the triple helix, appearing at every third position. Why the others are wrong: A) Cysteine is larger and is not required at every third position. B) Tryptophan is too bulky for the helix interior. C) Leucine is too bulky for the helix interior.",
+  "trap": "Picking cysteine because of cross-links.",
+  "topic": "Collagen structure",
+  "mastery_sheet_id": "5D",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_38",
+  "type": "discrete",
+  "stem": "Protein solubility is typically lowest at:",
+  "options": {
+   "A": "The pI",
+   "B": "Very low pH",
+   "C": "Very high pH",
+   "D": "Any pH equally"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) At the pI the net charge is zero, so repulsion is minimal and proteins aggregate and precipitate. Why the others are wrong: B) Very low pH gives net positive charge, which helps solubility. C) Very high pH gives net negative charge, which helps solubility. D) Solubility depends on pH through net charge, so it is not equal.",
+  "trap": "Thinking solubility peaks at pI.",
+  "topic": "Zwitterion solubility",
+  "mastery_sheet_id": "5D",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_39",
+  "type": "discrete",
+  "stem": "ATP hydrolysis is highly exergonic partly because:",
+  "options": {
+   "A": "The adenine is cleaved",
+   "B": "Charge repulsion among phosphates is relieved",
+   "C": "Peptide bonds form",
+   "D": "Water is consumed as fuel"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Charge repulsion among the phosphate groups is relieved on hydrolysis, along with resonance stabilization of the products. Why the others are wrong: A) Adenine remains intact during hydrolysis. C) Peptide bonds are formed in translation, not by ATP hydrolysis itself. D) Water is a reactant in hydrolysis, not a fuel.",
+  "trap": "Calling the phosphate bond energy-rich in itself.",
+  "topic": "ATP hydrolysis",
+  "mastery_sheet_id": "5D",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5D_40",
+  "type": "discrete",
+  "stem": "Reaction of an aldehyde with excess alcohol under acid catalysis gives, after the hemiacetal, a(n):",
+  "options": {
+   "A": "Ester",
+   "B": "Carboxylic acid",
+   "C": "Acetal",
+   "D": "Amide"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) The hemiacetal hydroxyl is protonated and replaced by a second alkoxy group, forming the acetal (as in glycosidic bonds). Why the others are wrong: A) Esters require a carboxylic acid derivative, not an aldehyde and alcohol. B) No oxidation occurs, so no carboxylic acid forms. D) Amides require an amine and an acid derivative.",
+  "trap": "Assuming alcohols oxidize aldehydes to acids.",
+  "topic": "Acetal formation",
+  "mastery_sheet_id": "5D",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ }
+]

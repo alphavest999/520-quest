@@ -1,0 +1,1673 @@
+{
+ "exam": "FL08",
+ "section": "BB",
+ "passages": [
+  {
+   "passage_id": "FL08_BB_P1",
+   "passage_text": "Bovine ribonuclease A (RNase A) is a 124-residue enzyme stabilized by four disulfide bonds formed by its eight cysteine residues. A researcher measured catalytic activity under several treatments to test how the native fold is specified. Samples were treated as described in Table 1, and activity was assayed both during treatment and after dialysis that removed urea and beta-mercaptoethanol (beta-ME) from the sample. In a second experiment, fully reduced and denatured enzyme was dialyzed free of beta-ME and allowed to reoxidize in air, either in buffer or in the continued presence of 8 M urea. Activity recovery was followed over 24 hours (Figure 1). Native RNase A is a compact single polypeptide with no bound cofactors, and the assay buffer contained no other proteins. Activity was measured by following hydrolysis of cyclic cytidine 2',3'-phosphate at 25 C and pH 7.0, and each value is the mean of three independent samples. Dialysis was carried out against a large volume of buffer for 24 hours at 4 C, using a membrane permeable to urea and beta-ME but not to the enzyme.",
+   "table_data": "Table 1. RNase A activity (% of native) under each treatment\n\n| Treatment | Activity during treatment | Activity after dialysis |\n|---|---|---|\n| None | 100 | 100 |\n| 8 M urea | 3 | 96 |\n| 8 M urea + 0.1 M beta-ME | 0 | 88 |\n| 8 M urea + 0.1 M beta-ME, then air oxidation in 8 M urea | 0 | 1 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Recovery of RNase A activity during air reoxidation of reduced enzyme",
+    "x_label": "Time (h)",
+    "y_label": "Activity (% of native)",
+    "series": [
+     {
+      "name": "Reoxidation in buffer",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        2,
+        15
+       ],
+       [
+        6,
+        50
+       ],
+       [
+        12,
+        80
+       ],
+       [
+        24,
+        90
+       ]
+      ]
+     },
+     {
+      "name": "Reoxidation in 8 M urea",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        2,
+        1
+       ],
+       [
+        6,
+        1
+       ],
+       [
+        12,
+        2
+       ],
+       [
+        24,
+        2
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_BB_P1_Q1",
+     "stem": "According to Table 1, which statement best explains why activity returns after 8 M urea alone is removed?",
+     "options": {
+      "A": "Urea cleaves peptide bonds in the chain, and dialysis allows the enzyme to re-ligate them in the original order.",
+      "B": "Disulfide bonds remain intact, so the covalently constrained chain can re-form its noncovalent interactions after urea is removed.",
+      "C": "Urea reduces the disulfide bonds to thiols, which spontaneously reoxidize into the native pairs once urea is removed.",
+      "D": "Urea only masks the active site without altering the structure of the protein, so removal restores activity immediately."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The disulfides were never broken in urea alone, which is why the chain is held near its native topology and refolds (96% recovery). Why the others are wrong: A) Urea disrupts hydrogen bonds and hydrophobic packing; it does not hydrolyze peptide bonds, and peptide bonds do not re-ligate on dialysis. C) No reducing agent was present, so the disulfides stay intact; urea does not reduce them. D) Activity was 3% during treatment, which reflects global unfolding, not simple masking of the active site.",
+     "trap": "Assuming urea breaks covalent bonds; urea disrupts only noncovalent interactions.",
+     "topic": "Protein denaturation and refolding",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P1_Q2",
+     "stem": "What is the role of beta-ME in the second treatment of Table 1?",
+     "options": {
+      "A": "It oxidizes cysteine side chains to form additional disulfide bonds between the chains.",
+      "B": "It reduces each disulfide bond to a pair of free thiol groups.",
+      "C": "It hydrolyzes the peptide backbone adjacent to each cysteine residue.",
+      "D": "It disrupts hydrogen bonds in the secondary structure by acting as a chaotrope, as urea does."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Beta-ME is a thiol reducing agent that converts S-S bonds to two -SH groups through thiol-disulfide exchange, allowing complete unfolding in urea. Why the others are wrong: A) This is the opposite of its action; a reducing agent breaks disulfides rather than forming them. C) Reducing agents act on S-S bonds, not on peptide bonds. D) Urea is the chaotrope; beta-ME is added specifically to cleave the covalent cross-links.",
+     "trap": "Confusing a reducing agent with an oxidizing agent when describing disulfide chemistry.",
+     "topic": "Disulfide reduction",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P1_Q3",
+     "stem": "If the eight cysteines of fully reduced RNase A paired at random to form four disulfide bonds, about what percentage of the molecules would form the native pairing?",
+     "options": {
+      "A": "About 12%",
+      "B": "About 25%",
+      "C": "About 1%",
+      "D": "About 50%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Eight cysteines can be paired into four disulfides in 7 x 5 x 3 x 1 = 105 ways, only one of which is native, so about 1/105, or roughly 1%. This matches the 1% recovery after oxidation in urea. Why the others are wrong: A) 1/8 treats the problem as choosing one partner for a single cysteine. B) 1/4 counts only the four disulfide bonds, not the possible pairings. D) 1/2 assumes only two possible pairing arrangements.",
+     "trap": "Counting only the number of bonds rather than the number of possible pairings.",
+     "topic": "Disulfide scrambling probability",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://pmc.ncbi.nlm.nih.gov/articles/PMC8637583/figure/sch1"
+      ]
+     }
+    },
+    {
+     "id": "FL08_BB_P1_Q4",
+     "stem": "Which conclusion is best supported by Figure 1?",
+     "options": {
+      "A": "Disulfide bonds by themselves dictate the native fold, regardless of the surrounding solvent conditions.",
+      "B": "Refolding of RNase A requires a chaperone supplied by the buffer, and without it oxidation cannot yield the native pairs.",
+      "C": "The native fold is determined by the order in which the polypeptide emerges from a ribosome.",
+      "D": "The sequence encodes the fold, which forms when native noncovalent contacts are favored."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) In buffer, reduced enzyme recovered 90% activity, whereas in urea (which prevents native noncovalent contacts) it recovered about 2%. Sequence plus favorable conditions suffice. Why the others are wrong: A) Oxidation in urea formed disulfides but produced inactive protein, so disulfides alone do not specify the fold. B) The assay buffer contained no other proteins, and no ribosomes or chaperones were involved. C) The experiment began with a complete polypeptide, so translation order was not tested.",
+     "trap": "Attributing structure to the disulfide bonds alone; they stabilize the fold but pairing depends on the folded state.",
+     "topic": "Anfinsen folding experiment",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P1_Q5",
+     "stem": "In a eukaryotic cell, where would the disulfide bonds of a secreted protein like RNase A most likely form?",
+     "options": {
+      "A": "The cytosol",
+      "B": "The mitochondrial matrix",
+      "C": "The lumen of the endoplasmic reticulum",
+      "D": "The nucleoplasm"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The ER lumen is oxidizing and contains protein disulfide isomerase, which catalyzes formation and rearrangement of disulfides in secreted proteins. Why the others are wrong: A) The cytosol is kept reducing by high glutathione levels, which disfavors stable disulfides. B) The matrix is a reducing compartment, and RNase A is not a mitochondrial protein. D) The nucleoplasm is reducing, and secreted proteins do not fold there.",
+     "trap": "Assuming disulfides form wherever cysteines are present; the redox state of the compartment matters.",
+     "topic": "Disulfide formation in the ER",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_BB_P2",
+   "passage_text": "Silencing of the tumor suppressor gene RGS-7 is frequent in a colon cancer cell line. Bisulfite sequencing of the RGS-7 promoter CpG island, chromatin immunoprecipitation for acetylated histone H3, and quantitative RT-PCR were performed on normal colonic fibroblasts and on the tumor line. Tumor cells were then cultured for 72 hours with 5-azacytidine (a cytidine analog that is incorporated into replicating DNA and covalently traps DNA methyltransferases), with trichostatin A (TSA, an inhibitor of histone deacetylases), or with both. Doubling time of the tumor cells was approximately 24 hours. Results are shown in Table 1. Histone acetylation is given relative to normal fibroblasts, and RGS-7 mRNA was normalized to a housekeeping transcript and expressed relative to normal fibroblasts. The researcher concluded that DNA methylation and histone deacetylation both contribute to repression of the gene. Each condition was run in triplicate, and the drug concentrations used had no effect on cell viability over the treatment period. Bisulfite conversion deaminates unmethylated cytosine to uracil but leaves methylated cytosine unchanged, so methylation at individual CpG sites can be read by sequencing. All cells were grown in the same medium.",
+   "table_data": "Table 1. RGS-7 promoter state and expression\n\n| Cells and treatment | CpG methylation (%) | Histone H3 acetylation (relative) | RGS-7 mRNA (relative) |\n|---|---|---|---|\n| Normal fibroblasts | 4 | 1.0 | 1.00 |\n| Tumor, untreated | 91 | 0.2 | 0.05 |\n| Tumor + 5-azacytidine | 38 | 0.5 | 0.52 |\n| Tumor + TSA | 90 | 1.6 | 0.18 |\n| Tumor + both | 31 | 1.8 | 0.85 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL08_BB_P2_Q1",
+     "stem": "Which mechanism best explains how promoter CpG methylation represses transcription?",
+     "options": {
+      "A": "Methyl-CpG-binding proteins recruit histone deacetylases that compact chromatin and exclude transcription factors.",
+      "B": "Methylated cytosine cannot base-pair with guanine, so RNA polymerase stalls at the promoter during elongation.",
+      "C": "Methylation converts the CpG island into RNA, so the gene is silenced through hybridization to the transcript.",
+      "D": "Methylation of the template strand introduces stop codons into the mRNA, which then undergoes nonsense-mediated decay."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Methylated CpGs recruit MBD proteins with HDAC and remodeling complexes, producing condensed chromatin (the pattern of low acetylation in untreated tumor cells). Why the others are wrong: B) Methylated cytosine still base-pairs with guanine; methylation acts on chromatin accessibility and factor binding, not elongation. C) Methylation is a covalent DNA modification and does not turn DNA into RNA. D) Methylation does not alter the coding sequence, so no codons change.",
+     "trap": "Thinking methylation changes the DNA sequence or base-pairing rather than recruiting chromatin-modifying proteins.",
+     "topic": "Promoter methylation and repression",
+     "mastery_sheet_id": "1B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P2_Q2",
+     "stem": "Why did the tumor cells need to be cultured for 72 hours with 5-azacytidine for methylation to decrease?",
+     "options": {
+      "A": "The analog traps methyltransferase on replicating DNA, so new strands stay unmethylated after each division.",
+      "B": "The analog must first be transcribed into RNA and translated into a demethylase enzyme before methyl groups can be removed.",
+      "C": "The analog directly removes methyl groups from existing cytosines within minutes, but its effect is detected only after 72 hours.",
+      "D": "The analog binds histones and gradually displaces methylated DNA from nucleosomes during interphase, independent of DNA replication."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) With a 24-hour doubling time, 72 hours allows about three rounds of replication; each round dilutes methylation because trapped DNMT1 cannot maintain it on new strands. Why the others are wrong: B) The analog is incorporated into DNA, not translated, and it acts by inhibiting methyltransferase, not by inducing a demethylase. C) The analog does not chemically remove methyl groups from existing cytosines. D) The analog works through DNA incorporation, not histone binding, and nucleosomes remain bound to DNA.",
+     "trap": "Assuming the drug erases methyl marks directly; it depends on DNA replication.",
+     "topic": "DNA methyltransferase inhibition",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P2_Q3",
+     "stem": "TSA alone increased RGS-7 mRNA even though promoter methylation stayed at 90%. Which explanation is most consistent with this result?",
+     "options": {
+      "A": "Greater histone acetylation loosens chromatin enough for partial transcription despite methylation.",
+      "B": "TSA removes methyl groups from CpG sites, but the net effect is partially masked by increased mRNA degradation.",
+      "C": "TSA increases methylation of histones, which directly activates RNA polymerase at the methylated promoter.",
+      "D": "TSA acts as a transcription factor that binds the methylated CpG island and recruits the general transcription machinery."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Inhibiting HDACs preserves acetyl groups on lysines, neutralizing histone positive charge and loosening nucleosomes; methylation remained at 90%, so activation was only partial (0.18). Why the others are wrong: B) Methylation was unchanged at 90%, so TSA did not remove methyl groups. C) TSA inhibits deacetylases and does not increase histone methylation; the result involves acetylation. D) TSA is a small-molecule enzyme inhibitor, not a DNA-binding transcription factor.",
+     "trap": "Believing the TSA effect must come through lower DNA methylation, ignoring the table value of 90%.",
+     "topic": "Histone acetylation and gene expression",
+     "mastery_sheet_id": "1B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P2_Q4",
+     "stem": "Which comparison from Table 1 best supports the conclusion that methylation and deacetylation act together to repress RGS-7?",
+     "options": {
+      "A": "Both drugs alone increased mRNA above the untreated tumor level, but neither reached the normal level of 1.00.",
+      "B": "The increase in mRNA with both drugs (0.80) is greater than the sum of the increases with each drug alone (0.60).",
+      "C": "5-azacytidine increased mRNA more than TSA did, which shows that methylation is the only repressive mechanism.",
+      "D": "Normal fibroblasts have low methylation and high acetylation, which proves both marks are required for gene expression."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Combined treatment raised mRNA from 0.05 to 0.85 (+0.80), whereas the single treatments gave +0.47 and +0.13 (sum 0.60), so the effects are greater than additive. Why the others are wrong: A) Failure to reach 1.00 does not by itself show cooperation between the two mechanisms. C) TSA also increased expression, so methylation is not the only mechanism. D) Correlation in normal cells does not show how the marks interact in treated tumor cells.",
+     "trap": "Ranking which single drug worked better instead of comparing combined and summed effects.",
+     "topic": "Additive versus cooperative effects",
+     "mastery_sheet_id": "1B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_BB_P3",
+   "passage_text": "A researcher used a simulation to study genetic drift. Each replicate population contained N diploid individuals, random mating, no selection, no mutation, and no migration, and began with allele A at frequency 0.5. For each population size, 20 replicates were run for 50 generations. Expected heterozygosity declines in a finite population by a factor of (1 - 1/2N) each generation, so that H at generation t equals H(0) x (1 - 1/2N)^t, where H(0) = 2pq at the start. Table 1 gives the number of replicates in which allele A became fixed (frequency 1.0) or lost (frequency 0) by generation 50 and the mean heterozygosity at generation 50 across replicates. Figure 1 shows the expected decline of heterozygosity over time for each size. A replicate was scored as fixed if every individual carried only A, and as lost if no individual carried A. Heterozygosity was calculated from allele frequencies in each replicate at the end of generation 50 and then averaged. Generations were discrete and nonoverlapping, and each generation drew its parents at random from the previous one.",
+   "table_data": "Table 1. Outcomes after 50 generations (20 replicates each)\n\n| Population size (N) | Replicates with A fixed or lost | Mean heterozygosity at generation 50 |\n|---|---|---|\n| 10 | 17 | 0.038 |\n| 100 | 2 | 0.389 |\n| 1000 | 0 | 0.488 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Expected heterozygosity versus generation",
+    "x_label": "Generation",
+    "y_label": "Expected heterozygosity",
+    "series": [
+     {
+      "name": "N = 10",
+      "points": [
+       [
+        0,
+        0.5
+       ],
+       [
+        10,
+        0.299
+       ],
+       [
+        20,
+        0.179
+       ],
+       [
+        30,
+        0.107
+       ],
+       [
+        40,
+        0.064
+       ],
+       [
+        50,
+        0.038
+       ]
+      ]
+     },
+     {
+      "name": "N = 100",
+      "points": [
+       [
+        0,
+        0.5
+       ],
+       [
+        10,
+        0.476
+       ],
+       [
+        20,
+        0.452
+       ],
+       [
+        30,
+        0.43
+       ],
+       [
+        40,
+        0.409
+       ],
+       [
+        50,
+        0.389
+       ]
+      ]
+     },
+     {
+      "name": "N = 1000",
+      "points": [
+       [
+        0,
+        0.5
+       ],
+       [
+        10,
+        0.498
+       ],
+       [
+        20,
+        0.495
+       ],
+       [
+        30,
+        0.493
+       ],
+       [
+        40,
+        0.49
+       ],
+       [
+        50,
+        0.488
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_BB_P3_Q1",
+     "stem": "Why do the N = 10 populations lose heterozygosity so much faster than the N = 1000 populations?",
+     "options": {
+      "A": "Small populations experience stronger natural selection against heterozygotes than large populations.",
+      "B": "Small populations have higher mutation rates, which convert heterozygotes into homozygotes.",
+      "C": "Random sampling of gametes each generation causes larger chance fluctuations in allele frequency when few individuals reproduce.",
+      "D": "Inbreeding depression in small populations causes heterozygotes to leave fewer offspring."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) With 20 gene copies, each generation's allele frequency is a small random sample of the previous one, so fixation or loss occurs quickly (17 of 20 replicates). Why the others are wrong: A) The simulation specified no selection. B) The simulation specified no mutation. D) Differential fitness was excluded; the loss is due to sampling error in a neutral model.",
+     "trap": "Attributing the effect to selection or mutation when drift is a sampling-error process.",
+     "topic": "Genetic drift and population size",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P3_Q2",
+     "stem": "Using the formula given, what is the expected heterozygosity at generation 50 for a population with N = 25?",
+     "options": {
+      "A": "0.18",
+      "B": "0.36",
+      "C": "0.30",
+      "D": "0.02"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) (1 - 1/50)^50 = 0.98^50, about 0.36; multiplying by H(0) = 2(0.5)(0.5) = 0.50 gives about 0.18. Why the others are wrong: B) 0.36 is the retained fraction and omits multiplying by the starting heterozygosity of 0.50. C) 0.30 is the approximate value for N = 50, not N = 25. D) 0.02 reflects the per-generation loss of 1/2N, not the cumulative result.",
+     "trap": "Forgetting to multiply the retained fraction by the initial heterozygosity.",
+     "topic": "Heterozygosity decay calculation",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_BB_P3_Q3",
+     "stem": "Which change would most effectively counteract divergence in allele frequency among several small populations?",
+     "options": {
+      "A": "A reduction in the population size to increase the effect of sampling",
+      "B": "A shift to self-fertilization in every population",
+      "C": "A single strong bottleneck in each population",
+      "D": "Exchange of about one migrant per population each generation"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Gene flow introduces alleles from other populations, offsetting local fixation or loss and homogenizing allele frequencies. Why the others are wrong: A) Smaller populations would show more drift and diverge more. B) Self-fertilization increases homozygosity within each population without restoring shared alleles. C) A bottleneck reduces diversity further and increases random divergence.",
+     "trap": "Assuming any demographic change reduces drift; only larger size or gene flow does.",
+     "topic": "Gene flow versus drift",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P3_Q4",
+     "stem": "A few individuals from a large island population colonize a new island. Compared with the source population, the new population is most likely to show which pattern?",
+     "options": {
+      "A": "Allele frequencies identical to the source because all alleles are neutral",
+      "B": "Greater heterozygosity because mating occurs between unrelated founders",
+      "C": "Allele frequencies that differ from the source by chance, with reduced allelic diversity",
+      "D": "Allele frequencies shifted toward the alleles with the highest fitness in the source"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) This is the founder effect: a small sample carries only some alleles at chance frequencies, and a small size increases later drift. Why the others are wrong: A) Small samples rarely mirror source frequencies even for neutral alleles. B) Founders carry a limited subset of alleles, so heterozygosity is usually lower. D) Chance, not fitness in the source, determines which alleles the founders carry.",
+     "trap": "Assuming a sample reproduces the source frequencies exactly.",
+     "topic": "Founder effect",
+     "mastery_sheet_id": "1C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P3_Q5",
+     "stem": "In one simulated N = 1000 population at generation 50, the frequency of A is 0.8. If mating is random, what is the expected frequency of heterozygotes among offspring?",
+     "options": {
+      "A": "0.16",
+      "B": "0.64",
+      "C": "0.20",
+      "D": "0.32"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Heterozygote frequency is 2pq = 2(0.8)(0.2) = 0.32 under Hardy-Weinberg conditions. Why the others are wrong: A) 0.16 omits the factor of 2 (pq). B) 0.64 is p squared, the frequency of AA homozygotes. C) 0.20 is the frequency of the minor allele, not of heterozygotes.",
+     "trap": "Forgetting the factor of 2 or reporting a homozygote frequency.",
+     "topic": "Hardy-Weinberg heterozygote frequency",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://espanol.libretexts.org/Bookshelves/Biologia/Biotecnologia/Bio-Oer_(CUNY)/09%3A_Gen%C3%A9tica/9.06%3A_Hardy-Weinberg_y_Gen%C3%A9tica_de_Poblaciones"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_BB_P4",
+   "passage_text": "Skeletal muscle stores glucose as glycogen, and its turnover is controlled by hormones that act through opposing covalent modifications. To study this, cultured differentiated myotubes were loaded with glycogen and then incubated for 60 minutes in medium containing 5 mM glucose with no hormone (control), 100 nM epinephrine, 100 nM insulin, or both hormones. Cyclic AMP, the fraction of glycogen phosphorylase in the active phosphorylated form (phosphorylase a), the fraction of glycogen synthase in the active form, and glycogen content were measured (Table 1). Glycogen content over time is shown in Figure 1. In a separate group, myotubes were pretreated with propranolol, a beta-adrenergic receptor antagonist, before epinephrine was added. Myotubes lack the glucagon receptor and glucose 6-phosphatase. Glycogen content is expressed as nmol glucosyl units per mg protein, and all values are means of four independent cultures. Initial glycogen content was 400 nmol/mg in every group, and cultures were handled identically apart from the additions listed.",
+   "table_data": "Table 1. Myotube measurements after 60 minutes\n\n| Condition | cAMP (pmol/mg) | Phosphorylase a (% of total) | Active glycogen synthase (% of total) | Glycogen (nmol/mg) |\n|---|---|---|---|---|\n| Control | 5 | 10 | 40 | 410 |\n| Epinephrine | 60 | 70 | 8 | 190 |\n| Insulin | 4 | 8 | 75 | 520 |\n| Epinephrine + insulin | 55 | 62 | 15 | 230 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Myotube glycogen content over time",
+    "x_label": "Time (min)",
+    "y_label": "Glycogen (nmol/mg)",
+    "series": [
+     {
+      "name": "Control",
+      "points": [
+       [
+        0,
+        400
+       ],
+       [
+        15,
+        403
+       ],
+       [
+        30,
+        406
+       ],
+       [
+        60,
+        410
+       ]
+      ]
+     },
+     {
+      "name": "Epinephrine",
+      "points": [
+       [
+        0,
+        400
+       ],
+       [
+        15,
+        330
+       ],
+       [
+        30,
+        270
+       ],
+       [
+        60,
+        190
+       ]
+      ]
+     },
+     {
+      "name": "Insulin",
+      "points": [
+       [
+        0,
+        400
+       ],
+       [
+        15,
+        440
+       ],
+       [
+        30,
+        475
+       ],
+       [
+        60,
+        520
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_BB_P4_Q1",
+     "stem": "Which sequence best explains how epinephrine raised phosphorylase a in the myotubes?",
+     "options": {
+      "A": "Receptor activation inhibits adenylyl cyclase, lowering cAMP and releasing phosphatase inhibition, which phosphorylates phosphorylase.",
+      "B": "Receptor activation opens calcium channels, and calcium directly binds glycogen phosphorylase and converts it to the a form.",
+      "C": "Receptor activation raises cAMP, which activates protein kinase A, which phosphorylates phosphorylase kinase, which phosphorylates phosphorylase b.",
+      "D": "Receptor activation stimulates glucose uptake, and the rise in glucose 6-phosphate converts phosphorylase b into phosphorylase a."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) cAMP rose from 5 to 60 pmol/mg; this activates PKA, which phosphorylates phosphorylase kinase, which in turn phosphorylates and activates phosphorylase (70% in the a form). Why the others are wrong: A) cAMP rose rather than fell, so adenylyl cyclase was stimulated, not inhibited. B) Calcium can activate phosphorylase kinase in muscle, but it does not bind phosphorylase to convert it directly, and the cAMP data point to the PKA route. D) Glucose 6-phosphate is an allosteric inhibitor of phosphorylase b, and the conversion is covalent, not driven by substrate level.",
+     "trap": "Skipping the intermediate kinase cascade and linking the receptor directly to phosphorylase.",
+     "topic": "Epinephrine signaling cascade in muscle",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P4_Q2",
+     "stem": "Based on Figure 1, what was the mean rate of net glycogen loss in epinephrine-treated myotubes between 30 and 60 minutes?",
+     "options": {
+      "A": "2.7 nmol/mg/min",
+      "B": "3.5 nmol/mg/min",
+      "C": "4.3 nmol/mg/min",
+      "D": "8.0 nmol/mg/min"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Glycogen fell from 270 to 190 nmol/mg over 30 minutes: 80/30 = 2.7 nmol/mg/min. Why the others are wrong: B) 3.5 is the average over the full 60 minutes, (400 - 190)/60. C) 4.3 is the rate from 0 to 30 minutes, 130/30, so it ignores the slowing of loss. D) 8.0 comes from dividing 80 by 10 rather than by 30 minutes.",
+     "trap": "Using the whole-experiment average instead of the specified interval.",
+     "topic": "Rate from glycogen time course",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_BB_P4_Q3",
+     "stem": "In myotubes given both hormones, glycogen synthase was only 15% active, compared with 75% with insulin alone. Which interpretation is best supported?",
+     "options": {
+      "A": "Insulin and epinephrine bind the same receptor, so the two hormones compete and cancel each other out.",
+      "B": "Insulin cannot activate glycogen synthase in the presence of any glucose, so the result reflects glucose rather than hormone.",
+      "C": "Epinephrine activates glycogen synthase by phosphorylation, and insulin reverses this effect only at much higher doses.",
+      "D": "Sustained cAMP and PKA activity keeps glycogen synthase phosphorylated and inactive despite insulin."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) With both hormones cAMP stayed high (55 pmol/mg), PKA-dependent phosphorylation of synthase (and phosphatase inhibition) predominated, so synthase remained mostly inactive and glycogen fell to 230. Why the others are wrong: A) The hormones use distinct receptors and signaling pathways; they are not competitors at one receptor. B) Insulin alone raised synthase to 75% in the same 5 mM glucose. C) Phosphorylation inactivates glycogen synthase, so epinephrine decreases its activity, and no dose comparison was made.",
+     "trap": "Believing that phosphorylation activates every enzyme in the glycogen pathway.",
+     "topic": "Opposing hormonal control of glycogen synthase",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P4_Q4",
+     "stem": "Myotubes pretreated with propranolol and then given epinephrine would most likely show which pattern at 60 minutes?",
+     "options": {
+      "A": "cAMP near 60 pmol/mg, phosphorylase a near 70%, and glycogen near 190 nmol/mg (as with epinephrine alone)",
+      "B": "cAMP near 5 pmol/mg, phosphorylase a near 10%, glycogen still near 400 nmol/mg",
+      "C": "cAMP near 60 pmol/mg, phosphorylase a near 10%, and glycogen near 520 nmol/mg",
+      "D": "cAMP near 4 pmol/mg, phosphorylase a near 70%, and glycogen near 190 nmol/mg"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Blocking the beta-adrenergic receptor prevents epinephrine from raising cAMP, so phosphorylase and synthase stay near control values and glycogen is not mobilized. Why the others are wrong: A) This is the unblocked epinephrine result. C) This mixes high cAMP with low phosphorylase a, which is not consistent with the cascade, and 520 is the insulin value. D) Phosphorylase a cannot rise to 70% without a rise in cAMP in this pathway, so low cAMP with high phosphorylase a is inconsistent.",
+     "trap": "Forgetting that a receptor antagonist acts upstream and blocks every downstream effect.",
+     "topic": "Receptor antagonist experimental design",
+     "mastery_sheet_id": "1D",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_BB_P5",
+   "passage_text": "Fibronectin is an extracellular matrix glycoprotein containing a cell-binding region with the tripeptide Arg-Gly-Asp (RGD). To investigate how fibroblasts attach to fibronectin, researchers coated 96-well plates with bovine serum albumin (BSA) or fibronectin and added fibroblasts for 60 minutes. Nonadherent cells were washed away, and the percentage of cells remaining was determined (Table 1). Conditions included the soluble peptide GRGDS, a control peptide GRGES in which Asp is replaced by Glu, a function-blocking antibody against the integrin beta-1 subunit, nonimmune IgG, or EDTA, which chelates divalent cations. In a separate experiment, the GRGDS peptide was titrated into wells coated with fibronectin (Figure 1). Fibronectin-coated wells had no other adhesive proteins present, and the peptides were present throughout the assay. Cells were serum starved before the assay so that adhesive proteins in serum would not contribute, and every well received the same number of cells. Antibodies and peptides were added to cells 15 minutes before plating. Adherent cells were fixed and stained, and absorbance was converted to percent of the cells added using a standard curve. Each condition was run in sextuplicate.",
+   "table_data": "Table 1. Fibroblast adhesion after 60 minutes\n\n| Surface and additive | Adherent cells (%) |\n|---|---|\n| BSA | 5 |\n| Fibronectin | 88 |\n| Fibronectin + 1 mM GRGDS | 21 |\n| Fibronectin + 1 mM GRGES | 85 |\n| Fibronectin + anti-beta-1 integrin antibody | 15 |\n| Fibronectin + nonimmune IgG | 86 |\n| Fibronectin + 5 mM EDTA | 12 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Adhesion to fibronectin versus GRGDS concentration",
+    "x_label": "GRGDS (micromolar)",
+    "y_label": "Adherent cells (%)",
+    "series": [
+     {
+      "name": "Fibronectin-coated wells",
+      "points": [
+       [
+        0,
+        88
+       ],
+       [
+        10,
+        81
+       ],
+       [
+        30,
+        62
+       ],
+       [
+        100,
+        38
+       ],
+       [
+        300,
+        24
+       ],
+       [
+        1000,
+        21
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_BB_P5_Q1",
+     "stem": "Which conclusion about the GRGDS and GRGES results is best supported?",
+     "options": {
+      "A": "Attachment depends on specific recognition of the RGD sequence, not just any similar short peptide.",
+      "B": "Cell attachment is mediated by electrostatic attraction between acidic peptides and the plasma membrane.",
+      "C": "Cell attachment depends on fibronectin being phosphorylated within the RGD region of the cell-binding domain.",
+      "D": "GRGDS destroys the fibronectin coating on the plate, which would prevent adhesion of cells to the surface."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) GRGDS lowered adhesion from 88% to 21%, whereas GRGES, differing by one methylene in the side chain, left it at 85%, showing sequence specificity. Why the others are wrong: B) Both peptides are similar in charge, yet only one blocked adhesion; charge alone cannot explain this. C) Phosphorylation was not examined, and the peptides are not modified. D) The control peptide did not impair adhesion, and the RGD peptide competes with fibronectin for binding rather than degrading it.",
+     "trap": "Assuming any similar peptide would block adhesion; the control peptide differs by one residue and does not.",
+     "topic": "RGD recognition by integrins",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P5_Q2",
+     "stem": "Why does EDTA reduce adhesion to 12%?",
+     "options": {
+      "A": "EDTA cleaves the peptide bond between arginine and glycine in the RGD motif.",
+      "B": "EDTA cross-links integrins into aggregates that cannot bind ligand.",
+      "C": "EDTA activates proteases that digest fibronectin on the plate.",
+      "D": "Integrin binding to RGD ligands requires divalent cations such as Mg2+ or Ca2+, which EDTA removes."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Integrin ligand-binding sites coordinate a divalent cation (a metal ion-dependent adhesion site), so chelation prevents binding and cells wash away. Why the others are wrong: A) EDTA is a chelator and does not hydrolyze peptide bonds. B) Chelating cations does not cross-link proteins. C) No protease activation is implied; the effect is on the ion requirement of integrin binding.",
+     "trap": "Believing EDTA damages the substrate protein rather than integrin cation dependence.",
+     "topic": "Integrin cation dependence",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P5_Q3",
+     "stem": "In Figure 1, adhesion falls halfway from its untreated value to its value at the highest GRGDS concentration at which of the following concentrations?",
+     "options": {
+      "A": "Below 10 micromolar",
+      "B": "Between 10 and 30 micromolar",
+      "C": "Above 300 micromolar",
+      "D": "Between 30 and 100 micromolar"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Adhesion falls from 88% to about 21% at saturation, a midpoint of about 54%. Adhesion is 62% at 30 micromolar and 38% at 100 micromolar, so 54% lies between those points. Why the others are wrong: A) At 10 micromolar adhesion is still 81%, a minor reduction. B) At 30 micromolar adhesion is still 62%, above the 54% midpoint. C) Adhesion is already near the 21% plateau by 300 micromolar.",
+     "trap": "Reading the midpoint from the starting value of 88% instead of the midpoint between starting value and plateau.",
+     "topic": "Dose-response interpolation",
+     "mastery_sheet_id": "2A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P5_Q4",
+     "stem": "After binding fibronectin, integrins promote cell spreading by which intracellular mechanism?",
+     "options": {
+      "A": "Linking to actin filaments through adaptor proteins such as talin and vinculin",
+      "B": "Opening ligand-gated ion channels in the plasma membrane that depolarize the cell and trigger calcium entry",
+      "C": "Binding directly to intermediate filaments of the nuclear lamina, which transmits tension straight to chromatin",
+      "D": "Releasing calcium from the Golgi apparatus through IP3 receptors, which activates myosin light chain kinase"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Integrin clustering assembles focal adhesions that anchor actin stress fibers and activate FAK and downstream pathways (outside-in signaling). Why the others are wrong: B) Integrins are not ion channels. C) Integrins do not connect directly to nuclear lamins; their major cytoplasmic link is to actin. D) IP3 receptors are found chiefly on the endoplasmic reticulum, not the Golgi, and are not central to integrin adhesion.",
+     "trap": "Confusing integrin outside-in signaling with ion channel or second messenger release.",
+     "topic": "Integrin signaling",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_BB_P6",
+   "passage_text": "Escherichia coli cells were made competent by treatment with ice-cold CaCl2 and transformed with pAR1, a high-copy plasmid carrying an origin of replication and the bla gene, which confers ampicillin resistance. In each tube, 100 microliters of competent cells and plasmid DNA were incubated on ice, heat shocked at 42 C for 45 seconds, returned to ice, and then given 900 microliters of nutrient broth and 1 hour of growth at 37 C. For each condition, 100 microliters of the 1 mL culture were spread on a plate. Controls are shown in Table 1, with 10 ng of plasmid used where plasmid was added. Figure 1 shows colonies per plate on ampicillin plates when the DNA amount was varied. Transformation efficiency is defined as transformants per microgram of plasmid DNA. Plates were incubated at 37 C overnight before colonies were counted. Wild-type cells of this strain are sensitive to ampicillin and carry no plasmid. Colony counts are means of duplicate plates. The plasmid DNA was purified and supercoiled, and the same preparation was used in every transformation. Competent cells were prepared in a single batch and kept on ice until use.",
+   "table_data": "Table 1. Colonies per plate\n\n| Condition | Plate | Colonies |\n|---|---|---|\n| Cells, no DNA | LB | Lawn |\n| Cells, no DNA | LB + ampicillin | 0 |\n| Cells + plasmid, heat shock | LB + ampicillin | 85 |\n| Cells + plasmid, no heat shock | LB + ampicillin | 2 |\n| Cells + plasmid, heat shock | LB | Lawn |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Colonies per plate versus plasmid DNA added",
+    "x_label": "Plasmid DNA (ng)",
+    "y_label": "Colonies per plate",
+    "series": [
+     {
+      "name": "LB + ampicillin",
+      "points": [
+       [
+        1,
+        9
+       ],
+       [
+        5,
+        44
+       ],
+       [
+        10,
+        85
+       ],
+       [
+        50,
+        310
+       ],
+       [
+        100,
+        390
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_BB_P6_Q1",
+     "stem": "What is the transformation efficiency, in transformants per microgram of DNA, for the 10 ng condition in Table 1?",
+     "options": {
+      "A": "8.5 x 10^3",
+      "B": "8.5 x 10^5",
+      "C": "8.5 x 10^4",
+      "D": "8.5 x 10^2"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Only 1/10 of the culture was plated, so total transformants = 85 x 10 = 850; 850 / 0.01 microgram = 8.5 x 10^4 per microgram. Why the others are wrong: A) 8.5 x 10^3 omits correcting for the one-tenth of the culture that was plated. B) 8.5 x 10^5 treats 10 ng as 0.001 microgram. D) 8.5 x 10^2 is the total number of transformants and is not divided by the amount of DNA.",
+     "trap": "Not correcting for the fraction of the culture plated, or mixing up ng and micrograms.",
+     "topic": "Transformation efficiency",
+     "mastery_sheet_id": "2B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_BB_P6_Q2",
+     "stem": "What is the main purpose of the CaCl2 treatment and heat shock?",
+     "options": {
+      "A": "They activate the bla gene so that the cells become resistant to ampicillin.",
+      "B": "They sterilize the culture so that only transformed cells remain.",
+      "C": "They increase the permeability of the cell envelope to plasmid DNA.",
+      "D": "They cut the plasmid at specific sites so that it can integrate into the chromosome."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Divalent cations neutralize the repulsion between DNA and the lipopolysaccharide-containing envelope, and the brief heat shock helps DNA enter; without it only 2 colonies appeared. Why the others are wrong: A) The bla gene is expressed from the plasmid after uptake and is not turned on by these treatments. B) These treatments permit survival; they do not kill nontransformed cells (the ampicillin does). D) Neither treatment is a restriction digestion, and the plasmid replicates on its own origin.",
+     "trap": "Thinking the treatments select for transformants; selection comes from the antibiotic.",
+     "topic": "Bacterial competence",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P6_Q3",
+     "stem": "What is the purpose of the 'cells, no DNA' control on the LB + ampicillin plate?",
+     "options": {
+      "A": "It measures the number of viable cells in the competent cell stock before any DNA is added to the cells.",
+      "B": "It confirms the recipient cells are ampicillin sensitive and the plates are uncontaminated.",
+      "C": "It shows that the heat shock step alone can cause the cells to acquire resistance to ampicillin.",
+      "D": "It confirms that the plasmid replicates in the recipient cells after heat shock and the recovery period."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Zero colonies show that colonies on the experimental plate result from the plasmid. Why the others are wrong: A) The viable count is measured by the lawn on antibiotic-free LB, not by the ampicillin plate. C) No colonies grew, so heat shock alone did not confer resistance. D) No plasmid was added to this control.",
+     "trap": "Confusing the negative control with the control that measures viable cell number.",
+     "topic": "Experimental controls in transformation",
+     "mastery_sheet_id": "2B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P6_Q4",
+     "stem": "Which statement best explains the trend in efficiency seen at 50 and 100 ng in Figure 1?",
+     "options": {
+      "A": "Plasmid DNA at high concentration is toxic to ampicillin, which reduces colony number.",
+      "B": "Ampicillin is degraded more at high DNA concentrations, so colonies cannot form.",
+      "C": "High plasmid amounts inactivate the bla gene by recombination with the chromosome.",
+      "D": "The number of cells able to take up DNA is limited, so each additional nanogram yields fewer transformants."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Colonies rose only from 85 to 310 and 390 as DNA rose tenfold, so efficiency fell from 8.5 x 10^4 to 3.9 x 10^4 per microgram, consistent with a limited number of competent cells. Why the others are wrong: A) Plasmid DNA does not interact with ampicillin in this way. B) The antibiotic's stability is unrelated to DNA concentration. C) No recombination into the chromosome is described, and plasmids replicate autonomously.",
+     "trap": "Assuming colony number should rise in proportion to DNA at all amounts.",
+     "topic": "Competence saturation",
+     "mastery_sheet_id": "2B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P6_Q5",
+     "stem": "How does the bla gene product allow the transformed cells to grow on ampicillin plates?",
+     "options": {
+      "A": "It prevents ampicillin from crossing the outer membrane by blocking porins.",
+      "B": "It hydrolyzes the beta-lactam ring of ampicillin, inactivating the drug.",
+      "C": "It pumps ampicillin out of the cell using ATP hydrolysis.",
+      "D": "It modifies the ribosome so that ampicillin no longer inhibits translation."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The bla gene encodes beta-lactamase, which cleaves the beta-lactam ring; ampicillin otherwise inhibits transpeptidases that cross-link peptidoglycan. Why the others are wrong: A) Beta-lactamase is an enzyme and not a porin regulator. C) This describes efflux pumps, not beta-lactamase. D) Ampicillin targets cell wall synthesis, not the ribosome.",
+     "trap": "Confusing the mechanism of ampicillin with ribosome-targeting antibiotics.",
+     "topic": "Antibiotic resistance mechanism",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_BB_P7",
+   "passage_text": "Mutations in RAS oncogenes and in the TP53 tumor suppressor gene frequently co-occur in cancers. To test how these alterations cooperate, researchers introduced into non-transformed fibroblasts either an empty vector, a constitutively active HRAS-G12V allele, a short hairpin RNA that knocks down p53 (shp53), or both HRAS-G12V and shp53. Cells were scored for colony formation in soft agar, a measure of anchorage-independent growth (Table 1), and counted over 8 days in culture (Figure 1). The G12V substitution abolishes the GTPase activity of Ras, which leaves the protein in the GTP-bound state. Cells expressing HRAS-G12V alone eventually stopped dividing and expressed senescence markers. Colonies were counted from three replicate plates per condition, and the means are reported. Cells were selected with antibiotics so that every cell counted carried the introduced constructs, and cells were grown in standard medium containing 10% serum. Efficiency of p53 knockdown was confirmed by immunoblotting, which showed an approximately 90% reduction in p53 protein. Senescence was assessed by staining for beta-galactosidase activity at pH 6. Soft agar colonies were counted after 3 weeks.",
+   "table_data": "Table 1. Soft agar colonies per plate\n\n| Construct | Colonies per plate |\n|---|---|\n| Empty vector | 2 |\n| HRAS-G12V | 41 |\n| shp53 | 6 |\n| HRAS-G12V + shp53 | 187 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Cell number during 8 days of culture",
+    "x_label": "Day",
+    "y_label": "Cells (x 10^5)",
+    "series": [
+     {
+      "name": "Empty vector",
+      "points": [
+       [
+        0,
+        1
+       ],
+       [
+        2,
+        2
+       ],
+       [
+        4,
+        4
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        8,
+        9
+       ]
+      ]
+     },
+     {
+      "name": "HRAS-G12V",
+      "points": [
+       [
+        0,
+        1
+       ],
+       [
+        2,
+        1.8
+       ],
+       [
+        4,
+        2.9
+       ],
+       [
+        6,
+        3.2
+       ],
+       [
+        8,
+        3.2
+       ]
+      ]
+     },
+     {
+      "name": "HRAS-G12V + shp53",
+      "points": [
+       [
+        0,
+        1
+       ],
+       [
+        2,
+        2.6
+       ],
+       [
+        4,
+        7
+       ],
+       [
+        6,
+        18
+       ],
+       [
+        8,
+        45
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_BB_P7_Q1",
+     "stem": "Why does the G12V mutation make Ras behave as an oncogene?",
+     "options": {
+      "A": "The mutation eliminates Ras expression, so growth inhibitory signals are no longer relayed.",
+      "B": "The protein stays GTP-bound and so signals constitutively, a gain of function that acts dominantly at the level of one allele.",
+      "C": "The mutant protein is stuck in the GDP-bound state, which activates downstream kinases.",
+      "D": "The mutation disrupts both alleles, because tumor suppressor genes require two hits."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Ras is active when GTP-bound; without GTPase activity it cannot switch off, so a single mutant allele promotes proliferation. Why the others are wrong: A) Loss of expression would be a loss-of-function change typical of a tumor suppressor, not an oncogene. C) The GDP-bound form is the inactive form. D) The two-hit pattern applies to tumor suppressors; an oncogenic mutation acts dominantly.",
+     "trap": "Confusing oncogene gain of function with tumor suppressor loss of function.",
+     "topic": "Oncogene mechanism",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P7_Q2",
+     "stem": "Which interpretation best accounts for the difference between the HRAS-G12V curve and the HRAS-G12V + shp53 curve in Figure 1?",
+     "options": {
+      "A": "Loss of p53 increases the GTPase activity of Ras, which restores normal growth control.",
+      "B": "Loss of p53 allows cells to bypass the senescence and growth arrest triggered by oncogenic Ras.",
+      "C": "The shp53 construct itself encodes an oncogene that drives proliferation.",
+      "D": "The cells with shp53 are no longer dependent on nutrients, which allows indefinite growth."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) p53 mediates the senescence response to oncogenic stress; removing it allowed continued growth (45 x 10^5 cells at day 8 versus 3.2 x 10^5). Why the others are wrong: A) Ras remained mutant and GTPase-defective; p53 loss does not repair it. C) A short hairpin RNA only reduces expression of p53 and does not encode an oncogene. D) Nutrient dependence was not measured, and cells still needed medium to grow.",
+     "trap": "Treating p53 as a growth promoter instead of a barrier against transformation.",
+     "topic": "Oncogene cooperation with tumor suppressor loss",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P7_Q3",
+     "stem": "The shp53 construct alone produced only 6 colonies, far fewer than the HRAS-G12V + shp53 combination. What does this suggest about p53?",
+     "options": {
+      "A": "It is required for basic cell cycle progression, so loss of p53 slows the growth of every cell regardless of Ras status.",
+      "B": "It acts as an oncogene whose knockdown triggers apoptosis in cells with normal Ras, which limits colony formation.",
+      "C": "It activates the Ras pathway, so loss of p53 is lethal to the cell unless Ras is also mutated by a second event.",
+      "D": "It restrains proliferation but does not drive growth signaling, so its loss matters when a driver is present."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Loss of a brake alone causes little transformation (6 vs 2 colonies) but permits unrestrained growth when a driver such as Ras is active (187). Why the others are wrong: A) Cells with shp53 alone were not impaired, as indicated by their ability to form colonies. B) p53 is a tumor suppressor, and the data do not show apoptosis. C) Ras does not depend on p53 for activation.",
+     "trap": "Expecting loss of a tumor suppressor to be strongly transforming on its own.",
+     "topic": "Tumor suppressor function",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P7_Q4",
+     "stem": "A child inherits one mutant RB1 allele. Why is the child at high risk of retinoblastoma?",
+     "options": {
+      "A": "Only one additional somatic mutation or loss of the normal allele is needed in a retinal cell to eliminate RB1 function.",
+      "B": "The mutant allele is an oncogene that is dominant in its effect on every cell.",
+      "C": "A normal RB1 allele cannot compensate for the mutant protein, which blocks the normal one in a dominant-negative manner.",
+      "D": "Both RB1 alleles are inactivated in all cells by the inherited mutation."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Per the two-hit model, the germline mutation is the first hit, and a single somatic second hit in any retinal cell unmasks the recessive loss of function. Why the others are wrong: B) RB1 is a tumor suppressor that is recessive at the cellular level, not a dominant oncogene. C) Dominant-negative interference is not the usual mechanism for this risk. D) The inherited mutation affects one allele; the second must be lost somatically.",
+     "trap": "Treating the inherited allele as a dominant cause rather than as a first hit.",
+     "topic": "Two-hit hypothesis",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_BB_P8",
+   "passage_text": "Insulin and glucagon coordinate blood glucose between meals and after eating. In a study, ten healthy adults and ten adults with type 2 diabetes mellitus fasted overnight and then ingested 75 g of glucose. Blood was sampled at the times listed, and mean plasma glucose, insulin, and glucagon concentrations were measured (Table 1; glucose in mg/dL, insulin in microunits/mL, glucagon in pg/mL). Figure 1 plots the glucose data. For adults, a plasma glucose of 200 mg/dL or higher two hours after a 75 g glucose load is diagnostic of diabetes. The type 2 diabetes group had a body mass index higher than that of the healthy group, and no participant was taking insulin or an insulin secretagogue on the day of the test. Participants were matched for age and sex, and venous blood was drawn through an indwelling catheter. Insulin and glucagon were measured by immunoassay, and glucose by an enzymatic method. All measurements were made in the same laboratory on the same day, and values are group means.",
+   "table_data": "Table 1. Mean plasma values after oral glucose\n\n| Time (min) | Healthy glucose | Healthy insulin | Healthy glucagon | Diabetes glucose | Diabetes insulin | Diabetes glucagon |\n|---|---|---|---|---|---|---|\n| 0 | 85 | 8 | 65 | 150 | 20 | 85 |\n| 30 | 140 | 60 | 45 | 250 | 45 | 82 |\n| 60 | 110 | 35 | 50 | 285 | 60 | 78 |\n| 120 | 90 | 10 | 62 | 240 | 55 | 80 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Plasma glucose after oral glucose",
+    "x_label": "Time (min)",
+    "y_label": "Plasma glucose (mg/dL)",
+    "series": [
+     {
+      "name": "Healthy",
+      "points": [
+       [
+        0,
+        85
+       ],
+       [
+        30,
+        140
+       ],
+       [
+        60,
+        110
+       ],
+       [
+        120,
+        90
+       ]
+      ]
+     },
+     {
+      "name": "Type 2 diabetes",
+      "points": [
+       [
+        0,
+        150
+       ],
+       [
+        30,
+        250
+       ],
+       [
+        60,
+        285
+       ],
+       [
+        120,
+        240
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_BB_P8_Q1",
+     "stem": "Why does plasma glucagon fall after glucose ingestion in the healthy group?",
+     "options": {
+      "A": "Glucagon is rapidly taken up by skeletal muscle, which consumes it as a fuel after a meal.",
+      "B": "Elevated glucose and the rise in insulin suppress glucagon secretion by pancreatic alpha cells.",
+      "C": "Insulin directly degrades glucagon in the circulation, which eliminates it within minutes.",
+      "D": "Glucose stimulates beta cells to convert glucagon to proinsulin."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Glucagon fell from 65 to 45 pg/mL at 30 minutes as insulin peaked at 60; high glucose and paracrine insulin inhibit alpha cells, appropriately reducing hepatic glucose output. Why the others are wrong: A) Muscle does not clear glucagon as a fuel; the effect is on secretion. C) Insulin does not degrade glucagon; it inhibits its release. D) Glucagon is not a precursor of proinsulin; they are separate hormones.",
+     "trap": "Assuming glucagon is removed by the periphery rather than suppressed at the alpha cell.",
+     "topic": "Insulin-glucagon interplay",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P8_Q2",
+     "stem": "The diabetes group had high insulin but also high glucose. Which explanation is most consistent with these data?",
+     "options": {
+      "A": "Target tissues are resistant to insulin, so glucose uptake is impaired despite high insulin levels.",
+      "B": "Insulin secretion is essentially absent, so glucose cannot enter muscle and adipose cells in the usual manner.",
+      "C": "The insulin in this group is rapidly converted to glucagon in the liver soon after it is secreted into blood.",
+      "D": "The beta cells secrete too much glucagon, which blocks the insulin receptor on the surface of target cells."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Insulin concentrations were equal to or higher than in the healthy group (peak 60 vs 60, with higher fasting values), yet glucose remained elevated, indicating reduced responsiveness (for example, impaired GLUT4 translocation). Why the others are wrong: B) Insulin was present at 45-60 microunits/mL, so it was not absent. C) Insulin is not converted to glucagon. D) Glucagon is made by alpha cells, not beta cells, and it does not block insulin receptors.",
+     "trap": "Equating hyperglycemia with a lack of insulin secretion, as in type 1 diabetes.",
+     "topic": "Insulin resistance",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P8_Q3",
+     "stem": "By what factor was the glucose rise from baseline to the peak value larger in the diabetes group than in the healthy group?",
+     "options": {
+      "A": "About 2.0",
+      "B": "About 1.8",
+      "C": "About 2.5",
+      "D": "About 5.4"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Rise in healthy group: 140 - 85 = 55 mg/dL. Rise in diabetes group: 285 - 150 = 135 mg/dL. 135/55 is about 2.5. Why the others are wrong: A) 2.0 is the ratio of the peak values (285/140) and does not correct for the higher fasting baseline. B) 1.8 is the ratio of the 30-minute values (250/140) and also ignores baseline. D) 5.4 compares the diabetes rise with the healthy rise at 60 minutes (135/25), which is not the peak.",
+     "trap": "Comparing raw peak values instead of rises from each group's baseline.",
+     "topic": "Glucose tolerance calculation",
+     "mastery_sheet_id": "3A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_BB_P8_Q4",
+     "stem": "Which of the following responses is stimulated by glucagon in hepatocytes?",
+     "options": {
+      "A": "Activation of a receptor tyrosine kinase that promotes glycogen synthesis",
+      "B": "Increased glucose uptake through insulin-dependent GLUT4 transporters",
+      "C": "Inhibition of gluconeogenesis through reduced expression of PEPCK",
+      "D": "Activation of a G protein-coupled receptor that raises cyclic AMP and promotes glycogen breakdown"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Glucagon binds a Gs-coupled receptor, raising cAMP and activating PKA, which activates phosphorylase kinase and glycogenolysis and promotes gluconeogenesis. Why the others are wrong: A) This describes insulin signaling. B) GLUT4 is found in muscle and adipose tissue and is insulin-dependent; the liver uses GLUT2. C) Glucagon increases, not decreases, gluconeogenic gene expression.",
+     "trap": "Attributing insulin-like actions to glucagon or vice versa.",
+     "topic": "Glucagon signaling",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P8_Q5",
+     "stem": "Which statement about the 120-minute results is most accurate?",
+     "options": {
+      "A": "The healthy group meets the diagnostic threshold, because its glucose fell back below its fasting baseline by that time.",
+      "B": "Neither group meets the diagnostic threshold, because the glucose of both groups rose above fasting levels after the load.",
+      "C": "The diabetes group does not meet the diagnostic threshold, because its glucose had already fallen from the 60-minute peak.",
+      "D": "The diabetes group meets the diagnostic threshold, with glucose still elevated despite higher insulin."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) At 120 minutes, glucose was 240 mg/dL (at least 200) in the diabetes group, with insulin at 55 compared with 10 in the healthy group. Why the others are wrong: A) The healthy value was 90 mg/dL, far below 200. B) All values that exceed fasting levels are not diagnostic; the criterion is 200 mg/dL at two hours. C) A decline from the peak does not matter; 240 mg/dL still exceeds 200.",
+     "trap": "Applying the diagnostic criterion to the change from peak instead of the absolute value.",
+     "topic": "Diagnosis of diabetes",
+     "mastery_sheet_id": "3A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_BB_P9",
+   "passage_text": "Skeletal muscle force depends on the cytosolic calcium concentration, usually expressed as pCa (the negative log10 of [Ca2+] in molar units). Researchers dissected single fibers from rabbit psoas (fast-twitch) and soleus (slow-twitch) muscle and chemically skinned them to remove the sarcolemma and give experimental control of the intracellular solution. Each fiber was bathed in solutions of defined pCa containing ATP, and isometric force was measured. Force was expressed as a fraction of the maximum at pCa 4.5, and the pCa at half-maximal force (pCa50) was determined (Table 1). Some fast fibers were also exposed to blebbistatin, an inhibitor of myosin ATPase activity, or to a calcium sensitizer. Figure 1 shows the relative force-pCa relationship for the control fibers. Sarcomere length was set to 2.5 micrometers for each fiber so that filament overlap was comparable, and the temperature was held at 15 C. Maximum force was measured at pCa 4.5, and force at other pCa values was normalized to that value for the same fiber. Results are means from eight fibers per condition.",
+   "table_data": "Table 1. Calcium sensitivity and maximum force of skinned fibers\n\n| Fiber and condition | pCa50 | Maximum force at pCa 4.5 (kN/m2) |\n|---|---|---|\n| Fast, control | 5.9 | 140 |\n| Slow, control | 6.2 | 90 |\n| Fast + blebbistatin | 5.9 | 7 |\n| Fast + calcium sensitizer | 6.3 | 140 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Relative force versus pCa in control fibers",
+    "x_label": "pCa",
+    "y_label": "Force (% of maximum)",
+    "series": [
+     {
+      "name": "Fast fiber",
+      "points": [
+       [
+        7.0,
+        0
+       ],
+       [
+        6.5,
+        3
+       ],
+       [
+        6.0,
+        36
+       ],
+       [
+        5.5,
+        91
+       ],
+       [
+        5.0,
+        99
+       ],
+       [
+        4.5,
+        100
+       ]
+      ]
+     },
+     {
+      "name": "Slow fiber",
+      "points": [
+       [
+        7.0,
+        1
+       ],
+       [
+        6.5,
+        15
+       ],
+       [
+        6.0,
+        76
+       ],
+       [
+        5.5,
+        98
+       ],
+       [
+        5.0,
+        100
+       ],
+       [
+        4.5,
+        100
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_BB_P9_Q1",
+     "stem": "What is the calcium concentration at which slow fibers develop half-maximal force?",
+     "options": {
+      "A": "6.2 x 10^-6 M",
+      "B": "1.6 x 10^-6 M",
+      "C": "6.3 x 10^-7 M",
+      "D": "1.6 x 10^-7 M"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) pCa50 = 6.2 means [Ca2+] = 10^-6.2 M, about 6.3 x 10^-7 M (0.63 micromolar). Why the others are wrong: A) 6.2 x 10^-6 M misreads the exponent as a coefficient. B) 1.6 x 10^-6 M is 10^-5.8, which corresponds to pCa 5.8 rather than 6.2. D) 1.6 x 10^-7 M corresponds to a pCa of about 6.8.",
+     "trap": "Misreading pCa as a concentration or inverting the sign of the logarithm.",
+     "topic": "pCa calculation",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_BB_P9_Q2",
+     "stem": "By what mechanism does the rise in calcium allow force to develop in skinned fibers?",
+     "options": {
+      "A": "Ca2+ binds myosin light chains, which directly phosphorylates the thick filament.",
+      "B": "Ca2+ binds tropomyosin, which then hydrolyzes ATP to power the power stroke.",
+      "C": "Ca2+ binds troponin C, which shifts tropomyosin and exposes myosin-binding sites on actin.",
+      "D": "Ca2+ binds titin, which pulls the Z disks together."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Calcium binding to troponin C causes a conformational change in the troponin complex that moves tropomyosin off the myosin-binding sites, permitting cross-bridge cycling. Why the others are wrong: A) Calcium-dependent phosphorylation of myosin light chain is a feature of smooth muscle, not skeletal muscle. B) Tropomyosin does not hydrolyze ATP; myosin heads do. D) Titin is an elastic protein and does not shorten the sarcomere in response to calcium.",
+     "trap": "Applying the smooth muscle mechanism to skeletal muscle.",
+     "topic": "Excitation-contraction coupling",
+     "mastery_sheet_id": "3B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P9_Q3",
+     "stem": "Blebbistatin reduced force to 7 kN/m2 while pCa50 remained 5.9. Which conclusion is best supported?",
+     "options": {
+      "A": "Calcium binding is intact, but force generation requires myosin ATPase activity.",
+      "B": "Blebbistatin prevents calcium from binding troponin C, so the thin filament remains blocked.",
+      "C": "Blebbistatin depletes ATP in the bathing solution, so the fibers go into rigor and cannot relax.",
+      "D": "Blebbistatin increases the calcium concentration needed for half-maximal activation of the thin filament."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Blebbistatin did not change the pCa50, so calcium sensitivity of the thin filament is unchanged; cross-bridge cycling driven by myosin ATPase is what generates force. Why the others are wrong: B) An unchanged pCa50 argues against impaired calcium binding. C) ATP was in the solution, and blocked ATPase leads to low force rather than rigor. D) The pCa50 is unchanged, so the calcium requirement did not increase.",
+     "trap": "Reading lower force as lower calcium sensitivity without checking pCa50.",
+     "topic": "Cross-bridge cycling",
+     "mastery_sheet_id": "3B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P9_Q4",
+     "stem": "At pCa 6.0, which fiber type is expected to be producing a larger fraction of its own maximum force?",
+     "options": {
+      "A": "The fast fiber, since it has the greater maximal force.",
+      "B": "The two fibers are the same, because both reach full force at pCa 4.5.",
+      "C": "The slow fiber, because its higher pCa50 means it reaches half-maximal force at a lower calcium concentration.",
+      "D": "The fast fiber, since its lower pCa50 shows greater calcium sensitivity."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A smaller pCa means a higher calcium concentration. Slow fibers have a higher pCa50 (greater sensitivity), so at pCa 6.0 they are above half-maximal (about 76%) while fast fibers are below half-maximal (about 36%). Why the others are wrong: A) Absolute maximal force does not determine the fraction of maximal force at a given pCa. B) Equal maxima do not imply equal sensitivity at submaximal calcium. D) A lower pCa50 means lower calcium sensitivity, not greater.",
+     "trap": "Reversing the direction of the pCa scale when comparing sensitivity.",
+     "topic": "Calcium sensitivity of fiber types",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_BB_P10",
+   "passage_text": "Parathyroid hormone (PTH) can either destroy or build bone, depending on how it is delivered. Adult mice were assigned to four groups for 8 weeks: vehicle, continuous PTH infusion by minipump, one daily subcutaneous PTH injection (intermittent), or daily calcitonin injection. At the end of treatment, serum calcium, a serum marker of bone resorption (CTX, a collagen degradation fragment), a serum marker of bone formation (P1NP, a procollagen fragment), and the change in femoral bone mineral density (BMD) were measured (Table 1). Total daily PTH dose was equal in the two PTH groups. Mice had unrestricted access to a diet with adequate calcium and vitamin D. Each group contained 12 animals, and values are group means. Mice were of the same strain, sex, and age at the start. Bone mineral density was measured in vivo by dual-energy X-ray absorptiometry before and after the treatment period, and blood samples were taken at the end of the study after an overnight fast. Treatments were assigned randomly, and measurements were made by an investigator unaware of group.",
+   "table_data": "Table 1. Effects of 8 weeks of treatment\n\n| Group | Serum calcium (mg/dL) | CTX (ng/mL) | P1NP (ng/mL) | BMD change (%) |\n|---|---|---|---|---|\n| Vehicle | 9.4 | 20 | 30 | +1 |\n| Continuous PTH | 11.2 | 55 | 60 | -8 |\n| Intermittent PTH | 9.8 | 35 | 78 | +9 |\n| Calcitonin | 9.0 | 12 | 27 | +2 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL08_BB_P10_Q1",
+     "stem": "Which result in Table 1 best supports the claim that PTH given intermittently is anabolic?",
+     "options": {
+      "A": "P1NP was higher than in all other groups, and BMD rose by 9%.",
+      "B": "Serum calcium was above the vehicle value, and CTX was elevated.",
+      "C": "CTX was lower than in the continuous PTH group, and calcium was normal.",
+      "D": "P1NP was higher in the continuous PTH group than in the vehicle group."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The highest formation marker (78 ng/mL) and the largest BMD gain (+9%) indicate that formation outpaced resorption. Why the others are wrong: B) Elevated resorption alone does not indicate net bone gain. C) Lower CTX than the continuous group reflects less resorption but does not show net gain by itself. D) Continuous PTH also raised P1NP but caused a net loss of density (-8%).",
+     "trap": "Using an increase in a single marker without considering the net change in density.",
+     "topic": "PTH anabolic effect",
+     "mastery_sheet_id": "3A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P10_Q2",
+     "stem": "Which cell type produces the matrix whose precursor fragment is measured by P1NP?",
+     "options": {
+      "A": "Osteoclasts",
+      "B": "Osteocytes within lacunae",
+      "C": "Chondrocytes in the epiphyseal plate",
+      "D": "Osteoblasts"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Osteoblasts secrete type I procollagen, whose N-terminal propeptide (P1NP) is released as collagen is made. Why the others are wrong: A) Osteoclasts resorb bone, and CTX reflects their activity. B) Osteocytes are mature bone cells that maintain bone but are not the main source of new matrix. C) Chondrocytes produce type II collagen cartilage matrix and are not the source of P1NP in adult bone remodeling.",
+     "trap": "Swapping the roles of osteoblasts and osteoclasts.",
+     "topic": "Bone cell roles",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P10_Q3",
+     "stem": "How does PTH increase bone resorption, as seen with continuous infusion?",
+     "options": {
+      "A": "It binds osteoclasts directly and inhibits their ruffled border formation.",
+      "B": "It converts osteoclasts into osteoblasts in the presence of vitamin D.",
+      "C": "It reduces osteoclast number by raising osteoprotegerin expression.",
+      "D": "It stimulates osteoblast expression of RANKL, which promotes osteoclast differentiation and activity."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) PTH receptors are on osteoblast-lineage cells; sustained exposure raises RANKL relative to osteoprotegerin, driving osteoclastogenesis and calcium release. Why the others are wrong: A) Osteoclasts lack functional PTH receptors, and the observed effect is increased resorption. B) Osteoclasts and osteoblasts have different lineages; one does not convert into the other. C) Higher osteoprotegerin would reduce resorption, the opposite of what was observed.",
+     "trap": "Believing PTH acts directly on osteoclasts.",
+     "topic": "PTH and RANKL",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_BB_P10_Q4",
+     "stem": "Which result is expected after surgical removal of the parathyroid glands in a mouse?",
+     "options": {
+      "A": "Hypercalcemia and bone loss from excess osteoclast activity",
+      "B": "Hypocalcemia and increased neuromuscular excitability",
+      "C": "Hypocalcemia and decreased neuromuscular excitability",
+      "D": "Hypercalcemia and lowered excitability from reduced sodium channel activity"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Without PTH, bone resorption, renal calcium reabsorption, and calcitriol synthesis fall, so calcium drops; low extracellular calcium lowers the threshold for sodium channel opening, causing tetany. Why the others are wrong: A) This describes hyperparathyroidism. C) Low calcium increases excitability. D) This pairs the wrong calcium state and the wrong direction of excitability change.",
+     "trap": "Remembering low calcium causes weakness rather than hyperexcitability.",
+     "topic": "Calcium homeostasis",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL08_BB_D1",
+   "stem": "A competitive inhibitor is added to an enzyme-catalyzed reaction that obeys Michaelis-Menten kinetics. Compared with the uninhibited reaction, how do the intercepts of a Lineweaver-Burk plot change?",
+   "options": {
+    "A": "The y-intercept moves closer to the origin, and the x-intercept is unchanged.",
+    "B": "The x-intercept moves closer to the origin, and the y-intercept is unchanged.",
+    "C": "Both the x-intercept and the y-intercept move closer to the origin.",
+    "D": "The x-intercept moves farther from the origin, and the y-intercept is unchanged."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) A competitive inhibitor raises apparent Km but leaves Vmax unchanged. The y-intercept (1/Vmax) is unchanged, and the x-intercept (-1/Km) becomes less negative. Why the others are wrong: A) That would mean Vmax increased, which an inhibitor cannot cause; competitive inhibition leaves Vmax unchanged. C) That pattern would require Vmax to rise as well, which competitive inhibition does not do. D) That would mean Km decreased, indicating higher apparent affinity.",
+   "trap": "Mixing up which intercept corresponds to Km and which to Vmax.",
+   "topic": "Competitive inhibition",
+   "mastery_sheet_id": "1A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D2",
+   "stem": "Proline is rarely found in the middle of an alpha helix because its presence",
+   "options": {
+    "A": "adds a negative charge that repels the neighboring carboxylate groups.",
+    "B": "disrupts hydrogen bonding of the backbone and introduces a kink.",
+    "C": "promotes disulfide bonds with a nearby cysteine side chain.",
+    "D": "creates a hydrophobic side chain too large to fit inside the helical core."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The proline backbone nitrogen has no amide hydrogen to donate, and its ring restricts the phi angle, so it breaks the i to i+4 hydrogen bond pattern. Why the others are wrong: A) Proline is not charged. C) Proline lacks a thiol and cannot form disulfides. D) Its side chain is small and cyclic, and the issue is backbone geometry and hydrogen bonding.",
+   "trap": "Focusing on side chain properties instead of the backbone constraints of proline.",
+   "topic": "Protein secondary structure",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D3",
+   "stem": "On the lagging strand, the RNA primers are removed and replaced with DNA by DNA polymerase I. Which enzyme then joins the adjacent Okazaki fragments?",
+   "options": {
+    "A": "DNA helicase, which forms a phosphodiester bond between the fragments",
+    "B": "DNA ligase, which forms a phosphodiester bond to seal the nick",
+    "C": "Primase, which extends the first fragment into the next one",
+    "D": "Topoisomerase II, which removes the supercoils created ahead of the fork"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) DNA ligase catalyzes the final phosphodiester bond between the 3' hydroxyl and 5' phosphate at the nick using ATP or NAD+. Why the others are wrong: A) Helicase unwinds the duplex and does not make phosphodiester bonds. C) Primase synthesizes RNA primers; it is not a joining enzyme. D) Topoisomerase II relieves torsional strain, which does not seal nicks in this way.",
+   "trap": "Confusing enzymes that unwind or prime with the enzyme that seals nicks.",
+   "topic": "DNA replication enzymes",
+   "mastery_sheet_id": "1B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D4",
+   "stem": "A coding sequence of 300 codons undergoes one of the following mutations near codon 10. Which is most likely to produce the most severe change in the protein?",
+   "options": {
+    "A": "Substitution of the third base of a codon, producing a synonymous codon",
+    "B": "Deletion of a single nucleotide",
+    "C": "Deletion of three consecutive nucleotides in frame",
+    "D": "Substitution of the first base of a codon, producing an amino acid with similar properties"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) A single-nucleotide deletion shifts the reading frame, altering every downstream codon and usually creating an early stop codon. Why the others are wrong: A) A synonymous change leaves the amino acid sequence unchanged. C) An in-frame deletion removes one amino acid but preserves the downstream sequence. D) A conservative missense change usually has a modest effect.",
+   "trap": "Assuming that deleting more nucleotides is always worse than deleting one.",
+   "topic": "Frameshift mutations",
+   "mastery_sheet_id": "1B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D5",
+   "stem": "A woman with normal chromosomes has a child with trisomy 21. Analysis of a centromeric DNA marker shows that the child inherited two different maternal alleles. Which event is most likely?",
+   "options": {
+    "A": "Nondisjunction in meiosis I in the mother",
+    "B": "Nondisjunction in meiosis II in the mother",
+    "C": "Nondisjunction in mitosis of the zygote",
+    "D": "Reciprocal translocation between chromosomes 21 and 14 in the father"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Two different maternal alleles mean that homologous chromosomes failed to separate in meiosis I; a meiosis II error would give two identical copies (apart from crossovers). Why the others are wrong: B) A meiosis II error produces two copies of the same maternal chromatid, thus identical centromeric alleles. C) A mitotic error in the zygote would not produce two different maternal alleles in this way and is rare. D) A paternal translocation does not explain two distinct maternal alleles.",
+   "trap": "Thinking that any nondisjunction gives two identical copies of the chromosome.",
+   "topic": "Nondisjunction",
+   "mastery_sheet_id": "1C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D6",
+   "stem": "A woman has a brother with cystic fibrosis, an autosomal recessive disease. Neither parent nor the woman is affected. Her husband is known to be a carrier. What is the probability that their first child is affected?",
+   "options": {
+    "A": "1/4",
+    "B": "1/8",
+    "C": "1/3",
+    "D": "1/6"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) The unaffected woman has a 2/3 chance of being a carrier (parents are both carriers; she is not aa). The chance of an affected child is 2/3 x 1/4 = 1/6. Why the others are wrong: A) 1/4 treats the woman as a certain carrier. B) 1/8 uses a 1/2 carrier probability for her. C) 1/3 multiplies the probability of being a carrier by 1/2 instead of 1/4.",
+   "trap": "Using 1/2 for the carrier probability of an unaffected sibling instead of 2/3.",
+   "topic": "Autosomal recessive probability",
+   "mastery_sheet_id": "1C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://theory.labster.com/risk_autosomal_recessive/"
+    ]
+   }
+  },
+  {
+   "id": "FL08_BB_D7",
+   "stem": "During prolonged fasting the liver produces ketone bodies, yet the liver itself cannot use them for energy. Which of the following explains this?",
+   "options": {
+    "A": "The liver lacks the HMG-CoA synthase needed to produce acetyl-CoA from acetoacetate.",
+    "B": "Ketone bodies cannot enter hepatocytes because they lack a transport protein.",
+    "C": "The liver cannot form acetyl-CoA from fatty acids during fasting.",
+    "D": "The liver lacks the enzyme that transfers CoA from succinyl-CoA to acetoacetate."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Hepatocytes lack succinyl-CoA:acetoacetate CoA-transferase (thiophorase), so they cannot activate acetoacetate; extrahepatic tissues such as the brain use it. Why the others are wrong: A) HMG-CoA synthase is needed to make ketone bodies, and the liver does have it. B) Ketone bodies leave the liver readily through transporters. C) The liver forms acetyl-CoA from fatty acids; this is the substrate for ketogenesis.",
+   "trap": "Assuming the producing organ must be able to consume the product.",
+   "topic": "Ketone body metabolism",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D8",
+   "stem": "A patient with muscle glycogen phosphorylase deficiency (McArdle disease) exercises vigorously. Which finding is most likely?",
+   "options": {
+    "A": "Painful cramps with markedly elevated venous lactate",
+    "B": "Painful cramps with little rise in venous lactate",
+    "C": "Painless exercise with elevated blood ketones",
+    "D": "Hypoglycemia due to low liver glycogen"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Muscle cannot break down its own glycogen, so little glucose-1-phosphate enters glycolysis, causing energy shortage and a blunted lactate rise. Why the others are wrong: A) High lactate would be expected if muscle glycogen could be mobilized for glycolysis. C) The problem is in muscle glycogenolysis, and ketone production is not elevated by exercise here. D) Liver glycogen phosphorylase is a different isoform and is normal, so fasting glucose is maintained.",
+   "trap": "Expecting a defect in glycogenolysis to lower blood glucose, as in liver disorders.",
+   "topic": "Glycogen storage disease",
+   "mastery_sheet_id": "1D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D9",
+   "stem": "Red blood cells with an internal osmolarity of about 300 mOsm/L are placed in different solutions. Assuming NaCl dissociates fully, which solution is most likely to cause the cells to swell and lyse?",
+   "options": {
+    "A": "150 mM NaCl",
+    "B": "300 mM sucrose",
+    "C": "300 mM urea",
+    "D": "600 mM sucrose"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Urea freely crosses the membrane, so it does not provide a lasting osmotic balance; as it equilibrates, water follows it into the cell and the cells swell and lyse. Why the others are wrong: A) 150 mM NaCl is about 300 mOsm/L and isotonic. B) 300 mM sucrose is isotonic, and sucrose does not cross the membrane. D) 600 mM sucrose is hypertonic and causes the cells to shrink.",
+   "trap": "Judging tonicity by total osmolarity without considering membrane permeability.",
+   "topic": "Tonicity and osmosis",
+   "mastery_sheet_id": "2A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D10",
+   "stem": "The toxicity of endotoxin released by gram-negative bacteria during sepsis is caused primarily by which structure?",
+   "options": {
+    "A": "Teichoic acid in a thick peptidoglycan layer",
+    "B": "Lipid A of lipopolysaccharide in the outer membrane",
+    "C": "The polysaccharide capsule surrounding the cell",
+    "D": "Flagellin subunits of the flagellar filament"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Lipid A is recognized by TLR4 on macrophages and triggers release of cytokines, which cause fever and shock. Why the others are wrong: A) Teichoic acids are found in gram-positive cells. C) The capsule is mainly antiphagocytic and is not the endotoxin. D) Flagellin activates TLR5 and is not the classic endotoxin.",
+   "trap": "Assigning endotoxin activity to the capsule or to peptidoglycan.",
+   "topic": "Gram-negative cell envelope",
+   "mastery_sheet_id": "2B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D11",
+   "stem": "In a mating between an Hfr donor and an F- recipient, the recipient usually remains F-. Which explanation is best?",
+   "options": {
+    "A": "Transfer starts inside the integrated F, and its trailing genes rarely enter before the pair separates.",
+    "B": "The F plasmid is destroyed by restriction enzymes in the recipient cell soon after the transferred DNA enters it.",
+    "C": "The Hfr cell transfers only plasmid genes and never chromosomal DNA, so recipient cells remain F- after mating.",
+    "D": "The recipient degrades all transferred DNA through homologous recombination before it can be expressed or replicated."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Transfer starts within the integrated F sequence and moves chromosomal genes first; the remaining F genes enter last, if at all. Why the others are wrong: B) Restriction is not the cause, and the F sequences are linked to the chromosome. C) Hfr strains transfer chromosomal markers, which is the basis of conjugation mapping. D) Homologous recombination integrates the transferred donor DNA; it does not degrade it all.",
+   "trap": "Treating Hfr transfer like transfer of an autonomous F plasmid.",
+   "topic": "Bacterial conjugation",
+   "mastery_sheet_id": "2B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D12",
+   "stem": "At the time of ovulation in humans, the oocyte is arrested in which stage?",
+   "options": {
+    "A": "Metaphase of meiosis II",
+    "B": "Prophase of meiosis I",
+    "C": "Metaphase of meiosis I",
+    "D": "Telophase of meiosis II"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The primary oocyte completes meiosis I just before ovulation and then arrests in metaphase II until fertilization completes meiosis II. Why the others are wrong: B) Prophase I arrest lasts from fetal life until shortly before ovulation. C) The oocyte completes meiosis I before ovulation. D) Meiosis II is completed only after sperm penetration.",
+   "trap": "Confusing the first arrest point (prophase I) with the one present at ovulation.",
+   "topic": "Oogenesis",
+   "mastery_sheet_id": "2C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D13",
+   "stem": "Fluorodeoxyglucose (FDG) PET imaging highlights many tumors. Which feature of tumor metabolism does this reflect?",
+   "options": {
+    "A": "Increased glucose uptake and glycolysis, with trapping of phosphorylated FDG in the cell",
+    "B": "Decreased glucose uptake, with accumulation of FDG in the mitochondria",
+    "C": "Increased oxidative phosphorylation, with FDG used as a TCA cycle substrate",
+    "D": "Increased gluconeogenesis, with FDG exported to the blood"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Tumor cells often take up glucose and perform glycolysis at high rates (the Warburg effect). FDG-6-phosphate cannot proceed through glycolysis and stays in the cell. Why the others are wrong: B) Tumors typically take up more glucose, not less. C) FDG-6-phosphate is not oxidized, and tumor ATP often comes from glycolysis despite oxygen. D) Gluconeogenesis is not a feature of the signal, and phosphorylated FDG does not leave cells.",
+   "trap": "Assuming an imaging tracer must be metabolized fully like glucose.",
+   "topic": "Warburg effect",
+   "mastery_sheet_id": "2C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D14",
+   "stem": "A patient has an elevated free thyroxine level, a suppressed thyroid-stimulating hormone level, and a diffusely enlarged thyroid. Which is the most likely cause?",
+   "options": {
+    "A": "A pituitary adenoma that secretes TSH",
+    "B": "Destruction of the thyroid by autoantibodies against thyroid peroxidase",
+    "C": "Dietary iodine deficiency",
+    "D": "Antibodies that stimulate the TSH receptor"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Stimulating antibodies mimic TSH, increasing T4 and goiter size, and the high T4 suppresses pituitary TSH by negative feedback (Graves disease). Why the others are wrong: A) A TSH-secreting tumor would produce high TSH, not suppressed TSH. B) Destruction of the gland lowers T4 and raises TSH. C) Iodine deficiency lowers T4 and raises TSH.",
+   "trap": "Forgetting that TSH is suppressed when the thyroid is driven independently of the pituitary.",
+   "topic": "Thyroid feedback",
+   "mastery_sheet_id": "3A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_BB_D15",
+   "stem": "A patient with severe liver disease has low serum albumin and develops peripheral edema. Which change in the Starling forces best explains the edema?",
+   "options": {
+    "A": "Increased interstitial oncotic pressure resists fluid movement into the interstitium.",
+    "B": "Decreased capillary hydrostatic pressure favors net movement of fluid into the interstitium.",
+    "C": "Decreased capillary oncotic pressure favors net movement of fluid into the interstitium.",
+    "D": "Increased capillary oncotic pressure favors net movement of fluid into the interstitium."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Albumin supplies most of the plasma oncotic pressure, which opposes filtration; with less albumin, filtration exceeds reabsorption, causing edema. Why the others are wrong: A) Higher interstitial oncotic pressure would draw fluid out; the described change would not occur from low plasma albumin. B) Lower hydrostatic pressure would reduce filtration. D) Higher oncotic pressure in capillaries would pull fluid back into them.",
+   "trap": "Choosing hydrostatic pressure when the problem involves a plasma protein deficit.",
+   "topic": "Starling forces",
+   "mastery_sheet_id": "3B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

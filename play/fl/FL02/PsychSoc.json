@@ -1,0 +1,1573 @@
+{
+ "exam": "FL02",
+ "section": "PS",
+ "passages": [
+  {
+   "passage_id": "FL02_PS_P1",
+   "passage_text": "Researchers measured difference thresholds for lifted weight in 24 adults. On each trial, a blindfolded participant lifted a standard weight and then a comparison weight and reported which felt heavier. Comparison weights differed from the standard by small increments, and the just-noticeable difference (JND) was defined as the smallest increment judged heavier on 75% of trials. Five standard weights were tested, and the order of the standards was counterbalanced across participants. Weber's law states that the JND is a constant proportion of the standard intensity (JND = k x standard), where k is the Weber fraction. Participants were university students aged 18 to 25 with no neurological conditions. Mean results are shown in Table 1 and Figure 1. In a separate session, participants who held a 400 g weight in the palm for several minutes reported that its felt heaviness gradually faded. Each participant completed all five standards in a single two-hour session with rest breaks between blocks, and lifts were made with the dominant hand using identical containers so that only the mass differed.",
+   "table_data": "**Table 1. Mean JND for lifted weight**\n\n| Standard (g) | JND (g) | JND / standard |\n|---|---|---|\n| 50 | 1.5 | 0.03 |\n| 100 | 3.0 | 0.03 |\n| 200 | 6.0 | 0.03 |\n| 400 | 12.0 | 0.03 |\n| 800 | 40.0 | 0.05 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. JND as a function of standard weight",
+    "x_label": "Standard weight (g)",
+    "y_label": "JND (g)",
+    "series": [
+     {
+      "name": "Mean JND",
+      "points": [
+       [
+        50,
+        1.5
+       ],
+       [
+        100,
+        3
+       ],
+       [
+        200,
+        6
+       ],
+       [
+        400,
+        12
+       ],
+       [
+        800,
+        40
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_PS_P1_Q1",
+     "stem": "Assuming Weber's law holds with the Weber fraction observed for the lighter standards, the predicted JND for a 300 g standard is closest to:",
+     "options": {
+      "A": "3 g",
+      "B": "30 g",
+      "C": "90 g",
+      "D": "9 g"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) k = 0.03, so JND = 0.03 x 300 g = 9 g. Why the others are wrong: A) This is the JND for the 100 g standard, not 300 g. B) This treats k as 0.10 rather than 0.03. C) This is a tenfold arithmetic slip; 0.03 x 300 is 9, not 90.",
+     "trap": "Using the JND of the nearest listed standard instead of multiplying the Weber fraction by the new standard intensity.",
+     "topic": "Weber's law calculation",
+     "mastery_sheet_id": "6A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_PS_P1_Q2",
+     "stem": "Compared with the other standards, performance at the 800 g standard indicates that:",
+     "options": {
+      "A": "sensitivity to weight differences was higher, because the absolute JND was largest at the heaviest standard.",
+      "B": "sensitivity to weight differences was lower, because a larger proportional increment was needed.",
+      "C": "sensitivity was unchanged, because Weber's law holds exactly at every intensity.",
+      "D": "participants adapted to the heavier weight, so the JND became zero at the 400 g standard."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The fraction rose from 0.03 to 0.05, so a relatively larger change was required, meaning lower sensitivity and a departure from Weber's law. Why the others are wrong: A) A larger JND means worse, not better, discrimination; the proportional value also rose. C) The ratio changed from 0.03 to 0.05, so the law did not hold exactly. D) Adaptation would not produce a JND of zero, and the table shows a JND of 12 g (not 0) at 400 g.",
+     "trap": "Reading the larger absolute JND as greater sensitivity; only the ratio (and the direction of the change) matters for sensitivity.",
+     "topic": "Weber fraction interpretation",
+     "mastery_sheet_id": "6A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P1_Q3",
+     "stem": "The sense of tension developed in the muscle and tendon while lifting the weights is most directly signaled by:",
+     "options": {
+      "A": "muscle spindles.",
+      "B": "Golgi tendon organs.",
+      "C": "Pacinian corpuscles.",
+      "D": "nociceptors."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Golgi tendon organs sit at the muscle-tendon junction and respond to tension. Why the others are wrong: A) Spindles monitor muscle length and rate of stretch rather than tension. C) These skin receptors respond to deep pressure and vibration. D) These signal tissue damage, which was not part of the task.",
+     "trap": "Confusing muscle spindles (length) with Golgi tendon organs (tension).",
+     "topic": "Proprioception",
+     "mastery_sheet_id": "6A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P1_Q4",
+     "stem": "Counterbalancing the order of the standard weights across participants was done mainly to:",
+     "options": {
+      "A": "ensure that participants could not perceive the comparison weights at all during the lifting.",
+      "B": "prevent practice or fatigue effects from being confounded with standard weight.",
+      "C": "increase the number of observations collected for each standard weight in the study.",
+      "D": "replace the need to blind participants to the identity of the standards being compared."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) If every person did standards in the same order, order and weight would be inseparable; counterbalancing spreads order effects across standards. Why the others are wrong: A) Participants could perceive them; the task depends on it. C) Counterbalancing changes order, not the number of observations. D) It addresses order effects only, not knowledge of the stimuli.",
+     "trap": "Mixing up counterbalancing (order effects) with random assignment (group equivalence).",
+     "topic": "Counterbalancing",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P1_Q5",
+     "stem": "Which of the following describes a difference threshold rather than an absolute threshold?",
+     "options": {
+      "A": "The minimum weight on the palm that is felt on 50% of trials when nothing else is present.",
+      "B": "The point at which the lifted weight begins to feel painful rather than merely heavy.",
+      "C": "The weight that cannot be distinguished from a 0 g stimulus.",
+      "D": "The 12 g added to a 400 g weight before it feels heavier."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A difference threshold is the smallest detectable change between two stimuli, as in the JND. Why the others are wrong: A) This is the absolute threshold, the minimum detectable stimulus. B) Pain threshold is a different concept altogether. C) This describes detection against nothing, again an absolute threshold.",
+     "trap": "Treating any 'minimum amount' as an absolute threshold; a difference threshold compares two nonzero stimuli.",
+     "topic": "Absolute vs difference threshold",
+     "mastery_sheet_id": "6A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_PS_P2",
+   "passage_text": "Researchers compared two schedules for learning foreign-language vocabulary. One hundred twenty students with no prior exposure to the language were randomly assigned to a massed group or a spaced group (60 each). Every student studied the same 40 word pairs in three study sessions of equal length. Massed participants completed all three sessions back to back in one afternoon, whereas spaced participants completed one session per day on three consecutive days. Participants were later shown the native-language word and asked to write the translation. Each participant was tested at only one of four delays after the final session (15 per group per delay), so that earlier testing could not influence later recall. Mean percent correct is shown in Table 1 and Figure 1. The investigators interpreted the pattern as evidence that distributed practice strengthens long-term retention more than cramming does. Students were told only that they would be tested at some point and were not told the delay, and all testing took place in the same quiet room at the same time of day, with no feedback given during testing.",
+   "table_data": "**Table 1. Mean recall (% of 40 words)**\n\n| Delay after final session (days) | Massed | Spaced |\n|---|---|---|\n| 0 | 88 | 82 |\n| 2 | 62 | 71 |\n| 7 | 41 | 60 |\n| 30 | 20 | 45 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Vocabulary recall by study schedule",
+    "x_label": "Delay (days)",
+    "y_label": "Mean recall (%)",
+    "series": [
+     {
+      "name": "Massed",
+      "points": [
+       [
+        0,
+        88
+       ],
+       [
+        2,
+        62
+       ],
+       [
+        7,
+        41
+       ],
+       [
+        30,
+        20
+       ]
+      ]
+     },
+     {
+      "name": "Spaced",
+      "points": [
+       [
+        0,
+        82
+       ],
+       [
+        2,
+        71
+       ],
+       [
+        7,
+        60
+       ],
+       [
+        30,
+        45
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_PS_P2_Q1",
+     "stem": "Which conclusion is best supported by the data?",
+     "options": {
+      "A": "Spaced study produced better recall than massed study at every delay tested, including the immediate test.",
+      "B": "Both groups forgot material at the same rate across the two days, differing only at the start.",
+      "C": "Massed study prevented any meaningful forgetting for the full two days after the study session.",
+      "D": "The advantage of spaced study appeared only after a delay, not on the immediate test."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Massed was higher at day 0 (88 vs 82), but spaced was higher at every later delay. Why the others are wrong: A) At day 0 the massed group scored higher. B) The massed curve fell faster, from 88 to 20 versus 82 to 45. C) Massed recall fell from 88% to 62% by day 2.",
+     "trap": "Overgeneralizing 'spacing is better' to all delays, ignoring the day 0 crossover.",
+     "topic": "Spacing effect interpretation",
+     "mastery_sheet_id": "6B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P2_Q2",
+     "stem": "At the 30-day delay, the spaced group recalled how many times as many words as the massed group?",
+     "options": {
+      "A": "1.25",
+      "B": "25",
+      "C": "2.25",
+      "D": "0.44"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 45 / 20 = 2.25. Why the others are wrong: A) This would correspond to a 25% advantage, but 45 is 125% more than 20, not 25% more. B) This is the difference in percentage points, not a ratio. D) This is 20 / 45, the inverse ratio.",
+     "trap": "Reporting the percentage-point difference (25) or the inverted ratio (0.44) when a ratio of spaced to massed is requested.",
+     "topic": "Ratio calculation",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_PS_P2_Q3",
+     "stem": "Successful recall of vocabulary after 30 days depends most heavily on consolidation of declarative memories by which structure?",
+     "options": {
+      "A": "Cerebellum",
+      "B": "Hippocampus",
+      "C": "Basal ganglia",
+      "D": "Amygdala"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The hippocampus is critical for forming and consolidating explicit semantic memories such as word meanings. Why the others are wrong: A) The cerebellum supports motor learning and conditioned reflexes. C) These support procedural memory and habits. D) The amygdala modulates emotional memory, which this task does not target.",
+     "trap": "Assigning every memory task to the amygdala or basal ganglia rather than recognizing explicit semantic memory as hippocampal.",
+     "topic": "Memory consolidation",
+     "mastery_sheet_id": "6B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P2_Q4",
+     "stem": "A within-subjects version of this study, in which each student learned half the words by each schedule, would better control for:",
+     "options": {
+      "A": "individual differences in learning ability.",
+      "B": "differences in the language being learned by each group.",
+      "C": "the length of the study sessions.",
+      "D": "the effect of testing delay on recall."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Each person serves as his or her own control, removing between-person variability. Why the others are wrong: B) The language was the same for both groups already. C) Session length was already equal. D) Delay would still affect recall; it is a manipulated factor.",
+     "trap": "Thinking within-subjects designs remove order effects; they remove individual differences but can introduce carryover.",
+     "topic": "Between vs within designs",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_PS_P3",
+   "passage_text": "Thirty-six healthy adults viewed aversive photographs (such as images of injury) during functional MRI. On each trial, a written cue instructed participants either to 'view' the photograph naturally or to 'reappraise' it by imagining a more benign interpretation, for example that the injured person was an actor in a film. Each participant completed both trial types in counterbalanced order. After each trial, participants rated how negative they felt from 1 (not at all negative) to 9 (extremely negative). Activation in the amygdala and in the ventrolateral prefrontal cortex (vlPFC) was expressed as percent signal change from a resting baseline. Paired-samples t-tests compared the two conditions for each measure, and results are shown in Table 1. Participants also reported how often they used reappraisal in daily life; frequent users showed greater vlPFC activation during reappraisal trials. Photographs were matched across conditions for rated unpleasantness and visual complexity in a pilot sample, and each participant saw 30 photographs per condition, with no photograph shown twice.",
+   "table_data": "**Table 1. Mean responses by instruction (n = 36)**\n\n| Measure | View | Reappraise | p |\n|---|---|---|---|\n| Negative rating (1-9) | 6.8 | 4.9 | < 0.001 |\n| Amygdala signal change (%) | 0.42 | 0.21 | < 0.001 |\n| vlPFC signal change (%) | 0.20 | 0.48 | < 0.001 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL02_PS_P3_Q1",
+     "stem": "The pattern of activation in Table 1 is most consistent with which interpretation?",
+     "options": {
+      "A": "The amygdala suppresses prefrontal activity in order to generate the emotional response.",
+      "B": "Emotion and cognition are processed by separate and unrelated brain systems that do not interact.",
+      "C": "Reappraisal works by increasing amygdala activity.",
+      "D": "Prefrontal regions exert top-down regulation."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) vlPFC activity rose as amygdala activity and negative feeling fell, fitting prefrontal down-regulation of limbic responses. Why the others are wrong: A) The data show the opposite pairing: prefrontal up, amygdala down. B) The inverse relationship suggests interaction. C) Amygdala signal fell by half.",
+     "trap": "Assuming a correlation between regions reveals the direction of influence; here the instruction manipulation supports the regulatory interpretation.",
+     "topic": "Emotion regulation neuroscience",
+     "mastery_sheet_id": "6C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P3_Q2",
+     "stem": "The percent decrease in amygdala signal during reappraisal relative to viewing is closest to:",
+     "options": {
+      "A": "21%",
+      "B": "25%",
+      "C": "50%",
+      "D": "100%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) (0.42 - 0.21) / 0.42 = 0.50, a 50% decrease. Why the others are wrong: A) This reuses the reappraise value rather than a relative change. B) This is not supported by the means given. D) The signal did not fall to zero.",
+     "trap": "Using the raw value (0.21) or an absolute difference instead of dividing by the starting value.",
+     "topic": "Percent change",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_PS_P3_Q3",
+     "stem": "Paired-samples t-tests were appropriate for these comparisons because:",
+     "options": {
+      "A": "the dependent variables were categorical.",
+      "B": "the same participants were measured in both conditions.",
+      "C": "three or more independent groups were compared.",
+      "D": "the study examined the correlation between two variables."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Each person contributed a view and a reappraise score, so the scores are dependent. Why the others are wrong: A) The measures were continuous. C) There were two related conditions. D) Group means were compared, not correlated.",
+     "trap": "Choosing an independent-samples test because there are two conditions, ignoring that the same people were in both.",
+     "topic": "Choosing a statistical test",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P3_Q4",
+     "stem": "The finding that changing the interpretation of a photograph changed how negative it felt is best explained by which theory of emotion?",
+     "options": {
+      "A": "James-Lange theory, in which an emotion is simply the perception of bodily arousal.",
+      "B": "Lazarus's cognitive-mediational theory, in which appraisal determines the emotional response.",
+      "C": "Cannon-Bard theory, in which arousal and emotion arise independently.",
+      "D": "Yerkes-Dodson law, in which performance depends on arousal level."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Appraisal of the stimulus shapes the emotion; changing the appraisal changed the emotion. Why the others are wrong: A) This theory puts arousal first, not appraisal. C) It does not assign a causal role to appraisal. D) This describes arousal and performance, not emotion generation.",
+     "trap": "Defaulting to James-Lange or Cannon-Bard whenever emotion is mentioned, without noting the role of cognitive appraisal.",
+     "topic": "Theories of emotion",
+     "mastery_sheet_id": "6C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_PS_P4",
+   "passage_text": "In a double-blind randomized trial, 200 adults diagnosed with major depressive disorder received either a selective serotonin reuptake inhibitor (SSRI) or an identical-looking placebo daily for 8 weeks (100 per group). Clinicians blind to assignment assessed severity with the Hamilton Depression Rating Scale (HAM-D; higher scores indicate more severe depression) at baseline and at weeks 2, 4, and 8. 'Response' was defined as at least a 50% reduction from the baseline HAM-D score. Twelve SSRI participants and eight placebo participants withdrew before week 8, most citing side effects such as nausea and sleep disturbance. Primary analyses included all randomized participants, with the last available score carried forward for those who withdrew. Mean HAM-D scores are shown in Figure 1 and week 8 outcomes in Table 1. Participants were adults aged 25 to 60 who had not received antidepressant medication in the preceding three months, and all participants were offered brief supportive counseling at each clinic visit regardless of group.",
+   "table_data": "**Table 1. Week 8 outcomes**\n\n| Outcome | SSRI (n = 100) | Placebo (n = 100) |\n|---|---|---|\n| Responders, n (%) | 45 (45%) | 30 (30%) |\n| Mean HAM-D score | 11 | 17 |\n| Withdrew before week 8, n | 12 | 8 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Mean HAM-D score over time",
+    "x_label": "Week",
+    "y_label": "Mean HAM-D score",
+    "series": [
+     {
+      "name": "SSRI",
+      "points": [
+       [
+        0,
+        24
+       ],
+       [
+        2,
+        20
+       ],
+       [
+        4,
+        15
+       ],
+       [
+        8,
+        11
+       ]
+      ]
+     },
+     {
+      "name": "Placebo",
+      "points": [
+       [
+        0,
+        24
+       ],
+       [
+        2,
+        21
+       ],
+       [
+        4,
+        19
+       ],
+       [
+        8,
+        17
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_PS_P4_Q1",
+     "stem": "Based on response rates, the number of patients who must be treated with the SSRI rather than placebo for one additional patient to respond is closest to:",
+     "options": {
+      "A": "3",
+      "B": "7",
+      "C": "15",
+      "D": "45"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Absolute difference = 45% - 30% = 15% (0.15); 1 / 0.15 = 6.7, about 7. Why the others are wrong: A) This inverts the relative improvement rather than the absolute risk difference. C) This is the percentage-point difference, not its reciprocal. D) This is the SSRI response rate itself.",
+     "trap": "Reporting the absolute difference (15) rather than its reciprocal when asked for a number needed to treat.",
+     "topic": "Number needed to treat",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.nottingham.ac.uk/helmopen/rlos/ebp/designing_research/nnt_nnh/page_two.html"
+      ]
+     }
+    },
+    {
+     "id": "FL02_PS_P4_Q2",
+     "stem": "SSRIs are thought to increase serotonergic signaling primarily by:",
+     "options": {
+      "A": "inhibiting the enzyme that degrades serotonin in the synaptic cleft.",
+      "B": "binding postsynaptic receptors and mimicking serotonin directly.",
+      "C": "blocking reuptake of serotonin into the presynaptic neuron.",
+      "D": "increasing the synthesis of dopamine in the ventral tegmental area of the midbrain."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Inhibiting the serotonin transporter raises synaptic serotonin. Why the others are wrong: A) This is how some other antidepressants, MAO inhibitors, act (intracellularly). B) That describes a receptor agonist, not an SSRI. D) SSRIs act on serotonin, not dopamine synthesis.",
+     "trap": "Mixing up reuptake inhibitors, enzyme inhibitors, and direct receptor agonists.",
+     "topic": "Neurotransmitters and antidepressants",
+     "mastery_sheet_id": "7A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P4_Q3",
+     "stem": "The placebo group's mean HAM-D score fell from 24 to 17. The most reasonable explanation is:",
+     "options": {
+      "A": "expectation of benefit together with the natural course of the disorder.",
+      "B": "the placebo contained an active serotonergic compound.",
+      "C": "the SSRI group's improvement spilled over to the placebo group.",
+      "D": "measurement error, because HAM-D cannot detect change."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Placebo response reflects expectation and spontaneous improvement over time. Why the others are wrong: B) An inert placebo is assumed; this does not follow from the data. C) Participants were treated separately. D) Systematic change in a group is not explained by random error alone.",
+     "trap": "Assuming any improvement in a control group means the control was flawed rather than reflecting placebo and time effects.",
+     "topic": "Placebo effects",
+     "mastery_sheet_id": "7A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P4_Q4",
+     "stem": "Suppose the trial had analyzed only participants who completed all 8 weeks. Because more SSRI participants withdrew for side effects, the SSRI effect would most likely be:",
+     "options": {
+      "A": "underestimated, since patients who withdraw from a trial are always the most improved ones.",
+      "B": "unchanged, because withdrawal from the trial is random with respect to drug response and outcome.",
+      "C": "eliminated, because double-blinding of the study corrects for any differential attrition between arms.",
+      "D": "overestimated, since those remaining may have tolerated and benefited from the drug."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Dropping non-completers can leave a more favorable subgroup in the drug arm, biasing the estimate upward. Why the others are wrong: A) Dropouts for side effects are not typically the most improved. B) Withdrawal was related to the treatment itself. C) Blinding does not correct attrition bias.",
+     "trap": "Believing attrition is harmless if groups started equal; differential dropout breaks the benefit of randomization.",
+     "topic": "Attrition and intention-to-treat",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P4_Q5",
+     "stem": "The SSRI and placebo curves in Figure 1 differ little at week 2 but diverge more by weeks 4 to 8. This delay is most consistent with:",
+     "options": {
+      "A": "immediate depletion of serotonin stores that is later restored over several weeks.",
+      "B": "participants gradually learning to guess which treatment assignment they had received.",
+      "C": "a failure of the drug to reach the brain in the first few weeks of dosing.",
+      "D": "slower neural adaptations after blockade begins."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Reuptake blockade acts within hours, so the delayed benefit suggests slower downstream adaptations. Why the others are wrong: A) Serotonin availability rises immediately with an SSRI. B) Unblinding would not explain a gradual drug-specific divergence. C) SSRIs begin acting within hours of dosing.",
+     "trap": "Assuming drug effects must appear as soon as the drug reaches its target.",
+     "topic": "Delayed antidepressant response",
+     "mastery_sheet_id": "7A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_PS_P5",
+   "passage_text": "Researchers studied whether effort declines when individual contributions are pooled. Two hundred forty undergraduates pulled on a rope attached to a force gauge, trying to pull as hard as possible, either alone or in groups of 2, 4, or 8. Participants were randomly assigned to group size and to one of two instruction conditions. In the anonymous condition, only total group force was recorded. In the identifiable condition, participants were told that each person's force would be measured by a separate gauge and posted afterward. Mean force per person is shown in Table 1 and Figure 1. Alone, participants produced a mean of 62 kg-force in both conditions. The investigators concluded that reduced effort in groups depends on whether individual outputs can be evaluated. Participants wore blindfolds and noise-canceling headphones so that they could not see or hear teammates, and the experimenter gave a countdown at the start of each pull so that all members began together.",
+   "table_data": "**Table 1. Mean force per person (kg-force)**\n\n| Group size | Anonymous | Identifiable |\n|---|---|---|\n| 1 | 62 | 62 |\n| 2 | 56 | 60 |\n| 4 | 47 | 57 |\n| 8 | 38 | 55 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Force per person by group size",
+    "x_label": "Group size",
+    "y_label": "Mean force per person (kg-force)",
+    "series": [
+     {
+      "name": "Anonymous",
+      "points": [
+       [
+        1,
+        62
+       ],
+       [
+        2,
+        56
+       ],
+       [
+        4,
+        47
+       ],
+       [
+        8,
+        38
+       ]
+      ]
+     },
+     {
+      "name": "Identifiable",
+      "points": [
+       [
+        1,
+        62
+       ],
+       [
+        2,
+        60
+       ],
+       [
+        4,
+        57
+       ],
+       [
+        8,
+        55
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_PS_P5_Q1",
+     "stem": "The decrease in per-person force with increasing group size in the anonymous condition illustrates:",
+     "options": {
+      "A": "social facilitation.",
+      "B": "social loafing.",
+      "C": "group polarization.",
+      "D": "deindividuation."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Individuals exert less effort in groups when their contributions are pooled and not individually evaluated. Why the others are wrong: A) Facilitation is improved performance of simple tasks in the presence of others. C) This is the strengthening of a group's initial attitude after discussion. D) This is loss of self-awareness in groups, typically producing impulsive behavior, not the measured decline in effort.",
+     "trap": "Choosing social facilitation because 'others are present'; facilitation predicts improved, not reduced, effort on simple tasks.",
+     "topic": "Social loafing",
+     "mastery_sheet_id": "7B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P5_Q2",
+     "stem": "In the anonymous condition, groups of 8 produced approximately what percentage of the total force that eight people would produce working alone?",
+     "options": {
+      "A": "38%",
+      "B": "79%",
+      "C": "61%",
+      "D": "100%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Group total = 8 x 38 = 304; eight alone = 8 x 62 = 496; 304 / 496 = 0.613. Why the others are wrong: A) This is the per-person force value, not a proportion of the alone total. B) This is not supported by the table. D) This would mean no decrease in individual effort.",
+     "trap": "Using the per-person force (38) as if it were a percentage.",
+     "topic": "Percent of expected output",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_PS_P5_Q3",
+     "stem": "Per-person force was higher in the identifiable than in the anonymous condition mainly because identifiability:",
+     "options": {
+      "A": "increased diffusion of responsibility among the members of each group.",
+      "B": "increased evaluation apprehension and accountability.",
+      "C": "reduced physical strength required of each individual person.",
+      "D": "caused participants to mimic the strongest member of the group."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) When outputs can be evaluated, people feel accountable, which reduces loafing. Why the others are wrong: A) Identifiability does the opposite; it concentrates responsibility. C) The task and strength requirement did not change. D) No conformity mechanism is described.",
+     "trap": "Confusing accountability (which reduces loafing) with diffusion of responsibility (which promotes it).",
+     "topic": "Accountability and evaluation",
+     "mastery_sheet_id": "7B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P5_Q4",
+     "stem": "The group size by instruction pattern in Figure 1 indicates an interaction because:",
+     "options": {
+      "A": "the effect of group size depends on whether contributions were identifiable.",
+      "B": "both lines start at the same value for group size 1.",
+      "C": "both conditions show a decrease with group size.",
+      "D": "the identifiable condition produced the lowest force."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The decline with group size is large for the anonymous but small for the identifiable condition, so the lines are not parallel. Why the others are wrong: B) Equal starting points do not by themselves show an interaction. C) A shared direction does not rule out different slopes, which is the interaction. D) It produced the highest force at larger sizes.",
+     "trap": "Looking for an overall main effect instead of non-parallel lines.",
+     "topic": "Interpreting an interaction",
+     "mastery_sheet_id": "SIRS",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_PS_P6",
+   "passage_text": "Ninety students who had reported opposing a proposed tuition increase (attitude of 3 or lower on a 9-point scale; 1 = strongly oppose, 9 = strongly favor) were randomly assigned to three groups of 30. High-choice participants were asked to write a persuasive essay supporting the increase and were told the decision to write it was entirely theirs. Low-choice participants were told that writing the essay was a required part of the session. Control participants wrote an essay about campus parking. Afterward, each participant privately rated attitude toward the tuition increase. A one-way ANOVA found a significant effect of group, F(2, 87) = 27.4, p < 0.001. Group means and standard deviations are shown in Table 1 and Figure 1. Participants in the high-choice group also reported that the essay task felt 'uncomfortable' more often than other participants. The essay session lasted 20 minutes, and the experimenter who collected attitude ratings was blind to group assignment. Participants were debriefed fully after the study and told that the tuition proposal was hypothetical.",
+   "table_data": "**Table 1. Attitude toward tuition increase (1-9)**\n\n| Group | Mean | SD |\n|---|---|---|\n| Control | 2.1 | 1.4 |\n| Low choice | 2.6 | 1.5 |\n| High choice | 4.8 | 1.6 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Mean attitude by group",
+    "x_label": "Group (1 = control, 2 = low choice, 3 = high choice)",
+    "y_label": "Mean attitude (1-9)",
+    "series": [
+     {
+      "name": "Mean attitude",
+      "points": [
+       [
+        1,
+        2.1
+       ],
+       [
+        2,
+        2.6
+       ],
+       [
+        3,
+        4.8
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_PS_P6_Q1",
+     "stem": "The attitude shift in the high-choice group is best explained by which process?",
+     "options": {
+      "A": "Conformity to a majority of peers who favored the increase.",
+      "B": "Increased attention to peripheral cues in a persuasive message.",
+      "C": "Classical conditioning of the tuition increase with positive feelings.",
+      "D": "Reducing the discomfort of acting against a held attitude by changing the attitude."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Freely choosing a behavior inconsistent with a belief creates dissonance, resolved by shifting the attitude toward the behavior. Why the others are wrong: A) No majority pressure was described. B) Participants wrote the message; they were not receiving one. C) No pairing of stimuli is described.",
+     "trap": "Attributing every attitude change to persuasion by others rather than to dissonance from one's own behavior.",
+     "topic": "Cognitive dissonance",
+     "mastery_sheet_id": "7C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P6_Q2",
+     "stem": "The low-choice group showed little attitude change most likely because:",
+     "options": {
+      "A": "they wrote a weaker essay than the high-choice group did, so they felt less committed.",
+      "B": "external justification (being required) explained their behavior.",
+      "C": "they had no prior attitude toward tuition before the study began.",
+      "D": "being told what to do creates the most dissonance of all the conditions."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) With sufficient external justification, little dissonance arises, so there is little pressure to change attitude. Why the others are wrong: A) Essay quality is not measured; the explanation lies in justification. C) Everyone began opposed to the increase. D) Compulsion reduces dissonance because the behavior is explained externally.",
+     "trap": "Assuming more pressure produces more attitude change; in dissonance research, less external pressure does.",
+     "topic": "Insufficient vs external justification",
+     "mastery_sheet_id": "7C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P6_Q3",
+     "stem": "After the significant ANOVA result, which additional analysis is needed to determine which groups differ?",
+     "options": {
+      "A": "A chi-square test of independence on the three groups' mean ratings.",
+      "B": "A post hoc pairwise comparison with correction.",
+      "C": "A Pearson correlation between group membership and attitude score.",
+      "D": "No additional analysis, since a significant F shows that every pair differs."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A significant omnibus F says only that at least one mean differs; post hoc tests identify the pairs. Why the others are wrong: A) The outcome is a continuous rating, not categorical counts. C) Group is categorical with three levels; correlation does not identify pairs. D) F does not show that every pair differs.",
+     "trap": "Reading a significant F as showing that every group differs from every other.",
+     "topic": "ANOVA follow-up",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P6_Q4",
+     "stem": "Using a pooled standard deviation of about 1.5, the standardized difference (Cohen's d) between the high-choice and control groups is closest to:",
+     "options": {
+      "A": "0.5",
+      "B": "1.8",
+      "C": "1.0",
+      "D": "4.1"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) (4.8 - 2.1) / 1.5 = 2.7 / 1.5 = 1.8. Why the others are wrong: A) This would be a medium effect, but the mean difference is much larger relative to SD. C) This would require a mean difference of only 1.5. D) This multiplies the mean difference by the SD instead of dividing.",
+     "trap": "Multiplying by the SD rather than dividing the mean difference by it.",
+     "topic": "Effect size",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://statisticsbyjim.com/basics/cohens-d/",
+       "https://blogs.sas.com/content/iml/cohens-d-statistic-in-sas"
+      ]
+     }
+    },
+    {
+     "id": "FL02_PS_P6_Q5",
+     "stem": "Which additional finding would most favor dissonance theory over Bem's self-perception theory, which proposes that people simply infer attitudes from their own behavior without any discomfort?",
+     "options": {
+      "A": "Higher attitude scores in the high-choice group than in the control group after writing.",
+      "B": "A significant ANOVA result for group on the final attitude rating.",
+      "C": "Higher arousal in the high-choice group that falls after the attitude changes.",
+      "D": "A larger sample of participants in each of the three groups."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Dissonance predicts an aversive arousal state motivating change; self-perception predicts none. Why the others are wrong: A) Both theories predict this shift. B) This is the observed result and fits both theories. D) Sample size does not distinguish theories.",
+     "trap": "Picking evidence that both theories predict.",
+     "topic": "Dissonance vs self-perception",
+     "mastery_sheet_id": "7C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_PS_P7",
+   "passage_text": "In a 12-week community exercise program, 150 adults completed a questionnaire at enrollment measuring exercise self-efficacy, defined as confidence in one's ability to exercise regularly despite obstacles such as fatigue, bad weather, and time pressure. Scores ranged from 10 to 50. The program offered 36 scheduled sessions, and attendance was recorded. Across all 150 participants, the Pearson correlation between self-efficacy score and sessions attended was r = +0.60 (p < 0.001). Participants were divided into thirds based on baseline self-efficacy, and mean attendance for each third is shown in Table 1. Figure 1 plots a random sample of 10 participants. Participants who dropped out were counted as attending no further sessions. The investigators noted that participants with higher baseline fitness were also more likely to attend. Self-efficacy was measured before any session so that attendance could not influence the score. The questionnaire has shown high internal consistency in previous samples, and participants were not paid for attendance.",
+   "table_data": "**Table 1. Attendance by baseline self-efficacy**\n\n| Tertile | n | Mean self-efficacy | Mean sessions attended |\n|---|---|---|---|\n| Low | 50 | 22 | 14 |\n| Middle | 50 | 31 | 22 |\n| High | 50 | 41 | 30 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Sessions attended versus self-efficacy (sample of 10)",
+    "x_label": "Self-efficacy score (10-50)",
+    "y_label": "Sessions attended (of 36)",
+    "series": [
+     {
+      "name": "Participants",
+      "points": [
+       [
+        18,
+        10
+       ],
+       [
+        21,
+        16
+       ],
+       [
+        24,
+        12
+       ],
+       [
+        28,
+        20
+       ],
+       [
+        31,
+        24
+       ],
+       [
+        33,
+        18
+       ],
+       [
+        36,
+        28
+       ],
+       [
+        40,
+        31
+       ],
+       [
+        44,
+        29
+       ],
+       [
+        46,
+        34
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_PS_P7_Q1",
+     "stem": "Exercise self-efficacy, as defined in the passage, is best described as:",
+     "options": {
+      "A": "an overall evaluation of one's worth as a person across all domains.",
+      "B": "a belief that outcomes are controlled mostly by outside forces such as luck.",
+      "C": "the full set of all beliefs one holds about oneself as a person.",
+      "D": "a belief about one's capability to succeed."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Self-efficacy is task-specific confidence in one's ability to perform. Why the others are wrong: A) This is self-esteem. B) This is an external locus of control. C) This is self-concept.",
+     "trap": "Equating self-efficacy with global self-esteem; efficacy is specific to a task.",
+     "topic": "Self-efficacy",
+     "mastery_sheet_id": "8A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P7_Q2",
+     "stem": "The coefficient of determination for the relationship between self-efficacy and attendance is:",
+     "options": {
+      "A": "0.36",
+      "B": "0.60",
+      "C": "0.77",
+      "D": "0.40"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) r squared = 0.60 x 0.60 = 0.36, so 36% of the variance in attendance is shared with self-efficacy. Why the others are wrong: B) This is r itself, not r squared. C) This is approximately the square root of 0.60. D) This is 1 - r, not r squared.",
+     "trap": "Reporting r as if it were the proportion of variance explained.",
+     "topic": "Coefficient of determination",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Coefficient_of_determination",
+       "https://docmckee.com/oer/statistics/section-4/section-4-2/coefficient-of-determination/"
+      ]
+     }
+    },
+    {
+     "id": "FL02_PS_P7_Q3",
+     "stem": "Which statement is a third-variable explanation of the observed correlation?",
+     "options": {
+      "A": "Greater self-efficacy causes participants to attend more sessions.",
+      "B": "Higher baseline fitness raises both self-efficacy and attendance.",
+      "C": "Attending more sessions raises self-efficacy.",
+      "D": "Random sampling error produced the correlation."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A third factor that influences both variables can produce a correlation without a direct link, as the passage's note on fitness suggests. Why the others are wrong: A) This is a direct causal explanation, not a third variable. C) This is reverse causation. D) With p < 0.001 and n = 150, chance alone is unlikely, and this is not a third variable.",
+     "trap": "Calling reverse causation a third variable; a third variable must influence both measures.",
+     "topic": "Correlation and causation",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P7_Q4",
+     "stem": "According to Bandura, which program change would most strongly increase participants' self-efficacy?",
+     "options": {
+      "A": "Starting with achievable goals to build success.",
+      "B": "Removing all feedback on performance throughout the entire program.",
+      "C": "Assigning very difficult goals to every participant from the first week.",
+      "D": "Telling participants that exercise is unimportant to their own health."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Mastery experiences are the strongest source of self-efficacy. Why the others are wrong: B) Without feedback, success cannot be recognized. C) Early failures reduce efficacy. D) This undermines motivation without building confidence.",
+     "trap": "Favoring challenge over success; early mastery builds efficacy.",
+     "topic": "Sources of self-efficacy",
+     "mastery_sheet_id": "8A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_PS_P8",
+   "passage_text": "One hundred sixty strangers formed 80 pairs and played ten rounds of a two-person choice game, knowing in advance that there would be ten rounds. In each round, players chose simultaneously to cooperate or defect. If both cooperated, each earned 3 points; if both defected, each earned 1 point; if one defected and the other cooperated, the defector earned 5 points and the cooperator earned 0. Forty pairs were randomly assigned to a communication condition and spoke for two minutes before round 1, and 40 pairs were assigned to a no-communication condition. Players never revealed their choices during a round. Table 1 shows round 1 choices, and Figure 1 shows the percentage of players cooperating in selected rounds. No agreement made before the game was binding. Pairs sat in separate rooms and communicated only through the experimenter-supplied choice screen, and participants were paid in cash in proportion to the points they earned across all ten rounds.",
+   "table_data": "**Table 1. Round 1 choices**\n\n| Condition | Players | Cooperated | % Cooperated |\n|---|---|---|---|\n| Communication | 80 | 59 | 73.8 |\n| No communication | 80 | 41 | 51.3 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Percentage cooperating by round",
+    "x_label": "Round",
+    "y_label": "Players cooperating (%)",
+    "series": [
+     {
+      "name": "Communication",
+      "points": [
+       [
+        1,
+        74
+       ],
+       [
+        3,
+        76
+       ],
+       [
+        5,
+        72
+       ],
+       [
+        7,
+        68
+       ],
+       [
+        10,
+        52
+       ]
+      ]
+     },
+     {
+      "name": "No communication",
+      "points": [
+       [
+        1,
+        51
+       ],
+       [
+        3,
+        42
+       ],
+       [
+        5,
+        36
+       ],
+       [
+        7,
+        30
+       ],
+       [
+        10,
+        22
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_PS_P8_Q1",
+     "stem": "In a single round, a player who is certain that the partner will cooperate maximizes personal points by:",
+     "options": {
+      "A": "cooperating, which earns 3 rather than 1.",
+      "B": "cooperating, which earns 5 rather than 3.",
+      "C": "defecting, which earns 5 rather than 3.",
+      "D": "defecting, which earns 1 rather than 0."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Against a cooperator, defecting yields 5 versus 3 for cooperating. Why the others are wrong: A) The comparison against a cooperating partner is 3 versus 5, not 3 versus 1. B) Cooperating against a cooperator earns 3. D) Defecting against a cooperator earns 5, not 1.",
+     "trap": "Comparing outcomes across different partner choices instead of fixing the partner's choice.",
+     "topic": "Payoff reasoning",
+     "mastery_sheet_id": "8C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_PS_P8_Q2",
+     "stem": "Which test is most appropriate to compare the proportions of players who cooperated in round 1 across the two conditions?",
+     "options": {
+      "A": "Paired-samples t-test",
+      "B": "Chi-square test",
+      "C": "Pearson correlation",
+      "D": "Repeated-measures ANOVA"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The outcome is categorical (cooperate or defect) in two independent groups. Why the others are wrong: A) The groups are independent and the outcome is not continuous. C) This assesses a relationship between two continuous variables. D) Players were not measured repeatedly in this comparison.",
+     "trap": "Using t-tests for categorical counts.",
+     "topic": "Chi-square",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P8_Q3",
+     "stem": "The drop in cooperation in the communication condition at round 10 is most consistent with:",
+     "options": {
+      "A": "a gradual build-up of mutual trust between the players over the rounds.",
+      "B": "a failure of the communication manipulation after the initial rounds.",
+      "C": "random measurement error occurring in round 10 only, for one group.",
+      "D": "no anticipated future retaliation on the last round."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Knowing the game ends removes the future cost of defection, producing end-game defection. Why the others are wrong: A) Trust building would raise, not lower, cooperation. B) The manipulation affected early rounds, and it persisted through round 7. C) The drop is large and fits a known pattern.",
+     "trap": "Attributing a single-round drop to noise rather than to the incentive structure of a known final round.",
+     "topic": "Reciprocity and end-game effects",
+     "mastery_sheet_id": "8C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P8_Q4",
+     "stem": "A pair mutually cooperates in 7 rounds and mutually defects in the other 3 rounds. Each player's total number of points is:",
+     "options": {
+      "A": "24",
+      "B": "21",
+      "C": "30",
+      "D": "31"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 7 x 3 + 3 x 1 = 21 + 3 = 24. Why the others are wrong: B) This ignores the 3 points from the mutual defection rounds. C) This assumes mutual cooperation in all 10 rounds. D) This incorrectly counts 5 points for some rounds.",
+     "trap": "Forgetting the points earned in mutual defection rounds.",
+     "topic": "Payoff calculation",
+     "mastery_sheet_id": "8C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_PS_P9",
+   "passage_text": "Demographers compared two countries using national statistics, summarized in Table 1 and Figure 1. Crude birth rate (CBR) and crude death rate (CDR) are births and deaths per 1,000 people per year. Net migration is immigrants minus emigrants per 1,000 people per year. The age dependency ratio is the number of people younger than 15 or older than 64 for each person aged 15 to 64. Country X has a rapidly growing population, and many young workers leave seeking employment, sending money home. Country Y has an aging population and recruits foreign workers to fill labor shortages in its health care and service sectors. Population growth rate (%) is (CBR - CDR + net migration) / 10, using per-1,000 values. Figures are national estimates for the same calendar year, and neither country experienced war, famine, or major epidemics during the period reported. Remittances from emigrants are a major source of household income in Country X, whereas Country Y offers broad public pensions and universal health coverage.",
+   "table_data": "**Table 1. National indicators**\n\n| Indicator | Country X | Country Y |\n|---|---|---|\n| CBR | 32 | 9 |\n| CDR | 8 | 11 |\n| Net migration (per 1,000) | -2 | +4 |\n| Median age (years) | 19 | 44 |\n| Ages 0-14 (%) | 35 | 15 |\n| Ages 15-64 (%) | 61 | 64 |\n| Ages 65+ (%) | 4 | 21 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Age distribution",
+    "x_label": "Age group (1 = 0-14, 2 = 15-64, 3 = 65+)",
+    "y_label": "Percentage of population",
+    "series": [
+     {
+      "name": "Country X",
+      "points": [
+       [
+        1,
+        35
+       ],
+       [
+        2,
+        61
+       ],
+       [
+        3,
+        4
+       ]
+      ]
+     },
+     {
+      "name": "Country Y",
+      "points": [
+       [
+        1,
+        15
+       ],
+       [
+        2,
+        64
+       ],
+       [
+        3,
+        21
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_PS_P9_Q1",
+     "stem": "The age dependency ratio of Country Y is closest to:",
+     "options": {
+      "A": "0.56",
+      "B": "0.36",
+      "C": "0.64",
+      "D": "0.79"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) (15 + 21) / 64 = 36 / 64 = 0.5625. Why the others are wrong: B) This uses only the percentage of dependents, 36%, as a ratio rather than dividing by 64. C) This is the dependency ratio of Country X, (35 + 4) / 61. D) This is not supported by the data.",
+     "trap": "Dividing dependents by the total population rather than the working-age population.",
+     "topic": "Dependency ratio",
+     "mastery_sheet_id": "9B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_PS_P9_Q2",
+     "stem": "The overall annual population growth rate of Country Y is closest to:",
+     "options": {
+      "A": "-0.2%",
+      "B": "+0.6%",
+      "C": "-0.6%",
+      "D": "+0.2%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) (9 - 11 + 4) / 10 = +2 per 1,000 = +0.2% per year. Why the others are wrong: A) This is the natural increase alone, ignoring immigration. B) +0.6% adds the size of the natural decrease (2 per 1,000) to net migration (4) instead of combining them with their correct signs. C) This incorrectly subtracts migration from the natural decrease.",
+     "trap": "Leaving net migration out of the growth calculation.",
+     "topic": "Population growth rate",
+     "mastery_sheet_id": "9B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_PS_P9_Q3",
+     "stem": "Which of the following is a pull factor drawing workers from Country X to Country Y?",
+     "options": {
+      "A": "Limited employment opportunities in Country X.",
+      "B": "High fertility in Country X.",
+      "C": "Labor shortages and higher wages in Country Y.",
+      "D": "Remittances sent home to Country X."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Pull factors are attractions at the destination. Why the others are wrong: A) This is a push factor at the origin. B) This is a demographic condition, not a pull factor of Country Y. D) These are consequences of migration, not a pull factor.",
+     "trap": "Calling any factor related to migration a 'pull'; pull factors are located at the destination.",
+     "topic": "Push and pull factors",
+     "mastery_sheet_id": "9B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P9_Q4",
+     "stem": "Compared with Country X, which social institution in Country Y is most likely to face reduced demand because of the age structure?",
+     "options": {
+      "A": "Primary education",
+      "B": "Health care for chronic illness",
+      "C": "Pension and social security systems",
+      "D": "Long-term care services"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) A smaller proportion aged 0-14 means fewer school-age children. Why the others are wrong: B) Demand rises with the larger share aged 65+. C) Pressure increases with a larger elderly group. D) Demand rises with more elderly people.",
+     "trap": "Choosing the institution with the largest absolute change rather than the one whose population shrinks.",
+     "topic": "Social institutions and demographics",
+     "mastery_sheet_id": "9A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P9_Q5",
+     "stem": "Using the rule of 70, if Country X maintained its current overall growth rate, its population would double in approximately:",
+     "options": {
+      "A": "32 years",
+      "B": "12 years",
+      "C": "29 years",
+      "D": "35 years"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Growth = (32 - 8 - 2) / 10 = 2.2%; 70 / 2.2 = 31.8, about 32 years. Why the others are wrong: B) This is not supported by the growth rate. C) This uses natural increase (2.4%) and ignores emigration. D) This would correspond to a 2.0% growth rate.",
+     "trap": "Ignoring net migration, which gives 70 / 2.4 = 29.",
+     "topic": "Doubling time",
+     "mastery_sheet_id": "9B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Doubling_time",
+       "https://www.tutorchase.com/notes/ap/environmental-science/3-8-4-rule-of-70-and-doubling-time-calculations"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_PS_P10",
+   "passage_text": "To test for discrimination in hiring, researchers submitted 4,000 résumés in response to real entry-level job advertisements. Each résumé was designed at a higher or lower quality level (more or less experience and relevant skills). Names statistically associated with White or Black Americans were randomly assigned to résumés within each quality level, so 2,000 résumés carried White-sounding names and 2,000 carried Black-sounding names, each half higher and half lower quality. The outcome was a callback, meaning that the employer contacted the applicant. Overall callback rates were 14.0% for White-sounding names and 9.5% for Black-sounding names (chi-square test, p < 0.001). Table 1 gives results by quality level. The researchers noted that names may convey information beyond race, and that callbacks are not job offers. Contact information on each résumé, such as address and phone number, was held constant across names, and employers who responded did so within 30 days. Advertisements were sampled from several large metropolitan areas, and work histories were written to be equally plausible for the jobs advertised.",
+   "table_data": "**Table 1. Callbacks by name and résumé quality**\n\n| Name | Quality | Résumés | Callbacks | Rate |\n|---|---|---|---|---|\n| White-sounding | Higher | 1,000 | 170 | 17.0% |\n| White-sounding | Lower | 1,000 | 110 | 11.0% |\n| Black-sounding | Higher | 1,000 | 110 | 11.0% |\n| Black-sounding | Lower | 1,000 | 80 | 8.0% |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL02_PS_P10_Q1",
+     "stem": "The study measures which of the following?",
+     "options": {
+      "A": "Prejudice, meaning negative attitudes toward a group held by the employers.",
+      "B": "Institutional racism built into the legal system governing hiring.",
+      "C": "Discrimination (differential treatment), not employers' attitudes.",
+      "D": "Stereotype threat among applicants who anticipate being judged by their group."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Callback differences are behavior; the study cannot show whether prejudice (attitudes) motivated it. Why the others are wrong: A) Attitudes were not measured. B) Employers' hiring responses are not legal institutions. D) Applicants did not take part; résumés were sent.",
+     "trap": "Using 'prejudice' and 'discrimination' interchangeably.",
+     "topic": "Prejudice vs discrimination",
+     "mastery_sheet_id": "10A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P10_Q2",
+     "stem": "The relative reduction in the overall callback rate for Black-sounding names compared with White-sounding names is closest to:",
+     "options": {
+      "A": "4.5%",
+      "B": "47%",
+      "C": "32%",
+      "D": "68%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) (14.0 - 9.5) / 14.0 = 4.5 / 14.0 = 0.32. Why the others are wrong: A) This is the absolute difference in percentage points. B) This is the White rate relative to the Black rate minus one, (14.0 - 9.5) / 9.5, using the wrong baseline. D) This is the ratio of rates, 9.5 / 14, not the reduction.",
+     "trap": "Dividing by the wrong baseline or reporting the absolute difference.",
+     "topic": "Relative reduction",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_PS_P10_Q3",
+     "stem": "Which conclusion about résumé quality is best supported by Table 1?",
+     "options": {
+      "A": "Higher-quality résumés with Black-sounding names got callbacks as often as lower-quality ones with White-sounding names.",
+      "B": "Résumé quality had no effect on callbacks for either set of names.",
+      "C": "Higher résumé quality eliminated the gap between the two sets of names.",
+      "D": "Black-sounding names received more callbacks than White-sounding names at the same quality level."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Both were 11.0%. Why the others are wrong: B) Rates were higher for higher-quality résumés in both groups. C) The gap remained, 17.0% versus 11.0%. D) At each quality level, White-sounding names had the higher rate.",
+     "trap": "Assuming credentials remove the racial gap.",
+     "topic": "Interpreting a results table",
+     "mastery_sheet_id": "10A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_PS_P10_Q4",
+     "stem": "A limitation affecting the construct validity of the study is that:",
+     "options": {
+      "A": "names may signal social class or other traits, not only race.",
+      "B": "random assignment of names makes causal inference impossible.",
+      "C": "callback rates cannot be compared across groups.",
+      "D": "the sample of 4,000 résumés is too small for a chi-square test."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The manipulation may not isolate race, since names carry other information. Why the others are wrong: B) Random assignment strengthens causal inference. C) Rates can be compared; the groups were equally sized. D) The sample is large.",
+     "trap": "Mistaking a measurement-validity issue for a sampling-size issue.",
+     "topic": "Construct validity",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL02_PS_D1",
+   "stem": "Olfaction differs from most other senses in that olfactory information:",
+   "options": {
+    "A": "reaches olfactory cortex and limbic structures without a thalamic relay.",
+    "B": "is relayed through the lateral geniculate nucleus of the thalamus first.",
+    "C": "is transduced by mechanoreceptors in the olfactory epithelium of the nose.",
+    "D": "is processed only in the contralateral hemisphere of the cortex."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Olfactory receptor neurons synapse in the olfactory bulb, whose output goes directly to olfactory cortex and the amygdala. Why the others are wrong: B) This is the thalamic relay for vision. C) Olfactory receptors are chemoreceptors. D) Olfactory projections are largely ipsilateral.",
+   "trap": "Assuming that all senses relay through the thalamus.",
+   "topic": "Olfactory pathway",
+   "mastery_sheet_id": "6A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D2",
+   "stem": "A study fails to detect a significant difference although a true difference exists. Which change would most reduce the probability of this error?",
+   "options": {
+    "A": "Lowering the significance level from 0.05 to 0.01.",
+    "B": "Increasing the variability of the measurement.",
+    "C": "Increasing the sample size.",
+    "D": "Testing a smaller group of participants."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) This is a Type II error; larger samples increase power. Why the others are wrong: A) This reduces Type I error but raises Type II error. B) More variability reduces power. D) Reducing sample size lowers power.",
+   "trap": "Confusing Type I and Type II error.",
+   "topic": "Type II error and power",
+   "mastery_sheet_id": "SIRS",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D3",
+   "stem": "A country's Gini coefficient rises from 0.30 to 0.45 over two decades. This indicates that:",
+   "options": {
+    "A": "income is distributed more equally.",
+    "B": "average income has doubled.",
+    "C": "poverty has been eliminated.",
+    "D": "income is distributed less equally."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) A Gini coefficient rises with greater income inequality, from 0 (equality) to 1. Why the others are wrong: A) This would be a decline in the coefficient. B) The Gini coefficient says nothing about the average. C) It does not measure poverty directly.",
+   "trap": "Thinking a higher index indicates greater equality.",
+   "topic": "Gini coefficient",
+   "mastery_sheet_id": "10A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D4",
+   "stem": "A patient speaks slowly with great effort, using short phrases such as 'walk dog now', but understands spoken questions well. The most likely damaged region is:",
+   "options": {
+    "A": "the posterior superior temporal gyrus (Wernicke's area).",
+    "B": "the primary auditory cortex.",
+    "C": "the occipital cortex.",
+    "D": "the left inferior frontal gyrus (Broca's area)."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Damage to Broca's area produces non-fluent speech with relatively intact comprehension. Why the others are wrong: A) This produces fluent but meaningless speech and poor comprehension. B) Damage mostly impairs hearing, not production. C) This is a visual processing region.",
+   "trap": "Mixing up the fluency and comprehension patterns of Broca's and Wernicke's aphasia.",
+   "topic": "Language areas",
+   "mastery_sheet_id": "6B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D5",
+   "stem": "An EEG recording during sleep shows brief bursts of 12-14 Hz activity (sleep spindles) and large isolated waveforms (K-complexes). This is characteristic of:",
+   "options": {
+    "A": "stage N1.",
+    "B": "stage N3.",
+    "C": "stage N2.",
+    "D": "REM sleep."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Spindles and K-complexes mark stage N2. Why the others are wrong: A) N1 shows theta waves. B) N3 shows high-amplitude delta waves. D) REM shows low-amplitude mixed-frequency activity similar to wakefulness.",
+   "trap": "Linking spindles with deep sleep.",
+   "topic": "Sleep stages",
+   "mastery_sheet_id": "6C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D6",
+   "stem": "Which of the following is a negative symptom of schizophrenia?",
+   "options": {
+    "A": "Flat affect",
+    "B": "Auditory hallucinations",
+    "C": "Delusions of persecution",
+    "D": "Disorganized speech"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Negative symptoms are absences of normal function, such as flat affect. Why the others are wrong: B) These are positive symptoms. C) These are positive symptoms. D) This is classed as a disorganized symptom.",
+   "trap": "Assuming 'negative' means unpleasant.",
+   "topic": "Schizophrenia symptoms",
+   "mastery_sheet_id": "7A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D7",
+   "stem": "A rat is conditioned to freeze in response to a tone paired with shock. After extinction training, the tone is presented again after a rest of several days, and freezing briefly returns. This is:",
+   "options": {
+    "A": "stimulus generalization.",
+    "B": "higher-order conditioning.",
+    "C": "spontaneous recovery.",
+    "D": "acquisition."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) A previously extinguished conditioned response reappears after a rest. Why the others are wrong: A) This is responding to stimuli similar to the CS. B) This uses a conditioned stimulus as the unconditioned stimulus for a new CS. D) Acquisition is the initial learning of the CS-US pairing.",
+   "trap": "Calling any return of a response 'acquisition'.",
+   "topic": "Classical conditioning",
+   "mastery_sheet_id": "7A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D8",
+   "stem": "Which variation of Milgram's obedience paradigm would most likely decrease obedience?",
+   "options": {
+    "A": "The learner is in another room and cannot be seen by the teacher.",
+    "B": "A confederate teacher continues to deliver shocks while the participant watches.",
+    "C": "The experimenter gives instructions by telephone.",
+    "D": "The study is conducted in a prestigious university setting."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Reduced physical presence and authority lowers obedience. Why the others are wrong: A) Greater distance from the victim increases obedience. B) Obedient models increase obedience. D) Prestige increases perceived authority.",
+   "trap": "Misjudging how proximity and authority influence obedience.",
+   "topic": "Obedience",
+   "mastery_sheet_id": "7B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D9",
+   "stem": "A canvasser first asks residents to display a small pin supporting a cause, and a week later asks them to place a large sign in their yard. The technique is:",
+   "options": {
+    "A": "door-in-the-face.",
+    "B": "low-ball.",
+    "C": "bandwagon.",
+    "D": "foot-in-the-door."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Agreement with a small request raises compliance with a larger one. Why the others are wrong: A) This begins with an unreasonably large request. B) This changes the terms after commitment. C) This appeals to what many others do.",
+   "trap": "Confusing foot-in-the-door with door-in-the-face.",
+   "topic": "Compliance techniques",
+   "mastery_sheet_id": "7C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D10",
+   "stem": "A 16-year-old tries out different friend groups, hobbies, and career ideas, and is unsure who he is. According to Erikson, the psychosocial task is:",
+   "options": {
+    "A": "industry versus inferiority.",
+    "B": "intimacy versus isolation.",
+    "C": "identity versus role confusion.",
+    "D": "generativity versus stagnation."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Adolescence centers on building a coherent identity. Why the others are wrong: A) This stage occurs in school-age children. B) This stage occurs in young adulthood. D) This stage occurs in middle adulthood.",
+   "trap": "Misplacing Erikson's stages by age.",
+   "topic": "Erikson's stages",
+   "mastery_sheet_id": "8A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D11",
+   "stem": "A person says that a victim of burglary must have been careless, because the world is basically fair and people get what they deserve. This reflects:",
+   "options": {
+    "A": "the just-world hypothesis.",
+    "B": "the self-serving attribution bias.",
+    "C": "the halo effect in judgment.",
+    "D": "the actor-observer bias in attribution."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The belief that the world is fair leads to blaming victims. Why the others are wrong: B) This involves crediting oneself for success and blaming others for failure. C) This generalizes one positive trait to other traits. D) This concerns different explanations for one's own versus others' behavior.",
+   "trap": "Choosing attribution biases that do not feature a belief in fairness.",
+   "topic": "Just-world hypothesis",
+   "mastery_sheet_id": "8B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D12",
+   "stem": "A server is polite and formal with diners but swears and jokes in the kitchen. According to Goffman's dramaturgical approach, this illustrates:",
+   "options": {
+    "A": "role strain within a single role.",
+    "B": "role conflict between two different roles.",
+    "C": "moving between front stage and back stage.",
+    "D": "social loafing in a work group."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Front stage is a performance for an audience; back stage is where the performance is dropped. Why the others are wrong: A) Role strain is tension among demands within one role. B) This refers to incompatible demands from different roles. D) This is reduced effort in a group.",
+   "trap": "Confusing role strain, role conflict, and impression management.",
+   "topic": "Dramaturgy",
+   "mastery_sheet_id": "8C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D13",
+   "stem": "A small farming village where residents know one another and are bound by tradition and kinship is best described by Tonnies as:",
+   "options": {
+    "A": "Gemeinschaft.",
+    "B": "Gesellschaft.",
+    "C": "anomie.",
+    "D": "a bureaucracy."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Gemeinschaft describes communities with close personal ties. Why the others are wrong: B) This describes impersonal societies based on formal relations. C) This is a state of normlessness described by Durkheim. D) This is a formal organization.",
+   "trap": "Reversing Gemeinschaft and Gesellschaft.",
+   "topic": "Social structure",
+   "mastery_sheet_id": "9A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_PS_D14",
+   "stem": "In one year, a city of 500,000 receives 12,000 immigrants and loses 8,000 emigrants. The net migration rate per 1,000 is:",
+   "options": {
+    "A": "16",
+    "B": "24",
+    "C": "40",
+    "D": "8"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) (12,000 - 8,000) / 500,000 x 1,000 = 8. Why the others are wrong: A) This is the emigration rate alone, 8,000 / 500,000 x 1,000. B) This is the immigration rate alone. C) This adds immigrants and emigrants rather than subtracting.",
+   "trap": "Using the immigration or emigration rate alone.",
+   "topic": "Net migration rate",
+   "mastery_sheet_id": "9B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://en.wikipedia.org/wiki/Net_migration_rate",
+     "https://demography.subwiki.org/wiki/Net_migration_rate"
+    ]
+   }
+  },
+  {
+   "id": "FL02_PS_D15",
+   "stem": "After a news story about a plane crash, a person overestimates how dangerous flying is. This illustrates:",
+   "options": {
+    "A": "the representativeness heuristic.",
+    "B": "the availability heuristic.",
+    "C": "anchoring.",
+    "D": "confirmation bias."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Vivid, easily recalled examples distort estimates of frequency. Why the others are wrong: A) This judges category membership by resemblance. C) This relies too heavily on an initial value. D) This favors information that supports prior beliefs.",
+   "trap": "Choosing representativeness whenever a judgment is probabilistic.",
+   "topic": "Heuristics",
+   "mastery_sheet_id": "6B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

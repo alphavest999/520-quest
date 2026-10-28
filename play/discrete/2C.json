@@ -1,0 +1,413 @@
+[
+ {
+  "id": "d_2C_1",
+  "type": "discrete",
+  "stem": "A human somatic cell is in G2 of interphase. How many chromosomes and chromatids does it contain?",
+  "options": {
+   "A": "46 chromosomes and 46 chromatids",
+   "B": "46 chromosomes and 92 chromatids",
+   "C": "92 chromosomes and 92 chromatids",
+   "D": "23 chromosomes and 46 chromatids"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) After S phase each of the 46 chromosomes has two sister chromatids, so G2 cells have 46 chromosomes (counted by centromeres) and 92 chromatids. Why the others are wrong: A) 46 chromatids describes a G1 cell before replication. C) 92 chromosomes miscounts each replicated chromosome as two; chromosome number stays 46. D) 23 is the haploid number, not the count in a diploid somatic cell.",
+  "trap": "Counting each replicated chromosome as two chromosomes; chromosome number depends on centromeres.",
+  "topic": "DNA content in the cell cycle",
+  "mastery_sheet_id": "2C",
+  "difficulty": "518",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_2C_2",
+  "type": "discrete",
+  "stem": "Separation of sister chromatids at the onset of anaphase requires:",
+  "options": {
+   "A": "degradation of the kinetochore by caspases",
+   "B": "phosphorylation of Rb by cyclin D-CDK4",
+   "C": "cleavage of cohesin by separase after the anaphase-promoting complex is activated",
+   "D": "replication of centromeres by DNA polymerase"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) The APC/C destroys securin, freeing separase to cleave the cohesin holding sister chromatids together, allowing anaphase. Why the others are wrong: A) Caspases mediate apoptosis and do not degrade kinetochores for anaphase. B) Rb phosphorylation by cyclin D-CDK4 governs the G1/S transition, not chromatid separation. D) Centromere replication occurs in S phase, long before anaphase.",
+  "trap": "Thinking microtubule pulling alone separates chromatids; cohesin must first be cleaved.",
+  "topic": "Anaphase mechanics",
+  "mastery_sheet_id": "2C",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_3",
+  "type": "discrete",
+  "stem": "Colchicine depolymerizes microtubules. A culture of dividing cells treated with colchicine will accumulate in which stage?",
+  "options": {
+   "A": "G1, because DNA replication is blocked",
+   "B": "Telophase, because the nuclear envelope reforms prematurely",
+   "C": "Cytokinesis, because the cleavage furrow cannot constrict",
+   "D": "Prometaphase/metaphase, because the spindle assembly checkpoint is not satisfied"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Without spindle microtubules kinetochores cannot attach, so the spindle assembly checkpoint blocks APC/C and arrests cells in prometaphase/metaphase. Why the others are wrong: A) Colchicine acts on microtubules and does not block DNA replication, so cells do not stall in G1. B) Telophase occurs after anaphase, which the checkpoint prevents from happening. C) Cytokinesis uses an actin-myosin ring and comes after chromosome segregation, which never occurs.",
+  "trap": "Placing the arrest at cytokinesis because actin, not microtubules, forms the furrow.",
+  "topic": "Spindle assembly checkpoint",
+  "mastery_sheet_id": "2C",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_4",
+  "type": "discrete",
+  "stem": "Reduction in chromosome number during meiosis occurs because:",
+  "options": {
+   "A": "homologous chromosomes separate in anaphase I",
+   "B": "sister chromatids separate in anaphase I",
+   "C": "DNA replicates twice before one division",
+   "D": "homologs fail to pair in prophase I"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Anaphase I separates homologous chromosomes into different cells, halving ploidy from 2n to n. Why the others are wrong: B) Sister chromatid separation occurs in anaphase II and does not reduce chromosome number. C) DNA replicates only once in meiosis, followed by two divisions. D) Homologs do pair (synapsis) in prophase I; failure to pair is not what reduces chromosome number.",
+  "trap": "Mixing up which division separates homologs and which separates sister chromatids.",
+  "topic": "Meiosis I",
+  "mastery_sheet_id": "2C",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_5",
+  "type": "discrete",
+  "stem": "Which statement about crossing over is correct?",
+  "options": {
+   "A": "It occurs between sister chromatids during prophase II",
+   "B": "It occurs between nonsister chromatids of homologous chromosomes during prophase I and generates recombinant chromatids",
+   "C": "It prevents independent assortment of chromosomes",
+   "D": "It occurs during S phase between different chromosomes"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Chiasmata form where nonsister chromatids of homologs exchange segments in prophase I, producing recombinant chromatids. Why the others are wrong: A) Prophase II has no homolog pairs, and exchange between sister chromatids yields identical DNA. C) Crossing over adds variation and does not prevent independent assortment. D) Crossing over occurs in prophase I between homologs, not in S phase between different chromosomes.",
+  "trap": "Thinking sister chromatid exchange generates variation; sisters are genetically identical.",
+  "topic": "Crossing over",
+  "mastery_sheet_id": "2C",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_6",
+  "type": "discrete",
+  "stem": "Nondisjunction of one homologous pair during meiosis I in a primary spermatocyte would result in:",
+  "options": {
+   "A": "two normal gametes, one n+1 and one n-1",
+   "B": "four normal haploid gametes",
+   "C": "four aneuploid gametes: two with n+1 and two with n-1 for that chromosome",
+   "D": "two gametes with 2n and two with no chromosomes"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Nondisjunction in meiosis I sends both homologs to one daughter cell, so all four products are aneuploid: two n+1 and two n-1. Why the others are wrong: A) Two normal gametes plus abnormal ones is the pattern for nondisjunction in meiosis II, not I. B) Four normal haploid gametes requires proper segregation of every pair. D) 2n and empty gametes would require failure of all chromosomes, not one pair.",
+  "trap": "Remembering the meiosis II pattern for meiosis I errors.",
+  "topic": "Nondisjunction",
+  "mastery_sheet_id": "2C",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_7",
+  "type": "discrete",
+  "stem": "Cyclin-dependent kinase (CDK) activity oscillates through the cell cycle mainly because:",
+  "options": {
+   "A": "CDK is synthesized and degraded each cycle while cyclin is constant",
+   "B": "CDK is a transcription factor that turns on during G1 only",
+   "C": "cyclins are phosphatases that inactivate CDK",
+   "D": "cyclin concentrations rise and fall while CDK concentrations remain relatively constant"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) CDKs need cyclin partners to be active, and cyclin levels rise and fall through synthesis and degradation while CDK levels stay fairly constant. Why the others are wrong: A) Reverses the roles: CDK is relatively constant while cyclin is cycled. B) CDKs are protein kinases, not transcription factors, and act throughout the cycle. C) Cyclins are regulatory subunits that activate CDKs, not phosphatases.",
+  "trap": "Assuming the kinase level changes rather than the cyclin partner.",
+  "topic": "Cyclins and CDKs",
+  "mastery_sheet_id": "2C",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_8",
+  "type": "discrete",
+  "stem": "A cell with DNA damage normally undergoes G1 arrest via p53. Which sequence best describes this?",
+  "options": {
+   "A": "p53 is stabilized, induces p21, and p21 inhibits cyclin-CDK complexes",
+   "B": "p53 is degraded, which activates cyclin-CDK complexes",
+   "C": "p53 phosphorylates Rb to release E2F",
+   "D": "p53 inhibits caspases to prevent apoptosis"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) DNA damage stabilizes p53, which induces p21, a CDK inhibitor that blocks cyclin-CDK complexes and halts progression into S phase. Why the others are wrong: B) Degraded p53 would permit division, not cause arrest. C) Rb is phosphorylated by cyclin-CDK complexes, not p53, and that would promote S phase entry. D) p53 promotes apoptosis when damage is irreparable rather than inhibiting caspases.",
+  "trap": "Thinking p53 promotes proliferation; it is a tumor suppressor.",
+  "topic": "p53",
+  "mastery_sheet_id": "2C",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_9",
+  "type": "discrete",
+  "stem": "In a normal G1 cell, which event allows progression to S phase?",
+  "options": {
+   "A": "Dephosphorylation of Rb, which frees E2F",
+   "B": "Phosphorylation of Rb by cyclin D-CDK4/6, releasing E2F to activate S-phase genes",
+   "C": "Binding of p21 to cyclin D-CDK4/6",
+   "D": "Binding of Rb to E2F with increased affinity"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Cyclin D-CDK4/6 hyperphosphorylates Rb, releasing E2F to activate S-phase genes. Why the others are wrong: A) Dephosphorylated (hypophosphorylated) Rb binds and inhibits E2F, blocking S phase entry. C) p21 binding inhibits cyclin-CDK complexes and causes arrest. D) Tighter Rb-E2F binding would keep E2F inactive and prevent progression.",
+  "trap": "Reversing the effect of Rb phosphorylation.",
+  "topic": "Rb and E2F",
+  "mastery_sheet_id": "2C",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_10",
+  "type": "discrete",
+  "stem": "How does cytokinesis differ between animal and plant cells?",
+  "options": {
+   "A": "Animal cells form a cell plate; plant cells form a cleavage furrow",
+   "B": "Both use microtubule-based contractile rings",
+   "C": "Animal cells use an actin-myosin contractile ring forming a cleavage furrow; plant cells build a cell plate from Golgi-derived vesicles",
+   "D": "Plant cells do not undergo cytokinesis, only nuclear division"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Animal cells pinch with an actin-myosin contractile ring forming a cleavage furrow, while plant cells with rigid walls build a cell plate from Golgi-derived vesicles. Why the others are wrong: A) Reverses the two mechanisms. B) Contractile rings are actin-myosin, not microtubule-based, and plants do not use them. D) Plant cells do undergo cytokinesis, via the cell plate.",
+  "trap": "Swapping the animal and plant cytokinesis mechanisms.",
+  "topic": "Cytokinesis",
+  "mastery_sheet_id": "2C",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_11",
+  "type": "discrete",
+  "stem": "Mature neurons in the adult brain are best described as being in:",
+  "options": {
+   "A": "S phase, continuously replicating DNA",
+   "B": "G2, awaiting mitosis",
+   "C": "M phase, arrested at metaphase",
+   "D": "G0, a nondividing state in which they are metabolically active"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Terminally differentiated neurons exit the cycle into G0 yet remain metabolically active. Why the others are wrong: A) Neurons do not replicate DNA, so they are not in S phase. B) G2 cells are poised for mitosis, whereas mature neurons do not divide. C) Neurons are not arrested in metaphase; they have left the cell cycle.",
+  "trap": "Assuming nondividing means metabolically inactive.",
+  "topic": "G0 and quiescence",
+  "mastery_sheet_id": "2C",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_12",
+  "type": "discrete",
+  "stem": "A hematopoietic stem cell that can give rise to all blood cell types but not neurons is:",
+  "options": {
+   "A": "multipotent",
+   "B": "totipotent",
+   "C": "pluripotent",
+   "D": "unipotent"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Hematopoietic stem cells are multipotent, giving multiple related cell types within the blood lineage. Why the others are wrong: B) Totipotent cells can form a whole organism including placenta, which blood stem cells cannot. C) Pluripotent cells give rise to all three germ layers, including neurons, which these cells cannot. D) Unipotent cells give only one cell type, but these give many blood cell types.",
+  "trap": "Choosing pluripotent for any stem cell that makes more than one cell type.",
+  "topic": "Stem cell potency",
+  "mastery_sheet_id": "2C",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_13",
+  "type": "discrete",
+  "stem": "The cloning of Dolly from a differentiated mammary cell nucleus demonstrated that:",
+  "options": {
+   "A": "differentiation involves irreversible loss of genes",
+   "B": "differentiated cells retain the complete genome and can be reprogrammed by the oocyte cytoplasm",
+   "C": "mitochondrial DNA determines cell identity",
+   "D": "somatic nuclei cannot support embryonic development"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Dolly showed a differentiated nucleus keeps the full genome and can be reprogrammed by oocyte cytoplasm, so differentiation reflects differential expression. Why the others are wrong: A) Successful cloning contradicts irreversible gene loss. C) Mitochondrial DNA does not determine cell identity, and the experiment transferred a nucleus. D) Somatic nuclei did support embryonic development to produce a live animal.",
+  "trap": "Believing differentiated cells discard genes they do not use.",
+  "topic": "Differential gene expression",
+  "mastery_sheet_id": "2C",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_14",
+  "type": "discrete",
+  "stem": "Which event is a hallmark of intrinsic apoptosis?",
+  "options": {
+   "A": "Cell swelling and lysis with inflammation",
+   "B": "Telomerase reactivation",
+   "C": "Release of cytochrome c from mitochondria, activating caspases",
+   "D": "Increased cyclin D expression"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Intrinsic apoptosis releases cytochrome c from mitochondria, which with Apaf-1 forms the apoptosome and activates caspase 9. Why the others are wrong: A) Swelling, lysis and inflammation describe necrosis. B) Telomerase reactivation promotes proliferation and immortality, not cell death. D) Increased cyclin D drives G1 progression, not apoptosis.",
+  "trap": "Confusing apoptosis with necrosis.",
+  "topic": "Apoptosis",
+  "mastery_sheet_id": "2C",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_15",
+  "type": "discrete",
+  "stem": "Which pairing of mutation and genetic behavior is correct?",
+  "options": {
+   "A": "Loss of one p53 allele alone fully removes tumor suppression",
+   "B": "Oncogenes require two mutated alleles to cause transformation",
+   "C": "Tumor suppressors are activated by gain-of-function mutations",
+   "D": "A gain-of-function Ras mutation acts dominantly, whereas loss of Rb function usually requires both alleles to be inactivated"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Gain-of-function Ras mutations act dominantly, whereas tumor suppressors like Rb are typically recessive at the cell level and need both alleles inactivated (two-hit). Why the others are wrong: A) One functional p53 allele usually retains substantial suppressor function, so losing one does not fully remove it. B) Oncogenes act dominantly, so one mutated allele suffices. C) Tumor suppressors are inactivated by loss-of-function mutations, not activated by gain-of-function.",
+  "trap": "Applying dominant/recessive intuition backwards between oncogenes and tumor suppressors.",
+  "topic": "Oncogenes and tumor suppressors",
+  "mastery_sheet_id": "2C",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_16",
+  "type": "discrete",
+  "stem": "Most human somatic cells stop dividing after a limited number of divisions mainly because:",
+  "options": {
+   "A": "telomeres shorten with each division because they lack telomerase activity",
+   "B": "telomerase continuously lengthens telomeres until they are too long",
+   "C": "centromeres are lost during each mitosis",
+   "D": "histones are depleted from the nucleus"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Because the end-replication problem shortens telomeres and most somatic cells lack telomerase, critical shortening triggers senescence. Why the others are wrong: B) Somatic telomerase is low or absent and telomeres do not become too long. C) Centromeres are preserved during mitosis. D) Histone depletion is not what limits somatic cell divisions.",
+  "trap": "Thinking cancer cells and somatic cells both express telomerase.",
+  "topic": "Telomeres",
+  "mastery_sheet_id": "2C",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_17",
+  "type": "discrete",
+  "stem": "In an asynchronous population with a 20-hour cell cycle in which S phase lasts 8 hours, about what fraction of cells would be in S phase at any given time?",
+  "options": {
+   "A": "8%",
+   "B": "40%",
+   "C": "25%",
+   "D": "60%"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The fraction in a phase is about phase duration over cycle length: 8/20 = 40%. Why the others are wrong: A) 8% does not match 8/20 and likely misuses the 8 hours as a percent. C) 25% does not match 8/20. D) 60% is the fraction outside S phase (12/20).",
+  "trap": "Calculating the fraction outside S phase or misdividing.",
+  "topic": "Cell cycle calculation",
+  "mastery_sheet_id": "2C",
+  "difficulty": "524",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_2C_18",
+  "type": "discrete",
+  "stem": "Ignoring crossing over, how many genetically different gametes can a human produce through independent assortment alone?",
+  "options": {
+   "A": "2^46",
+   "B": "23^2",
+   "C": "2^23, about 8.4 million",
+   "D": "46"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) With 23 homologous pairs each assorting two ways, there are 2^23 (about 8.4 million) combinations. Why the others are wrong: A) 2^46 wrongly uses the diploid chromosome number as the exponent. B) 23^2 is only 529 and is not how independent combinations scale. D) 46 is the diploid chromosome number, not a count of combinations.",
+  "trap": "Using the diploid number 46 instead of the number of pairs, 23, as the exponent.",
+  "topic": "Independent assortment",
+  "mastery_sheet_id": "2C",
+  "difficulty": "527",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_2C_19",
+  "type": "discrete",
+  "stem": "Which statement about human oogenesis is correct?",
+  "options": {
+   "A": "Primary oocytes complete meiosis I before birth",
+   "B": "Oogenesis gives four equal-size gametes per meiosis",
+   "C": "Meiosis II is completed at ovulation",
+   "D": "Primary oocytes are arrested in prophase I until puberty, and the secondary oocyte is arrested in metaphase II until fertilization"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Primary oocytes arrest in prophase I until puberty; at ovulation meiosis I finishes and the secondary oocyte arrests in metaphase II until fertilization. Why the others are wrong: A) Primary oocytes remain arrested in prophase I and complete meiosis I only at ovulation. B) Oogenesis gives one large ovum plus polar bodies, not four equal gametes. C) Meiosis II is completed only if sperm penetrates, not at ovulation.",
+  "trap": "Assuming ovulation produces a mature ovum; the secondary oocyte is arrested in metaphase II.",
+  "topic": "Oogenesis",
+  "mastery_sheet_id": "2C",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_20",
+  "type": "discrete",
+  "stem": "In developing tissue, cells closer to a source of a morphogen adopt a different fate from distant cells. This illustrates:",
+  "options": {
+   "A": "concentration-dependent signaling that activates different sets of genes at different thresholds",
+   "B": "loss of DNA in cells distant from the source",
+   "C": "random mutation of genes in each cell",
+   "D": "uniform signaling with identical gene expression"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Morphogen gradients give positional information, with different concentration thresholds activating different gene sets and fates. Why the others are wrong: B) Cells do not lose DNA based on distance from a source. C) Fate patterning is orderly and not due to random mutation. D) Uniform signaling and identical expression would not produce different fates.",
+  "trap": "Assuming differentiation requires genetic differences between cells.",
+  "topic": "Morphogens",
+  "mastery_sheet_id": "2C",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2C_21",
+  "type": "discrete",
+  "stem": "Cancer cells in culture pile up in layers rather than forming a monolayer. This reflects loss of:",
+  "options": {
+   "A": "telomerase expression",
+   "B": "contact inhibition of growth and anchorage dependence",
+   "C": "DNA polymerase function",
+   "D": "spindle fiber formation"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Normal cells stop dividing on touching neighbors (contact inhibition) and need attachment (anchorage dependence); transformed cells lose both and pile up. Why the others are wrong: A) Cancer cells often have more telomerase, and its loss would not cause piling. C) DNA polymerase remains functional in cancer cells, since they replicate rapidly. D) Spindles are functional in cancer cells, since they divide.",
+  "trap": "Attributing multilayer growth to a defect in basic mitotic machinery.",
+  "topic": "Contact inhibition",
+  "mastery_sheet_id": "2C",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ }
+]

@@ -1,0 +1,105 @@
+{
+ "logname": "FL03",
+ "in_scope": 50,
+ "matched": 50,
+ "fixed_ids": [],
+ "verified_true": 46,
+ "unverified": {
+  "FL03_CP_P1_Q1": "mgh formula not web-confirmed (search budget exhausted)",
+  "FL03_CP_D5": "P=I^2R series circuit not confirmed (search returned nothing)",
+  "FL03_CP_D10": "weak-base buffer pOH=pKb+log([BH+]/[B]) not confirmed (budget exhausted)",
+  "FL03_BB_P1_Q2": "competitive inhibition Km_app=Km(1+[I]/Ki) not confirmed (budget exhausted)"
+ },
+ "category_A_ids": "CP_P1_Q4, CP_P2_Q3, CP_P3_Q2 (Nernst given in passage), CP_P4_Q3, BB_P1_Q3, BB_P3_Q2, BB_P3_Q5, BB_P4_Q4, BB_P5_Q3, BB_P6_Q2, BB_P8_Q3, BB_P9_Q2, PS_P1_Q5, PS_P3_Q2, PS_P5_Q3, PS_P6_Q3, PS_P7_Q3, PS_P8_Q3, PS_P9_Q1, PS_P10_Q1",
+ "notes": "CARS has no calculation questions. Rounded values (CP_D7 41.8 deg -> 42) accepted. Lysine pI 9.74 matches the pKa set given in the stem; one source lists side-chain pKa 10.79 but the stem supplies 10.53.",
+ "searches": [
+  [
+   "Henderson-Hasselbalch pH=pKa+log([A-]/[HA])",
+   "confirmed (LibreTexts, U Arizona)"
+  ],
+  [
+   "Beer-Lambert A=epsilon b c",
+   "confirmed"
+  ],
+  [
+   "dG=-nFE, F=96485",
+   "confirmed; Daniell cell 1.10 V n=2 gives -212 kJ/mol"
+  ],
+  [
+   "degree of unsaturation formula",
+   "confirmed; oxygen ignored"
+  ],
+  [
+   "amino acid pI as average of flanking pKa",
+   "confirmed rule; lysine pKa sets vary by source"
+  ],
+  [
+   "decay constant ln2/t1/2 and N=N0(1/2)^(t/t1/2)",
+   "confirmed"
+  ],
+  [
+   "chi-square sum (O-E)^2/E, df=2 critical 5.99",
+   "confirmed"
+  ],
+  [
+   "trisomy 21 maternal MI error from heterozygous pericentromeric markers",
+   "confirmed (PubMed 1347192, PMC2265487)"
+  ],
+  [
+   "X-linked recessive carrier mother x unaffected father",
+   "confirmed 50% sons affected"
+  ],
+  [
+   "r squared as shared variance",
+   "confirmed"
+  ],
+  [
+   "net migration rate (I-E)/P x1000",
+   "confirmed"
+  ],
+  [
+   "expected false positives = alpha x tests",
+   "confirmed"
+  ],
+  [
+   "Archimedes floating buoyant force = weight; P=rho g h",
+   "confirmed"
+  ],
+  [
+   "thin lens equation; mirror f=R/2",
+   "confirmed"
+  ],
+  [
+   "Pascal hydraulic lift F1/A1=F2/A2",
+   "confirmed"
+  ],
+  [
+   "Torricelli v=sqrt(2gh)",
+   "confirmed"
+  ],
+  [
+   "critical angle sin=n2/n1",
+   "confirmed, 41.8 deg for n=1.50"
+  ],
+  [
+   "sound level 10 log(I/I0), x100=20 dB",
+   "confirmed"
+  ],
+  [
+   "inelastic collision momentum; P=I^2R series",
+   "momentum confirmed; P=I^2R returned nothing"
+  ],
+  [
+   "initial rates / pseudo-first-order k=kobs/[excess]",
+   "confirmed (equivalent form)"
+  ],
+  [
+   "calorimetry q=mcdT, dH=-q/n",
+   "confirmed"
+  ],
+  [
+   "weak-base buffer pOH; competitive inhibition Ki; mgh Joule",
+   "not run, search budget exhausted"
+  ]
+ ]
+}

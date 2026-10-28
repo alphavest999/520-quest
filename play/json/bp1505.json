@@ -1,0 +1,142 @@
+[
+  {
+    "id": "bp1505_q1",
+    "type": "multiple_choice",
+    "passage_id": "bp1505",
+    "passage_text": "Researchers investigated how varying light intensity affects the rate of photosynthetic oxygen production in the model plant *Arabidopsis thaliana*. Leaf discs (2 mm diameter) were exposed to six discrete light intensities (200, 400, 600, 800, 1,000, and 1,200 µmol m⁻² s⁻¹) using a calibrated LED array. Oxygen evolution was measured in a Clark-type electrode over a 10‑minute period, and the mean O₂ production rate (µmol O₂ g⁻¹ FW h⁻¹) was recorded for each intensity. The data revealed a classic light‑response curve: rates increased sharply up to 800 µmol m⁻² s⁻¹, plateaued between 800–1,000 µmol m⁻² s⁻¹, and declined slightly at 1,200 µmol m⁻² s⁻¹, suggesting photoinhibition. The authors concluded that optimal photosynthetic performance occurs around 800 µmol m⁻² s⁻¹ for this cultivar under the experimental conditions. The study underscores the importance of matching light supply to plant capacity to avoid energy waste and potential damage.",
+    "table_data": [
+      {
+        "light_intensity": 200,
+        "O2_production": 12.3
+      },
+      {
+        "light_intensity": 400,
+        "O2_production": 28.7
+      },
+      {
+        "light_intensity": 600,
+        "O2_production": 45.1
+      },
+      {
+        "light_intensity": 800,
+        "O2_production": 58.9
+      },
+      {
+        "light_intensity": 1000,
+        "O2_production": 60.2
+      },
+      {
+        "light_intensity": 1200,
+        "O2_production": 55.4
+      }
+    ],
+    "stem": "Which light intensity produced the highest rate of oxygen production in the experiment?",
+    "options": {
+      "A": "200 µmol m⁻² s⁻¹",
+      "B": "800 µmol m⁻² s⁻¹",
+      "C": "1,000 µmol m⁻² s⁻¹",
+      "D": "1,200 µmol m⁻² s⁻¹"
+    },
+    "correct": "C",
+    "explanation": "The table shows that the O₂ production rate peaks at 1,000 µmol m⁻² s⁻¹ (60.2 µmol O₂ g⁻¹ FW h⁻¹). Rates at 800 and 1,200 µmol m⁻² s⁻¹ are lower, and the lowest intensity gives the smallest rate.",
+    "trap": "Students often misinterpret the plateau as the maximum; however, the slight decline at 1,200 µmol m⁻² s⁻¹ indicates photoinhibition, so the true maximum is at 1,000 µmol m⁻² s⁻¹.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp1505_q2",
+    "type": "multiple_choice",
+    "passage_id": "bp1505",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following is the most appropriate control for this photosynthesis experiment?",
+    "options": {
+      "A": "Leaf discs exposed to complete darkness for 10 minutes",
+      "B": "Leaf discs exposed to 200 µmol m⁻² s⁻¹ light for 10 minutes",
+      "C": "Leaf discs with the Clark electrode removed from the solution",
+      "D": "Leaf discs exposed to 1,200 µmol m⁻² s⁻¹ light for 20 minutes"
+    },
+    "correct": "A",
+    "explanation": "Correct: A) A dark control gives the baseline with no photosynthetic O₂ evolution and shows the measured oxygen is light-dependent. Why the others are wrong: B) Low light still drives some photosynthesis, so it is another treatment. C) Removing the electrode removes the measurement itself. D) A longer, brighter exposure is another treatment, not a baseline.",
+    "trap": "Picking the lowest light intensity as the control; 200 µmol m⁻² s⁻¹ still drives photosynthesis (12.3 µmol O₂ g⁻¹ FW h⁻¹), so it is a treatment rather than a baseline.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:02:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp1505_q3",
+    "type": "multiple_choice",
+    "passage_id": "bp1505",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Calculate the approximate slope (µmol O₂ g⁻¹ FW h⁻¹ per µmol m⁻² s⁻¹) of the linear portion of the light‑response curve (between 200 and 800 µmol m⁻² s⁻¹).",
+    "options": {
+      "A": "0.06",
+      "B": "0.08",
+      "C": "0.15",
+      "D": "0.20"
+    },
+    "correct": "B",
+    "explanation": "Slope = (58.9 − 12.3)/(800 − 200) = 46.6/600 ≈ 0.078 ≈ 0.08.",
+    "trap": "Students may mistakenly use the entire range (200–1,200 µmol m⁻² s⁻¹) or include the photoinhibition point, which would lower the slope.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:04:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp1505_q4",
+    "type": "multiple_choice",
+    "passage_id": "bp1505",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following is NOT a potential source of error in this experiment?",
+    "options": {
+      "A": "Variation in leaf disc size",
+      "B": "Inaccurate calibration of the LED light intensity",
+      "C": "Temperature fluctuations during the 10‑minute measurement",
+      "D": "Using the same calibrated LED array and 2 mm leaf-disc size for every intensity"
+    },
+    "correct": "D",
+    "explanation": "Correct: D) Using identical equipment and disc size for every intensity standardizes the experiment and is not a source of error. Why the others are wrong: A) Different disc sizes would change the tissue mass and the rate. B) Miscalibrated light would misassign intensities. C) Temperature changes alter enzyme rates and O₂ solubility.",
+    "trap": "Choosing a realistic error source such as disc size or temperature; the one option that is not a source of error is the standardization applied to every intensity.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:06:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp1505_q5",
+    "type": "multiple_choice",
+    "passage_id": "bp1505",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which fundamental concept is most directly linked to the observed light‑response curve?",
+    "options": {
+      "A": "The kinetic theory of gases",
+      "B": "The Beer–Lambert law",
+      "C": "The photosynthetic light‑saturation point",
+      "D": "The Henderson–Hasselbalch equation"
+    },
+    "correct": "C",
+    "explanation": "The light‑response curve illustrates the light‑saturation point, where photosynthetic rate no longer increases with light intensity due to photochemical limitations.",
+    "trap": "Option B might attract students because it involves light absorption, but the Beer–Lambert law describes absorbance, not photosynthetic rate.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:08:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  }
+]

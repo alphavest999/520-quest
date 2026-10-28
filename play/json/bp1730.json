@@ -1,0 +1,117 @@
+[
+  {
+    "id": "bp1730-001",
+    "type": "question",
+    "passage_id": "bp1730",
+    "passage_text": "Researchers studied the effect of different light wavelengths on the growth of the freshwater algae *Chlorella vulgaris*. In a controlled laboratory setting, cultures were exposed to monochromatic light at 450 nm (blue), 520 nm (green), 590 nm (yellow), and 660 nm (red) for 14 days. Growth was measured as a daily growth index (arbitrary units per day), and statistical significance was assessed using a two‑tailed t‑test. The resulting growth rates and associated p‑values are summarized in Table 1. The researchers hypothesized that wavelengths within the photosynthetically active radiation (PAR) range (400–700 nm) would promote growth. Growth was highest at 450 nm, second highest at 660 nm, and lowest at 520 nm. The study highlights the importance of spectral quality in algal cultivation and provides a foundation for optimizing light conditions in biofuel production.",
+    "table_data": "Wavelength (nm) | Growth rate (index units/day) | p‑value\n450 | 3.8 | <0.001\n520 | 2.0 | 0.045\n590 | 2.5 | 0.032\n660 | 3.1 | 0.004",
+    "stem": "Which wavelength produced the highest growth rate in the algae cultures?",
+    "options": {
+      "A": "450 nm",
+      "B": "520 nm",
+      "C": "590 nm",
+      "D": "660 nm"
+    },
+    "correct": "A",
+    "explanation": "Correct: A. Table 1 shows the growth rate at 450 nm (3.8 index units/day) is the highest of the tested wavelengths. Why the others are wrong: B) 520 nm has 2.0. C) 590 nm has 2.5. D) 660 nm has 3.1.",
+    "trap": "Choosing 660 nm because red light is the classic chlorophyll absorption band, even though red (3.1) was below blue (3.8) in Table 1.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "4D"
+  },
+  {
+    "id": "bp1730-002",
+    "type": "question",
+    "passage_id": "bp1730",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which modification would make it impossible to attribute growth differences to wavelength?",
+    "options": {
+      "A": "Using a different photon flux density for each wavelength",
+      "B": "Running all cultures for 14 days",
+      "C": "Starting all cultures at the same cell density",
+      "D": "Using the same flask volume for all cultures"
+    },
+    "correct": "A",
+    "explanation": "Correct: If intensity differs between wavelengths, intensity and wavelength are confounded. Why the others are wrong: B) a common duration is a proper control. C) equal starting density is a proper control. D) equal volume is a proper control.",
+    "trap": "Picking a standardised condition as if standardising were the source of the confound.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:02:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "4D"
+  },
+  {
+    "id": "bp1730-003",
+    "type": "question",
+    "passage_id": "bp1730",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "By what percent did the growth rate at 450 nm (3.8 index units/day) exceed the growth rate at 590 nm?",
+    "options": {
+      "A": "52.0 %",
+      "B": "60.0 %",
+      "C": "70.0 %",
+      "D": "80.0 %"
+    },
+    "correct": "A",
+    "explanation": "Correct: A. Percent increase = (3.8 - 2.5)/2.5 x 100 = 52.0%. Why the others are wrong: B) 60.0% would need a 450 nm value of 4.0. C) 70.0% would need 4.25. D) 80.0% would need 4.5.",
+    "trap": "Dividing the 1.3-unit difference by the 450 nm value (3.8), giving about 34%, instead of by the 590 nm reference value of 2.5.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:04:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "4D"
+  },
+  {
+    "id": "bp1730-004",
+    "type": "question",
+    "passage_id": "bp1730",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which of the following statements is NOT supported by the data presented in Table 1?",
+    "options": {
+      "A": "Growth rate was lower at 520 nm than at either 450 nm or 660 nm.",
+      "B": "The 450 nm wavelength yields the highest growth rate.",
+      "C": "All wavelengths produce statistically significant growth compared to darkness.",
+      "D": "The 520 nm wavelength has the lowest growth rate among the tested wavelengths."
+    },
+    "correct": "C",
+    "explanation": "Correct: C. The table lists only the four wavelengths and their p-values; no culture kept in darkness is reported, so nothing in it shows significance versus darkness. Why the others are wrong: A) growth at 520 nm (2.0) is below 450 nm (3.8) and 660 nm (3.1). B) 3.8 is the highest value. D) 2.0 at 520 nm is the lowest value.",
+    "trap": "Assuming any listed p-value means significance against a dark control that the table does not include.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:06:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "4D"
+  },
+  {
+    "id": "bp1730-005",
+    "type": "question",
+    "passage_id": "bp1730",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which biological concept is most directly linked to the findings of this study?",
+    "options": {
+      "A": "Phototropism",
+      "B": "Photosynthesis",
+      "C": "Circadian rhythm",
+      "D": "Cellular respiration"
+    },
+    "correct": "B",
+    "explanation": "Growth was highest under blue (450 nm) and red (660 nm) light, which chlorophylls absorb strongly, and lowest under green (520 nm), which they absorb poorly; this matches the action spectrum of photosynthesis, the process that drives algal growth.",
+    "trap": "Phototropism involves directional growth toward light, not the spectral quality of light.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:08:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  }
+]

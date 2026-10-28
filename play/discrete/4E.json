@@ -1,0 +1,816 @@
+[
+ {
+  "id": "d_4E_1",
+  "type": "discrete",
+  "stem": "Uranium-238 (atomic number 92) undergoes alpha decay. The daughter nuclide is:",
+  "options": {
+   "A": "thorium-234 (Z = 90)",
+   "B": "thorium-238 (Z = 90)",
+   "C": "protactinium-238 (Z = 91)",
+   "D": "radium-234 (Z = 88)"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) An alpha particle carries 2 protons and 2 neutrons, so mass number drops by 4 and Z by 2: U-238 becomes Th-234 (Z = 90). Why the others are wrong: B) thorium-238 has the right Z but the mass number must fall by 4, not stay at 238. C) protactinium-238 (Z = 91) would be a beta-minus daughter with unchanged mass number. D) radium-234 (Z = 88) lowers Z by 4, which would take two alpha decays.",
+  "trap": "Forgetting that mass number also falls by 4.",
+  "topic": "Alpha decay",
+  "mastery_sheet_id": "4E",
+  "difficulty": "515",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://socratic.com/answers/466290",
+    "https://facultystaff.richmond.edu/~ggilfoyl/qm/slides/alphaSlides.pdf"
+   ]
+  }
+ },
+ {
+  "id": "d_4E_2",
+  "type": "discrete",
+  "stem": "In beta-minus decay of carbon-14, the nucleus:",
+  "options": {
+   "A": "converts a proton into a neutron, emitting a positron",
+   "B": "converts a neutron into a proton, emitting an electron and an antineutrino",
+   "C": "emits a helium nucleus",
+   "D": "emits only a high energy photon"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Beta-minus decay turns a neutron into a proton, emitting an electron and an antineutrino, raising Z by 1 with constant A: C-14 becomes N-14. Why the others are wrong: A) converting a proton into a neutron with a positron emission is beta-plus decay. C) a helium nucleus is an alpha particle. D) emitting only a high energy photon is gamma decay and does not change Z.",
+  "trap": "Mixing beta-minus and positron emission.",
+  "topic": "Beta-minus decay",
+  "mastery_sheet_id": "4E",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_3",
+  "type": "discrete",
+  "stem": "A nuclide undergoes positron (beta-plus) emission. Compared with the parent, the daughter has:",
+  "options": {
+   "A": "atomic number raised by 1 and the same mass number",
+   "B": "atomic number lowered by 2 and mass number lowered by 4",
+   "C": "the same atomic number and lower mass number",
+   "D": "atomic number lowered by 1 and the same mass number"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Positron emission converts a proton into a neutron, so Z decreases by 1 while A is unchanged. Why the others are wrong: A) Z+1 with unchanged A is beta-minus decay. B) Z-2 and A-4 is alpha decay. C) unchanged Z with lower A does not correspond to any standard decay mode.",
+  "trap": "Reversing the direction of change in Z.",
+  "topic": "Positron emission",
+  "mastery_sheet_id": "4E",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_4",
+  "type": "discrete",
+  "stem": "Electron capture by a nucleus results in:",
+  "options": {
+   "A": "an increase in atomic number by 1",
+   "B": "a decrease in mass number by 1",
+   "C": "a decrease in atomic number by 1 with no change in mass number",
+   "D": "no change in either"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Electron capture combines an inner electron with a proton to form a neutron, so Z decreases by 1 and A is unchanged. Why the others are wrong: A) an increase in Z by 1 is beta-minus decay. B) mass number is conserved because a proton becomes a neutron; A does not drop by 1. D) Z changes because a proton is converted to a neutron; no change in either would describe gamma emission.",
+  "trap": "Thinking capture adds a nucleon.",
+  "topic": "Electron capture",
+  "mastery_sheet_id": "4E",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_5",
+  "type": "discrete",
+  "stem": "Gamma emission from an excited nucleus changes:",
+  "options": {
+   "A": "neither the atomic number nor the mass number",
+   "B": "the atomic number only",
+   "C": "the mass number only",
+   "D": "both atomic and mass numbers"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Gamma photons carry away excess energy without altering the nucleon composition, so neither Z nor A changes. Why the others are wrong: B) gamma rays have no charge, so Z cannot change. C) gamma rays have no mass, so A cannot change. D) neither number changes, since the nucleons remain the same.",
+  "trap": "Assuming all decay modes change the identity of the element.",
+  "topic": "Gamma decay",
+  "mastery_sheet_id": "4E",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_6",
+  "type": "discrete",
+  "stem": "A sample contains 80 mg of a radioisotope with a half-life of 6 hours. How much remains after 24 hours?",
+  "options": {
+   "A": "10 mg",
+   "B": "5 mg",
+   "C": "20 mg",
+   "D": "40 mg"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) 24 h is 4 half-lives of 6 h, so 80 mg / 2^4 = 5 mg remains. Why the others are wrong: A) 10 mg corresponds to 3 half-lives. C) 20 mg corresponds to 2 half-lives. D) 40 mg corresponds to only 1 half-life.",
+  "trap": "Miscounting the number of half-lives.",
+  "topic": "Half-life calculation",
+  "mastery_sheet_id": "4E",
+  "difficulty": "526",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Introductory_Chemistry_(LibreTexts)/17%3A_Radioactivity_and_Nuclear_Chemistry/17.05%3A_Natural_Radioactivity_and_Half-Life",
+    "https://www.amsi.org.au/ESA_Senior_Years/SeniorTopic3/3e/3e_2content_2.html"
+   ]
+  }
+ },
+ {
+  "id": "d_4E_7",
+  "type": "discrete",
+  "stem": "After three half-lives, the fraction of the original radioactive nuclei remaining is:",
+  "options": {
+   "A": "25%",
+   "B": "33%",
+   "C": "12.5%",
+   "D": "6.25%"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) After three half-lives (1/2)^3 = 1/8 = 12.5% remains. Why the others are wrong: A) 25% is the fraction after two half-lives. B) 33% is not a power of 1/2 and reflects a faulty 1/3 intuition. D) 6.25% is the fraction after four half-lives.",
+  "trap": "Off-by-one errors in the count of half-lives.",
+  "topic": "Fraction remaining",
+  "mastery_sheet_id": "4E",
+  "difficulty": "517",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Introductory_Chemistry_(LibreTexts)/17%3A_Radioactivity_and_Nuclear_Chemistry/17.05%3A_Natural_Radioactivity_and_Half-Life",
+    "https://www.amsi.org.au/ESA_Senior_Years/SeniorTopic3/3e/3e_2content_2.html"
+   ]
+  }
+ },
+ {
+  "id": "d_4E_8",
+  "type": "discrete",
+  "stem": "Two radioisotopes have half-lives of 2 hours and 20 hours. Compared with the long-lived isotope, the short-lived isotope has:",
+  "options": {
+   "A": "a smaller decay constant",
+   "B": "the same decay constant",
+   "C": "a longer mean lifetime",
+   "D": "a larger decay constant"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) lambda = ln 2 / t1/2, so the isotope with the shorter half-life has the larger decay constant. Why the others are wrong: A) a smaller decay constant belongs to the longer-lived isotope. B) different half-lives mean different decay constants. C) mean lifetime is 1/lambda, which is shorter for the short-lived isotope.",
+  "trap": "Equating a large decay constant with a long half-life.",
+  "topic": "Decay constant",
+  "mastery_sheet_id": "4E",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_9",
+  "type": "discrete",
+  "stem": "The mass of a stable nucleus is slightly less than the sum of the masses of its separate nucleons because:",
+  "options": {
+   "A": "neutrons convert into protons",
+   "B": "some nucleons are destroyed",
+   "C": "energy is released on formation, corresponding to binding energy via E = mc^2",
+   "D": "electrons shield the nucleus"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) The mass defect is the mass equivalent (E = mc^2) of the binding energy released when the nucleus formed, so the nucleus weighs less than its separated nucleons. Why the others are wrong: A) neutron-to-proton conversion is beta decay and does not explain the mass deficit. B) nucleons are conserved; none are destroyed. D) electron shielding is an atomic effect and irrelevant to nuclear mass.",
+  "trap": "Thinking the mass defect means that nucleons vanish.",
+  "topic": "Mass defect",
+  "mastery_sheet_id": "4E",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_10",
+  "type": "discrete",
+  "stem": "Fusion of light nuclei releases energy because:",
+  "options": {
+   "A": "the product has a lower binding energy per nucleon",
+   "B": "the product has a higher binding energy per nucleon",
+   "C": "the strong force is weakened by fusion",
+   "D": "protons repel less in the product"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Binding energy per nucleon rises toward iron-56, so fusing light nuclei produces more tightly bound products and releases energy. Why the others are wrong: A) a lower binding energy per nucleon would require energy input, not release it. C) the strong force holds the nucleus together and is not weakened by fusion. D) protons repel more, not less, in a bigger nucleus; the energy comes from the strong force binding.",
+  "trap": "Confusing binding energy with stored potential energy.",
+  "topic": "Binding energy per nucleon",
+  "mastery_sheet_id": "4E",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_11",
+  "type": "discrete",
+  "stem": "Fission of uranium-235 releases energy primarily because:",
+  "options": {
+   "A": "fission products have lower binding energy per nucleon",
+   "B": "electrons are released from uranium",
+   "C": "neutrons convert to protons",
+   "D": "fission products have higher binding energy per nucleon than uranium"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Splitting a heavy nucleus gives products nearer the iron peak, with higher binding energy per nucleon than uranium, and the difference is released as energy. Why the others are wrong: A) products with lower binding energy per nucleon would require energy input. B) fission is a nuclear process, not a release of electrons. C) neutron-to-proton conversion is beta decay and not the main energy source in fission.",
+  "trap": "Assuming fission energy is chemical.",
+  "topic": "Nuclear fission",
+  "mastery_sheet_id": "4E",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_12",
+  "type": "discrete",
+  "stem": "A hydrogen electron falls from n = 3 to n = 2, then another falls from n = 2 to n = 1. The photon from the n = 2 to n = 1 transition has:",
+  "options": {
+   "A": "greater energy and shorter wavelength",
+   "B": "less energy and longer wavelength",
+   "C": "greater energy and longer wavelength",
+   "D": "the same energy"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Energy gaps between levels shrink with increasing n, so the 2-to-1 gap is larger than 3-to-2, giving a more energetic photon with a shorter wavelength (E = hc/lambda). Why the others are wrong: B) less energy would mean a longer wavelength, but the 2-to-1 gap is the larger one. C) greater energy corresponds to a shorter wavelength, not a longer one. D) different transitions emit different photon energies.",
+  "trap": "Assuming all transitions to a lower level emit equal energy.",
+  "topic": "Bohr model emission",
+  "mastery_sheet_id": "4E",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_13",
+  "type": "discrete",
+  "stem": "Using E_n = -13.6 eV / n^2, the energy of a photon emitted in the n = 2 to n = 1 transition in hydrogen is:",
+  "options": {
+   "A": "3.4 eV",
+   "B": "10.2 eV",
+   "C": "13.6 eV",
+   "D": "17.0 eV"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) E2 = -13.6/4 = -3.4 eV and E1 = -13.6 eV, so the photon energy is 10.2 eV. Why the others are wrong: A) 3.4 eV is the magnitude of the n = 2 energy alone. C) 13.6 eV is the ionization energy from n = 1, not the 2-to-1 transition. D) 17.0 eV adds the two level energies instead of subtracting.",
+  "trap": "Using only one level's energy.",
+  "topic": "Hydrogen energy levels",
+  "mastery_sheet_id": "4E",
+  "difficulty": "519",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.revisiondojo.com/ib/ib-physics-new/ib-physics-new-e14-bohr-model-and-quantized-energy-levels-hl-only/notes"
+   ]
+  }
+ },
+ {
+  "id": "d_4E_14",
+  "type": "discrete",
+  "stem": "Which element has the highest first ionization energy?",
+  "options": {
+   "A": "neon",
+   "B": "sodium",
+   "C": "magnesium",
+   "D": "fluorine"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Ionization energy rises across a period, and noble gases with filled shells have the highest values, so neon is the highest here. Why the others are wrong: B) sodium is an alkali metal with one loosely held valence electron and low IE. C) magnesium is a metal with a low IE compared with the nonmetals. D) fluorine has a high IE but a lower one than neon, which is a filled shell.",
+  "trap": "Picking fluorine as the extreme due to electronegativity.",
+  "topic": "Ionization energy trends",
+  "mastery_sheet_id": "4E",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_15",
+  "type": "discrete",
+  "stem": "Which atom is largest?",
+  "options": {
+   "A": "K",
+   "B": "Na",
+   "C": "Rb",
+   "D": "Li"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Atomic radius increases down a group because each period adds an electron shell, and Rb is the lowest of these group 1 elements. Why the others are wrong: A) K is above Rb in group 1 and has one fewer shell. B) Na is higher still and smaller. D) Li is at the top of group 1 and the smallest.",
+  "trap": "Judging size by familiarity or atomic number rather than recognizing that radius grows with the number of shells down a group.",
+  "topic": "Atomic radius trends",
+  "mastery_sheet_id": "4E",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_16",
+  "type": "discrete",
+  "stem": "Which element is expected to have the most exothermic electron affinity?",
+  "options": {
+   "A": "neon",
+   "B": "sodium",
+   "C": "magnesium",
+   "D": "chlorine"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Halogens strongly attract an added electron to complete the octet, and chlorine has the most exothermic electron affinity (slightly more than fluorine, whose small size causes repulsion). Why the others are wrong: A) neon has a filled shell and an electron affinity near zero or endothermic. B) sodium is an alkali metal that gains an electron only weakly. C) magnesium has a filled 3s subshell, so adding an electron is near zero or endothermic.",
+  "trap": "Assuming fluorine must be the highest in EA.",
+  "topic": "Electron affinity",
+  "mastery_sheet_id": "4E",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_17",
+  "type": "discrete",
+  "stem": "Which element is the most electronegative?",
+  "options": {
+   "A": "oxygen",
+   "B": "chlorine",
+   "C": "nitrogen",
+   "D": "fluorine"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Fluorine has the highest electronegativity (about 4.0) on the Pauling scale. Why the others are wrong: A) oxygen is second most electronegative, about 3.5. B) chlorine is lower, about 3.0, because it is larger. C) nitrogen is lower, about 3.0, because of its smaller nuclear charge.",
+  "trap": "Choosing oxygen due to its abundance in bonds.",
+  "topic": "Electronegativity",
+  "mastery_sheet_id": "4E",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_18",
+  "type": "discrete",
+  "stem": "Which set of quantum numbers (n, l, ml, ms) is NOT allowed?",
+  "options": {
+   "A": "(3, 2, -2, -1/2)",
+   "B": "(3, 3, 0, +1/2)",
+   "C": "(2, 1, 0, +1/2)",
+   "D": "(4, 0, 0, -1/2)"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The angular momentum number l ranges only from 0 to n - 1, so l = 3 is impossible when n = 3. Why the others are wrong: A) n = 3, l = 2, ml = -2 satisfies |ml| <= l and ms = -1/2 is allowed. C) n = 2, l = 1, ml = 0 is a valid 2p orbital with allowed spin. D) n = 4, l = 0, ml = 0 is a valid 4s orbital with allowed spin.",
+  "trap": "Forgetting l is at most n - 1.",
+  "topic": "Quantum numbers",
+  "mastery_sheet_id": "4E",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_19",
+  "type": "discrete",
+  "stem": "The number of unpaired electrons in Fe3+ (atomic number 26) in its ground state is:",
+  "options": {
+   "A": "4",
+   "B": "3",
+   "C": "5",
+   "D": "6"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Fe is [Ar] 4s2 3d6; Fe3+ loses the 4s electrons first and then one 3d electron, leaving 3d5 with five unpaired electrons. Why the others are wrong: A) 4 unpaired electrons is the count for Fe2+ (3d6) or neutral Fe, not Fe3+. B) 3 unpaired electrons does not match 3d5 in Fe3+. D) 6 would be the number of 3d electrons in neutral Fe, not the unpaired count after losing three electrons.",
+  "trap": "Removing 3d electrons before 4s electrons.",
+  "topic": "Electron configuration of ions",
+  "mastery_sheet_id": "4E",
+  "difficulty": "521",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.zigya.com/previous-year-papers/jee/12/Chemistry/2005/JEE2005007/CHENJE11197533/"
+   ]
+  }
+ },
+ {
+  "id": "d_4E_20",
+  "type": "discrete",
+  "stem": "The ground-state electron configuration of nitrogen (1s2 2s2 2p3) shows the three 2p electrons:",
+  "options": {
+   "A": "occupying separate orbitals with parallel spins",
+   "B": "paired in one orbital with one empty orbital",
+   "C": "occupying separate orbitals with antiparallel spins",
+   "D": "paired in two orbitals"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Hund's rule fills degenerate orbitals singly with parallel spins before pairing, so the three 2p electrons occupy separate orbitals with parallel spins. Why the others are wrong: B) pairing two electrons in one 2p orbital while another is empty violates Hund's rule. C) antiparallel spins in separate orbitals would lower the exchange stabilization that Hund's rule favors. D) three electrons cannot be paired in two orbitals without leaving one unpaired.",
+  "trap": "Pairing electrons before filling every orbital.",
+  "topic": "Hund's rule",
+  "mastery_sheet_id": "4E",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_21",
+  "type": "discrete",
+  "stem": "The Pauli exclusion principle states that:",
+  "options": {
+   "A": "no two electrons in an atom can have the same set of four quantum numbers",
+   "B": "electrons fill the lowest energy orbitals first",
+   "C": "electrons occupy degenerate orbitals singly first",
+   "D": "the position and momentum of an electron cannot be precisely known"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The Pauli exclusion principle says no two electrons in an atom can have the same four quantum numbers, so an orbital holds at most two electrons with opposite spins. Why the others are wrong: B) that is the Aufbau principle. C) that is Hund's rule. D) that is the Heisenberg uncertainty principle.",
+  "trap": "Mixing Pauli with Hund or Aufbau.",
+  "topic": "Pauli exclusion principle",
+  "mastery_sheet_id": "4E",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_22",
+  "type": "discrete",
+  "stem": "The ground-state electron configuration of chromium (Z = 24) is:",
+  "options": {
+   "A": "[Ar] 4s2 3d4",
+   "B": "[Ar] 4s2 3d6",
+   "C": "[Ar] 4s1 3d5",
+   "D": "[Ar] 4s0 3d6"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Chromium is an exception: a half-filled 3d subshell is stabilized, so the configuration is [Ar] 4s1 3d5. Why the others are wrong: A) [Ar] 4s2 3d4 has 24 electrons but follows the standard filling order and misses the half-filled stabilization. B) [Ar] 4s2 3d6 totals 26 electrons, which is iron's configuration. D) [Ar] 4s0 3d6 empties the 4s orbital and is not the observed ground state.",
+  "trap": "Applying the standard filling order without exceptions.",
+  "topic": "Exceptions to Aufbau",
+  "mastery_sheet_id": "4E",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_23",
+  "type": "discrete",
+  "stem": "Carbon-12 and carbon-14 differ in:",
+  "options": {
+   "A": "the number of protons only",
+   "B": "the number of neutrons only",
+   "C": "the number of electrons only",
+   "D": "the number of protons and electrons"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Isotopes have the same Z but different numbers of neutrons, so C-12 and C-14 differ only in neutron count. Why the others are wrong: A) both are carbon, so the proton number (6) is the same. C) neutral isotopes have the same number of electrons as protons. D) proton and electron counts are both identical.",
+  "trap": "Believing that isotopes differ in chemical identity.",
+  "topic": "Isotopes",
+  "mastery_sheet_id": "4E",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_24",
+  "type": "discrete",
+  "stem": "Chlorine exists as 75% chlorine-35 and 25% chlorine-37. The average atomic mass is:",
+  "options": {
+   "A": "36.0 amu",
+   "B": "35.0 amu",
+   "C": "36.5 amu",
+   "D": "35.5 amu"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The weighted average is 0.75 x 35 + 0.25 x 37 = 26.25 + 9.25 = 35.5 amu. Why the others are wrong: A) 36.0 is the unweighted mean of 35 and 37. B) 35.0 ignores the chlorine-37 contribution. C) 36.5 weights the heavier isotope more than the lighter one, reversing the abundances.",
+  "trap": "Averaging isotopic masses without weighting.",
+  "topic": "Average atomic mass",
+  "mastery_sheet_id": "4E",
+  "difficulty": "518",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4E_25",
+  "type": "discrete",
+  "stem": "Iron-56 has an atomic number of 26. How many neutrons does a neutral atom contain?",
+  "options": {
+   "A": "26",
+   "B": "56",
+   "C": "82",
+   "D": "30"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Neutrons = A - Z = 56 - 26 = 30. Why the others are wrong: A) 26 is the proton count, not the neutron count. B) 56 is the mass number, which includes protons. C) 82 adds the mass number and atomic number instead of subtracting.",
+  "trap": "Confusing mass number with neutron number.",
+  "topic": "Counting nucleons",
+  "mastery_sheet_id": "4E",
+  "difficulty": "523",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_4E_26",
+  "type": "discrete",
+  "stem": "In the photoelectric effect, increasing the intensity of light above the threshold frequency (frequency fixed) will:",
+  "options": {
+   "A": "increase the maximum kinetic energy of each electron",
+   "B": "increase the number of photoelectrons but not their maximum kinetic energy",
+   "C": "decrease the number of ejected electrons",
+   "D": "change the threshold frequency"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) KEmax = hf - phi depends on the frequency, while intensity changes only the number of photons, so more electrons are ejected with the same maximum kinetic energy. Why the others are wrong: A) intensity does not change photon energy, so KEmax is unchanged. C) more photons eject more electrons, not fewer. D) the threshold frequency depends on the work function of the metal, not on intensity.",
+  "trap": "Using classical wave theory, where intensity raises KE.",
+  "topic": "Photoelectric effect",
+  "mastery_sheet_id": "4E",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_27",
+  "type": "discrete",
+  "stem": "If the wavelength of a photon is halved, its energy:",
+  "options": {
+   "A": "doubles",
+   "B": "halves",
+   "C": "quadruples",
+   "D": "stays the same"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) E = hc/lambda, so energy is inversely proportional to wavelength and halving lambda doubles the energy. Why the others are wrong: B) halving the energy would imply a direct relationship with wavelength. C) quadrupling would require a squared inverse dependence, which does not exist. D) energy depends on wavelength, so it cannot stay the same.",
+  "trap": "Treating energy as directly proportional to wavelength when E = hc/lambda makes it inversely proportional.",
+  "topic": "Photon energy and wavelength",
+  "mastery_sheet_id": "4E",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_28",
+  "type": "discrete",
+  "stem": "Oxygen (group 16) most commonly forms an ion with a charge of:",
+  "options": {
+   "A": "2+",
+   "B": "1-",
+   "C": "2-",
+   "D": "6-"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Oxygen needs two electrons to complete its octet, forming O2-. Why the others are wrong: A) a 2+ charge would imply losing electrons, which oxygen does not do. B) 1- would complete only half of what oxygen needs for a full octet. D) 6- would gain far more electrons than needed, and 6 is the valence electron count, not the charge.",
+  "trap": "Using the group number as the charge.",
+  "topic": "Valence electrons and ion charge",
+  "mastery_sheet_id": "4E",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_29",
+  "type": "discrete",
+  "stem": "Among the isoelectronic ions O2-, F-, Na+ and Mg2+, the largest radius belongs to:",
+  "options": {
+   "A": "F-",
+   "B": "O2-",
+   "C": "Na+",
+   "D": "Mg2+"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) For isoelectronic ions the one with the lowest nuclear charge holds its electrons least tightly; O2- (Z = 8) therefore has the largest radius. Why the others are wrong: A) F- has Z = 9, so it pulls the same ten electrons in more tightly than O2-. C) Na+ has Z = 11 and a smaller radius than O2-. D) Mg2+ has Z = 12, the highest charge, and the smallest radius.",
+  "trap": "Assuming higher charge always makes an ion larger.",
+  "topic": "Isoelectronic species",
+  "mastery_sheet_id": "4E",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_30",
+  "type": "discrete",
+  "stem": "Transition metals often form colored compounds with multiple oxidation states because:",
+  "options": {
+   "A": "they have full outer s subshells only",
+   "B": "they have very high electronegativities",
+   "C": "they lack valence electrons",
+   "D": "their partially filled d orbitals allow close-lying energy levels and d-d transitions"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Partially filled d orbitals have close-lying energy levels, allowing d-d transitions (color) and similar ns and (n-1)d energies (multiple oxidation states). Why the others are wrong: A) full outer s subshells alone would not give color or variable oxidation states. B) transition metals have low to moderate electronegativity, and electronegativity does not cause color. C) transition metals have valence electrons in ns and (n-1)d, so they do not lack them.",
+  "trap": "Attributing color to electronegativity.",
+  "topic": "Transition metal behavior",
+  "mastery_sheet_id": "4E",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_31",
+  "type": "discrete",
+  "stem": "Which species is diamagnetic in its ground state?",
+  "options": {
+   "A": "Zn2+",
+   "B": "Fe3+",
+   "C": "Cr",
+   "D": "Mn2+"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Zn2+ is 3d10, with all electrons paired, so it is diamagnetic. Why the others are wrong: B) Fe3+ is 3d5 with five unpaired electrons. C) Cr is 4s1 3d5 with six unpaired electrons. D) Mn2+ is 3d5 with five unpaired electrons.",
+  "trap": "Assuming ions of transition metals are paramagnetic.",
+  "topic": "Magnetic properties",
+  "mastery_sheet_id": "4E",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_32",
+  "type": "discrete",
+  "stem": "Atoms emit discrete lines in their emission spectra because:",
+  "options": {
+   "A": "electrons orbit continuously with varying radii",
+   "B": "nuclei emit photons of random energy",
+   "C": "electrons can only occupy quantized energy levels",
+   "D": "photons are not quantized"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Electrons occupy only quantized energy levels, and transitions between fixed levels emit photons of specific energies, giving discrete lines. Why the others are wrong: A) continuous orbits of varying radii would give a continuous spectrum. B) nuclei do not emit the visible and UV emission lines, and random energies would give a continuum. D) photon energy is quantized as E = hf.",
+  "trap": "Thinking light emission is continuous.",
+  "topic": "Atomic emission spectra",
+  "mastery_sheet_id": "4E",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_33",
+  "type": "discrete",
+  "stem": "The Heisenberg uncertainty principle implies that:",
+  "options": {
+   "A": "electrons follow fixed circular orbits",
+   "B": "the position and momentum of an electron cannot both be known with arbitrary precision",
+   "C": "two electrons cannot have the same spin",
+   "D": "electrons occupy the lowest energy orbitals first"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The uncertainty product of position and momentum has a lower bound of h/4pi, so both cannot be known with arbitrary precision. Why the others are wrong: A) fixed circular orbits belong to the Bohr model. C) that is a garbled Pauli exclusion principle, which concerns four quantum numbers. D) that is the Aufbau principle.",
+  "trap": "Confusing the uncertainty principle with the Bohr model, Pauli exclusion or Aufbau principles because they all concern electrons.",
+  "topic": "Heisenberg uncertainty principle",
+  "mastery_sheet_id": "4E",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_34",
+  "type": "discrete",
+  "stem": "A sample of ancient wood contains 25% of the carbon-14 of living wood. Given a half-life of 5730 years, the approximate age is:",
+  "options": {
+   "A": "5730 years",
+   "B": "22,920 years",
+   "C": "11,460 years",
+   "D": "17,190 years"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) 25% remaining means two half-lives, so the age is 2 x 5730 = 11,460 years. Why the others are wrong: A) 5730 years is one half-life, which leaves 50%. B) 22,920 years is four half-lives, which leaves 6.25%. D) 17,190 years is three half-lives, which leaves 12.5%.",
+  "trap": "Mapping 25% to one or four half-lives instead of two, since (1/2)^2 = 1/4.",
+  "topic": "Carbon dating",
+  "mastery_sheet_id": "4E",
+  "difficulty": "526",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Introductory_Chemistry_(LibreTexts)/17%3A_Radioactivity_and_Nuclear_Chemistry/17.05%3A_Natural_Radioactivity_and_Half-Life",
+    "https://www.amsi.org.au/ESA_Senior_Years/SeniorTopic3/3e/3e_2content_2.html"
+   ]
+  }
+ },
+ {
+  "id": "d_4E_35",
+  "type": "discrete",
+  "stem": "In positron emission tomography, the detected photons come from:",
+  "options": {
+   "A": "annihilation of a positron with an electron, producing two 511 keV photons moving in opposite directions",
+   "B": "alpha particles emitted by the tracer",
+   "C": "neutrons from fission of the tracer",
+   "D": "beta-minus particles passing through tissue"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) A positron meets an electron and annihilates into two back-to-back 511 keV gamma photons, which the PET detectors register. Why the others are wrong: B) alpha particles are stopped within the tissue and are not detected externally. C) PET tracers do not undergo fission or emit neutrons. D) beta-minus particles are not detected in PET, which uses beta-plus emitters.",
+  "trap": "Thinking the positron is detected directly.",
+  "topic": "Medical isotopes",
+  "mastery_sheet_id": "4E",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_36",
+  "type": "discrete",
+  "stem": "Which ordering of penetrating power is correct, from least to greatest?",
+  "options": {
+   "A": "gamma, beta, alpha",
+   "B": "beta, alpha, gamma",
+   "C": "alpha, gamma, beta",
+   "D": "alpha, beta, gamma"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Alpha particles are massive and charged and stopped by paper, beta by aluminum, and gamma requires dense lead, so penetration increases alpha < beta < gamma. Why the others are wrong: A) this reverses the correct ordering and puts gamma least penetrating. B) it places alpha above beta in penetrating power. C) it places gamma below beta, though gamma penetrates more.",
+  "trap": "Assuming heavier particles penetrate more.",
+  "topic": "Penetrating power of radiation",
+  "mastery_sheet_id": "4E",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_37",
+  "type": "discrete",
+  "stem": "Moving from sodium to chlorine across period 3, the effective nuclear charge experienced by valence electrons:",
+  "options": {
+   "A": "decreases, because more electrons are added",
+   "B": "increases, because shielding by inner electrons stays about the same while Z increases",
+   "C": "stays constant",
+   "D": "increases, because more shells are added"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Across period 3, protons are added while same-shell electrons shield poorly and inner shielding stays about the same, so Zeff increases and the radius shrinks. Why the others are wrong: A) added electrons go into the same shell and shield poorly, so Zeff does not decrease. C) Zeff rises as protons are added. D) no new shell is added across a period.",
+  "trap": "Thinking added electrons increase shielding in the same shell.",
+  "topic": "Effective nuclear charge",
+  "mastery_sheet_id": "4E",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_38",
+  "type": "discrete",
+  "stem": "Heavy stable nuclei have more neutrons than protons because neutrons:",
+  "options": {
+   "A": "are lighter than protons",
+   "B": "carry negative charge",
+   "C": "repel protons",
+   "D": "add attractive strong force without adding electrostatic repulsion"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The short-range strong force binds all nucleons; extra neutrons add attraction without adding electrostatic repulsion, which stabilizes large nuclei. Why the others are wrong: A) neutrons are slightly heavier than protons, and mass does not explain stability. B) neutrons are neutral. C) neutrons carry no charge and do not repel protons electrostatically.",
+  "trap": "Thinking neutrons are negatively charged.",
+  "topic": "Strong nuclear force",
+  "mastery_sheet_id": "4E",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_39",
+  "type": "discrete",
+  "stem": "Reactivity of alkali metals with water increases down the group primarily because:",
+  "options": {
+   "A": "ionization energy decreases as the valence electron lies farther from the nucleus",
+   "B": "electronegativity increases",
+   "C": "atomic radius decreases",
+   "D": "effective nuclear charge increases greatly"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Ionization energy decreases down the group as the valence electron lies farther from the nucleus, so heavier alkali metals lose it more easily and react more vigorously. Why the others are wrong: B) electronegativity decreases down the group. C) atomic radius increases down the group. D) effective nuclear charge stays nearly constant down a group because shielding grows with added shells.",
+  "trap": "Assuming smaller atoms are more reactive.",
+  "topic": "Group 1 reactivity",
+  "mastery_sheet_id": "4E",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_4E_40",
+  "type": "discrete",
+  "stem": "An element has the following successive ionization energies in kJ/mol: 577, 1817, 2745, 11,577. The element most likely has how many valence electrons?",
+  "options": {
+   "A": "2",
+   "B": "4",
+   "C": "3",
+   "D": "1"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) The large jump after the third ionization energy (2745 to 11,577) means the fourth electron comes from an inner shell, so there are three valence electrons. Why the others are wrong: A) 2 would put the jump after the second value; B) 4 would put it after the fourth; D) 1 would put it after the first. The jump position, not the size of the first value, gives the valence count.",
+  "trap": "Reading the jump position incorrectly.",
+  "topic": "Successive ionization energies",
+  "mastery_sheet_id": "4E",
+  "difficulty": "528",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://chem-textbook.ucalgary.ca/successive-ionization-energies/"
+   ]
+  }
+ }
+]

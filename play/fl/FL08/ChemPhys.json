@@ -1,0 +1,1541 @@
+{
+ "exam": "FL08",
+ "section": "CP",
+ "passages": [
+  {
+   "passage_id": "FL08_CP_P1",
+   "passage_text": "A physics class investigates energy conservation with a simple pendulum: a 0.50 kg brass bob hanging from a light, inextensible string of length 1.60 m. The bob is released from rest at a chosen angle θ0 from the vertical, and a photogate at the lowest point of the swing measures its speed. Take g = 9.8 m/s² and treat the bob as a point mass. Table 1 lists the height h of the release point above the lowest point, the speed predicted by assuming that mechanical energy is conserved, and the measured speed for four release angles. Figure 1 plots the square of the measured speed against h. The students notice that the measured speeds are consistently a little lower than the predictions and that the discrepancy grows as the release angle increases. They also plan a follow-up run in which the brass bob is replaced by a 1.0 kg bob of the same size, released from the same angles.",
+   "table_data": "| Release angle θ0 (°) | h (m) | Predicted speed (m/s) | Measured speed (m/s) |\n|---|---|---|---|\n| 20 | 0.097 | 1.38 | 1.37 |\n| 40 | 0.374 | 2.71 | 2.68 |\n| 60 | 0.800 | 3.96 | 3.90 |\n| 80 | 1.322 | 5.09 | 5.00 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Square of measured bottom speed versus release height",
+    "x_label": "Release height h (m)",
+    "y_label": "Measured speed squared (m²/s²)",
+    "series": [
+     {
+      "name": "Measured v²",
+      "points": [
+       [
+        0.097,
+        1.88
+       ],
+       [
+        0.374,
+        7.18
+       ],
+       [
+        0.8,
+        15.21
+       ],
+       [
+        1.322,
+        25.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_CP_P1_Q1",
+     "stem": "If the bob is released from θ0 = 60°, what is its speed at the lowest point, ignoring air resistance?",
+     "options": {
+      "A": "2.8 m/s, from v = √(gh) with h = 0.80 m",
+      "B": "4.0 m/s, from v = √(2gh) with h = 0.80 m",
+      "C": "5.6 m/s, from v = √(2gL) with the full string length as the drop",
+      "D": "16 m/s, the numerical value of 2gh in m²/s²"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) mgh = ½mv², so v = √(2 × 9.8 × 0.80) = 3.96 m/s ≈ 4.0 m/s. Why the others are wrong: A) Dropping the factor of 2 gives √7.84 = 2.8 m/s, but ½mv² = mgh requires v² = 2gh. C) The bob falls only L(1 − cos 60°) = 0.80 m, not the whole 1.60 m string length. D) 2gh = 15.7 m²/s² is v², so the square root must still be taken.",
+     "trap": "Using the string length L instead of the vertical drop L(1 − cos θ0), or forgetting the square root or the factor of 2 in mgh = ½mv².",
+     "topic": "Pendulum energy conservation",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.canvasclasses.in/the-crucible/q/0346e847-e60e-4d6f-bfdf-3b647ea3a150"
+      ]
+     }
+    },
+    {
+     "id": "FL08_CP_P1_Q2",
+     "stem": "At the lowest point of the 60° release, what is the tension in the string?",
+     "options": {
+      "A": "4.9 N, since the tension at the bottom equals the weight mg",
+      "B": "9.8 N, since T = mg + mv²/L = 4.9 N + 4.9 N",
+      "C": "14.7 N, since T = 3mg at the bottom of every swing",
+      "D": "19.6 N, since T = mg + 2mv²/L"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At the bottom the net upward force supplies the centripetal force: T − mg = mv²/L, so T = 4.9 + (0.50)(15.7)/1.60 = 9.8 N. Why the others are wrong: A) The bob is moving along a circular arc, so T must exceed mg to supply the centripetal force. C) T = 3mg holds only for release from the horizontal (θ0 = 90°); at 60° T = mg(3 − 2cos 60°) = 2mg. D) The centripetal term is mv²/L, with no extra factor of 2.",
+     "trap": "Assuming the tension at the bottom of the swing is just mg, or applying the 3mg result that is valid only for a horizontal release.",
+     "topic": "Pendulum energy conservation",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.canvasclasses.in/the-crucible/q/0346e847-e60e-4d6f-bfdf-3b647ea3a150"
+      ]
+     }
+    },
+    {
+     "id": "FL08_CP_P1_Q3",
+     "stem": "Which explanation best accounts for the measured speeds in Table 1 being slightly lower than the predicted speeds?",
+     "options": {
+      "A": "The string tension does negative work on the bob throughout the swing, removing kinetic energy.",
+      "B": "Part of the energy is stored as elastic potential energy as the string stretches.",
+      "C": "Air drag and friction at the pivot do negative work on the bob, converting some mechanical energy to thermal energy.",
+      "D": "The bob's mass lowers its speed through v = √(2gh/m), so a heavier bob falls more slowly."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Nonconservative forces remove mechanical energy, and the loss grows with the path length traveled, which is larger for larger release angles. Why the others are wrong: A) Tension is always perpendicular to the bob's velocity, so it does no work. B) The string is described as inextensible, so it stores no elastic energy. D) Mass cancels from mgh = ½mv², so the predicted speed does not depend on mass.",
+     "trap": "Thinking that tension does work on a pendulum bob, even though it is perpendicular to the motion at every instant.",
+     "topic": "Pendulum energy conservation",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P1_Q4",
+     "stem": "The slope of the line through the data in Figure 1 is closest to which quantity?",
+     "options": {
+      "A": "9.8 m/s², the free-fall acceleration g",
+      "B": "4.9 m/s², half the free-fall acceleration",
+      "C": "0.05 s²/m, the reciprocal of 2g",
+      "D": "19 m/s², approximately 2g, because v² = 2gh"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Since v² = 2gh, a plot of v² against h is a line of slope 2g ≈ 19.6 m/s²; the measured slope is about 19 m/s². Why the others are wrong: A) G would be the slope of v² versus 2h, not of v² versus h. B) The factor is 2g, not g/2. C) The slope of v² (m²/s²) versus h (m) has units of m/s², not s²/m.",
+     "trap": "Reading the slope of v² versus h as g instead of 2g, or inverting the axes.",
+     "topic": "Pendulum energy conservation",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P1_Q5",
+     "stem": "In the follow-up run, the 1.0 kg bob is released from 60°. Compared with the 0.50 kg bob, its bottom speed and kinetic energy there will be",
+     "options": {
+      "A": "a speed lower by a factor of √2 and unchanged kinetic energy.",
+      "B": "doubled speed and quadrupled kinetic energy.",
+      "C": "unchanged speed and doubled kinetic energy.",
+      "D": "unchanged speed and unchanged kinetic energy."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) v = √(2gh) is independent of mass, while KE = mgh doubles when m doubles. Why the others are wrong: A) The speed does not depend on mass, and KE = mgh scales with mass. B) Speed is independent of mass, so KE only doubles. D) The speed is unchanged but the larger mass gives twice the kinetic energy at the same speed.",
+     "trap": "Believing that heavier objects gain more speed, rather than more energy, when they fall through the same height.",
+     "topic": "Pendulum energy conservation",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_CP_P2",
+   "passage_text": "A student studies the gas-phase reaction 2 NO + Cl2 → 2 NOCl in a rigid vessel at 25 °C by the method of initial rates. In each experiment, known starting concentrations of NO and Cl2 are mixed, and the initial rate of NOCl formation is determined from the early pressure change. Table 1 lists the results of four experiments. The student proposes the following two-step mechanism: Step 1 is a fast, reversible equilibrium, NO + Cl2 ⇌ NOCl2, with equilibrium constant K. Step 2 is slow, NOCl2 + NO → 2 NOCl, with rate constant k2. The student wants to determine whether the experimental rate law is consistent with this mechanism and then use it to predict rates under new conditions. Rates are expressed as the rate of disappearance of Cl2, in M/s, so that no stoichiometric factor is needed in the rate law. The vessel is thermostatted so that the temperature stays constant, and each initial rate is measured before more than a few percent of the reactants have been consumed, so the listed concentrations can be taken as constant during a measurement.",
+   "table_data": "| Experiment | [NO] (M) | [Cl2] (M) | Initial rate (M/s) |\n|---|---|---|---|\n| 1 | 0.010 | 0.010 | 2.0 × 10⁻⁵ |\n| 2 | 0.020 | 0.010 | 8.0 × 10⁻⁵ |\n| 3 | 0.010 | 0.030 | 6.0 × 10⁻⁵ |\n| 4 | 0.020 | 0.020 | 1.6 × 10⁻⁴ |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL08_CP_P2_Q1",
+     "stem": "Based on Experiments 1 and 2, what is the reaction order with respect to NO?",
+     "options": {
+      "A": "Second order, because doubling [NO] at constant [Cl2] quadruples the rate",
+      "B": "First order, because the rate increases when [NO] is increased",
+      "C": "Zero order, because NO is a reactant that is consumed to make product",
+      "D": "Third order, because the overall reaction is third order"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The rate rises from 2.0 × 10⁻⁵ to 8.0 × 10⁻⁵ M/s, a factor of 4 = 2², so the order in NO is 2. Why the others are wrong: B) A first-order dependence would only double the rate when [NO] doubles. C) The rate clearly changes with [NO]; order cannot be read from the stoichiometric coefficient or from consumption. D) The order in each reactant comes from the data; 2 NO's overall coefficient does not fix the order in NO alone.",
+     "trap": "Equating the order with the stoichiometric coefficient or confusing the rate ratio (4) with the order (2).",
+     "topic": "Rate-law order determination",
+     "mastery_sheet_id": "5E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P2_Q2",
+     "stem": "What is the value of the rate constant k for the rate law rate = k[NO]²[Cl2]?",
+     "options": {
+      "A": "20 M⁻² s⁻¹",
+      "B": "0.20 M⁻¹ s⁻¹",
+      "C": "2.0 × 10⁻³ s⁻¹",
+      "D": "2.0 × 10⁻⁵ M s⁻¹"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) k = rate / ([NO]²[Cl2]) = 2.0 × 10⁻⁵ / (1.0 × 10⁻⁴ × 0.010) = 20 M⁻² s⁻¹ (units for a third-order reaction). Why the others are wrong: B) This results from dividing by [NO]² only, and the units are those of a second-order constant. C) This results from dividing by a single concentration of 0.010 M, which would be first order. D) This is simply the initial rate in Experiment 1, not the rate constant.",
+     "trap": "Dividing the rate by too few concentration terms, which also produces the wrong units for k.",
+     "topic": "Rate-law order determination",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_CP_P2_Q3",
+     "stem": "What is the predicted initial rate when [NO] = 0.030 M and [Cl2] = 0.020 M?",
+     "options": {
+      "A": "3.6 × 10⁻⁴ M/s, from 3² × 2 × rate₁",
+      "B": "1.2 × 10⁻⁴ M/s, from 3 × 2 × rate₁ (first order in NO)",
+      "C": "5.4 × 10⁻⁴ M/s, from 3² × 3 × rate₁ (Cl2 also tripled)",
+      "D": "7.2 × 10⁻⁴ M/s, from 3² × 2² × rate₁ (second order in Cl2)"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Relative to Experiment 1, [NO] is tripled (factor 9) and [Cl2] is doubled (factor 2): 2.0 × 10⁻⁵ × 9 × 2 = 3.6 × 10⁻⁴ M/s. Why the others are wrong: B) This treats the reaction as first order in NO (3 × 2 × 2.0 × 10⁻⁵). C) This applies a factor of 3 rather than 2 for Cl2, as if [Cl2] had also been tripled. D) This treats the reaction as second order in Cl2 (9 × 4 × 2.0 × 10⁻⁵).",
+     "trap": "Applying the concentration ratios without raising them to the correct reaction orders.",
+     "topic": "Rate-law order determination",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_CP_P2_Q4",
+     "stem": "Assuming that Step 1 is a fast pre-equilibrium and Step 2 is rate-limiting, which rate law does the proposed mechanism predict?",
+     "options": {
+      "A": "Rate = k1[NO][Cl2], which treats Step 1 as rate-limiting",
+      "B": "Rate = k2K[NO]²[Cl2], matching the experimental rate law",
+      "C": "Rate = k2[NOCl2][NO], the rate law of the slow step as written",
+      "D": "Rate = k2K[NO][Cl2]², since Cl2 appears in the pre-equilibrium"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Rate = k2[NOCl2][NO], and the fast equilibrium gives [NOCl2] = K[NO][Cl2], so rate = k2K[NO]²[Cl2]. Why the others are wrong: A) Step 1 is fast and reversible, so it does not set the overall rate. C) An intermediate cannot appear in the final rate law; it must be replaced using the equilibrium. D) Cl2 enters Step 1 once, so it appears with a power of 1.",
+     "trap": "Leaving a reaction intermediate in the final rate law instead of substituting from the fast equilibrium.",
+     "topic": "Rate-law order determination",
+     "mastery_sheet_id": "5E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_CP_P3",
+   "passage_text": "Students measure the rise of water in clean glass capillary tubes of different inner radii r, each dipped vertically into a beaker of water at 20 °C. The liquid rises until the upward force from surface tension balances the weight of the raised column, giving h = 2γcosθ / (ρgr), where γ is the surface tension, θ is the contact angle, and ρ is the liquid density. For water on clean glass, θ ≈ 0°, ρ = 1,000 kg/m³, and g = 9.8 m/s². Table 1 and Figure 1 show the measured heights. In a second set of measurements, the students compare other liquids in a tube of r = 0.50 mm: mercury (γ = 0.48 N/m, ρ = 13,600 kg/m³, θ = 140° on glass) and a dilute detergent solution whose surface tension is 0.025 N/m but which otherwise behaves like water (ρ = 1,000 kg/m³, θ ≈ 0°). The effect of the thin film of liquid on the tube wall is ignored.",
+   "table_data": "| Radius r (mm) | 1/r (mm⁻¹) | Height h (mm) |\n|---|---|---|\n| 0.25 | 4.0 | 59.4 |\n| 0.50 | 2.0 | 29.7 |\n| 1.00 | 1.0 | 14.9 |\n| 2.00 | 0.50 | 7.4 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Capillary rise of water versus reciprocal radius",
+    "x_label": "1/r (mm⁻¹)",
+    "y_label": "Height h (mm)",
+    "series": [
+     {
+      "name": "Water",
+      "points": [
+       [
+        0.5,
+        7.4
+       ],
+       [
+        1.0,
+        14.9
+       ],
+       [
+        2.0,
+        29.7
+       ],
+       [
+        4.0,
+        59.4
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_CP_P3_Q1",
+     "stem": "According to the equation, what rise is expected for water in a tube of inner radius 0.10 mm?",
+     "options": {
+      "A": "About 74 mm, with the factor of 2 left out",
+      "B": "About 15 mm, with r misread as 1.0 mm",
+      "C": "About 149 mm, from h ∝ 1/r",
+      "D": "About 298 mm, with 0.10 mm read as a diameter"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) h = 2γcosθ/(ρgr) = 2(0.0728)/(1,000 × 9.8 × 1.0 × 10⁻⁴) = 0.149 m, in agreement with h ∝ 1/r from Figure 1. Why the others are wrong: A) This omits the factor of 2 in the numerator. B) This is the height for r = 1.00 mm, from a decimal-place error in the radius. D) This arises from treating 0.10 mm as the diameter, using r = 0.05 mm.",
+     "trap": "Mis-converting millimeters to meters, or confusing the tube radius with its diameter.",
+     "topic": "Capillary rise and surface tension",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Surface_tension"
+      ]
+     }
+    },
+    {
+     "id": "FL08_CP_P3_Q2",
+     "stem": "Using the slope of Figure 1, what is the surface tension of water?",
+     "options": {
+      "A": "0.073 N/m",
+      "B": "0.15 N/m",
+      "C": "0.037 N/m",
+      "D": "7.3 × 10⁴ N/m"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The slope is h·r = 14.9 mm² = 1.49 × 10⁻⁵ m²; γ = slope × ρg/2 = 1.49 × 10⁻⁵ × 9,800 / 2 ≈ 0.073 N/m. Why the others are wrong: B) This omits the 1/2 that comes from the factor 2 in 2γ. C) This divides by 4 rather than by 2. D) This uses the slope in mm² without converting it to m².",
+     "trap": "Forgetting to convert the slope from mm² to m², or dropping the factor of 2 in the equation.",
+     "topic": "Capillary rise and surface tension",
+     "mastery_sheet_id": "4B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P3_Q3",
+     "stem": "In the tube with r = 0.50 mm, the mercury meniscus will most likely be",
+     "options": {
+      "A": "raised by about 11 mm, because the density of mercury is high",
+      "B": "depressed by about 14 mm, because mercury is a nonwetting liquid",
+      "C": "neither raised nor depressed, because ρ appears in the denominator",
+      "D": "depressed by about 11 mm, because cosθ is negative for θ = 140°."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) h = 2(0.48)(cos 140°)/(13,600 × 9.8 × 5.0 × 10⁻⁴) = −0.011 m; the negative sign means a depression, as cohesion exceeds adhesion. Why the others are wrong: A) The magnitude is right but a contact angle above 90° gives a depression. B) This ignores the cos 140° factor (−0.766); the magnitude should be 11 mm. C) Density affects the magnitude of the height but the sign is set by cosθ.",
+     "trap": "Ignoring the sign of cosθ for a nonwetting liquid, which turns a capillary rise into a depression.",
+     "topic": "Capillary rise and surface tension",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P3_Q4",
+     "stem": "The detergent solution is drawn into the tube with r = 0.50 mm. What rise is expected?",
+     "options": {
+      "A": "About 30 mm",
+      "B": "About 87 mm",
+      "C": "About 10 mm",
+      "D": "About 3.5 mm"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) h is proportional to γ: 29.7 mm × (0.025/0.0728) = 10.2 mm. Why the others are wrong: A) This assumes the rise is unaffected by the surface tension. B) This inverts the ratio of surface tensions, so that the rise increases. D) This squares the ratio of surface tensions, but h is linear in γ.",
+     "trap": "Inverting or squaring the ratio of surface tensions when scaling the capillary rise.",
+     "topic": "Capillary rise and surface tension",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Surface_tension"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_CP_P4",
+   "passage_text": "A Hofmann voltameter contains 0.1 M aqueous Na2SO4 between two inert platinum electrodes. A constant current of 2.00 A is passed through the cell, and the H2 and O2 gases are collected in separate inverted tubes at 25 °C and 1.00 atm, where the molar gas volume is 24.5 L/mol. The Faraday constant is 96,485 C per mole of electrons. Table 1 and Figure 1 give the volumes of gas collected at four times. Water vapor and gas solubility are ignored. The overall reaction is 2 H2O → 2 H2 + O2. The sulfate and sodium ions are not consumed. A few drops of universal indicator, which is green near pH 7, red in acid, and blue-violet in base, are added to the solution before the current is started. The student keeps the current constant by adjusting a variable resistor in series with the cell and holds the temperature at 25 °C with a water bath. Stirring is not used, so local pH changes near each electrode remain observable.",
+   "table_data": "| Time (s) | Charge passed (C) | H2 collected (mL) | O2 collected (mL) |\n|---|---|---|---|\n| 300 | 600 | 75 | 37 |\n| 600 | 1,200 | 150 | 75 |\n| 900 | 1,800 | 226 | 113 |\n| 1,200 | 2,400 | 301 | 150 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Gas volume collected versus electrolysis time",
+    "x_label": "Time (s)",
+    "y_label": "Gas volume (mL)",
+    "series": [
+     {
+      "name": "H2",
+      "points": [
+       [
+        300,
+        75
+       ],
+       [
+        600,
+        150
+       ],
+       [
+        900,
+        226
+       ],
+       [
+        1200,
+        301
+       ]
+      ]
+     },
+     {
+      "name": "O2",
+      "points": [
+       [
+        300,
+        37
+       ],
+       [
+        600,
+        75
+       ],
+       [
+        900,
+        113
+       ],
+       [
+        1200,
+        150
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_CP_P4_Q1",
+     "stem": "How many moles of electrons have passed through the cell after 600 s?",
+     "options": {
+      "A": "6.2 × 10⁻³ mol, the moles of H2 formed",
+      "B": "2.5 × 10⁻² mol, the value at 1,200 s",
+      "C": "2.1 × 10⁻⁴ mol, with t in minutes",
+      "D": "1.24 × 10⁻² mol"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) n(e⁻) = Q/F = (2.00 A × 600 s)/96,485 C/mol = 1,200/96,485 = 1.24 × 10⁻² mol. Why the others are wrong: A) This is the moles of H2 formed (n(e⁻)/2), not of electrons. B) This corresponds to 1,200 s (2,400 C), not 600 s. C) This treats the time as 10 minutes, giving 20 C instead of 1,200 C.",
+     "trap": "Mixing up moles of electrons with moles of H2, or leaving the time in minutes.",
+     "topic": "Faraday electrolysis of water",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_CP_P4_Q2",
+     "stem": "Why is the volume of H2 collected about twice the volume of O2?",
+     "options": {
+      "A": "H2 has half the molar mass of O2 and so occupies twice the volume at the same T and P.",
+      "B": "Oxygen is far more soluble in water than hydrogen, so half the O2 stays dissolved.",
+      "C": "Forming H2 takes 2 mol e⁻ per mole while forming O2 releases 4 mol e⁻ per mole, so the same charge makes twice as many moles of H2.",
+      "D": "Hydrogen forms at the anode, where the current density is larger."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The same charge makes n(H2) = Q/2F and n(O2) = Q/4F, and equal moles of ideal gases occupy equal volumes at the same T and P. Why the others are wrong: A) At the same T and P, a mole of any ideal gas has the same volume regardless of its mass. B) Solubility is ignored in this setup, and neither gas is that soluble. D) Hydrogen forms at the cathode, and the same current passes through both electrodes.",
+     "trap": "Attributing the 2:1 ratio to gas properties such as molar mass, when it follows from the electrons transferred per mole.",
+     "topic": "Faraday electrolysis of water",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P4_Q3",
+     "stem": "In this neutral Na2SO4 solution, which half-reaction occurs at the cathode?",
+     "options": {
+      "A": "Na⁺ + e⁻ → Na(s)",
+      "B": "2 H2O → O2 + 4 H⁺ + 4 e⁻",
+      "C": "2 H2O + 2 e⁻ → H2 + 2 OH⁻",
+      "D": "SO4²⁻ + 4 H⁺ + 2 e⁻ → SO2 + 2 H2O"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Water is reduced (E° ≈ −0.83 V at pH 14, about −0.41 V at pH 7), far more easily than Na⁺ (−2.71 V), forming H2 gas. Why the others are wrong: A) E° = −2.71 V is much more negative than the reduction of water, so Na⁺ is not reduced in water. B) This is an oxidation, which occurs at the anode. D) Sulfate is not reduced under these conditions, and its reduction is kinetically very slow.",
+     "trap": "Selecting the reduction of the metal cation (Na⁺) rather than the reduction of water in an aqueous solution of an active metal salt.",
+     "topic": "Faraday electrolysis of water",
+     "mastery_sheet_id": "4C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P4_Q4",
+     "stem": "If the current is increased to 4.00 A, about how long does it take to collect 152 mL of H2 under the same conditions?",
+     "options": {
+      "A": "300 s",
+      "B": "150 s",
+      "C": "600 s",
+      "D": "1,200 s"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At 2.00 A, 152 mL of H2 takes 600 s; volume is proportional to charge (I × t), so doubling I halves the time to 300 s. Why the others are wrong: B) This quarters the time, as if the volume depended on the square of the current. C) The current does affect how fast the gas is produced, so the time should change. D) This doubles the time, inverting the effect of a larger current.",
+     "trap": "Misapplying the proportionality n = It/(nF) by thinking more current slows, or has no effect on, gas production.",
+     "topic": "Faraday electrolysis of water",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_CP_P4_Q5",
+     "stem": "As the electrolysis proceeds, what color changes are expected in the indicator-containing solution?",
+     "options": {
+      "A": "Blue-violet near the anode and red near the cathode",
+      "B": "Blue-violet near both electrodes, since water is converted into OH⁻",
+      "C": "Red near the anode (acidic) and blue-violet near the cathode (basic)",
+      "D": "No change near either electrode, since Na2SO4 is a neutral salt"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Anode: 2 H2O → O2 + 4 H⁺ + 4 e⁻ generates H⁺; cathode: 2 H2O + 2 e⁻ → H2 + 2 OH⁻ generates OH⁻. Why the others are wrong: A) This reverses the products; H⁺ forms at the anode and OH⁻ at the cathode. B) Only the cathode makes OH⁻; the anode makes H⁺. D) The ions of the salt only carry current; water itself is oxidized and reduced, shifting local pH.",
+     "trap": "Assuming a neutral salt solution cannot change in pH during electrolysis.",
+     "topic": "Faraday electrolysis of water",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_CP_P5",
+   "passage_text": "A student studies standing waves in a metal pipe that is closed at one end and open at the other. A small speaker held near the open end is swept through a range of frequencies, and the loudest responses are recorded as resonances. The pipe has length L = 0.600 m and inner radius r = 0.025 m. The air temperature is 20 °C, and the speed of sound is v ≈ 331 + 0.6T m/s, where T is in °C. Because the pressure antinode at the closed end is a displacement node, and the displacement antinode at the open end actually lies slightly outside the pipe, the effective length is L + 0.6r. Table 1 compares the three lowest measured resonances with predictions made with the uncorrected length L and with the corrected effective length. The student wonders how the resonance pattern and the frequencies would change if the pipe were open at both ends or if the room were warmer.",
+   "table_data": "| Resonance | Measured f (Hz) | Predicted, length L (Hz) | Predicted, length L + 0.6r (Hz) |\n|---|---|---|---|\n| Lowest | 139 | 142.9 | 139.4 |\n| Second | 418 | 428.8 | 418.2 |\n| Third | 696 | 714.6 | 697.0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL08_CP_P5_Q1",
+     "stem": "Which set of resonant frequencies is expected for this pipe?",
+     "options": {
+      "A": "Only odd multiples of the lowest frequency, because the closed end is a displacement node and the open end a displacement antinode",
+      "B": "All integer multiples of the lowest frequency, as in a pipe open at both ends",
+      "C": "Only even multiples of the lowest frequency, because the closed end is a displacement antinode",
+      "D": "Only odd multiples of the lowest frequency, because the closed end is a displacement antinode"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The pipe supports λ = 4L_eff/n for odd n only, giving f, 3f, 5f, as in the measured 139, 418, and 696 Hz. Why the others are wrong: B) A pipe with one closed end cannot support the even harmonics. C) The closed end is a node, and the data (139, 418, 696 Hz) show odd multiples. D) The odd harmonics are correct, but the closed end is a displacement node, not an antinode.",
+     "trap": "Reversing which end of the pipe is the node and which is the antinode, or applying the open-open harmonic series.",
+     "topic": "Standing waves in an organ pipe",
+     "mastery_sheet_id": "4D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P5_Q2",
+     "stem": "Ignoring the end correction, what would be the lowest resonance of an open-open pipe of the same length?",
+     "options": {
+      "A": "143 Hz, from f = v/(4L)",
+      "B": "572 Hz, from f = v/L",
+      "C": "429 Hz, from f = 3v/(4L)",
+      "D": "286 Hz, from f = v/(2L)"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) For a pipe open at both ends, λ = 2L, so f = 343/(2 × 0.600) = 286 Hz. Why the others are wrong: A) This is the closed-pipe fundamental. B) This takes the wavelength to be L, but the fundamental has λ = 2L. C) This is the third resonance of the closed pipe.",
+     "trap": "Using the closed-pipe relationship f = v/4L for a pipe that is open at both ends.",
+     "topic": "Standing waves in an organ pipe",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://phys.libretexts.org/Bookshelves/Waves_and_Acoustics/Laboratory_Manual_-_The_Science_of_Sound_(Fiore)/05%3A_Resonant_Pipes/5.01%3A_Section_1-"
+      ]
+     }
+    },
+    {
+     "id": "FL08_CP_P5_Q3",
+     "stem": "If the air warms to 30 °C and the pipe length is unchanged, the lowest resonance will be closest to",
+     "options": {
+      "A": "139 Hz, because the pipe length alone fixes the resonant frequency",
+      "B": "137 Hz, because warmer air is less dense and carries sound more slowly",
+      "C": "144 Hz, because the frequency is proportional to the Celsius temperature",
+      "D": "142 Hz, because v rises by about 2% while L_eff is fixed."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) v = 331 + 0.6(30) = 349 m/s, so f = 349/(4 × 0.615) = 142 Hz, up from 139 Hz. Why the others are wrong: A) The frequency depends on v/λ, so a change in v changes it. B) Sound travels faster, not slower, in warmer air. C) F is proportional to v, which is not proportional to the Celsius temperature; v = 349 m/s gives 142 Hz.",
+     "trap": "Assuming the resonant frequency is set only by the pipe length, ignoring its dependence on the speed of sound.",
+     "topic": "Standing waves in an organ pipe",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://phys.libretexts.org/Bookshelves/Waves_and_Acoustics/Laboratory_Manual_-_The_Science_of_Sound_(Fiore)/05%3A_Resonant_Pipes/5.01%3A_Section_1-"
+      ]
+     }
+    },
+    {
+     "id": "FL08_CP_P5_Q4",
+     "stem": "Why are the measured frequencies lower than those predicted from the uncorrected length L?",
+     "options": {
+      "A": "The open-end antinode forms slightly beyond the pipe, so the standing wave fits a longer effective length.",
+      "B": "The closed end reflects the wave with a delay, shortening the effective length.",
+      "C": "The speed of sound inside the pipe is lower than 343 m/s because of friction against the walls.",
+      "D": "The speaker adds energy that lowers the natural frequency of the air column."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) A longer effective length gives a longer wavelength (λ = 4L_eff) and thus a lower frequency for the same sound speed. Why the others are wrong: B) A shorter effective length would raise, not lower, the frequency. C) Wall effects are far too small to account for a 2.5% shift and are not the origin of the end correction. D) A driving source selects resonances but does not shift the natural frequencies of the column.",
+     "trap": "Believing the end correction shortens the pipe, rather than lengthening its effective length.",
+     "topic": "Standing waves in an organ pipe",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_CP_P6",
+   "passage_text": "The binding energy of a nucleus equals the energy equivalent of its mass defect, Δm = Z·m(¹H) + N·m(n) − m(atom), where atomic masses are used so that electron masses cancel. Take m(¹H) = 1.007825 u, m(n) = 1.008665 u, and 1 u = 931.5 MeV/c². Table 1 lists the atomic masses of four nuclides together with their calculated mass defects and binding energies, and Figure 1 plots the binding energy per nucleon against mass number A. Nuclear energy can be released by splitting a heavy nucleus (fission) or by joining light nuclei (fusion), because in both cases the products have greater binding energy per nucleon. For the fission of ²³⁵U, assume the two fragments each have A ≈ 118 and a binding energy of about 8.5 MeV per nucleon, and neglect any emitted neutrons. Students compare reactions by subtracting the total binding energy of the reactants from that of the products, because a positive difference corresponds to energy released as kinetic energy and radiation.",
+   "table_data": "| Nuclide | Atomic mass (u) | Mass defect (u) | Binding energy (MeV) | BE per nucleon (MeV) |\n|---|---|---|---|---|\n| ²H | 2.014102 | 0.0024 | 2.2 | 1.11 |\n| ⁴He | 4.002603 | 0.0304 | 28.3 | 7.07 |\n| ⁵⁶Fe | 55.934936 | 0.5285 | 492.3 | 8.79 |\n| ²³⁵U | 235.043930 | 1.9151 | 1783.9 | 7.59 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Binding energy per nucleon versus mass number",
+    "x_label": "Mass number A",
+    "y_label": "Binding energy per nucleon (MeV)",
+    "series": [
+     {
+      "name": "Selected nuclides",
+      "points": [
+       [
+        2,
+        1.11
+       ],
+       [
+        4,
+        7.07
+       ],
+       [
+        56,
+        8.79
+       ],
+       [
+        235,
+        7.59
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_CP_P6_Q1",
+     "stem": "What is the mass defect of ⁴He?",
+     "options": {
+      "A": "4.0326 u, the mass of the free nucleons",
+      "B": "0.0152 u, half the mass defect",
+      "C": "0.0304 u",
+      "D": "28.3 u, the binding energy in MeV"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Δm = 2(1.007825) + 2(1.008665) − 4.002603 = 4.032980 − 4.002603 = 0.0304 u. Why the others are wrong: A) This is the mass of the separated nucleons (2 H atoms + 2 neutrons), not the defect. B) This halves the correct mass defect, counting only one pair of nucleons. D) This is the binding energy in MeV mistakenly written with the unit u.",
+     "trap": "Confusing the mass defect (in u) with the total mass of the nucleons or with the binding energy in MeV.",
+     "topic": "Mass defect and binding energy",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_CP_P6_Q2",
+     "stem": "Which of the four nuclides has the most stable nucleus per nucleon, according to Table 1?",
+     "options": {
+      "A": "²³⁵U, because it has the largest total binding energy",
+      "B": "⁴He, because it has the smallest mass defect",
+      "C": "⁵⁶Fe, because it has the highest binding energy per nucleon",
+      "D": "²H, because it has the lowest atomic mass"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Stability per nucleon is measured by BE/A, which peaks near A ≈ 56–62; ⁵⁶Fe has 8.79 MeV per nucleon. Why the others are wrong: A) Total binding energy grows with the number of nucleons; BE per nucleon is the stability measure. B) A smaller mass defect means less binding, and ⁴He has much lower BE/A than ⁵⁶Fe. D) Atomic mass alone says nothing about stability; ²H has the lowest BE/A.",
+     "trap": "Comparing total binding energies of nuclei with different numbers of nucleons rather than binding energy per nucleon.",
+     "topic": "Mass defect and binding energy",
+     "mastery_sheet_id": "4E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P6_Q3",
+     "stem": "Approximately how much energy is released when one ²³⁵U nucleus splits into two A ≈ 118 fragments?",
+     "options": {
+      "A": "About 1,780 MeV",
+      "B": "About 210 MeV",
+      "C": "About 2,000 MeV",
+      "D": "About 0.9 MeV"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) ΔE = 235 × (8.5 − 7.59) ≈ 214 MeV, the difference between the fragments' and ²³⁵U's total binding energies. Why the others are wrong: A) This is the total binding energy of ²³⁵U, not the energy released. C) This is the total binding energy of the fragments, not the difference. D) This is the gain per nucleon; it must be multiplied by 235 nucleons.",
+     "trap": "Reporting the binding energy of one nucleus, or the per-nucleon gain, as the energy released in the reaction.",
+     "topic": "Mass defect and binding energy",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_CP_P6_Q4",
+     "stem": "How much energy is released when two ²H nuclei fuse to form one ⁴He nucleus?",
+     "options": {
+      "A": "About 28 MeV",
+      "B": "About 6 MeV",
+      "C": "About 4.4 MeV",
+      "D": "About 24 MeV"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) ΔE = BE(⁴He) − 2 × BE(²H) = 28.3 − 2(2.2) = 23.9 MeV. Why the others are wrong: A) This is the binding energy of ⁴He alone, neglecting the binding energy already present in the two deuterons. B) This is roughly the difference of per-nucleon values, 7.1 − 1.1 = 6, not the difference of totals. C) This is the combined binding energy of the two deuterons.",
+     "trap": "Not subtracting the initial binding energy of the reactants from that of the products.",
+     "topic": "Mass defect and binding energy",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_CP_P7",
+   "passage_text": "A chemist adds dilute AgNO3 dropwise to a solution containing 0.050 M NaCl and 0.0050 M Na2CrO4 at 25 °C. Both silver salts are sparingly soluble: AgCl is white and Ag2CrO4 is brick red. Table 1 lists their solubility products and the minimum [Ag⁺] needed to begin precipitation from this solution. Volume changes on addition are negligible, and a precipitate begins to form when the ion product exceeds Ksp. In a separate test, the chemist adds concentrated aqueous NH3 to a suspension of solid AgCl, and the solid dissolves as the complex ion forms: Ag⁺ + 2 NH3 ⇌ Ag(NH3)2⁺, with a large formation constant Kf = 1.6 × 10⁷. The chemist also asks what happens to the solubility of AgCl if the water is replaced by 0.10 M NaCl. The temperature is held at 25 °C so that the Ksp values stay constant, and the chemist assumes ideal behavior of all ions and ignores any hydrolysis of chromate.",
+   "table_data": "| Salt | Ksp (25 °C) | Initial anion concentration (M) | Minimum [Ag⁺] to precipitate (M) |\n|---|---|---|---|\n| AgCl | 1.8 × 10⁻¹⁰ | 0.050 (Cl⁻) | 3.6 × 10⁻⁹ |\n| Ag2CrO4 | 1.1 × 10⁻¹² | 0.0050 (CrO4²⁻) | 1.5 × 10⁻⁵ |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL08_CP_P7_Q1",
+     "stem": "Which solid precipitates first as AgNO3 is added, and why?",
+     "options": {
+      "A": "Ag2CrO4, because its Ksp is smaller than that of AgCl",
+      "B": "AgCl, because it needs a much lower [Ag⁺] (3.6 × 10⁻⁹ M) to begin precipitating",
+      "C": "Ag2CrO4, because its minimum [Ag⁺] is the larger value",
+      "D": "Both precipitate together, because they come from the same Ag⁺ source"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Precipitation begins when Q exceeds Ksp; AgCl reaches that point at 3.6 × 10⁻⁹ M Ag⁺, well before the 1.5 × 10⁻⁵ M required for Ag2CrO4. Why the others are wrong: A) The Ksp values cannot be compared directly for salts with different formulas; the required [Ag⁺] decides. C) A larger required [Ag⁺] means that the salt precipitates later. D) The two salts have different thresholds, so they precipitate sequentially.",
+     "trap": "Ranking the precipitation order by comparing Ksp values of salts with different stoichiometries instead of the ion concentration needed.",
+     "topic": "Selective precipitation with Ksp",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P7_Q2",
+     "stem": "At the moment Ag2CrO4 first appears, what is [Cl⁻] in solution?",
+     "options": {
+      "A": "3.6 × 10⁻⁹ M, the [Ag⁺] for AgCl",
+      "B": "1.2 × 10⁻⁵ M",
+      "C": "2.4 × 10⁻⁴ M, the fraction remaining",
+      "D": "5.0 × 10⁻² M, the starting [Cl⁻]"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) [Ag⁺] = 1.5 × 10⁻⁵ M at that point, so [Cl⁻] = Ksp(AgCl)/[Ag⁺] = 1.8 × 10⁻¹⁰/1.5 × 10⁻⁵ = 1.2 × 10⁻⁵ M. Why the others are wrong: A) This is the [Ag⁺] at which AgCl begins to precipitate, not [Cl⁻]. C) This is the fraction of chloride that remains, not its concentration. D) This is the starting [Cl⁻], ignoring the AgCl that has already precipitated.",
+     "trap": "Mixing up the [Ag⁺] threshold with the remaining anion concentration, or ignoring the chloride already removed.",
+     "topic": "Selective precipitation with Ksp",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_CP_P7_Q3",
+     "stem": "What percentage of the original chloride has precipitated when Ag2CrO4 begins to form?",
+     "options": {
+      "A": "98.8%",
+      "B": "99.98%",
+      "C": "24%",
+      "D": "0.024%"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Remaining fraction = 1.2 × 10⁻⁵/0.050 = 2.4 × 10⁻⁴, so 99.98% has precipitated; the separation is nearly quantitative. Why the others are wrong: A) This overstates the remaining chloride by a factor of about 50. C) This treats the remaining fraction as 24%, confusing 2.4 × 10⁻⁴ with 0.24. D) This is the percent of chloride that remains, not the percent that precipitated.",
+     "trap": "Reporting the percentage left in solution rather than the percentage precipitated.",
+     "topic": "Selective precipitation with Ksp",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_CP_P7_Q4",
+     "stem": "What is the molar solubility of AgCl in 0.10 M NaCl?",
+     "options": {
+      "A": "1.3 × 10⁻⁵ M",
+      "B": "1.8 × 10⁻¹⁰ M",
+      "C": "1.8 × 10⁻¹¹ M",
+      "D": "1.8 × 10⁻⁹ M"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) s = [Ag⁺] = Ksp/[Cl⁻] = 1.8 × 10⁻¹⁰/0.10 = 1.8 × 10⁻⁹ M, far lower than in pure water because of the common ion effect. Why the others are wrong: A) This is √Ksp, the solubility in pure water, ignoring the common ion. B) This is the Ksp value itself, not a concentration. C) This multiplies Ksp by [Cl⁻] instead of dividing.",
+     "trap": "Using √Ksp in a solution that already contains a common ion.",
+     "topic": "Selective precipitation with Ksp",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Equilibria/Heterogeneous_Equilibria/Common_Ion_Effect"
+      ]
+     }
+    },
+    {
+     "id": "FL08_CP_P7_Q5",
+     "stem": "Why does AgCl dissolve in concentrated NH3?",
+     "options": {
+      "A": "Complexation by NH3 lowers [Ag⁺], so Q falls below Ksp and more AgCl dissolves.",
+      "B": "NH3 raises the Ksp of AgCl by acting as a polar solvent.",
+      "C": "NH3 reduces Ag⁺ to Ag(s), which leaves Cl⁻ free in solution.",
+      "D": "NH3 reacts with Cl⁻ to form NH4Cl, which is more soluble than AgCl."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Formation of Ag(NH3)2⁺ removes free Ag⁺, shifting the dissolution equilibrium AgCl ⇌ Ag⁺ + Cl⁻ to the right. Why the others are wrong: B) Ksp depends only on temperature; NH3 does not change it. C) NH3 is a ligand, not a reducing agent, and Ag(NH3)2⁺ retains silver in the +1 state. D) Cl⁻ is a spectator-type anion here and does not react with NH3; the complexation of Ag⁺ drives dissolution.",
+     "trap": "Believing a ligand changes Ksp rather than shifting the equilibrium by removing a product ion.",
+     "topic": "Selective precipitation with Ksp",
+     "mastery_sheet_id": "5A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_CP_P8",
+   "passage_text": "Hybridization of carbon influences molecular geometry as well as bond lengths, strengths, and acidities. Table 1 summarizes data for ethane, ethene, and ethyne. Each carbon atom mixes its 2s and 2p orbitals to form hybrid orbitals: sp³ (25% s character) in ethane, sp² (33% s) in ethene, and sp (50% s) in ethyne. The remaining unhybridized p orbitals form π bonds. Figure 1 plots the C–H bond length against the s character of the carbon hybrid orbital used in the bond. The pKa of the C–H bond reflects how well the conjugate base, a carbanion, stabilizes its lone pair in a hybrid orbital. A student also considers two molecules built from these fragments: propyne, CH3–C≡CH, and acrylonitrile, CH2=CH–C≡N. The unhybridized p orbitals overlap sideways to form π bonds, while hybrid orbitals overlap end-on to form σ bonds. Bond energies refer to the C–C bond in each molecule, and the data are approximate gas-phase values.",
+   "table_data": "| Compound | C hybridization | % s character | C–C length (pm) | C–C bond energy (kJ/mol) | C–H length (pm) | pKa of C–H |\n|---|---|---|---|---|---|---|\n| Ethane | sp³ | 25 | 154 | 347 | 109.4 | ~50 |\n| Ethene | sp² | 33 | 134 | 614 | 108.7 | ~44 |\n| Ethyne | sp | 50 | 120 | 839 | 106.0 | ~25 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. C–H bond length versus s character",
+    "x_label": "s character of carbon hybrid orbital (%)",
+    "y_label": "C–H bond length (pm)",
+    "series": [
+     {
+      "name": "C–H bonds",
+      "points": [
+       [
+        25,
+        109.4
+       ],
+       [
+        33,
+        108.7
+       ],
+       [
+        50,
+        106.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_CP_P8_Q1",
+     "stem": "What are the hybridizations of the three carbon atoms in propyne, CH3–C≡CH, from left to right?",
+     "options": {
+      "A": "sp³, sp², sp",
+      "B": "sp³, sp, sp",
+      "C": "sp², sp, sp",
+      "D": "sp³, sp³, sp"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The CH3 carbon has four σ bonds (sp³); each alkyne carbon has two σ bonds and two π bonds (sp). Why the others are wrong: A) The central carbon has a triple bond, so it is sp, not sp². C) The CH3 carbon has four single bonds and is sp³. D) A carbon in a triple bond is linear (sp), not tetrahedral.",
+     "trap": "Assigning hybridization by counting hydrogens instead of counting σ bonds plus lone pairs on each carbon.",
+     "topic": "Hybridization and bond lengths",
+     "mastery_sheet_id": "5B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P8_Q2",
+     "stem": "Which statement best explains the trend in C–H bond length in Table 1?",
+     "options": {
+      "A": "Orbitals with more s character hold the electrons closer to the nucleus, giving shorter C–H bonds.",
+      "B": "Orbitals with more p character extend farther along the bond axis, bringing H closer.",
+      "C": "The π bonds in ethyne pull the C–H bonding electrons toward the C≡C bond and shorten C–H.",
+      "D": "Carbon becomes less electronegative with more s character, giving a stronger bond."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Greater s character places electron density nearer the carbon nucleus, which shortens and strengthens the C–H bond (106.0 pm for sp versus 109.4 pm for sp³). Why the others are wrong: B) More p character makes the orbital longer and the bond longer, not shorter. C) Π bonds are perpendicular to the C–H σ bond and do not account for the trend. D) Electronegativity of carbon increases, not decreases, with s character.",
+     "trap": "Treating p character as the source of bond shortening, when s character is the factor that draws electrons toward the nucleus.",
+     "topic": "Hybridization and bond lengths",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P8_Q3",
+     "stem": "Which feature of the conjugate base best explains why ethyne (pKa ~25) is much more acidic than ethane (pKa ~50)?",
+     "options": {
+      "A": "The carbanion lone pair occupies a p orbital that can delocalize over the triple bond.",
+      "B": "The sp carbanion has a higher energy because the electrons are held farther from the nucleus.",
+      "C": "The carbanion lone pair occupies an sp orbital with 50% s character, which is closer to the nucleus and lower in energy.",
+      "D": "The C–C triple bond is the weakest of the three, so it is easier to break the C–H bond."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Greater s character stabilizes the lone pair, so the sp carbanion is more stable and its conjugate acid is more acidic. Why the others are wrong: A) The lone pair of the acetylide is in an sp orbital in the plane of the σ framework, not delocalized into the π system. B) Electrons in an sp orbital are held closer, not farther. D) The triple bond is the strongest (839 kJ/mol), and C–H deprotonation does not break the C–C bond.",
+     "trap": "Attributing acidity to the C–C bond strength or to delocalization instead of the s character of the orbital holding the lone pair.",
+     "topic": "Hybridization and bond lengths",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P8_Q4",
+     "stem": "How many σ bonds and π bonds does acrylonitrile, CH2=CH–C≡N, contain?",
+     "options": {
+      "A": "7 σ and 2 π",
+      "B": "5 σ and 4 π",
+      "C": "6 σ and 4 π",
+      "D": "6 σ and 3 π"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) σ: 3 C–H, 1 C=C, 1 C–C, 1 C≡N = 6; π: 1 in C=C and 2 in C≡N = 3. Why the others are wrong: A) The triple bond holds one σ and two π bonds, and the double bond one σ and one π, so π total is 3. B) This counts only 5 σ bonds, omitting a C–H bond or the σ component of a multiple bond. C) This counts 4 π bonds, but there are only three: one in the double bond and two in the triple bond.",
+     "trap": "Counting every line in a Lewis structure as a σ bond, or forgetting the σ component of each multiple bond.",
+     "topic": "Hybridization and bond lengths",
+     "mastery_sheet_id": "5B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.organicchemistrytutor.com/topic/sigma-and-pi-bonds-in-organic-molecules/"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_CP_P9",
+   "passage_text": "A biochemist calibrates a size-exclusion (gel filtration) column using protein standards of known molecular weight. The column has a void volume V0 = 40.0 mL, determined with blue dextran (2,000 kDa), which is excluded from the pores of the beads, and a total volume Vt = 120 mL. Each protein is run in a neutral buffer with moderate salt concentration, and its elution volume Ve is recorded. The partition coefficient is defined as Kav = (Ve − V0)/(Vt − V0). Table 1 gives the standards, and Figure 1 plots Kav against log10 of the molecular weight, which gives a straight line, Kav = 0.945 − 0.282 log M (M in kDa). The biochemist then applies the column to a purified enzyme of unknown size, which elutes at 70 mL, and to a second protein X, which elutes at 40 mL. SDS-PAGE under reducing conditions of the enzyme shows a single band at 35 kDa.",
+   "table_data": "| Standard | Molecular weight (kDa) | Ve (mL) | Kav |\n|---|---|---|---|\n| Ferritin | 440 | 56 | 0.200 |\n| Aldolase | 158 | 66 | 0.325 |\n| Albumin | 67 | 74 | 0.425 |\n| Ovalbumin | 43 | 79 | 0.487 |\n| Ribonuclease A | 13.7 | 90 | 0.625 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Kav versus log10 molecular weight for the standards",
+    "x_label": "log10 (molecular weight, kDa)",
+    "y_label": "Kav",
+    "series": [
+     {
+      "name": "Standards",
+      "points": [
+       [
+        2.64,
+        0.2
+       ],
+       [
+        2.2,
+        0.325
+       ],
+       [
+        1.83,
+        0.425
+       ],
+       [
+        1.63,
+        0.487
+       ],
+       [
+        1.14,
+        0.625
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_CP_P9_Q1",
+     "stem": "Why do larger proteins elute earlier from a size-exclusion column?",
+     "options": {
+      "A": "They bind more strongly to the beads, which carries them through faster.",
+      "B": "They carry more charge, which makes them migrate faster through the column.",
+      "C": "They diffuse more rapidly than small proteins and so reach the end of the column first.",
+      "D": "They are excluded from the pores in the beads and travel only through the volume between beads."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Small molecules enter the pores and have access to a larger volume, so they take longer to elute; large molecules are excluded and pass through faster. Why the others are wrong: A) SEC separates by size, not by binding; strong binding would delay, not hasten, elution. B) SEC is run with moderate salt to suppress charge effects and does not separate by charge. C) Larger molecules diffuse more slowly; the order arises from access to pore volume.",
+     "trap": "Thinking that large molecules are retained more, as in many other chromatographic methods, when SEC is the reverse.",
+     "topic": "Size-exclusion chromatography",
+     "mastery_sheet_id": "5C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P9_Q2",
+     "stem": "What is the approximate molecular weight of the enzyme that elutes at 70 mL?",
+     "options": {
+      "A": "About 158 kDa, the nearest standard",
+      "B": "About 67 kDa, the albumin standard",
+      "C": "About 105 kDa",
+      "D": "About 240 kDa, from the wrong axis"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Kav = (70 − 40)/80 = 0.375; log M = (0.945 − 0.375)/0.282 = 2.02, so M ≈ 105 kDa. Why the others are wrong: A) This is simply the nearest standard (aldolase, 66 mL), not an interpolated value. B) This is albumin, which elutes at 74 mL, later than the enzyme. D) This results from reading the wrong axis of Figure 1 when converting Kav to molecular weight.",
+     "trap": "Assigning the unknown the mass of the nearest standard instead of interpolating on the log scale.",
+     "topic": "Size-exclusion chromatography",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_CP_P9_Q3",
+     "stem": "What does the elution of protein X at 40 mL indicate?",
+     "options": {
+      "A": "Its molecular weight is exactly 2,000 kDa, equal to that of blue dextran.",
+      "B": "It has no molecular weight because it does not interact with the column.",
+      "C": "Its size exceeds the exclusion limit of the column, so its mass cannot be determined from the calibration.",
+      "D": "It is a very small molecule that passes through the pores without delay."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Elution at V0 means Kav = 0, so the protein is completely excluded from the pores. Why the others are wrong: A) Any protein larger than the exclusion limit elutes at V0; the mass cannot be inferred. B) It has a mass but is simply too large to enter the pores. D) Small molecules enter the pores and elute near Vt, not V0.",
+     "trap": "Assigning a specific large mass to a protein that elutes in the void volume.",
+     "topic": "Size-exclusion chromatography",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P9_Q4",
+     "stem": "Albumin (67 kDa) forms a dimer in a different buffer. About what elution volume is expected for the dimer?",
+     "options": {
+      "A": "About 68 mL",
+      "B": "About 74 mL",
+      "C": "About 80 mL",
+      "D": "About 56 mL"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Dimer M = 134 kDa, log M = 2.13, Kav = 0.945 − 0.282(2.13) = 0.345, and Ve = 40 + 0.345(80) ≈ 68 mL. Why the others are wrong: B) This is the elution volume of the monomer. C) This would be a smaller species that elutes later than the monomer. D) This is the elution volume of ferritin (440 kDa), a much larger protein.",
+     "trap": "Predicting that a larger complex elutes later, or ignoring the oligomeric state of the protein.",
+     "topic": "Size-exclusion chromatography",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL08_CP_P9_Q5",
+     "stem": "The enzyme elutes at 70 mL (about 105 kDa) but shows a single 35 kDa band on reducing SDS-PAGE. Which conclusion is best supported?",
+     "options": {
+      "A": "It is a monomer, because SDS-PAGE shows only one band.",
+      "B": "It is a homodimer, because two identical subunits give a single band.",
+      "C": "It is a homotrimer of identical 35 kDa subunits.",
+      "D": "The SEC result is wrong, because SDS-PAGE is more accurate than gel filtration."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) SEC under native conditions reports the mass of the whole complex, while SDS-PAGE under reducing conditions separates subunits; 105/35 = 3 identical subunits. Why the others are wrong: A) A single band means identical subunits, but the native mass of 105 kDa is three times the subunit mass. B) A dimer of 35 kDa subunits would be about 70 kDa and would elute near 74 mL, later than 70 mL. D) The two methods measure different things: native complex size versus denatured subunit size.",
+     "trap": "Assuming that SEC and SDS-PAGE must give the same mass, when one reports native size and the other reports subunit size.",
+     "topic": "Size-exclusion chromatography",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL08_CP_P10",
+   "passage_text": "Chiral molecules rotate the plane of plane-polarized light. The observed rotation α in a polarimeter is related to the specific rotation by α = [α] × l × c, where l is the path length in dm and c is the concentration in g/mL. A chemist prepares the (S)-enantiomer of a chiral secondary alcohol in enantiomerically pure form; its specific rotation is +40.0 °·mL·g⁻¹·dm⁻¹ at 589 nm and 20 °C, so the (R)-enantiomer has a specific rotation of −40.0. All solutions are prepared in ethanol at c = 0.100 g/mL and measured in a 1.00 dm tube unless noted. Ethanol is optically inactive, and the polarimeter is zeroed with a blank tube of pure solvent before each measurement. Table 1 lists the observed rotations of four samples, and Figure 1 shows how α varies with the percentage of the (S)-enantiomer in calibration mixtures of the two enantiomers. The rotation of a mixture is the weighted sum of the rotations of its components.",
+   "table_data": "| Sample | Description | Observed α (°) |\n|---|---|---|\n| A | Pure (S)-enantiomer | +4.00 |\n| B | Mixture of unknown composition | +2.00 |\n| C | Mixture of unknown composition | −1.00 |\n| D | Product of a laboratory synthesis | 0.00 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Observed rotation versus percent (S) in calibration mixtures",
+    "x_label": "Percent (S)-enantiomer (%)",
+    "y_label": "Observed rotation α (°)",
+    "series": [
+     {
+      "name": "Calibration mixtures",
+      "points": [
+       [
+        0,
+        -4.0
+       ],
+       [
+        25,
+        -2.0
+       ],
+       [
+        50,
+        0.0
+       ],
+       [
+        75,
+        2.0
+       ],
+       [
+        100,
+        4.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL08_CP_P10_Q1",
+     "stem": "What is the composition of Sample B?",
+     "options": {
+      "A": "75% (S) and 25% (R)",
+      "B": "50% (S) and 50% (R)",
+      "C": "87.5% (S) and 12.5% (R)",
+      "D": "62.5% (S) and 37.5% (R)"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) α/α(pure S) = 2.00/4.00 = 50% enantiomeric excess of (S), so (S) = 50% + 50%/2 = 75% and (R) = 25%; this matches the calibration line at +2.00°. Why the others are wrong: B) A racemic mixture would show zero rotation, not +2.00°. C) This would give 75% ee and α = +3.00°. D) This would give 25% ee and α = +1.00°.",
+     "trap": "Reading the ratio of rotations (50%) as the percentage of the major enantiomer rather than the enantiomeric excess.",
+     "topic": "Chirality and optical rotation",
+     "mastery_sheet_id": "5D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Enantiomeric_excess"
+      ]
+     }
+    },
+    {
+     "id": "FL08_CP_P10_Q2",
+     "stem": "What is the composition of Sample C?",
+     "options": {
+      "A": "75% (R) and 25% (S)",
+      "B": "62.5% (S) and 37.5% (R)",
+      "C": "25% (R) and 75% (S)",
+      "D": "62.5% (R) and 37.5% (S)"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The negative rotation means (R) is in excess; ee = 1.00/4.00 = 25%, so (R) = 50% + 12.5% = 62.5%. Why the others are wrong: A) This corresponds to a 50% ee and α = −2.00°. B) The negative rotation shows an excess of (R), not (S). C) This would be a 50% ee of (S), giving a positive rotation.",
+     "trap": "Interpreting the percent ee as the percent of the major enantiomer, or ignoring the sign of the rotation.",
+     "topic": "Chirality and optical rotation",
+     "mastery_sheet_id": "5D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Enantiomeric_excess"
+      ]
+     }
+    },
+    {
+     "id": "FL08_CP_P10_Q3",
+     "stem": "Which conclusion about Sample D is valid?",
+     "options": {
+      "A": "It must be a meso compound, because only meso compounds show no optical rotation.",
+      "B": "It must be a pure enantiomer whose rotation is too small to detect.",
+      "C": "It must contain no stereocenters, because stereocenters always cause rotation.",
+      "D": "It could be a racemic mixture or an achiral compound, since either gives no net rotation."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Equal and opposite rotations of a 50:50 mixture cancel; an achiral compound has no rotation at all, so α = 0 does not distinguish them. Why the others are wrong: A) A racemic mixture also gives zero rotation, so the observation is not specific to meso compounds. B) A pure enantiomer of this alcohol rotates strongly (±4.00° here). C) A racemic mixture contains stereocenters yet shows no net rotation.",
+     "trap": "Believing that zero optical rotation proves a compound is achiral.",
+     "topic": "Chirality and optical rotation",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL08_CP_P10_Q4",
+     "stem": "Sample B is diluted to c = 0.050 g/mL and measured in a 2.00 dm tube. What is the expected observed rotation?",
+     "options": {
+      "A": "+1.00°",
+      "B": "+2.00°",
+      "C": "+4.00°",
+      "D": "+0.50°"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) [α] of the mixture = 0.50 × 40.0 = +20.0; α = 20.0 × 2.00 dm × 0.050 g/mL = +2.00°, as the doubled path length offsets the halved concentration. Why the others are wrong: A) This accounts for the dilution but not the longer tube. C) This uses the specific rotation of the pure enantiomer, rather than that of the mixture. D) This halves the rotation twice, using both the concentration and the path length incorrectly.",
+     "trap": "Forgetting that observed rotation scales with both path length and concentration.",
+     "topic": "Chirality and optical rotation",
+     "mastery_sheet_id": "5D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Enantiomeric_excess"
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL08_CP_D1",
+   "stem": "A uniform plank is balanced on a central pivot. A 30 kg child sits 1.5 m to the left of the pivot. At what distance to the right of the pivot must a 45 kg child sit for the plank to remain in rotational equilibrium?",
+   "options": {
+    "A": "1.5 m",
+    "B": "1.0 m",
+    "C": "2.25 m",
+    "D": "0.67 m"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Net torque is zero: (30)(g)(1.5) = (45)(g)(d), so d = 1.0 m. Why the others are wrong: A) This would balance only if the two children had equal weights. C) This multiplies 1.5 m by the mass ratio 45/30 instead of dividing. D) This squares the mass ratio, which does not occur in a torque balance.",
+   "trap": "Inverting the lever-arm relationship so that the heavier child sits farther from the pivot.",
+   "topic": "Torque and static equilibrium",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openbooks.lib.msu.edu/collegephysics1/chapter/the-second-condition-for-equilibrium-2"
+    ]
+   }
+  },
+  {
+   "id": "FL08_CP_D2",
+   "stem": "A 0.15 kg ball moving at 20 m/s is caught and brought to rest in 0.010 s. What is the magnitude of the average force exerted by the glove on the ball?",
+   "options": {
+    "A": "30 N, with Δt = 0.10 s",
+    "B": "300 N",
+    "C": "3,000 N, with Δt = 0.0010 s",
+    "D": "600 N, with Δp = 2mv"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) F = Δp/Δt = (0.15)(20)/0.010 = 300 N. Why the others are wrong: A) This uses Δt = 0.10 s, a decimal-place error. C) This uses Δt = 0.0010 s, a decimal-place error. D) This doubles the momentum change, as if the ball had rebounded at the same speed.",
+   "trap": "Treating the momentum change as 2mv, which applies only to a rebound, when the ball is simply stopped.",
+   "topic": "Impulse and momentum",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://savemyexams.com/ap/physics/college-board/1-algebra-based/24/revision-notes/linear-momentum/linear-momentum-impulse/impulse-momentum-theorem"
+    ]
+   }
+  },
+  {
+   "id": "FL08_CP_D3",
+   "stem": "Water flows at 1.0 m/s through a horizontal pipe of diameter 4.0 cm that narrows to a diameter of 2.0 cm. By how much is the pressure in the narrow section lower than in the wide section? (ρ = 1,000 kg/m³)",
+   "options": {
+    "A": "1,500 Pa",
+    "B": "7,500 Pa",
+    "C": "8,000 Pa",
+    "D": "15,000 Pa"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Continuity gives v2 = 4.0 m/s, and Bernoulli gives ΔP = ½ρ(v2² − v1²) = ½(1,000)(16 − 1) = 7,500 Pa. Why the others are wrong: A) This assumes the speed only doubles when the diameter is halved (v2 = 2 m/s). C) This uses ½ρv2² and forgets to subtract the kinetic term of the wide section. D) This omits the factor of ½ in ½ρΔ(v²).",
+   "trap": "Taking the speed to scale with diameter rather than with cross-sectional area, which scales as diameter squared.",
+   "topic": "Bernoulli's equation",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://boxsand.physics.oregonstate.edu/sites/boxsand.physics.oregonstate.edu/files/Media-3/Ryan/ph202_su18/lecture_complete/fluids/Fluid%20dynamics%20-%20Bernoulli's%20equation.pdf"
+    ]
+   }
+  },
+  {
+   "id": "FL08_CP_D4",
+   "stem": "A block of wood with density 600 kg/m³ floats in water with 60% of its volume submerged. If the block is placed in oil of density 800 kg/m³, what fraction of its volume will be submerged?",
+   "options": {
+    "A": "60%",
+    "B": "75%",
+    "C": "48%",
+    "D": "100%"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Floating requires ρ_block × V = ρ_fluid × V_sub, so V_sub/V = 600/800 = 0.75. Why the others are wrong: A) This is the fraction submerged in water, where the fluid density is different. C) This multiplies 0.60 by 0.80 instead of dividing 600 by 800. D) A block less dense than the oil still floats and does not sink completely.",
+   "trap": "Multiplying the density ratios or forgetting that a denser fluid supports the same weight with less displaced volume.",
+   "topic": "Buoyancy and floating objects",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://oer.xyzhomework.com/ebooks/html/college-physics-2e/ch11/11-7-archimedes-principle.html"
+    ]
+   }
+  },
+  {
+   "id": "FL08_CP_D5",
+   "stem": "A 12 V battery of negligible internal resistance is connected to a 2.0 Ω resistor in series with a parallel combination of a 6.0 Ω and a 3.0 Ω resistor. What is the power dissipated in the 6.0 Ω resistor?",
+   "options": {
+    "A": "6.0 W",
+    "B": "24 W",
+    "C": "54 W",
+    "D": "2.0 W"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The parallel pair equals 2.0 Ω, so the total is 4.0 Ω and I = 3.0 A; the parallel voltage is 3.0 × 2.0 = 6.0 V, and P = V²/R = 36/6 = 6.0 W. Why the others are wrong: B) This applies the full 12 V of the battery across the 6.0 Ω resistor. C) This uses I²R with the total current of 3.0 A through the 6.0 Ω resistor. D) This uses P = I²R with I = 1.0 A and R = 2.0 Ω, the equivalent resistance of the parallel pair, instead of 6.0 Ω.",
+   "trap": "Using the battery voltage or total current for a single resistor in a mixed series-parallel network.",
+   "topic": "Series and parallel circuits",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openpress.usask.ca/physics155/chapter/6-2-resistors-in-series-and-parallel/"
+    ]
+   }
+  },
+  {
+   "id": "FL08_CP_D6",
+   "stem": "A proton and an alpha particle (mass about 4 times that of the proton, charge 2e) enter the same uniform magnetic field perpendicular to the field with the same speed. What is the ratio of the alpha particle's orbit radius to the proton's?",
+   "options": {
+    "A": "1",
+    "B": "4",
+    "C": "1/2",
+    "D": "2"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) r = mv/(qB), so r_α/r_p = (4m/2q)/(m/q) = 2. Why the others are wrong: A) This assumes that the radius depends only on speed and field strength. B) This accounts for the mass but not for the doubled charge. C) This inverts the ratio of mass to charge.",
+   "trap": "Forgetting that the orbit radius scales with mass divided by charge, so the charge of the alpha particle partly offsets its mass.",
+   "topic": "Magnetic force on moving charges",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://phys.libretexts.org/Courses/Muhlenberg_College/Physics_122%3A_General_Physics_II_(Collett)/07%3A_Magnetic_Forces_and_Fields/7.04%3A_Motion_of_a_Charged_Particle_in_a_Magnetic_Field"
+    ]
+   }
+  },
+  {
+   "id": "FL08_CP_D7",
+   "stem": "A source emitting a 500 Hz tone moves directly toward a stationary observer at 34.3 m/s. The speed of sound is 343 m/s. What frequency does the observer hear?",
+   "options": {
+    "A": "550 Hz, for a moving observer",
+    "B": "454 Hz, for a receding source",
+    "C": "500 Hz, with no Doppler shift",
+    "D": "556 Hz"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) f' = f·v/(v − v_s) = 500 × 343/(343 − 34.3) = 556 Hz. Why the others are wrong: A) This is the result for an observer moving toward a stationary source at 34.3 m/s, not for a moving source. B) This uses v + v_s in the denominator, the result for a receding source. C) The frequency changes because the source moves relative to the medium.",
+   "trap": "Using the observer-motion form of the Doppler equation for a moving source, or choosing the wrong sign for the approach.",
+   "topic": "Doppler effect",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.vedantu.com/physics/doppler-effect"
+    ]
+   }
+  },
+  {
+   "id": "FL08_CP_D8",
+   "stem": "An object is placed 30 cm from a converging lens of focal length 10 cm. Which describes the image?",
+   "options": {
+    "A": "Virtual, upright, 15 cm from the lens, half the size of the object",
+    "B": "Real, inverted, 15 cm from the lens, half the size of the object",
+    "C": "Real, inverted, 7.5 cm from the lens, twice the size of the object",
+    "D": "Virtual, upright, 7.5 cm from the lens, equal in size to the object"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) 1/di = 1/10 − 1/30 = 1/15, so di = 15 cm (real); m = −di/do = −0.5, so the image is inverted and half as large. Why the others are wrong: A) An object beyond the focal point of a converging lens forms a real image. C) This does not satisfy the thin lens equation or m = −di/do. D) A converging lens forms virtual images only for objects inside the focal length.",
+   "trap": "Using the thin lens equation without checking whether the object lies beyond or within the focal length.",
+   "topic": "Thin lens equation",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.physicsclassroom.com/getattachment/Physics-Video-Tutorial/Refraction-and-Lenses/Mathematics-of-Lenses/Lecture-Notes/LessonNotes.pdf?lang=en-US"
+    ]
+   }
+  },
+  {
+   "id": "FL08_CP_D9",
+   "stem": "Iodine-131 (Z = 53) decays by β⁻ emission. What is the daughter nuclide?",
+   "options": {
+    "A": "¹³¹Te",
+    "B": "¹²⁷Sb",
+    "C": "¹³¹Xe",
+    "D": "¹³⁰I"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) β⁻ decay converts a neutron into a proton, raising Z by 1 with unchanged A: ¹³¹I → ¹³¹Xe + e⁻ + antineutrino. Why the others are wrong: A) This lowers Z by 1, which would be β⁺ decay or electron capture. B) This lowers A by 4 and Z by 2, as in alpha decay, which β⁻ emission does not do. D) Β⁻ decay does not change the number of protons and neutrons together, so A stays at 131.",
+   "trap": "Confusing the direction in which Z changes in β⁻ versus β⁺ decay.",
+   "topic": "Beta decay",
+   "mastery_sheet_id": "4E",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_CP_D10",
+   "stem": "Which aqueous solution has the highest boiling point, assuming complete dissociation of the ionic solutes?",
+   "options": {
+    "A": "0.20 m glucose",
+    "B": "0.10 m CaCl2",
+    "C": "0.10 m NaCl",
+    "D": "0.05 m Al2(SO4)3"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The effective solute molality is i × m: CaCl2 gives 3 × 0.10 = 0.30 m. Why the others are wrong: A) Glucose does not dissociate, so its effective molality is 0.20 m. C) NaCl gives 2 × 0.10 = 0.20 m, below that of CaCl2. D) This gives 5 × 0.05 = 0.25 m, still below 0.30 m.",
+   "trap": "Comparing stated molalities without multiplying by the van't Hoff factor.",
+   "topic": "Boiling point elevation (colligative properties)",
+   "mastery_sheet_id": "5A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_CP_D11",
+   "stem": "Which compound has the highest boiling point?",
+   "options": {
+    "A": "1-Propanol, CH3CH2CH2OH",
+    "B": "Methoxyethane, CH3OCH2CH3",
+    "C": "Propanal, CH3CH2CHO",
+    "D": "Butane, CH3CH2CH2CH3"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) 1-Propanol can donate and accept hydrogen bonds, which are much stronger than the dipole-dipole and dispersion forces of the others. Why the others are wrong: B) It has an oxygen but no O–H group, so it cannot form hydrogen bonds with itself. C) It has dipole-dipole attractions but no H-bond donor. D) It is nonpolar and held together only by dispersion forces.",
+   "trap": "Judging boiling point from molar mass or polarity instead of the ability to form hydrogen bonds.",
+   "topic": "Intermolecular forces and boiling point",
+   "mastery_sheet_id": "5B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_CP_D12",
+   "stem": "On a silica gel TLC plate, a compound's spot travels 3.0 cm while the solvent front travels 7.5 cm. What is the compound's Rf value?",
+   "options": {
+    "A": "0.40",
+    "B": "2.5",
+    "C": "0.60",
+    "D": "0.29"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Rf = distance spot traveled/distance solvent traveled = 3.0/7.5 = 0.40. Why the others are wrong: B) This inverts the ratio; Rf can never exceed 1. C) This uses (7.5 − 3.0)/7.5, the fraction of the distance not traveled. D) This divides by 10.5 cm, the sum of the two distances.",
+   "trap": "Inverting the ratio of distances, which gives an impossible Rf greater than 1.",
+   "topic": "Thin-layer chromatography",
+   "mastery_sheet_id": "5C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_Lab_Techniques_(Nichols)/02%3A_Chromatography/2.03%3A_Thin_Layer_Chromatography_(TLC)/2.3C%3A_The_Retention_Factor"
+    ]
+   }
+  },
+  {
+   "id": "FL08_CP_D13",
+   "stem": "Ethylmagnesium bromide is added to acetone, followed by aqueous acid workup. What is the major product?",
+   "options": {
+    "A": "2-Methyl-2-butanol",
+    "B": "2-Butanol",
+    "C": "3-Pentanol",
+    "D": "2-Methyl-1-butanol"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The carbanion-like ethyl group adds to the carbonyl carbon of the ketone, and protonation of the alkoxide gives the tertiary alcohol (CH3)2C(OH)CH2CH3. Why the others are wrong: B) This has only four carbons, but the product must contain five (three from acetone and two from the ethyl group). C) This requires an aldehyde with a 3-carbon chain, such as propanal, not acetone. D) A Grignard reagent addition to a ketone forms a tertiary alcohol, never a primary alcohol.",
+   "trap": "Forgetting that Grignard addition to a ketone forms a tertiary alcohol and that the new C–C bond forms at the carbonyl carbon.",
+   "topic": "Grignard reaction",
+   "mastery_sheet_id": "5D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL08_CP_D14",
+   "stem": "For the reaction A + B ⇌ C, K = 50 at a given temperature. A mixture contains [A] = 0.10 M, [B] = 0.20 M, and [C] = 2.0 M. In which direction will the reaction proceed?",
+   "options": {
+    "A": "Toward products, because Q = 100 exceeds K",
+    "B": "Toward products, because Q = 0.01 is less than K",
+    "C": "It is at equilibrium, because K is greater than 1",
+    "D": "Toward reactants, because Q = 100 exceeds K"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Q = [C]/([A][B]) = 2.0/(0.10 × 0.20) = 100 > 50, so the system shifts left to reach equilibrium. Why the others are wrong: A) If Q exceeds K, the reaction must reverse to lower Q. B) This inverts Q; the correct value is 100. C) K > 1 does not mean the mixture is at equilibrium; Q must equal K.",
+   "trap": "Comparing Q and K backward, or inverting the reaction quotient.",
+   "topic": "Reaction quotient and equilibrium",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://wisc.pb.unizin.org/chem109fall2022/?p=465"
+    ]
+   }
+  },
+  {
+   "id": "FL08_CP_D15",
+   "stem": "A catalyst is added to a reaction at constant temperature. Which quantity is unchanged?",
+   "options": {
+    "A": "The rate constant of the forward reaction",
+    "B": "The activation energy of the forward reaction",
+    "C": "The equilibrium constant",
+    "D": "The time required to reach equilibrium"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) A catalyst lowers the activation energy of the forward and reverse reactions equally, so K, ΔH, and ΔG are unchanged. Why the others are wrong: A) The catalyst lowers Ea, which increases the forward rate constant. B) The catalyst provides a pathway with lower activation energy. D) The catalyst speeds up approach to equilibrium, reducing this time.",
+   "trap": "Thinking that a catalyst shifts the equilibrium position instead of only the rate at which it is reached.",
+   "topic": "Catalysis",
+   "mastery_sheet_id": "5E",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

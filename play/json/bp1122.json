@@ -1,0 +1,117 @@
+[
+  {
+    "id": "bp1122-01",
+    "type": "question",
+    "passage_id": "bp1122",
+    "passage_text": "Researchers investigated the effect of varying doses of a novel cognitive enhancer on reaction time in healthy adults. A randomized controlled trial enrolled 120 participants, who were assigned to one of four groups: placebo, low dose (10 mg), medium dose (20 mg), and high dose (30 mg). After a single dose, participants completed a computerized visual reaction time task. Table 1 summarizes the key findings.\n\nTable 1. Reaction time outcomes by treatment group\n\n| Treatment | Avg. Response Time (s) | SD | N |\n|-----------|------------------------|----|---|\n| Placebo   | 0.85                   | 0.10 | 30 |\n| Low Dose  | 0.78                   | 0.12 | 30 |\n| Medium Dose | 0.72                 | 0.11 | 30 |\n| High Dose | 0.70                   | 0.15 | 30 |\n\nThe data suggest a dose‑response relationship, with higher doses associated with faster reaction times. Table 1 reports group means and SDs only; no significance tests are reported.",
+    "table_data": "Treatment,Avg. Response Time (s),SD,N\nPlacebo,0.85,0.10,30\nLow Dose,0.78,0.12,30\nMedium Dose,0.72,0.11,30\nHigh Dose,0.70,0.15,30",
+    "stem": "Which treatment group had the lowest average response time according to Table 1?",
+    "options": {
+      "A": "Placebo",
+      "B": "Low Dose",
+      "C": "Medium Dose",
+      "D": "High Dose"
+    },
+    "correct": "D",
+    "explanation": "The High Dose group has the lowest mean response time (0.70 s) versus 0.72 (medium), 0.78 (low) and 0.85 (placebo).",
+    "trap": "Choosing Low Dose or Placebo by misreading which column is fastest; lower response time means faster.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  },
+  {
+    "id": "bp1122-02",
+    "type": "question",
+    "passage_id": "bp1122",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which experimental design best controls for potential confounding variables in this study?",
+    "options": {
+      "A": "Randomized controlled trial",
+      "B": "Observational study",
+      "C": "Case‑control study",
+      "D": "Cohort study"
+    },
+    "correct": "A",
+    "explanation": "A randomized controlled trial (RCT) randomly assigns participants to treatment groups, thereby balancing known and unknown confounders across groups. This design is the gold standard for establishing causal relationships.",
+    "trap": "Students may incorrectly think an observational study can control for confounders if it uses statistical adjustments.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1122-03",
+    "type": "question",
+    "passage_id": "bp1122",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Calculate the pooled standard deviation for the Low Dose and High Dose groups. (Use n = 30 for each group.)",
+    "options": {
+      "A": "0.12",
+      "B": "0.14",
+      "C": "0.15",
+      "D": "0.27"
+    },
+    "correct": "B",
+    "explanation": "With equal n, pooled SD = sqrt((0.12^2 + 0.15^2)/2) = sqrt(0.01845) = 0.136 s, about 0.14 s.",
+    "trap": "Picking one group's SD (0.12 or 0.15) or adding the SDs (0.27) instead of pooling variances.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1122-04",
+    "type": "question",
+    "passage_id": "bp1122",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which of the following statements is NOT supported by Table 1?",
+    "options": {
+      "A": "The high-dose group had a faster mean response time than the low-dose group.",
+      "B": "The placebo group had the fastest mean response time.",
+      "C": "All four groups had the same number of participants.",
+      "D": "The high-dose group had the largest SD."
+    },
+    "correct": "B",
+    "explanation": "Correct: The placebo group had the slowest mean response time (0.85 s), so B is not supported. Why the others are wrong: A) high dose 0.70 s versus low dose 0.78 s, so it is supported. C) every group has N = 30, so it is supported. D) the high-dose SD is 0.15, the largest listed, so it is supported.",
+    "trap": "Focusing on the placebo column and assuming the reference group performed best, when its 0.85 s is the slowest mean.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  },
+  {
+    "id": "bp1122-05",
+    "type": "question",
+    "passage_id": "bp1122",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which dose step produced the smallest additional reduction in mean response time?",
+    "options": {
+      "A": "Placebo to 10 mg (0.07 s)",
+      "B": "10 mg to 20 mg (0.06 s)",
+      "C": "20 mg to 30 mg (0.02 s)",
+      "D": "All three steps gave equal reductions"
+    },
+    "correct": "C",
+    "explanation": "Correct: The mean falls 0.07 s (0.85 to 0.78), 0.06 s (0.78 to 0.72) and 0.02 s (0.72 to 0.70), so the 20 to 30 mg step adds the least. Why the others are wrong: A) placebo to 10 mg gave the largest step (0.07 s). B) 10 to 20 mg gave 0.06 s. D) the three steps are not equal.",
+    "trap": "Assuming each equal dose increase gives an equal gain in speed, when the step from 20 mg to 30 mg is much smaller than earlier steps.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-24T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  }
+]

@@ -1,0 +1,1613 @@
+{
+ "exam": "FL06",
+ "section": "BB",
+ "passages": [
+  {
+   "passage_id": "FL06_BB_P1",
+   "passage_text": "Hemoglobin A (HbA) binds oxygen cooperatively. A hematology group characterized a patient-derived variant, Hb-V, in which a single amino acid substitution weakens a salt bridge that normally stabilizes the T (tense) conformation of the tetramer. Purified HbA and Hb-V were equilibrated with defined partial pressures of O2 at 37 degrees C and pH 7.4, and fractional saturation (Y) was measured spectrophotometrically. Data were fit with the Hill equation, log[Y/(1 - Y)] = n log pO2 - n log P50, where P50 is the pO2 at half saturation and n is the Hill coefficient. In the lungs, alveolar capillary blood is exposed to a pO2 of about 100 mmHg, while resting systemic tissues operate at a pO2 of about 40 mmHg. The patient has a hematocrit above the reference range and a normal arterial pO2. Table 1 lists saturation values, and Figure 1 plots the two saturation curves. Investigators also confirmed by mass spectrometry that the two proteins have the same subunit composition apart from the single substitution, and that heme content per tetramer is identical, so differences in the curves reflect allosteric behavior.",
+   "table_data": "| pO2 (mmHg) | HbA saturation (%) | Hb-V saturation (%) |\n|---|---|---|\n| 10 | 6.4 | 37.6 |\n| 20 | 32.4 | 63.1 |\n| 26 | 50.0 | 71.7 |\n| 30 | 59.9 | 75.8 |\n| 40 | 77.0 | 82.8 |\n| 60 | 91.2 | 89.9 |\n| 80 | 95.9 | 93.2 |\n| 100 | 97.8 | 95.0 |\n\nFitted parameters: HbA, P50 = 26 mmHg, Hill coefficient n = 2.8; Hb-V, P50 = 14 mmHg, n = 1.5.",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Oxygen saturation curves of HbA and Hb-V",
+    "x_label": "pO2 (mmHg)",
+    "y_label": "Saturation (%)",
+    "series": [
+     {
+      "name": "HbA",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        10,
+        6.4
+       ],
+       [
+        20,
+        32.4
+       ],
+       [
+        26,
+        50.0
+       ],
+       [
+        30,
+        59.9
+       ],
+       [
+        40,
+        77.0
+       ],
+       [
+        60,
+        91.2
+       ],
+       [
+        80,
+        95.9
+       ],
+       [
+        100,
+        97.8
+       ]
+      ]
+     },
+     {
+      "name": "Hb-V",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        10,
+        37.6
+       ],
+       [
+        20,
+        63.1
+       ],
+       [
+        26,
+        71.7
+       ],
+       [
+        30,
+        75.8
+       ],
+       [
+        40,
+        82.8
+       ],
+       [
+        60,
+        89.9
+       ],
+       [
+        80,
+        93.2
+       ],
+       [
+        100,
+        95.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_BB_P1_Q1",
+     "stem": "Compared with Hb-V, how much more O2 does HbA release (in percentage points of saturation) when blood moves from the lungs (100 mmHg) to resting tissue (40 mmHg)?",
+     "options": {
+      "A": "About 9 percentage points more, since HbA falls about 21 points and Hb-V falls about 12 points",
+      "B": "About 9 percentage points more, but Hb-V is the one that falls about 21 points and HbA about 12",
+      "C": "About 1 percentage point more, since both curves reach near 95 to 98 percent saturation in the lungs",
+      "D": "About 35 percentage points more, since HbA falls from near 98 percent to near 62 percent saturation"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) HbA drops from 97.8% to 77.0% saturation, a 20.8-point fall, whereas Hb-V drops from 95.0% to 82.8%, a 12.2-point fall; the difference is about 8.6 points. Why the others are wrong: B) This reverses the two curves; HbA is the steeper, right-shifted curve and so unloads more.; C) Equal loading in the lungs does not mean equal unloading; the curves differ markedly at 40 mmHg.; D) HbA is 77% saturated at 40 mmHg, not 62%; this overstates the unloading.",
+     "trap": "Comparing only the saturation at the lungs (both near 95-98%) and forgetting that unloading is the difference between lung and tissue values.",
+     "topic": "Hemoglobin oxygen binding",
+     "mastery_sheet_id": "1A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P1_Q2",
+     "stem": "The Hill coefficient of Hb-V (1.5) is lower than that of HbA (2.8). Which statement best interprets this difference?",
+     "options": {
+      "A": "Each Hb-V subunit binds O2 independently, so the curve is hyperbolic exactly like that of monomeric myoglobin",
+      "B": "Binding of O2 to one subunit of Hb-V lowers the O2 affinity of the remaining subunits, as in negative cooperativity",
+      "C": "Binding of O2 to one subunit of Hb-V raises the O2 affinity of the remaining subunits less than it does in HbA",
+      "D": "Hb-V carries fewer total O2 binding sites per tetramer than HbA, which flattens its saturation curve at high pO2"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A lower n means weaker positive cooperativity; the destabilized T-state salt bridge means less energy is stored to be released on the first binding event. Why the others are wrong: A) n = 1.5 is still above 1, so some cooperativity remains; only n = 1 is non-cooperative.; B) n greater than 1 indicates positive, not negative, cooperativity (negative would be n less than 1).; D) Both tetramers have four heme groups; both approach near-full saturation at 100 mmHg.",
+     "trap": "Treating any n greater than 1 as equal to full cooperativity, or reading a left shift (P50) as a change in the Hill coefficient.",
+     "topic": "Cooperativity and the Hill coefficient",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P1_Q3",
+     "stem": "Which response is most likely in the patient with Hb-V, whose arterial pO2 is normal?",
+     "options": {
+      "A": "Decreased erythropoietin secretion, because arterial O2 saturation in the lungs is not reduced",
+      "B": "Decreased 2,3-bisphosphoglycerate synthesis in red cells, because the curve is already shifted to the right",
+      "C": "Increased erythrocyte pH, because protons released by Hb-V stabilize the R conformation of the tetramer",
+      "D": "Increased renal erythropoietin secretion, because impaired O2 release lowers pO2 in kidney tissue"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) High-affinity Hb-V unloads less O2 (P50 14 mmHg), so renal interstitial pO2 falls and the kidney raises erythropoietin, raising hematocrit. Why the others are wrong: A) EPO is driven by renal tissue oxygenation, not by lung saturation alone.; B) Hb-V curve is shifted left, not right.; C) Hb-V does not release excess protons in a way that explains polycythemia; the hematocrit rise reflects hypoxia sensing.",
+     "trap": "Assuming a normal arterial pO2 means normal tissue oxygenation, ignoring that high-affinity hemoglobin withholds O2 from tissues.",
+     "topic": "Hemoglobin oxygen binding",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P1_Q4",
+     "stem": "During heavy exercise, muscle capillary blood is more acidic (pH near 7.2). Which molecular event best explains the resulting rightward shift of the HbA curve?",
+     "options": {
+      "A": "Deprotonation of His146 on the beta chains breaks a salt bridge and stabilizes the high-affinity R state",
+      "B": "Protons displace O2 competitively at the heme iron of each subunit, lowering saturation by simple mass action",
+      "C": "Protonation of His146 on the beta chains promotes a salt bridge that stabilizes the T state",
+      "D": "Protonation of the proximal histidine oxidizes the heme iron to Fe3+, which cannot bind O2 until it is reduced"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The Bohr effect: protons bind beta His146 and other residues, favoring the low-affinity T conformation and raising P50. Why the others are wrong: A) The direction is reversed; acid promotes protonation, not deprotonation.; B) Protons bind to amino acid side chains, not at the heme O2 site; the effect is allosteric.; D) Oxidation to methemoglobin is not the Bohr mechanism and would not be reversible by pH alone.",
+     "trap": "Picturing protons as competitive ligands at the heme rather than as allosteric effectors on side chains that stabilize the T state.",
+     "topic": "Bohr effect",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P1_Q5",
+     "stem": "Using the HbA data at 20 and 40 mmHg, what is the approximate slope of a Hill plot, log[Y/(1 - Y)] versus log pO2, over this interval?",
+     "options": {
+      "A": "1.4",
+      "B": "0.84",
+      "C": "1.0",
+      "D": "2.8"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Y = 0.324 gives log(0.479) = -0.32; Y = 0.770 gives log(3.35) = +0.52; the rise is 0.84 over a log pO2 change of 0.301, so slope = 2.8. Why the others are wrong: A) Half the true slope; arises from dividing by 0.602 (log 4) instead of 0.301 (log 2).; B) This is the rise on the y axis only; the slope also requires dividing by the change in log pO2.; C) A slope of 1 describes non-cooperative binding, which does not fit HbA.",
+     "trap": "Forgetting to divide the y change by the x change in log units, or using a doubling of pO2 as 4-fold.",
+     "topic": "Hill plot calculation",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://digfir-published.macmillanusa.com/berg8e/berg8e_ch07_7.html",
+       "https://employees.csbsju.edu/hjakubowski/classes/ch331/bind/BD_5C3_Math_Analy_Coop_Bind_Hill.html"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_BB_P2",
+   "passage_text": "Many human genes contain exons whose inclusion depends on recognition of the 5' splice site, which begins with the dinucleotide GU at the first two bases of the intron. A patient with a hereditary enzyme deficiency carries a G-to-A change at the first nucleotide of intron 4 in gene G (GU becomes AU). To test its effect, researchers built minigenes containing exons 3, 4, and 5 with their flanking introns, transfected them into cultured cells, and amplified spliced mRNA by RT-PCR using a forward primer in exon 3 and a reverse primer in exon 5. The amplified region contributes 80 nucleotides from exon 3 and 70 nucleotides from exon 5; exon 4 is 100 nucleotides long. Products were resolved on a gel and band intensities were quantified (Table 1). In a fourth condition, an engineered U1 snRNA whose 5' end was made complementary to the mutant sequence was co-expressed. Cells were harvested 36 hours after transfection, and each condition was repeated in three independent transfections with similar results; values in Table 1 are means. Primer positions were chosen so that every spliced form of the transcript could be amplified with equal efficiency.",
+   "table_data": "| Condition | 250-nt band (%) | 150-nt band (%) |\n|---|---|---|\n| Wild-type minigene | 94 | 6 |\n| Mutant minigene | 7 | 93 |\n| Mutant minigene + control U1 snRNA | 8 | 92 |\n| Mutant minigene + engineered U1 snRNA | 61 | 39 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL06_BB_P2_Q1",
+     "stem": "Which spliceosomal component normally recognizes the intronic GU at the 5' splice site by base pairing and is therefore most directly affected by this mutation?",
+     "options": {
+      "A": "U1 snRNP, whose RNA component base pairs with the 5' splice site sequence",
+      "B": "U2 snRNP, whose RNA component base pairs with the 3' splice site at the intron-exon junction",
+      "C": "U6 snRNP, whose RNA component pairs with the polypyrimidine tract upstream of exon 5",
+      "D": "The exon junction complex, which is deposited after splicing and positions the intron for lariat formation"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) U1 snRNA pairs with the conserved 5' splice site; an AU at the intron start weakens this pairing and exon 4 is not defined. Why the others are wrong: B) U2 recognizes the branch point adenine, not the 5' splice site.; C) U6 replaces U1 at the 5' splice site later, but the initial recognition of GU is by U1; the polypyrimidine tract binds U2AF.; D) The exon junction complex is deposited after splicing and does not recognize splice sites.",
+     "trap": "Confusing the branch point (U2) and 3' splice site machinery with the 5' splice site, which is recognized by U1.",
+     "topic": "Splicing",
+     "mastery_sheet_id": "1B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P2_Q2",
+     "stem": "Assuming equal total mRNA in the wild-type and mutant conditions, the mutant minigene produces what fraction of the exon-4-containing mRNA made by the wild-type minigene?",
+     "options": {
+      "A": "About 93 percent, because the 150-nt band is the one containing exon 4 in the mutant",
+      "B": "About 7 percent, because 7 divided by 94 is approximately 0.07",
+      "C": "About 15-fold higher, because the 150-nt band in the mutant (93) divided by that in wild type (6) is roughly 15",
+      "D": "About 50 percent, because the mutation affects only one of two alleles in the minigene system"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Exon-4-containing mRNA is the 250-nt (80 + 100 + 70) product: 7% in mutant versus 94% in wild type, a ratio of about 0.074. Why the others are wrong: A) The 150-nt band equals 80 + 70 and lacks exon 4; it is the skipped product.; C) That is the increase in skipped product, not the change in included product.; D) The minigene is a single copy construct in each cell; no allelic dilution is involved.",
+     "trap": "Identifying the wrong band as the exon-inclusion product; 250 = 80 + 100 + 70 includes exon 4, while 150 skips it.",
+     "topic": "Exon skipping quantification",
+     "mastery_sheet_id": "1B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL06_BB_P2_Q3",
+     "stem": "If the 150-nt skipped mRNA were translated in the full gene, what is the most likely consequence for the encoded enzyme?",
+     "options": {
+      "A": "An in-frame deletion of 33 amino acids, because the removal of 100 nucleotides preserves the reading frame",
+      "B": "A frameshift downstream of exon 3, because 100 nucleotides is not divisible by 3, and a truncated protein",
+      "C": "No change in the protein, because exon 4 is replaced by sequences from the adjacent introns during splicing",
+      "D": "A longer protein that retains exon 4 and adds the intron, because the mutant 5' splice site cannot be cleaved"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Loss of 100 nt shifts the reading frame (100 = 33 x 3 + 1), so codons in exon 5 are misread and a premature stop is likely. Why the others are wrong: A) 100 is not a multiple of 3; a 99-nt exon would preserve frame, not 100.; C) Introns are removed, not substituted, and exon skipping does not insert intron sequence.; D) Skipping removes exon 4; it does not add sequence, and the 150-nt band is shorter, not longer.",
+     "trap": "Counting the 100-nt loss as in-frame without checking divisibility by 3.",
+     "topic": "Frameshift and reading frame",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P2_Q4",
+     "stem": "What does the partial rescue by the engineered U1 snRNA (61% included product) most strongly indicate?",
+     "options": {
+      "A": "The mutation acts by creating a cryptic 3' splice site inside exon 4 that the engineered U1 snRNA suppresses",
+      "B": "The mutation disrupts the polyadenylation signal of the transcript, and the engineered U1 restores 3' end processing",
+      "C": "Base pairing between U1 snRNA and the 5' splice site is required for inclusion of exon 4, and restoring complementarity restores it in part",
+      "D": "Exon 4 inclusion depends on the translation of the minigene, and the engineered U1 stabilizes the mutant mRNA by blocking decay"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The control U1 gave no rescue, while a U1 complementary to AU did; this supports a causal role for U1-5' splice site pairing. Why the others are wrong: A) U1 acts at 5' splice sites; the data give no evidence for a cryptic 3' site.; B) Polyadenylation signals are not involved here; both amplified products were spliced mRNAs.; D) Splicing occurs on the pre-mRNA before translation; stability was not tested.",
+     "trap": "Over-reading a rescue as full restoration; 61% inclusion versus 94% shows only partial repair, and the control U1 is what proves specificity.",
+     "topic": "Splice site recognition experiment",
+     "mastery_sheet_id": "1B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_BB_P3",
+   "passage_text": "A growth-restriction disorder was traced to a deletion allele (D) of an autosomal gene that is imprinted: in normal tissues only the copy inherited from the father is transcribed, and the maternal copy is silenced by DNA methylation at a differentially methylated region. Clinicians studied a three-generation family (Table 1). The deletion removes the coding sequence, so a person who inherits D from the father has no functional copy expressed, whereas a person who inherits D from the mother expresses the normal paternal copy. Among people who inherit D from the father, the disorder appears in 80 percent (penetrance 0.8); no person who inherited D from the mother was affected. II-2 and II-4 are the parents of generation III. Assume no new mutations, that all individuals were genotyped by PCR, and that penetrance and imprinting apply equally to both sexes. I-1 inherited D from his own mother, who was not a family member.",
+   "table_data": "| Individual | Sex | Genotype | Parent who transmitted D | Phenotype |\n|---|---|---|---|---|\n| I-1 | M | D/+ | Mother | Unaffected |\n| I-2 | F | +/+ | None | Unaffected |\n| II-1 | M | D/+ | Father (I-1) | Affected |\n| II-2 | F | D/+ | Father (I-1) | Affected |\n| II-3 | F | +/+ | None | Unaffected |\n| II-4 | M | +/+ | None | Unaffected |\n| III-1 | M | D/+ | Mother (II-2) | Unaffected |\n| III-2 | F | D/+ | Mother (II-2) | Unaffected |\n| III-3 | F | +/+ | None | Unaffected |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL06_BB_P3_Q1",
+     "stem": "Which comparison in Table 1 most directly shows that the phenotype depends on the parent of origin of D rather than on the D/+ genotype alone?",
+     "options": {
+      "A": "II-1 and II-2 are both affected, which shows the disorder is more common in people who have an affected sibling in the family",
+      "B": "I-1 and III-1 are both unaffected D/+ men, which proves that D acts as a recessive allele in men but not in women",
+      "C": "I-1 and II-1 are both D/+ men, yet only II-1 is affected; II-1 received D from his father and I-1 received it from his mother",
+      "D": "I-2 and II-3 are both unaffected +/+ women, which shows the normal allele is dominant over D in every generation"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Identical genotypes with different phenotypes, sorted by the sex of the transmitting parent, are the signature of imprinting. Why the others are wrong: A) Two affected siblings do not separate parental origin from genotype; both inherited D from the father. B) The unaffected D/+ men inherited D from mothers; the pattern follows parent of origin, not recessiveness or the sex of the carrier. D) +/+ individuals carry no D, so they cannot test an effect of parental origin.",
+     "trap": "Reading identical genotypes with different phenotypes as simple incomplete penetrance, when the phenotype sorts perfectly by the sex of the transmitting parent.",
+     "topic": "Genomic imprinting",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P3_Q2",
+     "stem": "II-2 (D/+) and II-4 (+/+) plan another child. What is the probability that the child is affected?",
+     "options": {
+      "A": "0, because any D allele from II-2 would be maternal in the child and silenced",
+      "B": "0.2, because half of the children inherit D and penetrance is then halved again for maternal origin of the allele",
+      "C": "0.4, because half of the children inherit D and penetrance in D/+ carriers is 0.8, regardless of the parent",
+      "D": "0.5, because half of the children inherit D from the parent who carries it, and all carriers are affected"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) A child of II-2 who receives D gets it from the mother; that copy is silenced and the paternal copy from II-4 is normal and expressed, so the risk is 0 (as seen for III-1 and III-2). Why the others are wrong: B) No further halving applies; maternal D never causes disease in this family. C) 0.5 x 0.8 = 0.4 applies only when the carrier parent is the father. D) 0.5 is only the chance of inheriting D; it ignores that maternal D is not expressed.",
+     "trap": "Using the Mendelian 1/2 chance of inheriting D as the disease risk, even though II-2 is the carrier and her allele will be silenced in the child.",
+     "topic": "Imprinting and probability",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL06_BB_P3_Q3",
+     "stem": "III-1 is an unaffected D/+ man who has a child with a +/+ woman. What is the probability that the child is affected?",
+     "options": {
+      "A": "0, because III-1 is unaffected and so cannot pass on an expressed copy of D to any of his children",
+      "B": "0.2, because III-1 inherited D from his mother and the effect is therefore reduced by half in the child",
+      "C": "0.5, because every child who inherits D from III-1 is certain to be affected, as penetrance is complete",
+      "D": "0.4, because the imprint is reset in his germline, so D is paternal in his child (0.5 x 0.8 = 0.4)"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Imprints are erased and re-established in the germline by the sex of the carrier, so D passed by III-1 is expressed as a paternal allele; 0.5 chance of inheriting D x 0.8 penetrance = 0.4 (as when I-1 had affected II-1 and II-2). Why the others are wrong: A) His own phenotype does not predict his child's; his silenced state is not transmitted. B) Nothing halves the effect; 0.2 has no basis in the given penetrance. C) 0.5 ignores the stated penetrance of 0.8 for paternally inherited D.",
+     "trap": "Assuming an unaffected carrier cannot have affected offspring, which forgets that the imprint is reset in the germline of each generation.",
+     "topic": "Imprinting and probability",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL06_BB_P3_Q4",
+     "stem": "Which molecular mechanism best explains why the maternal copy of the gene is not expressed in normal tissues?",
+     "options": {
+      "A": "Acetylation of histones across the maternal gene, which compacts the chromatin and blocks transcription",
+      "B": "Methylation of cytosines at a differentially methylated region on the maternal allele, reset in gametes",
+      "C": "Random inactivation of one chromosome in each cell, producing a mosaic of maternal and paternal expression",
+      "D": "Loss of the maternal gene by deletion in the egg, which is later corrected by repair after fertilization"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) DNA methylation at a differentially methylated region silences one parental allele, and the mark is reset in the germline. Why the others are wrong: A) Histone acetylation loosens chromatin and promotes, not blocks, transcription. C) Random choice in each cell describes X inactivation; imprinting always silences the same parental allele. D) The maternal allele is intact and silenced epigenetically, not deleted.",
+     "trap": "Confusing imprinting with random X inactivation; imprinting always silences the same parental allele in every cell.",
+     "topic": "Epigenetic regulation",
+     "mastery_sheet_id": "1C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_BB_P4",
+   "passage_text": "Mitochondria were isolated from rat liver and suspended in a sealed chamber fitted with an oxygen electrode. Substrates and inhibitors were added as indicated in Table 1, and the rate of O2 consumption was recorded. With pyruvate and malate (which generate NADH in the matrix), respiration is slow until ADP is added (state 3). Each condition was run in a fresh sample. Rotenone, antimycin A, and oligomycin are inhibitors of different components of oxidative phosphorylation: rotenone binds the ubiquinone site of Complex I, antimycin A blocks electron transfer through Complex III, and oligomycin blocks the proton channel of ATP synthase (Fo). 2,4-Dinitrophenol (DNP) is a lipophilic weak acid that carries protons across the inner membrane. Succinate donates electrons through Complex II. Rates are expressed as nmol O2 per minute per mg mitochondrial protein. Respiratory buffer contained phosphate, magnesium, and a fixed concentration of mitochondrial protein, and the chamber was maintained at 30 degrees C. Preparations with a respiratory control ratio below 5 in the pyruvate and malate control were discarded.",
+   "table_data": "| Condition | Additions | O2 consumption |\n|---|---|---|\n| 1 | Pyruvate + malate, no ADP | 15 |\n| 2 | Pyruvate + malate + ADP | 120 |\n| 3 | Condition 2 + rotenone | 8 |\n| 4 | Condition 3 + succinate | 90 |\n| 5 | Condition 4 + antimycin A | 4 |\n| 6 | Condition 2 + oligomycin | 14 |\n| 7 | Condition 6 + DNP | 135 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL06_BB_P4_Q1",
+     "stem": "The data in conditions 3 and 4 support which conclusion about the mitochondria?",
+     "options": {
+      "A": "Complex I is blocked, but electron flow through Complex II, Complex III, and Complex IV remains intact",
+      "B": "Complex II is blocked, but electron flow through Complex I, Complex III, and Complex IV remains intact",
+      "C": "ATP synthase is blocked, but electron flow through Complexes I to IV remains intact in the presence of ADP",
+      "D": "Complex IV is blocked, but the other complexes are able to pass electrons to ubiquinone and cytochrome c"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Rotenone drops respiration to 8, and succinate, which feeds electrons into ubiquinone via Complex II, restores 90, so downstream complexes work. Why the others are wrong: B) Succinate is oxidized by Complex II, and respiration recovers on adding it; Complex II is functional.; C) Rotenone does not target ATP synthase, and respiration is low because NADH oxidation is blocked.; D) If Complex IV were blocked, succinate could not restore respiration.",
+     "trap": "Assuming that an inhibitor that stops respiration blocks the whole chain, when a bypass substrate (succinate) can restore flow beyond the block.",
+     "topic": "Electron transport chain inhibitors",
+     "mastery_sheet_id": "1D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P4_Q2",
+     "stem": "In condition 5, which change in the redox state of carriers is expected?",
+     "options": {
+      "A": "Ubiquinone and the carriers upstream of Complex III become more oxidized, while cytochrome c becomes more reduced",
+      "B": "All carriers of the chain, including cytochrome c and Complex IV, become more reduced as O2 is no longer consumed",
+      "C": "All carriers of the chain, including ubiquinone and Complex I, become more oxidized because electron input has stopped",
+      "D": "Ubiquinone and upstream carriers become more reduced, while cytochrome c and Complex IV become more oxidized"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Antimycin A blocks electron exit from the cytochrome b-c1 complex, so electrons back up in upstream carriers while downstream carriers lose their electrons to O2 until they are oxidized. Why the others are wrong: A) This reverses the backup; upstream carriers cannot pass electrons and stay reduced.; B) Complex IV and cytochrome c lie downstream of the block and are drained of electrons by the remaining O2.; C) Succinate is still present and feeds electrons in; upstream carriers are reduced, not oxidized.",
+     "trap": "Forgetting that an inhibitor makes everything upstream reduced and everything downstream oxidized.",
+     "topic": "Electron transport chain inhibitors",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P4_Q3",
+     "stem": "Why does DNP restore O2 consumption (condition 7) after oligomycin has inhibited it (condition 6)?",
+     "options": {
+      "A": "DNP removes oligomycin from the Fo channel, so ATP synthase resumes making ATP at the state 3 rate",
+      "B": "DNP dissipates the proton gradient, so electron transport proceeds without ATP synthase flux",
+      "C": "DNP donates electrons directly to cytochrome c oxidase, which bypasses the need for Complexes I through III",
+      "D": "DNP raises the proton gradient across the inner membrane, which activates Complex I in the absence of ADP"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Oligomycin lets the gradient build until it opposes proton pumping; DNP carries protons back across the membrane, uncoupling respiration from ATP synthesis. Why the others are wrong: A) DNP does not reverse oligomycin; ATP synthesis is not required for the rate.; C) DNP is a protonophore, not an electron donor.; D) DNP lowers, not raises, the gradient.",
+     "trap": "Thinking that respiration depends on ATP synthesis itself, when electron flow is limited by the proton gradient (respiratory control).",
+     "topic": "Oxidative phosphorylation and uncoupling",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P4_Q4",
+     "stem": "What is the respiratory control ratio (state 3 to state 4) for pyruvate and malate in this preparation?",
+     "options": {
+      "A": "1.3",
+      "B": "8",
+      "C": "105",
+      "D": "0.125"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) State 3 (with ADP) is 120 and state 4 (no ADP) is 15; 120/15 = 8. Why the others are wrong: A) This results from dividing 120 by 90 (the succinate condition) instead of 15.; C) This is the difference 120 - 15 rather than the ratio.; D) This is the inverse ratio, 15/120.",
+     "trap": "Subtracting instead of dividing, or inverting the ratio of rates.",
+     "topic": "Respiratory control",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL06_BB_P4_Q5",
+     "stem": "Malonate is a competitive inhibitor of succinate dehydrogenase. In mitochondria oxidizing pyruvate and malate with ADP, malonate would most directly cause which change?",
+     "options": {
+      "A": "Succinyl-CoA accumulates because the cycle is blocked before the succinyl-CoA synthetase step",
+      "B": "Fumarate accumulates while succinate falls because the reaction runs in reverse in the matrix",
+      "C": "Citrate synthase activity increases because oxaloacetate becomes more available once the cycle is blocked",
+      "D": "Succinate accumulates while fumarate and malate formed from it decline, slowing the TCA cycle"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) SDH converts succinate to fumarate; blocking it halts the cycle at that step and succinate builds up. Why the others are wrong: A) Succinyl-CoA lies upstream of succinate and would be depleted/limited rather than the intermediate that accumulates.; B) SDH is inhibited, not reversed; fumarate is downstream and would fall.; C) Oxaloacetate regeneration depends on the full cycle; blockage lowers it.",
+     "trap": "Mixing up which intermediates lie upstream and downstream of a blocked step.",
+     "topic": "TCA cycle",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_BB_P5",
+   "passage_text": "Microtubule-targeting drugs are used in cancer chemotherapy. Paclitaxel binds the beta-tubulin subunit within the polymer and stabilizes microtubules; colchicine binds free alpha/beta-tubulin dimers and prevents their addition to polymers. In an in vitro assay, purified tubulin plus GTP was warmed to 37 degrees C and polymerization was followed by turbidity (absorbance at 350 nm) with vehicle, paclitaxel, or colchicine (Figure 1). Separately, dividing cultured cells were exposed to each drug for 18 hours, fixed, stained for DNA and tubulin, and scored for mitotic index (percent of cells in mitosis) and the percentage of mitotic cells with a bipolar spindle (Table 1). Neurons in non-dividing culture were also treated; they showed reduced delivery of vesicles to distal axon terminals. Cell experiments used a concentration of each drug that produced a maximal effect without detectable cell death over this interval, and at least 500 cells were scored per condition by observers blind to treatment.",
+   "table_data": "| Treatment | Mitotic index (%) | Mitotic cells with bipolar spindle (%) |\n|---|---|---|\n| Vehicle | 4 | 96 |\n| Paclitaxel | 30 | 40 |\n| Colchicine | 35 | 0 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. In vitro tubulin polymerization",
+    "x_label": "Time (min)",
+    "y_label": "Absorbance at 350 nm",
+    "series": [
+     {
+      "name": "Vehicle",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        5,
+        0.02
+       ],
+       [
+        10,
+        0.1
+       ],
+       [
+        15,
+        0.19
+       ],
+       [
+        20,
+        0.24
+       ],
+       [
+        30,
+        0.25
+       ]
+      ]
+     },
+     {
+      "name": "Paclitaxel",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        5,
+        0.1
+       ],
+       [
+        10,
+        0.28
+       ],
+       [
+        15,
+        0.36
+       ],
+       [
+        20,
+        0.38
+       ],
+       [
+        30,
+        0.38
+       ]
+      ]
+     },
+     {
+      "name": "Colchicine",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        5,
+        0.01
+       ],
+       [
+        10,
+        0.02
+       ],
+       [
+        15,
+        0.03
+       ],
+       [
+        20,
+        0.04
+       ],
+       [
+        30,
+        0.04
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_BB_P5_Q1",
+     "stem": "Which explanation best accounts for the high mitotic index with both drugs?",
+     "options": {
+      "A": "Defective spindle attachment inactivates the G1/S checkpoint, which prevents cells from reaching mitosis at all",
+      "B": "Defective spindle attachment keeps the spindle assembly checkpoint active, inhibiting the APC/C and delaying anaphase",
+      "C": "Defective spindle attachment activates the APC/C, which degrades cyclin B and drives early exit from metaphase",
+      "D": "Drug binding to centromeric DNA blocks replication in S phase and arrests cells with 4N content before mitosis"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Unattached or untensioned kinetochores generate a checkpoint signal that blocks APC/C-mediated degradation of securin and cyclin B, so cells remain in mitosis. Why the others are wrong: A) Drug-treated cells accumulate in mitosis, so they do pass G1/S.; C) APC/C activation promotes anaphase, which is opposite to the observed arrest.; D) The drugs bind tubulin, not DNA, and arrested cells are in mitosis, not S phase.",
+     "trap": "Treating a mitotic arrest as a G1 or S arrest, instead of a spindle checkpoint response.",
+     "topic": "Microtubules and mitosis",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P5_Q2",
+     "stem": "At 10 minutes in Figure 1, the absorbance in the paclitaxel sample is how many times that of the vehicle sample, and what does the ratio suggest?",
+     "options": {
+      "A": "About 0.36-fold, indicating that paclitaxel slows polymerization",
+      "B": "About 2.8-fold, indicating that paclitaxel accelerates polymerization",
+      "C": "About 14-fold, indicating that paclitaxel completely blocks depolymerization",
+      "D": "About 1.0-fold, indicating that paclitaxel has no effect on the lag phase of polymerization"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 0.28/0.10 = 2.8; paclitaxel promotes assembly and stabilizes the polymer, shortening the lag phase. Why the others are wrong: A) 0.36 is the inverse ratio (0.10/0.28); the paclitaxel signal is higher.; C) The ratio is 2.8, not 14; 14 would come from comparing 0.28 with colchicine (0.02).; D) The two curves diverge markedly by 10 min.",
+     "trap": "Reading the ratio upside down; a larger turbidity means more polymer.",
+     "topic": "Microtubule polymerization data",
+     "mastery_sheet_id": "2A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P5_Q3",
+     "stem": "Neurons treated with the drugs show reduced delivery of vesicles to axon terminals. Which statement best explains this effect?",
+     "options": {
+      "A": "Kinesin motors carry vesicles toward microtubule plus ends, and disrupted dynamics impair anterograde transport",
+      "B": "Dynein motors carry vesicles toward the plus ends of axonal microtubules, and the drugs inactivate this retrograde motor",
+      "C": "Kinesin motors carry vesicles toward the minus ends of axonal microtubules, which lie at the axon terminal",
+      "D": "Actin-based myosin motors carry vesicles along axonal microtubule bundles and require tubulin GTP hydrolysis for movement"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Axonal microtubules have plus ends oriented away from the soma; kinesin walks toward plus ends, so tracks that are altered by the drugs reduce delivery. Why the others are wrong: B) Dynein moves toward minus ends (retrograde, toward the soma).; C) Minus ends lie near the cell body; kinesin moves toward plus ends.; D) Myosins use actin tracks; this does not explain a tubulin-targeting effect.",
+     "trap": "Reversing kinesin and dynein polarity relative to the axon.",
+     "topic": "Cytoskeleton and motor proteins",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P5_Q4",
+     "stem": "Out of 1,000 cells scored, approximately how many paclitaxel-treated cells were in mitosis with a bipolar spindle?",
+     "options": {
+      "A": "300",
+      "B": "120",
+      "C": "400",
+      "D": "12"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Mitotic cells = 0.30 x 1000 = 300; 40% of these have bipolar spindles: 300 x 0.40 = 120. Why the others are wrong: A) This counts all mitotic cells, not only those with bipolar spindles.; C) This applies the bipolar percentage to the total cell count rather than to the mitotic fraction.; D) This multiplies 0.30 by 0.40 by 100 instead of by 1000.",
+     "trap": "Applying a percentage of mitotic cells to the whole population or mixing the denominators.",
+     "topic": "Mitotic index calculation",
+     "mastery_sheet_id": "2A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_BB_P6",
+   "passage_text": "Bacteria regulate gene expression according to nutrient availability. In E. coli, the lac operon (lacZ, lacY, lacA) is controlled by the LacI repressor, which binds the operator (lacO), and by the CAP-cAMP activator, whose levels rise when glucose is scarce. The trp operon encodes enzymes for tryptophan synthesis and is controlled by the TrpR repressor and by attenuation within a leader region (trpL). A student measured beta-galactosidase (lacZ product) activity as a percent of the wild-type induced level, and tryptophan synthesis enzyme activity as a percent of the level in tryptophan-free medium (Table 1). Lactose, or its isomer allolactose, is the natural inducer; 'O^c' is a mutation in the operator that prevents repressor binding. 'I^s' encodes a repressor that cannot bind allolactose. Glycerol provides carbon without lowering cAMP. All strains were grown to mid-log phase at 37 degrees C in minimal medium with the indicated carbon sources, and each activity was normalized to cell density. Values are the mean of three independent cultures that differed by less than 10 percent.",
+   "table_data": "Table 1a. lac operon (beta-galactosidase, %)\n\n| Strain | Glycerol | Glycerol + lactose | Glucose + lactose |\n|---|---|---|---|\n| Wild type | 1 | 100 | 4 |\n| lacI- | 85 | 100 | 6 |\n| lacO^c | 85 | 100 | 5 |\n| lacI^s | 1 | 1 | 1 |\n\nTable 1b. trp operon (enzyme activity, %)\n\n| Strain | No tryptophan | Plus tryptophan |\n|---|---|---|\n| Wild type | 100 | 3 |\n| trpR- | 100 | 30 |\n| trpL attenuator deletion | 100 | 18 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL06_BB_P6_Q1",
+     "stem": "Why is beta-galactosidase activity of the lacI- strain only 6% in glucose plus lactose, although the repressor is absent?",
+     "options": {
+      "A": "Glucose raises allolactose levels, and allolactose binds the operator to block RNA polymerase from the promoter",
+      "B": "Glucose induces additional LacI synthesis from a second gene, which restores repression of the operon",
+      "C": "Glucose directly inhibits beta-galactosidase enzyme activity by binding the active site of the lacZ product",
+      "D": "Glucose lowers cAMP, so the CAP-cAMP activator is not available to stimulate transcription of the lac promoter"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Without repression, the lac promoter is still weak; high glucose reduces adenylyl cyclase activity and CAP-cAMP, so output remains low (catabolite repression). Why the others are wrong: A) Allolactose releases the repressor from the operator; it does not block transcription, and LacI is absent here.; B) The strain lacks functional LacI, so no repressor can be restored.; C) The measured effect is on expression and is shared by other strains with different lac defects.",
+     "trap": "Assuming that without the repressor the operon must be maximally expressed regardless of the carbon source.",
+     "topic": "lac operon and catabolite repression",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P6_Q2",
+     "stem": "A merodiploid carries lacO^c lacZ+ on the chromosome and lacO+ lacZ- on an F' plasmid, with functional LacI. In glycerol without lactose, which result is expected?",
+     "options": {
+      "A": "Beta-galactosidase activity is low, because the diffusible LacI repressor from the F' plasmid binds the mutant operator",
+      "B": "Beta-galactosidase activity is low, because the lacZ- allele on the F' plasmid is dominant over the chromosomal lacZ+",
+      "C": "Beta-galactosidase activity is high, because O^c acts in cis on the lacZ+ gene on the same DNA molecule",
+      "D": "Beta-galactosidase activity is intermediate, because the F' operator and the chromosomal operator compete for the activator"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The operator mutation affects only the genes on the same DNA, so the chromosomal lacZ+ is constitutively expressed despite repressor. Why the others are wrong: A) LacI cannot bind O^c, so repressor diffusion does not help.; B) Mutations in a structural gene are recessive when a functional copy exists.; D) Operators are not shared between DNA molecules; effect is in cis.",
+     "trap": "Treating an operator mutation as trans-acting like a repressor mutation; only lacI mutations are diffusible.",
+     "topic": "Operator cis-dominance",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P6_Q3",
+     "stem": "Which explanation fits the activity of the lacI^s strain (1% in all conditions)?",
+     "options": {
+      "A": "The mutant repressor cannot bind the operator but binds allolactose, so lactose is sequestered and induction fails",
+      "B": "The mutant repressor binds CAP-cAMP, and prevents it from activating the promoter in any carbon source",
+      "C": "The mutant repressor binds the operator but not allolactose, so it is never released",
+      "D": "The mutant gene produces too much beta-galactosidase, which then feeds back to block its own mRNA"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A superrepressor remains locked on the operator, so even lactose cannot induce transcription. Why the others are wrong: A) A repressor that cannot bind the operator would give constitutive expression, as in lacI-.; B) No evidence indicates repressor-CAP interaction; the phenotype is lack of induction.; D) Enzyme product does not feed back on mRNA in this way; activity is low, not high.",
+     "trap": "Confusing superrepressor (I^s) with I- (no operator binding), which would be constitutive.",
+     "topic": "Repressor mutants",
+     "mastery_sheet_id": "2B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P6_Q4",
+     "stem": "In Table 1b, the trpR- strain still shows 30% activity with tryptophan rather than 100%. Which mechanism most likely accounts for the reduction?",
+     "options": {
+      "A": "Attenuation: abundant tryptophan lets ribosomes translate the leader quickly, so a terminator hairpin forms",
+      "B": "Attenuation: with abundant tryptophan, ribosomes stall at the Trp codons in the leader, allowing the 2-3 antiterminator hairpin to form",
+      "C": "Tryptophan binds the operator directly and blocks RNA polymerase, a role that remains when TrpR is absent",
+      "D": "Tryptophan raises cAMP and the CAP-cAMP complex activates the trp promoter, which would increase activity"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Charged tRNA-Trp is plentiful, so the ribosome moves past the Trp codons in the leader; the 3-4 terminator hairpin forms and RNA polymerase falls off. Why the others are wrong: B) Stalling at Trp codons occurs when tryptophan is scarce and favors antitermination.; C) Tryptophan acts through TrpR, which is absent here.; D) The trp operon is not controlled by CAP-cAMP in this way, and activation would raise rather than lower activity.",
+     "trap": "Linking ribosome stalling to high, rather than low, tryptophan; stalling allows transcription to continue.",
+     "topic": "trp operon attenuation",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P6_Q5",
+     "stem": "Which statement correctly contrasts the lac and trp operons?",
+     "options": {
+      "A": "The lac operon is inducible because its inducer inactivates the repressor, whereas the trp operon is repressible because its corepressor activates the repressor",
+      "B": "The lac operon is repressible because its end product activates the repressor, whereas the trp operon is inducible because its substrate inactivates the repressor",
+      "C": "Both operons are inducible because in each case the small-molecule effector releases the repressor from the operator",
+      "D": "Both operons are controlled only by positive regulators because the repressor lacks a role in either regulatory circuit"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Allolactose binds LacI and releases it from the operator; tryptophan binds TrpR and enables operator binding. Why the others are wrong: B) This assigns each operon the other's control mode.; C) Tryptophan promotes, rather than prevents, TrpR binding to the operator.; D) Both operons have a repressor with a defined role; CAP only adds to lac regulation.",
+     "trap": "Swapping inducible and repressible, or assuming both small molecules inactivate their repressors.",
+     "topic": "Operon regulation comparison",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_BB_P7",
+   "passage_text": "Pluripotent mouse embryonic stem cells (ESCs) express the transcription factor Oct4 and self-renew in culture. Withdrawal of leukemia inhibitory factor and addition of retinoic acid (RA) induces differentiation toward neural ectoderm, marked by the transcription factor Pax6. Researchers collected cells every 2 days after RA addition and measured Oct4 and Pax6 mRNA by qPCR, expressed as a percent of each gene's maximum (Figure 1). In a second experiment, cells were treated for 6 days with RA under four conditions, and mRNA levels were normalized to a day-0 or maximal reference (Table 1). Brachyury, a mesodermal marker, was also measured. siRNA was introduced by transfection; the Oct4 transgene lacks its native promoter and was driven by a constitutive promoter. Each time point was measured in three biological replicates, and the plotted values are means. Cells were maintained in monolayer culture at identical density and with identical medium changes across all conditions to avoid differences caused by crowding.",
+   "table_data": "| Condition (day 6, RA) | Oct4 mRNA | Pax6 mRNA | Brachyury mRNA |\n|---|---|---|---|\n| Scrambled siRNA | 8 | 85 | 3 |\n| Pax6 siRNA | 7 | 12 | 3 |\n| Oct4 transgene, constitutive | 100 | 15 | 8 |\n| No RA (LIF maintained) | 100 | 2 | 2 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Marker mRNA after retinoic acid addition",
+    "x_label": "Days after RA",
+    "y_label": "mRNA (% of maximum)",
+    "series": [
+     {
+      "name": "Oct4",
+      "points": [
+       [
+        0,
+        100
+       ],
+       [
+        2,
+        70
+       ],
+       [
+        4,
+        30
+       ],
+       [
+        6,
+        8
+       ],
+       [
+        8,
+        5
+       ]
+      ]
+     },
+     {
+      "name": "Pax6",
+      "points": [
+       [
+        0,
+        2
+       ],
+       [
+        2,
+        10
+       ],
+       [
+        4,
+        45
+       ],
+       [
+        6,
+        85
+       ],
+       [
+        8,
+        100
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_BB_P7_Q1",
+     "stem": "Pax6 induction after RA, with low Brachyury, indicates that the cells are differentiating toward which germ layer and derivatives?",
+     "options": {
+      "A": "Mesoderm, which gives rise to muscle, bone, and the circulatory system",
+      "B": "Ectoderm, which gives rise to the nervous system and epidermis",
+      "C": "Endoderm, which gives rise to the lining of the gut and the liver and pancreas",
+      "D": "Trophectoderm, which gives rise to the placenta and chorion outside the embryo proper"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Pax6 marks neural ectoderm, which forms the neural tube, brain, and eye; Brachyury marks mesoderm, which stays low. Why the others are wrong: A) Mesoderm is marked by Brachyury, which stays at about 3%.; C) Endoderm markers (Sox17, Foxa2) were not measured, and Pax6 is not an endoderm marker.; D) Trophectoderm is an extra-embryonic lineage marked by other factors such as Cdx2.",
+     "trap": "Choosing mesoderm because of the name 'ectoderm' versus 'mesoderm'; marker gene identity decides, and Pax6 is neural.",
+     "topic": "Germ layers and differentiation",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P7_Q2",
+     "stem": "Based on the Oct4 transgene condition in Table 1, which conclusion is best supported?",
+     "options": {
+      "A": "Oct4 is a direct transcriptional activator of Pax6, because Pax6 rises when Oct4 is expressed",
+      "B": "Sustained Oct4 expression suppresses RA-driven induction of Pax6, so loss of Oct4 is needed for neural differentiation",
+      "C": "Oct4 expression converts the cells to mesoderm, because Brachyury rises to the highest level when Oct4 is retained",
+      "D": "Oct4 is dispensable for the pluripotent state, because Pax6 induction occurs normally in the transgene group"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) With constitutive Oct4, Pax6 stays at 15% compared with 85% in controls, even though RA is present. Why the others are wrong: A) Pax6 falls, not rises, with sustained Oct4.; C) Brachyury is only 8%, scarcely above the 3% baseline.; D) Pax6 induction is blunted in the transgene group, and its absence in the no-RA group shows the state is maintained.",
+     "trap": "Reading Oct4 as a driver of the neural program rather than a barrier to it.",
+     "topic": "Transcription factors in stem cell fate",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P7_Q3",
+     "stem": "According to Figure 1, when do the Oct4 and Pax6 mRNA levels cross?",
+     "options": {
+      "A": "Between days 1 and 2, when both are near 70% of maximum",
+      "B": "Between days 5 and 6, when both are near 10% of maximum",
+      "C": "They do not cross, because Oct4 falls below 10% before Pax6 rises above 50%",
+      "D": "Between days 3 and 4, when both are near 40% of maximum"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Interpolating, Oct4 falls from 70 to 30 and Pax6 rises from 10 to 45 between days 2 and 4; they are equal near day 3.6 at about 38%. Why the others are wrong: A) At day 2, Oct4 is 70 but Pax6 is only 10.; B) At day 6 Pax6 is already 85.; C) Pax6 reaches 45 by day 4 while Oct4 is still 30; the lines cross.",
+     "trap": "Reading the crossing from the endpoints rather than interpolating between plotted points.",
+     "topic": "Graph interpretation",
+     "mastery_sheet_id": "2C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P7_Q4",
+     "stem": "Which mechanism most plausibly silences the Oct4 gene during differentiation?",
+     "options": {
+      "A": "Demethylation of its promoter, together with histone acetylation, which opens chromatin",
+      "B": "Mutation of the Oct4 coding sequence by RA, which prevents synthesis of a functional protein",
+      "C": "Increased telomerase activity, which shortens telomeres and prevents Oct4 transcription",
+      "D": "CpG methylation of its promoter, together with histone deacetylation, which compacts chromatin"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Differentiating cells recruit DNA methyltransferases and deacetylases to pluripotency gene promoters, producing stable silencing. Why the others are wrong: A) These marks are associated with active transcription.; B) RA does not mutate DNA; the effect is on mRNA levels and is reversible in principle.; C) Telomerase lengthens telomeres, and it is not a transcriptional silencing mechanism.",
+     "trap": "Associating differentiation with demethylation of all genes; silencing of pluripotency genes requires repressive marks.",
+     "topic": "Epigenetic silencing",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_BB_P8",
+   "passage_text": "Cortisol secretion is controlled by the hypothalamic-pituitary-adrenal axis. Corticotropin-releasing hormone (CRH) stimulates anterior pituitary release of ACTH, which stimulates the adrenal cortex; cortisol exerts negative feedback on the hypothalamus and pituitary. ACTH is cleaved from proopiomelanocortin (POMC), which also yields melanocyte-stimulating hormone. Dexamethasone is a synthetic glucocorticoid that suppresses ACTH when feedback is intact. In an endocrine clinic, patients with suspected hypercortisolism received 1 mg dexamethasone (low dose) or 8 mg (high dose) at night; serum cortisol was measured the next morning (Table 1). A patient with primary adrenal insufficiency, who had a damaged adrenal cortex, was also evaluated. Values are means for each diagnostic group. Reference morning cortisol is 5 to 23 micrograms per deciliter. Blood was collected at 8 AM after an overnight fast, and none of the patients was taking exogenous steroids, estrogen, or any drug that interferes with dexamethasone metabolism. Group sizes were comparable, and results are expressed as group means.",
+   "table_data": "| Group | ACTH (pg/mL) | Baseline cortisol (ug/dL) | After low-dose dex | After high-dose dex |\n|---|---|---|---|---|\n| Control | 25 | 15 | 1.5 | 1.0 |\n| Pituitary adenoma | 70 | 30 | 28 | 8 |\n| Adrenal adenoma | 4 | 32 | 31 | 30 |\n| Ectopic ACTH tumor | 250 | 45 | 44 | 43 |\n| Primary adrenal insufficiency | 380 | 3 | not done | not done |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL06_BB_P8_Q1",
+     "stem": "Why is ACTH low (4 pg/mL) in patients with an adrenal adenoma?",
+     "options": {
+      "A": "The adenoma secretes ACTH autonomously, which inhibits cortisol release from the opposite adrenal gland",
+      "B": "Excess cortisol from the autonomous adenoma suppresses CRH and ACTH through negative feedback",
+      "C": "Low cortisol removes feedback from the pituitary, so corticotrophs are inactive and ACTH output falls",
+      "D": "Dexamethasone given at night destroys corticotrophs, which lowers ACTH measured in the baseline sample"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The adenoma secretes cortisol independent of ACTH; high cortisol inhibits the hypothalamus and pituitary, so ACTH falls. Why the others are wrong: A) Adrenal tumors secrete cortisol, not ACTH.; C) Cortisol is high (32), not low, and low cortisol would raise ACTH.; D) Baseline ACTH was drawn before dexamethasone and dexamethasone does not destroy cells.",
+     "trap": "Assuming that high cortisol always accompanies high ACTH; autonomous cortisol production lowers ACTH.",
+     "topic": "HPA axis negative feedback",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P8_Q2",
+     "stem": "By what percentage does high-dose dexamethasone lower cortisol in the pituitary adenoma group, compared with baseline?",
+     "options": {
+      "A": "About 27 percent",
+      "B": "About 22 percent",
+      "C": "About 93 percent",
+      "D": "About 73 percent"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) (30 - 8)/30 = 22/30 = 0.733, a 73% decrease. Why the others are wrong: A) This is the remaining fraction (8/30), not the decrease.; B) This is the absolute drop (22 ug/dL), not a percentage.; C) This would be the fall for the control group on high-dose dexamethasone (15 to 1.0), not for the adenoma group.",
+     "trap": "Reporting what remains rather than the fractional decrease.",
+     "topic": "Dexamethasone suppression test",
+     "mastery_sheet_id": "3A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL06_BB_P8_Q3",
+     "stem": "Why does cortisol in the ectopic ACTH group remain unsuppressed after high-dose dexamethasone?",
+     "options": {
+      "A": "The tumor cells secrete CRH, which overrides dexamethasone at the level of the pituitary corticotrophs",
+      "B": "The adrenal glands lack glucocorticoid receptors, so they cannot respond to the signal in any group",
+      "C": "The tumor metabolizes dexamethasone completely, preventing any effect in normal pituitary tissue",
+      "D": "The tumor secretes ACTH without regard to glucocorticoid feedback, so cortisol output stays high"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Ectopic tumor cells lack the glucocorticoid-sensitive regulation of pituitary corticotrophs, so even high-dose dexamethasone cannot decrease ACTH. Why the others are wrong: A) The tumor is described as ACTH-secreting and CRH from a tumor is a far rarer mechanism not suggested by the table.; B) Dexamethasone acts on the pituitary and hypothalamus, and adrenal receptors are not the explanation.; C) No evidence of drug metabolism; the explanation is lack of feedback sensitivity.",
+     "trap": "Attributing nonsuppression to receptor loss in the pituitary; the key difference is the tumor's autonomy from feedback.",
+     "topic": "Ectopic hormone secretion",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P8_Q4",
+     "stem": "Which finding is expected in primary adrenal insufficiency?",
+     "options": {
+      "A": "Hyperpigmentation of the skin, because high POMC-derived peptides activate melanocytes",
+      "B": "Hypernatremia and hypokalemia, because aldosterone deficiency increases potassium excretion",
+      "C": "Central obesity and striae, because chronic low cortisol increases fat deposition in the abdomen",
+      "D": "Elevated blood glucose, because low cortisol increases hepatic gluconeogenesis and insulin resistance"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Low cortisol removes feedback, so ACTH is high (380); cleavage of POMC also generates MSH-related peptides that darken skin. Why the others are wrong: B) Aldosterone deficiency causes hyponatremia and hyperkalemia.; C) Central obesity and striae are signs of cortisol excess.; D) Cortisol deficiency lowers, not raises, blood glucose.",
+     "trap": "Linking low cortisol to the excess-cortisol phenotype, or reversing the sodium and potassium changes of aldosterone loss.",
+     "topic": "Adrenal insufficiency",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P8_Q5",
+     "stem": "Which metabolic effect is expected in the pituitary adenoma group because of chronic cortisol elevation?",
+     "options": {
+      "A": "Increased hepatic gluconeogenesis and muscle protein catabolism, causing hyperglycemia and muscle wasting",
+      "B": "Decreased hepatic gluconeogenesis and increased glycogen deposition, causing fasting hypoglycemia",
+      "C": "Increased peripheral glucose uptake and increased muscle protein synthesis, causing muscle growth",
+      "D": "Increased lipolysis in all adipose tissue with suppressed appetite, causing weight loss in the trunk"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Cortisol raises blood glucose by stimulating gluconeogenic enzyme expression and mobilizing amino acids from muscle. Why the others are wrong: B) Cortisol opposes insulin and raises blood glucose.; C) Cortisol decreases glucose uptake in muscle and favors protein breakdown.; D) Cortisol promotes central fat deposition and increases appetite.",
+     "trap": "Mixing up cortisol's catabolic actions with anabolic actions of insulin or growth hormone.",
+     "topic": "Cortisol metabolic effects",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_BB_P9",
+   "passage_text": "Breathing is regulated by central chemoreceptors in the medulla, which respond to hydrogen ion concentration in cerebrospinal fluid, and by peripheral chemoreceptors in the carotid and aortic bodies, which respond to low arterial pO2 and to arterial pH and PaCO2. Volunteers inhaled mixtures that raised PaCO2 stepwise, and minute ventilation was recorded in three conditions: normal oxygen, hypoxia (arterial pO2 near 50 mmHg), and after an opioid (Figure 1). Arterial blood gas values from four clinical groups are shown in Table 1; pH was calculated from the Henderson-Hasselbalch equation, pH = 6.1 + log[HCO3-/(0.03 x PaCO2)]. Opioids depress respiratory neurons in the medulla. Assume the people in Table 1 are at steady state. Subjects were studied at rest, and end-tidal PCO2 was used as an estimate of PaCO2. For the clinical groups, PaCO2 and bicarbonate were measured at steady state, at least one week after the condition began except for the acute group.",
+   "table_data": "| Subject | PaCO2 (mmHg) | HCO3- (mEq/L) | Arterial pH |\n|---|---|---|---|\n| Healthy, sea level | 40 | 24 | 7.4 |\n| Acute hypoventilation | 60 | 26 | 7.26 |\n| Chronic hypercapnia (COPD) | 60 | 34 | 7.38 |\n| Acclimatized to altitude | 28 | 18 | 7.43 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Ventilatory response to carbon dioxide",
+    "x_label": "PaCO2 (mmHg)",
+    "y_label": "Minute ventilation (L/min)",
+    "series": [
+     {
+      "name": "Normal oxygen",
+      "points": [
+       [
+        35,
+        5
+       ],
+       [
+        40,
+        7
+       ],
+       [
+        45,
+        17
+       ],
+       [
+        50,
+        27
+       ],
+       [
+        55,
+        37
+       ]
+      ]
+     },
+     {
+      "name": "Hypoxia",
+      "points": [
+       [
+        35,
+        9
+       ],
+       [
+        40,
+        14
+       ],
+       [
+        45,
+        26
+       ],
+       [
+        50,
+        38
+       ],
+       [
+        55,
+        50
+       ]
+      ]
+     },
+     {
+      "name": "Opioid",
+      "points": [
+       [
+        35,
+        4
+       ],
+       [
+        40,
+        5
+       ],
+       [
+        45,
+        8
+       ],
+       [
+        50,
+        12
+       ],
+       [
+        55,
+        17
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_BB_P9_Q1",
+     "stem": "Which sequence best describes how a rise in arterial PaCO2 increases ventilation through central chemoreceptors?",
+     "options": {
+      "A": "Blood hydrogen ions cross the blood-brain barrier readily and stimulate the medullary chemoreceptors directly",
+      "B": "CO2 binds the glomus cells of the carotid body, which signal the medulla through the vagus nerve",
+      "C": "CO2 crosses the blood-brain barrier and forms carbonic acid in CSF, and the resulting hydrogen ions stimulate medullary chemoreceptors",
+      "D": "Rising CO2 lowers CSF bicarbonate, which depolarizes pulmonary stretch receptors that signal the medulla"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Dissolved CO2 diffuses into CSF, is hydrated by carbonic anhydrase to H2CO3, and dissociates; central chemoreceptors sense the lowered CSF pH. Why the others are wrong: A) H+ and HCO3- cross the blood-brain barrier poorly; CO2 does.; B) Carotid body afferents travel via the glossopharyngeal nerve and these are peripheral, not central, chemoreceptors.; D) Stretch receptors report lung inflation, not CO2.",
+     "trap": "Assuming blood H+ acts directly on central chemoreceptors, when CO2 is the diffusible stimulus.",
+     "topic": "Central chemoreceptors",
+     "mastery_sheet_id": "3B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P9_Q2",
+     "stem": "From Figure 1, what is the ventilatory sensitivity (slope) for normal oxygen between PaCO2 of 45 and 55 mmHg?",
+     "options": {
+      "A": "0.9 L/min per mmHg",
+      "B": "3.7 L/min per mmHg",
+      "C": "2.0 L/min per mmHg",
+      "D": "20 L/min per mmHg"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) (37 - 17)/(55 - 45) = 20/10 = 2.0 L/min per mmHg; opioid slope is only 0.9. Why the others are wrong: A) This is the opioid slope (17 - 8)/10.; B) This divides the final ventilation (37) by 10 rather than the change.; D) This is the total rise in ventilation without dividing by the 10 mmHg interval.",
+     "trap": "Dividing a single value rather than a change by the interval, or confusing the two curves.",
+     "topic": "Graph slope calculation",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL06_BB_P9_Q3",
+     "stem": "Group 3 (chronic hypercapnia) has a PaCO2 of 60 mmHg but a nearly normal pH. Which process explains this?",
+     "options": {
+      "A": "Increased CO2 elimination by the lungs over several days, lowering PaCO2 to normal",
+      "B": "Increased renal excretion of bicarbonate over several days, which lowers plasma HCO3- and buffers the acidosis",
+      "C": "Renal retention of bicarbonate over several days raises plasma HCO3-, buffering the pH",
+      "D": "Hemoglobin buffering in red cells alone, which fully compensates within minutes and does not need the kidney"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Kidneys excrete H+ and generate new HCO3-, so HCO3- rises to 34 and the ratio, and thus pH, returns toward normal (7.38). Why the others are wrong: A) PaCO2 is still 60 mmHg; lung elimination has not improved.; B) Excreting bicarbonate would lower pH further.; D) Hemoglobin buffering is limited and does not fully correct a chronic acidosis; HCO3- change is renal.",
+     "trap": "Thinking the lungs or immediate buffers produce a normal pH in a chronic respiratory acidosis; compensation is renal and slow.",
+     "topic": "Acid-base compensation",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P9_Q4",
+     "stem": "Which explanation best accounts for the higher ventilation in the hypoxia curve at every PaCO2?",
+     "options": {
+      "A": "Low arterial pO2 hyperpolarizes carotid body glomus cells, which reduces input to the medulla through the vagus nerve",
+      "B": "Low arterial pO2 directly stimulates medullary central chemoreceptors, which become more sensitive than the peripheral ones",
+      "C": "Low arterial pO2 depolarizes carotid body glomus cells, which signal the medulla through the glossopharyngeal nerve",
+      "D": "Low arterial pO2 raises plasma bicarbonate, which lowers CSF pH and stimulates the central chemoreceptors"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Peripheral chemoreceptors respond to hypoxia and add drive on top of the CO2 response. Why the others are wrong: A) Hypoxia depolarizes glomus cells (K+ channel closure) and increases input.; B) Central chemoreceptors respond to CSF H+, and directly depress rather than stimulate at severe hypoxia.; D) Hypoxia does not raise bicarbonate; it triggers a respiratory alkalosis when ventilation rises.",
+     "trap": "Attributing the hypoxic drive to central chemoreceptors rather than the carotid bodies.",
+     "topic": "Peripheral chemoreceptors",
+     "mastery_sheet_id": "3B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL06_BB_P10",
+   "passage_text": "Fetal blood must extract oxygen from maternal blood across the placenta. Adult hemoglobin (HbA, alpha2beta2) binds 2,3-bisphosphoglycerate (2,3-BPG) in the central cavity of the deoxygenated tetramer, using beta-chain residues including His143. Fetal hemoglobin (HbF, alpha2gamma2) has serine at the corresponding position of the gamma chain. A physiology laboratory compared maternal and umbilical cord blood at 37 degrees C, pH 7.4, and equal 2,3-BPG concentrations, and measured hemoglobin concentration and P50 (Table 1). Oxygen saturation curves are plotted in Figure 1. Each gram of hemoglobin carries up to 1.34 mL O2 when fully saturated; ignore dissolved oxygen. Placental venous (fetal) pO2 is approximately 30 mmHg. After birth, gamma-globin expression is repressed and beta-globin expression rises. The cord blood samples came from term deliveries without complications, and maternal samples were drawn from the same patients shortly before delivery. Blood was oxygenated in a tonometer to generate each point on the curves, and temperature and pH were fixed.",
+   "table_data": "| Measurement | Maternal blood | Cord blood |\n|---|---|---|\n| Hemoglobin (g/dL) | 12.5 | 16.0 |\n| P50 (mmHg) | 27 | 19 |\n| Saturation at pO2 30 mmHg (%) | 57.1 | 76.6 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Maternal and fetal O2 saturation curves",
+    "x_label": "pO2 (mmHg)",
+    "y_label": "Saturation (%)",
+    "series": [
+     {
+      "name": "Maternal",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        10,
+        6.4
+       ],
+       [
+        20,
+        30.8
+       ],
+       [
+        30,
+        57.1
+       ],
+       [
+        40,
+        74.3
+       ],
+       [
+        60,
+        89.6
+       ],
+       [
+        80,
+        94.9
+       ],
+       [
+        100,
+        97.2
+       ]
+      ]
+     },
+     {
+      "name": "Fetal",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        10,
+        15.9
+       ],
+       [
+        20,
+        53.3
+       ],
+       [
+        30,
+        76.6
+       ],
+       [
+        40,
+        87.4
+       ],
+       [
+        60,
+        95.2
+       ],
+       [
+        80,
+        97.7
+       ],
+       [
+        100,
+        98.7
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL06_BB_P10_Q1",
+     "stem": "Which molecular difference best explains the higher O2 affinity of HbF than of HbA at equal 2,3-BPG concentration?",
+     "options": {
+      "A": "The gamma chain lacks His143, so HbF binds 2,3-BPG weakly and the T state is less stabilized",
+      "B": "The gamma chain has an extra histidine, so HbF binds 2,3-BPG more tightly and favors the R state",
+      "C": "The gamma chain binds oxygen at a different heme iron oxidation state, which increases the affinity per site",
+      "D": "The gamma chain forms disulfide bonds across the tetramer, which locks the molecule in the R conformation"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Less 2,3-BPG binding means less stabilization of the low-affinity T conformation, leaving a lower P50. Why the others are wrong: B) Tighter 2,3-BPG binding would lower O2 affinity (stabilizing T).; C) HbF uses the same Fe2+ heme chemistry as HbA.; D) Disulfide cross-links are not the mechanism; the difference lies in 2,3-BPG binding.",
+     "trap": "Assuming that higher affinity means tighter binding of 2,3-BPG; 2,3-BPG lowers O2 affinity.",
+     "topic": "Fetal hemoglobin and 2,3-BPG",
+     "mastery_sheet_id": "3B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P10_Q2",
+     "stem": "What is the approximate O2 content of cord blood at pO2 30 mmHg (mL O2 per dL)?",
+     "options": {
+      "A": "21.4",
+      "B": "12.8",
+      "C": "16.4",
+      "D": "9.6"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Capacity = 16.0 g/dL x 1.34 = 21.4 mL/dL; saturation at 30 mmHg is 76.6%; 21.4 x 0.766 = 16.4. Why the others are wrong: A) This is the fully saturated capacity; at 30 mmHg saturation is only about 77%.; B) This uses maternal hemoglobin (12.5 g/dL) or a lower saturation and does not match cord blood.; D) This is closer to the maternal blood value at 30 mmHg (16.75 x 0.571), not the cord blood value.",
+     "trap": "Using maternal hemoglobin concentration or skipping the saturation factor.",
+     "topic": "Oxygen content calculation",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.osmosis.org/learn/Oxygen_binding_capacity_and_oxygen_content",
+       "https://www.medmastery.com/guides/blood-gas-analysis-clinical-guide/how-calculate-total-oxygen-content-arterial-blood"
+      ]
+     }
+    },
+    {
+     "id": "FL06_BB_P10_Q3",
+     "stem": "In the placenta, fetal CO2 enters maternal blood, lowering maternal pH and raising fetal pH. Which effect on the saturation curves does this produce?",
+     "options": {
+      "A": "The maternal curve shifts left and the fetal curve shifts right, which together increase O2 transfer to the fetus",
+      "B": "The maternal curve shifts right and the fetal curve shifts left, which together increase O2 transfer to the fetus",
+      "C": "Both curves shift right, which together increase the amount of O2 bound by the fetus",
+      "D": "Neither curve shifts, because the Bohr effect applies only to myoglobin in skeletal muscle"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) This is the double Bohr effect: acidified maternal blood unloads O2 more easily, while fetal blood becoming more alkaline loads O2 more easily. Why the others are wrong: A) The directions are reversed; this would impair transfer.; C) A right shift in fetal blood would reduce O2 loading.; D) The Bohr effect applies to hemoglobin and operates in the placenta.",
+     "trap": "Applying Bohr shifts in the wrong direction to each blood compartment.",
+     "topic": "Double Bohr effect",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL06_BB_P10_Q4",
+     "stem": "Raising HbF expression after birth is a strategy in sickle cell disease. Which mechanism best explains why HbF is protective?",
+     "options": {
+      "A": "Gamma chains bind oxygen so tightly that they never release it, which prevents any HbS from becoming deoxygenated",
+      "B": "Gamma chains do not take part in the contacts that polymerize deoxygenated HbS, so HbF dilutes and interrupts the polymer",
+      "C": "Gamma chains cross-link HbS tetramers by disulfide bonds, which stabilizes the soluble form of the red cell",
+      "D": "Gamma chains increase 2,3-BPG binding by HbS, which keeps HbS in the R state and soluble"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Beta^S Val6 contacts are absent in gamma chains; hybrid and HbF tetramers resist polymerization. Why the others are wrong: A) HbF does release O2 to fetal tissues, and HbS deoxygenation still occurs in the mixed cell.; C) Disulfide cross-linking would not prevent polymerization.; D) HbF binds 2,3-BPG poorly, so it would not push HbS toward the R state by this route.",
+     "trap": "Believing HbF helps because of oxygen affinity alone; the benefit is blocking HbS polymer contacts.",
+     "topic": "Hemoglobin switching and sickle cell",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL06_BB_D1",
+   "stem": "A competitive inhibitor is added to an enzyme-catalyzed reaction. Compared with the uninhibited reaction, which change appears on a Lineweaver-Burk plot?",
+   "options": {
+    "A": "The y-intercept is unchanged and the x-intercept moves closer to zero",
+    "B": "The y-intercept increases and the x-intercept is unchanged",
+    "C": "The y-intercept decreases and the x-intercept moves away from zero",
+    "D": "Both intercepts increase in magnitude by the same factor, giving parallel lines"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Competitive inhibition raises apparent Km (1/Km moves toward zero) while Vmax (the y-intercept, 1/Vmax) is unchanged. Why the others are wrong: B) This pattern describes noncompetitive inhibition, where Vmax falls and Km is unchanged.; C) This would indicate a higher Vmax and a lower Km, which is not an effect of an inhibitor.; D) Parallel lines indicate uncompetitive inhibition.",
+   "trap": "Memorizing 'Km up' without mapping it to the intercept; the x-intercept is -1/Km.",
+   "topic": "Enzyme inhibition",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_BB_D2",
+   "stem": "At physiological pH (7.4), what is the approximate net charge of the tetrapeptide Lys-Arg-Gly-Asp (pKa values: alpha-amino near 9, alpha-carboxyl near 2, Lys side chain near 10.5, Arg near 12.5, Asp side chain near 4)?",
+   "options": {
+    "A": "+3",
+    "B": "0",
+    "C": "-1",
+    "D": "+1"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) N-terminus +1, Lys +1, Arg +1, Asp side chain -1, C-terminus -1; sum = +1. Why the others are wrong: A) This ignores the negative charges on the Asp side chain and C-terminus.; B) This counts only one carboxylate or omits the N-terminal amino group.; C) This treats Lys and Arg as neutral at pH 7.4, but both are protonated.",
+   "trap": "Forgetting the N-terminus and C-terminus charges, or treating basic side chains as neutral at physiological pH.",
+   "topic": "Amino acids and peptide charge",
+   "mastery_sheet_id": "1A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.americanpeptidesociety.org/knowledge-base/article/32-acid-base-chemistry-pka-values-ionization-states-and-the-importance-of-ph/"
+    ]
+   }
+  },
+  {
+   "id": "FL06_BB_D3",
+   "stem": "In a cell extract lacking DNA ligase activity, which product accumulates during DNA replication?",
+   "options": {
+    "A": "Long continuous leading strands, because the lack of ligase prevents the lagging strand from starting",
+    "B": "Unreplicated origins, because ligase is the enzyme that unwinds DNA at each replication fork",
+    "C": "Short Okazaki fragments on the lagging strand that remain unjoined",
+    "D": "Uncut RNA primers on both strands, because ligase removes RNA from the primer sites"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Ligase seals nicks between RNA-primer-replaced DNA fragments; without it, lagging strand fragments stay unjoined. Why the others are wrong: A) Leading strand synthesis is continuous and does not require ligase for elongation.; B) Unwinding is performed by helicase, not ligase.; D) Primer removal is done by RNase H and DNA polymerase I/delta, not ligase.",
+   "trap": "Confusing which enzymes handle unwinding, primer removal, and nick sealing.",
+   "topic": "DNA replication",
+   "mastery_sheet_id": "1B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_BB_D4",
+   "stem": "A point mutation changes the codon UGG in an mRNA to UGA. Which effect on the polypeptide is most likely?",
+   "options": {
+    "A": "A change from tryptophan to a different amino acid with the same length of polypeptide chain",
+    "B": "Premature termination, giving a truncated polypeptide that lacks the residues after that site",
+    "C": "No change in the protein, because the genetic code is redundant and both codons specify tryptophan",
+    "D": "A frameshift that alters every downstream codon, because a nucleotide is added to the mRNA sequence"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) UGG codes for tryptophan; UGA is a stop codon, so translation ends early (nonsense mutation). Why the others are wrong: A) This describes a missense mutation, but UGA is not a sense codon.; C) UGA does not code for tryptophan in the standard code.; D) A base substitution does not shift the reading frame.",
+   "trap": "Calling any point mutation a frameshift, or assuming redundancy applies to every codon change.",
+   "topic": "Mutations and the genetic code",
+   "mastery_sheet_id": "1B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_BB_D5",
+   "stem": "In a population in Hardy-Weinberg equilibrium, an autosomal recessive disease affects 1 in 10,000 newborns. Approximately what fraction of the population are carriers?",
+   "options": {
+    "A": "About 1 in 100",
+    "B": "About 1 in 10,000",
+    "C": "About 2 in 100",
+    "D": "About 1 in 200"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) q^2 = 0.0001, so q = 0.01 and p = 0.99; carriers = 2pq = 2(0.99)(0.01) = 0.0198. Why the others are wrong: A) This is q, the allele frequency, rather than the carrier frequency 2pq.; B) This is the disease incidence, q^2.; D) This halves 2pq, and treats the carrier frequency as pq.",
+   "trap": "Reporting q or q^2 instead of 2pq.",
+   "topic": "Hardy-Weinberg",
+   "mastery_sheet_id": "1C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.gfmer.ch/SRH-Course-2013/community-genetics/pdf/Applications-population-genetics-Hamamy-2013.pdf"
+    ]
+   }
+  },
+  {
+   "id": "FL06_BB_D6",
+   "stem": "Nondisjunction in meiosis I of oogenesis yields an egg that, after fertilization, produces trisomy 21. Which result would be expected?",
+   "options": {
+    "A": "The child inherits two identical copies of one maternal chromosome 21, so centromeric markers are homozygous",
+    "B": "The child inherits both different maternal chromosome 21 homologs, so centromeric markers are heterozygous",
+    "C": "The child inherits only paternal chromosome 21 copies, because maternal chromosomes are lost",
+    "D": "The child has a balanced translocation, because chromosome 21 fuses with chromosome 14 at the centromere"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Meiosis I separates homologs; failure leaves both homologs (one from each of the mother's parents) in the egg. Why the others are wrong: A) This is the pattern after nondisjunction in meiosis II (sister chromatids).; C) Trisomy 21 has three chromosomes; this describes uniparental disomy-like patterns.; D) A Robertsonian translocation is a different mechanism.",
+   "trap": "Mixing up the outcomes of meiosis I versus meiosis II nondisjunction.",
+   "topic": "Nondisjunction",
+   "mastery_sheet_id": "1C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_BB_D7",
+   "stem": "In prolonged fasting, which enzyme is most directly required for the liver to convert pyruvate to glucose?",
+   "options": {
+    "A": "Phosphoenolpyruvate carboxykinase, which converts oxaloacetate to phosphoenolpyruvate",
+    "B": "Pyruvate kinase, which converts phosphoenolpyruvate to pyruvate and generates ATP",
+    "C": "Phosphofructokinase-1, which converts fructose-6-phosphate to fructose-1,6-bisphosphate",
+    "D": "Glucokinase, which phosphorylates glucose and traps it in the liver for glycolysis"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Pyruvate is carboxylated to oxaloacetate and converted to PEP by PEPCK, bypassing pyruvate kinase. Why the others are wrong: B) Pyruvate kinase is a glycolytic enzyme and works in the opposite direction.; C) PFK-1 is the glycolytic step that gluconeogenesis bypasses with fructose-1,6-bisphosphatase.; D) Glucokinase is part of glucose use, not synthesis.",
+   "trap": "Naming irreversible glycolytic enzymes rather than their gluconeogenic bypass enzymes.",
+   "topic": "Gluconeogenesis",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_BB_D8",
+   "stem": "How many molecules of acetyl-CoA, and how many rounds of beta-oxidation, are involved in the complete oxidation of one palmitoyl-CoA (C16)?",
+   "options": {
+    "A": "8 acetyl-CoA from 8 rounds of beta-oxidation",
+    "B": "7 acetyl-CoA from 7 rounds of beta-oxidation",
+    "C": "8 acetyl-CoA from 7 rounds of beta-oxidation",
+    "D": "16 acetyl-CoA from 15 rounds of beta-oxidation"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) A 16-carbon chain yields 8 two-carbon units, but the last round releases two acetyl-CoA at once, so 7 cycles give 8 acetyl-CoA. Why the others are wrong: A) The last round cleaves a 4-carbon fragment into two acetyl-CoA; only 7 rounds are needed.; B) Seven rounds also produce an eighth acetyl-CoA from the final 4-carbon unit.; D) Each acetyl-CoA contains two carbons, so 16 carbons yield 8.",
+   "trap": "Counting rounds as equal to the number of acetyl-CoA formed.",
+   "topic": "Fatty acid oxidation",
+   "mastery_sheet_id": "1D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://ww2.uthscsa.edu/learning-modules/biochem/10-lipid-metabolism/LipidMetabolism9.html"
+    ]
+   }
+  },
+  {
+   "id": "FL06_BB_D9",
+   "stem": "Digoxin inhibits the Na+/K+ ATPase in cardiac myocytes and increases contractility. Which sequence best explains this effect?",
+   "options": {
+    "A": "Intracellular Na+ rises, reducing Na+/Ca2+ exchanger-mediated Ca2+ extrusion, so cytosolic Ca2+ increases",
+    "B": "Intracellular Na+ falls, increasing Na+/Ca2+ exchanger-mediated Ca2+ extrusion, so cytosolic Ca2+ decreases",
+    "C": "Intracellular K+ rises, which depolarizes the cell and opens more voltage-gated Ca2+ channels directly",
+    "D": "Intracellular Na+ rises, which activates SERCA directly and so prevents sarcoplasmic reticulum Ca2+ storage"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Less Na+ gradient weakens the exchanger driving Ca2+ out, so more Ca2+ is stored and released with each beat. Why the others are wrong: B) Inhibiting the pump raises, not lowers, intracellular Na+.; C) The pump inhibition lowers intracellular K+, and the main mechanism involves the exchanger.; D) SERCA is not activated by Na+, and the effect is more, not less, Ca2+ storage.",
+   "trap": "Skipping the Na+/Ca2+ exchanger link between the pump and Ca2+.",
+   "topic": "Na+/K+ ATPase",
+   "mastery_sheet_id": "2A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_BB_D10",
+   "stem": "An Hfr strain of E. coli is mated with an F- recipient. Which outcome is most likely after brief contact?",
+   "options": {
+    "A": "The recipient receives chromosomal genes but usually remains F-, because the F factor transfers last",
+    "B": "The recipient becomes F+, because the F plasmid is transferred first with chromosomal genes following",
+    "C": "The recipient becomes Hfr, because the integrated F factor is always copied in full into the recipient",
+    "D": "The recipient donates DNA to the Hfr cell, because pili form on the F- cell during conjugation"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) In Hfr conjugation, the integrated F factor is at the end of the transferred strand, and transfer is usually interrupted. Why the others are wrong: B) The origin of transfer is inside the integrated F factor and the rest of it enters last.; C) Full transfer is rare because the pilus bridge breaks.; D) Donors (F-factor carrying) produce the pilus; the recipient does not.",
+   "trap": "Assuming the F factor transfers first in Hfr x F- crosses.",
+   "topic": "Bacterial conjugation",
+   "mastery_sheet_id": "2B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_BB_D11",
+   "stem": "A drug inhibits cyclin D-CDK4/6 and cells arrest in G1. Which molecular event is directly prevented?",
+   "options": {
+    "A": "Phosphorylation of p53, which keeps MDM2 bound and prevents transcription of apoptotic genes",
+    "B": "Dephosphorylation of Rb, which releases E2F and permits transcription of S-phase genes",
+    "C": "Degradation of securin by the APC/C, which permits separation of sister chromatids in anaphase",
+    "D": "Phosphorylation of Rb, which keeps E2F bound and prevents transcription of S-phase genes"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Phosphorylated Rb releases E2F; without it, E2F stays inhibited and cells cannot enter S phase. Why the others are wrong: A) CDK4/6 targets Rb, not p53.; B) Rb must be phosphorylated by CDKs to release E2F.; C) Securin degradation occurs at the metaphase-anaphase transition, not at G1/S.",
+   "trap": "Reversing the phosphorylation state of Rb.",
+   "topic": "Cell cycle control",
+   "mastery_sheet_id": "2C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_BB_D12",
+   "stem": "Curare competitively blocks nicotinic acetylcholine receptors at the neuromuscular junction. Which effect is expected?",
+   "options": {
+    "A": "Increased acetylcholine release, and sustained muscle contraction due to repeated end-plate depolarization",
+    "B": "Reduced end-plate potential and flaccid paralysis, even though the motor neuron still fires",
+    "C": "Failure of the motor neuron action potential, because voltage-gated Na+ channels in the axon are blocked",
+    "D": "Spastic paralysis, because the muscle remains in a state of permanent depolarization"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Without receptor activation, the muscle fiber does not depolarize to threshold and cannot contract. Why the others are wrong: A) The receptor is blocked, so more transmitter would not depolarize the fiber.; C) Curare acts on postsynaptic receptors, not axonal Na+ channels.; D) Persistent depolarization results from succinylcholine, not from curare.",
+   "trap": "Confusing nondepolarizing curare with depolarizing agents or with channel blockers such as tetrodotoxin.",
+   "topic": "Neuromuscular junction",
+   "mastery_sheet_id": "3A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_BB_D13",
+   "stem": "A patient hemorrhages and blood pressure falls. Which hormonal change follows from reduced renal perfusion?",
+   "options": {
+    "A": "Renin release increases, which raises angiotensin II and aldosterone and promotes Na+ retention",
+    "B": "Renin release decreases, which lowers angiotensin II and aldosterone and promotes Na+ excretion",
+    "C": "Atrial natriuretic peptide release increases, which promotes Na+ excretion and lowers blood volume",
+    "D": "Antidiuretic hormone release decreases, which promotes dilute urine and a further fall in volume"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Juxtaglomerular cells release renin; angiotensin II and aldosterone then raise Na+ and water reabsorption. Why the others are wrong: B) Low perfusion raises, not lowers, renin.; C) ANP is released with atrial stretch, which falls here.; D) Hypovolemia increases ADH.",
+   "trap": "Mixing hypovolemia responses with those of volume overload.",
+   "topic": "Renin-angiotensin-aldosterone system",
+   "mastery_sheet_id": "3B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_BB_D14",
+   "stem": "During contraction of a skeletal muscle sarcomere, which change occurs?",
+   "options": {
+    "A": "The H zone and I band shorten while the A band stays the same length",
+    "B": "The A band and the H zone shorten while the I band stays the same length",
+    "C": "The thick filaments shorten while the thin filaments remain in their original positions",
+    "D": "The Z lines move apart while the H zone widens, as myosin releases actin"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Thin filaments slide over thick filaments; thick filament length (A band) is unchanged, while regions without overlap shrink. Why the others are wrong: B) The A band is thick filament length and does not change.; C) Filaments slide; they do not shorten.; D) Z lines move closer during contraction, and the H zone narrows.",
+   "trap": "Thinking the A band shortens because it is part of the sarcomere.",
+   "topic": "Sarcomere contraction",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL06_BB_D15",
+   "stem": "A gallstone blocks the common bile duct. Which finding would be most expected?",
+   "options": {
+    "A": "Increased fat absorption and darker stools, since pancreatic lipase is unopposed by bile salts",
+    "B": "Reduced absorption of water-soluble vitamins, since bile is required for transport of vitamin C",
+    "C": "Fatty, pale stools and deficiency of fat-soluble vitamins, since bile salts cannot reach the duodenum",
+    "D": "Failure of protein digestion in the stomach, since bile activates pepsinogen to pepsin"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Bile salts emulsify fat and form micelles; without them, fat is poorly absorbed. Why the others are wrong: A) Without bile salts fat absorption decreases, and stool color becomes pale.; B) Water-soluble vitamins do not need micelles.; D) Pepsinogen is activated by acid, not bile.",
+   "trap": "Mixing up the roles of bile (emulsification) and pancreatic enzymes (digestion).",
+   "topic": "Bile and fat digestion",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

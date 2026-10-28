@@ -1,0 +1,407 @@
+[
+ {
+  "id": "d_2B_1",
+  "type": "discrete",
+  "stem": "Gram-positive bacteria stain purple after the Gram procedure primarily because they have:",
+  "options": {
+   "A": "a thick peptidoglycan layer that retains the crystal violet-iodine complex",
+   "B": "an outer membrane containing lipopolysaccharide that binds the crystal violet",
+   "C": "no cell wall, so the dye accumulates in the cytoplasm",
+   "D": "a thin peptidoglycan layer that traps safranin more efficiently"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) A thick peptidoglycan wall resists alcohol decolorization and holds the crystal violet-iodine complex, so the cell stays purple. Why the others are wrong: B) Describes the LPS-containing outer membrane of gram-negative cells, which is lost or disrupted by alcohol so those cells decolorize. C) Describes a wall-less cell; lacking a wall would not retain the dye complex during decolorization. D) A thin peptidoglycan layer is characteristic of gram-negative cells, and safranin is the pink counterstain, not what makes cells purple.",
+  "trap": "Confusing the outer membrane of gram-negative cells with the structure that retains stain; the thick wall of gram-positive cells is what holds crystal violet.",
+  "topic": "Gram staining",
+  "mastery_sheet_id": "2B",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_2",
+  "type": "discrete",
+  "stem": "A culture begins with 500 bacterial cells and the doubling time is 30 minutes. Assuming exponential growth with no lag phase, approximately how many cells are present after 3 hours?",
+  "options": {
+   "A": "3,000",
+   "B": "32,000",
+   "C": "16,000",
+   "D": "64,000"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) 3 hours = 180 min / 30 min = 6 doublings, so N = 500 x 2^6 = 500 x 64 = 32,000. Why the others are wrong: A) 3,000 treats growth as linear (500 x 6) rather than exponential. C) 16,000 is 500 x 2^5, using only 5 doublings. D) 64,000 is 2^6 alone (or 500 x 2^7), either dropping the initial 500 or using 7 doublings.",
+  "trap": "Multiplying by the number of doublings instead of raising 2 to that power, or miscounting the doublings (3 h / 0.5 h = 6).",
+  "topic": "Bacterial growth calculation",
+  "mastery_sheet_id": "2B",
+  "difficulty": "521",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://ccnmtl.columbia.edu/projects/biology/handouts/expogrow.html"
+   ]
+  }
+ },
+ {
+  "id": "d_2B_3",
+  "type": "discrete",
+  "stem": "During bacterial conjugation, which of the following is typically transferred from the F+ donor to the F- recipient?",
+  "options": {
+   "A": "The entire bacterial chromosome in double-stranded form",
+   "B": "Naked DNA fragments taken up from the surrounding medium",
+   "C": "A single strand of the F plasmid DNA through the sex pilus-mediated cell contact",
+   "D": "Bacterial DNA packaged inside a phage capsid"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Conjugation moves a single strand of the F plasmid through a pilus-formed bridge, and the recipient synthesizes the complementary strand. Why the others are wrong: A) Transfer of the whole chromosome occurs only in rare Hfr cells, is usually incomplete, and is single-stranded, not double-stranded. B) Uptake of naked DNA from the medium is transformation, not conjugation. D) DNA packaged in a phage capsid is transduction.",
+  "trap": "Mixing up conjugation, transformation, and transduction; conjugation requires direct cell-to-cell contact and moves plasmid DNA.",
+  "topic": "Conjugation",
+  "mastery_sheet_id": "2B",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_4",
+  "type": "discrete",
+  "stem": "A bacteriophage that infected a donor bacterium later infects a recipient and delivers donor bacterial genes to it. This process is best described as:",
+  "options": {
+   "A": "transformation",
+   "B": "conjugation",
+   "C": "binary fission",
+   "D": "transduction"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Phage-mediated transfer of bacterial DNA from one cell to another is transduction. Why the others are wrong: A) Transformation is uptake of free DNA from the environment, with no phage involved. B) Conjugation requires direct pilus contact between cells and does not involve a phage. C) Binary fission is asexual division of one cell and transfers no genes between cells.",
+  "trap": "Assuming any gene transfer in bacteria is conjugation; the viral vector is the key clue for transduction.",
+  "topic": "Transduction",
+  "mastery_sheet_id": "2B",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_5",
+  "type": "discrete",
+  "stem": "A bacterium inoculated into a tube of thioglycolate broth grows throughout the tube but is densest near the top. The organism is most likely a:",
+  "options": {
+   "A": "facultative anaerobe",
+   "B": "obligate aerobe",
+   "C": "obligate anaerobe",
+   "D": "aerotolerant anaerobe that grows evenly regardless of oxygen"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Growth throughout the tube with heaviest growth at the oxygen-rich top shows the organism prefers oxygen (aerobic respiration) but can still ferment without it, i.e., a facultative anaerobe. Why the others are wrong: B) An obligate aerobe would grow only at the top, not throughout the tube. C) An obligate anaerobe would grow only at the bottom where oxygen is absent. D) An aerotolerant anaerobe grows evenly throughout, since oxygen does not change its metabolism, which does not match the denser top growth.",
+  "trap": "Choosing obligate aerobe because growth is heaviest at the top, ignoring growth lower in the tube.",
+  "topic": "Oxygen requirements",
+  "mastery_sheet_id": "2B",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_6",
+  "type": "discrete",
+  "stem": "A bacterium has a mutation in lacI that produces a repressor unable to bind the operator. Which phenotype is expected?",
+  "options": {
+   "A": "Lac operon genes are never expressed, even with lactose",
+   "B": "Lac operon genes are expressed constitutively, even without lactose",
+   "C": "Lac operon genes are expressed only when lactose and glucose are both present",
+   "D": "Expression is normal because the operator is not needed for repression"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) A repressor that cannot bind the operator cannot block RNA polymerase, so lacZYA are transcribed constitutively regardless of lactose. Why the others are wrong: A) Never being expressed would result from a superrepressor that cannot bind allolactose or a promoter mutation, not from a repressor that cannot bind DNA. C) Requiring both lactose and glucose is not the logic here; glucose lowers CAP-cAMP activation but does not restore repression. D) The operator is the repressor's binding site and is required for repression, so loss of binding is not normal.",
+  "trap": "Confusing a repressor that cannot bind DNA (constitutive expression) with one that cannot bind allolactose (never induced).",
+  "topic": "Lac operon",
+  "mastery_sheet_id": "2B",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_7",
+  "type": "discrete",
+  "stem": "Which statement correctly describes a prophage in the lysogenic cycle?",
+  "options": {
+   "A": "Viral DNA free in the cytoplasm that is rapidly translated to produce capsids",
+   "B": "Viral RNA that is reverse transcribed in the host cytoplasm",
+   "C": "Viral DNA integrated into the host chromosome and replicated along with it during cell division",
+   "D": "A completely assembled virion that is released by lysis"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) A prophage is phage DNA integrated into the host chromosome and replicated with it at each cell division during lysogeny. Why the others are wrong: A) Free viral DNA rapidly directing capsid synthesis describes the lytic cycle. B) Viral RNA that is reverse transcribed is a retroviral feature, not a prophage. D) A completely assembled virion released by lysis is the end product of the lytic cycle.",
+  "trap": "Thinking lysogeny kills the host immediately; the prophage is dormant until induced.",
+  "topic": "Lytic vs lysogenic cycles",
+  "mastery_sheet_id": "2B",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_8",
+  "type": "discrete",
+  "stem": "Which enzyme must be carried in the virion of HIV because the host cell does not possess it?",
+  "options": {
+   "A": "DNA ligase",
+   "B": "RNA polymerase II",
+   "C": "Peptidyl transferase",
+   "D": "Reverse transcriptase"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) HIV's RNA genome must be copied into DNA by viral reverse transcriptase, an RNA-dependent DNA polymerase activity that human cells lack. Why the others are wrong: A) DNA ligase is supplied by the host cell. B) RNA polymerase II is the host's own transcription enzyme, used to transcribe the integrated provirus. C) Peptidyl transferase is ribosomal rRNA activity supplied by the host.",
+  "trap": "Assuming every viral enzyme must be viral; only activities absent from the host need to be carried in.",
+  "topic": "Retroviruses",
+  "mastery_sheet_id": "2B",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_9",
+  "type": "discrete",
+  "stem": "Which feature is characteristic of an enveloped virus as opposed to a naked virus?",
+  "options": {
+   "A": "A lipid bilayer derived from host membrane surrounding the capsid",
+   "B": "A peptidoglycan wall surrounding the capsid",
+   "C": "Ribosomes for synthesizing viral proteins",
+   "D": "A nucleoid region with histones"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Enveloped viruses bud from the host and acquire a host-derived lipid bilayer studded with viral glycoproteins around the capsid. Why the others are wrong: B) Viruses have no peptidoglycan; that is a bacterial cell wall component. C) Viruses lack ribosomes and use host ribosomes for translation. D) A nucleoid with histones describes cellular organization (eukaryote-like chromatin) that viruses lack.",
+  "trap": "Attributing cellular components such as ribosomes to viruses; viruses are acellular.",
+  "topic": "Viral structure",
+  "mastery_sheet_id": "2B",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_10",
+  "type": "discrete",
+  "stem": "Bacillus species form endospores primarily in response to:",
+  "options": {
+   "A": "abundant nutrients, as a reproductive form that increases cell number",
+   "B": "nutrient depletion, producing a dormant structure highly resistant to heat and desiccation",
+   "C": "antibiotic exposure, to transfer resistance genes to neighbors",
+   "D": "phage infection, to deliver DNA to other cells"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Sporulation is a survival response to nutrient depletion that yields a dormant endospore resistant to heat and desiccation. Why the others are wrong: A) Abundant nutrients favor vegetative growth, and one cell makes one spore, so spores do not increase cell number. C) Antibiotic exposure does not trigger sporulation, and spores do not transfer resistance genes. D) Phage infection does not trigger sporulation, and spores do not deliver DNA to other cells.",
+  "trap": "Treating endospores as reproductive spores; each vegetative cell forms just one.",
+  "topic": "Endospores",
+  "mastery_sheet_id": "2B",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_11",
+  "type": "discrete",
+  "stem": "Streptomycin can treat bacterial infections with little harm to human cells because it binds to:",
+  "options": {
+   "A": "the 60S ribosomal subunit shared by all cells",
+   "B": "the bacterial nucleus, which humans lack",
+   "C": "the 30S ribosomal subunit, which differs from the eukaryotic 40S subunit",
+   "D": "the eukaryotic mitochondrial cristae"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Streptomycin binds the bacterial 30S subunit of the 70S ribosome, which differs structurally from the eukaryotic 40S subunit, giving selective toxicity. Why the others are wrong: A) The 60S subunit is eukaryotic and not a streptomycin target in bacteria. B) Bacteria lack a nucleus, so there is no bacterial nucleus to bind. D) Mitochondrial cristae are not the target of streptomycin.",
+  "trap": "Remembering that bacterial ribosomes are smaller but mixing up which subunits are 30S/50S vs 40S/60S.",
+  "topic": "Prokaryotic ribosomes and antibiotics",
+  "mastery_sheet_id": "2B",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_12",
+  "type": "discrete",
+  "stem": "Penicillin kills growing bacteria by inhibiting transpeptidase enzymes. This would be expected to be ineffective against:",
+  "options": {
+   "A": "Escherichia coli, a gram-negative rod",
+   "B": "Staphylococcus aureus, a gram-positive coccus",
+   "C": "Bacillus subtilis, a spore-forming rod",
+   "D": "Mycoplasma, which lacks a peptidoglycan cell wall"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Penicillin blocks transpeptidase cross-linking of peptidoglycan, so Mycoplasma, which has no peptidoglycan wall, is intrinsically resistant. Why the others are wrong: A) E. coli has a thin peptidoglycan layer and is susceptible, though the outer membrane limits entry of some drugs. B) S. aureus has thick peptidoglycan and is susceptible unless it carries resistance. C) B. subtilis has peptidoglycan and is susceptible when growing.",
+  "trap": "Assuming gram-negative outer membrane equals no peptidoglycan; gram-negatives still have a thin wall.",
+  "topic": "Cell wall synthesis inhibitors",
+  "mastery_sheet_id": "2B",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_13",
+  "type": "discrete",
+  "stem": "A resistance (R) plasmid spreads rapidly through a bacterial population in the absence of antibiotics. The most likely mechanism is:",
+  "options": {
+   "A": "conjugation, because the plasmid carries tra genes enabling pilus formation and transfer",
+   "B": "meiotic recombination between homologous chromosomes",
+   "C": "vertical transmission by sexual reproduction",
+   "D": "mitosis of bacterial cells"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Conjugative R plasmids carry tra genes encoding the pilus and transfer machinery, so they spread horizontally independent of antibiotic selection. Why the others are wrong: B) Bacteria do not undergo meiosis or have homologous chromosome pairs to recombine. C) Bacteria do not reproduce sexually, and vertical transmission alone would not spread a plasmid so rapidly. D) Mitosis does not occur in bacteria, which divide by binary fission, and division does not move plasmids between cells.",
+  "trap": "Applying eukaryotic reproduction terms to bacteria.",
+  "topic": "Plasmids and antibiotic resistance",
+  "mastery_sheet_id": "2B",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_14",
+  "type": "discrete",
+  "stem": "Which statement about the typical bacterial genome is correct?",
+  "options": {
+   "A": "It is multiple linear chromosomes wrapped around histones in a nucleus",
+   "B": "It is a single circular chromosome in the nucleoid, supercoiled by DNA gyrase, without histones",
+   "C": "It is a double-membrane-bound circular genome packaged with histones",
+   "D": "It is a single linear chromosome attached to the nuclear envelope"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Most bacteria have a single circular chromosome in the nucleoid, negatively supercoiled by DNA gyrase (topoisomerase II), without histones. Why the others are wrong: A) Multiple linear histone-wrapped chromosomes in a nucleus describe eukaryotes. C) Bacteria have no double-membrane-bound genome and no histones. D) Bacterial chromosomes are typically circular and there is no nuclear envelope to attach to.",
+  "trap": "Believing bacteria have histones; archaea have histone-like proteins but bacteria generally do not.",
+  "topic": "Bacterial chromosome",
+  "mastery_sheet_id": "2B",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_15",
+  "type": "discrete",
+  "stem": "In the stationary phase of a bacterial batch culture, the population size is stable because:",
+  "options": {
+   "A": "cell division has completely stopped in all cells",
+   "B": "cells are adapting enzymes to new media",
+   "C": "the rate of cell division approximately equals the rate of cell death as nutrients become limiting and wastes accumulate",
+   "D": "all cells are dying exponentially"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Stationary phase is a plateau where division rate roughly equals death rate as nutrients become limiting and wastes accumulate. Why the others are wrong: A) Division does not stop completely in all cells; it is balanced by death. B) Adapting enzymes to new media describes the lag phase. D) All cells dying exponentially describes the death phase.",
+  "trap": "Confusing the lag phase (adaptation) and stationary phase (balance of growth and death).",
+  "topic": "Growth curve",
+  "mastery_sheet_id": "2B",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_16",
+  "type": "discrete",
+  "stem": "Which feature distinguishes archaea from bacteria?",
+  "options": {
+   "A": "Archaea have a membrane-bound nucleus",
+   "B": "Archaea have peptidoglycan walls with D-amino acids",
+   "C": "Archaea have 80S ribosomes",
+   "D": "Archaeal membrane lipids contain ether linkages to branched isoprenoid chains"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Archaeal membranes use ether-linked branched isoprenoid lipids, unlike the ester-linked fatty acids of bacteria and eukaryotes. Why the others are wrong: A) Archaea lack a membrane-bound nucleus, like bacteria. B) Peptidoglycan with D-amino acids is a bacterial feature; archaea lack true peptidoglycan. C) Archaea have 70S ribosomes like bacteria, not 80S.",
+  "trap": "Assuming archaea are eukaryote-like in all respects; they share cell organization with bacteria.",
+  "topic": "Archaea",
+  "mastery_sheet_id": "2B",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_17",
+  "type": "discrete",
+  "stem": "When a bacterium moves up a gradient of an attractant, how does its movement pattern change?",
+  "options": {
+   "A": "Tumbling frequency decreases, so runs in the favorable direction lengthen",
+   "B": "Tumbling frequency increases so cells reverse every second",
+   "C": "Flagella stop rotating and cells move by diffusion",
+   "D": "The cell synthesizes new flagella in the direction of the gradient"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Bacteria bias a random walk by lowering tumble frequency when attractant rises, lengthening runs up the gradient. Why the others are wrong: B) Increased tumbling occurs when attractant falls or with repellents, and not as constant reversal every second. C) Flagella keep rotating during chemotaxis; movement is not simple diffusion. D) Chemotaxis changes tumble frequency and does not need new flagella synthesized toward the gradient.",
+  "trap": "Thinking bacteria steer directly toward a gradient; they modulate tumble frequency in a biased random walk.",
+  "topic": "Chemotaxis",
+  "mastery_sheet_id": "2B",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_18",
+  "type": "discrete",
+  "stem": "In the Hershey-Chase experiment, phage were labeled with 32P in one sample and 35S in another. After blending and centrifuging, which result supported DNA as genetic material?",
+  "options": {
+   "A": "35S was found mainly in the bacterial pellet, 32P in the supernatant",
+   "B": "32P was found mainly in the bacterial pellet, 35S mainly in the supernatant",
+   "C": "Both labels were found in the pellet",
+   "D": "Neither label was found in the pellet"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) DNA contains phosphorus, and 32P entered the bacteria (pellet), while protein contains sulfur, and 35S stayed outside in the supernatant, showing DNA is genetic material. Why the others are wrong: A) This reversed pattern would indicate protein is the genetic material, which was not observed. C) Both labels in the pellet would mean both entered the cell, which was not observed. D) No label in the pellet would contradict the fact that infection occurred and DNA entered.",
+  "trap": "Forgetting that DNA contains phosphorus (not sulfur) and protein contains sulfur.",
+  "topic": "Hershey-Chase",
+  "mastery_sheet_id": "2B",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_19",
+  "type": "discrete",
+  "stem": "A virus has a positive-sense single-stranded RNA genome. Which statement is correct?",
+  "options": {
+   "A": "The genome must first be transcribed by a host DNA-dependent RNA polymerase",
+   "B": "The genome is complementary to mRNA and requires a virion-carried RNA polymerase before translation",
+   "C": "The genome can be translated directly by host ribosomes after entering the cell",
+   "D": "The genome must be integrated into host DNA before any protein synthesis"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Positive-sense RNA has the same sequence as mRNA, so host ribosomes can translate it directly after entry. Why the others are wrong: A) Host DNA-dependent RNA polymerase is not needed, since the genome is already mRNA-sense and RNA is not transcribed from DNA. B) Describes a negative-sense genome, which is complementary to mRNA and needs a virion-carried RNA-dependent RNA polymerase. D) Integration into host DNA is a retroviral strategy, not required for plain positive-strand RNA viruses.",
+  "trap": "Equating positive-sense with retrovirus; plain positive-strand RNA viruses do not integrate.",
+  "topic": "Viral genomes",
+  "mastery_sheet_id": "2B",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_20",
+  "type": "discrete",
+  "stem": "In bacteria, which location houses the electron transport chain used for aerobic respiration?",
+  "options": {
+   "A": "Mitochondrial inner membrane",
+   "B": "Thylakoid-free cytoplasm only",
+   "C": "The outer membrane",
+   "D": "The plasma membrane"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Bacteria lack mitochondria, so the aerobic electron transport chain is embedded in the plasma membrane, which pumps protons out across it. Why the others are wrong: A) The mitochondrial inner membrane is eukaryotic; bacteria have no mitochondria. B) The ETC needs a membrane to build a proton gradient, so cytoplasm alone cannot host it. C) The outer membrane of gram-negatives is a permeability barrier and does not host the ETC.",
+  "trap": "Importing eukaryotic organelle locations into bacterial cells.",
+  "topic": "Bacterial metabolism",
+  "mastery_sheet_id": "2B",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2B_21",
+  "type": "discrete",
+  "stem": "In Griffith's experiment, mice injected with heat-killed smooth (virulent) strain plus live rough (nonvirulent) strain died. This occurred because:",
+  "options": {
+   "A": "live rough bacteria took up genetic material from the dead smooth bacteria and became virulent",
+   "B": "heat-killed smooth bacteria revived and replicated in the mouse",
+   "C": "the rough strain conjugated with the smooth strain through a pilus",
+   "D": "a bacteriophage carried virulence genes between the strains"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Naked DNA released from heat-killed smooth cells was taken up and expressed by live rough cells, transforming them to virulence. Why the others are wrong: B) Heat-killed cells cannot revive and replicate. C) Griffith's experiment involved no pilus contact; transformation needs none. D) No bacteriophage was involved in Griffith's experiment.",
+  "trap": "Believing the killed bacteria came back to life rather than donating a transforming factor.",
+  "topic": "Transformation",
+  "mastery_sheet_id": "2B",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ }
+]

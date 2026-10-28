@@ -1,0 +1,1533 @@
+{
+ "exam": "FL05",
+ "section": "CP",
+ "passages": [
+  {
+   "passage_id": "FL05_CP_P1",
+   "passage_text": "A physics class studies a spring-loaded launcher that fires a small steel ball from ground level over level ground. The launch speed is fixed at 20 m/s, and the launch angle θ above the horizontal is varied. Air resistance is first neglected, and g = 10 m/s². Students treat the horizontal and vertical motions independently: the horizontal velocity is constant, while the vertical velocity changes at a constant rate g downward. For each angle, they recorded the horizontal range, the maximum height, and the total time of flight (Table 1). Figure 1 plots range against launch angle; the range expression is R = v₀² sin 2θ / g. In a second trial, the launcher is mounted horizontally on a platform 45 m above the ground and fires the ball at 12 m/s. Finally, the students repeat the 45° launch with a light foam ball, for which air resistance is significant, and compare it with the steel ball.",
+   "table_data": "| Launch angle θ (degrees) | Range (m) | Maximum height (m) | Time of flight (s) |\n|---|---|---|---|\n| 15 | 20.0 | 1.34 | 1.04 |\n| 30 | 34.6 | 5.00 | 2.00 |\n| 45 | 40.0 | 10.0 | 2.83 |\n| 60 | 34.6 | 15.0 | 3.46 |\n| 75 | 20.0 | 18.7 | 3.86 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Range versus launch angle (no air resistance)",
+    "x_label": "Launch angle (degrees)",
+    "y_label": "Range (m)",
+    "series": [
+     {
+      "name": "Steel ball",
+      "points": [
+       [
+        15,
+        20.0
+       ],
+       [
+        30,
+        34.6
+       ],
+       [
+        45,
+        40.0
+       ],
+       [
+        60,
+        34.6
+       ],
+       [
+        75,
+        20.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_CP_P1_Q1",
+     "stem": "According to Table 1 and Figure 1, the ball has the same range when launched at 15° and at 75°. The best explanation is that:",
+     "options": {
+      "A": "the two launches have the same time of flight, because flight time depends only on the horizontal velocity component",
+      "B": "the horizontal velocity component is equal at the two angles, so the ball covers equal distance in equal time",
+      "C": "the two launches reach the same maximum height, so the ball falls through equal distances and spends equal time aloft",
+      "D": "the angles are complementary, so sin 2θ takes the same value (sin 30° = sin 150°) in the range expression"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) R = v₀² sin 2θ / g, and 2θ = 30° or 150° gives sin 2θ = 0.5 in both cases, so R = 400(0.5)/10 = 20 m. Why the others are wrong: A) Table 1 lists flight times of 1.04 s and 3.86 s, which differ greatly; flight time depends on the vertical component v₀ sin θ. B) The horizontal components are v₀ cos 15° = 19.3 m/s and v₀ cos 75° = 5.2 m/s; equal range arises because the flight times compensate. C) Table 1 lists maximum heights of 1.34 m and 18.7 m, which are very different.",
+     "trap": "Assuming equal range implies equal flight time or equal horizontal speed; only the product of the two is equal.",
+     "topic": "Projectile range and complementary angles",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P1_Q2",
+     "stem": "Using Table 1, approximately how long does the ball launched at 45° take to reach the top of its path?",
+     "options": {
+      "A": "About 0.7 s, one quarter of the listed time, because the ball must decelerate vertically twice before landing",
+      "B": "About 2.0 s, the flight time of the 30° launch, because both trajectories share the same vertical acceleration",
+      "C": "About 2.8 s, the full time of flight listed in Table 1, because the ball reaches the top at the end of its flight",
+      "D": "About 1.4 s, half of the 2.83 s total flight time, because the rise and fall of the path are symmetric"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) At the top the vertical velocity is zero: t = v₀ sin 45°/g = 14.1/10 = 1.41 s, which is half of 2.83 s. Why the others are wrong: A) Nothing in the motion gives a quarter-time; the rise and fall each take half of the total. B) The 30° flight time depends on a different vertical component (10 m/s), so it does not apply to the 45° launch. C) 2.83 s is the total time for the up-and-down trip, not the time to the apex.",
+     "trap": "Reading the total flight time from the table as the time to maximum height.",
+     "topic": "Time to apex",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P1_Q3",
+     "stem": "In the second trial, the ball is fired horizontally at 12 m/s from a platform 45 m high. How far from the base of the platform does it land?",
+     "options": {
+      "A": "108 m, obtained by using a fall time of 2h/g = 9.0 s in the horizontal distance calculation",
+      "B": "36 m, because the ball falls for 3.0 s while moving horizontally at a constant 12 m/s",
+      "C": "25 m, obtained by using a fall time of √(h/g) ≈ 2.1 s in the horizontal distance calculation",
+      "D": "54 m, obtained by using a fall time of h/g = 4.5 s in the horizontal distance calculation"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The vertical motion starts with zero vertical speed: 45 = ½(10)t², so t = 3.0 s, and x = 12 × 3.0 = 36 m. Why the others are wrong: A) 2h/g also ignores the square root; solving h = ½gt² for t gives t = √(2h/g). C) √(h/g) omits the factor of 2 in h = ½gt². D) h/g is not what the kinematic equation gives; the correct expression is √(2h/g).",
+     "trap": "Using h/g or 2h/g for the fall time instead of √(2h/g).",
+     "topic": "Horizontal launch",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.omnicalculator.com/physics/horizontal-projectile-motion"
+      ]
+     }
+    },
+    {
+     "id": "FL05_CP_P1_Q4",
+     "stem": "Compared with the steel ball in Table 1, a foam ball launched at 45° and the same speed in air will most likely:",
+     "options": {
+      "A": "land short of 40 m but on a perfectly symmetric path, because drag removes equal speed on the way up and the way down",
+      "B": "land short of 40 m and descend more steeply than it rose, because drag reduces the horizontal velocity throughout the flight",
+      "C": "land beyond 40 m, because drag reduces the downward acceleration and lengthens the time the ball remains in the air",
+      "D": "land at 40 m, because the horizontal and vertical motions remain independent even when a velocity-dependent drag force acts"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Drag opposes the velocity, so it slows the horizontal motion, shortening the range and making the descent steeper than the ascent. Why the others are wrong: A) Drag is largest when the ball is fastest and loses less speed on the way down in the horizontal direction; the path is skewed, not symmetric. C) Drag adds to gravity on the way up and subtracts from it on the way down; the flight cannot be longer overall than the vacuum case. D) Drag has horizontal and vertical components, so the two motions are no longer independent.",
+     "trap": "Assuming the independence of horizontal and vertical motion still holds with air resistance.",
+     "topic": "Air resistance and trajectories",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P1_Q5",
+     "stem": "At the highest point of the 60° trajectory in Table 1, what fraction of the ball's initial kinetic energy remains as kinetic energy?",
+     "options": {
+      "A": "One-half, because kinetic and potential energy are shared equally by the ball at the highest point of its path",
+      "B": "One-quarter, because only the horizontal component v₀ cos 60° = 10 m/s remains and KE scales with speed squared",
+      "C": "None, because the velocity of the ball at the top of the path is zero and so its kinetic energy is zero",
+      "D": "Three-quarters, because the vertical component v₀ sin 60° ≈ 17.3 m/s is the part of the velocity that remains at the top"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) KE_top/KE₀ = (10)²/(20)² = 1/4; the remaining three-quarters has become gravitational potential energy (check: mgh = m(10)(15) = 150m = ¾ × 200m). Why the others are wrong: A) The split of energy depends on the launch angle; at 60° it is 1/4 to 3/4, not 1/2 to 1/2 (that occurs at 45°). C) Only the vertical velocity is zero at the top; the horizontal velocity is still 10 m/s. D) The vertical component is the part that is lost at the apex; three-quarters is the potential energy fraction.",
+     "trap": "Thinking the ball is momentarily at rest at the top; the horizontal velocity persists.",
+     "topic": "Energy in projectile motion",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_CP_P2",
+   "passage_text": "A thermochemistry student wants the standard enthalpy of formation of liquid ethanol, which cannot be measured directly because carbon, hydrogen, and oxygen do not combine cleanly to give ethanol. Instead, the student applies Hess's law to combustion data collected at 298 K and listed in Table 1. Hess's law states that the enthalpy change of an overall reaction equals the sum of the enthalpy changes of the steps into which it can be divided, because enthalpy is a state function. All combustion products are assumed to be CO₂(g) and H₂O(l). The student also burns a 2.30 g sample of ethanol (molar mass 46.1 g/mol) in a bomb calorimeter whose total heat capacity, including its water bath, is 10.0 kJ/K, and records the temperature rise. A teacher points out that a bomb calorimeter operates at constant volume and measures ΔU, but that ΔH and ΔU differ only slightly for this reaction, so the difference is neglected here.",
+   "table_data": "| Reaction | ΔH° (kJ per mole of reaction as written) |\n|---|---|\n| (1) C(graphite) + O₂(g) → CO₂(g) | −393.5 |\n| (2) H₂(g) + ½ O₂(g) → H₂O(l) | −285.8 |\n| (3) C₂H₅OH(l) + 3 O₂(g) → 2 CO₂(g) + 3 H₂O(l) | −1367 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL05_CP_P2_Q1",
+     "stem": "Which value is the standard enthalpy of formation of liquid ethanol, 2 C(graphite) + 3 H₂(g) + ½ O₂(g) → C₂H₅OH(l), obtained from Table 1?",
+     "options": {
+      "A": "−277 kJ/mol, from 2(−393.5) + 3(−285.8) − (−1367), with reaction (3) reversed so that ethanol is a product",
+      "B": "−3011 kJ/mol, from 2(−393.5) + 3(−285.8) + (−1367), adding reaction (3) as written without reversing it",
+      "C": "+277 kJ/mol, from 2(−393.5) + 3(−285.8) + (−1367) with the sign of the final result then reversed, as for an endothermic step",
+      "D": "+294 kJ/mol, from 2(−393.5) + (−285.8) − (−1367), counting only one mole of H₂ and so one mole of H₂O(l)"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Multiply (1) by 2 and (2) by 3, and reverse (3) so that ethanol appears as a product: −787 − 857.4 + 1367 = −277 kJ/mol. Why the others are wrong: B) Reaction (3) has ethanol as a reactant, so it must be reversed (sign changed) rather than added as written. C) A sign error: the formation reaction of ethanol is exothermic by the Hess's law sum, not endothermic. D) Three moles of H₂ are required to supply the six hydrogens in 3 H₂O; using one mole of water leaves the cycle unbalanced.",
+     "trap": "Forgetting to reverse the combustion reaction (change the sign) or to multiply by the stoichiometric coefficients.",
+     "topic": "Hess's law enthalpy of formation",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.nagwa.com/en/videos/850146704894/"
+      ]
+     }
+    },
+    {
+     "id": "FL05_CP_P2_Q2",
+     "stem": "What temperature rise does the student record when the 2.30 g sample of ethanol burns completely in the calorimeter?",
+     "options": {
+      "A": "3.4 K, since only half of the sample is assumed to burn and release its heat to the calorimeter",
+      "B": "6.8 K, since 0.0499 mol of ethanol releases about 68 kJ and the calorimeter absorbs 10.0 kJ per kelvin",
+      "C": "68 K, since the heat released in kilojoules is read directly as the temperature change of the bath",
+      "D": "3.0 K, since the heat released per gram of ethanol (29.7 kJ) is divided by the heat capacity instead of the heat for 2.30 g"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) n = 2.30/46.1 = 0.0499 mol; q = 0.0499 × 1367 = 68.2 kJ; ΔT = 68.2/10.0 = 6.8 K. Why the others are wrong: A) Combustion is stated to be complete, so the full 0.0499 mol contributes. C) The heat must be divided by the heat capacity (10.0 kJ/K) to get ΔT; 68 is the heat in kJ. D) 29.7 kJ is the heat for only 1.00 g; the sample is 2.30 g, so the heat is 2.30 × 29.7 = 68.2 kJ.",
+     "trap": "Forgetting to convert grams to moles or to divide the heat by the calorimeter's heat capacity.",
+     "topic": "Bomb calorimetry",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_CP_P2_Q3",
+     "stem": "Suppose the combustion of ethanol in reaction (3) produced H₂O(g) instead of H₂O(l). Compared with −1367 kJ/mol, the enthalpy change would be:",
+     "options": {
+      "A": "more negative, because the greater entropy of gaseous products makes the reaction more exothermic than the one forming liquid",
+      "B": "unchanged, because enthalpy is a state function and the identity or phase of the products does not matter to ΔH",
+      "C": "less negative, because vaporizing the three moles of water absorbs about 3 × 44 kJ that the liquid-product reaction does not require",
+      "D": "more negative, because forming a gas releases the energy that was stored in the attractions between liquid water molecules"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) H₂O(l) → H₂O(g) is endothermic (about +44 kJ/mol), so forming gas instead of liquid leaves the overall reaction about 132 kJ less exothermic (≈ −1235 kJ/mol). Why the others are wrong: A) Entropy affects ΔG, not ΔH; gas-phase products absorb heat on forming from liquid, making ΔH less negative. B) State function means ΔH is path-independent, not independent of the final state; different product phases have different enthalpies. D) Forming a gas from a liquid requires energy input (breaking intermolecular attractions), not release.",
+     "trap": "Treating 'state function' as meaning that product phases do not affect ΔH.",
+     "topic": "Hess's law and phase enthalpies",
+     "mastery_sheet_id": "5E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P2_Q4",
+     "stem": "What is ΔH for the reaction 4 CO₂(g) + 6 H₂O(l) → 2 C₂H₅OH(l) + 6 O₂(g)?",
+     "options": {
+      "A": "−2734 kJ, since the reaction is reaction (3) doubled but not reversed",
+      "B": "+2734 kJ, since the reaction is reaction (3) reversed to form ethanol and then doubled for two moles",
+      "C": "+683.5 kJ, since the reaction is reaction (3) reversed and halved to give one mole of ethanol per two moles of CO₂",
+      "D": "+1367 kJ, since the reaction is reaction (3) reversed with the coefficients left unchanged"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Reversing (3) changes the sign to +1367 for 1 mol of ethanol; doubling all coefficients doubles the enthalpy change to +2734 kJ. Why the others are wrong: A) Not reversing leaves ethanol as a reactant and gives an exothermic value; the written reaction forms ethanol, so the sign flips. C) Halving would give 0.5 mol ethanol from 1 mol CO₂, not 2 mol ethanol from 4 mol CO₂. D) The written equation produces 2 mol ethanol, so the value for 1 mol must be doubled.",
+     "trap": "Multiplying the coefficients without doubling ΔH, or forgetting to change the sign when reversing.",
+     "topic": "Manipulating thermochemical equations",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_CP_P3",
+   "passage_text": "A laboratory studies how a gas in a rigid flask exerts pressure by attaching an open-end mercury manometer to it. The flask is sealed at 300 K when its gas is at atmospheric pressure (760 mm Hg), so the mercury levels in both arms of the U-tube are equal. The flask is then heated, and the height difference h between the mercury levels in the two arms is recorded (Table 1, Figure 1). Mercury has a density of 13,600 kg/m³, so 1 mm Hg corresponds to 133 Pa; take g = 9.8 m/s². The gas is ideal, and the temperature of the mercury is assumed constant, the flask volume is constant, and the change in manometer fluid volume is ignored. On a later day, a storm lowers the atmospheric pressure to 740 mm Hg, and the student repeats the measurement at 360 K. The student also considers replacing mercury with water (density 1,000 kg/m³) in the same arrangement.",
+   "table_data": "| Temperature (K) | Height difference h (mm) | Absolute gas pressure (mm Hg) |\n|---|---|---|\n| 300 | 0 | 760 |\n| 330 | 76 | 836 |\n| 360 | 152 | 912 |\n| 390 | 228 | 988 |\n| 420 | 304 | 1064 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Manometer height difference versus flask temperature",
+    "x_label": "Temperature (K)",
+    "y_label": "Height difference h (mm)",
+    "series": [
+     {
+      "name": "Open-end mercury manometer",
+      "points": [
+       [
+        300,
+        0
+       ],
+       [
+        330,
+        76
+       ],
+       [
+        360,
+        152
+       ],
+       [
+        390,
+        228
+       ],
+       [
+        420,
+        304
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_CP_P3_Q1",
+     "stem": "At 360 K, which value is the gauge pressure of the gas in the flask?",
+     "options": {
+      "A": "1.2 × 10⁵ Pa, the absolute pressure of the gas (912 mm Hg) rather than its excess over atmospheric pressure",
+      "B": "1.0 × 10⁵ Pa, the atmospheric pressure alone, which the open arm of the manometer contributes",
+      "C": "2.0 × 10⁷ Pa, obtained by using the height of 152 in millimeters rather than 0.152 in meters in ρgh",
+      "D": "2.0 × 10⁴ Pa, the hydrostatic pressure ρgh of a 152 mm column of mercury"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) P_gauge = ρgh = (13,600)(9.8)(0.152) = 2.03 × 10⁴ Pa. Why the others are wrong: A) 912 mm Hg × 133 Pa/mm Hg ≈ 1.2 × 10⁵ Pa is the absolute pressure; gauge pressure subtracts the 760 mm Hg atmosphere. B) The atmospheric pressure is the reference, not the gauge value; the gauge value is the excess due to heating. C) h must be in meters (0.152 m) for SI; using 152 gives a value 1000 times too large.",
+     "trap": "Reporting absolute pressure as gauge pressure, or forgetting to convert millimeters to meters.",
+     "topic": "Manometer and gauge pressure",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Millimetre_of_mercury"
+      ]
+     }
+    },
+    {
+     "id": "FL05_CP_P3_Q2",
+     "stem": "At 360 K, how do the mercury levels in the two arms compare?",
+     "options": {
+      "A": "The level in the open arm is 912 mm higher than in the flask arm, because the manometer reads the absolute pressure",
+      "B": "The levels remain equal, because the gas pressure and the atmospheric pressure both act on the mercury surface",
+      "C": "The level in the flask arm is 152 mm higher than in the open arm, because the heated gas is drawn upward into the tube",
+      "D": "The level in the open arm is 152 mm higher than in the flask arm, because the gas pressure exceeds atmospheric pressure"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Higher gas pressure pushes mercury down in the flask arm and up in the open arm, and the difference equals the gauge pressure, 152 mm Hg. Why the others are wrong: A) An open-end manometer shows the difference between gas and atmospheric pressure, not the absolute pressure. B) The levels are equal only when the gas pressure equals atmospheric pressure (300 K). C) Gas pressure pushes the mercury surface down in the flask arm; the gas does not pull mercury upward.",
+     "trap": "Thinking a higher gas pressure raises the mercury level on the gas side.",
+     "topic": "Manometer interpretation",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P3_Q3",
+     "stem": "If the mercury were replaced by water, what height difference would the gauge pressure at 360 K produce?",
+     "options": {
+      "A": "About 11.2 mm, obtained by dividing 152 mm by 13.6 instead of multiplying by the density ratio",
+      "B": "About 0.152 m, because the same pressure difference produces the same column height in any fluid",
+      "C": "About 2.07 m, because column height scales inversely with fluid density and water is 13.6 times less dense",
+      "D": "About 12.4 m, obtained by multiplying the absolute pressure of 912 mm Hg by 13.6 instead of the gauge pressure"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) h = P/ρg = 20,260/(1000 × 9.8) = 2.07 m, i.e., 152 mm × 13.6. Why the others are wrong: A) A less dense fluid needs a taller column, not a shorter one; 152/13.6 inverts the ratio. B) For a fixed pressure, h = P/ρg depends on the fluid's density. D) The difference of the manometer levels reflects gauge pressure; using the absolute pressure gives 12.4 m.",
+     "trap": "Believing the column height is independent of the fluid, or inverting the density ratio.",
+     "topic": "Hydrostatic pressure and fluid density",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Millimetre_of_mercury"
+      ]
+     }
+    },
+    {
+     "id": "FL05_CP_P3_Q4",
+     "stem": "Figure 1 is extended linearly to h = −760 mm. Which temperature does this point represent, and what does it signify?",
+     "options": {
+      "A": "0 K, where the absolute pressure of the ideal gas in the rigid flask extrapolates to zero on the linear plot",
+      "B": "760 K, where the absolute pressure of the gas rises to equal atmospheric pressure in the manometer",
+      "C": "273 K, where the gas pressure falls below 760 mm Hg and the gas condenses to a liquid in the flask",
+      "D": "300 K, where the gauge pressure vanishes and the mercury columns stand at equal levels in the two arms"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The slope is 76/30 = 2.53 mm/K; h = P − 760, so h = −760 means P = 0, which occurs at T = 300 − 760/2.53 = 0 K. Why the others are wrong: B) At h = −760 the gas pressure is zero, not equal to atmospheric pressure (which occurs at 300 K, h = 0). C) 273 K is the freezing point of water in kelvin and has no special meaning for this gas at constant volume. D) h = 0 at 300 K, not −760 mm; −760 mm corresponds to zero absolute pressure.",
+     "trap": "Reading the x-intercept of the line as the temperature where the pressure is zero.",
+     "topic": "Gauge versus absolute pressure",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P3_Q5",
+     "stem": "During the storm (atmospheric pressure 740 mm Hg) the student measures the height difference at 360 K. What value is observed, assuming the gas pressure is unchanged?",
+     "options": {
+      "A": "172 mm, with the open arm higher, because the gas pressure of 912 mm Hg exceeds the lowered atmospheric pressure by 172 mm Hg",
+      "B": "20 mm, with the open arm higher, because the height difference equals the change in atmospheric pressure alone",
+      "C": "132 mm, with the open arm higher, because the lower atmospheric pressure reduces the pressure difference across the manometer",
+      "D": "152 mm, with the open arm higher, because the gas pressure at 360 K is unchanged and so the height difference is also unchanged"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) h = P_gas − P_atm = 912 − 740 = 172 mm Hg. Why the others are wrong: B) The height difference is the full gauge pressure, 912 − 740, not just the atmospheric change. C) Lower atmospheric pressure presses less on the open arm, so the mercury is pushed up higher in it; the difference increases. D) The gas pressure is unchanged, but the reference (atmosphere) fell, so the difference increases.",
+     "trap": "Assuming the manometer reading is a property of the gas only and does not depend on atmospheric pressure.",
+     "topic": "Open-end manometer and atmospheric changes",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_CP_P4",
+   "passage_text": "Students build a circuit from two ideal batteries and three resistors and use it to test Kirchhoff's rules. Battery 1 (ε₁ = 12 V) in series with R₁ = 2.0 Ω forms the left branch. A single resistor R₃ = 3.0 Ω forms the middle branch. Battery 2 (ε₂ = 2.0 V) in series with R₂ = 4.0 Ω forms the right branch. The three branches are connected between the same top and bottom nodes, and the positive terminal of each battery faces the top node. Current I₁ flows upward through the left branch into the top node, and I₃ and I₂ flow downward through the middle and right branches. An ammeter in each branch and a voltmeter across each resistor gave the readings in Table 1. The students then opened a switch in the right branch, so that no current flowed through Battery 2 and R₂, and they remeasured the circuit. Wires have negligible resistance, and the meters are assumed to be ideal. The students also check the readings against the junction rule at the top node.",
+   "table_data": "| Element | Current (A) | Potential difference (V) | Power (W) |\n|---|---|---|---|\n| R₁ (2.0 Ω) | 3.0 | 6.0 | 18 dissipated |\n| R₂ (4.0 Ω) | 1.0 | 4.0 | 4.0 dissipated |\n| R₃ (3.0 Ω) | 2.0 | 6.0 | 12 dissipated |\n| Battery 1 (12 V) | 3.0 | 12 (emf) | 36 delivered |\n| Battery 2 (2.0 V) | 1.0 | 2.0 (emf) | 2.0 absorbed |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL05_CP_P4_Q1",
+     "stem": "Which loop-rule equation for the loop containing Battery 1, R₁, and R₃ is satisfied by the data in Table 1?",
+     "options": {
+      "A": "12 + 2.0 I₁ − 3.0 I₃ = 0, since the potential rises across R₁ when moving with the current through it",
+      "B": "12 − 2.0 I₁ − 3.0 I₃ = 0, since 12 − 6.0 − 6.0 = 0 for the left loop",
+      "C": "12 − 2.0 I₁ − 3.0 I₂ = 0, since the right branch carries the current that flows through R₃",
+      "D": "12 − 2.0 I₁ + 3.0 I₃ = 0, since moving through R₃ against the current raises the potential"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Going around the loop from the positive terminal of Battery 1 through R₁ and R₃ with the current, the potential falls across each resistor: ε₁ − I₁R₁ − I₃R₃ = 0, and 12 − 6.0 − 6.0 = 0. Why the others are wrong: A) Moving with the current through a resistor lowers the potential, so R₁ enters with a negative sign; 12 + 6 − 6 = 12 V, not zero. C) R₃ carries I₃ = 2.0 A, not I₂ = 1.0 A; the equation would give 12 − 6 − 3 = 3 V, not zero. D) Traversing R₃ in the direction of the current lowers the potential; the sign is wrong and 12 − 6 + 6 = 12 V, not zero.",
+     "trap": "Using the wrong branch current in a resistor term or giving a resistor drop the wrong sign.",
+     "topic": "Kirchhoff loop rule",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P4_Q2",
+     "stem": "In Table 1, Battery 1 delivers 36 W, but the resistors dissipate a total of 34 W. Where does the remaining 2.0 W go?",
+     "options": {
+      "A": "Into heat in the connecting wires, which have small but nonzero resistance, so that part of the power is lost in the circuit",
+      "B": "Into chemical energy stored in Battery 2, because current enters its positive terminal and the battery is being charged",
+      "C": "Into radiation from the meters, whose internal resistances dissipate part of the power supplied by the batteries",
+      "D": "Into the top node, where the current divides and a portion of the energy remains with the charge that returns to Battery 1"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Current I₂ = 1.0 A enters the positive terminal of Battery 2 (ε₂ = 2.0 V), so it absorbs P = ε₂I₂ = 2.0 W; 36 = 18 + 4 + 12 + 2. Why the others are wrong: A) The wires are stated to have negligible resistance, so they dissipate no measurable power. C) The meters are assumed to be ideal, so they dissipate no power; the missing 2.0 W is accounted for by Battery 2. D) A node stores no energy; charge conservation holds there, and energy is accounted for by the elements.",
+     "trap": "Assuming a battery can only deliver power, never absorb it.",
+     "topic": "Power and energy conservation in circuits",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P4_Q3",
+     "stem": "After the switch in the right branch is opened, what is the potential difference across R₃?",
+     "options": {
+      "A": "6.0 V, since the voltage across the middle branch is unaffected by opening a different branch of the circuit",
+      "B": "4.8 V, since this is the potential difference across R₁ rather than across R₃ in the remaining circuit",
+      "C": "7.2 V, since the remaining series circuit carries 12/(2.0 + 3.0) = 2.4 A through R₃",
+      "D": "12 V, since with no current in the right branch the full emf of Battery 1 appears across R₃"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) With the right branch open, Battery 1 drives I = 12/5.0 = 2.4 A through R₁ and R₃ in series, so V₃ = (2.4)(3.0) = 7.2 V. Why the others are wrong: A) The middle branch's voltage is set by the circuit as a whole; with Battery 2 removed, the current through R₃ rises to 2.4 A. B) 4.8 V is the drop across R₁ (2.4 A × 2.0 Ω); R₃ drops (2.4 A × 3.0 Ω) = 7.2 V. D) R₁ still carries 2.4 A and drops 4.8 V, so R₃ receives only the remaining 7.2 V.",
+     "trap": "Assuming the node voltage does not change when a branch is removed.",
+     "topic": "Series circuits and node potentials",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://phys.libretexts.org/Courses/Kettering_University/Electricity_and_Magnetism_with_Applications_to_Amateur_Radio_and_Wireless_Technology/06%3A_Direct-Current_(DC)_Resistor_Circuits/6.04%3A_Resistors_in_Series_and_Parallel"
+      ]
+     }
+    },
+    {
+     "id": "FL05_CP_P4_Q4",
+     "stem": "Why must the ammeters be connected as they were in this experiment?",
+     "options": {
+      "A": "In series with each branch, with a resistance much larger than that of the branch, so that the current through them is easily detected",
+      "B": "In parallel with each branch, with a resistance much larger than that of the branch, so that they divert very little of the current",
+      "C": "In series with each branch, with a resistance much smaller than that of the branch, so that they do not alter the current being measured",
+      "D": "In parallel with each resistor, with a resistance much smaller than that of the resistor, so that the full potential difference appears across them"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) An ammeter measures the current passing through it, so it must be in series; a small internal resistance leaves the branch current essentially unchanged. Why the others are wrong: A) A large series resistance would reduce the branch current and disturb the measurement. B) Parallel connection measures a potential difference (voltmeter use), and a large resistance is the voltmeter requirement. D) A small resistance in parallel would act as a short circuit across the resistor, diverting almost all the current.",
+     "trap": "Mixing up the connection and resistance requirements for ammeters and voltmeters.",
+     "topic": "Meters in circuits",
+     "mastery_sheet_id": "4C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_CP_P5",
+   "passage_text": "A laser beam is directed into a semicircular glass block of refractive index n = 1.50 so that it travels along a radius of the curved face and strikes the center of the flat face from inside the glass, where the glass meets air (n = 1.00). Because the beam enters along a radius, it is not bent at the curved surface. A student varies the angle of incidence θ₁ in the glass, measured from the normal, and records the angle θ₂ of the refracted ray in air (Table 1, Figure 1). At the largest angle, no refracted ray emerged, and the reflected ray became bright. In a second experiment, the student replaces the air with water (n = 1.33) on the flat face and repeats the measurements. Finally, the student examines a thin glass fiber in which a core is surrounded by a cladding of different refractive index, and asks how light is guided along it. The refractive index of a medium is n = c/v, where v is the speed of light in that medium. Use c = 3.0 × 10⁸ m/s.",
+   "table_data": "| Incident angle θ₁ in glass (degrees) | Refracted angle θ₂ in air (degrees) |\n|---|---|\n| 10 | 15.1 |\n| 20 | 30.9 |\n| 30 | 48.6 |\n| 40 | 74.6 |\n| 45 | No refracted ray (total internal reflection) |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Refracted angle in air versus incident angle in glass",
+    "x_label": "Incident angle in glass (degrees)",
+    "y_label": "Refracted angle in air (degrees)",
+    "series": [
+     {
+      "name": "Glass to air",
+      "points": [
+       [
+        10,
+        15.1
+       ],
+       [
+        20,
+        30.9
+       ],
+       [
+        30,
+        48.6
+       ],
+       [
+        40,
+        74.6
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_CP_P5_Q1",
+     "stem": "Which value is the critical angle for the glass–air interface?",
+     "options": {
+      "A": "56.3°, from tan θc = 1.50/1.00 in place of the sine ratio in Snell's law",
+      "B": "48.2°, from taking the complement of the correct critical angle as the angle measured from the interface surface",
+      "C": "33.7°, from tan θc = 1.00/1.50 in place of the sine ratio that appears in Snell's law",
+      "D": "41.8°, from sin θc = n(air)/n(glass) = 1.00/1.50, the angle at which the refracted ray grazes the surface"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) At the critical angle θ₂ = 90°, so n₁ sin θc = n₂ sin 90°, and sin θc = 1/1.5 = 0.667, giving θc = 41.8°. This agrees with Table 1, since 40° refracts and 45° does not. Why the others are wrong: A) Snell's law uses sines, and the ratio must be n₂/n₁ = 1/1.5, not 1.5. B) 48.2° would be the angle between the ray and the interface, not from the normal. C) Snell's law uses sines of the angles, not tangents.",
+     "trap": "Using tangent instead of sine, or measuring the angle from the surface instead of the normal.",
+     "topic": "Critical angle",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://pearson.com/channels/physics/learn/patrick/geometric-optics/total-internal-reflection"
+      ]
+     }
+    },
+    {
+     "id": "FL05_CP_P5_Q2",
+     "stem": "A beam of wavelength 600 nm in air enters the glass. Which pair gives its wavelength and frequency in the glass?",
+     "options": {
+      "A": "400 nm and 7.5 × 10¹⁴ Hz, since the frequency increases in proportion to the refractive index of the glass",
+      "B": "900 nm and 5.0 × 10¹⁴ Hz, since the wavelength increases in proportion to the refractive index of the glass",
+      "C": "400 nm and 5.0 × 10¹⁴ Hz, since the speed drops to c/1.5 while the frequency stays fixed",
+      "D": "600 nm and 3.3 × 10¹⁴ Hz, since the wavelength is fixed while the frequency decreases as the speed drops"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Frequency is set by the source: f = c/λ = (3.0 × 10⁸)/(600 × 10⁻⁹) = 5.0 × 10¹⁴ Hz. In glass λ = λ₀/n = 600/1.5 = 400 nm. Why the others are wrong: A) The frequency does not change at a boundary; only speed and wavelength change. B) The wavelength decreases when light slows in a denser medium (λ = λ₀/n). D) The frequency is unchanged; the wavelength shrinks as the speed decreases.",
+     "trap": "Thinking that the frequency, rather than the wavelength, changes on entering a new medium.",
+     "topic": "Wavelength and speed in a medium",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://labs.phys.utk.edu/mbreinig/phys222core/modules/m7/optical%20properties%20of%20matter.html"
+      ]
+     }
+    },
+    {
+     "id": "FL05_CP_P5_Q3",
+     "stem": "In Table 1, why is the refracted angle θ₂ in air larger than the incident angle θ₁ in glass?",
+     "options": {
+      "A": "Part of the beam energy is absorbed by the glass at the interface, so the emergent ray is deflected away from the normal",
+      "B": "Light travels faster in air than in glass, so the ray bends away from the normal on leaving the glass",
+      "C": "Light travels slower in air than in glass, so the ray bends away from the normal to keep its wavefronts continuous",
+      "D": "The frequency of light increases on entering air, so the ray bends away from the normal in proportion to that change"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) n₁ sin θ₁ = n₂ sin θ₂ with n₁ > n₂ requires sin θ₂ > sin θ₁; the ray goes from a slower medium to a faster one, bending away from the normal. Why the others are wrong: A) Refraction does not depend on absorption; the angle is fixed by the ratio of refractive indices. C) Light is faster, not slower, in air (v = c/n). D) The frequency is unchanged across the boundary.",
+     "trap": "Believing refraction toward or away from the normal depends on absorption or on frequency change.",
+     "topic": "Refraction and Snell's law",
+     "mastery_sheet_id": "4D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P5_Q4",
+     "stem": "In the second experiment, the glass faces water (n = 1.33). What is the new critical angle?",
+     "options": {
+      "A": "27.5°, the complement of the correct angle, measured from the surface instead of the normal",
+      "B": "48.6°, the refracted angle observed for a 30° incident ray in the glass–air experiment",
+      "C": "41.8°, the value found for the glass–air interface since the glass is unchanged",
+      "D": "62.5°, from sin θc = n(water)/n(glass) = 1.33/1.50 for light incident from the glass side"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) sin θc = n₂/n₁ = 1.33/1.50 = 0.887, so θc = 62.5°; the smaller index contrast gives a larger critical angle than for glass–air. Why the others are wrong: A) 27.5° is 90° − 62.5°, which is the angle from the surface. B) 48.6° is a refracted angle in air, unrelated to the water interface. C) The critical angle depends on both media; water's index of 1.33 raises it.",
+     "trap": "Applying the glass–air critical angle to a different interface.",
+     "topic": "Critical angle at a different interface",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://pearson.com/channels/physics/learn/patrick/geometric-optics/total-internal-reflection"
+      ]
+     }
+    },
+    {
+     "id": "FL05_CP_P5_Q5",
+     "stem": "In the glass fiber, light is confined by total internal reflection. Which condition is required?",
+     "options": {
+      "A": "The core must have a higher refractive index than the cladding, and rays must strike the boundary at angles greater than the critical angle",
+      "B": "The core must have a lower refractive index than the cladding, so that rays bend toward the normal at the boundary and return to the core",
+      "C": "The core must have a higher refractive index than the cladding, and rays must strike the boundary at angles smaller than the critical angle",
+      "D": "The core must have the same refractive index as the cladding, and the boundary must be rough enough to scatter light back inward"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) TIR requires light traveling from higher to lower n at an angle of incidence above θc. Why the others are wrong: B) Light going from a lower-n core to a higher-n cladding is always refracted and cannot undergo TIR. C) Angles smaller than the critical angle allow the light to refract out of the core. D) Equal indices give no reflection at all; the light would pass into the cladding.",
+     "trap": "Confusing which medium must have the higher index, or which side of the critical angle gives TIR.",
+     "topic": "Total internal reflection in fibers",
+     "mastery_sheet_id": "4D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_CP_P6",
+   "passage_text": "The Bohr model explains the line spectrum of hydrogen by assuming that the electron occupies quantized energy levels given by Eₙ = −13.6 eV/n², and that a photon is emitted when the electron drops between levels. A student examines the visible Balmer series, in which all transitions end on n = 2, by passing the light of a hydrogen discharge tube through a diffraction grating and measuring the wavelengths. Photon wavelengths are calculated from λ = hc/E, with hc = 1240 eV·nm. The results are given in Table 1 and Figure 1, where the wavelength is plotted against the quantum number n of the starting level. The student then considers the He⁺ ion, a one-electron ion with nuclear charge Z = 2, for which Eₙ = −13.6 Z²/n² eV, and predicts how its spectrum compares with that of hydrogen. Finally, the student asks which photons a ground-state hydrogen atom can absorb.",
+   "table_data": "| Transition | Photon energy (eV) | Wavelength (nm) |\n|---|---|---|\n| n = 3 → 2 | 1.89 | 656 |\n| n = 4 → 2 | 2.55 | 486 |\n| n = 5 → 2 | 2.86 | 434 |\n| n = 6 → 2 | 3.02 | 410 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Balmer line wavelength versus starting level",
+    "x_label": "Starting level n",
+    "y_label": "Wavelength (nm)",
+    "series": [
+     {
+      "name": "Hydrogen Balmer series",
+      "points": [
+       [
+        3,
+        656
+       ],
+       [
+        4,
+        486
+       ],
+       [
+        5,
+        434
+       ],
+       [
+        6,
+        410
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_CP_P6_Q1",
+     "stem": "How much energy is required to ionize a hydrogen atom whose electron is in the n = 2 level?",
+     "options": {
+      "A": "13.6 eV, the ionization energy of an atom whose electron is in the ground state",
+      "B": "10.2 eV, the photon energy for the transition from n = 2 down to n = 1",
+      "C": "3.4 eV, the magnitude of the energy of the n = 2 level",
+      "D": "1.89 eV, the photon energy for the transition from n = 3 down to n = 2"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) E₂ = −13.6/4 = −3.4 eV, so 3.4 eV raises the electron to E = 0 (ionization). Why the others are wrong: A) 13.6 eV ionizes ground-state hydrogen; an excited atom needs less. B) 10.2 eV is the energy released in a transition between bound levels, not the energy to reach E = 0. D) 1.89 eV is the red Balmer line energy, equal to E₃ − E₂, which only reaches n = 3.",
+     "trap": "Using the ground-state ionization energy for an excited atom.",
+     "topic": "Bohr energy levels",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www-users.york.ac.uk/~pjd113/legacy/TheBohrModel.html"
+      ]
+     }
+    },
+    {
+     "id": "FL05_CP_P6_Q2",
+     "stem": "Which energy is released when a He⁺ ion drops from n = 2 to n = 1?",
+     "options": {
+      "A": "40.8 eV, because the levels scale with Z² = 4 relative to hydrogen",
+      "B": "10.2 eV, since the transition energy is the same as for hydrogen when only one electron is present",
+      "C": "54.4 eV, because the ion's electron falls from the n = 2 level all the way to the ionization limit",
+      "D": "13.6 eV, because the ion's electron is in a state with the same energy as the hydrogen ground state"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) ΔE = 13.6(4)(1/1² − 1/2²) = 54.4(0.75) = 40.8 eV, four times the hydrogen value (10.2 eV). Why the others are wrong: B) Eₙ scales with Z², so the He⁺ energies are four times those of hydrogen even with one electron. C) 54.4 eV is the ground-state binding energy of He⁺, not the 2 → 1 transition energy. D) 13.6 eV is the hydrogen ground-state energy; He⁺ levels are deeper by a factor Z².",
+     "trap": "Forgetting the Z² scaling of energy levels for hydrogen-like ions.",
+     "topic": "Hydrogen-like ions",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www-users.york.ac.uk/~pjd113/legacy/TheBohrModel.html"
+      ]
+     }
+    },
+    {
+     "id": "FL05_CP_P6_Q3",
+     "stem": "Extrapolating Figure 1 to very large n, the Balmer wavelengths approach which limiting value?",
+     "options": {
+      "A": "About 656 nm, since the red line of Table 1 sets the long-wavelength limit that the series approaches",
+      "B": "About 410 nm, since the n = 6 line is the last Balmer line that can be observed in the visible region",
+      "C": "About 365 nm, corresponding to the 3.4 eV needed to move from n = 2 to the ionization limit",
+      "D": "About 91 nm, corresponding to the 13.6 eV needed to move from n = 1 to the ionization limit"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) As n → ∞, the photon energy → 3.4 eV and λ = 1240/3.4 = 365 nm; wavelengths decrease and converge toward this series limit. Why the others are wrong: A) 656 nm is the longest wavelength in the series, not the limit as n increases. B) 410 nm is the n = 6 line; the lines keep converging to shorter wavelengths. D) 91 nm is the Lyman series limit (transitions to n = 1), which lies in the ultraviolet.",
+     "trap": "Confusing the Balmer series limit with the Lyman series limit.",
+     "topic": "Series limit",
+     "mastery_sheet_id": "4E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P6_Q4",
+     "stem": "Which photon can be absorbed by a ground-state hydrogen atom, assuming each photon is absorbed only if it exactly fits an allowed transition or exceeds the ionization energy?",
+     "options": {
+      "A": "10.2 eV, which promotes the electron from n = 1 to n = 2",
+      "B": "9.0 eV, which promotes the electron to a level below n = 2 that lies between the allowed levels",
+      "C": "11.5 eV, which promotes the electron to a level between n = 2 and n = 3",
+      "D": "12.4 eV, which promotes the electron to a level between n = 3 and n = 4"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) E₂ − E₁ = −3.4 − (−13.6) = 10.2 eV, an allowed transition. The other energies match no level difference and are below the 13.6 eV ionization energy. Why the others are wrong: B) There is no allowed level 9.0 eV above the ground state. C) 11.5 eV lies between the n = 2 (10.2 eV) and n = 3 (12.09 eV) transition energies, so it is not absorbed. D) 12.4 eV lies between the n = 3 (12.09 eV) and n = 4 (12.75 eV) transition energies, so it is not absorbed.",
+     "trap": "Assuming an atom can absorb any photon energy above the first excitation energy.",
+     "topic": "Quantized absorption",
+     "mastery_sheet_id": "4E",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_CP_P7",
+   "passage_text": "A beverage chemist studies how carbon dioxide dissolves in water. Henry's law states that the concentration of a dissolved gas is proportional to its partial pressure above the solution: [CO₂] = k_H·P(CO₂). Sealed vessels containing 1.00 L of pure water were pressurized with CO₂ at 25 °C until equilibrium was reached, and the dissolved CO₂ was measured. The same measurement was then made at a fixed CO₂ pressure of 1.0 atm while the temperature was varied (Table 1). Figure 1 shows the concentration at 25 °C versus pressure. Reaction of dissolved CO₂ with water to form carbonic acid is ignored. In a final test, a 0.50 L sealed bottle of the beverage carbonated at 3.0 atm is opened and the contents are poured into a glass. The temperature was held constant by a water bath, and the gas phase contained only CO₂. The molar mass of CO₂ is 44 g/mol, and one mole of gas occupies 24.5 L at 25 °C and 1.0 atm.",
+   "table_data": "| P(CO₂) (atm) | Temperature (°C) | Dissolved [CO₂] (mol/L) |\n|---|---|---|\n| 1.0 | 25 | 0.033 |\n| 2.0 | 25 | 0.066 |\n| 3.0 | 25 | 0.099 |\n| 4.0 | 25 | 0.132 |\n| 1.0 | 5 | 0.065 |\n| 1.0 | 15 | 0.045 |\n| 1.0 | 35 | 0.025 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Dissolved CO₂ concentration versus pressure at 25 °C",
+    "x_label": "P(CO₂) (atm)",
+    "y_label": "[CO₂] (mol/L)",
+    "series": [
+     {
+      "name": "25 °C",
+      "points": [
+       [
+        1.0,
+        0.033
+       ],
+       [
+        2.0,
+        0.066
+       ],
+       [
+        3.0,
+        0.099
+       ],
+       [
+        4.0,
+        0.132
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_CP_P7_Q1",
+     "stem": "According to Figure 1, which concentration is expected at 25 °C when P(CO₂) = 2.5 atm?",
+     "options": {
+      "A": "0.33 mol/L, obtained by multiplying the pressure by 0.13, the highest concentration listed in the table",
+      "B": "0.13 mol/L, the value at 4.0 atm, because the dissolved concentration levels off once the solution is saturated",
+      "C": "0.083 mol/L, found by interpolating the linear plot that passes through the origin with k_H = 0.033 mol/(L·atm)",
+      "D": "0.066 mol/L, the value at 2.0 atm, because the concentrations are measured only at whole-number pressures"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The plot is linear through the origin: 0.033 × 2.5 = 0.083 mol/L. Why the others are wrong: A) 0.13 is the concentration at 4.0 atm, not a multiplier; no such factor applies. B) The data show no plateau; the concentration rises proportionally up to 4.0 atm. D) Interpolation between 0.066 and 0.099 gives 0.083 mol/L; 2.5 atm lies between the listed values.",
+     "trap": "Assuming the concentration only takes listed values or plateaus at high pressure.",
+     "topic": "Henry's law interpolation",
+     "mastery_sheet_id": "5A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P7_Q2",
+     "stem": "What mass of CO₂ is dissolved in the 0.50 L bottle carbonated at 3.0 atm and 25 °C?",
+     "options": {
+      "A": "1.1 g, from using the 1.5 atm value of 0.050 mol/L for the dissolved CO₂ concentration",
+      "B": "4.4 g, from using the 1.00 L concentration without scaling for the 0.50 L bottle volume",
+      "C": "0.049 g, from multiplying the number of moles in the bottle by the molar mass in kg/mol",
+      "D": "2.2 g, from (0.099 mol/L)(0.50 L)(44 g/mol)"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) n = 0.099 × 0.50 = 0.0495 mol; mass = 0.0495 × 44 = 2.18 g ≈ 2.2 g. Why the others are wrong: A) The bottle was carbonated at 3.0 atm, not 1.5 atm. B) The bottle holds only 0.50 L, so the moles are halved relative to 1.00 L. C) Molar mass in kg/mol is 0.044; using it with moles gives 0.0022 kg (2.2 g), not 0.049 g.",
+     "trap": "Forgetting to scale by the volume or misusing the molar mass units.",
+     "topic": "Gas solubility calculation",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_CP_P7_Q3",
+     "stem": "When the bottle carbonated at 4.0 atm is opened to a room with a CO₂ partial pressure near zero, the solution is allowed to equilibrate at 1.0 atm total CO₂ (assume 25 °C). What volume of CO₂ gas leaves 1.00 L of solution?",
+     "options": {
+      "A": "About 2.4 L, from (0.132 − 0.033) mol × 24.5 L/mol, counting only the CO₂ that leaves the solution",
+      "B": "About 1.6 L, from half of the CO₂ that was dissolved before opening, since pressure halves on opening",
+      "C": "About 0.81 L, from 0.033 mol × 24.5 L/mol, counting only the CO₂ that remains dissolved",
+      "D": "About 3.2 L, from 0.132 mol × 24.5 L/mol, assuming all of the dissolved CO₂ escapes"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At 1.0 atm the solution retains 0.033 mol/L; 0.099 mol escapes, occupying 0.099 × 24.5 = 2.4 L at 25 °C and 1 atm. Why the others are wrong: B) Pressure falls by a factor of four, not two, and solubility is proportional to pressure. C) 0.033 mol is what remains dissolved, not what leaves. D) Some CO₂ stays dissolved at 1.0 atm (0.033 mol/L), so not all of it escapes.",
+     "trap": "Assuming all the dissolved gas leaves when a bottle is opened.",
+     "topic": "Henry's law and gas release",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_CP_P7_Q4",
+     "stem": "Table 1 shows lower dissolved [CO₂] at 35 °C than at 5 °C at the same pressure. Which statement best explains this?",
+     "options": {
+      "A": "Dissolution of CO₂ is endothermic, so adding heat shifts the equilibrium toward gaseous CO₂ and lowers k_H",
+      "B": "Dissolution of CO₂ is exothermic, so adding heat shifts the equilibrium toward gaseous CO₂ and lowers k_H",
+      "C": "Dissolution of CO₂ is exothermic, so adding heat shifts the equilibrium toward dissolved CO₂ and raises k_H",
+      "D": "Dissolution of CO₂ is entropy-driven, so a higher temperature makes the process less favorable by lowering ΔS"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Gas solubility generally decreases with temperature because dissolving a gas releases heat (CO₂(g) ⇌ CO₂(aq) + heat); by Le Chatelier's principle heating favors the reverse. Why the others are wrong: A) If dissolving were endothermic, heating would increase solubility. C) If heat shifted the equilibrium toward dissolved CO₂, solubility would rise with temperature, contrary to the data. D) Dissolving a gas decreases entropy; higher temperature makes −TΔS less favorable, but the key point is that the enthalpy of solution is negative.",
+     "trap": "Choosing the direction of the shift that does not match the sign of ΔH.",
+     "topic": "Temperature dependence of gas solubility",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P7_Q5",
+     "stem": "A gas mixture of 80% N₂ and 20% CO₂ by moles at a total pressure of 5.0 atm is equilibrated with water at 25 °C. Assuming only CO₂ matters, what is the dissolved [CO₂]?",
+     "options": {
+      "A": "0.0066 mol/L, since the 20% mole fraction is multiplied by 0.033 rather than by the total pressure",
+      "B": "0.033 mol/L, since the partial pressure of CO₂ is 20% of 5.0 atm, which is 1.0 atm",
+      "C": "0.132 mol/L, since the mole fraction of N₂ sets the partial pressure of CO₂",
+      "D": "0.165 mol/L, since the total pressure of 5.0 atm determines the concentration of dissolved gas"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) P(CO₂) = 0.20 × 5.0 = 1.0 atm (Dalton's law), so [CO₂] = 0.033 × 1.0 = 0.033 mol/L. Why the others are wrong: A) The mole fraction must be multiplied by the total pressure first (1.0 atm), then by k_H. C) 0.80 × 5.0 = 4.0 atm is the N₂ partial pressure, not the CO₂ partial pressure. D) Henry's law uses the partial pressure of the gas, not the total pressure.",
+     "trap": "Using total pressure instead of partial pressure in Henry's law.",
+     "topic": "Henry's law with gas mixtures",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://old.goldbook.iupac.org/plain/H02783-plain.html"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_CP_P8",
+   "passage_text": "A chemistry class uses the valence shell electron pair repulsion (VSEPR) model to predict molecular shapes and compares the predictions with measured dipole moments (Table 1). In the model, regions of electron density around a central atom, both bonding pairs and lone pairs, arrange themselves to minimize repulsion, and lone pairs repel more strongly than bonding pairs. The steric number is the number of bonded atoms plus the number of lone pairs on the central atom. Experimentally, a molecule's dipole moment is measured in debye (D). A molecule is polar only if its bond dipoles do not cancel when summed as vectors. Students are asked to explain why molecules with polar bonds, such as BF₃ and CCl₄, can still be nonpolar, to account for the bond angle in water (104.5°, compared with the ideal tetrahedral angle of 109.5°), and to predict the geometries of molecules not in the table, including ClF₃ and the ammonium ion, NH₄⁺.",
+   "table_data": "| Molecule | Steric number | Molecular geometry | Dipole moment (D) |\n|---|---|---|---|\n| CO₂ | 2 | Linear | 0 |\n| SO₂ | 3 | Bent | 1.63 |\n| BF₃ | 3 | Trigonal planar | 0 |\n| NH₃ | 4 | Trigonal pyramidal | 1.47 |\n| H₂O | 4 | Bent | 1.85 |\n| CCl₄ | 4 | Tetrahedral | 0 |\n| SF₄ | 5 | Seesaw | 0.63 |\n| XeF₄ | 6 | Square planar | 0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL05_CP_P8_Q1",
+     "stem": "BF₃ has polar B–F bonds but a dipole moment of zero, whereas NH₃ has a dipole moment of 1.47 D. Which statement explains this?",
+     "options": {
+      "A": "BF₃ is bent while NH₃ is linear, so the bond dipoles cancel in BF₃ but add in NH₃ because of their different shapes",
+      "B": "BF₃ has less polar bonds than NH₃, so its dipole moment is zero even though the bond dipoles do not cancel as vectors",
+      "C": "BF₃ is trigonal planar, so its bond dipoles cancel, whereas the lone pair on NH₃ leaves a nonzero vector sum",
+      "D": "BF₃ has three bonded atoms and NH₃ has three bonded atoms, so the dipole moments differ because of the lone pair's electron count alone"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Molecular polarity depends on geometry, not bond polarity alone. Symmetric, lone-pair-free BF₃ has cancelling dipoles; pyramidal NH₃ has a net dipole. Why the others are wrong: A) BF₃ is trigonal planar, not bent, and NH₃ is trigonal pyramidal, not linear. B) The B–F bond is actually more polar than N–H; the cancellation is due to symmetry. D) Both have three bonded atoms; the difference is the geometry resulting from the lone pair, not a simple count of electrons.",
+     "trap": "Equating polar bonds with a polar molecule without considering geometry.",
+     "topic": "Molecular polarity",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P8_Q2",
+     "stem": "Why is the H–O–H bond angle in water (104.5°) smaller than the ideal tetrahedral angle?",
+     "options": {
+      "A": "The two lone pairs on oxygen attract the hydrogen atoms, pulling the bonded atoms closer together and shrinking the angle",
+      "B": "The two lone pairs on oxygen repel the bonding pairs more strongly than the bonding pairs repel each other, compressing the H–O–H angle",
+      "C": "The hydrogen atoms repel each other more strongly than the lone pairs, which pushes the bonded atoms toward a smaller angle",
+      "D": "The oxygen atom is sp² hybridized, so the bond angle is closer to 120° but is reduced by the hydrogen bonds in the liquid"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Lone pair–bonding pair repulsion exceeds bonding pair–bonding pair repulsion, so the lone pairs occupy more space and squeeze the bonded atoms together. Why the others are wrong: A) Lone pairs repel the bonding electron pairs; they do not attract the hydrogen nuclei. C) The lone pairs, not the hydrogen atoms, are the stronger source of repulsion. D) Oxygen in water is approximately sp³, and sp² hybridization would give an angle larger than 109.5°, not smaller.",
+     "trap": "Thinking lone pairs attract bonded atoms rather than repel bonding pairs.",
+     "topic": "VSEPR bond angles",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P8_Q3",
+     "stem": "SF₄ has five electron domains, one of them a lone pair, and the geometry in Table 1 is seesaw. Why does the lone pair occupy an equatorial position?",
+     "options": {
+      "A": "An equatorial lone pair has two 90° interactions with bonding pairs, whereas an axial lone pair would have three, so the equatorial site minimizes repulsion",
+      "B": "An axial lone pair has two 90° interactions with bonding pairs, so it is favored, and the seesaw shape results from the other four atoms bending",
+      "C": "An equatorial lone pair has three 90° interactions with bonding pairs, whereas an axial lone pair would have two, so equatorial minimizes repulsion",
+      "D": "An equatorial lone pair has no 90° interactions with bonding pairs, whereas an axial lone pair would have four, so equatorial minimizes repulsion"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) In a trigonal bipyramid, the equatorial site has two 90° neighbors while the axial site has three; the lone pair takes the site with fewer close repulsions. Why the others are wrong: B) Because the axial site has more 90° contacts, the axial position is disfavored for lone pairs. C) The counts are reversed: it is the axial site that has three 90° interactions. D) An equatorial site still has two axial neighbors at 90°.",
+     "trap": "Reversing the count of 90° repulsions at axial and equatorial positions.",
+     "topic": "Lone pair placement",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P8_Q4",
+     "stem": "Using the same reasoning, which description fits ClF₃, which has five electron domains including two lone pairs?",
+     "options": {
+      "A": "T-shaped and polar, since both lone pairs occupy equatorial positions and the dipoles do not cancel",
+      "B": "Seesaw and polar, since two lone pairs occupy axial positions and the remaining atoms form a see-saw",
+      "C": "Square planar and nonpolar, since the two lone pairs occupy axial positions and the four atoms form a square",
+      "D": "Trigonal planar and nonpolar, since the two lone pairs and three fluorines lie in the same plane and cancel"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) With two lone pairs equatorial, the three F atoms lie in a T shape (one equatorial, two axial); the bond dipoles do not cancel, so ClF₃ is polar. Why the others are wrong: B) A seesaw has only one lone pair; ClF₃ has two, and axial lone pairs are disfavored. C) Square planar has six domains (e.g., XeF₄); ClF₃ has five. D) Planar trigonal arrangement would require only three domains; ClF₃ has five, and its dipoles do not cancel.",
+     "trap": "Placing lone pairs in axial positions or confusing geometries across steric numbers.",
+     "topic": "Predicting geometry",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_CP_P9",
+   "passage_text": "A student separates a mixture of hexane and heptane by fractional distillation. At 90 °C the vapor pressures of the pure liquids are 1,400 torr for hexane and 600 torr for heptane, and the liquid mixtures are assumed to obey Raoult's law. Table 1 gives, for several liquid compositions at 90 °C, the total vapor pressure and the mole fraction of hexane in the vapor in equilibrium with the liquid. Figure 1 plots the vapor composition (y) against the liquid composition (x) together with the line y = x. The student uses a column packed with glass beads between the boiling flask and a condenser. Each complete vaporization and condensation cycle on the packing is equivalent to one theoretical plate. The student follows the composition of the condensed vapor through successive cycles, starting with a liquid of hexane mole fraction 0.40. Finally, the student asks whether ethanol–water mixtures, which show positive deviations from Raoult's law, can be separated completely by the same method.",
+   "table_data": "| Liquid mole fraction hexane (x) | Total vapor pressure (torr) | Vapor mole fraction hexane (y) |\n|---|---|---|\n| 0.20 | 760 | 0.37 |\n| 0.40 | 920 | 0.61 |\n| 0.60 | 1080 | 0.78 |\n| 0.80 | 1240 | 0.90 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Vapor composition versus liquid composition at 90 °C",
+    "x_label": "Liquid mole fraction of hexane (x)",
+    "y_label": "Vapor mole fraction of hexane (y)",
+    "series": [
+     {
+      "name": "Vapor composition y",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        0.2,
+        0.37
+       ],
+       [
+        0.4,
+        0.61
+       ],
+       [
+        0.6,
+        0.78
+       ],
+       [
+        0.8,
+        0.9
+       ],
+       [
+        1,
+        1
+       ]
+      ]
+     },
+     {
+      "name": "y = x",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        1,
+        1
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_CP_P9_Q1",
+     "stem": "What is the total vapor pressure at 90 °C above a liquid mixture with a hexane mole fraction of 0.30?",
+     "options": {
+      "A": "840 torr, from 0.30(1,400) + 0.70(600), the sum of the two partial pressures",
+      "B": "1,000 torr, the simple average of the two pure-liquid vapor pressures, with no regard to the composition of the liquid",
+      "C": "420 torr, the partial pressure of one component rather than the sum of both partial pressures",
+      "D": "1,160 torr, from 0.70(1,400) + 0.30(600), which reverses the mole fractions of the two components"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) By Raoult's law, P = x_hex P°_hex + x_hept P°_hept = 420 + 420 = 840 torr (also 600 + 800x = 840). Why the others are wrong: B) The total pressure depends on the composition; the simple average applies only to a 50:50 mixture. C) 420 torr is only one of the two partial pressures; the total is their sum. D) The mole fraction of hexane is 0.30, not 0.70; the reversed fractions give a different mixture.",
+     "trap": "Averaging the pure vapor pressures or reversing the mole fractions.",
+     "topic": "Raoult's law",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://sciencenotes.org/raoults-law-definition-formula-examples-and-applications/"
+      ]
+     }
+    },
+    {
+     "id": "FL05_CP_P9_Q2",
+     "stem": "Starting with liquid of x = 0.40, the vapor is condensed and re-vaporized once more. What is the approximate hexane mole fraction in the second vapor, using Table 1?",
+     "options": {
+      "A": "About 0.40, since re-vaporizing a condensed liquid returns it to the original composition of the boiling flask",
+      "B": "About 0.61, since the vapor over the original liquid already has the final composition after the first cycle",
+      "C": "About 0.78, since the first vapor (y = 0.61) condenses to a liquid with x ≈ 0.60, which gives vapor with y ≈ 0.78",
+      "D": "About 0.90, since two cycles are needed to reach the composition of the vapor above liquid with x = 0.80"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Cycle 1 gives y = 0.61; condensing yields a liquid with x = 0.61 ≈ 0.60, whose vapor is y = 0.78 (row x = 0.60). Why the others are wrong: A) Each vaporization enriches the more volatile component, so the composition does not return to 0.40. B) 0.61 is the composition after one plate; a second plate enriches the vapor further. D) The second vapor reflects the liquid x = 0.60 row, not x = 0.80.",
+     "trap": "Stopping after one cycle or not using the condensate as the new liquid composition.",
+     "topic": "Theoretical plates",
+     "mastery_sheet_id": "5C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P9_Q3",
+     "stem": "Why does packing the fractionating column with glass beads improve the separation?",
+     "options": {
+      "A": "It acts as a selective filter that traps molecules of the less volatile component by adsorbing them irreversibly on the glass surface",
+      "B": "It lowers the boiling point of the mixture, so the more volatile component can be driven off without any heating of the flask",
+      "C": "It provides a large surface for repeated condensation and re-vaporization, adding theoretical plates and enriching the more volatile component",
+      "D": "It prevents the two components from mixing in the vapor phase, so that each component moves through the column separately"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Each condensation–vaporization on the packing is one equilibrium stage; more surface means more plates and a purer distillate. Why the others are wrong: A) The glass beads do not adsorb the components permanently; the separation arises from vapor–liquid equilibrium. B) Packing does not change the boiling point of the mixture; the pressure and composition set it. D) Vapor components do mix; the separation is via repeated equilibria, not by keeping vapors apart.",
+     "trap": "Attributing separation to a filtering or adsorption effect rather than repeated vapor–liquid equilibria.",
+     "topic": "Fractionating column",
+     "mastery_sheet_id": "5C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P9_Q4",
+     "stem": "Ethanol–water mixtures form a minimum-boiling azeotrope at about 95.6% ethanol by mass. What is the expected result of fractionally distilling a 50% ethanol mixture with an efficient column?",
+     "options": {
+      "A": "The distillate approaches the azeotrope (about 95.6% ethanol) but not pure ethanol, since it vaporizes without changing composition",
+      "B": "The distillate remains at 50% ethanol, since a positive deviation from Raoult's law removes any difference in volatility between the two liquids",
+      "C": "The distillate is pure water, since water has the lower vapor pressure and therefore vaporizes first from the boiling flask at the start",
+      "D": "The distillate is pure ethanol, since an efficient column with enough theoretical plates can always separate any two volatile liquids completely"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At the azeotrope, vapor and liquid have the same composition, so further plates give no more enrichment; the distillate approaches 95.6% ethanol. Why the others are wrong: B) Positive deviations raise the vapor pressure; the vapor is initially enriched in ethanol up to the azeotrope. C) Water has the higher boiling point and lower volatility, so it is not the first to distill. D) Pure ethanol cannot be obtained by ordinary fractional distillation from a mixture lying below the azeotrope.",
+     "trap": "Believing a long column can always give pure components, even for azeotropes.",
+     "topic": "Azeotropes",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_CP_P10",
+   "passage_text": "Glucose in water exists mostly as cyclic hemiacetals, formed when the C5 hydroxyl group adds to the aldehyde carbon (C1) of the open-chain form. The two ring forms, called anomers, differ in configuration at C1: in α-D-glucopyranose the C1 hydroxyl group is axial, and in β-D-glucopyranose it is equatorial. The open-chain form is present at much less than 0.01%. A student dissolves pure crystalline α-D-glucopyranose in water at a concentration of 0.10 g/mL and 25 °C, with a trace of acid catalyst, and follows the optical rotation in a polarimeter tube of 1.0 dm path length. The observed rotation is α_obs = [α]·c·l, with c in g/mL and l in dm. The specific rotations are +112° for the α anomer and +18.7° for the β anomer. The measured rotations are given in Table 1 and Figure 1. The rotation changes with time and settles at a constant value; this phenomenon is called mutarotation.",
+   "table_data": "| Time (min) | Observed rotation (degrees) |\n|---|---|\n| 0 | 11.2 |\n| 15 | 8.2 |\n| 30 | 6.8 |\n| 45 | 6.0 |\n| 60 | 5.6 |\n| Final (constant) | 5.3 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Observed rotation of an α-D-glucopyranose solution versus time",
+    "x_label": "Time (min)",
+    "y_label": "Observed rotation (degrees)",
+    "series": [
+     {
+      "name": "Observed rotation",
+      "points": [
+       [
+        0,
+        11.2
+       ],
+       [
+        15,
+        8.2
+       ],
+       [
+        30,
+        6.8
+       ],
+       [
+        45,
+        6.0
+       ],
+       [
+        60,
+        5.6
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_CP_P10_Q1",
+     "stem": "Which process explains the change in rotation seen in Table 1?",
+     "options": {
+      "A": "Ring opening to the open-chain aldehyde followed by ring closure at C1, which interconverts the α and β anomers until equilibrium is reached",
+      "B": "Oxidation of the aldehyde carbon by dissolved oxygen in the water, which converts glucose into gluconic acid and changes the rotation",
+      "C": "Epimerization at C2 through an enediol intermediate, which converts glucose into mannose and fructose until the rotation stabilizes",
+      "D": "Racemization at C5 through a planar carbocation, which converts D-glucose into L-glucose and gradually reduces the observed rotation of the solution"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Hemiacetals are reversible: the pyranose ring opens to the aldehyde and re-closes, producing either anomer. The different specific rotations of the anomers cause the observed rotation to change. Why the others are wrong: B) No oxidant is present, and an oxidation would not stop at a constant rotation near the value shown. C) Epimerization through enediols requires base and is much slower; it is not the cause of the mutarotation described. D) The C5 stereocenter is not involved in the interconversion of anomers, and no L-glucose forms.",
+     "trap": "Attributing the rotation change to a different stereocenter or an oxidation instead of ring opening at C1.",
+     "topic": "Mutarotation mechanism",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P10_Q2",
+     "stem": "From the final rotation in Table 1, what percentage of the glucose is present as the α anomer at equilibrium?",
+     "options": {
+      "A": "About 63%, since this is the fraction of the β anomer rather than of the α anomer at equilibrium",
+      "B": "About 53%, since the equilibrium specific rotation of +53° is read directly as a percentage",
+      "C": "About 37%, since the equilibrium specific rotation of +53° gives (53 − 18.7)/(112 − 18.7)",
+      "D": "About 47%, since the percentage is obtained by subtracting the equilibrium rotation of 53 from 100"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The equilibrium specific rotation is 5.3/(0.10 × 1.0) = 53°. With x as the α fraction, 112x + 18.7(1 − x) = 53 gives x = 34.3/93.3 = 0.37. Why the others are wrong: A) 64% is roughly the β fraction (1 − 0.37 = 0.63). B) Specific rotations are not percentages; the fraction comes from a weighted average. D) Subtracting from 100 has no basis; the fraction must be calculated from the weighted average of the two specific rotations.",
+     "trap": "Using a rotation value as a percentage instead of a weighted average of the two specific rotations.",
+     "topic": "Anomer equilibrium",
+     "mastery_sheet_id": "5D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_CP_P10_Q3",
+     "stem": "Using Figure 1, what is the approximate half-life of the approach to equilibrium?",
+     "options": {
+      "A": "About 30 min, since the rotation has fallen to roughly 60% of its initial value by that time",
+      "B": "About 7 min, since the rotation falls by about 2° per 7 min at the start and then continues linearly",
+      "C": "About 45 min, since the rotation has nearly leveled off near the final value by that time",
+      "D": "About 15 min, since the excess rotation over the final value falls from 5.9° to about 3° by then"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Initial excess = 11.2 − 5.3 = 5.9°; half is about 3.0°, reached at 8.2 − 5.3 = 2.9° at 15 min. Why the others are wrong: A) At 30 min, the excess is 1.5°, about one quarter of the initial excess, not half. B) The decay is exponential, not linear; half the excess is gone by 15 min, not 7. C) At 45 min the excess is 0.7°, about one eighth, so half has been passed long before.",
+     "trap": "Taking half of the observed rotation instead of half of the excess over the final value.",
+     "topic": "First-order approach to equilibrium",
+     "mastery_sheet_id": "5D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_CP_P10_Q4",
+     "stem": "Why does the β anomer predominate over the α anomer at equilibrium (about 64% versus 36%)?",
+     "options": {
+      "A": "In β-D-glucopyranose the anomeric hydroxyl is axial, which allows it to hydrogen bond with the ring oxygen and stabilizes the chair",
+      "B": "In β-D-glucopyranose the ring is a planar five-membered furanose, which has less angle strain than the six-membered chair of the α form",
+      "C": "In β-D-glucopyranose the C1 carbon is an sp² carbonyl carbon, which is more stable than the sp³ anomeric carbon of the α form",
+      "D": "In β-D-glucopyranose all substituents, including the anomeric hydroxyl, are equatorial, which minimizes 1,3-diaxial strain in the chair"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The β anomer places the C1 hydroxyl equatorial, like all other substituents; the α anomer has it axial, adding steric strain. Why the others are wrong: A) The anomeric hydroxyl of the β form is equatorial, not axial; the axial hydroxyl is in the α form. B) Both anomers are six-membered pyranose chairs; the furanose is a different ring form and is a minor component. C) Both anomers have an sp³ anomeric carbon; the carbonyl carbon exists only in the very minor open-chain form.",
+     "trap": "Mixing up which anomer has the axial anomeric hydroxyl.",
+     "topic": "Anomer stability",
+     "mastery_sheet_id": "5D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL05_CP_D1",
+   "stem": "A 5.0 kg block slides from rest down a frictionless incline that makes an angle of 30° with the horizontal. What is the magnitude of its acceleration? (Use g = 10 m/s².)",
+   "options": {
+    "A": "10 m/s², since a frictionless surface places no limit on the free-fall acceleration of the block",
+    "B": "2.5 m/s², obtained by halving the along-incline component because the normal force shares the load",
+    "C": "5.0 m/s², the component of gravitational acceleration directed along the incline, independent of mass",
+    "D": "8.7 m/s², obtained by using g cos 30° as the component of gravitational acceleration along the incline"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) a = g sin 30° = 10 × 0.5 = 5.0 m/s²; the mass cancels. Why the others are wrong: A) Only the component of gravity along the incline accelerates the block; the normal force cancels the perpendicular component. B) The normal force is perpendicular to the motion and does not reduce the along-incline acceleration. D) g cos 30° is the component perpendicular to the incline, balanced by the normal force.",
+   "trap": "Using cosine instead of sine for the component along the incline.",
+   "topic": "Inclined plane",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://phys.libretexts.org/Courses/Prince_Georges_Community_College/General_Physics_I%3A_Classical_Mechanics/17%3A__The_Inclined_Plane"
+    ]
+   }
+  },
+  {
+   "id": "FL05_CP_D2",
+   "stem": "A 2.0 kg cart moving at 3.0 m/s collides with a stationary 1.0 kg cart, and the two stick together. How much kinetic energy is lost in the collision?",
+   "options": {
+    "A": "0 J, since momentum is conserved in the collision and therefore the kinetic energy is as well",
+    "B": "9.0 J, since all of the initial energy is dissipated in a perfectly inelastic collision",
+    "C": "6.0 J, since this is the kinetic energy that remains rather than the amount that is lost",
+    "D": "3.0 J, since the kinetic energy falls from 9.0 J to 6.0 J once the carts stick together"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Momentum conservation: 2.0(3.0) = 3.0 v, v = 2.0 m/s. KE before = ½(2.0)(9.0) = 9.0 J; after = ½(3.0)(4.0) = 6.0 J; loss = 3.0 J. Why the others are wrong: A) Momentum is conserved in all isolated collisions, but kinetic energy is conserved only when the collision is elastic. B) In a perfectly inelastic collision the carts still move together, so some kinetic energy remains. C) 6.0 J is the final kinetic energy; the loss is 9.0 − 6.0 J.",
+   "trap": "Assuming kinetic energy is conserved whenever momentum is conserved.",
+   "topic": "Inelastic collisions",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://brilliant.org/wiki/determining-kinetic-energy-lost-in-inelastic/"
+    ]
+   }
+  },
+  {
+   "id": "FL05_CP_D3",
+   "stem": "Water flows at 1.5 m/s through a horizontal pipe of radius 2.0 cm that narrows to a radius of 1.0 cm. What is the speed in the narrow section?",
+   "options": {
+    "A": "3.0 m/s, since the speed varies inversely with the radius of the pipe",
+    "B": "1.5 m/s, since the speed of an incompressible fluid is the same everywhere in a pipe of any shape",
+    "C": "0.75 m/s, since the fluid slows where the pipe narrows to keep the pressure in the pipe constant",
+    "D": "6.0 m/s, since the cross-sectional area falls by a factor of four and the flow rate is constant"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) A₁v₁ = A₂v₂ with A ∝ r²: v₂ = 1.5 × (2.0/1.0)² = 6.0 m/s. Why the others are wrong: A) Area, not radius, determines speed in the continuity equation, and area scales with r². B) An incompressible fluid has a constant volume flow rate, not a constant speed. C) The fluid speeds up in the constriction; the pressure drops there (Bernoulli), not the speed.",
+   "trap": "Using the radius ratio rather than the area ratio in the continuity equation.",
+   "topic": "Continuity equation",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.vedantu.com/physics/derivation-of-continuity-equation"
+    ]
+   }
+  },
+  {
+   "id": "FL05_CP_D4",
+   "stem": "A 12 V battery is connected to a 4.0 Ω resistor in series with a parallel combination of a 6.0 Ω resistor and a 3.0 Ω resistor. What is the current supplied by the battery?",
+   "options": {
+    "A": "1.2 A, since only the 4.0 Ω and 6.0 Ω resistors are counted in the total resistance (10 Ω)",
+    "B": "3.0 A, since only the 4.0 Ω resistor limits the current drawn from the battery",
+    "C": "0.92 A, since the three resistors are treated as though all are connected in series (13 Ω)",
+    "D": "2.0 A, since the parallel pair is equivalent to 2.0 Ω and the total resistance is 6.0 Ω"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) R_parallel = (6.0 × 3.0)/(6.0 + 3.0) = 2.0 Ω; R_total = 4.0 + 2.0 = 6.0 Ω; I = 12/6.0 = 2.0 A. Why the others are wrong: A) The 3.0 Ω resistor also conducts current in parallel, lowering the total resistance. B) All of the resistors contribute; the parallel pair adds 2.0 Ω to the series resistance. C) Parallel resistors combine as reciprocals, so the combination is less than either resistor alone.",
+   "trap": "Adding parallel resistors directly instead of using reciprocals.",
+   "topic": "Series and parallel resistors",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://phys.libretexts.org/Courses/Kettering_University/Electricity_and_Magnetism_with_Applications_to_Amateur_Radio_and_Wireless_Technology/06%3A_Direct-Current_(DC)_Resistor_Circuits/6.04%3A_Resistors_in_Series_and_Parallel"
+    ]
+   }
+  },
+  {
+   "id": "FL05_CP_D5",
+   "stem": "A proton moves at 2.0 × 10⁶ m/s perpendicular to a uniform magnetic field of 0.50 T. What is the magnitude of the magnetic force on it? (e = 1.6 × 10⁻¹⁹ C)",
+   "options": {
+    "A": "8.0 × 10⁻¹⁴ N, from including a factor of one-half as in the kinetic energy expression",
+    "B": "1.6 × 10⁻¹³ N, from F = qvB with the velocity perpendicular to the field",
+    "C": "3.2 × 10⁻¹³ N, from F = qv with the magnetic field strength omitted from the product",
+    "D": "0 N, since a magnetic force can do no work on a moving charged particle and so vanishes"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) F = qvB sin 90° = (1.6 × 10⁻¹⁹)(2.0 × 10⁶)(0.50) = 1.6 × 10⁻¹³ N. Why the others are wrong: A) No factor of one-half appears in the magnetic force formula. C) B must be included; qv alone has the wrong units for a force. D) The magnetic force does no work, but it is not zero; it is maximum when v is perpendicular to B and provides the centripetal force.",
+   "trap": "Thinking that because the magnetic force does no work it must be zero.",
+   "topic": "Magnetic force",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://openstax.org/books/college-physics/pages/22-4-magnetic-field-strength-force-on-a-moving-charge-in-a-magnetic-field"
+    ]
+   }
+  },
+  {
+   "id": "FL05_CP_D6",
+   "stem": "An object is placed 30 cm in front of a thin converging lens of focal length 10 cm. Which describes the image?",
+   "options": {
+    "A": "A virtual, upright image 15 cm from the lens on the object side, half the size of the object",
+    "B": "A real, inverted image 15 cm from the lens, half the size of the object",
+    "C": "A real, inverted image 15 cm from the lens, twice the size of the object",
+    "D": "A real, inverted image 7.5 cm from the lens, one quarter the size of the object"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) 1/i = 1/f − 1/o = 1/10 − 1/30 = 2/30, so i = +15 cm (real, inverted); m = −i/o = −0.5. Why the others are wrong: A) A positive image distance means a real image on the opposite side of the lens, and a negative magnification means inverted. C) The magnification is −i/o = −15/30 = −0.5, so the image is smaller, not larger. D) The image distance from the lens equation is 15 cm, not 7.5 cm, and the size is half, not one quarter.",
+   "trap": "Mixing up image distance, magnification magnitude, and image type.",
+   "topic": "Thin lens equation",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://phys.libretexts.org/Bookshelves/University_Physics/Calculus-Based_Physics_(Schnick)/Volume_B:_Electricity_Magnetism_and_Optics/B29:_Thin_Lenses_-_Lens_Equation_Optical_Power"
+    ]
+   }
+  },
+  {
+   "id": "FL05_CP_D7",
+   "stem": "Radium-226 (atomic number 88) undergoes alpha decay. Which nuclide is produced?",
+   "options": {
+    "A": "Actinium-226, with 89 protons and 137 neutrons",
+    "B": "Radon-222, with 86 protons and 136 neutrons",
+    "C": "Radon-224, with 86 protons and 138 neutrons",
+    "D": "Francium-222, with 87 protons and 135 neutrons"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) An alpha particle (⁴₂He) removes 2 protons and 2 neutrons: ²²⁶₈₈Ra → ²²²₈₆Rn + ⁴₂He. Why the others are wrong: A) Actinium-226 results from beta-minus decay, which raises Z by one at constant mass number. C) The mass number must fall by 4 (to 222), not by 2. D) Francium-222 would result from losing a proton and four nucleons, which does not correspond to alpha emission.",
+   "trap": "Mixing up alpha and beta decay changes in mass number and atomic number.",
+   "topic": "Alpha decay",
+   "mastery_sheet_id": "4E",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_CP_D8",
+   "stem": "Light with photon energy 3.0 eV strikes a metal with work function 2.0 eV. What is the maximum kinetic energy of the ejected electrons?",
+   "options": {
+    "A": "5.0 eV, the sum of the photon energy and the work function",
+    "B": "1.0 eV, the photon energy minus the work function of the metal",
+    "C": "2.0 eV, the work function itself, since it sets the energy of the emitted electron",
+    "D": "3.0 eV, the full photon energy, since the electron absorbs the whole photon"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) KEmax = hf − φ = 3.0 − 2.0 = 1.0 eV (stopping potential 1.0 V). Why the others are wrong: A) The work function is energy spent freeing the electron, so it is subtracted, not added. C) The work function is the minimum energy needed to free an electron, not the kinetic energy it carries. D) Part of the photon energy is used to overcome the work function.",
+   "trap": "Adding the work function instead of subtracting it.",
+   "topic": "Photoelectric effect",
+   "mastery_sheet_id": "4E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.savemyexams.com/as/physics/aqa/16/revision-notes/2-particles-and-radiation/2-4-the-photoelectric-effect/2-4-3-the-photoelectric-equation"
+    ]
+   }
+  },
+  {
+   "id": "FL05_CP_D9",
+   "stem": "What is the expected freezing point of a solution containing 1.0 mol of NaCl in 1.0 kg of water? (K_f for water = 1.86 °C·kg/mol; assume complete dissociation.)",
+   "options": {
+    "A": "−3.7 °C, since each formula unit gives two particles (i = 2)",
+    "B": "−5.6 °C, since each formula unit is treated as giving three particles (i = 3)",
+    "C": "+3.7 °C, since a solute raises the freezing point in the same way that it raises the boiling point",
+    "D": "−1.9 °C, since the solute is treated as a nonelectrolyte that gives one particle (i = 1)"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) ΔT_f = i K_f m = 2(1.86)(1.0) = 3.7 °C, so the freezing point is −3.7 °C. Why the others are wrong: B) NaCl gives two ions, not three. C) A solute lowers the freezing point and raises the boiling point; the freezing point cannot be above 0 °C. D) NaCl dissociates into Na⁺ and Cl⁻, so i = 2, not 1.",
+   "trap": "Ignoring the van't Hoff factor for an electrolyte.",
+   "topic": "Freezing point depression",
+   "mastery_sheet_id": "5A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chem.libretexts.org/Courses/Westfield_State_University/Z_GenChem2_lab/GenChem2_lab_Spring_2023/Freezing_Point_Depression"
+    ]
+   }
+  },
+  {
+   "id": "FL05_CP_D10",
+   "stem": "n-Pentane (bp 36 °C) and neopentane (bp 9.5 °C) are isomers of C₅H₁₂. Which explains the difference in boiling points?",
+   "options": {
+    "A": "n-Pentane is elongated and has more surface contact between molecules, giving stronger London dispersion forces",
+    "B": "Neopentane is compact and spherical, which gives it stronger dipole–dipole attractions than n-pentane",
+    "C": "The two isomers have the same boiling point because they share the same formula and the same molar mass",
+    "D": "Neopentane has a permanent dipole from its branched structure, which raises its boiling point relative to n-pentane"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Both are nonpolar; dispersion forces depend on surface area, which is larger for the linear isomer, so its boiling point is higher. Why the others are wrong: B) Neopentane is nonpolar, and its compact shape reduces the surface contact, so its dispersion forces are weaker, not stronger dipole–dipole forces. C) Isomers share formula and molar mass but can differ in boiling point because of shape-dependent intermolecular forces. D) Neopentane is symmetric and has no net dipole; also, it boils lower.",
+   "trap": "Assuming that branched alkanes are polar or that isomers have the same boiling point.",
+   "topic": "Intermolecular forces",
+   "mastery_sheet_id": "5B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_CP_D11",
+   "stem": "A solution of benzoic acid and naphthalene in diethyl ether is shaken with aqueous sodium hydroxide in a separatory funnel. What is the result?",
+   "options": {
+    "A": "Both compounds divide equally between the layers, since both are aromatic compounds of similar polarity",
+    "B": "Both compounds remain in the ether layer, since sodium hydroxide is insoluble in organic solvents",
+    "C": "Benzoic acid moves into the aqueous layer as sodium benzoate, and naphthalene remains in the ether layer",
+    "D": "Naphthalene moves into the aqueous layer as its sodium salt, and benzoic acid remains in the ether layer"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) NaOH deprotonates the carboxylic acid to give the water-soluble carboxylate; neutral naphthalene stays in the organic layer. Why the others are wrong: A) Benzoate is ionic and strongly prefers the aqueous layer, whereas naphthalene is nonpolar and prefers ether. B) NaOH dissolves in the aqueous layer and reacts at the interface with the acid, which then partitions as the salt. D) Naphthalene has no acidic proton and cannot form a salt with NaOH.",
+   "trap": "Forgetting that acid–base reactions change the solubility of an organic acid.",
+   "topic": "Acid-base extraction",
+   "mastery_sheet_id": "5C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_CP_D12",
+   "stem": "Which product is formed when acetone is treated with methylmagnesium bromide, followed by aqueous acid workup?",
+   "options": {
+    "A": "1-Butanol, a primary alcohol formed by addition of the methyl group to the carbonyl oxygen",
+    "B": "2-Propanol, a secondary alcohol formed by simple reduction of the carbonyl group",
+    "C": "2-Methyl-2-propanol, a tertiary alcohol formed by methyl addition to the carbonyl carbon",
+    "D": "Butanone, a ketone formed by methyl addition followed by oxidation during the workup"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) The carbanion-like methyl group adds to the carbonyl carbon; protonation of the alkoxide gives (CH₃)₃COH. Why the others are wrong: A) Methyl adds to carbon, not oxygen, and 1-butanol has an unbranched chain not produced here. B) Grignard reagents add carbon nucleophiles; they are not hydride reducing agents. D) Acid workup does not oxidize; the product retains the new C–C bond and has a hydroxyl group.",
+   "trap": "Treating a Grignard reagent as a reducing agent instead of a carbon nucleophile.",
+   "topic": "Grignard reaction",
+   "mastery_sheet_id": "5D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_CP_D13",
+   "stem": "Acetic acid is heated with ethanol containing ¹⁸O in its hydroxyl group, in the presence of H₂SO₄. Where does the ¹⁸O end up?",
+   "options": {
+    "A": "In the water, since the alcohol oxygen serves as the leaving group in the substitution",
+    "B": "In the carbonyl oxygen of ethyl acetate, after the label exchanges through the tetrahedral intermediate",
+    "C": "Equally in the water and the ester, since the tetrahedral intermediate is symmetric",
+    "D": "In the ethyl acetate, as the oxygen bonded to both the carbonyl carbon and the ethyl group"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) In Fischer esterification, the alcohol oxygen attacks the protonated carbonyl and stays in the ester; the acid supplies the OH that leaves as water. Why the others are wrong: A) Water is lost from the acid's OH, not from the alcohol's oxygen. B) The ester oxygen remains the alkoxy oxygen; it does not become the carbonyl oxygen. C) The intermediate is not symmetric, because the oxygen that leaves is from the acid and the retained oxygen is from the alcohol.",
+   "trap": "Assuming the alcohol oxygen is lost as water.",
+   "topic": "Esterification",
+   "mastery_sheet_id": "5D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_CP_D14",
+   "stem": "At equilibrium, a mixture of 2 SO₂(g) + O₂(g) ⇌ 2 SO₃(g) contains [SO₂] = 0.10 M, [O₂] = 0.20 M, and [SO₃] = 0.40 M. What is K_c?",
+   "options": {
+    "A": "80, from [SO₃]²/([SO₂]²[O₂])",
+    "B": "20, from [SO₃]/([SO₂][O₂]) with the coefficients ignored in the exponents",
+    "C": "0.0125, from [SO₂]²[O₂]/[SO₃]², the reciprocal of the correct expression",
+    "D": "8.0, from [SO₃]²/([SO₂][O₂]) with the coefficient omitted for SO₂ only"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) K_c = (0.40)²/((0.10)²(0.20)) = 0.16/0.0020 = 80. Why the others are wrong: B) Concentrations must be raised to the power of their coefficients. C) Products go in the numerator and reactants in the denominator. D) SO₂ has coefficient 2, so [SO₂] must be squared.",
+   "trap": "Leaving out the stoichiometric exponents or inverting the expression.",
+   "topic": "Equilibrium constant",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Supplemental_Modules_(Physical_and_Theoretical_Chemistry)/Equilibria/Chemical_Equilibria/Kc"
+    ]
+   }
+  },
+  {
+   "id": "FL05_CP_D15",
+   "stem": "A catalyst is added to a reaction mixture. Which statement describes its effect?",
+   "options": {
+    "A": "It lowers the activation energy and makes the reaction more exothermic, which increases the equilibrium constant",
+    "B": "It lowers ΔG° of the reaction, so that the equilibrium constant increases and more product forms at equilibrium",
+    "C": "It lowers the activation energy of the forward reaction only, which shifts the equilibrium toward the products",
+    "D": "It lowers the activation energy of both the forward and reverse reactions, leaving ΔG° and the equilibrium constant unchanged"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) A catalyst provides a lower-energy pathway for both directions equally, so equilibrium is reached faster but at the same position. Why the others are wrong: A) ΔH and K are state properties of reactants and products and are unaffected by the catalyst. B) ΔG° depends only on the energies of reactants and products, not on the pathway. C) The same lower pathway also speeds up the reverse reaction, so no net shift occurs.",
+   "trap": "Thinking catalysts shift the position of equilibrium.",
+   "topic": "Catalysis",
+   "mastery_sheet_id": "5E",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

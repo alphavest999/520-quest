@@ -1,0 +1,440 @@
+[
+ {
+  "id": "d_5E_1",
+  "type": "discrete",
+  "stem": "A reaction has ΔH = +40 kJ/mol and ΔS = +100 J/mol·K. Above approximately what temperature is the reaction spontaneous?",
+  "options": {
+   "A": "400 K",
+   "B": "40 K",
+   "C": "4000 K",
+   "D": "200 K"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) ΔG = ΔH - TΔS = 0 when T = 40,000 J/mol ÷ 100 J/mol·K = 400 K; above this, TΔS exceeds ΔH so ΔG is negative. Why the others are wrong: B) 40 K comes from failing to convert kJ to J (40/100 = 0.4 scaled wrongly). C) 4000 K is off by a factor of 10 in the division. D) 200 K would result from halving the ratio, with no basis in ΔG = 0.",
+  "trap": "Forgetting that ΔH is in kJ while ΔS is in J, which shifts the answer by a factor of 1000.",
+  "topic": "Gibbs free energy and temperature",
+  "mastery_sheet_id": "5E",
+  "difficulty": "515",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://chem-textbook.ucalgary.ca/?p=11458",
+    "https://en.wikipedia.org/wiki/Entropy_of_fusion"
+   ]
+  }
+ },
+ {
+  "id": "d_5E_2",
+  "type": "discrete",
+  "stem": "A reaction has a large negative ΔG°. Which statement about its equilibrium constant is correct?",
+  "options": {
+   "A": "K is much less than 1, so reactants are favored",
+   "B": "K is much greater than 1, so products are favored at equilibrium",
+   "C": "K equals 1 because ΔG° = 0 at equilibrium",
+   "D": "K cannot be determined without the reaction rate"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) ΔG° = -RT ln K, so a large negative ΔG° gives ln K > 0 and K much greater than 1, favoring products. Why the others are wrong: A) K < 1 corresponds to a positive ΔG°, favoring reactants. C) It is ΔG, not ΔG°, that is zero at equilibrium; K = 1 only when ΔG° = 0, which is not the case here. D) K is a thermodynamic quantity set by ΔG° and is independent of reaction rate.",
+  "trap": "Confusing ΔG = 0 at equilibrium with ΔG° = 0; ΔG° is 0 only when K = 1.",
+  "topic": "Equilibrium constant and standard free energy",
+  "mastery_sheet_id": "5E",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_3",
+  "type": "discrete",
+  "stem": "For a reaction at constant temperature, Q is less than K. Which is true?",
+  "options": {
+   "A": "ΔG is positive and the reaction proceeds in the forward direction",
+   "B": "ΔG is negative and the reaction proceeds in reverse",
+   "C": "ΔG is negative and the reaction proceeds in the forward direction",
+   "D": "ΔG is zero and the system is at equilibrium"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) ΔG = RT ln(Q/K); when Q < K the log is negative, so ΔG < 0 and the reaction proceeds forward, making products until Q = K. Why the others are wrong: A) A positive ΔG would mean Q > K, so no forward drive. B) A negative ΔG means spontaneous forward direction, not reverse. D) ΔG = 0 only when Q = K, which is not the case here.",
+  "trap": "Reversing the Q/K comparison: Q < K means too many reactants, so forward shift.",
+  "topic": "Reaction quotient",
+  "mastery_sheet_id": "5E",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_4",
+  "type": "discrete",
+  "stem": "Adding a catalyst to a reversible reaction will most likely:",
+  "options": {
+   "A": "lower the activation energy only of the forward reaction",
+   "B": "increase K by making ΔG more negative",
+   "C": "increase the enthalpy change of the reaction",
+   "D": "lower the activation energy of both forward and reverse reactions without changing ΔG"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) A catalyst provides a lower-energy pathway for both directions, so equilibrium is reached faster while K and ΔG are unchanged. Why the others are wrong: A) The catalyst lowers Ea for forward and reverse equally, not just forward. B) K depends only on ΔG°, which a catalyst does not alter. C) The enthalpy change is a state-function difference between reactants and products and is unaffected.",
+  "trap": "Thinking a catalyst makes a reaction more spontaneous; it only changes kinetics.",
+  "topic": "Catalysts",
+  "mastery_sheet_id": "5E",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_5",
+  "type": "discrete",
+  "stem": "Doubling the concentration of A quadruples the initial rate of a reaction, while changing [B] has no effect. The rate law is:",
+  "options": {
+   "A": "rate = k[A]^2",
+   "B": "rate = k[A]",
+   "C": "rate = k[A][B]",
+   "D": "rate = k[A]^4"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Rate scales as 2^n = 4, so n = 2 in A, and no dependence on B means zero order in B, giving rate = k[A]^2. Why the others are wrong: B) First order in A would only double the rate. C) Including [B] contradicts the observation that B has no effect. D) The exponent 4 confuses the rate factor with the order; 2^4 would give a 16-fold change.",
+  "trap": "Reporting the rate factor (4) as the order instead of the exponent that gives it.",
+  "topic": "Determining reaction order",
+  "mastery_sheet_id": "5E",
+  "difficulty": "521",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_5E_6",
+  "type": "discrete",
+  "stem": "A first-order decay has k = 0.0231 min^-1 (t1/2 = 30 min). What fraction of the reactant remains after 90 minutes?",
+  "options": {
+   "A": "25%",
+   "B": "12.5%",
+   "C": "33%",
+   "D": "6.25%"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) 90 min is three half-lives (90/30), so the fraction left is (1/2)^3 = 1/8 = 12.5%. Why the others are wrong: A) 25% is the amount left after only two half-lives (60 min). C) 33% has no basis in first-order decay and would imply a linear loss. D) 6.25% is the amount left after four half-lives (120 min).",
+  "trap": "Miscounting half-lives or treating decay as linear.",
+  "topic": "First-order half-life",
+  "mastery_sheet_id": "5E",
+  "difficulty": "526",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://chem.libretexts.org/Courses/Mount_Royal_University/Chem_1202/Unit_4%3A_Chemical_Kinetics/4.5_Half-Lives_and_Radioactive_Decay_Kinetics"
+   ]
+  }
+ },
+ {
+  "id": "d_5E_7",
+  "type": "discrete",
+  "stem": "Why does raising the temperature typically increase a reaction rate constant?",
+  "options": {
+   "A": "The activation energy decreases as temperature rises",
+   "B": "The reaction becomes more exothermic",
+   "C": "A larger fraction of collisions have energy equal to or exceeding the activation energy",
+   "D": "The reactant concentration increases"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Per the Arrhenius equation k = Ae^(-Ea/RT), higher T raises the fraction of collisions with energy at or above Ea, so k increases. Why the others are wrong: A) Ea is a property of the pathway and does not fall with temperature (that is what a catalyst does). B) Temperature does not change the sign or size of ΔH, so the reaction does not become more exothermic. D) Concentration is not changed by heating a fixed sample and does not enter k.",
+  "trap": "Assuming temperature lowers Ea the way a catalyst does.",
+  "topic": "Arrhenius and temperature",
+  "mastery_sheet_id": "5E",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_8",
+  "type": "discrete",
+  "stem": "A→B has ΔH = -100 kJ and B→C has ΔH = +30 kJ. What is ΔH for A→C?",
+  "options": {
+   "A": "-130 kJ",
+   "B": "+70 kJ",
+   "C": "+130 kJ",
+   "D": "-70 kJ"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Enthalpies of sequential steps add: -100 + 30 = -70 kJ. Why the others are wrong: A) -130 kJ subtracts the second step from the first. B) +70 kJ flips the net sign. C) +130 kJ flips the sign and subtracts the steps.",
+  "trap": "Sign errors when summing step enthalpies.",
+  "topic": "Hess's law",
+  "mastery_sheet_id": "5E",
+  "difficulty": "522",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_5E_9",
+  "type": "discrete",
+  "stem": "Which statement about bond energies is correct?",
+  "options": {
+   "A": "Breaking bonds requires energy input, and forming bonds releases energy",
+   "B": "Breaking bonds releases energy",
+   "C": "Forming bonds requires energy input",
+   "D": "Breaking and forming bonds are both exothermic"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Bond breaking is endothermic and bond formation is exothermic, so ΔH ≈ Σ(bonds broken) - Σ(bonds formed). Why the others are wrong: B) Breaking bonds requires energy input; it never releases energy. C) Forming bonds releases energy rather than requiring it. D) Breaking is endothermic, so the two processes cannot both be exothermic.",
+  "trap": "Thinking energy is released when a bond 'breaks', as in ATP hydrolysis folklore.",
+  "topic": "Bond enthalpy",
+  "mastery_sheet_id": "5E",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_10",
+  "type": "discrete",
+  "stem": "Which process has the largest positive ΔS?",
+  "options": {
+   "A": "H2O(g) → H2O(l)",
+   "B": "CaCO3(s) → CaO(s) + CO2(g)",
+   "C": "N2(g) + 3H2(g) → 2NH3(g)",
+   "D": "Ag+(aq) + Cl-(aq) → AgCl(s)"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Decomposing a solid into a solid plus a gas creates gas moles from none, greatly increasing disorder and giving the largest positive ΔS. Why the others are wrong: A) Condensing gas to liquid sharply decreases entropy (negative ΔS). C) Four moles of gas become two, so ΔS is negative. D) Two free aqueous ions combine into a solid precipitate, lowering entropy.",
+  "trap": "Focusing on enthalpy rather than counting moles of gas.",
+  "topic": "Entropy changes",
+  "mastery_sheet_id": "5E",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_11",
+  "type": "discrete",
+  "stem": "How much heat is absorbed by 50 g of water heated from 20 °C to 30 °C? (c = 4.18 J/g·°C)",
+  "options": {
+   "A": "209 J",
+   "B": "4180 J",
+   "C": "2090 J",
+   "D": "1250 J"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) q = mcΔT = 50 g × 4.18 J/g·°C × 10 °C = 2090 J. Why the others are wrong: A) 209 J is off by a factor of 10 (using ΔT = 1 °C). B) 4180 J would correspond to 100 g of water, not 50 g. D) 1250 J has no basis in mcΔT and does not follow from any plausible arithmetic of these values.",
+  "trap": "Multiplying mcΔT with the wrong temperature change or mass, such as using 1 °C instead of 10 °C for ΔT.",
+  "topic": "Calorimetry",
+  "mastery_sheet_id": "5E",
+  "difficulty": "523",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://ocw.uc3m.es/pluginfile.php/2656/mod_page/content/11/exercises_topic_4.pdf"
+   ]
+  }
+ },
+ {
+  "id": "d_5E_12",
+  "type": "discrete",
+  "stem": "A mechanism has a slow first step A + B → C and a fast second step C + B → D. What is the rate law?",
+  "options": {
+   "A": "rate = k[A][B]^2",
+   "B": "rate = k[C][B]",
+   "C": "rate = k[D]",
+   "D": "rate = k[A][B]"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The rate law follows the slow (rate-determining) step, whose reactants are A and B, each first order, so rate = k[A][B]. Why the others are wrong: A) Squaring [B] uses the overall stoichiometry (two B consumed) rather than the slow step. B) C is an intermediate and its step is fast, so it cannot be in the rate law. C) D is the final product and does not influence the rate.",
+  "trap": "Using overall stoichiometry for the rate law rather than the slowest step.",
+  "topic": "Rate-determining step",
+  "mastery_sheet_id": "5E",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_13",
+  "type": "discrete",
+  "stem": "A reaction has ΔG° = +10 kJ/mol but proceeds spontaneously in a cell. Which best explains this?",
+  "options": {
+   "A": "The reaction quotient Q is small enough that ΔG = ΔG° + RT ln Q is negative",
+   "B": "ΔG° determines spontaneity under all conditions",
+   "C": "A catalyst lowered ΔG°",
+   "D": "Entropy of the surroundings always decreases"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Actual conditions set spontaneity through ΔG = ΔG° + RT ln Q; a small Q (for example products continually removed) can make ΔG negative despite a positive ΔG°. Why the others are wrong: B) ΔG° applies only to standard-state conditions, not all conditions. C) Catalysts change kinetics, not ΔG°. D) The surroundings' entropy does not always decrease, and this claim does not explain the cell's behavior.",
+  "trap": "Equating positive ΔG° with nonspontaneity under any conditions.",
+  "topic": "Nonstandard free energy",
+  "mastery_sheet_id": "5E",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_14",
+  "type": "discrete",
+  "stem": "For a zero-order reaction, which statement is correct?",
+  "options": {
+   "A": "Half-life is independent of initial concentration",
+   "B": "A plot of [A] versus time is a straight line with slope -k",
+   "C": "A plot of ln[A] versus time is linear",
+   "D": "The rate doubles when [A] doubles"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) For zero order, rate = k, so [A] = [A]0 - kt, a straight line with slope -k. Why the others are wrong: A) A concentration-independent half-life is a first-order property; zero-order half-life is [A]0/2k. C) A linear ln[A] versus t plot indicates first order. D) Zero order means the rate is independent of [A].",
+  "trap": "Mixing up the linear plots of zero- versus first-order reactions.",
+  "topic": "Zero-order kinetics",
+  "mastery_sheet_id": "5E",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_15",
+  "type": "discrete",
+  "stem": "An exothermic reaction is carried out in an insulated calorimeter. What is observed?",
+  "options": {
+   "A": "The temperature of the surroundings decreases and ΔH is negative",
+   "B": "The temperature increases and ΔH is positive",
+   "C": "The temperature of the surroundings increases and ΔH is negative",
+   "D": "The temperature is unchanged because energy is conserved"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) An exothermic reaction releases heat to the surroundings, raising their temperature, and ΔH < 0. Why the others are wrong: A) Surroundings cooling would indicate an endothermic reaction, though ΔH negative is mismatched with it. B) A temperature rise is correct, but exothermic reactions have negative, not positive, ΔH. D) Energy is conserved but is transferred as heat, so temperature changes.",
+  "trap": "Taking the system's perspective and assuming an exothermic reaction cools, when the surroundings absorb the released heat.",
+  "topic": "Exothermic reactions",
+  "mastery_sheet_id": "5E",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_16",
+  "type": "discrete",
+  "stem": "Hydrolysis of ATP has ΔG = -30.5 kJ/mol. When coupled to a reaction with ΔG = +20 kJ/mol, the net ΔG is:",
+  "options": {
+   "A": "+50.5 kJ/mol",
+   "B": "-50.5 kJ/mol",
+   "C": "+10.5 kJ/mol",
+   "D": "-10.5 kJ/mol"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Free energies are additive: -30.5 + 20 = -10.5 kJ/mol, so the coupled process is spontaneous. Why the others are wrong: A) +50.5 subtracts the ATP term with the wrong sign. B) -50.5 treats the +20 as -20. C) +10.5 gets the net sign wrong, since the larger magnitude is the negative term.",
+  "trap": "Subtracting free energies instead of summing them.",
+  "topic": "Coupled reactions",
+  "mastery_sheet_id": "5E",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.chemistrystudent.com/ap-chemistry/9-thermodynamics-and-electrochemistry/coupled-reactions.html"
+   ]
+  }
+ },
+ {
+  "id": "d_5E_17",
+  "type": "discrete",
+  "stem": "On a reaction coordinate diagram, the transition state is:",
+  "options": {
+   "A": "the highest-energy point along the pathway, which cannot be isolated",
+   "B": "a local energy minimum between steps",
+   "C": "the energy of the products",
+   "D": "the difference between reactants and products"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The transition state is the energy maximum along the reaction coordinate, and it is too short-lived to isolate. Why the others are wrong: B) A local energy minimum between steps is an intermediate, which can sometimes be isolated. C) The energy of the products is the final level on the diagram, not a peak. D) The difference between reactants and products is ΔG (or ΔH), not a species on the pathway.",
+  "trap": "Confusing transition states with reaction intermediates.",
+  "topic": "Reaction coordinate diagrams",
+  "mastery_sheet_id": "5E",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_18",
+  "type": "discrete",
+  "stem": "For an exothermic reaction at equilibrium, increasing temperature will:",
+  "options": {
+   "A": "increase K, shifting toward products",
+   "B": "decrease K, shifting toward reactants",
+   "C": "not change K",
+   "D": "increase K and decrease the rate"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) For an exothermic reaction, heat acts like a product, so raising T shifts equilibrium toward reactants and lowers K (van't Hoff). Why the others are wrong: A) Increased K and a product shift would apply to an endothermic reaction. C) Temperature is the one perturbation that does change K. D) Higher temperature raises, not lowers, rates, and K would not increase here.",
+  "trap": "Assuming higher temperature always favors products.",
+  "topic": "Temperature dependence of K",
+  "mastery_sheet_id": "5E",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_19",
+  "type": "discrete",
+  "stem": "A reaction is second order overall. What are the units of its rate constant?",
+  "options": {
+   "A": "s^-1",
+   "B": "M s^-1",
+   "C": "M^-1 s^-1",
+   "D": "M^-2 s^-1"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Rate (M/s) = k[M]^2 requires k to have units of M^-1 s^-1. Why the others are wrong: A) s^-1 is the unit for a first-order constant. B) M s^-1 is the unit for zero order. D) M^-2 s^-1 is the unit for third order.",
+  "trap": "Memorizing units without deriving from rate = k[conc]^n.",
+  "topic": "Rate constant units",
+  "mastery_sheet_id": "5E",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_20",
+  "type": "discrete",
+  "stem": "A reaction with negative ΔH and negative ΔS is:",
+  "options": {
+   "A": "spontaneous at all temperatures",
+   "B": "spontaneous at high temperature only",
+   "C": "nonspontaneous at all temperatures",
+   "D": "spontaneous at low temperature only"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) ΔG = ΔH - TΔS; with both negative, the negative ΔH dominates at low T (ΔG < 0) but -TΔS turns positive at high T. Why the others are wrong: A) Spontaneity at all temperatures needs negative ΔH and positive ΔS. B) High-temperature-only spontaneity needs positive ΔH and positive ΔS. C) Nonspontaneity at all temperatures needs positive ΔH and negative ΔS.",
+  "trap": "Mixing up which sign combinations give temperature-dependent spontaneity.",
+  "topic": "Spontaneity and signs",
+  "mastery_sheet_id": "5E",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_5E_21",
+  "type": "discrete",
+  "stem": "At its melting point, a solid has ΔHfus = 6.0 kJ/mol at 273 K. What is ΔS of fusion?",
+  "options": {
+   "A": "about 22 J/mol·K",
+   "B": "about 22 kJ/mol·K",
+   "C": "about 0.022 J/mol·K",
+   "D": "about 1640 J/mol·K"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) At the melting point ΔG = 0, so ΔS = ΔH/T = 6000 J/mol ÷ 273 K ≈ 22 J/mol·K. Why the others are wrong: B) 22 kJ/mol·K is a unit error by a factor of 1000. C) 0.022 J/mol·K comes from dividing 6.0 (kJ) by 273 without converting to J. D) 1640 J/mol·K comes from multiplying 6.0 kJ by T instead of dividing.",
+  "trap": "Unit mistakes (kJ vs J) or multiplying by T.",
+  "topic": "Entropy of phase change",
+  "mastery_sheet_id": "5E",
+  "difficulty": "517",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Entropy_of_fusion"
+   ]
+  }
+ }
+]

@@ -1,0 +1,88 @@
+{
+  "passage_id": "bp1473",
+  "passage": "The Petrov group compared two receptor proteins, A and B, that bind a cofactor mimic with different affinities. Purified protein was held at 1 nM, a concentration far below either dissociation constant, so that the free ligand concentration was approximately equal to the total added. Ligand was titrated over a wide range, and the fraction of protein with bound ligand was measured by fluorescence anisotropy after each addition reached equilibrium. Each binding curve was hyperbolic and showed no evidence of cooperativity. The researchers intend to use the receptor with the tighter binding as a biosensor, and they want to know what ligand concentration would be required to saturate it at 80% occupancy. All measurements were made at 25 °C in identical buffer. Protein stocks were centrifuged before use to remove aggregates, and ligand stocks were verified by absorbance. All procedures followed the laboratory's standard operating protocols, and raw data were archived before analysis.",
+  "table": "Table 1. Equilibrium binding\n\n| [Ligand] (nM) | Fraction bound, A | Fraction bound, B |\n|---|---|---|\n| 5 | 0.33 | 0.09 |\n| 10 | 0.5 | 0.17 |\n| 20 | 0.67 | 0.29 |\n| 50 | 0.83 | 0.5 |\n| 100 | 0.91 | 0.67 |\n| 200 | 0.95 | 0.8 |\n| 500 | 0.98 | 0.91 |",
+  "questions": [
+    {
+      "stem": "At [ligand] = 100 nM, what is the fraction of protein A bound?",
+      "options": {
+        "A": "0.91",
+        "B": "0.67",
+        "C": "0.83",
+        "D": "0.95"
+      },
+      "correct": "A",
+      "explanation": "Fraction bound = [L]/(Kd + [L]) = 100/(10+100) = 0.91. The B column gives 0.67.",
+      "topic": "Ligand binding: data interpretation",
+      "trap": "Reading the protein B column (0.67 at 100 nM) or the 50 nM row (0.83) instead of protein A at 100 nM, which is 100/(10 + 100) = 0.91.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1473-1"
+    },
+    {
+      "stem": "Why was protein held far below the Kd?",
+      "options": {
+        "A": "So that cooperativity can be detected",
+        "B": "So that the protein is certain to be fully saturated",
+        "C": "So that Kd equals the protein concentration",
+        "D": "So that ligand depletion by binding is negligible and free ligand ≈ total ligand"
+      },
+      "correct": "D",
+      "explanation": "If protein were comparable to Kd, binding would deplete free ligand and distort the fit to the simple hyperbola.",
+      "topic": "Binding assays: experimental design",
+      "trap": "Thinking low protein is used to reveal cooperativity or to saturate the protein; it keeps ligand depletion negligible so free ligand is approximately total ligand.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1473-2"
+    },
+    {
+      "stem": "What ligand concentration is needed for 80% occupancy of the higher-affinity protein (Kd = 10 nM)?",
+      "options": {
+        "A": "40 nM",
+        "B": "10 nM",
+        "C": "80 nM",
+        "D": "20 nM"
+      },
+      "correct": "A",
+      "explanation": "θ = L/(Kd+L) = 0.8 ⇒ L = 4Kd = 40 nM.",
+      "topic": "Ligand binding: occupancy calculation",
+      "trap": "Using L = Kd (10 nM), which gives only 50% occupancy, or equating 80% with 80 nM; 80% occupancy needs L = 4 x Kd = 40 nM.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1473-3"
+    },
+    {
+      "stem": "Which statement is INCORRECT?",
+      "options": {
+        "A": "Kd equals the ligand concentration at half-saturation",
+        "B": "A lower Kd means lower affinity",
+        "C": "A hyperbolic curve is consistent with noncooperative binding",
+        "D": "Protein A binds the ligand with higher affinity than protein B"
+      },
+      "correct": "B",
+      "explanation": "Kd is inversely related to affinity: a smaller Kd means tighter binding.",
+      "topic": "Ligand binding: trap on Kd",
+      "trap": "Reading a lower Kd as lower affinity; Kd is a dissociation constant, so a smaller Kd means tighter binding.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1473-4"
+    },
+    {
+      "stem": "Which protein behavior differs from these hyperbolic curves?",
+      "options": {
+        "A": "A simple Michaelis–Menten saturation curve",
+        "B": "Myoglobin's hyperbolic oxygen binding",
+        "C": "Hemoglobin's sigmoidal oxygen binding due to cooperativity",
+        "D": "Binding of a single ligand to one site on a monomeric protein"
+      },
+      "correct": "C",
+      "explanation": "Hemoglobin binds O₂ cooperatively (Hill coefficient > 1), giving a sigmoidal curve, while myoglobin is hyperbolic like proteins A and B.",
+      "topic": "Protein function: cooperativity link",
+      "trap": "Choosing myoglobin or simple Michaelis-Menten saturation, which are hyperbolic like proteins A and B; only cooperative hemoglobin binding is sigmoidal.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1473-5"
+    }
+  ],
+  "accuracy_verified": true
+}

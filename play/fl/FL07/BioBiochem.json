@@ -1,0 +1,1530 @@
+{
+ "exam": "FL07",
+ "section": "BB",
+ "passages": [
+  {
+   "passage_id": "FL07_BB_P1",
+   "passage_text": "Allosteric enzymes often show sigmoidal rather than hyperbolic saturation kinetics. A researcher purified a hexameric enzyme (E) that catalyzes the first committed step in the synthesis of amino acid Z. Initial velocities were measured at a fixed enzyme concentration across a range of substrate concentrations under three conditions: no effector, 2 mM Z (the pathway end product), and 1 mM compound M, a substrate analog that binds a regulatory site distinct from the active site. Results are shown in Table 1 and Figure 1. Extrapolated maximal velocity was 100 umol/min in every condition. Without effectors, the Hill coefficient was 2.5. With compound M present, the curve became hyperbolic with a Hill coefficient of 1.0. Structural studies indicated that Z stabilizes the low-affinity tense (T) conformation of the hexamer, whereas compound M stabilizes the high-affinity relaxed (R) conformation. The researcher concluded that E is regulated by feedback from the pathway product.",
+   "table_data": "Table 1. Initial velocity (umol/min) of enzyme E\n\n| [S] (mM) | No effector | + 2 mM Z | + 1 mM compound M |\n|---|---|---|---|\n| 0.5 | 0.5 | 0.1 | 25.0 |\n| 1 | 3.0 | 0.3 | 40.0 |\n| 2 | 15.0 | 1.8 | 57.1 |\n| 4 | 50.0 | 9.2 | 72.7 |\n| 8 | 85.0 | 36.4 | 84.2 |\n| 16 | 97.0 | 76.4 | 91.4 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Velocity of enzyme E versus substrate concentration",
+    "x_label": "[S] (mM)",
+    "y_label": "Initial velocity (umol/min)",
+    "series": [
+     {
+      "name": "No effector",
+      "points": [
+       [
+        0.5,
+        0.5
+       ],
+       [
+        1,
+        3.0
+       ],
+       [
+        2,
+        15.0
+       ],
+       [
+        4,
+        50.0
+       ],
+       [
+        8,
+        85.0
+       ],
+       [
+        16,
+        97.0
+       ]
+      ]
+     },
+     {
+      "name": "+ Z",
+      "points": [
+       [
+        0.5,
+        0.1
+       ],
+       [
+        1,
+        0.3
+       ],
+       [
+        2,
+        1.8
+       ],
+       [
+        4,
+        9.2
+       ],
+       [
+        8,
+        36.4
+       ],
+       [
+        16,
+        76.4
+       ]
+      ]
+     },
+     {
+      "name": "+ compound M",
+      "points": [
+       [
+        0.5,
+        25.0
+       ],
+       [
+        1,
+        40.0
+       ],
+       [
+        2,
+        57.1
+       ],
+       [
+        4,
+        72.7
+       ],
+       [
+        8,
+        84.2
+       ],
+       [
+        16,
+        91.4
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL07_BB_P1_Q1",
+     "stem": "Which statement best describes how Z affects enzyme E?",
+     "options": {
+      "A": "It raises the substrate concentration needed for half-maximal velocity without changing the maximal velocity.",
+      "B": "It lowers the maximal velocity of the enzyme while leaving the substrate concentration for half-maximal velocity unchanged.",
+      "C": "It converts the sigmoidal curve into a hyperbolic one by stabilizing the high-affinity relaxed conformation of the hexamer.",
+      "D": "It competes with substrate at the active site, so its effect is fully overcome by saturating substrate and cooperativity is lost."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Table 1 shows velocity at 8 mM falling from 85 to 36 umol/min while the extrapolated maximum stays 100 umol/min, so the apparent K0.5 rises (a K-type effect). Why the others are wrong: B) Vmax was the same in every condition, and the half-maximal point clearly shifted. C) That describes compound M; Z stabilizes the T state and keeps the curve sigmoidal. D) Z binds a separate regulatory site, and cooperativity is retained; the lower velocity at 16 mM reflects the shifted K0.5, not a lower Vmax.",
+     "trap": "Mistaking a rightward shift of the curve for a drop in Vmax, because the curve looks lower at intermediate [S].",
+     "topic": "Allosteric inhibition changes K0.5",
+     "mastery_sheet_id": "1A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P1_Q2",
+     "stem": "In the absence of any effector, what is the velocity at a substrate concentration of 4 mM?",
+     "options": {
+      "A": "50 umol/min",
+      "B": "25 umol/min",
+      "C": "75 umol/min",
+      "D": "85 umol/min"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) With a Hill coefficient of 2.5 and K0.5 = 4 mM, v = Vmax x [S]^n/(K^n + [S]^n); when [S] = K0.5 the velocity is exactly half of Vmax, 50 umol/min (Table 1). Why the others are wrong: B) This would be the velocity at one quarter of Vmax, well below the [S] equal to K0.5. C) This would occur at an [S] above 4 mM (about 6 mM for this curve). D) This is the velocity at 8 mM, not 4 mM.",
+     "trap": "Reading the next row of the table or assuming Michaelis-Menten hyperbolic behavior.",
+     "topic": "Half-maximal velocity at K0.5",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_BB_P1_Q3",
+     "stem": "Which feature of enzyme E best explains the sigmoidal curve observed without effectors?",
+     "options": {
+      "A": "Substrate binding at the active site covalently modifies the enzyme and permanently increases its turnover number.",
+      "B": "Each subunit of the hexamer binds substrate independently, with identical affinity regardless of the occupancy of other sites.",
+      "C": "Substrate binding to one subunit shifts neighboring subunits toward the high-affinity R conformation.",
+      "D": "The product Z is formed during the assay and progressively inhibits the enzyme as substrate concentration is raised."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Positive cooperativity among subunits makes affinity rise as sites fill, producing a sigmoidal curve with n > 1. Why the others are wrong: A) Allosteric cooperativity is reversible and conformational, not a permanent covalent change. B) Independent identical sites would give a hyperbolic curve with n = 1, as seen with compound M. D) No Z was present in the no-effector condition, and product inhibition would not generate cooperativity.",
+     "trap": "Choosing independent binding because the enzyme has several subunits, ignoring communication between them.",
+     "topic": "Cooperativity and the sigmoidal curve",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P1_Q4",
+     "stem": "At a substrate concentration of 2 mM, approximately how many times greater is the velocity with compound M than with no effector?",
+     "options": {
+      "A": "About 1.5-fold",
+      "B": "About 2.5-fold",
+      "C": "About 8-fold",
+      "D": "About 4-fold"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Table 1 gives 57.1 umol/min with compound M and 15.0 umol/min with no effector: 57.1/15.0 is about 3.8, or roughly 4-fold. Why the others are wrong: A) This would be the ratio if the curves differed little at low [S], but they differ substantially there. B) This misreads one of the table entries; the ratio of 57.1 to 15.0 is higher. C) This overstates the ratio; 8 is not supported by the two table values.",
+     "trap": "Comparing the ratio at saturating [S], where curves converge, instead of at 2 mM.",
+     "topic": "Fold activation by an allosteric activator",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_BB_P1_Q5",
+     "stem": "Why is inhibition of E by Z advantageous to the cell?",
+     "options": {
+      "A": "It ensures the pathway runs fastest when Z is already abundant, to build a reserve of the end product.",
+      "B": "It lowers flux through the pathway when Z is abundant, saving substrate and energy for other uses.",
+      "C": "It permanently inactivates enzyme E so that the cell no longer needs to express the gene encoding it.",
+      "D": "It raises the Vmax of E so that the intermediates of the pathway cannot accumulate when Z levels are high."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Feedback inhibition of the committed step matches synthesis to demand for Z. Why the others are wrong: A) This is the opposite of feedback inhibition; abundant Z reduces enzyme activity. C) Allosteric inhibition is reversible, and the enzyme resumes activity when Z falls. D) Z did not alter Vmax; it shifted K0.5.",
+     "trap": "Assuming regulation by an end product must increase activity to keep supply high.",
+     "topic": "Feedback inhibition",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_BB_P2",
+   "passage_text": "Many antibiotics selectively target bacterial protein synthesis. A researcher used a cell-free E. coli translation system programmed with an mRNA encoding firefly luciferase and containing a Shine-Dalgarno sequence upstream of the start codon. Four reactions were run for 30 minutes, each containing one test compound at 50 uM: puromycin, chloramphenicol, tetracycline, and Drug D, an experimental compound. Luciferase activity was measured as a readout of full-length protein. Formation of 70S initiation complexes, containing fMet-tRNA in the P site, was measured by a primer-extension inhibition (toeprint) assay. Short peptides that were released from ribosomes were collected on filters after the reactions were labeled with [35S]-methionine. All values are expressed relative to the no-drug control in Table 1. The researcher also noted that the translation system contains no 5' cap-binding factors, and that charged initiator tRNA was supplied in all reactions. Each reaction contained identical amounts of ribosomes, initiation factors, elongation factors, GTP, and an energy-regenerating system, so differences between reactions reflect only the added compound. Reactions were performed in duplicate and the means are shown.",
+   "table_data": "Table 1. Effects of test compounds on in vitro translation (% of no-drug control)\n\n| Compound | Luciferase activity | 70S initiation complex | Released labeled short peptides |\n|---|---|---|---|\n| None | 100 | 100 | 5 |\n| Puromycin | 3 | 95 | 100 |\n| Chloramphenicol | 6 | 98 | 4 |\n| Tetracycline | 5 | 97 | 4 |\n| Drug D | 4 | 10 | 2 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL07_BB_P2_Q1",
+     "stem": "Which compound most likely acts by preventing assembly of the 70S initiation complex?",
+     "options": {
+      "A": "Puromycin, because luciferase activity fell to 3% of control.",
+      "B": "Drug D, because it is the only compound that sharply reduced the initiation complex signal.",
+      "C": "Chloramphenicol, because it produced only 4% of the short peptide signal.",
+      "D": "Tetracycline, because it is the only compound that left short peptide release at control levels."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Only Drug D reduced the toeprint signal to 10%, while the other three allowed initiation complexes to form (95-98%). Why the others are wrong: A) Luciferase activity fell with every compound; initiation complexes were still 95% with puromycin. C) Its initiation complex level of 98% shows initiation proceeded normally and a later step was blocked. D) Its short peptide level was 4%, not elevated, and initiation complexes formed normally.",
+     "trap": "Choosing any compound with low luciferase activity, which cannot distinguish initiation from elongation blocks.",
+     "topic": "Antibiotics and translation initiation",
+     "mastery_sheet_id": "1B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P2_Q2",
+     "stem": "The large increase in released short labeled peptides with puromycin is best explained by which property?",
+     "options": {
+      "A": "It blocks the peptidyl transferase center so that peptide bonds cannot form, trapping the nascent chain on the ribosome.",
+      "B": "It resembles the 3' end of an aminoacyl-tRNA and accepts the nascent chain, causing premature termination.",
+      "C": "It binds the 30S subunit and prevents aminoacyl-tRNA from entering the A site, leaving fMet-tRNA in the P site.",
+      "D": "It inhibits release factors, so that completed chains remain attached to the tRNA at the stop codon of the mRNA."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Puromycin enters the A site, the peptidyl transferase links the growing chain to it, and the peptidyl-puromycin dissociates. Why the others are wrong: A) This describes chloramphenicol, which did not increase released peptides. C) This describes tetracycline, which did not release short peptides. D) Release factors act at stop codons on full-length chains, not at short, truncated products.",
+     "trap": "Confusing premature chain release with inhibition of peptide bond formation.",
+     "topic": "Puromycin mechanism",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P2_Q3",
+     "stem": "Which mutation in the luciferase mRNA would most likely abolish translation in this cell-free system?",
+     "options": {
+      "A": "A deletion of the Shine-Dalgarno sequence that normally base pairs with 16S rRNA of the 30S subunit",
+      "B": "Loss of a 5' 7-methylguanosine cap, which normally recruits the 30S subunit through eIF4E before scanning to the start codon",
+      "C": "Addition of a poly(A) tail, which normally pairs with 23S rRNA to stabilize the 50S subunit on the transcript",
+      "D": "Replacement of the AUG start codon with a second AUG, which would shift the position of initiation by a few codons"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Initiation in bacteria depends on pairing between the Shine-Dalgarno sequence and 16S rRNA to position the start codon in the P site. Why the others are wrong: B) The system lacks cap-binding factors; the cap is a eukaryotic feature, so its absence would not matter. C) Bacterial translation does not need a poly(A) tail, and 23S rRNA does not pair with it. D) Another AUG would simply move the start site or leave translation of the downstream gene intact.",
+     "trap": "Applying eukaryotic initiation features (cap, scanning) to a bacterial system.",
+     "topic": "Bacterial translation initiation signals",
+     "mastery_sheet_id": "1B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P2_Q4",
+     "stem": "Chloramphenicol allows initiation complex formation but blocks luciferase synthesis. At which step does it most likely act?",
+     "options": {
+      "A": "Peptide bond formation by the 23S rRNA peptidyl transferase center in the large subunit",
+      "B": "Joining of the 50S subunit to the 30S initiation complex, which is mediated by hydrolysis of GTP by IF2",
+      "C": "Binding of fMet-tRNA to the 30S subunit, which requires IF3 to prevent premature association of the subunits",
+      "D": "Recognition of the stop codon by release factors, which hydrolyze the bond joining the peptide to the tRNA"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The initiation complex (98%) formed, but no elongation occurred, consistent with inhibition of peptide bond formation on the 50S subunit. Why the others are wrong: B) Joining occurred, as indicated by 98% initiation complexes. C) The toeprint assay shows fMet-tRNA positioned normally. D) Luciferase never reached a stop codon; synthesis was blocked much earlier.",
+     "trap": "Assuming that blocked protein synthesis always means blocked initiation.",
+     "topic": "Elongation inhibitors",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_BB_P3",
+   "passage_text": "A heteroplasmic point mutation in the mitochondrial tRNA-Leu(UUR) gene, similar to variants that cause MELAS syndrome, was identified in a family. Clinical status and the percentage of mutant mitochondrial DNA (mtDNA) in blood were determined for each member. The pedigree contained the following people. I-1 is an unaffected man and I-2 is his affected wife. Their children are II-1 (a daughter), II-2 (a son), and II-3 (a daughter). II-1 has two children, III-1 and III-2. II-2 has a son, III-3, and a daughter, III-4. Affected individuals show lactic acidosis, stroke-like episodes, and muscle weakness. Table 1 lists clinical status and blood heteroplasmy. Muscle biopsies in affected individuals showed ragged-red fibers and reduced activity of respiratory chain complex I. No pathogenic mutation was found in the nuclear genes that encode complex I subunits. The researchers noted that mutant fraction in tissues other than blood was not measured, so blood values may not exactly reflect tissue burden.",
+   "table_data": "Table 1. Clinical status and blood mutant mtDNA\n\n| Individual | Sex | Mutant mtDNA (%) | Status |\n|---|---|---|---|\n| I-1 | M | 0 | Unaffected |\n| I-2 | F | 85 | Affected |\n| II-1 | F | 60 | Mildly affected |\n| II-2 | M | 70 | Affected |\n| II-3 | F | 5 | Unaffected |\n| III-1 | F | 80 | Affected |\n| III-2 | M | 30 | Unaffected |\n| III-3 | M | 0 | Unaffected |\n| III-4 | F | 0 | Unaffected |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL07_BB_P3_Q1",
+     "stem": "Why do the children of affected male II-2 (III-3 and III-4) carry no mutant mtDNA?",
+     "options": {
+      "A": "The mutation is recessive, and III-3 and III-4 inherited a normal copy of the allele from their unaffected mother.",
+      "B": "The mutation is carried on the Y chromosome, so only sons could inherit it, and III-3 has 0% mutant mtDNA.",
+      "C": "Meiotic recombination in II-2 separated the mutation from the mtDNA that was packaged into the sperm during spermatogenesis.",
+      "D": "Sperm mitochondria are typically eliminated or diluted, so offspring inherit mtDNA essentially from the mother."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Paternal mitochondria in the zygote are degraded or too few to matter, so mtDNA transmission is maternal. Why the others are wrong: A) mtDNA is not inherited in a Mendelian recessive fashion with two alleles from two parents. B) A Y-linked trait would pass to all sons, and mtDNA is not on the Y chromosome. C) Recombination of mtDNA does not occur in meiosis; mtDNA is not packaged with the nuclear chromosomes.",
+     "trap": "Treating mtDNA like an autosomal recessive gene because the unaffected mother appears to 'rescue' the children.",
+     "topic": "Maternal inheritance of mtDNA",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P3_Q2",
+     "stem": "Based on Table 1, the threshold level of mutant mtDNA required for symptoms most likely lies between",
+     "options": {
+      "A": "30% and 60%",
+      "B": "5% and 30%",
+      "C": "60% and 70%",
+      "D": "70% and 85%"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The highest unaffected value is 30% (III-2) and the lowest affected value is 60% (II-1, mildly), so the threshold lies in this interval. Why the others are wrong: B) III-2 at 30% is unaffected, so the threshold must be above 30%. C) II-1 at 60% is already affected, so the threshold must be at or below 60%. D) Individuals with 60% and 70% are affected, so symptoms appear well below this range.",
+     "trap": "Using the average heteroplasmy of affected people instead of the boundary between affected and unaffected.",
+     "topic": "Threshold effect in heteroplasmy",
+     "mastery_sheet_id": "1C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P3_Q3",
+     "stem": "II-1, II-2, and II-3 have the same mother but very different mutant mtDNA percentages. This variation is best explained by",
+     "options": {
+      "A": "independent assortment of the maternal chromosomes during meiosis I, which separates mutant from normal mitochondria",
+      "B": "crossing over between maternal and paternal mtDNA in the zygote, which produces a different mix in each child",
+      "C": "somatic mutation of nuclear DNA in each child during development, which differs among siblings at random",
+      "D": "random segregation of mtDNA molecules into oocytes through a genetic bottleneck during oogenesis"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Few mtDNA copies populate each developing oocyte, so the mutant fraction drifts widely between siblings. Why the others are wrong: A) mtDNA is not on nuclear chromosomes and does not independently assort. B) Paternal mtDNA is essentially absent, so there is no meaningful recombination with it. C) The percentages reflect the inherited mtDNA mix, and no nuclear mutations were found.",
+     "trap": "Invoking meiotic independent assortment for a genome that is not on chromosomes.",
+     "topic": "Replicative segregation and bottleneck",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P3_Q4",
+     "stem": "Which observation in the pedigree argues most strongly against X-linked dominant inheritance?",
+     "options": {
+      "A": "Affected male II-2 has an unaffected daughter, III-4, but an X-linked dominant father would pass the allele to all daughters.",
+      "B": "Affected female I-2 has an unaffected daughter, II-3, whereas X-linked dominance requires all daughters of an affected mother to be affected.",
+      "C": "Unaffected male III-2 has an affected mother, which cannot occur in X-linked dominant inheritance.",
+      "D": "Affected female III-1 has an affected mother, which is only possible if the trait is autosomal dominant."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) An X-linked dominant affected father transmits his X to every daughter, so unaffected III-4 is inconsistent. Why the others are wrong: B) An affected heterozygous mother transmits the allele to about half of her children, so II-3 is not inconsistent. C) An affected heterozygous mother can have unaffected sons. D) An affected daughter of an affected mother fits X-linked dominant inheritance.",
+     "trap": "Using affected mothers with unaffected children as evidence, though that fits many modes of inheritance.",
+     "topic": "Pedigree analysis",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_BB_P4",
+   "passage_text": "Gluconeogenesis in the liver converts lactate released from exercising muscle into glucose (the Cori cycle). Isolated rat hepatocytes were incubated for 30 minutes with 10 mM lactate unless otherwise noted, and glucose released into the medium was measured (Table 1). Conditions were: glucagon (100 nM), insulin (10 nM), ethanol (20 mM), and 3-mercaptopicolinate (MPA), a selective inhibitor of phosphoenolpyruvate carboxykinase (PEPCK). In two additional incubations, 10 mM glycerol replaced lactate as the substrate, with or without MPA. Ethanol is oxidized in hepatocytes by alcohol dehydrogenase, which converts NAD+ to NADH. Glycerol is phosphorylated by glycerol kinase and then oxidized to dihydroxyacetone phosphate. The investigators also noted that hepatocytes express glucose-6-phosphatase but that skeletal muscle cells, used in a separate comparison, release no glucose under any of these conditions. Hepatocyte viability, assessed by trypan blue exclusion, exceeded 95% in all conditions, and cell number per dish was equal, so the differences reflect metabolic effects rather than cell loss. Each value is the mean of three independent preparations from different animals.",
+   "table_data": "Table 1. Glucose production by hepatocytes\n\n| Condition | Glucose released (nmol/min/mg protein) |\n|---|---|\n| Lactate (control) | 100 |\n| Lactate + glucagon | 165 |\n| Lactate + insulin | 40 |\n| Lactate + ethanol | 35 |\n| Lactate + MPA | 12 |\n| Glycerol | 180 |\n| Glycerol + MPA | 175 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL07_BB_P4_Q1",
+     "stem": "Ethanol decreased glucose production from lactate most likely because it",
+     "options": {
+      "A": "raises the NADH/NAD+ ratio, which shifts the lactate dehydrogenase reaction away from pyruvate formation",
+      "B": "inhibits PEPCK directly, as 3-mercaptopicolinate does, so oxaloacetate cannot be converted to phosphoenolpyruvate",
+      "C": "lowers the NADH/NAD+ ratio, which activates pyruvate dehydrogenase and diverts pyruvate into the citric acid cycle",
+      "D": "activates glucagon signaling, which phosphorylates pyruvate kinase and shuts down the formation of fructose-1,6-bisphosphate"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Converting lactate to pyruvate needs NAD+; excess NADH slows it and limits pyruvate for gluconeogenesis. Why the others are wrong: B) If ethanol acted like MPA, glycerol-derived glucose would also be unaffected and the mechanisms differ; ethanol acts through redox state. C) Ethanol oxidation raises, not lowers, NADH, and PDH is not the explanation. D) Glucagon increased glucose output; ethanol does not mimic it, and pyruvate kinase is a glycolytic enzyme.",
+     "trap": "Overlooking the redox consequence of alcohol metabolism and assuming a direct enzyme inhibitor.",
+     "topic": "Lactate metabolism and redox",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P4_Q2",
+     "stem": "Glucagon increases hepatic gluconeogenesis in part by",
+     "options": {
+      "A": "raising fructose-2,6-bisphosphate through insulin-dependent dephosphorylation of the bifunctional enzyme PFK-2/FBPase-2",
+      "B": "activating glucokinase through cAMP so that glucose is trapped within the hepatocyte as glucose-6-phosphate",
+      "C": "lowering fructose-2,6-bisphosphate through cAMP-dependent phosphorylation of the bifunctional enzyme PFK-2/FBPase-2",
+      "D": "inhibiting glucose-6-phosphatase through protein kinase A so that glucose-6-phosphate accumulates in the endoplasmic reticulum"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Lower F2,6BP relieves activation of PFK-1 and inhibition of FBPase-1, favoring glucose synthesis. Why the others are wrong: A) Insulin, not glucagon, favors that direction and the effect is on glycolysis. B) That would reduce glucose release; glucagon decreases glucose phosphorylation. D) Inhibiting glucose-6-phosphatase would decrease output of free glucose, opposite to the observation.",
+     "trap": "Reversing the effects of glucagon and insulin on fructose-2,6-bisphosphate.",
+     "topic": "Hormonal regulation of gluconeogenesis",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P4_Q3",
+     "stem": "Why did MPA drastically reduce glucose production from lactate but not from glycerol?",
+     "options": {
+      "A": "Glycerol is converted to pyruvate by glycerol kinase and then to oxaloacetate by pyruvate carboxylase, bypassing PEPCK.",
+      "B": "Glycerol activates PEPCK allosterically, which overcomes the inhibition produced by MPA at the 10 mM concentration used.",
+      "C": "Glycerol enters gluconeogenesis as dihydroxyacetone phosphate, downstream of the PEPCK step.",
+      "D": "Glycerol is converted to glucose by glucokinase in a single step, which does not depend on any gluconeogenic enzyme."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Lactate must pass pyruvate, oxaloacetate and PEP, but glycerol feeds into the pathway below PEPCK. Why the others are wrong: A) That route would still require PEPCK; glycerol does not follow it. B) Competition by glycerol at PEPCK is not supported; the rate is just not dependent on PEPCK. D) Glucokinase phosphorylates glucose and cannot form glucose from glycerol.",
+     "trap": "Assuming all gluconeogenic substrates must pass through every enzyme of the pathway.",
+     "topic": "Entry points of gluconeogenesis",
+     "mastery_sheet_id": "1D",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P4_Q4",
+     "stem": "How many high-energy phosphate bonds (ATP plus GTP) are consumed to synthesize 3 molecules of glucose from lactate?",
+     "options": {
+      "A": "6",
+      "B": "18",
+      "C": "12",
+      "D": "24"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Each glucose from 2 pyruvate costs 4 ATP and 2 GTP (6 total); 3 glucose cost 18. Why the others are wrong: A) This is the cost for one glucose, not three. C) This counts 4 per glucose and omits the 2 GTP used by PEPCK. D) This would double count by using 8 per glucose.",
+     "trap": "Computing the cost for one glucose or leaving out the GTP-dependent PEPCK step.",
+     "topic": "ATP cost of gluconeogenesis",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://chem.libretexts.org/Courses/Fullerton_College/Introductory_Biochemistry/14%3A_Carbohydrate_Metabolism/14.01%3A_Energy_Metabolism/14.1.12%3A_Energy_Efficiency"
+      ]
+     }
+    },
+    {
+     "id": "FL07_BB_P4_Q5",
+     "stem": "Skeletal muscle cannot contribute free glucose to the blood from lactate because muscle",
+     "options": {
+      "A": "lacks lactate dehydrogenase, so that pyruvate cannot be formed from lactate in the cytosol",
+      "B": "lacks hexokinase, so that glucose cannot be phosphorylated after uptake from the blood",
+      "C": "lacks glucose-6-phosphatase, so glucose-6-phosphate cannot be dephosphorylated and exported",
+      "D": "lacks GLUT4 transporters, which must be present for any glucose to be taken up into cells after meals"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Free glucose can leave a cell only after glucose-6-phosphatase acts, and this enzyme is mainly in liver and kidney. Why the others are wrong: A) Muscle has abundant lactate dehydrogenase. B) Muscle has hexokinase and takes up glucose. D) Muscle expresses GLUT4, and the question concerns export, not uptake.",
+     "trap": "Confusing uptake with release of glucose and blaming a glycolytic enzyme.",
+     "topic": "Cori cycle",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_BB_P5",
+   "passage_text": "To follow the secretory pathway, cultured pancreatic acinar cells were pulse-labeled for 5 minutes with [35S]-methionine and then chased with excess unlabeled methionine. At each time point, cells were fractionated, and the percentage of total labeled secretory protein (digestive enzyme precursor) found in the endoplasmic reticulum (ER), the Golgi apparatus, secretory vesicles, and extracellular medium was measured (Table 1 and Figure 1). In a second experiment, cells expressing a temperature-sensitive mutant of Sec23, a component of COPII coat, were shifted to the nonpermissive temperature before the pulse. After a 60-minute chase, 90% of the label remained in the ER, 8% was in the Golgi, 2% was in vesicles, and none was in the medium. The secretory protein was also found to carry N-linked oligosaccharides while still in the ER, and a version lacking its N-terminal signal sequence was not found in the ER at all. Cells were maintained at 37 degrees C except where noted. Fractions were validated using marker proteins, and the total recovered label did not change over the 60-minute chase, indicating little degradation.",
+   "table_data": "Table 1. Distribution of labeled secretory protein (% of total) in wild-type cells\n\n| Chase time (min) | ER | Golgi | Secretory vesicles | Medium |\n|---|---|---|---|---|\n| 0 | 95 | 5 | 0 | 0 |\n| 10 | 60 | 30 | 10 | 0 |\n| 30 | 20 | 35 | 35 | 10 |\n| 60 | 5 | 15 | 25 | 55 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Labeled secretory protein by compartment",
+    "x_label": "Chase time (min)",
+    "y_label": "% of total label",
+    "series": [
+     {
+      "name": "ER",
+      "points": [
+       [
+        0,
+        95
+       ],
+       [
+        10,
+        60
+       ],
+       [
+        30,
+        20
+       ],
+       [
+        60,
+        5
+       ]
+      ]
+     },
+     {
+      "name": "Golgi",
+      "points": [
+       [
+        0,
+        5
+       ],
+       [
+        10,
+        30
+       ],
+       [
+        30,
+        35
+       ],
+       [
+        60,
+        15
+       ]
+      ]
+     },
+     {
+      "name": "Secretory vesicles",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        10,
+        10
+       ],
+       [
+        30,
+        35
+       ],
+       [
+        60,
+        25
+       ]
+      ]
+     },
+     {
+      "name": "Medium",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        10,
+        0
+       ],
+       [
+        30,
+        10
+       ],
+       [
+        60,
+        55
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL07_BB_P5_Q1",
+     "stem": "Why was a brief pulse followed by a chase with excess unlabeled methionine used?",
+     "options": {
+      "A": "It prevents the labeled proteins from being degraded by lysosomes, so that all of the label persists in the Golgi.",
+      "B": "It ensures that the ribosomes synthesize proteins only on the rough ER, so the label is restricted to that organelle.",
+      "C": "It creates a single cohort of labeled proteins whose movement through compartments can be followed over time.",
+      "D": "It increases the specific activity of the secretory protein, which allows detection of low levels in the medium."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Short labeling plus a chase prevents new labeled protein from entering, so the cohort's transit is tracked. Why the others are wrong: A) A chase does not prevent degradation or hold label in a single compartment. B) Ribosome location is determined by signal sequences, not by the labeling protocol. D) A chase dilutes the label rather than increasing specific activity of newly made protein.",
+     "trap": "Thinking that the chase raises labeling, when its role is to stop new label from being incorporated.",
+     "topic": "Pulse-chase design",
+     "mastery_sheet_id": "2A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P5_Q2",
+     "stem": "At 30 minutes, what percentage of the labeled protein has already left the ER?",
+     "options": {
+      "A": "20%",
+      "B": "45%",
+      "C": "35%",
+      "D": "80%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) 20% is in the ER at 30 min; the remaining 35 + 35 + 10 = 80% has moved to the Golgi, vesicles, or medium (Table 1). Why the others are wrong: A) This is the fraction still in the ER, not the fraction that left. B) This adds the vesicles and medium and omits the proteins that are in the Golgi, which also left the ER. C) This is the fraction in the Golgi or in vesicles alone, not the total.",
+     "trap": "Reporting the ER fraction or only one compartment instead of the sum of all later compartments.",
+     "topic": "Interpreting a time course",
+     "mastery_sheet_id": "2A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_BB_P5_Q3",
+     "stem": "Why did the Sec23 mutant accumulate label in the ER?",
+     "options": {
+      "A": "COPI-coated vesicles carry cargo from the Golgi to the plasma membrane, and their formation was blocked.",
+      "B": "Clathrin-coated vesicles carry cargo from the plasma membrane to endosomes, and their formation was blocked.",
+      "C": "COPII-coated vesicles carry cargo from the ER to the Golgi, and their formation was blocked.",
+      "D": "Signal recognition particle cannot bind the signal sequence, so that translation arrests before entry into the ER."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) COPII mediates anterograde ER-to-Golgi transport, so its loss traps cargo in the ER. Why the others are wrong: A) COPI mediates retrograde transport, and Sec23 is part of COPII. B) Clathrin acts in endocytosis and trans-Golgi sorting, not ER export. D) The protein was in the ER, so cotranslational targeting worked.",
+     "trap": "Mixing up COPI, COPII, and clathrin coats and their directions of transport.",
+     "topic": "Vesicle coat proteins",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P5_Q4",
+     "stem": "An ER-resident protein carrying a C-terminal KDEL sequence is engineered to lack this sequence. Where is this protein most likely found?",
+     "options": {
+      "A": "Entirely in the cytosol, because KDEL is the signal that directs the protein to enter the ER during translation.",
+      "B": "In the nucleus, because the loss of the sequence exposes a nuclear localization signal in the C-terminus.",
+      "C": "Increasingly in the secretory vesicles and extracellular medium, because it is no longer retrieved from the Golgi.",
+      "D": "In the ER lumen at the same level as before, because retention depends only on the size of the protein."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) KDEL receptors in the Golgi return escaped residents to the ER via COPI vesicles; removing KDEL lets it be secreted. Why the others are wrong: A) KDEL is a retrieval signal, while the N-terminal signal sequence directs entry. B) No nuclear signal is exposed; loss of KDEL does not target proteins to the nucleus. D) Retention depends on active retrieval, not size alone.",
+     "trap": "Treating KDEL as an import signal rather than a retrieval signal.",
+     "topic": "KDEL retrieval",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P5_Q5",
+     "stem": "Which statement best accounts for the finding that the protein is glycosylated while still in the ER?",
+     "options": {
+      "A": "Oligosaccharyltransferase adds a preassembled oligosaccharide to asparagine residues as the polypeptide enters the ER lumen.",
+      "B": "Glycosyltransferases in the cytosol attach the sugars to serine and threonine, and the protein is then imported into the ER.",
+      "C": "The Golgi sends glycosylation enzymes back to the ER in COPII vesicles, where they modify all proteins on the cytosolic face.",
+      "D": "The signal peptidase attaches the sugar chain to the signal sequence as it is cleaved off the polypeptide in the ER."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) N-linked glycosylation begins cotranslationally in the ER lumen, before the protein ever reaches the Golgi. Why the others are wrong: B) That describes neither N-linked glycosylation nor its compartment; it occurs in the lumen. C) COPII is anterograde, and N-linked sugars are added to the luminal side. D) Signal peptidase cleaves the signal sequence and does not add sugars.",
+     "trap": "Assuming that all glycosylation occurs in the Golgi.",
+     "topic": "Glycosylation in the ER",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_BB_P6",
+   "passage_text": "HIV-1 is a retrovirus whose single-stranded RNA genome is converted to DNA in the host cell. To dissect the replication cycle, CD4+ T cells were infected with an HIV-1-derived virus in the presence of one of three antiretroviral drugs: an RT inhibitor (AZT), an integrase inhibitor, and a protease inhibitor. After 48 hours, four measurements were made: late reverse transcription products (viral DNA), integrated provirus (Alu-LTR PCR), circular viral DNA containing two LTRs (2-LTR circles, formed only in the nucleus when integration fails), and p24 capsid protein released in the supernatant. Viruses in the supernatant were then used to infect fresh cells, and infectivity was scored. Data are in Table 1 as percent of untreated controls. Control infected cells in which CCR5 and CD4 were absent showed no viral DNA at all. Each condition was run in triplicate, drugs were added two hours before infection, and cell viability was unaffected by any drug at the concentrations used, so the differences reflect specific effects on viral replication.",
+   "table_data": "Table 1. Effects of antiretroviral drugs (% of untreated control)\n\n| Treatment | Viral DNA | Integrated provirus | 2-LTR circles | p24 released | Infectivity of progeny |\n|---|---|---|---|---|---|\n| None | 100 | 100 | 100 | 100 | 100 |\n| RT inhibitor | 3 | 2 | 1 | 4 | 2 |\n| Integrase inhibitor | 98 | 5 | 450 | 6 | 4 |\n| Protease inhibitor | 100 | 99 | 102 | 97 | 3 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL07_BB_P6_Q1",
+     "stem": "The integrase inhibitor increased 2-LTR circles while decreasing integrated provirus. This pattern is best explained by",
+     "options": {
+      "A": "failure of reverse transcription, which leaves viral RNA in the cytoplasm and prevents any DNA from forming",
+      "B": "failure of capsid assembly at the plasma membrane, which causes viral DNA to accumulate in released virions",
+      "C": "increased activity of RT in the presence of the drug, which synthesizes extra copies of viral DNA that circularize",
+      "D": "viral DNA being imported into the nucleus but unable to be inserted into host chromosomes, so it is circularized"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Unintegrated nuclear viral DNA is a substrate for circularization, so 2-LTR circles accumulate when integration is blocked. Why the others are wrong: A) Viral DNA was 98% of control, so reverse transcription occurred. B) Assembly is not the step blocked, and 2-LTR circles form only in the nucleus. C) RT activity (total viral DNA) did not rise; only the circular fraction did.",
+     "trap": "Assuming the drug stops DNA synthesis because integrated DNA is low.",
+     "topic": "Retroviral integration",
+     "mastery_sheet_id": "2B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P6_Q2",
+     "stem": "Cells treated with the protease inhibitor released normal amounts of p24 but the progeny virus was nearly noninfectious. This is because",
+     "options": {
+      "A": "the viral envelope glycoprotein could not bind CD4, so that progeny virions could not enter new cells",
+      "B": "Gag and Gag-Pol polyproteins were not cleaved, so the released virions remained immature",
+      "C": "the viral genome was not reverse transcribed, so that the progeny contained no usable nucleic acid",
+      "D": "the provirus was excised from the host genome, which prevented the production of new viral transcripts"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Viral protease cleaves the polyproteins during and after budding to produce mature capsid, RT and integrase. Why the others are wrong: A) Envelope binding is not affected by a protease inhibitor. C) Reverse transcription proceeded normally (100% viral DNA). D) Integration was unaffected at 99%, and p24 production was normal.",
+     "trap": "Thinking normal p24 release means the progeny virus must be normal.",
+     "topic": "Viral protease and maturation",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P6_Q3",
+     "stem": "Which property of reverse transcriptase most directly contributes to rapid evolution of drug resistance in HIV?",
+     "options": {
+      "A": "It can only copy DNA templates, which restricts replication to a few cell types in the host.",
+      "B": "It lacks 3' to 5' exonuclease proofreading activity, producing a high rate of copying errors.",
+      "C": "It integrates the viral DNA into the host genome at a specific sequence, which creates a single stable genotype.",
+      "D": "It requires a host RNA primer that is replaced by a DNA repair enzyme, which introduces random mutations into the viral genes."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Errors made by RT during each replication cycle generate a diverse viral population from which resistant variants are selected. Why the others are wrong: A) RT copies RNA into DNA, and it can also copy DNA. C) Integrase, not RT, mediates integration, and insertion is not sequence specific. D) RT uses a host tRNA primer, but repair of the primer does not generate the mutation rate.",
+     "trap": "Attributing mutations to integrase or to host repair rather than to RT's lack of proofreading.",
+     "topic": "Reverse transcriptase fidelity",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P6_Q4",
+     "stem": "A latently infected resting T cell contains integrated provirus but does not make viral proteins. Treatment with the RT inhibitor, integrase inhibitor, and protease inhibitor would be expected to",
+     "options": {
+      "A": "leave the provirus intact, because integrated DNA is replicated with the host genome and these drugs act on later events",
+      "B": "eliminate the provirus within hours, because the integrase inhibitor reverses integration of viral DNA from the host chromosome",
+      "C": "eliminate the provirus after cell division, because RT is required to maintain viral DNA in dividing cells",
+      "D": "degrade viral RNA in the cytoplasm of the cell, because protease inhibitors activate host ribonucleases"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Latent proviral DNA persists in host chromosomes and these drugs only block new rounds of replication, not the existing provirus. Why the others are wrong: B) Integrase inhibitors block integration but do not excise provirus. C) Host DNA polymerase, not RT, replicates the provirus. D) Protease inhibitors do not activate ribonucleases and no viral RNA is being made in latency.",
+     "trap": "Assuming that drugs blocking replication enzymes will clear integrated DNA.",
+     "topic": "Latency",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_BB_P7",
+   "passage_text": "The spindle assembly checkpoint (SAC) delays anaphase until all kinetochores are attached to spindle microtubules. Cultured human cells were transfected with a control siRNA, an siRNA against Mad2 (a SAC component), or the Mad2 siRNA together with an siRNA-resistant Mad2 gene. Cells were grown for 12 hours with or without nocodazole, a drug that depolymerizes microtubules, and the mitotic index (percentage of cells with condensed chromosomes and no nuclear envelope) was determined. Separate cultures were released from nocodazole-free growth, and 2,500 daughter cells per condition were scored for abnormal chromosome number. Results are shown in Table 1 and Figure 1. In mitosis, the checkpoint signal inhibits the anaphase-promoting complex/cyclosome (APC/C) bound to its activator Cdc20. The investigators also compared these findings to oocyte meiosis, in which cohesin along chromosome arms is cleaved at anaphase I but centromeric cohesin is protected until anaphase II. Cells were synchronized by a double thymidine block before each experiment so that most entered mitosis together. Mitotic index was scored by an observer unaware of the condition, and at least 500 cells were counted for each point.",
+   "table_data": "Table 1. Mitotic index and aneuploidy\n\n| Condition | Mitotic index, no drug (%) | Mitotic index, nocodazole (%) | Aneuploid daughter cells (%) |\n|---|---|---|---|\n| Control siRNA | 6 | 68 | 2 |\n| Mad2 siRNA | 6 | 10 | 18 |\n| Mad2 siRNA + resistant Mad2 | 6 | 66 | 3 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Mitotic index after 12 h in nocodazole",
+    "x_label": "Condition (1 = control, 2 = Mad2 siRNA, 3 = Mad2 siRNA + resistant Mad2)",
+    "y_label": "Mitotic index (%)",
+    "series": [
+     {
+      "name": "Mitotic index",
+      "points": [
+       [
+        1,
+        68
+       ],
+       [
+        2,
+        10
+       ],
+       [
+        3,
+        66
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL07_BB_P7_Q1",
+     "stem": "Why did the mitotic index remain low in Mad2-depleted cells exposed to nocodazole?",
+     "options": {
+      "A": "Nocodazole stabilizes microtubules, so that the cells complete mitosis faster than control cells.",
+      "B": "Without the checkpoint, cells exited mitosis despite unattached kinetochores instead of arresting.",
+      "C": "Mad2 depletion blocks entry into mitosis, so that the cells remain in G2 and never condense their chromosomes.",
+      "D": "Cells lacking Mad2 arrest in metaphase but the arrest is not counted, since the chromosomes are no longer visibly condensed."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Mad2 is needed for the checkpoint arrest, so cells lacking it proceed through anaphase even without spindles. Why the others are wrong: A) Nocodazole depolymerizes microtubules. C) The mitotic index without drug is equal to control (6%), so entry is normal. D) Arrested cells keep condensed chromosomes and would be counted.",
+     "trap": "Assuming a low mitotic index means cells did not enter mitosis.",
+     "topic": "Spindle assembly checkpoint",
+     "mastery_sheet_id": "2C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P7_Q2",
+     "stem": "The checkpoint prevents anaphase by directly inhibiting which process?",
+     "options": {
+      "A": "Phosphorylation of lamins by cyclin B-Cdk1, which prevents the nuclear envelope from breaking down in prophase",
+      "B": "Replication of DNA by polymerase delta, which prevents cells from entering mitosis with incompletely duplicated chromosomes",
+      "C": "Ubiquitination of securin by APC/C-Cdc20, which prevents release of the protease separase",
+      "D": "Assembly of the contractile ring by actin and myosin, which prevents cytokinesis before chromosomes have been segregated"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Securin degradation frees separase to cleave cohesin; the checkpoint blocks APC/C-Cdc20, keeping securin intact. Why the others are wrong: A) This occurs in prophase, before the checkpoint operates, and promotes mitosis. B) That is an S phase process and a different checkpoint. D) The ring forms later and is not the checkpoint's direct target.",
+     "trap": "Confusing the SAC with the G2/M DNA damage checkpoint or with cytokinesis control.",
+     "topic": "APC/C target",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P7_Q3",
+     "stem": "Of the 2,500 Mad2-depleted daughter cells scored, how many are expected to be aneuploid?",
+     "options": {
+      "A": "45",
+      "B": "150",
+      "C": "1,700",
+      "D": "450"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) 18% of 2,500 = 0.18 x 2,500 = 450 (Table 1). Why the others are wrong: A) This misplaces the decimal point. B) This corresponds to 6%, the mitotic index, rather than the aneuploidy rate. C) This is about 68% of 2,500, the mitotic index of control cells with nocodazole.",
+     "trap": "Using the wrong column of the table.",
+     "topic": "Calculation from a table",
+     "mastery_sheet_id": "2C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_BB_P7_Q4",
+     "stem": "A primary spermatocyte undergoes nondisjunction of one chromosome pair in meiosis I. What fraction of the sperm will have an abnormal number of that chromosome?",
+     "options": {
+      "A": "25%",
+      "B": "100%",
+      "C": "50%",
+      "D": "75%"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Both homologs go to one secondary spermatocyte, so all four sperm are abnormal: two n+1 and two n-1. Why the others are wrong: A) This is the fraction if only one product were affected. C) This is the fraction for nondisjunction in meiosis II. D) No meiosis I outcome produces three abnormal and one normal gamete.",
+     "trap": "Applying the meiosis II result (half abnormal) to a meiosis I error.",
+     "topic": "Nondisjunction",
+     "mastery_sheet_id": "2C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.tutorchase.com/notes/ap/biology/5-2-3-nondisjunction-and-errors-in-chromosome-separation",
+       "https://biologynotesonline.com/nondisjunction-types-causes-consequences-examples/"
+      ]
+     }
+    },
+    {
+     "id": "FL07_BB_P7_Q5",
+     "stem": "In oocyte meiosis I, sister chromatids stay together while homologous chromosomes separate. This is possible because",
+     "options": {
+      "A": "centromeric cohesin is protected from cleavage by separase until anaphase II, whereas arm cohesin is cleaved",
+      "B": "DNA replication is skipped before meiosis I, so that each chromosome consists of only one chromatid at that stage",
+      "C": "the APC/C is permanently inactive in meiosis I, so that separase is never activated until fertilization",
+      "D": "kinetochores of sister chromatids attach to opposite spindle poles in meiosis I, so that sisters are pulled apart"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Loss of arm cohesin resolves chiasmata, letting homologs segregate; protected centromeric cohesin holds the sisters together. Why the others are wrong: B) DNA is replicated once before meiosis I and chromosomes have two chromatids. C) APC/C is active at the metaphase-anaphase I transition, and separase cleaves arm cohesin. D) In meiosis I, sister kinetochores attach to the same pole.",
+     "trap": "Believing that sisters separate in meiosis I because homologs separate there.",
+     "topic": "Meiosis I cohesin protection",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_BB_P8",
+   "passage_text": "Conduction velocity of an action potential depends on axon diameter and myelination. An electrophysiologist measured velocities in several nerve fiber types (Table 1) and plotted velocity against diameter for myelinated and unmyelinated axons (Figure 1). In myelinated axons, voltage-gated Na+ channels are concentrated at the nodes of Ranvier, and the internodal membrane is wrapped by many layers of oligodendrocyte or Schwann cell membrane. In a further experiment, an anti-myelin antibody was injected near a myelinated A-alpha fiber, producing focal demyelination; conduction velocity in that fiber fell from 90 to 40 m/s, and some impulses failed to cross the lesion. Application of 4-aminopyridine (4-AP), which blocks voltage-gated K+ channels, restored conduction across the lesion in some fibers. Recordings with two electrodes showed the impulse always traveled away from the stimulation site, never back toward it. All measurements were made at 37 degrees C in isolated preparations bathed in physiological saline, and each velocity is the mean of at least ten fibers.",
+   "table_data": "Table 1. Conduction velocities of selected fibers\n\n| Fiber | Diameter (um) | Myelinated | Velocity (m/s) |\n|---|---|---|---|\n| A-alpha | 15 | Yes | 90 |\n| A-delta | 3 | Yes | 15 |\n| C | 1 | No | 1 |\n| Squid giant axon | 500 | No | 25 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Conduction velocity versus axon diameter",
+    "x_label": "Axon diameter (um)",
+    "y_label": "Conduction velocity (m/s)",
+    "series": [
+     {
+      "name": "Myelinated",
+      "points": [
+       [
+        2,
+        12
+       ],
+       [
+        4,
+        24
+       ],
+       [
+        8,
+        48
+       ],
+       [
+        16,
+        96
+       ]
+      ]
+     },
+     {
+      "name": "Unmyelinated",
+      "points": [
+       [
+        0.5,
+        0.7
+       ],
+       [
+        1,
+        1
+       ],
+       [
+        2,
+        1.4
+       ],
+       [
+        4,
+        2
+       ],
+       [
+        8,
+        2.8
+       ],
+       [
+        16,
+        4
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL07_BB_P8_Q1",
+     "stem": "Which feature best explains why myelinated axons conduct faster than unmyelinated axons of the same diameter?",
+     "options": {
+      "A": "Action potentials are regenerated only at nodes, and current spreads rapidly through the insulated internodes between them.",
+      "B": "Voltage-gated Na+ channels are distributed evenly along the myelin, so depolarization is regenerated at every point on the axon.",
+      "C": "Myelin actively pumps Na+ out of the axon, so the resting membrane potential is more negative than in unmyelinated axons.",
+      "D": "The myelinated axon has a larger number of K+ leak channels, so repolarization is completed sooner after each impulse."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Myelin increases membrane resistance and decreases capacitance, so depolarization passes quickly to the next node (saltatory conduction). Why the others are wrong: B) The channels are clustered at nodes, which is why conduction is saltatory. C) Myelin is an insulator, and does not pump ions to hyperpolarize the axon. D) Leak channels would shunt current and slow propagation, not speed it.",
+     "trap": "Believing that myelin boosts the number of channels rather than insulating the internodes.",
+     "topic": "Saltatory conduction",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P8_Q2",
+     "stem": "At an axon diameter of 16 um, the conduction velocity of a myelinated axon is about how many times that of an unmyelinated axon?",
+     "options": {
+      "A": "4",
+      "B": "6",
+      "C": "24",
+      "D": "90"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Figure 1 gives 96 m/s for the myelinated axon and 4 m/s for the unmyelinated axon at 16 um; 96/4 = 24. Why the others are wrong: A) This is the unmyelinated velocity itself and not a ratio. B) This is the ratio of velocity to diameter for the myelinated fiber (96/16). D) This is the value for the A-alpha fiber in Table 1, not a ratio at 16 um.",
+     "trap": "Reading the wrong curve or reporting a single value instead of a ratio.",
+     "topic": "Reading a graph",
+     "mastery_sheet_id": "3A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL07_BB_P8_Q3",
+     "stem": "Why did 4-AP restore conduction across the demyelinated lesion in some fibers?",
+     "options": {
+      "A": "Blocking K+ channels remyelinates the axon, so that the original conduction velocity of 90 m/s is restored.",
+      "B": "Blocking K+ channels raises the Na+ concentration outside the axon, which increases the driving force for Na+ entry.",
+      "C": "Blocking K+ channels converts the lesion into a node of Ranvier, so that a normal action potential is generated.",
+      "D": "Blocking K+ channels exposed by demyelination reduces repolarizing current loss, so more depolarization reaches the next node."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Exposed internodal K+ channels shunt current; blocking them prolongs depolarization and helps the impulse cross the lesion. Why the others are wrong: A) 4-AP does not cause remyelination, and velocity may recover only partially. B) K+ channel block does not change the extracellular Na+ concentration. C) The membrane does not become a node; Na+ channels are not redistributed by 4-AP.",
+     "trap": "Thinking a K+ channel blocker repairs the myelin rather than modifying membrane currents.",
+     "topic": "Demyelination",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P8_Q4",
+     "stem": "The impulse traveled only away from the stimulation site. Which property accounts for this?",
+     "options": {
+      "A": "Voltage-gated Na+ channels are present only on the side of the axon farthest from the cell body, so conduction is one-way.",
+      "B": "The sodium-potassium ATPase restores ion gradients before the wave front reaches each node, so that the impulse is never reversed.",
+      "C": "Myelin only allows current to flow toward the axon terminal, because it is a rectifying, ion-conducting layer.",
+      "D": "Voltage-gated Na+ channels behind the impulse are inactivated, so the membrane there cannot fire again immediately."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The refractory period behind the wavefront ensures one-way propagation. Why the others are wrong: A) Channels are present along the axon, and the direction is set by refractoriness. B) The pump acts too slowly, and it is not responsible for one-way travel. C) Myelin is an insulator and does not rectify current.",
+     "trap": "Crediting the Na+/K+ pump for the direction of propagation.",
+     "topic": "Refractory period",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_BB_P9",
+   "passage_text": "Bile acids are synthesized from cholesterol in hepatocytes, conjugated, secreted into bile, and largely reabsorbed in the ileum (enterohepatic circulation). Four groups of rats were studied: controls, rats with surgical ligation of the common bile duct (BDL), rats fed cholestyramine (a resin that binds bile acids in the intestine and is not absorbed), and rats given a hemolysis-inducing agent. Serum bilirubin, fecal fat excretion (as a percentage of ingested fat), serum cholesterol, and hepatic expression of CYP7A1 (the rate-limiting enzyme of bile acid synthesis) were measured (Table 1). Bile acids activate the nuclear receptor FXR in the ileum and liver, which represses CYP7A1 transcription. Urine was also tested for bilirubin: it was positive in BDL rats but negative in all other groups. Stool from BDL rats was pale, whereas stool from the other groups was brown. Animals were fed the same diet, fasted overnight before blood sampling, and housed individually for fecal collection over three days. Values are group means with five animals per group.",
+   "table_data": "Table 1. Effects of experimental treatments\n\n| Group | Total bilirubin (mg/dL) | Conjugated bilirubin (mg/dL) | Fecal fat (% of intake) | Serum cholesterol (mg/dL) | CYP7A1 mRNA (relative) |\n|---|---|---|---|---|---|\n| Control | 0.4 | 0.1 | 3 | 70 | 1.0 |\n| Bile duct ligation | 7.0 | 6.2 | 40 | 160 | 0.2 |\n| Cholestyramine | 0.4 | 0.1 | 8 | 52 | 3.5 |\n| Hemolysis | 4.2 | 0.3 | 3 | 70 | 1.0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL07_BB_P9_Q1",
+     "stem": "The high fecal fat and pale stool in BDL rats are best explained by",
+     "options": {
+      "A": "excess pancreatic lipase, which digests fats too rapidly to be absorbed and gives stool its pale color",
+      "B": "failure of hepatocytes to conjugate bilirubin, which causes unconjugated bilirubin to be excreted in the feces",
+      "C": "absent delivery of bile to the duodenum, which impairs micelle formation and prevents the bilirubin pigments from reaching the gut",
+      "D": "increased reabsorption of bile acids in the ileum, which removes the lipids from the intestinal lumen before digestion"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Without bile salts, dietary lipids are poorly emulsified and absorbed, and bilirubin cannot reach the gut to form stercobilin. Why the others are wrong: A) Lipase was not measured, and increased lipase would not cause steatorrhea. B) Conjugated bilirubin was high in BDL, so conjugation was intact. D) Bile acids cannot be reabsorbed if they never reach the intestine.",
+     "trap": "Blaming pancreatic enzymes or conjugation defects instead of loss of bile flow.",
+     "topic": "Bile and fat digestion",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P9_Q2",
+     "stem": "Why did cholestyramine lower serum cholesterol and raise CYP7A1 expression?",
+     "options": {
+      "A": "Binding bile acids increases their return to the liver, which activates FXR and lowers CYP7A1 so that cholesterol is conserved.",
+      "B": "Cholestyramine is absorbed in the ileum and inhibits HMG-CoA reductase, so that less cholesterol is synthesized.",
+      "C": "Cholestyramine increases fecal fat by blocking pancreatic lipase, which reduces the cholesterol absorbed from the diet only.",
+      "D": "Binding bile acids interrupts enterohepatic recycling, relieving FXR repression so the liver converts more cholesterol into bile acids."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Reduced bile acid return lowers FXR signaling, increasing CYP7A1 and pulling cholesterol into bile acid synthesis. Why the others are wrong: A) This is the opposite of the data; CYP7A1 rose 3.5-fold. B) Cholestyramine is not absorbed, and CYP7A1 would not rise by this mechanism. C) Fecal fat rose modestly from bile acid loss, and the CYP7A1 change shows a hepatic effect.",
+     "trap": "Reversing the sign of FXR feedback on CYP7A1.",
+     "topic": "Enterohepatic circulation",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P9_Q3",
+     "stem": "Which laboratory pattern in Table 1 distinguishes hemolysis from bile duct obstruction?",
+     "options": {
+      "A": "Elevated bilirubin that is mostly conjugated with pale stool, as seen in hemolysis because hepatocytes secrete bilirubin normally.",
+      "B": "Elevated bilirubin with a doubling of serum cholesterol, which is found in hemolysis as well as obstruction.",
+      "C": "Normal bilirubin with reduced CYP7A1 expression, which is characteristic of hemolytic conditions in the liver.",
+      "D": "Elevated bilirubin that is mostly unconjugated and absent from urine, in contrast to the mostly conjugated, urine-positive pattern in BDL."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Unconjugated bilirubin is albumin-bound and not filtered, so it is not found in urine; conjugated bilirubin is water soluble and appears in urine. Why the others are wrong: A) Hemolysis produced mostly unconjugated bilirubin with brown stool. B) Serum cholesterol was unchanged (70 mg/dL) in hemolysis. C) Bilirubin was elevated in hemolysis and CYP7A1 was normal.",
+     "trap": "Reading all raised bilirubin as the same and overlooking the conjugated fraction.",
+     "topic": "Jaundice patterns",
+     "mastery_sheet_id": "3B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P9_Q4",
+     "stem": "In the liver, bile acids are conjugated to glycine or taurine before secretion. What is the main benefit of conjugation?",
+     "options": {
+      "A": "It raises the pKa so the bile acids remain uncharged in the duodenum, letting them diffuse across the epithelium.",
+      "B": "It converts cholesterol directly into bilirubin, so that the pigments can be excreted along with the bile acids.",
+      "C": "It prevents the bile acids from activating FXR, which would otherwise shut down all of the bile production in the liver.",
+      "D": "It lowers the pKa so the bile acids stay ionized in the intestine, making them more water soluble and better detergents."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Conjugated bile salts remain charged at intestinal pH, which improves amphipathic behavior and micelle formation, and limits passive absorption in the upper intestine. Why the others are wrong: A) Conjugation lowers the pKa and keeps the bile salts charged. B) Bilirubin is derived from heme, not from cholesterol. C) Conjugation does not prevent FXR signaling.",
+     "trap": "Assuming conjugation makes the molecule less polar.",
+     "topic": "Bile acid conjugation",
+     "mastery_sheet_id": "3B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL07_BB_P10",
+   "passage_text": "Brown adipose tissue (BAT) produces heat during cold exposure. Wild-type mice and mice lacking uncoupling protein 1 (UCP1-/-) were moved from 30 degrees C to 4 degrees C, and rectal temperature was recorded hourly (Figure 1). Mitochondria were then isolated from BAT of each genotype and from wild-type liver, and oxygen consumption was measured with pyruvate and malate as substrates (Table 1). Oligomycin, an inhibitor of ATP synthase, was added to some samples, and GDP, a purine nucleotide that inhibits UCP1, was added to others. Rates are given relative to the baseline in each tissue (set to 100). During cold exposure, sympathetic neurons release norepinephrine onto brown adipocytes, which raises intracellular cAMP and releases fatty acids from stored triglycerides. Fatty acids serve both as fuel for oxidation and as activators of UCP1. Mice were individually housed, had free access to food, and were of equal age and body mass. Mitochondrial preparations were of comparable purity, as judged by citrate synthase activity per milligram of protein.",
+   "table_data": "Table 1. Oxygen consumption of isolated mitochondria (% of baseline)\n\n| Source | Baseline | + Oligomycin | + GDP |\n|---|---|---|---|\n| Wild-type BAT | 100 | 85 | 30 |\n| UCP1-/- BAT | 100 | 25 | 95 |\n| Wild-type liver | 100 | 20 | 98 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Rectal temperature at 4 degrees C",
+    "x_label": "Time (h)",
+    "y_label": "Rectal temperature (degrees C)",
+    "series": [
+     {
+      "name": "Wild type",
+      "points": [
+       [
+        0,
+        37.0
+       ],
+       [
+        1,
+        36.8
+       ],
+       [
+        2,
+        36.7
+       ],
+       [
+        3,
+        36.6
+       ],
+       [
+        4,
+        36.5
+       ]
+      ]
+     },
+     {
+      "name": "UCP1-/-",
+      "points": [
+       [
+        0,
+        37.0
+       ],
+       [
+        1,
+        35.0
+       ],
+       [
+        2,
+        32.5
+       ],
+       [
+        3,
+        29.5
+       ],
+       [
+        4,
+        26.5
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL07_BB_P10_Q1",
+     "stem": "How does UCP1 generate heat?",
+     "options": {
+      "A": "It pumps protons from the matrix to the intermembrane space, using ATP hydrolysis to build a larger gradient.",
+      "B": "It lets protons flow back into the matrix without passing through ATP synthase, so the energy of the gradient is released as heat.",
+      "C": "It transfers electrons directly from NADH to oxygen, bypassing complexes III and IV, so that less water is formed.",
+      "D": "It inhibits ATP synthase through binding of GDP, which makes the electron transport chain stop completely."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Proton leak through UCP1 uncouples electron transport from ATP synthesis; respiration continues and the energy is dissipated as heat. Why the others are wrong: A) UCP1 dissipates the gradient rather than building it. C) UCP1 is not an electron carrier; it conducts protons. D) GDP inhibits UCP1, not ATP synthase, and the chain continues to run.",
+     "trap": "Confusing uncoupling with inhibition of the electron transport chain.",
+     "topic": "UCP1 function",
+     "mastery_sheet_id": "3B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P10_Q2",
+     "stem": "Oligomycin reduced oxygen consumption by wild-type liver mitochondria to 20% but only to 85% in wild-type BAT mitochondria. This difference is best explained by",
+     "options": {
+      "A": "lower activity of complex I in BAT, which makes the oligomycin binding site on ATP synthase inaccessible",
+      "B": "greater ATP synthase activity in BAT, which makes the tissue less sensitive to oligomycin at the concentration used",
+      "C": "continued proton re-entry through UCP1 in BAT, which relieves the proton gradient that would otherwise slow electron transport",
+      "D": "absence of an electron transport chain in liver mitochondria, which reduces baseline oxygen consumption to a very low level"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) In liver, blocking ATP synthase builds a large gradient that restricts respiration; in BAT, UCP1 provides an alternative proton path. Why the others are wrong: A) Complex I activity does not affect oligomycin binding, and respiration was high. B) Greater ATP synthase would make BAT more oligomycin-sensitive, not less. D) Liver mitochondria had normal baseline respiration of 100% and a functional chain.",
+     "trap": "Overlooking respiratory control, whereby ATP synthase inhibition normally slows electron flow.",
+     "topic": "Respiratory control",
+     "mastery_sheet_id": "3B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P10_Q3",
+     "stem": "Which chain of events links cold exposure to heat production in brown adipocytes?",
+     "options": {
+      "A": "Norepinephrine binds alpha-1 receptors, cAMP falls, triglyceride synthesis rises, and fatty acids inhibit UCP1.",
+      "B": "Acetylcholine binds muscarinic receptors on brown adipocytes, which closes UCP1 and increases ATP synthesis.",
+      "C": "Insulin binds its receptor, glucose uptake rises, glycogen is stored, and heat is generated by the glycogen synthase reaction.",
+      "D": "Norepinephrine binds beta-adrenergic receptors, cAMP rises, lipolysis releases fatty acids, and fatty acids activate UCP1."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Sympathetic stimulation through a Gs-coupled receptor increases cAMP and PKA activity, which drives lipolysis; fatty acids activate UCP1. Why the others are wrong: A) Brown fat is activated through beta receptors, with increased cAMP and lipolysis. B) The sympathetic neurotransmitter is norepinephrine and UCP1 is activated. C) Insulin does not mediate the cold response, and glycogen synthesis is not a major heat source.",
+     "trap": "Choosing parasympathetic or insulin signaling for a sympathetic thermogenic response.",
+     "topic": "Thermogenic signaling",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL07_BB_P10_Q4",
+     "stem": "After 4 hours at 4 degrees C, the fall in temperature of UCP1-/- mice is about how many times that of wild-type mice?",
+     "options": {
+      "A": "About 2-fold",
+      "B": "About 20-fold",
+      "C": "About 7-fold",
+      "D": "About 70-fold"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The knockout fell 37.0 - 26.5 = 10.5 degrees C and wild type fell 0.5 degrees C; 10.5/0.5 = 21. Why the others are wrong: A) This would be a much smaller difference than shown in Figure 1. C) This would result from comparing the 3-hour drop in KO to a drop of about 1 degree. D) This would require a wild-type drop of only about 0.15 degrees C.",
+     "trap": "Dividing final temperatures (26.5/36.5) instead of the temperature drops.",
+     "topic": "Graph calculation",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL07_BB_D1",
+   "stem": "The amino acid aspartic acid has pKa values of 2.0 (alpha-carboxyl), 3.9 (side chain), and 9.9 (amino group). What is its approximate isoelectric point?",
+   "options": {
+    "A": "6.0",
+    "B": "6.9",
+    "C": "3.0",
+    "D": "8.0"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) At the pI, aspartate has no net charge, which lies between the two acidic pKa values: (2.0 + 3.9)/2 is about 3.0. Why the others are wrong: A) This averages the alpha-carboxyl and amino pKa values, as for a neutral amino acid. B) This averages the side chain and amino pKa values, which bracket a different charge state. D) This does not correspond to any neutral species of this amino acid.",
+   "trap": "Averaging the amine and carboxyl pKa values as for neutral amino acids.",
+   "topic": "Isoelectric point of an acidic amino acid",
+   "mastery_sheet_id": "1A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.masterorganicchemistry.com/2023/02/09/isoelectric-point-calculation"
+    ]
+   }
+  },
+  {
+   "id": "FL07_BB_D2",
+   "stem": "Proline is often found at the ends of alpha helices or in turns, rarely in the middle. Which feature of proline explains this?",
+   "options": {
+    "A": "Its side chain is strongly charged at physiological pH, so that it forms repulsion with the helix dipole.",
+    "B": "Its amide nitrogen has no hydrogen to donate and its ring restricts the phi angle of the backbone.",
+    "C": "Its side chain forms a disulfide bond with a distant cysteine, which pulls the helix into a turn.",
+    "D": "Its large aromatic side chain sterically blocks adjacent residues, which prevents helix formation."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) A helix needs each N-H to hydrogen-bond to a C=O four residues earlier, and the ring locks the backbone geometry. Why the others are wrong: A) Proline's side chain is nonpolar and uncharged. C) Proline has no thiol and cannot form disulfides. D) Proline is not aromatic; its side chain is a cyclic aliphatic ring.",
+   "trap": "Attributing proline's effect to side chain charge or size rather than loss of the amide hydrogen.",
+   "topic": "Protein secondary structure",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_BB_D3",
+   "stem": "A mutation deletes exactly three consecutive nucleotides from the middle of the coding region of a gene. Which outcome is most likely?",
+   "options": {
+    "A": "A protein lacking one amino acid, with the rest of the reading frame preserved",
+    "B": "A protein that is truncated at the site of the deletion, because a premature stop codon is always created",
+    "C": "A completely different amino acid sequence downstream of the deletion, because the reading frame is shifted",
+    "D": "A protein identical to the wild type, because the genetic code is degenerate and compensates for the missing bases"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) A deletion of three nucleotides removes one codon (or fuses parts of two) and keeps the downstream frame. Why the others are wrong: B) A premature stop is not guaranteed; the frame is intact. C) This is the result of a deletion of one or two nucleotides, not three. D) Degeneracy applies to substitutions, not to missing codons.",
+   "trap": "Applying frameshift consequences to a deletion whose size is a multiple of three.",
+   "topic": "Mutations",
+   "mastery_sheet_id": "1B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_BB_D4",
+   "stem": "Xeroderma pigmentosum patients are hypersensitive to UV light because they are deficient in which process?",
+   "options": {
+    "A": "Mismatch repair, which corrects replication errors in the newly synthesized strand",
+    "B": "Base excision repair, which removes damaged bases such as deaminated cytosine through a glycosylase",
+    "C": "Nucleotide excision repair, which removes bulky lesions such as thymine dimers",
+    "D": "Nonhomologous end joining, which repairs double-strand breaks by direct ligation of the DNA ends"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) UV light causes pyrimidine dimers, which are removed by excising a short oligonucleotide and resynthesizing it. Why the others are wrong: A) Mismatch repair deficiency causes Lynch syndrome, not UV hypersensitivity. B) Base excision repair handles small, nonbulky lesions. D) This repairs double-strand breaks, not UV-induced dimers.",
+   "trap": "Choosing mismatch repair because it is the best-known repair pathway.",
+   "topic": "DNA repair",
+   "mastery_sheet_id": "1B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_BB_D5",
+   "stem": "An autosomal recessive disease affects 1 in 2,500 people in a population in Hardy-Weinberg equilibrium. What is the approximate carrier frequency?",
+   "options": {
+    "A": "About 1 in 50",
+    "B": "About 1 in 26",
+    "C": "About 1 in 13",
+    "D": "About 1 in 2,500"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) q^2 = 1/2500, so q = 0.02 and p = 0.98; 2pq = 2(0.98)(0.02) = 0.039, about 1 in 26. Why the others are wrong: A) This is q, the allele frequency, not the carrier frequency. C) This would correspond to a carrier frequency of 0.077. D) This is the disease frequency, q^2.",
+   "trap": "Reporting q (the allele frequency) instead of the carrier frequency 2pq.",
+   "topic": "Hardy-Weinberg",
+   "mastery_sheet_id": "1C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.gfmer.ch/SRH-Course-2013/community-genetics/pdf/Applications-population-genetics-Hamamy-2013.pdf",
+     "https://app.achievable.me/study/usmle-step-1/learn/genetics-population-genetics"
+    ]
+   }
+  },
+  {
+   "id": "FL07_BB_D6",
+   "stem": "How many NADH plus FADH2 molecules are produced by complete beta-oxidation of one molecule of palmitoyl-CoA (16 carbons), not including the citric acid cycle?",
+   "options": {
+    "A": "16",
+    "B": "8",
+    "C": "28",
+    "D": "14"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Seven rounds of beta-oxidation each give one FADH2 and one NADH: 7 + 7 = 14. Why the others are wrong: A) This counts one per carbon, which is not how rounds are counted. B) This is the number of acetyl-CoA formed, not of reduced cofactors. C) This would be the number for 14 rounds, which would be required for a 30-carbon chain.",
+   "trap": "Counting 8 cycles for a 16-carbon chain.",
+   "topic": "Fatty acid oxidation",
+   "mastery_sheet_id": "1D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://courses.lumenlearning.com/suny-orgbiochemistry/chapter/20-6-stage-ii-of-lipid-catabolism/",
+     "https://saylordotorg.github.io/text_the-basics-of-general-organic-and-biological-chemistry/s23-06-stage-ii-of-lipid-catabolism.html"
+    ]
+   }
+  },
+  {
+   "id": "FL07_BB_D7",
+   "stem": "Patients with glucose-6-phosphate dehydrogenase deficiency develop hemolysis when exposed to oxidant drugs. This is because erythrocytes in these patients cannot",
+   "options": {
+    "A": "produce ATP by glycolysis, so the membrane ion pumps fail and the cells swell and lyse",
+    "B": "synthesize heme, so that the hemoglobin content falls and the cells fragment",
+    "C": "regenerate sufficient NADPH to maintain reduced glutathione, which protects against oxidative damage",
+    "D": "generate ribose-5-phosphate, so that nucleotide synthesis in reticulocytes ceases"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) G6PD in the pentose phosphate pathway is the main source of NADPH in red cells, which lack other sources. Why the others are wrong: A) Glycolysis is intact in G6PD deficiency. B) Heme synthesis is not the defect. D) Erythrocytes have no nucleus and the need for ribose is not what causes hemolysis.",
+   "trap": "Linking hemolysis to ATP depletion rather than loss of reducing power.",
+   "topic": "Pentose phosphate pathway",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_BB_D8",
+   "stem": "Which cell junction anchors intermediate filaments of adjacent cells and resists mechanical stress in tissues such as skin and cardiac muscle?",
+   "options": {
+    "A": "Tight junctions",
+    "B": "Gap junctions",
+    "C": "Desmosomes",
+    "D": "Hemidesmosomes"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Desmosomes link keratin or desmin intermediate filaments between neighboring cells via cadherins. Why the others are wrong: A) These seal the space between cells and regulate paracellular permeability, but do not anchor the cytoskeleton. B) These are channels made of connexons that allow passage of small molecules and ions. D) These anchor cells to the basal lamina via integrins and not to adjacent cells.",
+   "trap": "Choosing hemidesmosomes, because they look similar but attach cells to the matrix.",
+   "topic": "Cell junctions",
+   "mastery_sheet_id": "2A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_BB_D9",
+   "stem": "A bacterium has a mutation that inactivates the lac repressor (lacI). When grown in medium containing glucose but no lactose, the lac operon will be",
+   "options": {
+    "A": "expressed at a high level, because the repressor cannot bind the operator, although the catabolite repression by glucose limits full activation",
+    "B": "not expressed at all, because the CAP-cAMP complex is required for any transcription to occur",
+    "C": "expressed at full induced levels, because glucose increases cAMP and activates the CAP complex at the promoter",
+    "D": "not expressed, because the operator is deleted by the lacI mutation, which prevents RNA polymerase binding"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Without a functional repressor, transcription occurs without lactose; high glucose lowers cAMP and CAP activation, so levels are modest but above wild type. Why the others are wrong: B) CAP increases transcription but basal transcription occurs without it. C) Glucose lowers cAMP, so the CAP complex is not active. D) The mutation inactivates the repressor protein and does not affect the operator.",
+   "trap": "Forgetting that glucose still limits expression through catabolite repression.",
+   "topic": "lac operon",
+   "mastery_sheet_id": "2B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_BB_D10",
+   "stem": "Phosphorylation of the retinoblastoma protein (Rb) by cyclin D-Cdk4/6 promotes cell cycle progression because it",
+   "options": {
+    "A": "releases E2F transcription factors, which activate genes required for S phase",
+    "B": "activates p53, which then increases p21 expression and inhibits cyclin-dependent kinases",
+    "C": "degrades cyclin B, which allows cells to exit mitosis and re-enter G1",
+    "D": "inactivates the APC/C, which prevents separase activation and anaphase"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Hypophosphorylated Rb binds E2F; phosphorylation releases it to drive transcription for S phase entry. Why the others are wrong: B) p53 activation is triggered by DNA damage, not by Rb phosphorylation. C) Cyclin B degradation involves the APC/C and acts at the end of mitosis. D) This does not describe Rb function, and it occurs at a different phase.",
+   "trap": "Thinking that Rb phosphorylation inhibits the cycle because Rb is a tumor suppressor.",
+   "topic": "Cell cycle control",
+   "mastery_sheet_id": "2C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_BB_D11",
+   "stem": "Which of the following adult structures is derived primarily from embryonic endoderm?",
+   "options": {
+    "A": "The cardiac muscle of the heart",
+    "B": "The epidermis of the skin",
+    "C": "The adrenal medulla",
+    "D": "The epithelial lining of the pancreas and liver"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Endoderm forms the gut tube and its derivatives, including the epithelia of the liver, pancreas, and lungs. Why the others are wrong: A) The heart is derived from mesoderm. B) The epidermis arises from ectoderm. C) This arises from neural crest cells (ectoderm).",
+   "trap": "Placing glandular organs in mesoderm since they seem like 'internal' tissues.",
+   "topic": "Germ layers",
+   "mastery_sheet_id": "2C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_BB_D12",
+   "stem": "A patient treated for months with high-dose prednisone, a synthetic glucocorticoid, would most likely show which hormonal changes?",
+   "options": {
+    "A": "High ACTH and adrenal hyperplasia, due to loss of negative feedback from endogenous cortisol",
+    "B": "Low ACTH and atrophy of the adrenal cortex, due to negative feedback on the hypothalamus and pituitary",
+    "C": "High CRH and high ACTH, because prednisone blocks the receptor for ACTH in the adrenal cortex",
+    "D": "Low ACTH and enlarged adrenal glands, due to autonomous production of cortisol by an adrenal tumor"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Exogenous glucocorticoid suppresses CRH and ACTH, so the adrenal cortex atrophies from lack of stimulation. Why the others are wrong: A) This is seen in primary adrenal insufficiency, not in exogenous steroid use. C) Prednisone acts as a glucocorticoid agonist and not as an ACTH receptor blocker. D) Exogenous steroids cause atrophy, not enlargement; autonomous tumor is a different cause.",
+   "trap": "Confusing exogenous steroid suppression with ACTH-dependent hypercortisolism.",
+   "topic": "HPA feedback",
+   "mastery_sheet_id": "3A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_BB_D13",
+   "stem": "Atropine, a muscarinic receptor antagonist, is given to a patient with symptomatic bradycardia. Why does heart rate increase?",
+   "options": {
+    "A": "It activates beta-1 receptors at the sinoatrial node, which increases cAMP in pacemaker cells",
+    "B": "It blocks vagal acetylcholine at the sinoatrial node, removing parasympathetic slowing of the pacemaker.",
+    "C": "It stimulates release of norepinephrine from the adrenal medulla, which accelerates pacemaker depolarization",
+    "D": "It increases calcium entry into ventricular myocytes, which raises the contractility but not the rate"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) At rest, vagal tone slows the SA node via M2 receptors; atropine removes this brake. Why the others are wrong: A) Atropine does not act on adrenergic receptors. C) Atropine does not trigger catecholamine release from the medulla. D) Atropine does not act in this way on ventricular calcium channels.",
+   "trap": "Assuming that a rise in heart rate requires sympathetic activation.",
+   "topic": "Autonomic pharmacology",
+   "mastery_sheet_id": "3A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_BB_D14",
+   "stem": "Furosemide, a loop diuretic, increases urine volume by inhibiting which transporter?",
+   "options": {
+    "A": "The Na+-Cl- cotransporter in the distal convoluted tubule, which is the target of thiazide diuretics",
+    "B": "The Na+-K+-2Cl- cotransporter in the thick ascending limb of the loop of Henle",
+    "C": "The epithelial sodium channel in the collecting duct, which is the target of amiloride",
+    "D": "Aquaporin-2 in the collecting duct, which is the water channel inserted in response to ADH"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Blocking NKCC2 reduces solute reabsorption and dissipates the medullary gradient, which impairs water reabsorption. Why the others are wrong: A) This is the thiazide target. C) This is the target of amiloride. D) Furosemide does not block aquaporins.",
+   "trap": "Choosing a distal nephron target such as thiazide's site.",
+   "topic": "Renal physiology",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL07_BB_D15",
+   "stem": "In skeletal muscle, the event that directly permits cross-bridge formation after calcium release from the sarcoplasmic reticulum is",
+   "options": {
+    "A": "binding of Ca2+ to troponin C, which moves tropomyosin off the myosin-binding sites on actin",
+    "B": "binding of Ca2+ to calmodulin, which activates myosin light chain kinase and phosphorylates myosin",
+    "C": "hydrolysis of ATP by actin, which changes its conformation and exposes the myosin binding site",
+    "D": "binding of ATP to myosin, which causes the head to attach tightly to actin"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Ca2+ binding to troponin C shifts tropomyosin and exposes the myosin-binding sites. Why the others are wrong: B) This is how smooth muscle contraction is regulated. C) ATP is hydrolyzed by myosin and not by actin. D) ATP binding to myosin releases the head from actin.",
+   "trap": "Applying the smooth muscle calmodulin mechanism to skeletal muscle.",
+   "topic": "Muscle contraction",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

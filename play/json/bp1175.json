@@ -1,0 +1,142 @@
+[
+  {
+    "id": "bp1175-01",
+    "type": "question",
+    "passage_id": "bp1175",
+    "passage_text": "Researchers studied the effect of a novel antihypertensive agent on systolic blood pressure (SBP) in adults with stage‑1 hypertension. A randomized, double‑blind, placebo‑controlled trial enrolled 240 participants, who were assigned to one of four groups: placebo, low‑dose (25 mg), medium‑dose (50 mg), or high‑dose (100 mg) of the drug. Baseline SBP was measured after a 5‑minute seated rest. After 4 weeks of daily dosing, SBP was reassessed. The investigators reported mean SBP values and the mean change from baseline for each group. The study aimed to determine dose‑response relationships and to evaluate safety signals. The primary outcome was the mean reduction in SBP at week 4. Secondary outcomes included the proportion of patients achieving target SBP <140 mmHg and incidence of adverse events. The trial’s design allowed for comparison of dose‑dependent efficacy while maintaining blinding and randomization integrity. Data analysis used analysis of covariance adjusting for baseline SBP. The results suggested a clear dose‑response curve, with the high‑dose group showing the largest mean reduction.",
+    "table_data": [
+      {
+        "group": "Placebo",
+        "baseline": 150,
+        "after": 148,
+        "change": -2
+      },
+      {
+        "group": "Low dose",
+        "baseline": 151,
+        "after": 143,
+        "change": -8
+      },
+      {
+        "group": "Medium dose",
+        "baseline": 149,
+        "after": 137,
+        "change": -12
+      },
+      {
+        "group": "High dose",
+        "baseline": 152,
+        "after": 131,
+        "change": -21
+      }
+    ],
+    "stem": "Which group experienced the greatest mean reduction in systolic blood pressure after 4 weeks?",
+    "options": {
+      "A": "Placebo",
+      "B": "Low dose",
+      "C": "Medium dose",
+      "D": "High dose"
+    },
+    "correct": "D",
+    "explanation": "The high‑dose group’s mean SBP decreased from 152 mmHg to 131 mmHg, a 21 mmHg reduction, which is larger than the reductions seen in the other groups.",
+    "trap": "Comparing baseline or week-4 SBP values instead of each group's change; the high-dose group's 21 mmHg drop is the largest reduction.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1175-02",
+    "type": "question",
+    "passage_id": "bp1175",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which design feature of this trial most directly limits bias from participants' and investigators' expectations about the drug?",
+    "options": {
+      "A": "Analysis of covariance adjusting for baseline SBP",
+      "B": "Measuring SBP after a 5‑minute seated rest",
+      "C": "Double‑blind, placebo‑controlled administration",
+      "D": "Including the proportion reaching SBP <140 mmHg as a secondary outcome"
+    },
+    "correct": "C",
+    "explanation": "Correct: Blinding participants and investigators to who gets drug or placebo prevents expectations from influencing responses or measurement. Why the others are wrong: A) covariate adjustment corrects for baseline differences, not expectation. B) a standard rest period reduces measurement variability, not expectation bias. D) choosing a secondary outcome does not mask treatment assignment.",
+    "trap": "Option A tempts readers to treat a statistical adjustment as protection against expectation bias.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:05:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1175-03",
+    "type": "question",
+    "passage_id": "bp1175",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Assuming equal group sizes, what is the average of the mean SBP reductions across all four groups, including placebo?",
+    "options": {
+      "A": "9 mmHg",
+      "B": "10.75 mmHg",
+      "C": "13.7 mmHg",
+      "D": "18 mmHg"
+    },
+    "correct": "B",
+    "explanation": "Correct: B) (2 + 8 + 12 + 21)/4 = 43/4 = 10.75 mmHg. Why the others are wrong: A) 9 mmHg does not match any averaging of the four reductions (43/5 ≈ 8.6 would divide by the wrong number of groups). C) 13.7 mmHg is the mean of the three drug groups only (41/3), leaving out placebo. D) 18 mmHg is far above the average and closer to the high-dose reduction alone.",
+    "trap": "Dropping the placebo group and averaging only the three drug groups, which gives 41/3 ≈ 13.7 mmHg instead of 10.75 mmHg.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:10:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1175-04",
+    "type": "question",
+    "passage_id": "bp1175",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following conclusions can be drawn directly from the data in the table?",
+    "options": {
+      "A": "The high-dose group's reduction was statistically significant compared with placebo.",
+      "B": "The low-dose group's reduction was not statistically significant.",
+      "C": "The medium-dose group's reduction was statistically significant.",
+      "D": "The mean SBP reduction increased at each step from placebo to low to medium to high dose."
+    },
+    "correct": "D",
+    "explanation": "The table reports mean changes (-2, -8, -12, -21 mmHg) but no p-values, so statements about statistical significance cannot be confirmed. The monotonic increase in mean reduction with dose is directly visible in the data.",
+    "trap": "Assuming significance from a visible trend; without reported p-values or confidence intervals, significance cannot be asserted.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:15:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1175-05",
+    "type": "question",
+    "passage_id": "bp1175",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Using the week 4 mean SBP values in the table, which statement about the 140 mmHg target is correct?",
+    "options": {
+      "A": "Mean SBP was below 140 mmHg in the medium-dose and high-dose groups only",
+      "B": "Mean SBP was below 140 mmHg in all four groups",
+      "C": "Mean SBP was below 140 mmHg in the high-dose group only",
+      "D": "Mean SBP in the placebo group fell below 140 mmHg"
+    },
+    "correct": "A",
+    "explanation": "Correct: A) Week 4 means were 148 (placebo), 143 (low), 137 (medium) and 131 (high), so only medium and high are below 140. Why the others are wrong: B) placebo (148) and low dose (143) stayed above 140. C) the medium-dose mean (137) was also below 140. D) the placebo mean was 148 mmHg.",
+    "trap": "Treating a large mean reduction (8 mmHg in the low-dose group) as reaching the target, although its mean of 143 mmHg stays above 140.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:20:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  }
+]

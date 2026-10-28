@@ -1,0 +1,414 @@
+[
+ {
+  "id": "d_3B_1",
+  "type": "discrete",
+  "stem": "Which vessel carries oxygenated blood to the heart?",
+  "options": {
+   "A": "Pulmonary artery, delivering blood to the left atrium",
+   "B": "Pulmonary vein, delivering blood to the left atrium",
+   "C": "Vena cava, delivering blood to the right atrium",
+   "D": "Aorta, delivering blood to the left ventricle"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Pulmonary veins return oxygenated blood from the lungs to the left atrium, the one place veins carry oxygenated blood. Why the others are wrong: A) The pulmonary artery carries deoxygenated blood from the right ventricle to the lungs, not to the left atrium. C) The vena cava carries deoxygenated systemic blood to the right atrium. D) The aorta carries oxygenated blood away from the left ventricle, not to it.",
+  "trap": "Assuming all veins carry deoxygenated blood and all arteries oxygenated blood.",
+  "topic": "Cardiac circulation",
+  "mastery_sheet_id": "3B",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_2",
+  "type": "discrete",
+  "stem": "A resting person has a heart rate of 75 beats/min and a stroke volume of 80 mL. What is the cardiac output?",
+  "options": {
+   "A": "0.6 L/min",
+   "B": "60 L/min",
+   "C": "6.0 L/min",
+   "D": "155 L/min"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) CO = HR x SV = 75 x 80 mL = 6000 mL/min = 6.0 L/min. Why the others are wrong: A) 0.6 L/min is a decimal error, off by a factor of ten. B) 60 L/min is a unit-conversion error, off by a factor of ten. D) 155 comes from adding 75 and 80 instead of multiplying.",
+  "trap": "Converting mL to L incorrectly.",
+  "topic": "Cardiac output",
+  "mastery_sheet_id": "3B",
+  "difficulty": "521",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.ncbi.nlm.nih.gov/books/NBK470455/"
+   ]
+  }
+ },
+ {
+  "id": "d_3B_3",
+  "type": "discrete",
+  "stem": "The delay of the electrical impulse at the AV node is important because it:",
+  "options": {
+   "A": "allows the atria to contract after the ventricles",
+   "B": "prevents the SA node from firing",
+   "C": "increases the heart rate",
+   "D": "allows the ventricles to fill with blood before they contract"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The AV node delay lets the atria finish contracting so the ventricles fill before they contract. Why the others are wrong: A) Atria contract before the ventricles, not after. B) The SA node is the pacemaker, and the AV delay does not stop it from firing. C) Heart rate is set by the SA node, and the AV delay does not increase it.",
+  "trap": "Thinking the AV node is the primary pacemaker.",
+  "topic": "Cardiac conduction",
+  "mastery_sheet_id": "3B",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_4",
+  "type": "discrete",
+  "stem": "If the radius of an arteriole is halved while other factors are constant, resistance to flow changes by what factor?",
+  "options": {
+   "A": "It increases 16-fold",
+   "B": "It increases 2-fold",
+   "C": "It increases 4-fold",
+   "D": "It decreases 16-fold"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Resistance is proportional to 1/r^4, so halving r multiplies resistance by 2^4 = 16. Why the others are wrong: B) A 2-fold change would imply resistance proportional to 1/r, ignoring the fourth power. C) A 4-fold change would use r^2 rather than r^4. D) Smaller radius increases resistance, so a decrease is the wrong direction.",
+  "trap": "Using the radius or its square instead of the fourth power.",
+  "topic": "Vessel resistance",
+  "mastery_sheet_id": "3B",
+  "difficulty": "527",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC5506001/figure/Fig4",
+    "https://amboss.com/us/snippet/Poiseuille_equation"
+   ]
+  }
+ },
+ {
+  "id": "d_3B_5",
+  "type": "discrete",
+  "stem": "In exercising muscle, the oxygen-hemoglobin dissociation curve shifts to the right because of:",
+  "options": {
+   "A": "decreased CO2 and H+, which increase Hb affinity",
+   "B": "increased CO2, H+, temperature, and 2,3-BPG, which decrease Hb affinity",
+   "C": "increased pH, which promotes oxygen binding",
+   "D": "decreased temperature, which promotes unloading"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Exercise raises CO2, H+, temperature and 2,3-BPG, which lower Hb affinity (right shift/Bohr effect) and promote O2 unloading in tissues. Why the others are wrong: A) Decreased CO2 and H+ would raise affinity and shift the curve left. C) Increased pH raises affinity, shifting the curve left. D) Decreased temperature raises affinity (left shift), hindering unloading.",
+  "trap": "Mixing up the direction of the Bohr effect.",
+  "topic": "Hemoglobin affinity",
+  "mastery_sheet_id": "3B",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_6",
+  "type": "discrete",
+  "stem": "Fetal hemoglobin has a higher oxygen affinity than adult hemoglobin primarily because it:",
+  "options": {
+   "A": "binds 2,3-BPG more strongly",
+   "B": "contains iron in the Fe3+ state",
+   "C": "binds 2,3-BPG less strongly",
+   "D": "has a lower oxygen-carrying capacity per heme"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Fetal Hb (gamma chains) binds 2,3-BPG less strongly, stabilizing the high-affinity R state and letting it take O2 from maternal blood. Why the others are wrong: A) Stronger 2,3-BPG binding would lower affinity, as in adult Hb. B) Fe3+ (methemoglobin) cannot bind oxygen, and fetal Hb contains Fe2+. D) Oxygen capacity per heme is the same, one O2 per heme.",
+  "trap": "Assuming greater 2,3-BPG binding raises affinity.",
+  "topic": "Fetal hemoglobin",
+  "mastery_sheet_id": "3B",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_7",
+  "type": "discrete",
+  "stem": "During quiet inhalation:",
+  "options": {
+   "A": "the diaphragm relaxes, decreasing thoracic volume",
+   "B": "air is pushed into the lungs by positive pressure",
+   "C": "intrapleural pressure becomes more positive",
+   "D": "the diaphragm contracts, increasing thoracic volume and lowering intrapulmonary pressure below atmospheric"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The diaphragm contracts, thoracic volume rises, and by Boyle's law intrapulmonary pressure drops below atmospheric so air flows in. Why the others are wrong: A) Diaphragm relaxation reduces thoracic volume and causes exhalation. B) Mammalian lungs are filled by negative pressure, not pushed by positive pressure. C) Intrapleural pressure becomes more negative, not more positive, during inhalation.",
+  "trap": "Thinking lungs are inflated by positive pressure.",
+  "topic": "Mechanics of breathing",
+  "mastery_sheet_id": "3B",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_8",
+  "type": "discrete",
+  "stem": "Glucose appears in the urine of an untreated diabetic patient because:",
+  "options": {
+   "A": "the filtered glucose load exceeds the maximum transport capacity of the proximal tubule",
+   "B": "glucose is not filtered by the glomerulus",
+   "C": "glucose is actively secreted in the distal tubule",
+   "D": "the loop of Henle cannot reabsorb water"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) When blood glucose is very high, the filtered load exceeds the proximal tubule's transport maximum (Tm), so excess glucose remains in the urine. Why the others are wrong: B) Glucose is freely filtered at the glomerulus. C) Glucose is not secreted in the distal tubule; it is reabsorbed in the proximal tubule. D) The loop of Henle handles water and salt, not glucose.",
+  "trap": "Believing the kidney does not filter glucose.",
+  "topic": "Glucose reabsorption",
+  "mastery_sheet_id": "3B",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_9",
+  "type": "discrete",
+  "stem": "The thick ascending limb of the loop of Henle:",
+  "options": {
+   "A": "passively reabsorbs water and is permeable to NaCl",
+   "B": "actively transports NaCl out of the lumen and is impermeable to water",
+   "C": "actively secretes water into the lumen",
+   "D": "is permeable to water, which dilutes the medulla"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The thick ascending limb actively pumps NaCl out (NKCC2) while impermeable to water, building the hypertonic medulla and diluting tubular fluid. Why the others are wrong: A) Passive water reabsorption describes the descending limb; the thick ascending limb is impermeable to water. C) Water is not actively transported into the lumen. D) Water permeability belongs to the descending limb, and the ascending limb's impermeability maintains the medullary gradient.",
+  "trap": "Reversing the properties of the ascending and descending limbs.",
+  "topic": "Loop of Henle",
+  "mastery_sheet_id": "3B",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_10",
+  "type": "discrete",
+  "stem": "Low blood pressure stimulates juxtaglomerular cells to release renin. Eventually this leads to:",
+  "options": {
+   "A": "decreased angiotensin II and vasodilation",
+   "B": "decreased aldosterone and increased Na+ excretion",
+   "C": "increased aldosterone, which increases Na+ reabsorption and K+ secretion in the distal nephron",
+   "D": "increased ADH inhibition and diuresis"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Renin generates angiotensin II, which vasoconstricts and stimulates aldosterone, raising Na+ reabsorption and K+ secretion in the distal nephron. Why the others are wrong: A) Renin raises, not lowers, angiotensin II, causing vasoconstriction. B) Aldosterone increases, which reduces Na+ excretion. D) Angiotensin II promotes ADH release, causing water retention rather than diuresis.",
+  "trap": "Forgetting aldosterone causes K+ loss along with Na+ retention.",
+  "topic": "RAAS",
+  "mastery_sheet_id": "3B",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_11",
+  "type": "discrete",
+  "stem": "Which statement about gastric secretions is correct?",
+  "options": {
+   "A": "Parietal cells secrete pepsinogen, and chief cells secrete HCl",
+   "B": "Pepsin is optimally active at pH 8",
+   "C": "Gastric lipase digests proteins in the stomach",
+   "D": "Parietal cells secrete HCl, and chief cells secrete pepsinogen, which is activated at low pH"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Parietal cells secrete HCl and chief cells secrete pepsinogen, which acid converts to active pepsin. Why the others are wrong: A) Reverses the cell roles. B) Pepsin works best at pH about 2 and is inactive at pH 8. C) Gastric lipase digests fat, while proteins are digested by pepsin.",
+  "trap": "Swapping parietal and chief cell products.",
+  "topic": "Stomach",
+  "mastery_sheet_id": "3B",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_12",
+  "type": "discrete",
+  "stem": "Secretin released from the duodenum in response to acidic chyme stimulates the pancreas to secrete:",
+  "options": {
+   "A": "bicarbonate-rich fluid that neutralizes the chyme",
+   "B": "pepsinogen that digests protein",
+   "C": "insulin that lowers glucose",
+   "D": "bile salts that emulsify fats"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Secretin signals the pancreas to release bicarbonate-rich fluid that neutralizes acidic chyme and protects the duodenum. Why the others are wrong: B) Pepsinogen is secreted by gastric chief cells, not the pancreas. C) Insulin is an endocrine secretion in response to glucose, not secretin. D) Bile salts are made by the liver and stored in the gallbladder, not made by the pancreas.",
+  "trap": "Confusing pancreatic exocrine and endocrine functions.",
+  "topic": "Pancreas and duodenum",
+  "mastery_sheet_id": "3B",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_13",
+  "type": "discrete",
+  "stem": "Which statement about bile is correct?",
+  "options": {
+   "A": "It contains lipase that digests triglycerides",
+   "B": "It emulsifies fat, increasing surface area for lipase action, and is produced in the liver",
+   "C": "It is produced in the gallbladder",
+   "D": "It neutralizes stomach acid by secreting bicarbonate"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Bile, produced in the liver, contains bile salts that emulsify fat, raising surface area for lipase. Why the others are wrong: A) Bile contains no digestive enzymes; lipase comes from the pancreas. C) The gallbladder stores and concentrates bile but does not produce it. D) Pancreatic bicarbonate, not bile, neutralizes stomach acid.",
+  "trap": "Thinking bile chemically digests fat.",
+  "topic": "Bile",
+  "mastery_sheet_id": "3B",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_14",
+  "type": "discrete",
+  "stem": "After absorption in the small intestine, dietary triglycerides are packaged and enter the circulation via:",
+  "options": {
+   "A": "free fatty acids that enter the hepatic portal vein",
+   "B": "amino acid carriers in capillaries",
+   "C": "chylomicrons that enter lacteals and the lymphatic system",
+   "D": "bile salts that enter the portal vein directly"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Absorbed triglycerides are repackaged in enterocytes into chylomicrons, too large for capillaries, and enter lacteals and lymph. Why the others are wrong: A) Free fatty acids are re-esterified; only short-chain fatty acids go directly to the portal vein. B) Amino acid carriers transport amino acids and not triglycerides. D) Bile salts are recycled via the portal vein but are not the transport form of dietary fat.",
+  "trap": "Assuming all nutrients go directly to the portal vein.",
+  "topic": "Lipid absorption",
+  "mastery_sheet_id": "3B",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_15",
+  "type": "discrete",
+  "stem": "HIV infection leads to immunodeficiency primarily because it:",
+  "options": {
+   "A": "destroys B cells directly through MHC I",
+   "B": "infects cytotoxic T cells exclusively",
+   "C": "suppresses innate immunity only",
+   "D": "infects and depletes CD4+ helper T cells"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) HIV infects and depletes CD4+ helper T cells, impairing both humoral and cell-mediated immunity. Why the others are wrong: A) B cells are not the main target and HIV does not destroy them through MHC I. B) HIV targets CD4+ cells, not cytotoxic (CD8+) T cells exclusively. C) The main defect is in adaptive immunity, not innate immunity alone.",
+  "trap": "Mistaking CD8 cytotoxic cells as the HIV target.",
+  "topic": "Adaptive immunity",
+  "mastery_sheet_id": "3B",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_16",
+  "type": "discrete",
+  "stem": "In skeletal muscle, the role of Ca2+ in contraction is to:",
+  "options": {
+   "A": "bind troponin C, shifting tropomyosin to expose myosin-binding sites on actin",
+   "B": "bind myosin directly to release ADP",
+   "C": "phosphorylate actin",
+   "D": "bind tropomyosin to block binding sites"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Ca2+ from the sarcoplasmic reticulum binds troponin C, moving tropomyosin off actin's myosin-binding sites and allowing cross-bridge cycling. Why the others are wrong: B) Ca2+ does not bind myosin directly to release ADP. C) Ca2+ does not phosphorylate actin. D) Tropomyosin blocks sites in the absence of Ca2+, and Ca2+ does not bind it to block.",
+  "trap": "Confusing troponin and tropomyosin roles.",
+  "topic": "Muscle contraction",
+  "mastery_sheet_id": "3B",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_17",
+  "type": "discrete",
+  "stem": "Intercalated discs in cardiac muscle allow the heart to act as a functional syncytium because they contain:",
+  "options": {
+   "A": "tight junctions that prevent ion movement",
+   "B": "gap junctions that allow rapid electrical coupling, and desmosomes for mechanical strength",
+   "C": "neuromuscular junctions at each cell",
+   "D": "T-tubules that connect to nuclei"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Gap junctions in intercalated discs electrically couple cardiomyocytes so depolarization spreads rapidly, and desmosomes give mechanical strength. Why the others are wrong: A) Tight junctions seal and do not allow ion movement, the opposite of coupling. C) Cardiac cells are not individually innervated by neuromuscular junctions. D) T-tubules carry action potentials into the cell and do not connect to nuclei.",
+  "trap": "Forgetting the role of gap junctions in cardiac conduction.",
+  "topic": "Cardiac muscle",
+  "mastery_sheet_id": "3B",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_18",
+  "type": "discrete",
+  "stem": "When body temperature rises, the skin helps lose heat primarily through:",
+  "options": {
+   "A": "vasoconstriction of cutaneous arterioles and piloerection",
+   "B": "shivering of skeletal muscles",
+   "C": "vasodilation of cutaneous arterioles and evaporation of sweat",
+   "D": "decreased blood flow to the skin"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Cutaneous vasodilation brings warm blood to the surface and sweat evaporation removes heat. Why the others are wrong: A) Vasoconstriction and piloerection conserve heat. B) Shivering generates heat. D) Decreased skin blood flow conserves heat.",
+  "trap": "Mixing up vasoconstriction and vasodilation.",
+  "topic": "Thermoregulation",
+  "mastery_sheet_id": "3B",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_19",
+  "type": "discrete",
+  "stem": "A patient with liver failure has low plasma albumin and peripheral edema. The best explanation is:",
+  "options": {
+   "A": "increased plasma oncotic pressure drawing fluid out",
+   "B": "decreased capillary hydrostatic pressure causing fluid retention",
+   "C": "increased lymphatic drainage",
+   "D": "decreased plasma oncotic pressure favoring net fluid movement out of capillaries"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Albumin supplies most plasma oncotic pressure; its loss favors net fluid movement into the interstitium, causing edema. Why the others are wrong: A) Increased oncotic pressure would draw fluid into capillaries, preventing edema. B) Lower hydrostatic pressure would decrease filtration, and is not the cause here. C) Increased lymphatic drainage would reduce edema.",
+  "trap": "Mistaking oncotic pressure's direction of effect.",
+  "topic": "Starling forces",
+  "mastery_sheet_id": "3B",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_20",
+  "type": "discrete",
+  "stem": "An Rh-negative mother who was sensitized by a prior Rh-positive pregnancy carries a second Rh-positive fetus. What is the risk?",
+  "options": {
+   "A": "Maternal anti-Rh IgG crosses the placenta and causes fetal hemolysis",
+   "B": "Maternal anti-Rh IgM crosses the placenta and attacks fetal cells",
+   "C": "Fetal anti-Rh antibodies attack the mother",
+   "D": "No risk because fetal and maternal circulations are fully mixed"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) A sensitized Rh-negative mother has anti-Rh IgG, the only antibody class that crosses the placenta, causing fetal hemolysis (hemolytic disease of the newborn). Why the others are wrong: B) IgM is too large to cross the placenta. C) The fetus does not produce anti-Rh antibodies against the mother. D) Maternal and fetal circulations are separate, though small exchanges occur, so risk exists.",
+  "trap": "Not remembering IgG crosses the placenta.",
+  "topic": "Rh incompatibility",
+  "mastery_sheet_id": "3B",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_3B_21",
+  "type": "discrete",
+  "stem": "A person hyperventilates during a panic attack. Which change is expected in arterial blood?",
+  "options": {
+   "A": "Increased PCO2 and decreased pH",
+   "B": "Decreased PCO2 and increased pH (respiratory alkalosis)",
+   "C": "Decreased PCO2 and decreased pH",
+   "D": "Increased PCO2 and increased pH"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Hyperventilation blows off CO2, lowering PCO2 and carbonic acid, so pH rises (respiratory alkalosis). Why the others are wrong: A) Increased PCO2 with decreased pH is respiratory acidosis from hypoventilation. C) Decreased PCO2 would raise pH, not lower it. D) Increased PCO2 would lower pH, not raise it.",
+  "trap": "Thinking hyperventilation raises CO2.",
+  "topic": "Acid-base and ventilation",
+  "mastery_sheet_id": "3B",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ }
+]

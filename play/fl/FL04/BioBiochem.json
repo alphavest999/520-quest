@@ -1,0 +1,1598 @@
+{
+ "exam": "FL04",
+ "section": "BB",
+ "passages": [
+  {
+   "passage_id": "FL04_BB_P1",
+   "passage_text": "Myoglobin (Mb) is a monomeric oxygen-storage protein in muscle, whereas hemoglobin (Hb) is a tetramer that transports oxygen in blood. Oxygen saturation of purified Mb and of purified adult Hb was measured at several partial pressures of oxygen (pO2) at 37°C. For Hb, measurements were made at pH 7.4 and pH 7.2, with all other conditions, including the concentration of 2,3-bisphosphoglycerate (2,3-BPG), held constant. Results are shown in Table 1 and Figure 1. In the lungs, alveolar pO2 is approximately 100 mmHg; in resting skeletal muscle capillaries, pO2 is approximately 40 mmHg.\n\nThe pO2 at which a protein is 50% saturated (P50) was estimated for each curve. Researchers also examined fetal hemoglobin (HbF), which has two α chains and two γ chains. In the presence of physiological 2,3-BPG, HbF was more saturated than adult HbA at any given pO2. A variant hemoglobin (HbS) with a single substitution at the surface of the β chain, Glu6 to Val, was also studied. Its oxygen-binding curve was similar to that of HbA, but deoxygenated HbS formed fibers at high concentration.",
+   "table_data": "| pO2 (mmHg) | Mb (% sat) | Hb, pH 7.4 (% sat) | Hb, pH 7.2 (% sat) |\n|---|---|---|---|\n| 10 | 78 | 7 | 4 |\n| 20 | 88 | 33 | 21 |\n| 30 | 91 | 60 | 44 |\n| 40 | 93 | 76 | 63 |\n| 60 | 96 | 91 | 83 |\n| 100 | 97 | 97 | 95 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Oxygen saturation versus pO2",
+    "x_label": "pO2 (mmHg)",
+    "y_label": "Saturation (%)",
+    "series": [
+     {
+      "name": "Mb",
+      "points": [
+       [
+        10,
+        78
+       ],
+       [
+        20,
+        88
+       ],
+       [
+        30,
+        91
+       ],
+       [
+        40,
+        93
+       ],
+       [
+        60,
+        96
+       ],
+       [
+        100,
+        97
+       ]
+      ]
+     },
+     {
+      "name": "Hb, pH 7.4",
+      "points": [
+       [
+        10,
+        7
+       ],
+       [
+        20,
+        33
+       ],
+       [
+        30,
+        60
+       ],
+       [
+        40,
+        76
+       ],
+       [
+        60,
+        91
+       ],
+       [
+        100,
+        97
+       ]
+      ]
+     },
+     {
+      "name": "Hb, pH 7.2",
+      "points": [
+       [
+        10,
+        4
+       ],
+       [
+        20,
+        21
+       ],
+       [
+        30,
+        44
+       ],
+       [
+        40,
+        63
+       ],
+       [
+        60,
+        83
+       ],
+       [
+        100,
+        95
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_BB_P1_Q1",
+     "stem": "The difference in shape between the Mb curve and the Hb curves in Figure 1 is best explained by which of the following?",
+     "options": {
+      "A": "Mb binds O2 with lower affinity than Hb, so Mb saturates at higher pO2 values.",
+      "B": "Hb contains iron in the ferric state, which binds O2 in a sigmoidal manner, whereas Mb contains ferrous iron that binds O2 with a single affinity",
+      "C": "Hb binds O2 cooperatively because O2 binding at one heme raises the affinity of the other subunits, whereas Mb has a single heme",
+      "D": "Mb binds O2 at several interacting sites on its chain, producing a hyperbolic curve with a high P50 value compared with Hb"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Hb is a tetramer whose subunits shift together from the T state toward the R state as O2 binds, giving a sigmoidal curve; Mb has one heme and no subunit interactions, so its curve is hyperbolic. Why the others are wrong: A) Mb is saturated at much lower pO2 (78% at 10 mmHg), so its affinity is higher, not lower. B) Both proteins bind O2 on ferrous (Fe2+) heme; ferric iron does not bind O2. D) Mb has one binding site; interacting sites would produce a sigmoidal curve.",
+     "trap": "Reading the left-shifted Mb curve as 'lower affinity' reverses the meaning of a low P50.",
+     "topic": "Cooperativity of hemoglobin",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P1_Q2",
+     "stem": "Based on Table 1, the P50 of Hb at pH 7.2 is closest to which value?",
+     "options": {
+      "A": "20 mmHg",
+      "B": "26 mmHg",
+      "C": "45 mmHg",
+      "D": "33 mmHg"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) At pH 7.2, saturation is 44% at 30 mmHg and 63% at 40 mmHg; 50% lies about one-third of the way between, near 33 mmHg. Why the others are wrong: A) At 20 mmHg, saturation is only 21%. B) 26 mmHg is the approximate P50 at pH 7.4 (50% falls between 33% at 20 and 60% at 30), not at pH 7.2. C) At 45 mmHg saturation would be well above 63%, so P50 is lower than this.",
+     "trap": "Using the pH 7.4 P50 for the pH 7.2 curve ignores the rightward shift.",
+     "topic": "Interpolating P50 from tabulated data",
+     "mastery_sheet_id": "1A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P1_Q3",
+     "stem": "Assuming blood leaving the lungs has pO2 of 100 mmHg and venous blood has pO2 of 40 mmHg, the amount of O2 released per Hb at pH 7.2 compared with pH 7.4 is approximately:",
+     "options": {
+      "A": "10% greater",
+      "B": "50% greater",
+      "C": "the same",
+      "D": "three times greater"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At pH 7.4, Hb releases 97 − 76 = 21 saturation points; at pH 7.2 it releases 95 − 63 = 32 points. 32/21 is about 1.5, or 50% greater (Bohr effect). Why the others are wrong: A) A 10% difference would correspond to roughly 23 points released at pH 7.2. C) The release is not equal because the curves differ at 40 mmHg (63% vs 76%) but nearly coincide at 100 mmHg. D) Three times would require releasing about 63 points.",
+     "trap": "Comparing only the venous saturations (63 vs 76) rather than the difference from arterial values gives the wrong magnitude.",
+     "topic": "Bohr effect calculation",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_BB_P1_Q4",
+     "stem": "Which statement best explains why HbF is more saturated than HbA at a given pO2 in the presence of 2,3-BPG?",
+     "options": {
+      "A": "γ chains bind 2,3-BPG less strongly than β chains, so HbF is less stabilized in the T state",
+      "B": "γ chains lack heme groups, so HbF binds O2 only through its α chains and therefore has a higher apparent affinity",
+      "C": "HbF binds 2,3-BPG more strongly than HbA does, which stabilizes the R state and favors oxygen release to the tissues",
+      "D": "HbF is a monomer with a hyperbolic binding curve like Mb, so it is more saturated at every pO2 regardless of 2,3-BPG"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 2,3-BPG binds in the central cavity of deoxyHb and favors the T state. γ chains lack a positively charged residue that interacts with 2,3-BPG, so HbF binds it less well and has higher O2 affinity. Why the others are wrong: B) γ chains contain heme; HbF remains a tetramer with cooperative binding. C) Stronger 2,3-BPG binding would lower O2 affinity. D) HbF is a tetramer (α2γ2) with a sigmoidal curve.",
+     "trap": "Assuming that anything with higher affinity must bind the allosteric effector more tightly.",
+     "topic": "Fetal hemoglobin and 2,3-BPG",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P1_Q5",
+     "stem": "The Glu6 to Val substitution in HbS most likely promotes fiber formation in the deoxygenated state because it:",
+     "options": {
+      "A": "introduces a disulfide bond between adjacent β chains, covalently cross-linking the tetramers into long polymers",
+      "B": "replaces a charged residue with a nonpolar one that can form hydrophobic contacts with a pocket on another Hb molecule",
+      "C": "eliminates the heme-binding histidine of the β chain, causing a loss of O2 binding and a collapse of the tetramer into aggregates",
+      "D": "replaces a hydrophobic residue with a charged residue at the surface, increasing solubility and driving fiber formation"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Valine is nonpolar; at the protein surface it creates a sticky hydrophobic patch that fits a complementary pocket on another deoxyHb molecule, leading to polymerization. Why the others are wrong: A) Valine has no sulfhydryl group and cannot form disulfides. C) The passage states the oxygen-binding curve was similar to HbA, and Glu6 is not the heme-binding histidine. D) Glu is the charged residue and Val the nonpolar one; the change is in the opposite direction.",
+     "trap": "Reversing which residue is charged and which is hydrophobic.",
+     "topic": "Sickle cell hemoglobin",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_BB_P2",
+   "passage_text": "Cultured human fibroblast lines were compared for their response to ultraviolet (UV-C) light, which produces cyclobutane pyrimidine dimers between adjacent thymines. Line W is wild type. Line N lacks XPA, a protein required for nucleotide excision repair (NER). Line M lacks MSH2, a component of the mismatch repair (MMR) system that detects base mismatches and small insertion/deletion loops formed by replication errors.\n\nCells were irradiated with increasing UV doses, and survival was measured by colony formation (Table 1, Figure 1). Separately, unirradiated cells were grown for many generations and plated in 6-thioguanine, which kills cells with a functional HPRT gene; colonies therefore represent cells that acquired loss-of-function mutations in HPRT. Mutant frequency is expressed per 10^6 cells. The UV doses used deliver damage to the DNA of every cell in the dish, and cells were allowed to recover for 24 hours before being replated at low density so that each surviving cell could form a colony. Each value is the mean of three independent experiments, and the standard error was less than 3 percentage points for all survival values.",
+   "table_data": "| Line | Survival at 2 J/m² (%) | Survival at 5 J/m² (%) | Survival at 10 J/m² (%) | HPRT mutants per 10^6 cells |\n|---|---|---|---|---|\n| W | 95 | 85 | 70 | 2 |\n| N | 55 | 20 | 4 | 3 |\n| M | 93 | 82 | 66 | 40 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Survival after UV irradiation",
+    "x_label": "UV dose (J/m²)",
+    "y_label": "Survival (%)",
+    "series": [
+     {
+      "name": "W",
+      "points": [
+       [
+        0,
+        100
+       ],
+       [
+        2,
+        95
+       ],
+       [
+        5,
+        85
+       ],
+       [
+        10,
+        70
+       ]
+      ]
+     },
+     {
+      "name": "N",
+      "points": [
+       [
+        0,
+        100
+       ],
+       [
+        2,
+        55
+       ],
+       [
+        5,
+        20
+       ],
+       [
+        10,
+        4
+       ]
+      ]
+     },
+     {
+      "name": "M",
+      "points": [
+       [
+        0,
+        100
+       ],
+       [
+        2,
+        93
+       ],
+       [
+        5,
+        82
+       ],
+       [
+        10,
+        66
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_BB_P2_Q1",
+     "stem": "Line N is hypersensitive to UV light most likely because it cannot:",
+     "options": {
+      "A": "reverse the dimer in place by direct photoreactivation using a light-dependent enzyme present in human cells",
+      "B": "recognize mismatched bases and remove the newly synthesized strand after replication errors arise",
+      "C": "excise an oligonucleotide containing the distorting dimer and resynthesize the gap using the intact strand as template",
+      "D": "repair double-strand breaks by joining broken ends of the two DNA molecules without a template"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) NER removes bulky helix-distorting lesions such as pyrimidine dimers; without XPA the dimers persist and block replication and transcription. Why the others are wrong: A) Human cells lack photolyase, and the defect in N is in the NER pathway rather than in a direct-reversal pathway. B) That describes MMR, which is intact in N; N has a normal mutant frequency in Table 1. D) UV primarily produces intrastrand dimers, not double-strand breaks, and end joining is not the defect in N.",
+     "trap": "Assigning UV damage to mismatch repair because both pathways correct DNA errors.",
+     "topic": "Nucleotide excision repair",
+     "mastery_sheet_id": "1B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P2_Q2",
+     "stem": "Compared with line W, the spontaneous HPRT mutant frequency in line M is approximately:",
+     "options": {
+      "A": "20-fold higher, consistent with accumulation of uncorrected replication errors",
+      "B": "2-fold higher, a modest difference expected from the small variation between cell lines",
+      "C": "10-fold higher, reflecting the loss of both excision repair and mismatch repair functions",
+      "D": "40-fold higher, because line M carries 40 mutants compared with a baseline of one"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 40 divided by 2 equals 20; without MMR, polymerase errors that escape proofreading become permanent after the next round of replication. Why the others are wrong: B) The ratio is 40/2 = 20, far larger than 2-fold. C) The ratio is 20, not 10, and only MMR is missing in M. D) The wild-type baseline is 2 mutants, not 1, so the ratio is 20.",
+     "trap": "Reporting the mutant count itself as the fold change.",
+     "topic": "Mutation rates",
+     "mastery_sheet_id": "1B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_BB_P2_Q3",
+     "stem": "Unrepaired dimers in line N that are bypassed during DNA replication would most likely lead to which outcome?",
+     "options": {
+      "A": "silent mutations only, because the genetic code is degenerate and dimers never alter coding sequences",
+      "B": "large chromosomal deletions generated each time a dimer causes the replication machinery to stall",
+      "C": "insertions of repeated units in microsatellites, which is the characteristic lesion of unrepaired dimers",
+      "D": "base substitutions, typically C to T changes at dipyrimidine sites, introduced by error-prone translesion synthesis"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Dimers block high-fidelity replicative polymerases; translesion polymerases bypass them but frequently insert incorrect bases, usually adenine opposite cytosine, which yields C to T changes. Why the others are wrong: A) Mutations at dimers occur at random positions and can change amino acids or create stop codons; they are not restricted to silent changes. B) Stalling does not usually produce large deletions; bypass by translesion synthesis causes point mutations. C) Slippage at repeats is characteristic of MMR deficiency, not of unrepaired dimers.",
+     "trap": "Linking pyrimidine dimers to microsatellite slippage.",
+     "topic": "Mutagenesis",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P2_Q4",
+     "stem": "In line M, which type of mutation would be expected to accumulate in repetitive microsatellite sequences?",
+     "options": {
+      "A": "pyrimidine dimers resulting from direct absorption of UV photons by adjacent thymines in the repeat",
+      "B": "small insertions and deletions arising from polymerase slippage",
+      "C": "whole-chromosome gains and losses produced by failure of the spindle to attach to kinetochores",
+      "D": "single-strand breaks from oxidative damage that are normally sealed by DNA ligase after base excision"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Slippage on repeats creates unpaired loops that MMR normally corrects; without MSH2 these persist as length changes. Why the others are wrong: A) Dimers form on UV exposure and are handled by NER; they are not slippage products. C) Aneuploidy arises from segregation errors, which are unrelated to loss of MSH2. D) Oxidative damage is handled by base excision repair, which is intact in M.",
+     "trap": "Choosing the answer that sounds like generic DNA damage rather than the MMR substrate.",
+     "topic": "Mismatch repair",
+     "mastery_sheet_id": "1B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_BB_P3",
+   "passage_text": "In Drosophila melanogaster, three recessive alleles on chromosome 2 were studied: black body (b), vestigial wings (vg), and cinnabar eyes (cn). Female flies heterozygous for two of the genes, with both wild-type alleles on one homolog and both recessive alleles on the other, were crossed to males homozygous recessive for both genes (a testcross). Because crossing over does not occur in male Drosophila, the heterozygous parent in each cross was female. For each of three crosses, 1000 progeny were scored (Table 1). Map distance is expressed in map units, where 1 map unit equals 1% recombinant progeny.\n\nIn a separate cage population that was large, randomly mating, and free of selection, migration, and mutation, 4% of the flies had vestigial wings, which is an autosomal recessive trait. The researchers wanted to place the three genes in order on a linkage map and also to estimate the fraction of wild-type flies in the cage that carry the vestigial allele. Parental-type progeny are the two most common classes in each cross.",
+   "table_data": "| Cross | Progeny phenotype | Number |\n|---|---|---|\n| 1 (b, vg) | wild type for both | 415 |\n| 1 (b, vg) | black and vestigial | 415 |\n| 1 (b, vg) | wild-type body, vestigial | 85 |\n| 1 (b, vg) | black, normal wings | 85 |\n| 2 (vg, cn) | wild type for both | 455 |\n| 2 (vg, cn) | vestigial and cinnabar | 455 |\n| 2 (vg, cn) | normal wings, cinnabar | 45 |\n| 2 (vg, cn) | vestigial, red eyes | 45 |\n| 3 (b, cn) | wild type for both | 460 |\n| 3 (b, cn) | black and cinnabar | 460 |\n| 3 (b, cn) | wild-type body, cinnabar | 40 |\n| 3 (b, cn) | black, red eyes | 40 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_BB_P3_Q1",
+     "stem": "What is the map distance between the b and vg genes?",
+     "options": {
+      "A": "8.5 map units",
+      "B": "17 map units",
+      "C": "83 map units",
+      "D": "34 map units"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) In cross 1 the recombinants are 85 + 85 = 170 of 1000 progeny, or 17%, which equals 17 map units. Why the others are wrong: A) 8.5% is the frequency of a single recombinant class (85/1000); both reciprocal classes must be counted. C) 83% is the frequency of parental types. D) 34 doubles the recombinant frequency incorrectly.",
+     "trap": "Counting only one of the two reciprocal recombinant classes.",
+     "topic": "Linkage map distance",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_BB_P3_Q2",
+     "stem": "Based on the three crosses, what is the order of the genes on the chromosome?",
+     "options": {
+      "A": "b - cn - vg",
+      "B": "cn - b - vg",
+      "C": "b - vg - cn",
+      "D": "vg - b - cn"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) b-vg (17) equals b-cn (8) plus cn-vg (9), so cn lies between b and vg. Why the others are wrong: B) This puts b in the middle; then cn-vg would equal 8 + 17 = 25, not 9. C) If vg were in the middle, b-cn would equal 17 + 9 = 26, not 8. D) This also puts b in the middle; then vg-cn would equal 17 + 8 = 25, not 9.",
+     "trap": "Choosing the order from the single largest distance without checking additivity.",
+     "topic": "Gene order from two-point crosses",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P3_Q3",
+     "stem": "If crossovers between b and cn and between cn and vg occurred independently, about how many double-crossover progeny per 1000 would be expected?",
+     "options": {
+      "A": "17",
+      "B": "72",
+      "C": "7",
+      "D": "0.7"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Expected double crossovers = 0.08 × 0.09 × 1000 = 7.2, about 7. Why the others are wrong: A) 17 is the b-vg distance. B) 72 comes from multiplying frequencies as percentages without converting to fractions. D) 0.7 is an arithmetic slip of a factor of ten.",
+     "trap": "Adding instead of multiplying probabilities of independent events.",
+     "topic": "Double crossovers",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://en.wikipedia.org/wiki/Coefficient_of_coincidence"
+      ]
+     }
+    },
+    {
+     "id": "FL04_BB_P3_Q4",
+     "stem": "Recombinant progeny in these testcrosses arise primarily from crossing over between:",
+     "options": {
+      "A": "sister chromatids of the same chromosome during prophase of mitosis",
+      "B": "nonhomologous chromosomes during metaphase II of meiosis",
+      "C": "nonsister chromatids of homologous chromosomes in prophase I",
+      "D": "sister chromatids of one chromosome during anaphase I of meiosis"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Homologs synapse in prophase I and exchange segments between nonsister chromatids, producing recombinant chromatids. Why the others are wrong: A) Exchanges between sister chromatids give identical alleles and no new combinations. B) Nonhomologous chromosomes do not exchange alleles at the same loci; independent assortment is at metaphase I. D) Sister chromatids remain attached in anaphase I; homologs separate.",
+     "trap": "Confusing independent assortment with crossing over, or sister with nonsister exchange.",
+     "topic": "Meiotic recombination",
+     "mastery_sheet_id": "1C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P3_Q5",
+     "stem": "In the cage population, what fraction of the wild-type flies are heterozygous for the vestigial allele, assuming Hardy-Weinberg equilibrium?",
+     "options": {
+      "A": "0.32, which is 32%",
+      "B": "0.32/0.96, about 33%",
+      "C": "0.2",
+      "D": "0.16"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) q² = 0.04, so q = 0.2 and p = 0.8. Heterozygotes are 2pq = 0.32 of all flies. Wild-type flies make up 0.96, so the fraction among them is 0.32/0.96 = 33%. Why the others are wrong: A) 0.32 is the fraction of all flies, not of wild-type flies. C) 0.2 is the allele frequency q. D) 0.16 is pq, omitting the factor of 2.",
+     "trap": "Forgetting to restrict the denominator to phenotypically wild-type flies.",
+     "topic": "Hardy-Weinberg",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.pearson.com/channels/genetics/textbook-solutions/klug-10th-edition-9780135588789/ch-21-population-and-evolutionary-genetics/consider-rare-disorders-in-a-population-caused-by-an-autosomal-recessive-mutatio-4",
+       "https://app.achievable.me/study/usmle-step-1/learn/genetics-population-genetics"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_BB_P4",
+   "passage_text": "During fasting, the liver oxidizes fatty acids released from adipose tissue and produces ketone bodies that other tissues use as fuel. To test the role of mitochondrial fatty acid import, researchers gave mice either saline or etomoxir, an irreversible inhibitor of carnitine palmitoyltransferase I (CPT-I), and then fasted them for 24 hours. A fed control group received saline. Plasma insulin was low in both fasted groups. Blood and liver samples were collected (Table 1). Etomoxir-treated mice became lethargic and hypothermic during the fast, and several required early removal from the study because of severe weakness. Food was withheld in all fasted groups, and water was available at all times.\n\nLiver mitochondria from fasted control mice, incubated with palmitoyl-CoA and carnitine, consumed oxygen readily. Mitochondria from etomoxir-treated mice did not unless they were supplied with octanoate, a medium-chain fatty acid that enters mitochondria without the carnitine shuttle. The researchers concluded that long-chain fatty acid oxidation is required both for ketogenesis and for maintenance of blood glucose during fasting.",
+   "table_data": "| Group | Blood glucose (mg/dL) | Plasma free fatty acids (mM) | Plasma β-hydroxybutyrate (mM) | Liver triacylglycerol (relative) |\n|---|---|---|---|---|\n| Fed, saline | 140 | 0.4 | 0.1 | 1.0 |\n| Fasted, saline | 80 | 1.6 | 2.5 | 1.5 |\n| Fasted, etomoxir | 30 | 2.4 | 0.2 | 6.0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_BB_P4_Q1",
+     "stem": "In fasted control mice, the rise in β-hydroxybutyrate is best explained by:",
+     "options": {
+      "A": "conversion of glucose to acetoacetate by glycolysis in the liver, which increases when blood glucose is low",
+      "B": "inhibition of β-oxidation by the high plasma free fatty acid concentration, which forces acetyl-CoA into ketone body synthesis",
+      "C": "increased conversion of ketone bodies back to fatty acids in the liver, which releases β-hydroxybutyrate into the blood",
+      "D": "acetyl-CoA from β-oxidation exceeding the capacity of the citric acid cycle, because oxaloacetate is diverted to gluconeogenesis"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) During fasting the liver oxidizes large amounts of fatty acids while oxaloacetate is drawn into gluconeogenesis. Excess acetyl-CoA condenses to HMG-CoA and then ketone bodies. Why the others are wrong: A) Glucose is low, and ketone bodies derive from acetyl-CoA, not directly from glycolysis. B) Free fatty acids are the substrate for oxidation, not an inhibitor. C) The liver releases ketone bodies and lacks the enzyme needed to use them; it does not make fatty acids from them.",
+     "trap": "Assuming ketone bodies come from carbohydrate rather than from fatty acid breakdown.",
+     "topic": "Ketogenesis",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P4_Q2",
+     "stem": "Octanoate restores oxygen consumption in mitochondria from etomoxir-treated mice because it:",
+     "options": {
+      "A": "can cross the inner mitochondrial membrane without conversion to acylcarnitine",
+      "B": "is oxidized in the cytosol by peroxisomal enzymes, which do not depend on CPT-I for substrate entry",
+      "C": "is converted to glucose in the cytosol before entering mitochondria for oxidation by the citric acid cycle",
+      "D": "directly donates electrons to complex IV of the electron transport chain, bypassing the need for β-oxidation"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) CPT-I on the outer mitochondrial membrane converts long-chain acyl-CoA to acylcarnitine for transport. Medium-chain fatty acids enter the matrix without this step and are oxidized there. Why the others are wrong: B) The experiment measured mitochondrial oxygen consumption, so oxidation occurs in mitochondria. C) Fatty acids cannot be converted net to glucose in animals. D) Electrons from fatty acid oxidation enter via FADH2 and NADH, not directly at complex IV.",
+     "trap": "Thinking the carnitine shuttle blocks all fatty acids rather than long-chain ones.",
+     "topic": "Carnitine shuttle",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P4_Q3",
+     "stem": "Which statement best explains the hypoglycemia in etomoxir-treated mice?",
+     "options": {
+      "A": "Elevated ketone bodies suppress glucagon release, which prevents the liver from stimulating gluconeogenesis during the fast",
+      "B": "Without fatty acid oxidation, the liver lacks the ATP, NADH, and acetyl-CoA that support gluconeogenesis",
+      "C": "Fatty acids are converted directly to glucose by the liver, and blocking this route lowers the blood glucose concentration",
+      "D": "Etomoxir increases insulin secretion from pancreatic β cells, which drives glucose uptake into peripheral tissues"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) β-oxidation supplies ATP and NADH and acetyl-CoA, which allosterically activates pyruvate carboxylase. Blocking it impairs gluconeogenesis, and fatty acids are instead stored as triacylglycerol, as shown by the sixfold rise in liver triacylglycerol. Why the others are wrong: A) Ketone bodies are low (0.2 mM) in this group. C) Animals cannot convert fatty acids to glucose net. D) Insulin was stated to be low in both fasted groups.",
+     "trap": "Believing fatty acids can be a net carbon source for glucose.",
+     "topic": "Fasting metabolism",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P4_Q4",
+     "stem": "Complete oxidation of one palmitate (16 carbons) to CO2, using 2.5 ATP per NADH and 1.5 ATP per FADH2, yields a net ATP of approximately:",
+     "options": {
+      "A": "96",
+      "B": "108",
+      "C": "129",
+      "D": "106"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Seven cycles give 7 FADH2 (10.5) and 7 NADH (17.5), and 8 acetyl-CoA give 10 each (80), for 108. Activation to palmitoyl-CoA costs 2 ATP equivalents, so net is 106. Why the others are wrong: A) 96 would omit part of the NADH or FADH2 yield. B) 108 omits the 2 ATP equivalents spent on activation. C) 129 uses older P/O ratios (2.5 and 1.5 are given here).",
+     "trap": "Forgetting the two ATP equivalents consumed activating the fatty acid.",
+     "topic": "Fatty acid oxidation energetics",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.pearson.com/channels/biochemistry/learn/jason/review-5/fatty-acid-oxidation-practice-1",
+       "https://www.pearson.com/channels/gob/asset/c949a8de/provide-total-moles-of-atp-produced-by-complete-oxidation-of-34-g-of-palmitic-ac"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_BB_P5",
+   "passage_text": "Cholesterol is a major lipid of animal plasma membranes. To study its effect on bilayer fluidity, unilamellar liposomes were prepared from dipalmitoylphosphatidylcholine (DPPC; two saturated 16-carbon chains; gel-to-fluid transition near 41°C) or dioleoylphosphatidylcholine (DOPC; two cis-monounsaturated 18-carbon chains; transition near -17°C), each containing 0 to 30 mol% cholesterol.\n\nThe fluorescent probe diphenylhexatriene (DPH), which partitions into the hydrophobic core, was added to each preparation. The steady-state fluorescence anisotropy of DPH was measured; a higher anisotropy means that the probe rotates less freely and the bilayer is less fluid (Table 1, Figure 1). Measurements were made at 25°C and at 50°C, after each sample had been equilibrated for 10 minutes. The lipid concentration and probe-to-lipid ratio were the same in every sample, so that differences in anisotropy reflect the bilayer and not the amount of probe.\n\nIn a final experiment, the passive leak rate of a small polar dye from DPPC liposomes at 50°C was measured, and it decreased as cholesterol content increased.",
+   "table_data": "| Cholesterol (mol%) | DPPC, 25°C | DPPC, 50°C | DOPC, 25°C |\n|---|---|---|---|\n| 0 | 0.34 | 0.06 | 0.07 |\n| 10 | 0.30 | 0.10 | 0.10 |\n| 20 | 0.26 | 0.15 | 0.14 |\n| 30 | 0.22 | 0.20 | 0.18 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. DPH anisotropy versus cholesterol content",
+    "x_label": "Cholesterol (mol%)",
+    "y_label": "DPH anisotropy",
+    "series": [
+     {
+      "name": "DPPC, 25°C",
+      "points": [
+       [
+        0,
+        0.34
+       ],
+       [
+        10,
+        0.3
+       ],
+       [
+        20,
+        0.26
+       ],
+       [
+        30,
+        0.22
+       ]
+      ]
+     },
+     {
+      "name": "DPPC, 50°C",
+      "points": [
+       [
+        0,
+        0.06
+       ],
+       [
+        10,
+        0.1
+       ],
+       [
+        20,
+        0.15
+       ],
+       [
+        30,
+        0.2
+       ]
+      ]
+     },
+     {
+      "name": "DOPC, 25°C",
+      "points": [
+       [
+        0,
+        0.07
+       ],
+       [
+        10,
+        0.1
+       ],
+       [
+        20,
+        0.14
+       ],
+       [
+        30,
+        0.18
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_BB_P5_Q1",
+     "stem": "In DPPC bilayers at 50°C, cholesterol most likely alters membrane properties by:",
+     "options": {
+      "A": "increasing the spacing between phospholipids so that acyl chains move more freely and fluidity rises",
+      "B": "forming covalent bonds with phospholipid head groups that anchor the lipids to the underlying cytoskeleton",
+      "C": "restricting motion of the fatty acyl chains near the head groups, which decreases fluidity",
+      "D": "lowering the temperature of the gel-to-fluid transition so that the bilayer becomes a gel at 50°C"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The rigid steroid ring packs against the upper acyl chains, so DPH anisotropy rises from 0.06 to 0.20 as the bilayer becomes more ordered. Why the others are wrong: A) Anisotropy increased with cholesterol at 50°C, indicating reduced, not increased, fluidity. B) Cholesterol associates with lipids noncovalently; it does not form covalent links to head groups. D) The bilayer becomes more ordered but the data do not show gel formation; the effect is intermediate ordering, not a shift into the gel phase.",
+     "trap": "Assuming cholesterol always makes a membrane more fluid.",
+     "topic": "Membrane fluidity",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P5_Q2",
+     "stem": "The decrease in DPPC anisotropy with added cholesterol at 25°C is best explained by cholesterol:",
+     "options": {
+      "A": "disrupting the tight packing of the saturated chains in the gel phase",
+      "B": "increasing hydrogen bonding between the saturated chains so that they rotate more freely",
+      "C": "converting saturated chains to unsaturated chains, which introduces kinks into the bilayer",
+      "D": "raising the transition temperature so that DPPC melts at 25°C instead of 41°C"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Below the transition temperature, saturated chains are crystalline; the bulky sterol ring interrupts their ordered packing and increases motion, lowering anisotropy. Why the others are wrong: B) Saturated acyl chains do not form hydrogen bonds with one another, and added bonding would reduce motion rather than increase it. C) Cholesterol cannot alter the chemical structure of the acyl chains; no desaturation occurs in liposomes. D) Cholesterol broadens the transition rather than raising it; DPPC remains in the gel phase at 25°C.",
+     "trap": "Applying the fluid-phase effect of cholesterol to the gel phase.",
+     "topic": "Cholesterol as a fluidity buffer",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P5_Q3",
+     "stem": "From Table 1, the percent decrease in DPPC anisotropy at 25°C between 0 and 30 mol% cholesterol is closest to:",
+     "options": {
+      "A": "12%",
+      "B": "54%",
+      "C": "65%",
+      "D": "35%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) (0.34 - 0.22)/0.34 = 0.12/0.34 = 35%. Why the others are wrong: A) This is the absolute change in anisotropy (0.12) written as a percentage, not the fractional change. B) This results from dividing the change by 0.22 rather than by the starting value of 0.34. C) This is the remaining fraction (0.22/0.34), not the percent decrease.",
+     "trap": "Dividing by the final value rather than the initial value.",
+     "topic": "Percent change",
+     "mastery_sheet_id": "2A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_BB_P5_Q4",
+     "stem": "Many organisms that are shifted to a lower growth temperature respond by increasing the proportion of unsaturated fatty acids in their membranes. The data for DOPC are consistent with this because:",
+     "options": {
+      "A": "saturated chains pack more loosely than unsaturated chains and so remain the more fluid lipid below their transition",
+      "B": "cholesterol eliminates all effect of fatty acid structure, so DOPC and DPPC behave identically at 25°C",
+      "C": "unsaturated chains prevent tight packing, so DOPC is fluid at 25°C with anisotropy near 0.07",
+      "D": "unsaturated chains raise the transition temperature, allowing DOPC to remain in the gel phase at 25°C"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) cis double bonds create kinks that keep lipids spaced apart, so fluid membranes can be maintained at low temperature. Why the others are wrong: A) Saturated chains pack tightly, and DPPC is the less fluid lipid at 25°C (0.34 versus 0.07). B) The 0% rows differ greatly (0.07 versus 0.34), so chain structure matters. D) DOPC melts near -17°C, so it is fluid, not gel, at 25°C.",
+     "trap": "Reversing which fatty acid type lowers the transition temperature.",
+     "topic": "Homeoviscous adaptation",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P5_Q5",
+     "stem": "A leak rate of a small polar dye that decreases with cholesterol at 50°C most directly indicates that cholesterol:",
+     "options": {
+      "A": "creates aqueous channels that let the dye diffuse out through protein-lined pores in the bilayer",
+      "B": "reduces the passive permeability of the fluid bilayer to small polar solutes",
+      "C": "increases the flip-flop rate of phospholipids so the dye is carried across with lipids moving between leaflets",
+      "D": "converts the DPPC bilayer into a micelle with a hydrophobic interior that traps the polar dye"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) More ordered packing leaves fewer transient gaps for polar molecules to cross the hydrophobic core, consistent with the higher anisotropy at 50°C. Why the others are wrong: A) Liposomes contain no proteins here, and channels would increase leakage. C) Dye is not carried by lipids, and a lower leak rate argues against increased disruption. D) Phospholipids with two acyl chains form bilayers, and cholesterol does not convert them into micelles.",
+     "trap": "Confusing reduced permeability with reduced fluidity being impossible together.",
+     "topic": "Membrane permeability",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_BB_P6",
+   "passage_text": "The Ames test screens chemicals for mutagenicity using Salmonella typhimurium strains that cannot synthesize histidine (his-). Strain TA100 carries a base-pair substitution in the histidine operon, and strain TA98 carries a frameshift mutation in the same operon. Cells were plated on minimal agar containing a trace of histidine, which permits a few divisions, and colonies that grow represent his+ revertants.\n\nChemical X was tested with and without S9, a rat liver extract that contains cytochrome P450 enzymes. Bacteria do not express these enzymes. Revertant colonies per plate were counted after 48 hours (Table 1). Plates with no chemical show spontaneous reversion. In a dose-response experiment with S9 (Figure 1), a plate with at least twice the spontaneous count is typically scored as positive. All plates were prepared in triplicate and the mean counts are shown, and a separate set of plates containing only the solvent used to dissolve chemical X gave counts identical to the no-chemical plates.",
+   "table_data": "| Condition | TA100 revertants/plate | TA98 revertants/plate |\n|---|---|---|\n| No chemical | 120 | 30 |\n| Chemical X (100 µg), no S9 | 125 | 28 |\n| Chemical X (100 µg), with S9 | 485 | 33 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Dose response of chemical X with S9",
+    "x_label": "Chemical X (µg/plate)",
+    "y_label": "Revertant colonies per plate",
+    "series": [
+     {
+      "name": "TA100",
+      "points": [
+       [
+        0,
+        120
+       ],
+       [
+        10,
+        156
+       ],
+       [
+        50,
+        303
+       ],
+       [
+        100,
+        485
+       ],
+       [
+        200,
+        850
+       ]
+      ]
+     },
+     {
+      "name": "TA98",
+      "points": [
+       [
+        0,
+        30
+       ],
+       [
+        10,
+        31
+       ],
+       [
+        50,
+        32
+       ],
+       [
+        100,
+        33
+       ],
+       [
+        200,
+        35
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_BB_P6_Q1",
+     "stem": "Plating the strains on agar that lacks histidine except for a trace amount serves to:",
+     "options": {
+      "A": "induce new mutations in all cells by starving them of an essential amino acid until the operon is damaged",
+      "B": "kill all cells carrying a frameshift mutation, leaving only strains with base-pair substitutions on the plate",
+      "C": "select for revertants, because only cells that regained histidine synthesis continue to divide into colonies",
+      "D": "activate the cytochrome P450 enzymes in the bacteria so that chemical X is converted to a mutagen"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Once the trace histidine is exhausted, only his+ cells keep growing, so colony number reports reversion frequency. Why the others are wrong: A) Starvation selects among existing cells; it is not what generates the mutations being counted. B) Both TA98 and TA100 grow when they revert, and selection acts on reversion, not on mutation class. D) Bacteria lack these enzymes; S9 supplies them.",
+     "trap": "Thinking the medium generates the mutations rather than selecting them.",
+     "topic": "Selection in bacteria",
+     "mastery_sheet_id": "2B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P6_Q2",
+     "stem": "The data in Table 1 best support which conclusion about chemical X?",
+     "options": {
+      "A": "It is a direct-acting frameshift mutagen that damages the histidine operon of TA98 without metabolic activation",
+      "B": "It is a direct-acting mutagen of both strains because counts with S9 exceed those without S9 in each strain",
+      "C": "It is not mutagenic, because the revertants in the S9 plates arise from a toxic effect that selects for his+ cells",
+      "D": "It is converted by liver enzymes into a mutagen that causes base-pair substitutions"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Revertants rise only for TA100 and only with S9, so a metabolite, not X itself, induces substitutions rather than frameshifts. Why the others are wrong: A) TA98 counts did not change (30 versus 33), so frameshifts are not induced. B) TA98 did not increase with S9, and without S9 TA100 did not increase either (125 versus 120). C) Toxicity cannot create his+ cells, and the effect is dose dependent for TA100 only.",
+     "trap": "Concluding the compound is a direct mutagen from the S9 plate alone.",
+     "topic": "Interpretation of Ames data",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P6_Q3",
+     "stem": "With S9, the fold increase in TA100 revertants at 100 µg of chemical X compared with spontaneous reversion is approximately:",
+     "options": {
+      "A": "4",
+      "B": "1",
+      "C": "365",
+      "D": "16"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 485/120 = 4.04, which exceeds the twofold criterion for a positive result. Why the others are wrong: B) This is the ratio without S9 (125/120), not with S9. C) This is the difference in colonies (485 - 120), not a fold change. D) This results from the ratio of the TA100 value to the TA98 value (485/30).",
+     "trap": "Reporting the difference in counts rather than the ratio.",
+     "topic": "Fold change",
+     "mastery_sheet_id": "2B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_BB_P6_Q4",
+     "stem": "A single point mutation can be detected in this assay soon after it occurs mainly because bacteria:",
+     "options": {
+      "A": "contain multiple copies of the chromosome in each cell that are repaired by recombination between homologs",
+      "B": "carry the histidine genes on mitochondrial DNA that is inherited from the mother in many generations",
+      "C": "are haploid, so a recessive-type change in the single copy of the gene is expressed immediately",
+      "D": "package the histidine operon into nucleosomes whose structure allows mutations to be silenced"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) With one chromosome there is no second allele to mask the mutation, so the his+ phenotype is displayed directly. Why the others are wrong: A) Typical bacterial cells contain one circular chromosome during most of the growth cycle, and the change is detected because there is no second allele. B) Bacteria have no mitochondria. D) Bacteria lack histones and nucleosomes, and silencing would hide mutations.",
+     "trap": "Applying eukaryotic features such as mitochondria to bacteria.",
+     "topic": "Prokaryotic genetics",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_BB_P7",
+   "passage_text": "The tumor suppressor p53 is stabilized after DNA damage and acts as a transcription factor. To study its role, researchers treated isogenic cell lines, either wild type or null for p53, with a DNA-damaging drug for 24 hours. Cells were fixed, stained with a fluorescent DNA-binding dye, and analyzed by flow cytometry. Cells were classified by DNA content: G1 (2n), S (between 2n and 4n), G2/M (4n), and sub-G1 (less than 2n), where sub-G1 represents cells with fragmented DNA. The four categories sum to 100% for each sample (Table 1). Western blotting showed that p21, a protein that inhibits cyclin-dependent kinases, rose about eightfold in treated wild-type cells and was undetectable in p53-null cells with or without drug.\n\nAdditional assays in treated wild-type cells found release of cytochrome c from mitochondria into the cytosol, activation of caspase-9 and caspase-3, and exposure of phosphatidylserine on the outer leaflet of the plasma membrane. Plasma membrane integrity remained intact for most sub-G1 cells at 24 hours.",
+   "table_data": "| Cells | Treatment | G1 (%) | S (%) | G2/M (%) | Sub-G1 (%) |\n|---|---|---|---|---|---|\n| p53 wild type | None | 52 | 33 | 13 | 2 |\n| p53 wild type | DNA-damaging drug, 24 h | 70 | 10 | 8 | 12 |\n| p53 null | None | 50 | 34 | 14 | 2 |\n| p53 null | DNA-damaging drug, 24 h | 15 | 20 | 55 | 10 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_BB_P7_Q1",
+     "stem": "The increase in G1 cells among treated wild-type cells is most likely due to p21-mediated:",
+     "options": {
+      "A": "activation of cyclin B-CDK1, which drives cells through G2",
+      "B": "inhibition of cyclin E-CDK2, which keeps Rb hypophosphorylated and bound to E2F",
+      "C": "phosphorylation of Rb, which releases E2F",
+      "D": "degradation of p53 by Mdm2"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) p21 inhibits cyclin-CDK complexes, preventing Rb phosphorylation, so E2F-dependent S-phase genes remain off and cells arrest in G1. Why the others are wrong: A) CDK1 activation would promote mitotic entry, not G1 arrest. C) Phosphorylated Rb releases E2F and promotes S entry. D) Mdm2 degrades p53; DNA damage stabilizes p53.",
+     "trap": "Mixing up the direction of Rb phosphorylation and E2F release.",
+     "topic": "G1 checkpoint",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P7_Q2",
+     "stem": "The sub-G1 population in treated cells most likely reflects:",
+     "options": {
+      "A": "cleavage of chromosomal DNA into fragments by caspase-activated nucleases",
+      "B": "cells arrested in G0 with decondensed chromatin and a reduced rate of transcription",
+      "C": "cells that have replicated only half of their DNA before being arrested by a checkpoint in S phase",
+      "D": "necrotic cells with intact DNA and ruptured membranes that release their contents into the medium"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Caspase-activated DNase cuts DNA between nucleosomes, producing small fragments that leak out of fixed cells, giving less than 2n DNA content. Why the others are wrong: B) G0 cells have 2n DNA and fall in the G1 peak. C) Cells midway through S phase fall between 2n and 4n, not below 2n. D) Necrosis is not indicated, since membranes remained intact in most cells.",
+     "trap": "Mistaking low DNA content for cell-cycle position instead of DNA degradation.",
+     "topic": "Apoptosis",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P7_Q3",
+     "stem": "Compared with treated wild-type cells, treated p53-null cells show a much larger G2/M fraction and a small G1 fraction. Which conclusion is best supported?",
+     "options": {
+      "A": "p53 is required for any cell cycle arrest after DNA damage, since arrest requires p53-dependent transcription",
+      "B": "p53-null cells do not respond to DNA damage in any way, because the damage cannot be detected without p53",
+      "C": "p53-null cells arrest in G1 because they have more p21 than wild-type cells after damage, which blocks S phase entry",
+      "D": "p53 is required for the G1 arrest after DNA damage, but a G2/M arrest can occur without it"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Without p53, G1 arrest fails (15% G1), and damaged cells proceed through S phase to a p53-independent G2/M arrest (55%). Why the others are wrong: A) The G2/M arrest in null cells shows arrest is possible without p53. B) Null cells show a changed distribution (G2/M 55% compared with 14% untreated), so they do respond. C) p21 was undetectable in p53-null cells.",
+     "trap": "Concluding that failure of one checkpoint means all checkpoints are lost.",
+     "topic": "Cell cycle checkpoints",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P7_Q4",
+     "stem": "Which observation distinguishes apoptosis from necrosis in these cells?",
+     "options": {
+      "A": "Swelling of organelles and rupture of the plasma membrane, with passive loss of cell contents",
+      "B": "Cytochrome c release and caspase activation with preserved plasma membrane integrity",
+      "C": "Release of intracellular contents that recruits immune cells and causes inflammation in surrounding tissue",
+      "D": "Random degradation of DNA without any requirement for energy or for activation of specific enzymes"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Apoptosis involves the mitochondrial pathway (cytochrome c, apoptosome, caspase-9 then caspase-3) and an intact membrane until late, with phosphatidylserine flipped outward to mark cells for phagocytosis. Why the others are wrong: A) Swelling and rupture are characteristic of necrosis. C) Inflammation from leaked contents is characteristic of necrosis. D) Apoptotic DNA cleavage is orderly and energy requiring, not random.",
+     "trap": "Attributing the features of necrosis to apoptosis.",
+     "topic": "Apoptosis versus necrosis",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_BB_P8",
+   "passage_text": "Renin, released by juxtaglomerular cells of the kidney in response to low renal perfusion pressure, cleaves angiotensinogen to angiotensin I. Angiotensin-converting enzyme (ACE) converts this to angiotensin II, which constricts arterioles and stimulates the adrenal cortex (zona glomerulosa) to release aldosterone. Aldosterone increases Na+ reabsorption and K+ secretion in the distal nephron, and the resulting water retention expands extracellular volume. Together, these actions raise arterial pressure.\n\nFour adults were studied while seated (Table 1). The control subject was healthy. Patient A had stenosis of a single renal artery. Patient B had an aldosterone-secreting adrenal adenoma. Patient C was a healthy adult given the ACE inhibitor lisinopril for one week. In healthy volunteers, dietary Na+ intake was varied and morning plasma renin activity (PRA) was measured (Figure 1). All blood samples were drawn after 30 minutes of seated rest, and subjects on the drug or on each diet had been at steady state for at least one week. Mean arterial pressure was calculated from three seated cuff readings.",
+   "table_data": "| Subject | PRA (ng/mL/h) | Aldosterone (ng/dL) | Mean arterial pressure (mm Hg) | Serum K+ (mM) |\n|---|---|---|---|---|\n| Control | 1.0 | 10 | 93 | 4.2 |\n| Patient A | 6.0 | 35 | 127 | 3.6 |\n| Patient B | 0.1 | 40 | 120 | 3.1 |\n| Patient C | 4.0 | 4 | 80 | 4.6 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Plasma renin activity and dietary sodium",
+    "x_label": "Dietary Na+ intake (mmol/day)",
+    "y_label": "PRA (ng/mL/h)",
+    "series": [
+     {
+      "name": "PRA",
+      "points": [
+       [
+        10,
+        5.0
+       ],
+       [
+        50,
+        2.5
+       ],
+       [
+        100,
+        1.0
+       ],
+       [
+        200,
+        0.4
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_BB_P8_Q1",
+     "stem": "The high PRA and high aldosterone of Patient A are best explained by:",
+     "options": {
+      "A": "autonomous aldosterone production by the adrenal cortex that suppresses renin through volume expansion",
+      "B": "reduced perfusion pressure in the affected kidney, which activates renin release",
+      "C": "loss of angiotensin II formation, which removes negative feedback on renin secretion by the kidney",
+      "D": "excess antidiuretic hormone, which raises renin by increasing water reabsorption in the collecting duct"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Poor flow past the juxtaglomerular cells signals volume depletion, so renin, angiotensin II and aldosterone all rise and cause hypertension. Why the others are wrong: A) That describes Patient B, whose PRA is low; Patient A has high renin. C) That describes ACE inhibition (Patient C), which lowers aldosterone, whereas Patient A has high aldosterone. D) ADH does not directly raise renin or aldosterone, and Patient A's data point to a renal cause.",
+     "trap": "Mistaking secondary aldosterone excess for a primary adrenal disorder.",
+     "topic": "Secondary hyperaldosteronism",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P8_Q2",
+     "stem": "The low PRA in Patient B most likely reflects:",
+     "options": {
+      "A": "destruction of the juxtaglomerular cells by prolonged high pressure, which permanently abolishes renin",
+      "B": "increased conversion of angiotensin I to angiotensin II, which directly inhibits adrenal aldosterone release",
+      "C": "hyperkalemia that stimulates renin release, matching the high aldosterone value and the high pressure",
+      "D": "volume expansion and high pressure resulting from aldosterone-driven Na+ retention"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Excess aldosterone retains Na+ and water; increased renal perfusion and pressure suppress renin release despite hypertension. Why the others are wrong: A) The cells are functioning, since renin is suppressed by feedback and would rise if volume were lowered. B) Angiotensin II stimulates aldosterone release; in Patient B aldosterone is autonomous. C) Patient B has hypokalemia (3.1 mM), not hyperkalemia.",
+     "trap": "Expecting renin to rise whenever blood pressure is abnormal.",
+     "topic": "Negative feedback in RAAS",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P8_Q3",
+     "stem": "In Patient C, the ACE inhibitor produced the observed pattern of low aldosterone and high PRA because:",
+     "options": {
+      "A": "angiotensin II normally stimulates renin, so blocking it should lower renin, and the high PRA must be an error",
+      "B": "lisinopril blocks the aldosterone receptor in the distal nephron, so the adrenal gland releases less hormone",
+      "C": "angiotensin II normally inhibits renin, so blocking its formation removes this feedback while also lowering aldosterone",
+      "D": "lisinopril directly stimulates the juxtaglomerular cells, and aldosterone falls because of the increased blood pressure"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Less angiotensin II means less vasoconstriction and less aldosterone, which lowers blood pressure and, by removing feedback and lowering pressure, raises renin. Why the others are wrong: A) Angiotensin II feeds back negatively on renin; the high PRA is expected. B) ACE inhibitors act upstream on angiotensin I conversion; they do not block the aldosterone receptor. D) Pressure fell to 80 mm Hg in Patient C, and the drug does not act on juxtaglomerular cells directly.",
+     "trap": "Forgetting that angiotensin II inhibits renin release.",
+     "topic": "ACE inhibitors",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P8_Q4",
+     "stem": "From Figure 1, PRA at the lowest Na+ intake is approximately how many times its value at the highest intake?",
+     "options": {
+      "A": "12.5",
+      "B": "20",
+      "C": "2.5",
+      "D": "4.6"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 5.0/0.4 = 12.5. Why the others are wrong: B) This results from dividing the Na+ intakes (200/10) rather than the PRA values. C) This is the PRA at 50 mmol/day, not a ratio. D) This is the difference in PRA (5.0 - 0.4), not a ratio.",
+     "trap": "Subtracting values when a fold change is asked.",
+     "topic": "Reading graphs",
+     "mastery_sheet_id": "3A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL04_BB_P8_Q5",
+     "stem": "Aldosterone acts on cells of the distal nephron mainly by:",
+     "options": {
+      "A": "binding a G protein-coupled receptor and rapidly generating cAMP to open Na+ channels",
+      "B": "binding a receptor tyrosine kinase that phosphorylates ENaC channels already present in the membrane",
+      "C": "entering the cell and directly inhibiting the Na+/K+ ATPase so that K+ secretion into the lumen is reduced",
+      "D": "binding an intracellular receptor and increasing transcription of Na+ channel and Na+/K+ ATPase genes"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) As a steroid hormone it crosses the membrane, binds a cytoplasmic receptor, and acts on DNA to increase Na+ reabsorption. Why the others are wrong: A) Steroid hormones typically act through intracellular receptors, which is why their effect develops over hours. B) Aldosterone does not act through a receptor tyrosine kinase. C) Aldosterone increases, not inhibits, the pump, and it increases K+ secretion.",
+     "trap": "Assigning peptide-hormone signaling to a steroid hormone.",
+     "topic": "Steroid hormone mechanism",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_BB_P9",
+   "passage_text": "Purified digestive enzymes were assayed at 37°C in buffers across a range of pH values, mimicking the lumen of different segments of the gastrointestinal tract. Pepsin, trypsin and salivary amylase activities were measured as a percentage of each enzyme's maximum (Table 1, Figure 1). Fasting gastric lumen pH is about 2. Chyme entering the duodenum is neutralized by bicarbonate secreted by the pancreas, raising duodenal pH to about 6 to 7. Bicarbonate release is stimulated by the hormone secretin, which is released by duodenal cells in response to acid.\n\nPepsin is secreted as the inactive zymogen pepsinogen, which is cleaved to pepsin when exposed to acid. Trypsin is secreted by the pancreas as trypsinogen and activated by enteropeptidase, a brush-border enzyme of the duodenum. Salivary amylase digests starch to maltose and dextrins, and a related amylase is secreted by the pancreas into the duodenum. Enzyme activity is defined as the rate of product formation, and the buffers did not change the ionization of the substrates. All assays used equal amounts of enzyme and saturating concentrations of substrate (a protein for pepsin and trypsin, starch for amylase).",
+   "table_data": "| pH | Pepsin (% of max) | Trypsin (% of max) | Salivary amylase (% of max) |\n|---|---|---|---|\n| 2 | 100 | 0 | 0 |\n| 4 | 35 | 2 | 30 |\n| 6 | 3 | 50 | 100 |\n| 8 | 0 | 100 | 45 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Enzyme activity versus pH",
+    "x_label": "pH",
+    "y_label": "Activity (% of maximum)",
+    "series": [
+     {
+      "name": "Pepsin",
+      "points": [
+       [
+        2,
+        100
+       ],
+       [
+        4,
+        35
+       ],
+       [
+        6,
+        3
+       ],
+       [
+        8,
+        0
+       ]
+      ]
+     },
+     {
+      "name": "Trypsin",
+      "points": [
+       [
+        2,
+        0
+       ],
+       [
+        4,
+        2
+       ],
+       [
+        6,
+        50
+       ],
+       [
+        8,
+        100
+       ]
+      ]
+     },
+     {
+      "name": "Salivary amylase",
+      "points": [
+       [
+        2,
+        0
+       ],
+       [
+        4,
+        30
+       ],
+       [
+        6,
+        100
+       ],
+       [
+        8,
+        45
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL04_BB_P9_Q1",
+     "stem": "Based on Table 1, starch digestion by salivary amylase most likely:",
+     "options": {
+      "A": "continues unchanged in the stomach, because amylase has its highest activity at the pH of gastric juice",
+      "B": "accelerates in the stomach because pepsin cleaves amylase into fragments that act more quickly on starch",
+      "C": "stops in the stomach, where the acidic pH inactivates the enzyme",
+      "D": "is completed in the mouth because amylase fully hydrolyzes starch to glucose before swallowing"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Activity is 0% at pH 2, so swallowed amylase cannot work in the acidic lumen; digestion resumes with pancreatic amylase in the duodenum. Why the others are wrong: A) Activity at pH 2 is 0%, and the maximum is at pH 6. B) Pepsin would degrade amylase, not activate it, and amylase shows no activity at pH 2. D) Amylase yields maltose and dextrins, and digestion is finished by pancreatic amylase and brush-border enzymes.",
+     "trap": "Assuming an enzyme remains active wherever it travels.",
+     "topic": "Carbohydrate digestion",
+     "mastery_sheet_id": "3B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P9_Q2",
+     "stem": "Secretion of pepsin and trypsin as the zymogens pepsinogen and trypsinogen most directly serves to:",
+     "options": {
+      "A": "allow the enzymes to function at both acidic and basic pH instead of being limited to a single optimum",
+      "B": "prevent digestion of the secretory cells and ducts until the enzymes reach the lumen",
+      "C": "increase the rate at which the active enzymes cleave peptide bonds once they reach the intestinal lumen",
+      "D": "allow the stomach to absorb whole proteins directly through the gastric epithelium before they are digested"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Inactive precursors are activated by acid or enteropeptidase only after secretion, so the proteases do not digest the cells that make them. Why the others are wrong: A) Zymogens are inactive; they do not alter the pH optimum of the active enzyme. C) Zymogen cleavage controls timing and location of activation, not catalytic rate. D) Protein absorption occurs in the small intestine as amino acids and small peptides.",
+     "trap": "Thinking activation of a zymogen improves its catalytic speed.",
+     "topic": "Zymogens",
+     "mastery_sheet_id": "3B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P9_Q3",
+     "stem": "A patient whose pancreas fails to secrete bicarbonate would most likely have impaired digestion of dietary protein in the duodenum because:",
+     "options": {
+      "A": "duodenal pH would remain acidic, where trypsin is nearly inactive",
+      "B": "acidic chyme would raise trypsin activity to its maximum, which would digest the intestinal wall",
+      "C": "pepsin would be inactivated by the acidic chyme, leaving no protease active in the stomach or duodenum",
+      "D": "enteropeptidase would be unable to cleave trypsinogen, because acid is the only trigger for its activation"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Without neutralization the lumen stays near pH 2 to 4, where trypsin is at 0 to 2% of maximum, so pancreatic proteases cannot function. Why the others are wrong: B) Trypsin is essentially inactive at acidic pH (0% at pH 2). C) Pepsin is most active at pH 2, so it would remain active in acidic chyme. D) Enteropeptidase is an intestinal enzyme; acid activates pepsinogen, not trypsinogen.",
+     "trap": "Assuming an enzyme that is active in acid must be the one that continues to work in the intestine.",
+     "topic": "Pancreatic secretions",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P9_Q4",
+     "stem": "At pH 6, trypsin activity compared with pepsin activity is approximately:",
+     "options": {
+      "A": "1.7 times as high",
+      "B": "47 times as high",
+      "C": "17 times as high",
+      "D": "0.06 times as high"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 50/3 = 16.7, so trypsin is about 17-fold more active than pepsin at pH 6. Why the others are wrong: A) This results from dividing 50 by 30 instead of by 3. B) This is the difference between the two percentages (50 - 3), not a ratio. D) This inverts the ratio (3/50) and so compares pepsin with trypsin.",
+     "trap": "Subtracting percentages or inverting the ratio.",
+     "topic": "Ratios from tables",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL04_BB_P10",
+   "passage_text": "Cytotoxic T lymphocytes (CTLs) recognize viral peptides presented on class I major histocompatibility complex (MHC) molecules. The peptide lies in a groove formed by two alpha helices over a beta-sheet floor, and side chains at positions 2 and 9 (anchor residues) insert into hydrophobic pockets. Other residues point upward toward the T-cell receptor (TCR), an alpha-beta heterodimer, and T-cell activation requires both stable presentation of the peptide on the target cell and engagement of the TCR by exposed residues.\n\nVariants of a nine-residue viral peptide (wild type, WT, ALYKTEAVV) were synthesized. Each was tested for competition with a reference peptide for binding to the MHC molecule (IC50; lower values mean tighter binding) and for ability to induce killing of target cells by a CTL clone (Table 1). Position 2 of WT is Leu, and Lys occupies position 4.\n\nThe purified TCR was analyzed by SDS-PAGE. Without reducing agent, one band appeared at about 85 kDa. With beta-mercaptoethanol, two bands appeared at about 45 and 40 kDa.",
+   "table_data": "| Peptide | Change | MHC binding IC50 (nM) | Specific lysis (%) |\n|---|---|---|---|\n| WT | none | 15 | 62 |\n| L2D | Leu to Asp, position 2 | >10,000 | 2 |\n| K4A | Lys to Ala, position 4 | 18 | 6 |\n| V9L | Val to Leu, position 9 | 9 | 66 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL04_BB_P10_Q1",
+     "stem": "The loss of MHC binding by the L2D peptide is best explained by:",
+     "options": {
+      "A": "loss of the peptide backbone, because Asp is not one of the standard amino acids encoded by the genetic code",
+      "B": "creation of a disulfide bond between the Asp side chain and cysteines in the groove that locks the peptide",
+      "C": "replacement of a hydrophobic side chain by a basic side chain whose positive charge repels the helices",
+      "D": "placement of a charged carboxylate side chain into a hydrophobic anchor pocket"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Leu fits the nonpolar pocket through hydrophobic interactions; Asp is negatively charged at physiological pH and cannot be accommodated. Why the others are wrong: A) Asp is a standard amino acid with a normal peptide backbone. B) Asp lacks a thiol and cannot form disulfides. C) Asp is acidic, not basic.",
+     "trap": "Calling Asp basic or confusing charge type.",
+     "topic": "Amino acid side chains",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P10_Q2",
+     "stem": "The K4A peptide binds MHC normally (18 nM) but induces little lysis (6%). This is most consistent with Lys at position 4:",
+     "options": {
+      "A": "being a residue whose side chain projects toward the TCR and contributes to recognition",
+      "B": "serving as an anchor residue whose loss would be expected to weaken binding to the MHC molecule",
+      "C": "being required for the CTL clone to kill because the peptide is unable to reach the cell surface",
+      "D": "being phosphorylated in the groove, a modification that K4A prevents and that is required for lysis"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Binding is unaffected, so the peptide is still displayed, but loss of the Lys contact prevents TCR engagement and CTL activation. Why the others are wrong: B) Anchor residues are at positions 2 and 9, and K4A binding is unchanged. C) Binding to MHC is normal (IC50 18 nM), so the peptide can be presented. D) Nothing in the data indicates phosphorylation; lysis depends on TCR contact.",
+     "trap": "Assuming any residue that matters functionally must matter for MHC binding.",
+     "topic": "Peptide-MHC interactions",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P10_Q3",
+     "stem": "The SDS-PAGE results most likely indicate that the TCR:",
+     "options": {
+      "A": "is a single polypeptide of 85 kDa that is cleaved into two pieces by beta-mercaptoethanol through proteolysis",
+      "B": "contains two identical subunits held together by hydrophobic interactions that SDS did not disrupt",
+      "C": "consists of two different polypeptides linked by an interchain disulfide bond",
+      "D": "is composed of two chains joined by peptide bonds, which are broken only by treatment with a reducing agent"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Without beta-mercaptoethanol the linked chains migrate as one 85 kDa species; reduction breaks the disulfide and releases chains of about 45 and 40 kDa. Why the others are wrong: A) Beta-mercaptoethanol reduces disulfides; it does not cleave peptide bonds. B) SDS disrupts noncovalent interactions, and the two bands differ in size. D) Reducing agents break S-S bonds rather than peptide bonds.",
+     "trap": "Thinking reducing agents break peptide bonds.",
+     "topic": "Quaternary structure and SDS-PAGE",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL04_BB_P10_Q4",
+     "stem": "Assuming IC50 reflects relative binding affinity, V9L binds the MHC molecule more tightly than WT by a factor of about:",
+     "options": {
+      "A": "0.6",
+      "B": "6",
+      "C": "4.1",
+      "D": "1.7"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) 15/9 = 1.67; the lower IC50 indicates higher affinity. Why the others are wrong: A) This is the inverse (9/15) and so the affinity of WT relative to V9L. B) This is the difference in IC50 values (15 - 9), not a ratio. C) This is the ratio of lysis to IC50 for WT (62/15), which does not compare the affinities of the two peptides.",
+     "trap": "Inverting the ratio because lower IC50 means tighter binding.",
+     "topic": "Binding affinity",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL04_BB_D1",
+   "stem": "A proline residue in the middle of an α-helix would most likely:",
+   "options": {
+    "A": "stabilize the helix by adding an extra hydrogen bond between its side chain and the backbone carbonyl four residues earlier",
+    "B": "have no effect on the helix because proline is nonpolar and its side chain is buried in the hydrophobic core",
+    "C": "disrupt the helix, because its ring restricts rotation and its nitrogen lacks a hydrogen for backbone bonding",
+    "D": "increase the length of the helix through disulfide formation with a cysteine located one turn away in the sequence"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Proline's amide nitrogen has no H to donate to the i+4 carbonyl, and its ring constrains the phi angle, producing a kink. Why the others are wrong: A) Proline lacks the N-H and cannot add a hydrogen bond. B) Polarity is not the issue; geometry and missing N-H are. D) Proline has no thiol for disulfide formation.",
+   "trap": "Considering only side chain polarity.",
+   "topic": "Secondary structure",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D2",
+   "stem": "The peptide bond is planar and does not rotate freely primarily because:",
+   "options": {
+    "A": "resonance gives the C-N bond partial double-bond character",
+    "B": "the peptide linkage is a covalent disulfide bond between sulfur atoms of neighboring residues",
+    "C": "the bond is stabilized by hydrogen bonds to surrounding water molecules that hold the atoms in one plane",
+    "D": "the carbonyl oxygen is protonated at physiological pH, which locks the bond into a single orientation"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Delocalization of the nitrogen lone pair into the carbonyl gives the C-N bond partial double-bond character. Why the others are wrong: B) Disulfides link cysteines, not the backbone. C) Hydrogen bonding to water doesn't restrict rotation of the bond. D) The carbonyl oxygen is not protonated at pH 7.",
+   "trap": "Confusing backbone planarity with side-chain interactions.",
+   "topic": "Peptide bond",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D3",
+   "stem": "A cell line lacks functional DNA ligase. Which finding would be expected in newly replicated DNA?",
+   "options": {
+    "A": "Accumulation of RNA primers only on the leading strand",
+    "B": "Accumulation of short fragments on the lagging strand",
+    "C": "Failure to unwind the parental duplex",
+    "D": "Increased formation of pyrimidine dimers"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) DNA ligase seals nicks between Okazaki fragments after primer removal and gap filling, so unjoined fragments accumulate on the lagging strand. Why the others are wrong: A) The leading strand needs only one primer, and ligase is not related to primers. C) Helicase unwinds DNA independent of ligase. D) Pyrimidine dimers are caused by UV light, not ligase loss.",
+   "trap": "Ligase is needed on both strands but especially on the lagging strand.",
+   "topic": "DNA replication",
+   "mastery_sheet_id": "1B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D4",
+   "stem": "An aminoacyl-tRNA synthetase attaches the wrong amino acid to a tRNA and lacks proofreading activity. What is the expected result?",
+   "options": {
+    "A": "The ribosome rejects the tRNA because the anticodon is incorrect",
+    "B": "The codon is misread as a stop codon",
+    "C": "The mRNA is degraded by nonsense-mediated decay",
+    "D": "The wrong amino acid is incorporated at codons matched by that tRNA's anticodon"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) The ribosome recognizes codon-anticodon pairing, not the attached amino acid, so a mischarged tRNA inserts the wrong amino acid at the matching codon. Why the others are wrong: A) The anticodon is correct; the ribosome cannot see the amino acid. B) Stop codons are read by release factors. C) Nonsense-mediated decay targets premature stop codons.",
+   "trap": "Believing the ribosome checks the amino acid.",
+   "topic": "Translation fidelity",
+   "mastery_sheet_id": "1B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D5",
+   "stem": "In a population in Hardy-Weinberg equilibrium, an autosomal recessive disease affects 1 in 10,000 people. The carrier frequency is closest to:",
+   "options": {
+    "A": "1 in 100",
+    "B": "1 in 50",
+    "C": "1 in 10,000",
+    "D": "1 in 5,000"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) q² = 0.0001, so q = 0.01; 2pq = 2(0.99)(0.01) ≈ 0.02, or 1 in 50. Why the others are wrong: A) 1/100 is q, the allele frequency. C) 1/10,000 is the disease frequency. D) 1/5,000 is a miscalculation of 2q².",
+   "trap": "Reporting the allele frequency as carrier frequency.",
+   "topic": "Hardy-Weinberg",
+   "mastery_sheet_id": "1C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.pearson.com/channels/genetics/textbook-solutions/klug-10th-edition-9780135588789/ch-21-population-and-evolutionary-genetics/consider-rare-disorders-in-a-population-caused-by-an-autosomal-recessive-mutatio-4",
+     "https://app.achievable.me/study/usmle-step-1/learn/genetics-population-genetics"
+    ]
+   }
+  },
+  {
+   "id": "FL04_BB_D6",
+   "stem": "Nondisjunction of one pair of sister chromatids in meiosis II in a single primary spermatocyte lineage produces gametes that are:",
+   "options": {
+    "A": "all four with an extra chromosome",
+    "B": "two with an extra chromosome and two missing a chromosome",
+    "C": "two normal, one with an extra chromosome, and one missing a chromosome",
+    "D": "all four normal"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Meiosis I is normal, so both secondary cells are fine; in only one of them the sister chromatids fail to separate, giving one n+1, one n−1, and two normal gametes. Why the others are wrong: A) Not all four are affected, because only one secondary cell failed. B) That is the outcome of nondisjunction in meiosis I. D) One cell's failure produces aneuploid gametes.",
+   "trap": "Confusing the outcomes of meiosis I and meiosis II errors.",
+   "topic": "Nondisjunction",
+   "mastery_sheet_id": "1C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D7",
+   "stem": "Thiamine deficiency would most likely cause elevated blood pyruvate and lactate because thiamine pyrophosphate is a cofactor for:",
+   "options": {
+    "A": "the pyruvate dehydrogenase complex",
+    "B": "pyruvate carboxylase, which converts pyruvate to oxaloacetate in the mitochondria",
+    "C": "lactate dehydrogenase, which interconverts pyruvate and lactate using NADH",
+    "D": "phosphofructokinase-1, which commits glucose to glycolysis in the liver and muscle"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Pyruvate dehydrogenase requires TPP (E1), so deficiency blocks pyruvate conversion to acetyl-CoA, shunting pyruvate to lactate. Why the others are wrong: B) Pyruvate carboxylase uses biotin. C) Lactate dehydrogenase uses NADH. D) PFK-1 does not require TPP.",
+   "trap": "Confusing biotin-dependent and TPP-dependent enzymes.",
+   "topic": "Pyruvate dehydrogenase cofactors",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D8",
+   "stem": "Individuals with glucose-6-phosphate dehydrogenase deficiency are susceptible to hemolysis under oxidative stress because their red blood cells:",
+   "options": {
+    "A": "cannot carry out glycolysis and so make no ATP",
+    "B": "lack mitochondria needed to detoxify peroxide",
+    "C": "cannot synthesize heme",
+    "D": "cannot generate enough NADPH to regenerate reduced glutathione"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) G6PD is the first and rate-limiting enzyme of the oxidative pentose phosphate pathway, the main source of NADPH in red cells. NADPH maintains glutathione that neutralizes peroxides. Why the others are wrong: A) Glycolysis is intact. B) Red cells lack mitochondria regardless; detoxification uses glutathione. C) Heme synthesis isn't affected by G6PD deficiency.",
+   "trap": "Linking G6PD to glycolysis instead of NADPH production.",
+   "topic": "Pentose phosphate pathway",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D9",
+   "stem": "Cholera toxin causes severe watery diarrhea by locking Gαs in the active state. The immediate intracellular effect is:",
+   "options": {
+    "A": "inhibition of adenylyl cyclase",
+    "B": "activation of phospholipase C and IP3 production",
+    "C": "closure of voltage-gated Ca2+ channels",
+    "D": "persistent activation of adenylyl cyclase and elevated cAMP"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Active Gαs stimulates adenylyl cyclase to make cAMP, activating PKA and opening CFTR chloride channels, with water following. Why the others are wrong: A) Gαi, not Gαs, inhibits adenylyl cyclase. B) PLC is activated by Gαq. C) Not a direct effect of Gαs.",
+   "trap": "Confusing Gs, Gi, and Gq pathways.",
+   "topic": "G protein signaling",
+   "mastery_sheet_id": "2A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D10",
+   "stem": "Penicillin kills growing bacteria by inhibiting:",
+   "options": {
+    "A": "peptidyl transferase activity of the 50S ribosomal subunit, which blocks peptide bond formation during elongation",
+    "B": "cross-linking of peptidoglycan by transpeptidases, weakening the wall so that growing cells lyse",
+    "C": "bacterial DNA gyrase, a topoisomerase that relieves the supercoiling that builds up ahead of the replication fork",
+    "D": "synthesis of folate, a cofactor that bacteria must make to produce nucleotides for DNA replication"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) β-lactams inhibit the transpeptidase (penicillin-binding proteins), so the wall cannot withstand turgor in growing cells. Why the others are wrong: A) That is the target of chloramphenicol. C) That is the target of fluoroquinolones. D) That is the target of sulfonamides.",
+   "trap": "Mixing up antibiotic classes and targets.",
+   "topic": "Bacterial cell wall",
+   "mastery_sheet_id": "2B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D11",
+   "stem": "When a nucleus from a differentiated frog intestinal cell is transplanted into an enucleated egg and can direct development of a tadpole, the experiment shows that:",
+   "options": {
+    "A": "differentiated cells retain the full genome and differences arise from differential gene expression",
+    "B": "differentiation involves irreversible loss of genes that are not needed in the mature cell type",
+    "C": "egg cytoplasm is not needed for development, since the transplanted nucleus directs all of the events",
+    "D": "mitochondrial DNA determines cell type, because the transferred cytoplasm carries the instructions for differentiation"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The transplanted nucleus is reprogrammed by egg cytoplasm, showing that the genome was retained. Why the others are wrong: B) The success of the experiment shows the opposite. C) Egg cytoplasm is required to reprogram the nucleus. D) Mitochondrial DNA is not involved in cell identity.",
+   "trap": "Believing differentiation changes DNA content.",
+   "topic": "Cell differentiation",
+   "mastery_sheet_id": "2C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D12",
+   "stem": "Demyelination in multiple sclerosis slows action potential conduction primarily because:",
+   "options": {
+    "A": "voltage-gated Na+ channels are not found in the axon, so action potentials cannot be regenerated along its length",
+    "B": "the resting membrane potential becomes more negative, so a larger depolarization is needed to reach threshold",
+    "C": "depolarizing current leaks across the axonal membrane and does not reach the next node of Ranvier effectively",
+    "D": "myelin normally increases membrane capacitance, so its loss reduces the stored charge available at each node"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Myelin raises membrane resistance and lowers capacitance, so current spreads to the next node. Without it, charge leaks and conduction slows or fails. Why the others are wrong: A) Na+ channels are present, mostly at nodes. B) Resting potential is set by K+ gradients and is not the cause. D) Myelin decreases capacitance.",
+   "trap": "Reversing the effect of myelin on capacitance.",
+   "topic": "Nerve conduction",
+   "mastery_sheet_id": "3A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D13",
+   "stem": "A patient has lost ADH secretion after head trauma. Compared with a healthy person, the patient would produce:",
+   "options": {
+    "A": "a large volume of dilute urine and an increased plasma osmolality",
+    "B": "a small volume of concentrated urine, with a decreased plasma osmolality from water retention",
+    "C": "a large volume of concentrated urine, because Na+ reabsorption in the collecting duct increases",
+    "D": "a normal volume of urine with high glucose content, because the filtered load of glucose exceeds its transport maximum"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Without ADH, aquaporin-2 is not inserted into the collecting duct, so water is not reabsorbed, producing dilute urine and elevated plasma osmolality. Why the others are wrong: B) Concentrated urine requires ADH. C) Urine volume increases but is dilute. D) Glucose is not elevated in diabetes insipidus.",
+   "trap": "Confusing diabetes insipidus with diabetes mellitus.",
+   "topic": "ADH",
+   "mastery_sheet_id": "3A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D14",
+   "stem": "Blockage of the common bile duct by a gallstone would most likely cause:",
+   "options": {
+    "A": "decreased protein digestion in the stomach because pepsin cannot be activated without bile salts",
+    "B": "fatty, pale stools due to impaired fat emulsification and absorption",
+    "C": "impaired carbohydrate digestion by salivary amylase, which depends on bile for its activation in the mouth",
+    "D": "increased gastric acid secretion, because bile retention stimulates the parietal cells through gastrin release"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Bile salts emulsify dietary fat and help form micelles. Without them lipid absorption falls and fat appears in feces (steatorrhea). Why the others are wrong: A) Gastric protein digestion depends on pepsin and acid. C) Salivary amylase acts in the mouth. D) Bile duct obstruction doesn't alter gastric acid.",
+   "trap": "Linking bile to digestion of all macronutrients.",
+   "topic": "Digestion",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL04_BB_D15",
+   "stem": "A virus-infected nucleated cell presents viral peptides on MHC class I. Which cell recognizes it and induces its death?",
+   "options": {
+    "A": "A CD4+ helper T cell, which binds the peptide on the MHC class I molecule and kills by releasing cytokines",
+    "B": "A B cell secreting IgM, which binds the viral peptide on the cell surface and lyses the cell with its antibody",
+    "C": "An erythrocyte, which binds the infected cell through complement receptors and destroys it by phagocytosis",
+    "D": "A CD8+ cytotoxic T cell, via perforin and granzymes"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) CD8 T cells recognize peptide on MHC I with their TCR and kill using perforin and granzymes. Why the others are wrong: A) Helper T cells recognize MHC class II. B) B cells make antibodies and do not kill infected cells directly. C) Erythrocytes do not kill other cells.",
+   "trap": "Confusing MHC I and II recognition.",
+   "topic": "Cell-mediated immunity",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

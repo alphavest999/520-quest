@@ -1,0 +1,117 @@
+[
+  {
+    "id": "bp1095_q1",
+    "type": "data_reading",
+    "passage_id": "bp1095",
+    "passage_text": "Researchers studied the pharmacokinetics of a novel drug, Compound X, in healthy volunteers. The study was a randomized, double‑blind, placebo‑controlled trial with three arms: a control group receiving placebo, a low‑dose group receiving 50 mg of Compound X, and a high‑dose group receiving 150 mg. Blood samples were collected at 0, 15, 30, 60, and 120 minutes post‑dose to measure plasma concentration of Compound X. The results are summarized in Table 1. The data indicate that the drug reaches peak plasma concentration by 30 minutes in the high‑dose group and shows a gradual decline thereafter. The low‑dose group exhibits a lower peak concentration and a smaller absolute fall in concentration, while the control group shows negligible levels of the drug throughout the sampling period. These findings suggest that plasma exposure to Compound X rises roughly in proportion to dose, which may inform dosing regimens for future clinical trials.",
+    "table_data": "Table 1: Plasma concentration of Compound X (mg/L) over time\nTime (min) | Control | Low Dose (50 mg) | High Dose (150 mg)\n-----------|---------|------------------|-------------------\n0          | 0.0     | 0.0              | 0.0\n15         | 0.0     | 0.4              | 1.2\n30         | 0.0     | 0.8              | 2.5\n60         | 0.0     | 0.6              | 1.8\n120        | 0.0     | 0.2              | 0.7",
+    "stem": "According to Table 1, which group had the highest plasma concentration of Compound X at 30 minutes?",
+    "options": {
+      "A": "Control",
+      "B": "Low Dose",
+      "C": "High Dose",
+      "D": "All groups had equal concentrations"
+    },
+    "correct": "C",
+    "explanation": "At 30 minutes, the high‑dose group shows a concentration of 2.5 mg/L, which is higher than the low‑dose group (0.8 mg/L) and the control group (0.0 mg/L).",
+    "trap": "Reading the 30-minute row in the wrong column (taking the low-dose value of 0.8 mg/L as the largest) instead of comparing all three groups, where the high dose shows 2.5 mg/L.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1095_q2",
+    "type": "experimental_design",
+    "passage_id": "bp1095",
+    "passage_text": "Researchers studied the pharmacokinetics of a novel drug, Compound X, in healthy volunteers. The study was a randomized, double‑blind, placebo‑controlled trial with three arms: a control group receiving placebo, a low‑dose group receiving 50 mg of Compound X, and a high‑dose group receiving 150 mg. Blood samples were collected at 0, 15, 30, 60, and 120 minutes post‑dose to measure plasma concentration of Compound X. The results are summarized in Table 1. The data indicate that the drug reaches peak plasma concentration by 30 minutes in the high‑dose group and shows a gradual decline thereafter. The low‑dose group exhibits a lower peak concentration and a smaller absolute fall in concentration, while the control group shows negligible levels of the drug throughout the sampling period. These findings suggest that plasma exposure to Compound X rises roughly in proportion to dose, which may inform dosing regimens for future clinical trials.",
+    "table_data": "Table 1: Plasma concentration of Compound X (mg/L) over time\nTime (min) | Control | Low Dose (50 mg) | High Dose (150 mg)\n-----------|---------|------------------|-------------------\n0          | 0.0     | 0.0              | 0.0\n15         | 0.0     | 0.4              | 1.2\n30         | 0.0     | 0.8              | 2.5\n60         | 0.0     | 0.6              | 1.8\n120        | 0.0     | 0.2              | 0.7",
+    "stem": "In this study, which variable was the dependent (measured outcome) variable?",
+    "options": {
+      "A": "Plasma concentration of Compound X",
+      "B": "Dose of Compound X administered",
+      "C": "Time at which blood was sampled",
+      "D": "Assignment to placebo or drug group"
+    },
+    "correct": "A",
+    "explanation": "Correct: Plasma concentration was measured in each sample as the outcome. Why the others are wrong: B) dose was set by the researchers. C) sampling times were set by the protocol. D) group assignment was made by randomization.",
+    "trap": "Treating time as the measured variable because it heads the first column of the table.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:02:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1095_q3",
+    "type": "calculation",
+    "passage_id": "bp1095",
+    "passage_text": "Researchers studied the pharmacokinetics of a novel drug, Compound X, in healthy volunteers. The study was a randomized, double‑blind, placebo‑controlled trial with three arms: a control group receiving placebo, a low‑dose group receiving 50 mg of Compound X, and a high‑dose group receiving 150 mg. Blood samples were collected at 0, 15, 30, 60, and 120 minutes post‑dose to measure plasma concentration of Compound X. The results are summarized in Table 1. The data indicate that the drug reaches peak plasma concentration by 30 minutes in the high‑dose group and shows a gradual decline thereafter. The low‑dose group exhibits a lower peak concentration and a smaller absolute fall in concentration, while the control group shows negligible levels of the drug throughout the sampling period. These findings suggest that plasma exposure to Compound X rises roughly in proportion to dose, which may inform dosing regimens for future clinical trials.",
+    "table_data": "Table 1: Plasma concentration of Compound X (mg/L) over time\nTime (min) | Control | Low Dose (50 mg) | High Dose (150 mg)\n-----------|---------|------------------|-------------------\n0          | 0.0     | 0.0              | 0.0\n15         | 0.0     | 0.4              | 1.2\n30         | 0.0     | 0.8              | 2.5\n60         | 0.0     | 0.6              | 1.8\n120        | 0.0     | 0.2              | 0.7",
+    "stem": "What is the average plasma concentration of Compound X for the high‑dose group across all time points?",
+    "options": {
+      "A": "0.9 mg/L",
+      "B": "1.2 mg/L",
+      "C": "1.8 mg/L",
+      "D": "2.2 mg/L"
+    },
+    "correct": "B",
+    "explanation": "Correct: Average = (0 + 1.2 + 2.5 + 1.8 + 0.7)/5 = 6.2/5 = 1.24, about 1.2 mg/L. Why the others are wrong: A) 0.9 mg/L is too low for these values. C) 1.8 mg/L is the 60-min value, not the mean. D) 2.2 mg/L is near the 2.5 peak; the mean must include all five time points.",
+    "trap": "Using values near the peak (2.5) rather than averaging all five time points including the 0-minute value.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:04:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1095_q4",
+    "type": "trap",
+    "passage_id": "bp1095",
+    "passage_text": "Researchers studied the pharmacokinetics of a novel drug, Compound X, in healthy volunteers. The study was a randomized, double‑blind, placebo‑controlled trial with three arms: a control group receiving placebo, a low‑dose group receiving 50 mg of Compound X, and a high‑dose group receiving 150 mg. Blood samples were collected at 0, 15, 30, 60, and 120 minutes post‑dose to measure plasma concentration of Compound X. The results are summarized in Table 1. The data indicate that the drug reaches peak plasma concentration by 30 minutes in the high‑dose group and shows a gradual decline thereafter. The low‑dose group exhibits a lower peak concentration and a smaller absolute fall in concentration, while the control group shows negligible levels of the drug throughout the sampling period. These findings suggest that plasma exposure to Compound X rises roughly in proportion to dose, which may inform dosing regimens for future clinical trials.",
+    "table_data": "Table 1: Plasma concentration of Compound X (mg/L) over time\nTime (min) | Control | Low Dose (50 mg) | High Dose (150 mg)\n-----------|---------|------------------|-------------------\n0          | 0.0     | 0.0              | 0.0\n15         | 0.0     | 0.4              | 1.2\n30         | 0.0     | 0.8              | 2.5\n60         | 0.0     | 0.6              | 1.8\n120        | 0.0     | 0.2              | 0.7",
+    "stem": "Which of the following statements is false regarding the study?",
+    "options": {
+      "A": "The high-dose group reached its peak concentration at 30 minutes.",
+      "B": "The control group had measurable levels of Compound X at all time points.",
+      "C": "The low-dose group's concentration fell by less between 30 and 120 minutes than the high-dose group's.",
+      "D": "The study used a double-blind design."
+    },
+    "correct": "B",
+    "explanation": "Correct: The control group had 0.0 mg/L at every time point, so no drug was measurable; the statement is false. Why the others are wrong: A) the high-dose peak (2.5 mg/L) was at 30 minutes. C) the low-dose fall was 0.8 to 0.2 = 0.6 mg/L, the high-dose fall 2.5 to 0.7 = 1.8 mg/L. D) the passage states a double-blind design.",
+    "trap": "Accepting the statement about the placebo group because it sounds plausible instead of reading the 0.0 values.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:06:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1095_q5",
+    "type": "link",
+    "passage_id": "bp1095",
+    "passage_text": "Researchers studied the pharmacokinetics of a novel drug, Compound X, in healthy volunteers. The study was a randomized, double‑blind, placebo‑controlled trial with three arms: a control group receiving placebo, a low‑dose group receiving 50 mg of Compound X, and a high‑dose group receiving 150 mg. Blood samples were collected at 0, 15, 30, 60, and 120 minutes post‑dose to measure plasma concentration of Compound X. The results are summarized in Table 1. The data indicate that the drug reaches peak plasma concentration by 30 minutes in the high‑dose group and shows a gradual decline thereafter. The low‑dose group exhibits a lower peak concentration and a smaller absolute fall in concentration, while the control group shows negligible levels of the drug throughout the sampling period. These findings suggest that plasma exposure to Compound X rises roughly in proportion to dose, which may inform dosing regimens for future clinical trials.",
+    "table_data": "Table 1: Plasma concentration of Compound X (mg/L) over time\nTime (min) | Control | Low Dose (50 mg) | High Dose (150 mg)\n-----------|---------|------------------|-------------------\n0          | 0.0     | 0.0              | 0.0\n15         | 0.0     | 0.4              | 1.2\n30         | 0.0     | 0.8              | 2.5\n60         | 0.0     | 0.6              | 1.8\n120        | 0.0     | 0.2              | 0.7",
+    "stem": "By what factor was the 30‑minute plasma concentration in the high‑dose group (150 mg) higher than in the low‑dose group (50 mg)?",
+    "options": {
+      "A": "About 3.1-fold",
+      "B": "About 1.7-fold",
+      "C": "About 0.3-fold",
+      "D": "About 6-fold"
+    },
+    "correct": "A",
+    "explanation": "Correct: 2.5 mg/L divided by 0.8 mg/L is about 3.1, close to the threefold dose ratio (150/50). Why the others are wrong: B) 1.7 does not match any ratio of these values. C) 0.3 is the inverse ratio (0.8/2.5 is 0.32), which would apply only if the low dose were higher. D) 6 would require a concentration of about 4.8 mg/L in the high-dose group.",
+    "trap": "Inverting the ratio (low over high, about 0.32) or reading the dose ratio instead of the measured concentration ratio.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:08:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  }
+]

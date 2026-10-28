@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "type": "question",
+    "passage_id": "bp1331",
+    "passage_text": "Researchers investigated how varying light intensity influences the rate of photosynthesis in the model plant *Arabidopsis thaliana*. Leaf discs were exposed to five different light intensities (200, 400, 600, 800, and 1000 µmol m⁻² s⁻¹) for 30 minutes while maintaining constant temperature (25 °C) and CO₂ concentration (400 ppm). Oxygen evolution was measured using a Clark-type electrode and expressed as µmol O₂ g⁻¹ FW h⁻¹. The results, summarized in Table 1, indicate a nonlinear response: photosynthetic rate increases sharply up to 600 µmol m⁻² s⁻¹ and then plateaus, suggesting a saturation point beyond which additional light does not enhance O₂ production. These findings align with the light‑dependent phase of the photosynthetic light reactions, where electron transport capacity limits further increases in rate.",
+    "table_data": [
+      {
+        "Light_Intensity_(µmol_m-2_s-1)": 200,
+        "O2_Production_(µmol_O2_g-1_FW_h-1)": 12.5
+      },
+      {
+        "Light_Intensity_(µmol_m-2_s-1)": 400,
+        "O2_Production_(µmol_O2_g-1_FW_h-1)": 24.8
+      },
+      {
+        "Light_Intensity_(µmol_m-2_s-1)": 600,
+        "O2_Production_(µmol_O2_g-1_FW_h-1)": 35.2
+      },
+      {
+        "Light_Intensity_(µmol_m-2_s-1)": 800,
+        "O2_Production_(µmol_O2_g-1_FW_h-1)": 36
+      },
+      {
+        "Light_Intensity_(µmol_m-2_s-1)": 1000,
+        "O2_Production_(µmol_O2_g-1_FW_h-1)": 36.5
+      }
+    ],
+    "stem": "Which light intensity produced the highest rate of oxygen evolution in the experiment?",
+    "options": {
+      "A": "200 µmol m⁻² s⁻¹",
+      "B": "400 µmol m⁻² s⁻¹",
+      "C": "600 µmol m⁻² s⁻¹",
+      "D": "1000 µmol m⁻² s⁻¹"
+    },
+    "correct": "D",
+    "explanation": "The highest O₂ evolution rate in the table is 36.5 µmol O₂ g⁻¹ FW h⁻¹ at 1000 µmol m⁻² s⁻¹, only slightly above the values at 600 (35.2) and 800 (36.0), consistent with a plateau.",
+    "trap": "Assuming the rate peaks at the saturation point (600); small further increases continue in the plateau.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": 2,
+    "type": "question",
+    "passage_id": "bp1331",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Design a follow‑up experiment to determine how temperature affects the same photosynthetic rate. Which of the following best outlines the experimental approach?",
+    "options": {
+      "A": "Expose leaf discs to a single temperature (25 °C) while varying light intensity.",
+      "B": "Keep light intensity constant at 600 µmol m⁻² s⁻¹ and measure O₂ evolution at temperatures ranging from 10 °C to 40 °C.",
+      "C": "Vary CO₂ concentration while maintaining constant temperature and light.",
+      "D": "Measure chlorophyll fluorescence across different light intensities."
+    },
+    "correct": "B",
+    "explanation": "To isolate temperature effects, light intensity and CO₂ must be held constant. Option B keeps light at the saturation point (600 µmol m⁻² s⁻¹) and varies temperature, directly testing the temperature dependence of photosynthesis.",
+    "trap": "Choosing option A, which varies light instead of temperature.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": 3,
+    "type": "question",
+    "passage_id": "bp1331",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Calculate the percent increase in O₂ production when light intensity increases from 200 to 400 µmol m⁻² s⁻¹.",
+    "options": {
+      "A": "49.6 %",
+      "B": "59.2 %",
+      "C": "78.4 %",
+      "D": "98.4 %"
+    },
+    "correct": "D",
+    "explanation": "Percent increase = (24.8 − 12.5)/12.5 × 100 = 98.4%.",
+    "trap": "Option A divides by the 400 value (12.3/24.8 = 49.6%); the starting value (200) is the correct denominator.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": 4,
+    "type": "question",
+    "passage_id": "bp1331",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following statements is a common misconception about photosynthetic light saturation?",
+    "options": {
+      "A": "O₂ production plateaus at high light intensities.",
+      "B": "Higher light always increases photosynthetic rate.",
+      "C": "Light saturation occurs when electron transport is limited.",
+      "D": "The light‑dependent phase produces the ATP and NADPH used by the Calvin cycle."
+    },
+    "correct": "B",
+    "explanation": "Correct: B) Beyond saturation (about 600 in Table 1), more light does not raise the rate, so 'always' is a misconception. Why the others are wrong: A) The data show a plateau at high light. C) Saturation occurs when downstream capacity, including electron transport, is limiting. D) The light-dependent reactions do make ATP and NADPH for the Calvin cycle.",
+    "trap": "Accepting 'higher light always increases the rate' because rates rise at low light, ignoring that the plateau above 600 shows saturation.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": 5,
+    "type": "question",
+    "passage_id": "bp1331",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "At 600 µmol m⁻² s⁻¹, what percent of the maximum observed O₂ production rate had been reached?",
+    "options": {
+      "A": "96.4%",
+      "B": "97.8%",
+      "C": "67.9%",
+      "D": "34.2%"
+    },
+    "correct": "A",
+    "explanation": "Correct: A) The maximum observed rate is 36.5 (at 1000); 35.2 / 36.5 x 100 = 96.4%, consistent with a plateau beginning near 600. Why the others are wrong: B) 97.8% uses the 800 value (36.0) as the maximum, but 36.5 at 1000 is higher. C) 67.9% is the 400 value (24.8) divided by 36.5. D) 34.2% is the 200 value (12.5) divided by 36.5.",
+    "trap": "Using the 800 value (36.0) as the maximum gives 97.8% (B); the maximum observed rate is 36.5 at 1000 µmol m⁻² s⁻¹.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  }
+]

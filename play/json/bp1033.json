@@ -1,0 +1,148 @@
+[
+  {
+    "id": 1,
+    "type": "multiple_choice",
+    "passage_id": "bp1033",
+    "passage_text": "Researchers conducted a randomized controlled trial to evaluate the efficacy of a novel antihypertensive agent, HypoX, in adults with stage 1 hypertension. Eighty participants were enrolled and randomly assigned to either the HypoX group (n=40) or a placebo group (n=40). Baseline systolic blood pressure (SBP) and diastolic blood pressure (DBP) were recorded after a 24‑hour ambulatory monitoring period. After 12 weeks of daily dosing, follow‑up blood pressure measurements were obtained. The table below summarizes the data for a subset of 5 patients from the HypoX group, illustrating individual changes in SBP. The researchers hypothesized that HypoX would produce a clinically significant reduction in SBP compared to placebo. Statistical analysis was planned using paired t‑tests for within‑group change, independent‑samples t‑tests for the HypoX‑versus‑placebo comparison, and intention‑to‑treat principles. The study also collected secondary outcomes such as heart rate variability and patient‑reported quality of life scores. Preliminary results suggested a mean SBP reduction of 12 mm Hg in the treatment arm, with a 95 % confidence interval of 8–16 mm Hg. The investigators intend to publish their findings in a peer‑reviewed journal.",
+    "table_data": [
+      {
+        "patient_id": "P001",
+        "baseline_SBP": 150,
+        "post_SBP": 138,
+        "change": -12
+      },
+      {
+        "patient_id": "P002",
+        "baseline_SBP": 142,
+        "post_SBP": 130,
+        "change": -12
+      },
+      {
+        "patient_id": "P003",
+        "baseline_SBP": 155,
+        "post_SBP": 140,
+        "change": -15
+      },
+      {
+        "patient_id": "P004",
+        "baseline_SBP": 148,
+        "post_SBP": 136,
+        "change": -12
+      },
+      {
+        "patient_id": "P005",
+        "baseline_SBP": 160,
+        "post_SBP": 145,
+        "change": -15
+      }
+    ],
+    "stem": "Which patient experienced the greatest reduction in systolic blood pressure?",
+    "options": {
+      "A": "P001",
+      "B": "P003",
+      "C": "P004",
+      "D": "P002"
+    },
+    "correct": "B",
+    "explanation": "Changes: P001 -12, P002 -12, P003 -15 (155 to 140), P004 -12. Among the listed options P003 has the largest reduction (P005 also changed by -15 but is not an option).",
+    "trap": "Assuming the patient with the lowest baseline SBP had the greatest reduction.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": 2,
+    "type": "multiple_choice",
+    "passage_id": "bp1033",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "What type of study design was used in this research?",
+    "options": {
+      "A": "Cohort",
+      "B": "Case‑control",
+      "C": "Randomized controlled trial",
+      "D": "Cross‑sectional"
+    },
+    "correct": "C",
+    "explanation": "The passage states that participants were randomly assigned to treatment or placebo groups, which defines a randomized controlled trial.",
+    "trap": "Choosing cohort because participants were followed forward for 12 weeks, overlooking that the investigators randomly assigned HypoX or placebo.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": 3,
+    "type": "multiple_choice",
+    "passage_id": "bp1033",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "What is the mean change in systolic blood pressure for the 5 patients shown?",
+    "options": {
+      "A": "-12",
+      "B": "-13",
+      "C": "-14",
+      "D": "-15"
+    },
+    "correct": "B",
+    "explanation": "Average change = (−12−12−15−12−15)/5 = −13.2 mm Hg, closest to −13.",
+    "trap": "Assuming the mean change is −15 because two patients had −15.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": 4,
+    "type": "multiple_choice",
+    "passage_id": "bp1033",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "The table lists only five patients from the HypoX group. Which limitation applies to judging HypoX efficacy from the table alone?",
+    "options": {
+      "A": "The table contains no placebo-group data, so the HypoX changes cannot be compared with what occurs without the drug.",
+      "B": "Random assignment makes any comparison between groups invalid.",
+      "C": "Placebo-controlled trials cannot measure systolic blood pressure.",
+      "D": "Change scores cannot be computed from baseline and follow-up values."
+    },
+    "correct": "A",
+    "explanation": "Correct: A) Only HypoX patients are shown, so a drug effect cannot be separated from change that would happen anyway (regression to the mean, expectation, time). Why the others are wrong: B) Random assignment is what makes between-group comparison valid. C) Placebo-controlled trials routinely measure SBP; the passage reports baseline and follow-up SBP. D) Change is simply post minus baseline, as the table's change column shows.",
+    "trap": "Treating a large within-group drop as proof of efficacy without a comparison group.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": 5,
+    "type": "multiple_choice",
+    "passage_id": "bp1033",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "What is the main purpose of the placebo group in this trial?",
+    "options": {
+      "A": "To estimate the change in SBP expected without the active drug, for comparison with the HypoX group",
+      "B": "To determine the maximum tolerated dose of HypoX",
+      "C": "To measure the half-life of HypoX in plasma",
+      "D": "To confirm that the ambulatory monitor is calibrated correctly"
+    },
+    "correct": "A",
+    "explanation": "Correct: A) The placebo arm shows how SBP changes with no active drug (expectation, natural variation, time), so the HypoX effect is the difference between arms. Why the others are wrong: B) Dose tolerance is assessed by dose-escalation, not by a placebo arm at a single dose. C) Half-life is a pharmacokinetic measure from drug concentrations; a placebo has no drug. D) Device calibration is checked with standards, not a placebo group.",
+    "trap": "Thinking a placebo group tests the drug's own pharmacology rather than providing a comparison for non-drug changes.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  }
+]

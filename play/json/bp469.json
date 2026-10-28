@@ -1,0 +1,117 @@
+[
+  {
+    "id": "469_Q1",
+    "type": "passage",
+    "passage_id": "bp469",
+    "passage_text": "Hepatic mitochondria make ketone bodies during prolonged fasting. HMG-CoA lyase cleaves HMG-CoA into acetoacetate and acetyl-CoA, a reaction that requires no NAD⁺. Acetoacetate and D-3-hydroxybutyrate are then interconverted by 3-hydroxybutyrate dehydrogenase (BDH1), which uses the NAD⁺/NADH couple: D-3-hydroxybutyrate + NAD⁺ ⇌ acetoacetate + NADH + H⁺. Researchers measured BDH1 activity in isolated rat liver mitochondria in the direction of 3-hydroxybutyrate oxidation, following NADH production at 340 nm. Initial velocities were determined at a saturating concentration of 3-hydroxybutyrate and four NAD⁺ concentrations, and the data were fit to the Michaelis–Menten equation (Vmax = 300 nmol/min/mg protein, Km for NAD⁺ = 0.5 mM). A control without NAD⁺ showed no activity. The results confirm that NAD⁺ is the co-substrate limiting 3-hydroxybutyrate oxidation, which matters in tissues such as the heart and brain that use ketone bodies as fuel during fasting.",
+    "table_data": "| NAD⁺ (mM) | Initial velocity (nmol/min/mg) |\n|-----------|--------------------------------|\n| 0.10      | 50                             |\n| 0.25      | 100                            |\n| 0.50      | 150                            |\n| 1.00      | 200                            |",
+    "stem": "What is the independent variable in Table 1?",
+    "options": {
+      "A": "NAD⁺ concentration",
+      "B": "Initial velocity",
+      "C": "Vmax",
+      "D": "3-Hydroxybutyrate concentration"
+    },
+    "correct": "A",
+    "explanation": "The investigators set the NAD⁺ concentration; the initial velocity is the measured (dependent) response. 3-Hydroxybutyrate was held at a fixed saturating concentration.",
+    "trap": "Confusing the measured velocity with the variable the researchers controlled.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "469_Q2",
+    "type": "passage",
+    "passage_id": "bp469",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "To test whether an inhibitor of BDH1 is competitive with respect to NAD⁺, which result would the researchers look for?",
+    "options": {
+      "A": "Higher apparent Km for NAD⁺ with Vmax unchanged",
+      "B": "Lower Vmax with Km for NAD⁺ unchanged",
+      "C": "Lower Vmax and lower Km",
+      "D": "No change in either Km or Vmax"
+    },
+    "correct": "A",
+    "explanation": "A competitive inhibitor competes with NAD⁺ for the same binding site, so it raises the apparent Km while Vmax is unchanged (it can be outcompeted at high [NAD⁺]). A lower Vmax with unchanged Km is noncompetitive; lower Vmax with lower Km is uncompetitive.",
+    "trap": "Mixing up the Km/Vmax signatures of competitive and noncompetitive inhibition.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1A"
+  },
+  {
+    "id": "469_Q3",
+    "type": "passage",
+    "passage_id": "bp469",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Using Vmax = 300 nmol/min/mg and Km = 0.5 mM for NAD⁺, what velocity is expected at 0.25 mM NAD⁺?",
+    "options": {
+      "A": "100 nmol/min/mg",
+      "B": "150 nmol/min/mg",
+      "C": "75 nmol/min/mg",
+      "D": "200 nmol/min/mg"
+    },
+    "correct": "A",
+    "explanation": "v = Vmax[S]/(Km + [S]) = 300 × 0.25/(0.5 + 0.25) = 100 nmol/min/mg, matching the table.",
+    "trap": "Using [S] = Km (giving Vmax/2 = 150) or forgetting the [S] in the denominator.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "469_Q4",
+    "type": "passage",
+    "passage_id": "bp469",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which description best fits the relationship between NAD⁺ concentration and initial velocity in Table 1?",
+    "options": {
+      "A": "A straight line through the origin",
+      "B": "A hyperbolic curve that rises steeply and then levels off",
+      "C": "A flat line",
+      "D": "A line sloping downward"
+    },
+    "correct": "B",
+    "explanation": "The gain per mM falls from about 333 (0.10 to 0.25 mM) to 200 (0.25 to 0.50 mM) to 100 nmol/min/mg per mM (0.50 to 1.00 mM), approaching Vmax: saturation (hyperbolic) kinetics.",
+    "trap": "Treating the early steep rise as a linear relationship.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "469_Q5",
+    "type": "passage",
+    "passage_id": "bp469",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which statement about ketone-body metabolism is correct?",
+    "options": {
+      "A": "HMG-CoA lyase produces acetoacetate and acetyl-CoA without requiring NAD⁺.",
+      "B": "HMG-CoA lyase uses NAD⁺ to oxidize HMG-CoA to acetoacetate.",
+      "C": "3-Hydroxybutyrate dehydrogenase is the enzyme that makes HMG-CoA.",
+      "D": "Ketogenesis occurs mainly in skeletal muscle mitochondria."
+    },
+    "correct": "A",
+    "explanation": "HMG-CoA lyase cleaves HMG-CoA to acetoacetate + acetyl-CoA (no cofactor). BDH1 is the NAD⁺-dependent enzyme interconverting acetoacetate and 3-hydroxybutyrate. HMG-CoA is made by HMG-CoA synthase, and ketogenesis occurs in liver mitochondria.",
+    "trap": "Attributing the NAD⁺ requirement to HMG-CoA lyase rather than to 3-hydroxybutyrate dehydrogenase.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  }
+]

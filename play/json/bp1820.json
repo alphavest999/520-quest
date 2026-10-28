@@ -1,0 +1,88 @@
+{
+  "passage_id": "bp1820",
+  "passage": "Biochemists in the Lindqvist laboratory characterized aldose reductase purified from a bacterial expression system, focusing on its response to a candidate small-molecule inhibitor designed to resemble glucose. Reactions contained a fixed enzyme concentration in buffered solution at 25 °C, and initial velocities were measured at six glucose concentrations with and without 60 µM inhibitor. Product formation was followed spectrophotometrically for the first 60 seconds, a window in which less than 5% of substrate was consumed. Each velocity represents the mean of three independent reactions, and the standard error was below 4% of every mean. The team wished to determine whether the compound binds the free enzyme at the active site or instead binds elsewhere, and to estimate its dissociation constant for the enzyme–inhibitor complex before testing it in cultured cells. Enzyme purity exceeded 95% by SDS-PAGE, and the buffer contained no metal chelators or reducing agents that could interfere with the assay. All procedures followed the laboratory's standard operating protocols, and raw data were archived before analysis.",
+  "table": "Table 1. Initial velocities of aldose reductase\n\n| [S] (µM) | v, no inhibitor (µmol/min) | v, 60 µM inhibitor (µmol/min) |\n|---|---|---|\n| 12.5 | 24 | 5.7 |\n| 25 | 40 | 10.9 |\n| 50 | 60 | 20 |\n| 100 | 80 | 34.3 |\n| 200 | 96 | 53.3 |\n| 400 | 106.7 | 73.8 |",
+  "questions": [
+    {
+      "stem": "According to Table 1, what is the initial velocity in the presence of inhibitor when [S] = 100 µM?",
+      "options": {
+        "A": "34.3 µmol/min",
+        "B": "80 µmol/min",
+        "C": "53.3 µmol/min",
+        "D": "20 µmol/min"
+      },
+      "correct": "A",
+      "explanation": "Reading the inhibitor column at [S] = 100 µM gives 34.3 µmol/min; the control column value (80) is the uninhibited rate.",
+      "topic": "Enzyme kinetics: data interpretation",
+      "trap": "Reading the no-inhibitor column (80 µmol/min) at that [S] instead of the inhibitor column, or taking the value from an adjacent row.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1820-1"
+    },
+    {
+      "stem": "Which additional experiment would best distinguish competitive from noncompetitive inhibition by this compound?",
+      "options": {
+        "A": "Measure whether very high substrate concentrations restore the uninhibited maximal velocity",
+        "B": "Measure product formation after 60 minutes rather than 60 seconds",
+        "C": "Repeat the assay at a lower temperature to see whether inhibition disappears",
+        "D": "Measure velocity at a single substrate concentration with several enzyme concentrations"
+      },
+      "correct": "A",
+      "explanation": "A competitive inhibitor raises apparent Km but leaves Vmax unchanged, so sufficiently high [S] outcompetes it. A noncompetitive inhibitor lowers Vmax regardless of [S].",
+      "topic": "Enzyme inhibition: experimental design",
+      "trap": "Choosing a 60-minute time course, which leaves the linear initial-rate window and does not show whether excess substrate overcomes the inhibitor.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1820-2"
+    },
+    {
+      "stem": "Assuming simple competitive inhibition, what is the approximate Ki of the inhibitor?",
+      "options": {
+        "A": "240 µM",
+        "B": "12 µM",
+        "C": "300 µM",
+        "D": "15 µM"
+      },
+      "correct": "D",
+      "explanation": "Km,app = Km(1 + [I]/Ki). Here Km,app/Km = 5, so [I]/Ki = 4 and Ki = 60/4 = 15 µM.",
+      "topic": "Enzyme inhibition: Ki calculation",
+      "trap": "Using Km,app/Km = 5 directly as [I]/Ki (giving 12 µM) instead of subtracting 1; [I]/Ki = 4, so Ki = 60/4 = 15 µM.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1820-3"
+    },
+    {
+      "stem": "Which statement about the data is NOT consistent with competitive inhibition?",
+      "options": {
+        "A": "The inhibitor binds the free enzyme in preference to the enzyme–substrate complex",
+        "B": "The apparent Km is larger in the presence of the inhibitor",
+        "C": "The inhibition is weaker at higher substrate concentrations",
+        "D": "Vmax is lower in the presence of the inhibitor at saturating [S]"
+      },
+      "correct": "D",
+      "explanation": "Competitive inhibitors leave Vmax unchanged; the velocities converge as [S] rises. A reduced Vmax would indicate noncompetitive or uncompetitive behavior.",
+      "topic": "Enzyme inhibition: Lineweaver–Burk patterns",
+      "trap": "Thinking competitive inhibition lowers Vmax; it is overcome at high [S], so Vmax is unchanged, and a lower Vmax is the noncompetitive signature.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1820-4"
+    },
+    {
+      "stem": "Many drugs, such as statins and methotrexate, act as competitive inhibitors. Which property of such drugs most directly explains why they are often structural analogs of the substrate?",
+      "options": {
+        "A": "They must occupy the same active site as the substrate",
+        "B": "They must bind the enzyme–substrate complex only",
+        "C": "They must bind covalently to the enzyme",
+        "D": "They must lower the enzyme's turnover number at saturating substrate"
+      },
+      "correct": "A",
+      "explanation": "Competition requires binding to the same site; structural similarity to the substrate (or transition state) lets the drug fit the active site and compete reversibly.",
+      "topic": "Pharmacology link: substrate analogs",
+      "trap": "Choosing covalent binding or a lower turnover number; reversible competitive drugs are substrate analogs because they must fit the same active site as the substrate.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1820-5"
+    }
+  ],
+  "accuracy_verified": true
+}

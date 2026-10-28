@@ -1,0 +1,88 @@
+{
+  "passage_id": "bp1296",
+  "passage": "Cell biologists in the Haddad laboratory asked whether a metabolic stressor alters transcription of SOD2 in cultured hepatocytes. RNA was extracted from untreated and treated cells, treated with DNase, and reverse transcribed. Quantitative PCR was then performed with primers for SOD2 and for a reference gene whose expression is assumed to be stable. Each reaction contained a fluorescent DNA-binding dye and was run in triplicate. Amplification efficiency was verified to be close to 100% for both primer pairs, meaning the amount of product doubles each cycle. The cycle threshold, Ct, is the cycle at which fluorescence crosses a fixed threshold; mean values are shown. The group planned to calculate relative expression using the comparative Ct method before deciding whether to examine the promoter region for regulatory elements. RNA integrity numbers exceeded 8.5 for every sample. All procedures followed the laboratory's standard operating protocols, and raw data were archived before analysis.",
+  "table": "Table 1. Mean Ct values\n\n| Condition | Ct, SOD2 | Ct, reference gene |\n|---|---|---|\n| Untreated | 25 | 19 |\n| Treated | 22 | 19 |",
+  "questions": [
+    {
+      "stem": "Which condition shows greater starting amounts of SOD2 transcript, based on Table 1?",
+      "options": {
+        "A": "Treated cells",
+        "B": "The data cannot be compared without a standard curve",
+        "C": "Untreated cells",
+        "D": "Both conditions equally"
+      },
+      "correct": "A",
+      "explanation": "A lower Ct means the threshold is reached earlier, indicating more starting template. With equal reference Ct, the condition with the lower target Ct has higher expression.",
+      "topic": "Gene expression: data interpretation",
+      "trap": "Reading the higher Ct of untreated cells as more transcript, forgetting that a lower Ct means the threshold was reached earlier.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1B",
+      "id": "bp1296-1"
+    },
+    {
+      "stem": "Which control best rules out amplification of contaminating genomic DNA?",
+      "options": {
+        "A": "A no-reverse-transcriptase control",
+        "B": "A no-primer control with cDNA",
+        "C": "A reaction with double the template",
+        "D": "A reaction run at a higher annealing temperature only"
+      },
+      "correct": "A",
+      "explanation": "If product appears without reverse transcriptase, it must come from DNA rather than from RNA-derived cDNA.",
+      "topic": "Molecular techniques: experimental design",
+      "trap": "Choosing a no-primer control, which tests primer-independent signal, rather than the control that shows product arising without reverse transcription.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1B",
+      "id": "bp1296-2"
+    },
+    {
+      "stem": "Using the ΔΔCt method with 100% efficiency, what is the fold change in SOD2 in treated versus untreated cells?",
+      "options": {
+        "A": "8-fold",
+        "B": "16-fold",
+        "C": "0.125-fold",
+        "D": "3-fold"
+      },
+      "correct": "A",
+      "explanation": "ΔCt(untreated) = 6; ΔCt(treated) = 3; ΔΔCt = -3. Fold change = 2^−(-3) = 8.",
+      "topic": "qPCR: fold-change calculation",
+      "trap": "Computing 2^ΔΔCt with the sign reversed, giving 0.125-fold, or using the single ΔCt of 3 as if it were a fold change.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1B",
+      "id": "bp1296-3"
+    },
+    {
+      "stem": "Which statement about Ct values is INCORRECT?",
+      "options": {
+        "A": "The reference gene corrects for differences in input RNA",
+        "B": "A difference of one Ct corresponds to a two-fold difference at 100% efficiency",
+        "C": "A lower Ct indicates a higher starting amount of target",
+        "D": "A higher Ct indicates a higher starting amount of target"
+      },
+      "correct": "D",
+      "explanation": "Ct and abundance are inversely related; more template reaches threshold sooner.",
+      "topic": "qPCR: trap on Ct direction",
+      "trap": "Choosing the reference-gene statement because it sounds like an unsupported claim, when it is in fact the reason for normalization; the false statement reverses the Ct-abundance relation.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1B",
+      "id": "bp1296-4"
+    },
+    {
+      "stem": "If expression changes, which feature of the gene would most directly be examined for a transcription-factor response?",
+      "options": {
+        "A": "The anticodon of the matching tRNA",
+        "B": "The number of introns within the coding region only",
+        "C": "The poly-A tail of the mature mRNA only",
+        "D": "Promoter and enhancer sequences upstream of the transcription start site"
+      },
+      "correct": "D",
+      "explanation": "Transcription-factor binding sites (promoter/enhancer elements) govern transcriptional initiation, linking the Ct data to the regulatory mechanism.",
+      "topic": "Gene regulation: central dogma link",
+      "trap": "Choosing a tRNA, intron or poly-A feature, which relate to translation or mRNA processing rather than transcriptional regulation by upstream elements.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1B",
+      "id": "bp1296-5"
+    }
+  ],
+  "accuracy_verified": true
+}

@@ -1,0 +1,1487 @@
+{
+ "exam": "FL01",
+ "section": "BB",
+ "passages": [
+  {
+   "passage_id": "FL01_BB_P1",
+   "passage_text": "Kinase KinA transfers a phosphoryl group from ATP to a negatively charged phosphorylated sugar, substrate S. Researchers measured initial velocity (v) at several concentrations of S in the absence and presence of 20 µM compound I, a small molecule whose structure resembles S. ATP was kept at a saturating concentration, and the enzyme concentration was identical in all assays. Results are shown in Table 1 and Figure 1.\n\nIn a separate experiment, a variant of KinA in which one active-site lysine was changed to alanine (K to A) bound S with markedly lower affinity than wild-type KinA. ATP binding and the maximum velocity measured at very high S were not noticeably altered by the substitution. Structural modeling indicated that the lysine side chain lies close to the carbon-6 phosphate group of S when S is bound.\n\nThe researchers concluded that compound I binds reversibly to the same site as S. They plan to use the inhibition constant (Ki) to compare compound I with related inhibitors.",
+   "table_data": "| [S] (mM) | v, no inhibitor (µmol/min) | v, with 20 µM compound I (µmol/min) |\n|---|---|---|\n| 1 | 33.3 | 14.3 |\n| 2 | 50.0 | 25.0 |\n| 4 | 66.7 | 40.0 |\n| 8 | 80.0 | 57.1 |\n| 16 | 88.9 | 72.7 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. KinA velocity versus [S]",
+    "x_label": "[S] (mM)",
+    "y_label": "v (µmol/min)",
+    "series": [
+     {
+      "name": "No inhibitor",
+      "points": [
+       [
+        1,
+        33.3
+       ],
+       [
+        2,
+        50.0
+       ],
+       [
+        4,
+        66.7
+       ],
+       [
+        8,
+        80.0
+       ],
+       [
+        16,
+        88.9
+       ]
+      ]
+     },
+     {
+      "name": "20 µM compound I",
+      "points": [
+       [
+        1,
+        14.3
+       ],
+       [
+        2,
+        25.0
+       ],
+       [
+        4,
+        40.0
+       ],
+       [
+        8,
+        57.1
+       ],
+       [
+        16,
+        72.7
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_BB_P1_Q1",
+     "stem": "The data in Table 1 are most consistent with compound I acting as which type of inhibitor?",
+     "options": {
+      "A": "Noncompetitive, because the velocity is lower at every [S]",
+      "B": "Uncompetitive, because both the apparent Km and Vmax decrease",
+      "C": "Competitive, because Vmax is unchanged while the apparent Km increases",
+      "D": "Mixed, because the inhibitor binds both free enzyme and enzyme-substrate complex"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) With inhibitor, v approaches the same ceiling (about 100 µmol/min) at high [S] while the [S] needed for half-maximal velocity rises from 2 mM to about 6 mM, the signature of competitive inhibition. Why the others are wrong: A) lower velocity at every [S] occurs in all inhibition types; noncompetitive inhibition would also lower Vmax, which is not seen B) uncompetitive inhibition lowers both Km and Vmax; here Km rises and Vmax is unchanged D) mixed inhibition lowers Vmax; Vmax here is unchanged",
+     "trap": "Seeing lower velocity at each [S] and concluding Vmax fell, when the curves are actually converging toward the same Vmax at high [S].",
+     "topic": "Enzyme inhibition types",
+     "mastery_sheet_id": "1A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P1_Q2",
+     "stem": "Using the data in Table 1, what is the approximate Ki of compound I?",
+     "options": {
+      "A": "5 µM",
+      "B": "20 µM",
+      "C": "40 µM",
+      "D": "10 µM"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Control Km is 2 mM and apparent Km with inhibitor is 6 mM (v = 25 at 2 mM is half of 50, and Vmax is about 100). Km,app = Km(1 + [I]/Ki), so 3 = 1 + 20/Ki and Ki = 10 µM. Why the others are wrong: A) would require Km,app/Km to equal 5, not 3 B) this equals [I] and would double Km rather than triple it C) this would give Km,app/Km of 1.5",
+     "trap": "Setting Km,app/Km equal to [I]/Ki and forgetting the 1 in (1 + [I]/Ki).",
+     "topic": "Competitive inhibition constant",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://labs.plb.ucdavis.edu/courses/bis/105/lectures/EnzKinetics2.pdf",
+       "https://theory.labster.com/Competitive_inhibition"
+      ]
+     }
+    },
+    {
+     "id": "FL01_BB_P1_Q3",
+     "stem": "Assuming the same Km,app and Vmax, what is the approximate velocity with compound I present at [S] = 60 mM?",
+     "options": {
+      "A": "91 µmol/min",
+      "B": "60 µmol/min",
+      "C": "75 µmol/min",
+      "D": "100 µmol/min"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) v = Vmax[S]/(Km,app + [S]) = 100(60)/(6 + 60) = about 91 µmol/min; high substrate outcompetes a competitive inhibitor but does not fully reach Vmax. Why the others are wrong: B) this would be the velocity near [S] = 9 mM, far lower than at 60 mM C) this corresponds to [S] near 18 mM D) Vmax is approached but never reached at finite [S]",
+     "trap": "Assuming a competitive inhibitor is completely overcome so that v equals Vmax at any large [S].",
+     "topic": "Michaelis-Menten calculation",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://labs.plb.ucdavis.edu/courses/bis/105/lectures/EnzKinetics2.pdf",
+       "https://theory.labster.com/Competitive_inhibition"
+      ]
+     }
+    },
+    {
+     "id": "FL01_BB_P1_Q4",
+     "stem": "How would a Lineweaver-Burk (double-reciprocal) plot of the inhibited data compare with the uninhibited data?",
+     "options": {
+      "A": "Same x-intercept, steeper slope, and a larger y-intercept on the double-reciprocal plot",
+      "B": "Parallel lines, with a larger y-intercept and an x-intercept closer to the origin",
+      "C": "Same y-intercept, steeper slope, and an x-intercept closer to zero",
+      "D": "Same slope as the uninhibited line and a smaller y-intercept, indicating a higher Vmax"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The y-intercept (1/Vmax) is unchanged and the x-intercept (-1/Km,app) moves from -0.5 to about -0.17 mM^-1, so the slope Km/Vmax increases. Why the others are wrong: A) same x-intercept with different y-intercept describes noncompetitive inhibition B) parallel lines describe uncompetitive inhibition D) a smaller y-intercept would mean higher Vmax",
+     "trap": "Remembering the intercepts of the wrong inhibition type (noncompetitive shifts the y-intercept, competitive does not).",
+     "topic": "Lineweaver-Burk analysis",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P1_Q5",
+     "stem": "Which statement best explains why the K to A variant bound S poorly?",
+     "options": {
+      "A": "The lysine side chain normally forms a disulfide bond with S",
+      "B": "Lysine contributes a hydrophobic surface that buries the sugar ring of S",
+      "C": "The protonated lysine side chain normally forms an ionic interaction with the negatively charged phosphate of S",
+      "D": "Lysine normally forms a covalent bond with the phosphate of ATP"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) At physiological pH the lysine amine is protonated and positively charged, so it can form a salt bridge with the phosphate; alanine is nonpolar and cannot. Why the others are wrong: A) disulfide bonds require cysteine residues, not lysine B) lysine is long and charged, not hydrophobic, and S binding rather than burial is at issue D) ATP binding was unaffected, so lysine is not needed for ATP interactions",
+     "trap": "Assuming the side chain acts through hydrophobic or covalent effects instead of using its charge at pH 7.4.",
+     "topic": "Amino acid side chain interactions",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_BB_P2",
+   "passage_text": "MicroRNAs are approximately 22-nucleotide RNAs that regulate gene expression after transcription. Researchers studied miR-X, which has partial complementarity to a seven-nucleotide site in the 3' untranslated region (3' UTR) of the mRNA for gene G.\n\nCultured cells were treated in one of three ways: (1) a synthetic miR-X mimic was introduced; (2) an anti-miR-X oligonucleotide, which is perfectly complementary to miR-X and sequesters it, was introduced; or (3) cells expressing a version of gene G with the miR-X binding site in the 3' UTR mutated were given the miR-X mimic. After 48 hours, mRNA for G was measured by reverse transcription followed by quantitative PCR (RT-qPCR), and protein G was measured by Western blot. Both measurements were normalized to control genes and then expressed relative to untreated cells, which were set to 1.00. Results are shown in Table 1.\n\nThe researchers noted that the miR-X mimic had no effect on the abundance of the mRNA for an unrelated gene lacking the binding site.",
+   "table_data": "| Condition | Relative mRNA of G | Relative protein G |\n|---|---|---|\n| Untreated | 1.00 | 1.00 |\n| miR-X mimic | 0.45 | 0.20 |\n| Anti-miR-X | 1.10 | 1.50 |\n| Mutated site + miR-X mimic | 0.98 | 0.95 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_BB_P2_Q1",
+     "stem": "Which mechanism best explains the effect of the miR-X mimic on gene G?",
+     "options": {
+      "A": "miR-X binds the promoter of gene G in the nucleus and prevents RNA polymerase II from initiating transcription",
+      "B": "miR-X enters the nucleus and base-pairs with the pre-mRNA of gene G, blocking splicing of its exons before export",
+      "C": "miR-X binds protein G after translation and tags it with ubiquitin, targeting it for degradation by the proteasome in the cytosol",
+      "D": "miR-X, within a silencing complex, base-pairs imperfectly with the 3' UTR to reduce translation and promote mRNA decay"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The mimic lowered both mRNA and protein (protein more), as expected for a microRNA that represses translation and destabilizes mRNA through partial pairing with the 3' UTR. Why the others are wrong: A) microRNAs act on the mRNA, not promoter DNA, and transcription inhibition would not need a 3' UTR site B) splicing does not involve the 3' UTR site tested and the effect was lost when the UTR site was mutated C) miR-X pairs with RNA, not protein",
+     "trap": "Choosing a transcriptional mechanism because mRNA fell, ignoring that the effect depends on a 3' UTR sequence.",
+     "topic": "microRNA regulation",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P2_Q2",
+     "stem": "What is the most valid conclusion from the mutated-site condition?",
+     "options": {
+      "A": "The mimic cannot enter cells expressing the mutated gene, so no repression is seen",
+      "B": "miR-X reduces expression of all genes equally, regardless of sequence match",
+      "C": "Repression of G by the mimic depends on the miR-X site in the 3' UTR",
+      "D": "Translation of G does not require the 3' UTR, so the mutation is irrelevant"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Mutating only the binding site abolished the mimic's effect (0.98 and 0.95 versus 0.45 and 0.20), showing sequence-specific dependence. Why the others are wrong: A) the same mimic was delivered, and no data address uptake B) an unrelated gene was unaffected, so repression is gene-specific D) the experiment tests the binding site, not the general role of the UTR in translation",
+     "trap": "Overgeneralizing from one condition to claims that the data do not test.",
+     "topic": "Experimental controls",
+     "mastery_sheet_id": "1B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P2_Q3",
+     "stem": "The anti-miR-X condition increased protein G to 1.50. This result suggests that:",
+     "options": {
+      "A": "endogenous miR-X normally represses gene G in these cells",
+      "B": "gene G is not a target of miR-X, so anti-miR-X should have no effect",
+      "C": "miR-X increases transcription of gene G through its promoter in these cells",
+      "D": "anti-miR-X is translated into additional protein G in these cells"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Removing endogenous miR-X by sequestration relieved repression, so protein rose above the untreated baseline. Why the others are wrong: B) a nonresponsive gene would show no change C) the mimic decreased expression, so miR-X is not a transcriptional activator D) anti-miR-X is an oligonucleotide with no relationship to the sequence of G",
+     "trap": "Expecting no effect from an inhibitor because the cells were 'untreated' and assumed to lack the microRNA.",
+     "topic": "Loss-of-function interpretation",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P2_Q4",
+     "stem": "Using Table 1, by approximately what percent did the miR-X mimic reduce protein produced per mRNA molecule?",
+     "options": {
+      "A": "20%",
+      "B": "56%",
+      "C": "44%",
+      "D": "80%"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Protein per mRNA = 0.20/0.45 = 0.44 of baseline, a decrease of 56%. Why the others are wrong: A) 0.20 is the relative protein, not a per-mRNA value C) 0.44 is the remaining fraction rather than the reduction D) 80% is the total protein reduction and ignores that mRNA also fell",
+     "trap": "Using protein level alone and forgetting that fewer mRNA molecules were also present.",
+     "topic": "Translation efficiency",
+     "mastery_sheet_id": "1B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_BB_P2_Q5",
+     "stem": "Why must RNA be converted to complementary DNA before the qPCR step used to measure mRNA of gene G?",
+     "options": {
+      "A": "The DNA polymerase used in PCR requires a DNA template",
+      "B": "Introns must be removed from mRNA before amplification",
+      "C": "The 5' cap must be added to mRNA for primers to bind",
+      "D": "The mRNA must be degraded to remove genomic DNA contamination"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Reverse transcriptase makes cDNA from the RNA template; thermostable DNA polymerase then amplifies it. Why the others are wrong: B) mature mRNA has already been spliced C) caps are irrelevant to primer annealing in cDNA D) reverse transcription does not degrade genomic DNA",
+     "trap": "Believing reverse transcription performs RNA processing steps such as splicing.",
+     "topic": "RT-qPCR",
+     "mastery_sheet_id": "1B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_BB_P3",
+   "passage_text": "A rare autosomal recessive metabolic disorder results from homozygosity for a loss-of-function allele (a) of a single gene. Heterozygous carriers (Aa) are healthy. Public health researchers genotyped random samples from two geographic regions and counted affected individuals (genotype aa). Results are shown in Table 1.\n\nFor analysis, the researchers assumed that each region was in Hardy-Weinberg equilibrium for this gene, with p representing the frequency of the dominant allele (A) and q representing the frequency of allele a. They also assumed that affected individuals were identified without error and that the allele has no effect on survival before reproduction in either region.\n\nIn follow-up interviews, the researchers learned that marriage between relatives is more common in Region B than in Region A. They plan to compare observed genotype frequencies with Hardy-Weinberg expectations in a larger study. Both regions have similar age distributions, and migration between the regions is negligible, so differences in allele frequency are attributed to local population history.",
+   "table_data": "| Region | Individuals genotyped | Affected individuals (aa) |\n|---|---|---|\n| A | 10,000 | 4 |\n| B | 10,000 | 16 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_BB_P3_Q1",
+     "stem": "What is the frequency of allele a in Region A?",
+     "options": {
+      "A": "0.0004",
+      "B": "0.02",
+      "C": "0.04",
+      "D": "0.20"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) q^2 = 4/10,000 = 0.0004, so q = 0.02. Why the others are wrong: A) 0.0004 is q^2, the frequency of affected individuals C) 0.04 is the value for Region B D) 0.20 would give q^2 = 0.04",
+     "trap": "Reporting q^2 as the allele frequency without taking the square root.",
+     "topic": "Hardy-Weinberg allele frequency",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://app.achievable.me/study/usmle-step-1/learn/genetics-population-genetics",
+       "https://students.varsitytutors.com/practice/subjects/mcat-biological-and-biochemical-foundations-of-living-systems/help/population-genetics-and-hardy-weinberg"
+      ]
+     }
+    },
+    {
+     "id": "FL01_BB_P3_Q2",
+     "stem": "What is the expected carrier frequency in Region B?",
+     "options": {
+      "A": "0.16%",
+      "B": "4%",
+      "C": "7.7%",
+      "D": "16%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) q^2 = 16/10,000 = 0.0016, so q = 0.04 and p = 0.96. Carriers = 2pq = 2(0.96)(0.04) = 0.0768, about 7.7%. Why the others are wrong: A) 0.16% is the affected frequency B) 4% is q, ignoring the factor of 2p D) 16% would result from doubling q incorrectly twice",
+     "trap": "Using q or 2q as the carrier frequency instead of 2pq.",
+     "topic": "Carrier frequency",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://app.achievable.me/study/usmle-step-1/learn/genetics-population-genetics",
+       "https://students.varsitytutors.com/practice/subjects/mcat-biological-and-biochemical-foundations-of-living-systems/help/population-genetics-and-hardy-weinberg"
+      ]
+     }
+    },
+    {
+     "id": "FL01_BB_P3_Q3",
+     "stem": "A healthy person in either region has an affected sibling, and both parents are unaffected. What is the probability that the healthy person is a carrier?",
+     "options": {
+      "A": "2/3",
+      "B": "1/4",
+      "C": "1/2",
+      "D": "3/4"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Both parents must be Aa. Among unaffected offspring the genotypes are AA (1/4) and Aa (1/2), so the carrier probability is (1/2)/(3/4) = 2/3. Why the others are wrong: B) 1/4 is the chance of an affected child C) 1/2 ignores that the person is known to be unaffected D) 3/4 is the chance of being unaffected",
+     "trap": "Failing to restrict the sample space to unaffected offspring.",
+     "topic": "Mendelian probability",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_BB_P3_Q4",
+     "stem": "Which factor would most likely cause the observed frequency of affected individuals in Region B to exceed the Hardy-Weinberg expectation based on its allele frequency?",
+     "options": {
+      "A": "Random mating among all individuals, so genotype frequencies match p^2, 2pq, and q^2 expectations",
+      "B": "Mating among relatives, raising homozygosity without changing allele frequency",
+      "C": "A very large population size, which minimizes random changes in allele frequency by drift",
+      "D": "Absence of mutation and migration, so no new alleles enter or leave the gene pool"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Inbreeding increases the proportion of homozygotes (aa) relative to HW predictions while leaving q unchanged. Why the others are wrong: A) random mating is an HW assumption and would match expectation C) large population size limits drift and is an HW assumption D) no mutation or migration is an HW assumption",
+     "trap": "Confusing a violated Hardy-Weinberg assumption with one that is actually met.",
+     "topic": "Hardy-Weinberg assumptions",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P3_Q5",
+     "stem": "About how many carriers are expected among the 10,000 people genotyped in Region A?",
+     "options": {
+      "A": "39",
+      "B": "196",
+      "C": "392",
+      "D": "980"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) q = 0.02 and p = 0.98, so 2pq = 0.0392 and 0.0392 x 10,000 = 392. Why the others are wrong: A) 39 is a factor of ten too small B) 196 is half of the carrier count D) 980 corresponds to a carrier frequency of 9.8%, far above 2pq = 3.9%, and has no basis in the calculation",
+     "trap": "Dropping the factor of 2 when computing the heterozygote frequency.",
+     "topic": "Genotype counts",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://app.achievable.me/study/usmle-step-1/learn/genetics-population-genetics",
+       "https://students.varsitytutors.com/practice/subjects/mcat-biological-and-biochemical-foundations-of-living-systems/help/population-genetics-and-hardy-weinberg"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_BB_P4",
+   "passage_text": "Researchers measured the oxygen consumption rate (OCR) of cultured cells in a sealed microplate with an oxygen sensor. After baseline measurements, compounds were injected sequentially at the times indicated and OCR was measured every 10 minutes. Oligomycin inhibits ATP synthase. FCCP is a lipid-soluble weak acid that carries protons across membranes. A mixture of rotenone, which inhibits Complex I, and antimycin A, which inhibits Complex III, was used at the end of the experiment. Cells were supplied with glucose and other nutrients throughout.\n\nMean OCR values are shown in Table 1 and Figure 1. Oligomycin was added after the 20-minute measurement, FCCP after the 40-minute measurement, and rotenone with antimycin A after the 60-minute measurement. The researchers attributed the OCR remaining after the final injection to oxygen-consuming reactions outside the mitochondrial electron transport chain.\n\nThe researchers used the values to estimate ATP-linked respiration, proton leak, and spare respiratory capacity. Spare respiratory capacity is the difference between the maximal OCR and the basal OCR.",
+   "table_data": "| Phase | OCR (pmol O2/min) |\n|---|---|\n| Basal | 120 |\n| After oligomycin | 40 |\n| After FCCP | 260 |\n| After rotenone + antimycin A | 10 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. OCR over time",
+    "x_label": "Time (min)",
+    "y_label": "OCR (pmol O2/min)",
+    "series": [
+     {
+      "name": "Cells",
+      "points": [
+       [
+        10,
+        120
+       ],
+       [
+        20,
+        120
+       ],
+       [
+        30,
+        40
+       ],
+       [
+        40,
+        40
+       ],
+       [
+        50,
+        260
+       ],
+       [
+        60,
+        260
+       ],
+       [
+        70,
+        10
+       ],
+       [
+        80,
+        10
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_BB_P4_Q1",
+     "stem": "Why does OCR fall after oligomycin is added?",
+     "options": {
+      "A": "Oligomycin directly inhibits Complex IV, preventing the transfer of electrons to oxygen",
+      "B": "Oligomycin depletes NADH by blocking glycolysis upstream of the citric acid cycle",
+      "C": "Blocking ATP synthase stops proton re-entry, so the gradient rises and slows electron transport",
+      "D": "Oligomycin makes the inner membrane freely permeable to protons, dissipating the gradient across the membrane"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Without proton flow through ATP synthase, the proton-motive force builds and opposes further proton pumping, so oxygen use drops to the leak-driven rate. Why the others are wrong: A) Complex IV is not the target of oligomycin B) glycolysis is not affected and NADH supply is not the limiting step D) a permeable membrane (uncoupling) would increase OCR, as FCCP does",
+     "trap": "Thinking that any inhibitor of oxidative phosphorylation must directly block the electron transport chain.",
+     "topic": "Chemiosmotic coupling",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P4_Q2",
+     "stem": "Based on Table 1, what is the ATP-linked respiration in pmol O2/min?",
+     "options": {
+      "A": "30",
+      "B": "120",
+      "C": "140",
+      "D": "80"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) ATP-linked OCR is the basal OCR minus the oligomycin-insensitive OCR: 120 - 40 = 80. Why the others are wrong: A) 30 equals 40 - 10, the proton leak B) 120 is the total basal OCR C) 140 is the spare capacity",
+     "trap": "Subtracting the final residual value (10) instead of the oligomycin value (40).",
+     "topic": "Respirometry calculation",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.agilent.com/cs/library/usermanuals/public/XF_Cell_Mito_Stress_Test_Kit_User_Guide.pdf"
+      ]
+     }
+    },
+    {
+     "id": "FL01_BB_P4_Q3",
+     "stem": "Which statement best explains the increase in OCR after FCCP?",
+     "options": {
+      "A": "FCCP carries protons into the matrix, dissipating the gradient so electron transport runs unrestrained",
+      "B": "FCCP activates ATP synthase to its maximal rate, which consumes the gradient faster than it forms",
+      "C": "FCCP donates electrons directly to oxygen, bypassing Complexes III and IV and raising consumption in the matrix",
+      "D": "FCCP inhibits Complex I, relieving feedback inhibition on glycolysis and increasing NADH supply"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Dissipating the proton gradient removes back-pressure on the electron transport chain, which then consumes oxygen at its maximal rate while producing heat instead of ATP. Why the others are wrong: B) ATP synthase was already inhibited by oligomycin C) FCCP does not donate electrons D) inhibiting Complex I would reduce, not raise, OCR",
+     "trap": "Assuming that higher oxygen consumption must reflect more ATP synthesis.",
+     "topic": "Uncouplers",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P4_Q4",
+     "stem": "What is the spare respiratory capacity of the cells, in pmol O2/min?",
+     "options": {
+      "A": "80",
+      "B": "140",
+      "C": "130",
+      "D": "260"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Spare capacity = maximal OCR - basal OCR = 260 - 120 = 140. Why the others are wrong: A) 80 is the ATP-linked OCR C) 130 is half the maximal OCR and has no basis in the calculation D) 260 is the maximal OCR itself",
+     "trap": "Reporting the maximal OCR rather than the difference from basal.",
+     "topic": "Respirometry calculation",
+     "mastery_sheet_id": "1D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.agilent.com/cs/library/usermanuals/public/XF_Cell_Mito_Stress_Test_Kit_User_Guide.pdf"
+      ]
+     }
+    },
+    {
+     "id": "FL01_BB_P4_Q5",
+     "stem": "If only rotenone were added to the cells, which substrate would most likely still support substantial oxygen consumption?",
+     "options": {
+      "A": "Pyruvate",
+      "B": "Succinate",
+      "C": "Malate",
+      "D": "Glutamate"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Succinate is oxidized by Complex II, which feeds electrons to ubiquinone downstream of Complex I. Why the others are wrong: A) pyruvate provides NADH via the matrix, requiring Complex I C) malate is oxidized to produce NADH, requiring Complex I D) glutamate yields NADH via dehydrogenases, requiring Complex I",
+     "trap": "Overlooking that Complex II enters the chain below the rotenone block.",
+     "topic": "Electron transport chain entry points",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_BB_P5",
+   "passage_text": "Cytoskeletal elements were probed in cultured epithelial cells using drugs that target specific polymers. Colchicine binds tubulin dimers and prevents their polymerization. Cytochalasin D caps the plus ends of actin filaments and prevents their elongation. Paclitaxel binds microtubules and stabilizes them against depolymerization.\n\nCells were treated for 24 hours with each drug, fixed, and stained for DNA, keratin, and mitochondria. The percentage of cells in mitosis (condensed chromosomes with no nuclear envelope) and the percentage of cells with two nuclei were determined from at least 500 cells per condition. Mitochondrial distribution was assessed qualitatively. Keratin filament networks appeared intact under all conditions, and cells remained attached to the dish.\n\nIn colchicine-treated and paclitaxel-treated cells, most mitotic cells had chromosomes clustered near the cell center without a bipolar spindle (colchicine) or with abnormal multipolar spindles (paclitaxel). Results are summarized in Table 1. The investigators emphasized that all three drugs were used at concentrations that did not reduce cell viability over the treatment period, and that untreated cells were handled identically in every other respect.",
+   "table_data": "| Treatment | Cells in mitosis (%) | Binucleate cells (%) | Mitochondrial distribution |\n|---|---|---|---|\n| None | 4 | 1 | Throughout cytoplasm |\n| Colchicine | 38 | 1 | Clustered near nucleus |\n| Cytochalasin D | 5 | 22 | Throughout cytoplasm |\n| Paclitaxel | 36 | 1 | Throughout cytoplasm |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_BB_P5_Q1",
+     "stem": "The increase in mitotic cells after colchicine is best explained by:",
+     "options": {
+      "A": "failure to replicate DNA in S phase, so cells cannot enter mitosis at all",
+      "B": "loss of the contractile ring during telophase, which prevents separation of daughter cells",
+      "C": "failure to assemble a spindle, which activates the spindle assembly checkpoint and blocks anaphase",
+      "D": "premature degradation of cyclin B, which would force cells out of mitosis too early"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Without microtubules chromosomes cannot attach and align, so the checkpoint holds cells in mitosis. Why the others are wrong: A) cells with unreplicated DNA would stall in G1 or S, not in mitosis B) contractile-ring failure produces binucleate cells, not mitotic arrest D) premature cyclin B loss would drive mitotic exit",
+     "trap": "Assigning the arrest to the wrong cell-cycle stage because the drug is called an antimitotic.",
+     "topic": "Spindle and mitotic checkpoint",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P5_Q2",
+     "stem": "The binucleate cells seen after cytochalasin D most likely arise because:",
+     "options": {
+      "A": "the actin-myosin contractile ring cannot form, so cytokinesis fails after nuclear division",
+      "B": "chromosomes cannot attach to spindle microtubules, so mitosis stalls before anaphase",
+      "C": "DNA replication occurs twice per cycle, producing nuclei with doubled DNA content",
+      "D": "the nuclear envelope fails to reassemble, leaving chromosomes exposed to the cytoplasm after each division"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Mitosis proceeds (mitotic index is normal), but without functional actin the cleavage furrow does not form. Why the others are wrong: B) spindle attachment depends on microtubules, which this drug does not target C) re-replication would not produce two normal nuclei in this way D) nuclear envelope reformation is lamin-dependent and unaffected here",
+     "trap": "Confusing karyokinesis (division of the nucleus) with cytokinesis (division of the cytoplasm).",
+     "topic": "Actin and cytokinesis",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P5_Q3",
+     "stem": "Which explanation best accounts for perinuclear clustering of mitochondria after colchicine?",
+     "options": {
+      "A": "Colchicine disrupts keratin filaments that anchor mitochondria near the cell center",
+      "B": "Loss of microtubule tracks prevents kinesin-driven transport toward the cell periphery",
+      "C": "Dynein can only move cargo toward the plus end of microtubules, away from the nucleus, so mitochondria cannot reach the periphery",
+      "D": "Colchicine causes mitochondria to fuse with the nuclear envelope near the centrosome"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Kinesins carry mitochondria outward along microtubules; without them, cargo drifts toward the center. Why the others are wrong: A) keratin was intact under all conditions C) dynein moves toward the minus end, near the centrosome, not the plus end D) no data support fusion with the nucleus",
+     "trap": "Reversing the polarity of motor protein movement (kinesin: plus end; dynein: minus end).",
+     "topic": "Motor proteins",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P5_Q4",
+     "stem": "Why would paclitaxel, which stabilizes microtubules, also increase the fraction of cells in mitosis?",
+     "options": {
+      "A": "Stable microtubules prevent chromosomes from condensing during prophase and prometaphase",
+      "B": "Dynamic microtubule shortening is required for proper chromosome movement and spindle function",
+      "C": "Stabilized microtubules inhibit actin polymerization directly, blocking the cleavage furrow and halting mitosis",
+      "D": "Paclitaxel prevents cells from entering S phase, so they never reach the spindle stage"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Spindle assembly and chromosome segregation require polymerization and depolymerization, so overly stable microtubules give abnormal spindles and checkpoint arrest. Why the others are wrong: A) chromosomes did condense in mitotic cells C) no data suggest a direct effect on actin D) entry into S phase is not blocked, as cells reach mitosis",
+     "trap": "Assuming that stabilizing a polymer is the opposite of disrupting it and therefore harmless to mitosis.",
+     "topic": "Microtubule dynamics",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_BB_P6",
+   "passage_text": "A clinical laboratory found that a drug-resistant bacterial strain could pass resistance to a susceptible strain. Researchers hypothesized that resistance was encoded on a plasmid that is transferred between cells. A donor strain carrying the resistance plasmid was mixed with a susceptible recipient strain and incubated for 1 hour. Mixtures were then plated on medium containing the antibiotic and a nutrient supplement that allowed only recipients to grow, and the number of resistant recipient colonies (transconjugants) per donor cell was calculated.\n\nFour conditions were tested. In condition 1, donor and recipient cells were mixed. In condition 2, the mixture was incubated with DNase I, which degrades DNA outside cells. In condition 3, donor and recipient were separated by a filter with 0.2 µm pores in a U-shaped tube, allowing the medium, but not cells, to pass; bacteriophage particles (about 0.05 µm) can pass through the filter. In condition 4, the donor carried a mutation that prevents production of a pilus. Results are shown in Table 1 and Figure 1.",
+   "table_data": "| Condition | Transconjugants per donor |\n|---|---|\n| 1. Mixed | 1.2 x 10^-3 |\n| 2. Mixed + DNase I | 1.1 x 10^-3 |\n| 3. Separated by filter | < 10^-9 |\n| 4. Pilus-deficient donor | < 10^-9 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Transfer frequency by condition",
+    "x_label": "Condition (1 = mixed, 2 = mixed + DNase I, 3 = filter-separated, 4 = pilus-deficient donor)",
+    "y_label": "Transconjugants per donor (x 10^-3)",
+    "series": [
+     {
+      "name": "Transfer frequency",
+      "points": [
+       [
+        1,
+        1.2
+       ],
+       [
+        2,
+        1.1
+       ],
+       [
+        3,
+        0
+       ],
+       [
+        4,
+        0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_BB_P6_Q1",
+     "stem": "Which conclusion about the transfer mechanism is best supported by condition 2?",
+     "options": {
+      "A": "Transfer requires DNase I to cleave the plasmid before it enters the recipient",
+      "B": "Transfer is carried out by bacteriophage particles that package the plasmid",
+      "C": "DNase I inhibits the recipient's growth, which lowers the number of colonies counted in the DNase-treated sample",
+      "D": "Transfer does not require free DNA in the medium, which argues against transformation"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) DNase would have destroyed extracellular DNA; transfer remained at 1.1 x 10^-3, so naked DNA uptake is not the mechanism. Why the others are wrong: A) transfer persisted without a decrease, not needing DNase I B) phage involvement is addressed by the filter condition C) a growth defect would lower colony counts, which did not occur",
+     "trap": "Taking an unchanged result as meaningless instead of as evidence that excludes a mechanism.",
+     "topic": "Bacterial gene transfer",
+     "mastery_sheet_id": "2B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P6_Q2",
+     "stem": "The results of condition 3 are best interpreted as indicating that:",
+     "options": {
+      "A": "transfer requires a soluble signal molecule secreted by the donor cells into the medium and acts across the filter",
+      "B": "the filter blocks plasmid DNA but not whole cells, so contact is not needed",
+      "C": "direct cell-to-cell contact is required, which also excludes phage-mediated transduction",
+      "D": "phage particles carry the plasmid across the filter and infect the recipient cells"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Medium and phage particles can cross the filter but no transfer occurred, so contact is needed and transduction is excluded. Why the others are wrong: A) a soluble signal would have crossed the filter B) the filter blocks cells, not DNA, and free DNA was not the mechanism D) phages pass the filter, yet transfer fell below detection",
+     "trap": "Forgetting that phage particles are small enough to cross the filter.",
+     "topic": "Conjugation versus transduction",
+     "mastery_sheet_id": "2B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P6_Q3",
+     "stem": "Which description of the transfer in condition 1 is most accurate?",
+     "options": {
+      "A": "One plasmid strand is nicked and transferred through the pilus junction, then each cell makes a complementary strand",
+      "B": "Both strands of the plasmid are transferred through the pilus and the donor loses the plasmid permanently, ending the transfer",
+      "C": "The plasmid is transferred as a double-stranded linear molecule packaged within a phage protein coat",
+      "D": "The plasmid is integrated into the recipient chromosome by a viral integrase after uptake of free DNA"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Conjugation involves single-strand transfer with replication in both cells, so the donor keeps its plasmid. Why the others are wrong: B) the donor retains the plasmid, which supports the donor-to-recipient copies C) a phage coat is not involved D) integration by viral integrase describes retroviruses",
+     "trap": "Assuming the donor loses its plasmid, as if the DNA were moved rather than copied.",
+     "topic": "Plasmid transfer mechanism",
+     "mastery_sheet_id": "2B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P6_Q4",
+     "stem": "If 5 x 10^7 donor cells were used in condition 1, about how many transconjugants would be expected?",
+     "options": {
+      "A": "6 x 10^3",
+      "B": "6 x 10^4",
+      "C": "4 x 10^10",
+      "D": "2 x 10^-11"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) (1.2 x 10^-3 per donor)(5 x 10^7 donors) = 6 x 10^4. Why the others are wrong: A) this is off by a factor of ten C) this results from dividing 5 x 10^7 by the frequency D) this results from dividing the frequency by the number of donors (1.2 x 10^-3 / 5 x 10^7 = 2 x 10^-11)",
+     "trap": "Dividing instead of multiplying when converting a per-donor frequency to a total count.",
+     "topic": "Frequency calculation",
+     "mastery_sheet_id": "2B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_BB_P7",
+   "passage_text": "Researchers studied two investigational compounds, Drug X and Drug Y, in a proliferating human cell line with a doubling time of 24 hours. Cells were treated for 24 hours, fixed, stained with a fluorescent dye that binds DNA stoichiometrically, and analyzed by flow cytometry. Cells with a diploid (2N) DNA content were classified as G1, cells with intermediate DNA content as S, and cells with 4N DNA content as G2/M. Results are shown in Table 1 and Figure 1.\n\nUntreated cells were asynchronous, and the researchers assumed that the fraction of cells in each phase is proportional to the time spent in that phase. Western blots of treated cells indicated that Drug Y-treated cells contained hypophosphorylated retinoblastoma protein (Rb), while Drug X-treated cells showed many cells with condensed chromosomes and a few visible spindle fibers. Drug X had no detectable effect on DNA replication measured by incorporation of a labeled nucleotide.",
+   "table_data": "| Treatment | G1 (%) | S (%) | G2/M (%) |\n|---|---|---|---|\n| Untreated | 55 | 30 | 15 |\n| Drug X | 20 | 15 | 65 |\n| Drug Y | 85 | 10 | 5 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Cell-cycle distribution",
+    "x_label": "Phase (1 = G1, 2 = S, 3 = G2/M)",
+    "y_label": "Cells (%)",
+    "series": [
+     {
+      "name": "Untreated",
+      "points": [
+       [
+        1,
+        55
+       ],
+       [
+        2,
+        30
+       ],
+       [
+        3,
+        15
+       ]
+      ]
+     },
+     {
+      "name": "Drug X",
+      "points": [
+       [
+        1,
+        20
+       ],
+       [
+        2,
+        15
+       ],
+       [
+        3,
+        65
+       ]
+      ]
+     },
+     {
+      "name": "Drug Y",
+      "points": [
+       [
+        1,
+        85
+       ],
+       [
+        2,
+        10
+       ],
+       [
+        3,
+        5
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_BB_P7_Q1",
+     "stem": "The Drug Y results are most consistent with inhibition of:",
+     "options": {
+      "A": "the spindle assembly checkpoint",
+      "B": "G1 cyclin-dependent kinase activity that normally phosphorylates Rb",
+      "C": "DNA polymerase during S phase",
+      "D": "cyclin B-CDK1 activity at the G2/M transition"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Hypophosphorylated Rb holds E2F in an inactive state, so cells cannot enter S phase and accumulate in G1. Why the others are wrong: A) inhibiting the spindle checkpoint would not cause G1 accumulation C) inhibition of DNA polymerase would increase the S fraction D) inhibition of cyclin B-CDK1 would increase G2/M cells",
+     "trap": "Matching the drug to the phase where cells accumulate before considering which phase the compound acts to prevent entering.",
+     "topic": "Cell-cycle regulation",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P7_Q2",
+     "stem": "Which process is Drug X most likely to interfere with?",
+     "options": {
+      "A": "Initiation of DNA replication at origins",
+      "B": "Assembly or function of the mitotic spindle",
+      "C": "Phosphorylation of Rb by G1 cyclin-CDK complexes",
+      "D": "Synthesis of histones during G1"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Cells with replicated DNA, condensed chromosomes, and few spindle fibers that accumulate at 4N DNA content suggest a mitotic block, and replication was unaffected. Why the others are wrong: A) replication was unaffected and a block would lower S-phase entry rather than raise G2/M C) Rb phosphorylation is the G1 step affected by Drug Y D) histone synthesis defects would affect S phase, not mitosis",
+     "trap": "Assuming a 4N accumulation must reflect a defect in DNA synthesis.",
+     "topic": "Mitotic arrest",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P7_Q3",
+     "stem": "Under the assumptions stated, how long does S phase last in untreated cells?",
+     "options": {
+      "A": "3.6 hours",
+      "B": "7.2 hours",
+      "C": "13.2 hours",
+      "D": "30 hours"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 0.30 x 24 hours = 7.2 hours. Why the others are wrong: A) 3.6 hours corresponds to 15%, the G2/M fraction C) 13.2 hours corresponds to 55%, the G1 fraction D) 30 is the percentage, not a time",
+     "trap": "Using the percentage value as hours, or the percentage of the wrong phase.",
+     "topic": "Cell-cycle timing",
+     "mastery_sheet_id": "2C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_BB_P7_Q4",
+     "stem": "How many chromatids are present in a human cell in G2?",
+     "options": {
+      "A": "23",
+      "B": "46",
+      "C": "184",
+      "D": "92"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Human cells have 46 chromosomes; after S phase each consists of two sister chromatids, giving 92 chromatids. Why the others are wrong: A) 23 is the haploid number B) 46 is the chromosome count and the chromatid count in G1 is also 46 as each chromosome has one chromatid C) 184 doubles 92 incorrectly",
+     "trap": "Confusing chromosome number with chromatid number after replication.",
+     "topic": "DNA content through the cell cycle",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_BB_P8",
+   "passage_text": "Researchers compared glucose handling in control mice and in mice carrying a liver-specific mutation in a gene required for insulin receptor signaling. After a 6-hour fast, each mouse received an intraperitoneal injection of glucose, and blood samples were collected at the times shown. Blood glucose was measured with a meter and plasma insulin with an immunoassay. Each value is the mean of 8 mice. Results are shown in Table 1 and Figure 1.\n\nFasting body weights were similar in the two groups. Pancreatic islets isolated from mutant mice and control mice secreted similar amounts of insulin when exposed to the same glucose concentrations in vitro. The researchers also measured liver glycogen content after the fast, finding lower glycogen in the mutant livers.\n\nThe investigators interpreted the data as evidence that the mutation produces a state resembling the early stage of type 2 diabetes. They then planned a second study of glucagon during a longer fast.",
+   "table_data": "| Time (min) | Control glucose (mg/dL) | Mutant glucose (mg/dL) | Control insulin (ng/mL) | Mutant insulin (ng/mL) |\n|---|---|---|---|---|\n| 0 | 90 | 95 | 0.5 | 0.6 |\n| 15 | 220 | 280 | 3.0 | 6.5 |\n| 30 | 180 | 270 | 2.0 | 7.0 |\n| 60 | 120 | 230 | 1.0 | 5.5 |\n| 120 | 95 | 180 | 0.6 | 3.0 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Blood glucose after glucose injection",
+    "x_label": "Time (min)",
+    "y_label": "Blood glucose (mg/dL)",
+    "series": [
+     {
+      "name": "Control",
+      "points": [
+       [
+        0,
+        90
+       ],
+       [
+        15,
+        220
+       ],
+       [
+        30,
+        180
+       ],
+       [
+        60,
+        120
+       ],
+       [
+        120,
+        95
+       ]
+      ]
+     },
+     {
+      "name": "Mutant",
+      "points": [
+       [
+        0,
+        95
+       ],
+       [
+        15,
+        280
+       ],
+       [
+        30,
+        270
+       ],
+       [
+        60,
+        230
+       ],
+       [
+        120,
+        180
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_BB_P8_Q1",
+     "stem": "The data in Table 1 are best interpreted as showing that mutant mice have:",
+     "options": {
+      "A": "insulin deficiency caused by impaired islet function",
+      "B": "enhanced insulin sensitivity in peripheral tissue",
+      "C": "reduced insulin sensitivity, with compensatory elevated insulin secretion",
+      "D": "excess glucagon secretion that lowers blood glucose"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Mutant mice have higher glucose and higher insulin than controls; islets secrete normally in vitro, so tissues respond poorly to insulin. Why the others are wrong: A) insulin levels were higher, not lower, and islets function normally in vitro B) greater sensitivity would lower glucose clearance time, not lengthen it D) glucagon raises blood glucose and is not suggested to lower it",
+     "trap": "Equating high glucose with low insulin; here insulin was high, indicating resistance rather than deficiency.",
+     "topic": "Insulin resistance",
+     "mastery_sheet_id": "3A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P8_Q2",
+     "stem": "Which sequence best describes how glucose entry stimulates insulin release from pancreatic beta cells?",
+     "options": {
+      "A": "Increased ATP/ADP closes K+ channels, causing depolarization, Ca2+ entry, and exocytosis of insulin",
+      "B": "Increased cAMP opens Na+ channels, causing hyperpolarization and insulin degradation",
+      "C": "Decreased ATP opens K+ channels, causing depolarization and Ca2+ release",
+      "D": "Glucose binds a receptor tyrosine kinase that directly triggers vesicle fusion"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Glucose metabolism raises ATP, closing ATP-sensitive K+ channels; depolarization opens voltage-gated Ca2+ channels and Ca2+ triggers vesicle fusion. Why the others are wrong: B) cAMP and Na+ channel opening are not the glucose-sensing pathway, and the cell is depolarized rather than hyperpolarized C) a decrease in ATP would keep K+ channels open and prevent depolarization D) the insulin receptor responds to insulin on target cells, not to glucose on beta cells",
+     "trap": "Reversing the effect of ATP on the K-ATP channel.",
+     "topic": "Beta cell physiology",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P8_Q3",
+     "stem": "By approximately what percent did mutant blood glucose at 120 minutes exceed its fasting value?",
+     "options": {
+      "A": "47%",
+      "B": "53%",
+      "C": "189%",
+      "D": "89%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) (180 - 95)/95 = 0.895, about 89%. Why the others are wrong: A) 47% divides the change by 180 instead of 95 B) 53% divides the baseline by the final value (95/180) C) 189% is the ratio 180/95 and not the increase",
+     "trap": "Reporting the ratio to baseline as the percent increase.",
+     "topic": "Percent change",
+     "mastery_sheet_id": "3A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_BB_P8_Q4",
+     "stem": "During a prolonged fast, glucagon from pancreatic alpha cells would be expected to:",
+     "options": {
+      "A": "lower blood glucose by stimulating glycogen synthesis in liver and glucose uptake in muscle",
+      "B": "raise blood glucose by stimulating glucose uptake and triglyceride storage in adipose tissue",
+      "C": "raise blood glucose by stimulating hepatic glycogen breakdown and gluconeogenesis via cAMP",
+      "D": "lower blood glucose by inhibiting gluconeogenesis through insulin receptors on hepatocytes"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Glucagon activates a G protein-coupled receptor on hepatocytes, raising cAMP and activating PKA, which promotes glycogenolysis and gluconeogenesis. Why the others are wrong: A) glycogen synthesis is promoted by insulin B) glucose uptake in adipose tissue is insulin-dependent and would lower glucose D) glucagon does not act through insulin receptors",
+     "trap": "Assigning glucagon's role to that of insulin.",
+     "topic": "Glucagon action",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_BB_P9",
+   "passage_text": "To characterize renal handling of several solutes, researchers infused inulin, a polysaccharide that is freely filtered and neither reabsorbed nor secreted, into a healthy volunteer. Timed urine was collected for one hour and a mid-collection blood sample was obtained. Plasma and urine concentrations of inulin, glucose, urea, and a drug (substance X) were measured. Urine flow was constant at 1.0 mL/min.\n\nSubstance X is not bound to plasma proteins and is known to be a substrate for an organic anion transporter in the proximal tubule. Results are shown in Table 1.\n\nClearance of a substance equals its urine concentration times urine flow, divided by its plasma concentration. The researchers compared the clearance of each substance with the glomerular filtration rate (GFR), which is equal to the clearance of inulin. They also compared the filtered load of each solute (GFR times plasma concentration) with the amount excreted (urine concentration times urine flow). Finally, they asked how changes in antidiuretic hormone (ADH) would alter the urinary concentrations.",
+   "table_data": "| Substance | Plasma conc. (mg/mL) | Urine conc. (mg/mL) |\n|---|---|---|\n| Inulin | 0.50 | 62.5 |\n| Glucose | 1.00 | 0 |\n| Urea | 0.30 | 15 |\n| Substance X | 0.20 | 30 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_BB_P9_Q1",
+     "stem": "What is the GFR of the volunteer?",
+     "options": {
+      "A": "31 mL/min",
+      "B": "62.5 mL/min",
+      "C": "125 mL/min",
+      "D": "180 mL/min"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Inulin clearance = (62.5 mg/mL x 1.0 mL/min)/0.50 mg/mL = 125 mL/min. Why the others are wrong: A) 31 results from dividing by 2 twice B) 62.5 ignores the division by plasma concentration D) 180 is the typical daily filtrate volume in liters per day, not a rate in mL/min",
+     "trap": "Forgetting to divide by the plasma concentration.",
+     "topic": "Renal clearance",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_BB_P9_Q2",
+     "stem": "Which conclusion about substance X is best supported by the data?",
+     "options": {
+      "A": "It is reabsorbed, because its clearance is below the GFR",
+      "B": "It is neither filtered nor secreted",
+      "C": "It undergoes net tubular secretion, because its clearance exceeds the GFR",
+      "D": "It is freely filtered and not reabsorbed or secreted"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Clearance of X = (30 x 1.0)/0.20 = 150 mL/min, which is greater than 125 mL/min, so more is excreted than filtered; transporters in the proximal tubule add it to the filtrate. Why the others are wrong: A) clearance is above, not below, the GFR B) excretion above the filtered amount cannot occur without secretion D) a freely filtered, unprocessed solute has a clearance equal to GFR",
+     "trap": "Comparing concentrations rather than clearances.",
+     "topic": "Tubular secretion",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P9_Q3",
+     "stem": "How much urea is reabsorbed per minute?",
+     "options": {
+      "A": "15 mg/min",
+      "B": "22.5 mg/min",
+      "C": "37.5 mg/min",
+      "D": "52.5 mg/min"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Filtered = 125 mL/min x 0.30 mg/mL = 37.5 mg/min. Excreted = 15 mg/min. Reabsorbed = 37.5 - 15 = 22.5 mg/min. Why the others are wrong: A) 15 mg/min is the excreted amount C) 37.5 mg/min is the filtered amount D) 52.5 mg/min adds excretion to filtered load",
+     "trap": "Reporting excreted or filtered amounts instead of their difference.",
+     "topic": "Filtered load",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_BB_P9_Q4",
+     "stem": "After water deprivation, urine flow falls to 0.5 mL/min with GFR unchanged and plasma inulin unchanged. What is the urine inulin concentration?",
+     "options": {
+      "A": "125 mg/mL",
+      "B": "31 mg/mL",
+      "C": "62.5 mg/mL",
+      "D": "250 mg/mL"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Inulin excretion is fixed at GFR x P = 62.5 mg/min. Urine concentration = 62.5/0.5 = 125 mg/mL, as ADH increases collecting-duct water reabsorption. Why the others are wrong: B) 31 mg/mL would be if flow had doubled C) 62.5 mg/mL is the original value and assumes no concentration D) 250 mg/mL doubles the correct value",
+     "trap": "Assuming urine concentration is unchanged when only flow changes.",
+     "topic": "ADH and urine concentration",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_BB_P10",
+   "passage_text": "Voltage-clamp recordings were made from isolated squid giant axons to separate the ionic currents underlying the action potential. The membrane potential was stepped from -70 mV to 0 mV, and the peak early inward current and peak late outward current were measured. Inward current is negative and outward current is positive.\n\nIn control conditions the axon was bathed in normal artificial seawater. Tetrodotoxin (TTX), a toxin that blocks the pore of one class of voltage-gated channel, was added in the second condition. In the third condition, tetraethylammonium (TEA) was injected into the axon. In the fourth condition, the extracellular Na+ concentration was lowered to 30% of normal with choline replacing Na+. Each condition was tested on a different axon, and each value is the mean of five axons. Results are shown in Table 1.\n\nIn current-clamp experiments on separate axons, application of TEA made the action potentials longer in duration without changing their threshold. The researchers also compared conduction in myelinated and unmyelinated axons from a vertebrate nerve.",
+   "table_data": "| Condition | Peak inward current (nA) | Peak outward current (nA) |\n|---|---|---|\n| Control | -1.2 | +2.0 |\n| TTX | 0.0 | +2.0 |\n| Intra-axonal TEA | -1.2 | +0.3 |\n| Low extracellular Na+ | -0.6 | +2.0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_BB_P10_Q1",
+     "stem": "The effect of TTX on the currents indicates that TTX blocks:",
+     "options": {
+      "A": "voltage-gated K+ channels",
+      "B": "Na+/K+ ATPase",
+      "C": "voltage-gated Ca2+ channels",
+      "D": "voltage-gated Na+ channels"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) TTX abolished the early inward current but left the outward current intact, identifying the Na+ current. Why the others are wrong: A) K+ channel block would reduce the outward current, as TEA does B) the pump is not voltage-gated and does not generate this fast current C) Ca2+ channels were not tested and the inward current vanished completely",
+     "trap": "Identifying TTX with K+ channels because the outward current is easier to see.",
+     "topic": "Ion channel pharmacology",
+     "mastery_sheet_id": "3A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P10_Q2",
+     "stem": "Why is the peak inward current smaller in low extracellular Na+?",
+     "options": {
+      "A": "Na+ channels are inactivated by choline, which reduces the peak inward current and blocks inward current",
+      "B": "The Na+/K+ ATPase reverses its direction and pumps Na+ into the axon",
+      "C": "K+ efflux increases enough to cancel the Na+ current at the 0 mV step",
+      "D": "The Na+ equilibrium potential becomes less positive, reducing the driving force for Na+ entry"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) By the Nernst equation, lowering [Na+]out lowers E_Na, so at 0 mV the electrochemical gradient favoring Na+ entry shrinks. Why the others are wrong: A) no data suggest choline inactivates channels, and outward current was unchanged B) the pump's direction does not reverse C) the outward current did not change",
+     "trap": "Assuming that channel number, not driving force, must be changed when current falls.",
+     "topic": "Nernst potential",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P10_Q3",
+     "stem": "How does TEA most likely lengthen the action potential?",
+     "options": {
+      "A": "By blocking Na+ channels, it raises the threshold",
+      "B": "By opening Na+ channels, it slows inactivation",
+      "C": "By increasing the Na+/K+ ATPase rate, it hyperpolarizes the membrane",
+      "D": "By blocking K+ channels, it slows repolarization"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) TEA reduced the late outward K+ current (+2.0 to +0.3 nA), so the repolarizing current falls and the action potential broadens. Why the others are wrong: A) Na+ block would abolish action potentials and the inward current was unchanged B) the inward current was not enhanced C) the pump contributes little to repolarization on the timescale of one action potential",
+     "trap": "Linking a longer action potential to Na+ channels because Na+ drives depolarization.",
+     "topic": "Repolarization",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_BB_P10_Q4",
+     "stem": "Compared with unmyelinated axons of equal diameter, myelinated axons conduct faster mainly because:",
+     "options": {
+      "A": "myelin increases the number of open Na+ channels along the internode",
+      "B": "myelin pumps Na+ out of the axon rapidly",
+      "C": "action potentials regenerate only at nodes of Ranvier, and current flows passively between nodes",
+      "D": "myelin lowers the resting potential to the threshold"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Myelin raises membrane resistance and lowers capacitance, so depolarization spreads passively to the next node, where voltage-gated channels are concentrated (saltatory conduction). Why the others are wrong: A) channels are concentrated at the nodes and sparse under myelin B) myelin is an insulator and does not pump ions D) a resting potential at threshold would produce spontaneous firing",
+     "trap": "Thinking myelin speeds conduction by acting on ion channels along the whole axon.",
+     "topic": "Saltatory conduction",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL01_BB_D1",
+   "stem": "At pH 7.4, in a native gel electrophoresis experiment, a protein with an isoelectric point of 9.5 will most likely migrate toward:",
+   "options": {
+    "A": "the anode, because the protein has a net positive charge",
+    "B": "the cathode, because the protein has a net negative charge",
+    "C": "neither electrode, because the net charge is zero",
+    "D": "the cathode, because the protein has a net positive charge"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) A pH below the pI protonates the protein, giving a net positive charge, so it moves toward the negative electrode (cathode). Why the others are wrong: A) positive molecules move toward the cathode, not the anode B) a negative protein would move toward the anode C) zero charge occurs only at pH = pI (9.5)",
+   "trap": "Mixing up the direction of migration of cations and anions or misreading pH relative to pI.",
+   "topic": "Isoelectric point",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_BB_D2",
+   "stem": "A purified antibody migrates at 150 kDa on SDS-PAGE without a reducing agent. With beta-mercaptoethanol, bands are seen at 50 kDa and 25 kDa. These data are most consistent with an antibody composed of:",
+   "options": {
+    "A": "one 50 kDa and one 25 kDa chain linked by hydrogen bonds",
+    "B": "two heavy and two light chains linked by disulfide bonds",
+    "C": "three 50 kDa chains linked by disulfide bonds",
+    "D": "one 150 kDa chain with internal peptide bonds cleaved"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Reducing agents break disulfides: 2(50) + 2(25) = 150 kDa, so four chains are held together by disulfide bonds. Why the others are wrong: A) one of each chain sums to 75 kDa, and SDS disrupts hydrogen bonds anyway C) three 50 kDa chains would not produce a 25 kDa band and total 150 without light chains D) beta-mercaptoethanol does not cleave peptide bonds",
+   "trap": "Ignoring that the two bands must sum to the total mass in the unreduced state.",
+   "topic": "Protein quaternary structure",
+   "mastery_sheet_id": "1A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_BB_D3",
+   "stem": "A template strand has the sequence 3'-TACGGATTC-5'. What is the sequence of the mRNA transcribed from it?",
+   "options": {
+    "A": "5'-AUGCCUAAG-3'",
+    "B": "5'-UACGGAUUC-3'",
+    "C": "3'-AUGCCUAAG-5'",
+    "D": "5'-ATGCCTAAG-3'"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) mRNA is complementary and antiparallel to the template and uses uracil: 5'-AUGCCUAAG-3'. Why the others are wrong: B) this copies the template without complementing, and the polarity is wrong C) this is complementary but the strand polarity is written backwards D) mRNA contains uracil, not thymine",
+   "trap": "Writing the template sequence with T replaced by U instead of the complement.",
+   "topic": "Transcription",
+   "mastery_sheet_id": "1B",
+   "skill": "calculation",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_BB_D4",
+   "stem": "Cells lacking telomerase activity are cultured through many divisions. Which outcome is most likely?",
+   "options": {
+    "A": "Telomere lengthening through repeated lagging-strand synthesis at chromosome ends",
+    "B": "Loss of centromeres in daughter chromosomes, causing missegregation at anaphase",
+    "C": "Increase in Okazaki fragment length, which slows replication of the lagging strand",
+    "D": "Progressive telomere shortening, eventually leading to senescence or apoptosis"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) DNA polymerase cannot fully replicate the 3' end of the lagging strand, so telomeres shorten each division unless telomerase extends them. Why the others are wrong: A) lagging-strand synthesis causes the end-replication problem rather than lengthening B) centromeres are not affected C) Okazaki fragment length is unrelated to telomerase",
+   "trap": "Believing that lagging-strand synthesis maintains chromosome ends without telomerase.",
+   "topic": "DNA replication",
+   "mastery_sheet_id": "1B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_BB_D5",
+   "stem": "Three linked genes have recombination frequencies of 12% between A and B, 5% between B and C, and 7% between A and C. What is the gene order?",
+   "options": {
+    "A": "A-B-C",
+    "B": "A-C-B",
+    "C": "B-A-C",
+    "D": "C-A-B"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The largest distance (A-B = 12) is the sum of the other two (7 + 5), so C lies between A and B. Why the others are wrong: A) A-B-C would require A-C = 17 C) B-A-C would require B-C = 19 D) C-A-B would require C-B = 19, the sum of the other two distances",
+   "trap": "Ordering genes by the letters given instead of from the largest distance.",
+   "topic": "Genetic mapping",
+   "mastery_sheet_id": "1C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://en.wikipedia.org/wiki/Three-point_cross",
+     "https://opengenetics.pressbooks.tru.ca/?p=1056"
+    ]
+   }
+  },
+  {
+   "id": "FL01_BB_D6",
+   "stem": "In regions where malaria is endemic, the sickle cell allele remains at a substantial frequency in the population. Which concept best explains this?",
+   "options": {
+    "A": "Homozygotes for the sickle cell allele have the highest fitness",
+    "B": "The allele is selectively neutral and maintained by genetic drift",
+    "C": "Heterozygotes have higher fitness than either homozygote",
+    "D": "The allele is maintained by repeated back mutation from the normal allele"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Heterozygotes are protected against severe malaria without sickle cell disease, maintaining both alleles (balancing selection). Why the others are wrong: A) homozygous sickle cell individuals have severe disease B) strong, repeatable geographic patterns are not typical of drift D) mutation rates are too low to maintain the frequency",
+   "trap": "Attributing high allele frequency to dominance or neutrality instead of selection.",
+   "topic": "Natural selection",
+   "mastery_sheet_id": "1C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_BB_D7",
+   "stem": "Which change would most likely increase the activity of phosphofructokinase-1 in a hepatocyte?",
+   "options": {
+    "A": "Increased fructose-2,6-bisphosphate",
+    "B": "Increased citrate",
+    "C": "Increased ATP",
+    "D": "Decreased AMP"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Fructose-2,6-bisphosphate is the most potent allosteric activator of PFK-1, promoting glycolysis in the fed state. Why the others are wrong: B) citrate signals abundant biosynthetic precursors and inhibits PFK-1 C) high ATP is an allosteric inhibitor D) AMP activates PFK-1, so a decrease would lower activity",
+   "trap": "Mistaking inhibitors for activators when the energy charge is considered.",
+   "topic": "Glycolysis regulation",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_BB_D8",
+   "stem": "Complete beta-oxidation of one molecule of palmitoyl-CoA (16 carbons) produces how many FADH2?",
+   "options": {
+    "A": "8",
+    "B": "15",
+    "C": "16",
+    "D": "7"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) A 16-carbon fatty acid needs 7 cycles of beta-oxidation, each producing one FADH2 and one NADH, plus 8 acetyl-CoA. Why the others are wrong: A) 8 is the number of acetyl-CoA B) 15 is not related to the number of cycles C) 16 is the number of carbons",
+   "trap": "Equating the number of cycles to the number of acetyl-CoA produced.",
+   "topic": "Fatty acid oxidation",
+   "mastery_sheet_id": "1D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://courses.lumenlearning.com/suny-orgbiochemistry/chapter/20-6-stage-ii-of-lipid-catabolism/",
+     "https://saylordotorg.github.io/text_the-basics-of-general-organic-and-biological-chemistry/s23-06-stage-ii-of-lipid-catabolism.html"
+    ]
+   }
+  },
+  {
+   "id": "FL01_BB_D9",
+   "stem": "A mutation in the genes encoding claudins disrupts the tight junctions of an epithelium. Which defect would most likely result?",
+   "options": {
+    "A": "Increased paracellular leakage and loss of apical-basolateral protein segregation",
+    "B": "Loss of the ability to anchor cells to the basal lamina through integrin-based contacts",
+    "C": "Loss of cytoplasmic communication between adjacent cells through connexin channels",
+    "D": "Loss of the keratin network inside cells, weakening their resistance to mechanical stress"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Tight junctions seal the space between cells and keep apical and basolateral proteins separate. Why the others are wrong: B) hemidesmosomes anchor cells to the basal lamina C) gap junctions allow cytoplasmic communication D) keratin is a cytoplasmic intermediate filament and is not a claudin",
+   "trap": "Confusing the functions of tight junctions, gap junctions, and desmosomes.",
+   "topic": "Cell junctions",
+   "mastery_sheet_id": "2A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_BB_D10",
+   "stem": "A drug blocks reverse transcriptase in cells infected with a retrovirus. Which step is directly prevented?",
+   "options": {
+    "A": "Synthesis of DNA from the viral RNA genome",
+    "B": "Translation of viral proteins from viral RNA",
+    "C": "Assembly of virions at the plasma membrane",
+    "D": "Entry of the virus by receptor-mediated endocytosis"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Reverse transcriptase copies viral RNA into DNA, which is later integrated into the host genome. Why the others are wrong: B) translation uses host ribosomes and does not require reverse transcriptase C) assembly occurs later and does not require reverse transcriptase D) entry occurs before reverse transcription",
+   "trap": "Assigning the enzyme to translation or assembly steps because they involve viral RNA.",
+   "topic": "Retroviruses",
+   "mastery_sheet_id": "2B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_BB_D11",
+   "stem": "Nondisjunction of one homologous pair during meiosis I in a human spermatocyte would result in:",
+   "options": {
+    "A": "four gametes, none of which has the normal chromosome number for that pair",
+    "B": "two normal gametes and two with an extra chromosome",
+    "C": "Two gametes with the normal number of chromosomes and two lacking that chromosome",
+    "D": "one abnormal gamete and three normal gametes"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) In meiosis I, homologs fail to separate, so both daughter cells are abnormal, and all four gametes are n+1 or n-1 for that chromosome. Why the others are wrong: B) two normal gametes arise only from meiosis II nondisjunction, which also gives one n+1 and one n-1 gamete, not two with extra copies C) an error in meiosis I affects both daughter cells, so two normal gametes cannot result D) a single abnormal gamete does not match either meiotic division",
+   "trap": "Confusing the outcomes of meiosis I and meiosis II nondisjunction.",
+   "topic": "Meiosis",
+   "mastery_sheet_id": "2C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_BB_D12",
+   "stem": "A cell with a loss-of-function mutation in TP53 experiences DNA damage. Compared with a normal cell, it is more likely to:",
+   "options": {
+    "A": "arrest in G1 so that the damage can be repaired",
+    "B": "continue through the cell cycle without repair or apoptosis",
+    "C": "undergo apoptosis through activation of caspases",
+    "D": "increase expression of the CDK inhibitor p21"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) p53 normally induces p21 and apoptotic genes after DNA damage; without it, checkpoints fail and mutations can be propagated. Why the others are wrong: A) G1 arrest is caused by p53-induced p21 C) apoptosis is promoted by p53 D) p21 is a target of p53 and would not increase",
+   "trap": "Reversing the effect of a loss-of-function mutation in a tumor suppressor.",
+   "topic": "Tumor suppressors",
+   "mastery_sheet_id": "2C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_BB_D13",
+   "stem": "Damage to the dorsal root of a spinal nerve would most likely cause:",
+   "options": {
+    "A": "loss of motor function in the corresponding region, with sensation preserved there",
+    "B": "loss of both sensation and motor function in the corresponding region of the body",
+    "C": "loss of the autonomic control of the heart and of voluntary movement in the arm",
+    "D": "loss of sensation from the corresponding region with preserved motor function"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Sensory neurons carry afferent signals into the cord through the dorsal root; motor neurons leave through the ventral root. Why the others are wrong: A) motor deficits result from ventral root damage B) both roots are required to be damaged for loss of both C) cardiac control uses cranial and sympathetic pathways, not this root",
+   "trap": "Reversing the dorsal (sensory) and ventral (motor) roots.",
+   "topic": "Spinal reflex arc",
+   "mastery_sheet_id": "3A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_BB_D14",
+   "stem": "During intense exercise, hemoglobin in the muscle capillaries most likely shows:",
+   "options": {
+    "A": "increased oxygen affinity from increased CO2 and H+, so less oxygen is released",
+    "B": "decreased oxygen affinity from decreased temperature, so more oxygen is released",
+    "C": "increased oxygen affinity from increased 2,3-BPG, so less oxygen is released",
+    "D": "decreased oxygen affinity from increased CO2 and H+, releasing more oxygen"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Lower pH, higher CO2, and higher temperature shift the curve to the right (Bohr effect), favoring release of oxygen to tissue. Why the others are wrong: A) higher CO2 and H+ decrease hemoglobin affinity B) exercise increases, not decreases, temperature, and a lower temperature increases affinity C) 2,3-BPG increases release of oxygen by lowering affinity",
+   "trap": "Shifting the curve in the wrong direction for the Bohr effect.",
+   "topic": "Oxygen transport",
+   "mastery_sheet_id": "3B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_BB_D15",
+   "stem": "Acidic chyme entering the duodenum stimulates the release of secretin, which acts on the pancreas to:",
+   "options": {
+    "A": "increase bicarbonate secretion to neutralize acid",
+    "B": "increase secretion of pancreatic lipase only",
+    "C": "decrease secretion of bicarbonate",
+    "D": "stimulate release of gastric acid from parietal cells"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Secretin from duodenal S cells promotes bicarbonate-rich pancreatic juice, which raises the duodenal pH. Why the others are wrong: B) lipase secretion is stimulated mainly by cholecystokinin C) bicarbonate is increased, not decreased D) gastrin, not secretin, stimulates gastric acid release",
+   "trap": "Confusing the roles of secretin and cholecystokinin.",
+   "topic": "Digestive hormones",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

@@ -1,0 +1,117 @@
+[
+  {
+    "id": 1,
+    "type": "data-reading",
+    "passage_id": "bp1387",
+    "passage_text": "Researchers studied the effect of a novel inhibitor, Compound X, on the proliferation of human breast cancer cells in vitro. Cells were exposed to varying concentrations of Compound X (0, 10, 25, 50, and 100 µM) for 48 hours. Cell viability was measured using an MTT assay, and the results were plotted as a dose–response curve. The study also monitored the concentration of Compound X in the culture medium at 0, 12, 24, 36, and 48 hours to assess its stability. The data suggest that Compound X remains largely stable over the 48‑hour period and that its inhibitory effect on cell proliferation follows a sigmoidal dose–response relationship, with an IC50 value near 30 µM. The researchers propose that Compound X could be a promising therapeutic candidate pending further in vivo validation.",
+    "table_data": "Table 1. Concentration of Compound X in culture medium over time\n\n| Time (h) | Concentration (µM) |\n|----------|---------------------|\n| 0        | 100.0                |\n| 12       | 98.5                 |\n| 24       | 97.0                 |\n| 36       | 95.5                 |\n| 48       | 94.0                 |",
+    "stem": "Based on the data presented, what is the approximate IC50 value for Compound X?",
+    "options": {
+      "A": "10 µM",
+      "B": "30 µM",
+      "C": "50 µM",
+      "D": "100 µM"
+    },
+    "correct": "B",
+    "explanation": "The passage states that the IC50 value is near 30 µM, indicating the concentration at which cell viability is reduced by 50%.",
+    "trap": "The table shows only the concentration of Compound X over time, which might mislead students into thinking the IC50 is derived from the stability data.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2C"
+  },
+  {
+    "id": 2,
+    "type": "experimental-design",
+    "passage_id": "bp1387",
+    "passage_text": "Researchers studied the effect of a novel inhibitor, Compound X, on the proliferation of human breast cancer cells in vitro. Cells were exposed to varying concentrations of Compound X (0, 10, 25, 50, and 100 µM) for 48 hours. Cell viability was measured using an MTT assay, and the results were plotted as a dose–response curve. The study also monitored the concentration of Compound X in the culture medium at 0, 12, 24, 36, and 48 hours to assess its stability. The data suggest that Compound X remains largely stable over the 48‑hour period and that its inhibitory effect on cell proliferation follows a sigmoidal dose–response relationship, with an IC50 value near 30 µM. The researchers propose that Compound X could be a promising therapeutic candidate pending further in vivo validation.",
+    "table_data": "Table 1. Concentration of Compound X in culture medium over time\n\n| Time (h) | Concentration (µM) |\n|----------|---------------------|\n| 0        | 100.0                |\n| 12       | 98.5                 |\n| 24       | 97.0                 |\n| 36       | 95.5                 |\n| 48       | 94.0                 |",
+    "stem": "Which of the following best describes an appropriate control for this experiment?",
+    "options": {
+      "A": "Cells treated with a known cytotoxic agent at 50 µM",
+      "B": "Cells treated with 0 µM Compound X (vehicle only)",
+      "C": "Cells treated with 100 µM Compound X for 24 hours",
+      "D": "Cells treated with 25 µM Compound X for 72 hours"
+    },
+    "correct": "B",
+    "explanation": "A vehicle‑only control (0 µM Compound X) accounts for any effects of the solvent and establishes the baseline viability against which treated groups are compared.",
+    "trap": "Choosing a high‑dose cytotoxic agent as a control might be confusing because it is not a true negative control for the inhibitor’s effect.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:05:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2C"
+  },
+  {
+    "id": 3,
+    "type": "calculation",
+    "passage_id": "bp1387",
+    "passage_text": "Researchers studied the effect of a novel inhibitor, Compound X, on the proliferation of human breast cancer cells in vitro. Cells were exposed to varying concentrations of Compound X (0, 10, 25, 50, and 100 µM) for 48 hours. Cell viability was measured using an MTT assay, and the results were plotted as a dose–response curve. The study also monitored the concentration of Compound X in the culture medium at 0, 12, 24, 36, and 48 hours to assess its stability. The data suggest that Compound X remains largely stable over the 48‑hour period and that its inhibitory effect on cell proliferation follows a sigmoidal dose–response relationship, with an IC50 value near 30 µM. The researchers propose that Compound X could be a promising therapeutic candidate pending further in vivo validation.",
+    "table_data": "Table 1. Concentration of Compound X in culture medium over time\n\n| Time (h) | Concentration (µM) |\n|----------|---------------------|\n| 0        | 100.0                |\n| 12       | 98.5                 |\n| 24       | 97.0                 |\n| 36       | 95.5                 |\n| 48       | 94.0                 |",
+    "stem": "Using the untreated control (0 µM, 100% viability) and the stated IC50 (about 30 µM, 50% viability), what viability does linear interpolation between these two points predict at 15 µM?",
+    "options": {
+      "A": "75%",
+      "B": "85%",
+      "C": "65%",
+      "D": "50%"
+    },
+    "correct": "A",
+    "explanation": "Correct: A) Slope = (50 - 100)/30 = -1.67 percentage points per µM; at 15 µM viability = 100 - 25 = 75%, the midpoint between 100% and 50%. Why the others are wrong: B) 85% would correspond to a point only 9 µM along the line. C) 65% would correspond to 21 µM along the line. D) 50% is the viability at 30 µM (the IC50), not at 15 µM.",
+    "trap": "Reporting 50% (the viability at the IC50) for 15 µM instead of interpolating halfway between 100% and 50%.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:10:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2C"
+  },
+  {
+    "id": 4,
+    "type": "trap",
+    "passage_id": "bp1387",
+    "passage_text": "Researchers studied the effect of a novel inhibitor, Compound X, on the proliferation of human breast cancer cells in vitro. Cells were exposed to varying concentrations of Compound X (0, 10, 25, 50, and 100 µM) for 48 hours. Cell viability was measured using an MTT assay, and the results were plotted as a dose–response curve. The study also monitored the concentration of Compound X in the culture medium at 0, 12, 24, 36, and 48 hours to assess its stability. The data suggest that Compound X remains largely stable over the 48‑hour period and that its inhibitory effect on cell proliferation follows a sigmoidal dose–response relationship, with an IC50 value near 30 µM. The researchers propose that Compound X could be a promising therapeutic candidate pending further in vivo validation.",
+    "table_data": "Table 1. Concentration of Compound X in culture medium over time\n\n| Time (h) | Concentration (µM) |\n|----------|---------------------|\n| 0        | 100.0                |\n| 12       | 98.5                 |\n| 24       | 97.0                 |\n| 36       | 95.5                 |\n| 48       | 94.0                 |",
+    "stem": "Which statement is most likely incorrect regarding the stability of Compound X?",
+    "options": {
+      "A": "Compound X concentration decreases by approximately 1.5 µM every 12 hours.",
+      "B": "The concentration at 48 hours is still above 90 µM.",
+      "C": "Compound X is fully degraded by 24 hours.",
+      "D": "The concentration decline is linear over the 48‑hour period."
+    },
+    "correct": "C",
+    "explanation": "The table shows only a 6 µM drop over 48 hours, indicating that Compound X is not fully degraded by 24 hours; it remains largely stable.",
+    "trap": "Assuming 'largely stable' means no loss at all and rejecting the other statements; the table shows a steady 1.5 µM decline per 12 h, so only full degradation by 24 h is false.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:15:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2C"
+  },
+  {
+    "id": 5,
+    "type": "link",
+    "passage_id": "bp1387",
+    "passage_text": "Researchers studied the effect of a novel inhibitor, Compound X, on the proliferation of human breast cancer cells in vitro. Cells were exposed to varying concentrations of Compound X (0, 10, 25, 50, and 100 µM) for 48 hours. Cell viability was measured using an MTT assay, and the results were plotted as a dose–response curve. The study also monitored the concentration of Compound X in the culture medium at 0, 12, 24, 36, and 48 hours to assess its stability. The data suggest that Compound X remains largely stable over the 48‑hour period and that its inhibitory effect on cell proliferation follows a sigmoidal dose–response relationship, with an IC50 value near 30 µM. The researchers propose that Compound X could be a promising therapeutic candidate pending further in vivo validation.",
+    "table_data": "Table 1. Concentration of Compound X in culture medium over time\n\n| Time (h) | Concentration (µM) |\n|----------|---------------------|\n| 0        | 100.0                |\n| 12       | 98.5                 |\n| 24       | 97.0                 |\n| 36       | 95.5                 |\n| 48       | 94.0                 |",
+    "stem": "Which of the following future experiments would best test whether the observed IC50 is due to specific target inhibition rather than nonspecific cytotoxicity?",
+    "options": {
+      "A": "Repeat the MTT assay with a different cell line.",
+      "B": "Perform a rescue experiment by overexpressing the target protein.",
+      "C": "Measure the concentration of Compound X in the medium after 72 hours.",
+      "D": "Use a fluorescent viability dye instead of MTT."
+    },
+    "correct": "B",
+    "explanation": "A rescue experiment that restores the target protein would demonstrate that the effect is mediated through the intended target rather than general toxicity.",
+    "trap": "Option A might be chosen because it seems to test specificity, but changing cell lines does not directly address target‑specificity of the compound.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:20:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  }
+]

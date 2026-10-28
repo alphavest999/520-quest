@@ -1,0 +1,407 @@
+[
+ {
+  "id": "d_2A_1",
+  "type": "discrete",
+  "stem": "Cold-adapted organisms often have membrane phospholipids enriched in",
+  "options": {
+   "A": "saturated fatty acids",
+   "B": "unsaturated fatty acids",
+   "C": "long saturated hydrocarbon chains",
+   "D": "a higher cholesterol-to-phospholipid ratio at high temperature only"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Cis double bonds kink the fatty acid chains, preventing tight packing and maintaining membrane fluidity at low temperature. Why the others are wrong: A) Saturated fatty acids are straight and pack tightly, making the membrane less fluid in the cold. C) Long saturated hydrocarbon chains pack even more tightly and reduce fluidity. D) Cholesterol acts as a fluidity buffer at high temperature, so a ratio raised at high temperature only does not address cold adaptation.",
+  "trap": "Confusing saturated with unsaturated packing effects.",
+  "topic": "Membrane fluidity",
+  "mastery_sheet_id": "2A",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_2",
+  "type": "discrete",
+  "stem": "The rate of glucose uptake into a cell plateaus as extracellular glucose concentration is increased. This is most consistent with",
+  "options": {
+   "A": "simple diffusion through the lipid bilayer",
+   "B": "osmosis",
+   "C": "carrier-mediated facilitated diffusion",
+   "D": "bulk exocytosis"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Saturation of uptake rate at high substrate concentration indicates a limited number of transporters, as in carrier-mediated facilitated diffusion. Why the others are wrong: A) Simple diffusion through the bilayer increases linearly with concentration and does not saturate. B) Osmosis is movement of water, not glucose. D) Bulk exocytosis exports material rather than taking glucose into the cell.",
+  "trap": "Not recognizing saturation as evidence for carriers.",
+  "topic": "Facilitated diffusion",
+  "mastery_sheet_id": "2A",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_3",
+  "type": "discrete",
+  "stem": "Ouabain inhibits the Na+/K+ ATPase. How would the intestinal Na+-glucose cotransporter (SGLT) be affected?",
+  "options": {
+   "A": "Reduced, because the Na+ gradient dissipates",
+   "B": "Increased, because more Na+ is available",
+   "C": "Unchanged, because SGLT uses ATP directly",
+   "D": "Reversed, because glucose moves down its gradient"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) SGLT relies on the Na+ gradient set up by the Na+/K+ ATPase; without the pump the gradient dissipates and glucose uptake falls. Why the others are wrong: B) More Na+ is not available for cotransport, since the gradient collapses and uptake falls. C) SGLT is secondary active transport that uses the Na+ gradient, not ATP directly. D) SGLT does not reverse; the loss of the gradient reduces uptake rather than reversing flow.",
+  "trap": "Thinking cotransporters use ATP directly.",
+  "topic": "Secondary active transport",
+  "mastery_sheet_id": "2A",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_4",
+  "type": "discrete",
+  "stem": "Which solution has the highest osmotic pressure at the same temperature (assume complete dissociation of salts)?",
+  "options": {
+   "A": "0.2 M glucose",
+   "B": "0.12 M NaCl",
+   "C": "0.25 M sucrose",
+   "D": "0.1 M CaCl2"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Osmolarity = iM: CaCl2 gives 3 x 0.1 = 0.30 osmol/L, the highest of the four. Why the others are wrong: A) 0.2 M glucose gives only 0.20 osmol/L because it does not dissociate. B) 0.12 M NaCl gives 2 x 0.12 = 0.24 osmol/L. C) 0.25 M sucrose gives only 0.25 osmol/L because it does not dissociate.",
+  "trap": "Ignoring the van't Hoff factor.",
+  "topic": "Osmosis",
+  "mastery_sheet_id": "2A",
+  "difficulty": "518",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://www.chemteam.info/Solutions/Osmosis-Equation.html"
+   ]
+  }
+ },
+ {
+  "id": "d_2A_5",
+  "type": "discrete",
+  "stem": "In an axon, kinesin carries vesicles along microtubules toward the",
+  "options": {
+   "A": "minus end, at the cell body",
+   "B": "plus end, at the axon terminal",
+   "C": "plus end, at the cell body",
+   "D": "minus end, at the axon terminal"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Kinesin moves toward microtubule plus ends, which point away from the cell body toward the axon terminal (anterograde transport). Why the others are wrong: A) Minus end at the cell body describes dynein-type (retrograde) direction and is the wrong polarity for kinesin. C) Plus end at the cell body places the plus end in the wrong location; plus ends point to the terminal. D) Minus end at the axon terminal mismatches polarity and location, since minus ends lie at the cell body.",
+  "trap": "Swapping kinesin and dynein directions.",
+  "topic": "Motor proteins",
+  "mastery_sheet_id": "2A",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_6",
+  "type": "discrete",
+  "stem": "The contractile ring that pinches an animal cell in two during cytokinesis is composed mainly of",
+  "options": {
+   "A": "tubulin and kinesin",
+   "B": "keratin",
+   "C": "actin and myosin",
+   "D": "lamins"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Actin microfilaments and myosin II contract to form the cleavage furrow during cytokinesis. Why the others are wrong: A) Tubulin and kinesin form and move along the spindle, not the contractile ring. B) Keratin is an intermediate filament that provides mechanical strength. D) Lamins support the nuclear envelope.",
+  "trap": "Choosing microtubules because the spindle is involved.",
+  "topic": "Cytokinesis",
+  "mastery_sheet_id": "2A",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_7",
+  "type": "discrete",
+  "stem": "Primary ciliary dyskinesia (Kartagener syndrome) results in immotile cilia due to defective",
+  "options": {
+   "A": "actin filaments",
+   "B": "keratin filaments",
+   "C": "kinesin motors",
+   "D": "dynein arms"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Axonemal dynein arms generate sliding between microtubule doublets, which bends cilia; defective dynein causes immotile cilia. Why the others are wrong: A) Actin filaments do not form the axoneme. B) Keratin filaments are structural intermediate filaments and do not form the axoneme. C) Kinesin transports cargo along microtubules and does not drive ciliary bending.",
+  "trap": "Confusing dynein (ciliary bending) with kinesin (vesicle transport) or with actin-based motors.",
+  "topic": "Cilia and flagella",
+  "mastery_sheet_id": "2A",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_8",
+  "type": "discrete",
+  "stem": "Rapid electrical coupling between cardiac muscle cells is mainly due to",
+  "options": {
+   "A": "gap junctions",
+   "B": "tight junctions",
+   "C": "desmosomes",
+   "D": "hemidesmosomes"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Gap junctions contain connexons that allow ions to flow between adjacent cells, giving rapid electrical coupling. Why the others are wrong: B) Tight junctions seal the space between cells and do not conduct current. C) Desmosomes give mechanical strength and are prominent in the heart but do not conduct current. D) Hemidesmosomes anchor cells to the basement membrane.",
+  "trap": "Choosing desmosomes, which are prominent in the heart but do not conduct current.",
+  "topic": "Cell junctions",
+  "mastery_sheet_id": "2A",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_9",
+  "type": "discrete",
+  "stem": "In intestinal epithelium, tight junctions primarily",
+  "options": {
+   "A": "allow cytoplasm to be shared",
+   "B": "limit paracellular leakage and maintain apical-basolateral polarity",
+   "C": "anchor cells to the basement membrane",
+   "D": "form pores for ion conduction"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Tight junctions seal the space between adjacent cells, limiting paracellular leakage and maintaining apical-basolateral polarity. Why the others are wrong: A) Sharing cytoplasm describes gap junctions. C) Anchoring cells to the basement membrane describes hemidesmosomes. D) Forming pores for ion conduction describes gap junctions.",
+  "trap": "Mixing up tight junctions (sealing) with gap junctions (communication) or hemidesmosomes (anchoring).",
+  "topic": "Tight junctions",
+  "mastery_sheet_id": "2A",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_10",
+  "type": "discrete",
+  "stem": "A secreted protein follows which route?",
+  "options": {
+   "A": "Rough ER, Golgi, secretory vesicle, plasma membrane",
+   "B": "Golgi, rough ER, lysosome, plasma membrane",
+   "C": "Nucleus, smooth ER, Golgi, lysosome",
+   "D": "Smooth ER, Golgi, peroxisome"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Synthesis on the rough ER is followed by Golgi processing, packaging into secretory vesicles, and exocytosis at the plasma membrane. Why the others are wrong: B) Golgi before rough ER reverses the order, and lysosomes are not on the secretory route. C) A secreted protein is not made in the nucleus, and the route ends in lysosomes rather than at the plasma membrane. D) The smooth ER does not synthesize secreted proteins, and peroxisomes are not on the secretory route.",
+  "trap": "Placing the Golgi before the rough ER or routing a secreted protein through lysosomes or peroxisomes.",
+  "topic": "Secretory pathway",
+  "mastery_sheet_id": "2A",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_11",
+  "type": "discrete",
+  "stem": "If lysosomal hydrolases leak into the cytosol, they usually cause limited damage because they",
+  "options": {
+   "A": "are destroyed in the cytosol",
+   "B": "require ATP",
+   "C": "are inactive at cytosolic pH",
+   "D": "cannot hydrolyze proteins"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Lysosomal acid hydrolases work best at pH about 5 and are poorly active at the cytosolic pH of about 7.2, limiting damage. Why the others are wrong: A) The hydrolases are not instantly destroyed in the cytosol. B) They do not require ATP to function. D) They can hydrolyze proteins, so that is not why damage is limited.",
+  "trap": "Assuming lysosomal enzymes are always destructive.",
+  "topic": "Lysosomes",
+  "mastery_sheet_id": "2A",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_12",
+  "type": "discrete",
+  "stem": "Which function is characteristic of peroxisomes?",
+  "options": {
+   "A": "ATP synthesis by oxidative phosphorylation",
+   "B": "Synthesis of secreted proteins",
+   "C": "Degradation of proteins by acid hydrolases",
+   "D": "Oxidation of very long chain fatty acids and breakdown of hydrogen peroxide by catalase"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Peroxisomes oxidize very long chain fatty acids and break down hydrogen peroxide with catalase. Why the others are wrong: A) ATP synthesis by oxidative phosphorylation is mitochondrial. B) Synthesis of secreted proteins occurs on the rough ER. C) Protein degradation by acid hydrolases is lysosomal.",
+  "trap": "Confusing peroxisomes with lysosomes.",
+  "topic": "Peroxisomes",
+  "mastery_sheet_id": "2A",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_13",
+  "type": "discrete",
+  "stem": "Which observation provides the strongest support for the bacterial origin of mitochondria?",
+  "options": {
+   "A": "A nuclear envelope",
+   "B": "Presence of membrane proteins",
+   "C": "Linear chromosomes",
+   "D": "A circular genome and ribosomes resembling those of bacteria"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Mitochondria have a circular genome and 70S-type ribosomes resembling those of bacteria, and divide by fission, supporting endosymbiosis. Why the others are wrong: A) A nuclear envelope is a eukaryotic feature, not bacterial. B) Membrane proteins are found in all cells and say nothing about origin. C) Linear chromosomes are eukaryotic, whereas bacteria have circular chromosomes.",
+  "trap": "Choosing a feature that eukaryotic cells share.",
+  "topic": "Endosymbiosis",
+  "mastery_sheet_id": "2A",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_14",
+  "type": "discrete",
+  "stem": "The nucleolus is the site of",
+  "options": {
+   "A": "mRNA splicing",
+   "B": "DNA replication",
+   "C": "rRNA synthesis and ribosomal subunit assembly",
+   "D": "protein translation"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) RNA polymerase I transcribes rRNA genes in the nucleolus, where ribosomal subunits are assembled. Why the others are wrong: A) MRNA splicing occurs in the nucleoplasm. B) DNA replication occurs throughout the nucleus, not specifically in the nucleolus. D) Protein translation occurs in the cytoplasm.",
+  "trap": "Assigning mRNA processing to the nucleolus.",
+  "topic": "Nucleolus",
+  "mastery_sheet_id": "2A",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_15",
+  "type": "discrete",
+  "stem": "Hepatocytes chronically exposed to phenobarbital show proliferation of",
+  "options": {
+   "A": "smooth endoplasmic reticulum",
+   "B": "rough endoplasmic reticulum",
+   "C": "lysosomes",
+   "D": "the Golgi apparatus"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Smooth ER contains cytochrome P450 enzymes used in drug detoxification, so it proliferates with chronic phenobarbital exposure. Why the others are wrong: B) Rough ER synthesizes proteins and is not the primary site of drug metabolism. C) Lysosomes degrade material and are not the primary site of drug metabolism. D) The Golgi modifies and sorts proteins and is not the primary site of drug metabolism.",
+  "trap": "Choosing rough ER because it is the better-known ER type, instead of the detoxifying smooth ER.",
+  "topic": "Smooth ER",
+  "mastery_sheet_id": "2A",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_16",
+  "type": "discrete",
+  "stem": "Scurvy weakens connective tissue because vitamin C is required for",
+  "options": {
+   "A": "synthesis of elastin",
+   "B": "hydroxylation of proline and lysine residues in collagen",
+   "C": "glycosylation of fibronectin",
+   "D": "integrin binding to the cytoskeleton"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Vitamin C is a cofactor for hydroxylation of proline and lysine in collagen, which is needed for stable collagen triple helices. Why the others are wrong: A) Elastin synthesis is not vitamin C dependent in the way collagen hydroxylation is. C) Glycosylation of fibronectin is not vitamin C dependent. D) Integrin binding to the cytoskeleton is not vitamin C dependent.",
+  "trap": "Not linking vitamin C to hydroxylation of collagen proline and lysine, and picking elastin or integrins instead.",
+  "topic": "Extracellular matrix",
+  "mastery_sheet_id": "2A",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_17",
+  "type": "discrete",
+  "stem": "Which epithelium is best suited for rapid gas exchange in the alveoli?",
+  "options": {
+   "A": "Stratified squamous epithelium",
+   "B": "Pseudostratified ciliated columnar epithelium",
+   "C": "Simple squamous epithelium",
+   "D": "Simple columnar epithelium"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) A thin single layer of flat cells minimizes diffusion distance, so simple squamous epithelium suits rapid gas exchange. Why the others are wrong: A) Stratified squamous epithelium is thick and protective, like skin, which slows diffusion. B) Pseudostratified ciliated columnar epithelium lines airways to move mucus and is too thick for exchange. D) Simple columnar epithelium is taller and suited to absorption and secretion, so diffusion distance is greater.",
+  "trap": "Choosing the protective epithelium of the skin.",
+  "topic": "Epithelia",
+  "mastery_sheet_id": "2A",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_18",
+  "type": "discrete",
+  "stem": "Cartilage heals slowly after injury mainly because it is",
+  "options": {
+   "A": "rich in osteoblasts",
+   "B": "avascular",
+   "C": "highly vascular",
+   "D": "composed mostly of cells"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Cartilage is avascular, so limited nutrient delivery slows cell repair after injury. Why the others are wrong: A) Osteoblasts are bone-forming cells and are not abundant in cartilage. C) Cartilage is avascular, not highly vascular (vascularity describes bone). D) Cartilage is mostly extracellular matrix, not mostly cells.",
+  "trap": "Confusing cartilage with bone and assuming it is vascular and rich in osteoblasts.",
+  "topic": "Connective tissue",
+  "mastery_sheet_id": "2A",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_19",
+  "type": "discrete",
+  "stem": "Removing calcium from the medium causes a tissue to dissociate into single cells because",
+  "options": {
+   "A": "cadherins require Ca2+ to mediate cell-cell adhesion",
+   "B": "integrins require Ca2+ to bind collagen",
+   "C": "gap junctions require Ca2+ to open",
+   "D": "collagen fibers dissolve without Ca2+"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Cadherins are Ca2+-dependent adhesion proteins, so removing calcium disrupts cell-cell adhesion and the tissue dissociates. Why the others are wrong: B) Integrins bind the extracellular matrix, so they do not explain cell-cell dissociation. C) Gap junction closure would not separate cells. D) Collagen fibers are not dissolved by loss of calcium.",
+  "trap": "Choosing integrins or gap junctions instead of Ca2+-dependent cadherins as the cell-cell adhesion molecule.",
+  "topic": "Cell adhesion",
+  "mastery_sheet_id": "2A",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_20",
+  "type": "discrete",
+  "stem": "Defective LDL receptors cause high plasma LDL because",
+  "options": {
+   "A": "cells cannot take up LDL by receptor-mediated endocytosis",
+   "B": "liver cells overproduce LDL",
+   "C": "lysosomes rupture",
+   "D": "Na+/K+ ATPase is defective"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) LDL is cleared from plasma by receptor-mediated endocytosis, so defective receptors leave LDL in the blood. Why the others are wrong: B) Liver overproduction of LDL is not the mechanism in receptor defects. C) Lysosome rupture does not explain high plasma LDL. D) A Na+/K+ ATPase defect does not explain failure to clear LDL.",
+  "trap": "Assuming high plasma LDL means overproduction rather than failed receptor-mediated clearance.",
+  "topic": "Endocytosis",
+  "mastery_sheet_id": "2A",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_2A_21",
+  "type": "discrete",
+  "stem": "Which treatment removes peripheral membrane proteins but leaves integral membrane proteins in the membrane?",
+  "options": {
+   "A": "Treating with a detergent",
+   "B": "Heating to 90 C",
+   "C": "Treating with phospholipase",
+   "D": "Washing with a high-salt solution"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Peripheral proteins bind through ionic interactions that high salt disrupts, while integral proteins stay embedded in the bilayer. Why the others are wrong: A) Detergent solubilizes the bilayer and extracts integral proteins too. B) Heating to 90 C denatures proteins in general rather than selectively removing peripheral ones. C) Phospholipase degrades membrane lipids and would not selectively strip peripheral proteins.",
+  "trap": "Assuming detergent, heat, or lipases remove only peripheral proteins when they also disrupt integral proteins or lipids.",
+  "topic": "Membrane proteins",
+  "mastery_sheet_id": "2A",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ }
+]

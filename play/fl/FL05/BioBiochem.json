@@ -1,0 +1,1775 @@
+{
+ "exam": "FL05",
+ "section": "BB",
+ "passages": [
+  {
+   "passage_id": "FL05_BB_P1",
+   "passage_text": "Molecular chaperones prevent aggregation of unfolded proteins and assist folding. A researcher tested the Hsp70 system using firefly luciferase, which is enzymatically active only when natively folded. Luciferase (100 nM) was denatured by heating at 42 degrees C for 10 minutes and then diluted into refolding buffer at 25 degrees C. The buffer contained the components listed in Table 1, with Hsp70 (1 uM), the co-chaperone Hsp40 (0.5 uM), and either ATP or the nonhydrolyzable analog ATP-gamma-S (2 mM each) as indicated. Luciferase activity was measured over time and expressed as a percentage of the activity of an equal amount of never-denatured enzyme. Figure 1 shows recovery over 60 minutes for three of the conditions. In all tubes, a fraction of the denatured luciferase formed visible aggregates; the aggregate fraction was lowest in the tubes containing Hsp70 and ATP. Reactions were run in triplicate and the values shown are means; the standard deviation of each mean was below 4 percentage points. Luciferase activity was measured by adding luciferin and ATP immediately before reading luminescence.",
+   "table_data": "Table 1. Luciferase activity recovered at 60 minutes\n\n| Condition | Components | Activity recovered (% of native) |\n|---|---|---|\n| 1 | No chaperone | 8 |\n| 2 | Hsp70, no nucleotide | 10 |\n| 3 | Hsp70 + ATP | 45 |\n| 4 | Hsp70 + Hsp40 + ATP | 78 |\n| 5 | Hsp70 + Hsp40 + ATP-gamma-S | 12 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Luciferase refolding over time",
+    "x_label": "Time (min)",
+    "y_label": "Activity recovered (% of native)",
+    "series": [
+     {
+      "name": "No chaperone",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        15,
+        3
+       ],
+       [
+        30,
+        5
+       ],
+       [
+        60,
+        8
+       ]
+      ]
+     },
+     {
+      "name": "Hsp70 + ATP",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        15,
+        18
+       ],
+       [
+        30,
+        32
+       ],
+       [
+        60,
+        45
+       ]
+      ]
+     },
+     {
+      "name": "Hsp70 + Hsp40 + ATP",
+      "points": [
+       [
+        0,
+        0
+       ],
+       [
+        15,
+        30
+       ],
+       [
+        30,
+        55
+       ],
+       [
+        60,
+        78
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_BB_P1_Q1",
+     "stem": "By how much did adding Hsp40 to the Hsp70 plus ATP system increase the luciferase activity recovered at 60 minutes?",
+     "options": {
+      "A": "70 percentage points, the difference between condition 4 and the no-chaperone control",
+      "B": "17 percentage points, the average gain per 15 minutes shown in Figure 1",
+      "C": "45 percentage points, the activity recovered by Hsp70 plus ATP alone in condition 3",
+      "D": "33 percentage points, the difference between 78% (condition 4) and 45% (condition 3)"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) 78 - 45 = 33 percentage points. Why the others are wrong: A) this is the total effect of the full system over no chaperone (78 - 8), not the added effect of Hsp40. B) this is not a quantity tied to the comparison; the gain from Hsp40 is the difference in 60-minute recoveries. C) this is the recovery without Hsp40, not the increment gained by adding it.",
+     "trap": "Subtracting the wrong pair of conditions (such as condition 4 minus condition 1) and reporting the total effect of the whole system as the effect of Hsp40.",
+     "topic": "Chaperone Hsp70/Hsp40 data",
+     "mastery_sheet_id": "1A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_BB_P1_Q2",
+     "stem": "The very low recovery in condition 5 compared with condition 4 is best explained by which conclusion?",
+     "options": {
+      "A": "Hsp40 is inactivated by nonhydrolyzable nucleotides, so Hsp70 can no longer bind exposed hydrophobic segments",
+      "B": "Hsp70 acts as a kinase that covalently phosphorylates luciferase using the terminal phosphate of ATP",
+      "C": "ATP-gamma-S binds Hsp70 more tightly than ATP and therefore speeds substrate release from the chaperone",
+      "D": "ATP hydrolysis, not ATP binding alone, is needed for Hsp70 to release substrate"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) ATP-gamma-S binds but is not hydrolyzed, so Hsp70 stays locked on the substrate and recovery stays near baseline. Why the others are wrong: A) Hsp40 delivers substrate and stimulates Hsp70 ATPase activity; the data do not show it is inactivated, and Hsp70 binding is not the problem. B) Hsp70 is not a kinase here; ATP hydrolysis powers conformational cycling of the chaperone itself. C) tight binding of a nonhydrolyzable analog locks the closed, substrate-holding state; it does not speed release.",
+     "trap": "Assuming that binding of ATP is enough to drive the chaperone cycle, overlooking that the analog binds but cannot be hydrolyzed.",
+     "topic": "ATP hydrolysis in chaperone cycle",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P1_Q3",
+     "stem": "Which feature of an unfolded luciferase molecule is most directly recognized by Hsp70?",
+     "options": {
+      "A": "Branched oligosaccharides attached to asparagine residues in the unfolded chain",
+      "B": "Exposed hydrophobic side chains that are normally buried in the native core",
+      "C": "Disulfide bonds formed between cysteine side chains on the protein surface",
+      "D": "An N-terminal signal sequence directing the protein toward the endoplasmic reticulum"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Hsp70 binds short hydrophobic stretches exposed on non-native proteins, shielding them from aggregation. Why the others are wrong: A) N-linked glycans are added in the ER lumen and are not present on cytosolic luciferase. C) disulfide bonds are not what Hsp70 recognizes, and luciferase folding in this buffer does not depend on them. D) signal sequences direct targeting to the ER and are not the general chaperone recognition feature.",
+     "trap": "Selecting a targeting or modification feature because it is a memorable protein signal, rather than the exposed hydrophobic patches that define a non-native protein.",
+     "topic": "Hsp70 substrate recognition",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P1_Q4",
+     "stem": "Which additional control would best test whether the benefit of Hsp70 is due to its chaperone activity rather than to nonspecific protein crowding?",
+     "options": {
+      "A": "Measure luciferase aggregation by light scattering in the no-chaperone condition only",
+      "B": "Add bovine serum albumin at the same mass concentration as Hsp70, together with ATP",
+      "C": "Add Hsp70 at ten times the concentration without ATP and measure recovery at 60 minutes",
+      "D": "Repeat condition 3 with luciferase that was never heated before dilution into the buffer"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A non-chaperone protein at equal mass with ATP controls for crowding or nonspecific stabilization. Why the others are wrong: A) this characterizes aggregation in one tube and offers no matched comparison for crowding. C) this varies chaperone dose without a nonchaperone protein, so crowding is still not distinguished. D) this tests native enzyme stability, not whether the benefit depends on the chaperone.",
+     "trap": "Choosing a control that varies the chaperone itself instead of one that replaces the chaperone with an irrelevant protein.",
+     "topic": "Controls in refolding assays",
+     "mastery_sheet_id": "1A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P1_Q5",
+     "stem": "Compared with the Hsp70 system, the bacterial chaperonin GroEL/GroES promotes folding primarily by which mechanism?",
+     "options": {
+      "A": "Specifying the native conformation by supplying information absent from the amino acid sequence",
+      "B": "Enclosing one unfolded polypeptide in an ATP-gated cavity so it can fold in isolation",
+      "C": "Inserting new disulfide bonds into the substrate through reversible thiol-disulfide exchange",
+      "D": "Cleaving the polypeptide at proline residues to remove misfolded segments"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) GroEL/GroES forms a barrel-like chamber that isolates one substrate protein while it folds. Why the others are wrong: A) the native fold is encoded by the sequence; chaperones only prevent off-pathway aggregation. C) disulfide formation is catalyzed by protein disulfide isomerase, a different folding enzyme. D) chaperonins do not cleave substrates; proteolytic trimming is not part of folding assistance.",
+     "trap": "Believing chaperones carry structural information for the fold, contrary to the principle that the amino acid sequence determines the native structure.",
+     "topic": "GroEL/GroES chaperonin",
+     "mastery_sheet_id": "1A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_BB_P2",
+   "passage_text": "A transcription factor (TF) is hypothesized to activate a gene by binding a response element in the promoter. To test this, researchers cloned the promoter upstream of a firefly luciferase gene and transfected the construct into cells that express little endogenous TF. A second plasmid with Renilla luciferase under a constitutive promoter was co-transfected in every dish. After 24 hours, firefly luminescence was divided by Renilla luminescence to give relative luciferase units (RLU), and values were normalized so that the wild-type promoter without added TF equals 1.0. Constructs included the wild-type promoter, a promoter with point mutations in the response element, and TF variants lacking either the DNA-binding domain (dDBD) or the activation domain (dAD). Table 1 shows results with 100 ng of TF plasmid. Figure 1 shows RLU for the wild-type promoter as the amount of TF plasmid was varied. Each condition was performed in triplicate wells, and values shown are means. Cell viability was above 90 percent in all conditions, and expression of each TF variant was confirmed by immunoblot to be comparable to that of the full-length protein.",
+   "table_data": "Table 1. Normalized reporter activity\n\n| Promoter | TF plasmid (100 ng) | RLU |\n|---|---|---|\n| Wild-type | None | 1.0 |\n| Wild-type | Full-length TF | 12.4 |\n| Mutant element | None | 0.9 |\n| Mutant element | Full-length TF | 1.3 |\n| Wild-type | dDBD TF | 1.1 |\n| Wild-type | dAD TF | 0.4 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Dose response of the wild-type promoter",
+    "x_label": "TF plasmid (ng)",
+    "y_label": "RLU",
+    "series": [
+     {
+      "name": "Wild-type promoter",
+      "points": [
+       [
+        0,
+        1.0
+       ],
+       [
+        25,
+        4.1
+       ],
+       [
+        50,
+        8.0
+       ],
+       [
+        100,
+        12.4
+       ],
+       [
+        200,
+        12.9
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_BB_P2_Q1",
+     "stem": "The fold activation caused by full-length TF on the wild-type promoter is about how many times greater than the fold activation on the mutant promoter?",
+     "options": {
+      "A": "9 times, because 12.4 divided by about 1.4 is approximately 9",
+      "B": "1.4 times, because the mutant and wild-type promoters give similar absolute RLU with TF",
+      "C": "14 times, because 12.4 divided by the mutant baseline of 0.9 gives about 14",
+      "D": "12 times, because the wild-type fold activation is 12.4 and the mutant shows no activation"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Mutant fold activation is 1.3/0.9, about 1.4; 12.4/1.4 is about 9. Why the others are wrong: B) the RLU with TF differ by roughly tenfold, so the two promoters are not similar. C) this divides by the baseline of the mutant without TF rather than by the mutant's own fold activation. D) the mutant is not zero; it shows a modest 1.4-fold change, and the question asks for a ratio of fold changes.",
+     "trap": "Using raw RLU or the wrong baseline instead of calculating fold activation for each promoter before comparing them.",
+     "topic": "Reporter assay fold change",
+     "mastery_sheet_id": "1B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_BB_P2_Q2",
+     "stem": "The finding that the dAD TF reduced RLU to 0.4, below the value of the promoter without added TF, is best explained by which of the following?",
+     "options": {
+      "A": "The dAD protein binds the Renilla promoter and lowers the normalization signal in every dish",
+      "B": "dAD occupies the response element but cannot recruit machinery, blocking endogenous TF",
+      "C": "The dAD protein cannot enter the nucleus, so it degrades firefly luciferase mRNA in the cytoplasm",
+      "D": "The dAD protein increases initiation by acting as a general transcription factor at all promoters"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) a DNA-binding but activation-defective TF can act as a dominant negative at its binding site. Why the others are wrong: A) a drop in Renilla would raise, not lower, the firefly/Renilla ratio; the effect is specific to the response element. C) dAD lacks only the activation domain; nothing suggests it is excluded from the nucleus or targets mRNA. D) loss of the activation domain would remove, not add, stimulation of transcription.",
+     "trap": "Treating a value below baseline as noise or as a loss of function only, rather than recognizing competition with endogenous activator at the binding site.",
+     "topic": "Dominant negative transcription factor",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P2_Q3",
+     "stem": "In Figure 1, RLU rises only slightly when TF plasmid is increased from 100 ng to 200 ng. Which explanation is most reasonable?",
+     "options": {
+      "A": "Renilla luminescence doubles between these points, exactly offsetting the added firefly activity",
+      "B": "The response element is deleted when TF concentration exceeds about 100 ng of plasmid per dish",
+      "C": "Another component, such as coactivators or promoter template, becomes limiting",
+      "D": "The additional TF protein is degraded because it can no longer bind DNA at the mutant element"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) a plateau indicates that some other factor or the available promoter sites limit expression. Why the others are wrong: A) Renilla is a constitutive control and there is no evidence it doubles with TF dose. B) TF binding does not delete DNA elements; plateau does not imply loss of the site. D) the mutant element is not present in this wild-type series, and degradation is not indicated by the data.",
+     "trap": "Assuming that more activator must always give more output and attributing a plateau to a technical artifact.",
+     "topic": "Saturation in dose response",
+     "mastery_sheet_id": "1B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P2_Q4",
+     "stem": "What is the main purpose of co-transfecting the Renilla luciferase plasmid in every dish?",
+     "options": {
+      "A": "To confirm that the TF binds the response element directly rather than through other proteins",
+      "B": "To correct firefly luminescence for differences in transfection efficiency and cell number between dishes",
+      "C": "To prevent the firefly luciferase reaction from consuming ATP needed by the transfected cells",
+      "D": "To provide a second promoter whose activity should rise in proportion to the amount of TF"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) the constitutive control normalizes variation unrelated to the response element. Why the others are wrong: A) a second luciferase does not report DNA binding; that requires assays such as gel shift or ChIP. C) the control does not protect ATP supplies; it serves as a normalizing reference. D) a constitutive control is expected to stay constant, not respond to the TF.",
+     "trap": "Thinking the second reporter measures a second regulated target rather than serving as a constitutive loading and transfection control.",
+     "topic": "Dual luciferase normalization",
+     "mastery_sheet_id": "1B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P2_Q5",
+     "stem": "Most DNA-binding domains of transcription factors recognize a specific sequence primarily through which interaction?",
+     "options": {
+      "A": "Covalent bonds between lysine side chains and the deoxyribose hydroxyl groups of the DNA backbone",
+      "B": "Base stacking between aromatic residues and the bases after the helix is melted in the promoter",
+      "C": "Ionic attraction between positively charged side chains and the negatively charged phosphates alone",
+      "D": "Hydrogen bonds and van der Waals contacts between side chains and base edges in the major groove"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) the major groove exposes distinctive patterns of base functional groups to protein side chains. Why the others are wrong: A) transcription factors bind noncovalently, and backbone contacts do not provide sequence specificity. B) binding to a response element does not require melting the double helix. C) phosphate contacts add affinity but are the same for every sequence, so they cannot supply specificity.",
+     "trap": "Choosing electrostatic phosphate contacts because DNA is highly charged, forgetting that sequence specificity comes from base contacts.",
+     "topic": "DNA-protein recognition",
+     "mastery_sheet_id": "1B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_BB_P3",
+   "passage_text": "In Drosophila, body color (gray, b+, dominant; black, b) and wing shape (normal, vg+, dominant; vestigial, vg) are encoded by genes on chromosome 2. A researcher crossed true-breeding gray, normal-winged flies with true-breeding black, vestigial-winged flies and obtained F1 offspring that were all gray with normal wings. In cross 1, F1 females were mated with black, vestigial males, and 1000 progeny were scored. In cross 2, F1 males were mated with black, vestigial females, and 1000 progeny were scored. Results are shown in Table 1. Recombination frequency between two genes is the number of recombinant progeny divided by total progeny, and 1% recombination corresponds to 1 map unit. The researcher also noted that, for genes on separate chromosomes, a test cross of a dihybrid would give four phenotypic classes in equal numbers. Flies were reared on standard medium at 25 degrees C, and progeny were scored by an observer who did not know which parent carried which allele. Only flies that eclosed within 14 days were counted, and males and females of each phenotype were pooled.",
+   "table_data": "Table 1. Progeny phenotypes\n\n| Phenotype | Cross 1 (F1 female) | Cross 2 (F1 male) |\n|---|---|---|\n| Gray, normal | 415 | 502 |\n| Black, vestigial | 415 | 498 |\n| Gray, vestigial | 85 | 0 |\n| Black, normal | 85 | 0 |\n| Total | 1000 | 1000 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL05_BB_P3_Q1",
+     "stem": "What is the distance between the body color and wing shape genes, based on cross 1?",
+     "options": {
+      "A": "50 map units, since the genes assort independently in the F1 female",
+      "B": "83 map units, since 830 of 1000 progeny show the parental combinations",
+      "C": "8.5 map units, since only 85 progeny of each recombinant class are counted",
+      "D": "17 map units, since 170 of 1000 progeny are recombinant"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) (85 + 85)/1000 = 0.17, or 17 map units. Why the others are wrong: A) independent assortment would give 50% recombinants, but only 17% were observed. B) parental progeny are not used for distance; recombinants are counted. C) each recombinant class contributes, so both classes must be added before dividing.",
+     "trap": "Counting only one recombinant class, or using the parental fraction to compute map distance.",
+     "topic": "Recombination frequency",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.lehigh.edu/~jas0/G10b.html"
+      ]
+     }
+    },
+    {
+     "id": "FL05_BB_P3_Q2",
+     "stem": "If the two genes had been located on different chromosomes, how many gray, vestigial progeny would be expected from 1000 progeny in cross 1?",
+     "options": {
+      "A": "170, because recombinants would make up 17% of the progeny regardless of linkage",
+      "B": "85, because the number of recombinants is fixed by the F1 parent",
+      "C": "250, because the four phenotypic classes would appear in equal numbers",
+      "D": "500, because half of the progeny would carry the dominant wing allele and half the gray allele"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) independent assortment of a dihybrid test cross gives a 1:1:1:1 ratio. Why the others are wrong: A) 17% is the observed recombination with linkage; unlinked genes give 50% recombinants split across two classes. B) 85 is the observed number with linkage; independent assortment predicts a different count. D) gray, vestigial is one specific class, a quarter of progeny, not half.",
+     "trap": "Applying the observed recombination frequency to the unlinked expectation instead of the 1:1:1:1 ratio.",
+     "topic": "Independent assortment expectation",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.lehigh.edu/~jas0/G10b.html"
+      ]
+     }
+    },
+    {
+     "id": "FL05_BB_P3_Q3",
+     "stem": "The absence of recombinant progeny in cross 2 is most consistent with which explanation?",
+     "options": {
+      "A": "Crossing over does not occur in male Drosophila, so only parental chromosomes are transmitted",
+      "B": "Gray, vestigial and black, normal males die before the progeny are scored",
+      "C": "The genes are much closer together in males than in females, so recombination is below 1 percent",
+      "D": "The F1 male is homozygous at both loci, so recombinant gametes cannot be distinguished"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) male Drosophila lack meiotic recombination, so the linked alleles are inherited together. Why the others are wrong: B) there is no evidence of lethality; total progeny are 1000 in each cross. C) map distance is a property of the chromosomal region and does not differ by sex in this manner. D) the F1 male is a heterozygote because its parents were both homozygous for different alleles.",
+     "trap": "Assuming a different gene distance in males instead of recognizing a sex-specific absence of crossing over.",
+     "topic": "Sex differences in recombination",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P3_Q4",
+     "stem": "Which statement correctly describes the arrangement of alleles on the chromosomes of the F1 female in cross 1?",
+     "options": {
+      "A": "One homolog carries b+ and vg+ and the other carries b and vg (cis arrangement)",
+      "B": "The arrangement cannot be deduced because both parental classes occur in equal numbers",
+      "C": "Both b+ and b are on one chromosome and both vg+ and vg on the other chromosome",
+      "D": "One chromosome carries b+ and vg and the other carries b and vg+, because recombinants are least common"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) the most frequent progeny classes reflect the parental chromosome arrangement (cis). Why the others are wrong: B) equal parental classes are expected; their identity as the majority classes defines the arrangement. C) a chromosome carries only one allele per gene, so both alleles of one gene cannot lie on one chromosome. D) if that were the arrangement, gray, vestigial and black, normal progeny would be parental and most common.",
+     "trap": "Confusing which classes are parental and which are recombinant, then reversing the cis and trans arrangement.",
+     "topic": "Linkage phase",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P3_Q5",
+     "stem": "If the F1 female were mated with a black, vestigial male and 600 progeny were scored, about how many gray, vestigial progeny would be expected?",
+     "options": {
+      "A": "150, because one quarter of the 600 progeny would show this phenotype",
+      "B": "51, because 8.5% of 600 are expected in this recombinant class",
+      "C": "102, because 17% of 600 progeny would be gray and vestigial",
+      "D": "85, because the same count of gray, vestigial progeny occurs at any sample size"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) recombination is 17%, split evenly between two classes: 8.5% each, or 51 of 600. Why the others are wrong: A) one quarter is the unlinked expectation, not the linked result. C) 17% is the total of both recombinant classes, not one class. D) counts scale with the total number of progeny.",
+     "trap": "Using the whole 17% for one class instead of halving it between the two reciprocal recombinant phenotypes.",
+     "topic": "Expected recombinant progeny",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.lehigh.edu/~jas0/G10b.html"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_BB_P4",
+   "passage_text": "Phosphofructokinase-1 (PFK-1) catalyzes the committed step of glycolysis, converting fructose 6-phosphate (F6P) to fructose 1,6-bisphosphate. A muscle extract containing PFK-1 was assayed with saturating Mg-ATP as the phosphoryl donor, and velocity was measured at varied F6P. Figure 1 shows velocity (in arbitrary units, with 100 equal to Vmax) for a control containing 1 mM ATP and for a reaction containing 5 mM ATP. Table 1 reports the F6P concentration giving half-maximal velocity (S0.5) in the presence of the effectors indicated, all in 5 mM ATP unless stated. Vmax was unchanged in every condition. The investigator also noted that the liver isoform is activated by fructose 2,6-bisphosphate (F2,6BP), a product of PFK-2, and that cytosolic citrate rises when the citric acid cycle is saturated. Assays were performed at 30 degrees C and pH 7.0 in triplicate, and velocity was calculated from the initial linear rate in a coupled enzyme system. Standard deviations were below 5 percent of each mean, and S0.5 values were obtained by fitting a sigmoidal curve.",
+   "table_data": "Table 1. Effect of effectors on PFK-1\n\n| Condition | S0.5 for F6P (mM) |\n|---|---|\n| 1 mM ATP (control) | 0.5 |\n| 5 mM ATP | 2.4 |\n| 5 mM ATP + 0.1 mM AMP | 0.9 |\n| 5 mM ATP + 1 uM F2,6BP | 0.3 |\n| 5 mM ATP + 5 mM citrate | 4.8 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. PFK-1 velocity versus F6P",
+    "x_label": "F6P (mM)",
+    "y_label": "Velocity (arbitrary units)",
+    "series": [
+     {
+      "name": "1 mM ATP",
+      "points": [
+       [
+        0.25,
+        20.0
+       ],
+       [
+        0.5,
+        50.0
+       ],
+       [
+        1,
+        80.0
+       ],
+       [
+        2,
+        94.1
+       ],
+       [
+        4,
+        98.5
+       ],
+       [
+        8,
+        99.6
+       ]
+      ]
+     },
+     {
+      "name": "5 mM ATP",
+      "points": [
+       [
+        0.25,
+        1.1
+       ],
+       [
+        0.5,
+        4.2
+       ],
+       [
+        1,
+        14.8
+       ],
+       [
+        2,
+        41.0
+       ],
+       [
+        4,
+        73.5
+       ],
+       [
+        8,
+        91.7
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_BB_P4_Q1",
+     "stem": "Which effector in Table 1 most completely overcame the inhibition produced by 5 mM ATP?",
+     "options": {
+      "A": "AMP, which lowered S0.5 to the same value as the 1 mM ATP control",
+      "B": "F2,6BP, which lowered S0.5 below the value of the 1 mM ATP control",
+      "C": "Citrate, which raised S0.5 to a value above that of 5 mM ATP alone",
+      "D": "None of the effectors, because Vmax was unchanged in every condition tested"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) S0.5 of 0.3 mM is lower than both 2.4 mM (5 mM ATP) and 0.5 mM (control). Why the others are wrong: A) AMP lowered S0.5 to 0.9 mM, still above the 0.5 mM control. C) citrate raised S0.5 further to 4.8 mM, deepening the inhibition. D) an unchanged Vmax does not preclude relief of inhibition, which is reported by S0.5.",
+     "trap": "Reading the unchanged Vmax as meaning that effectors have no effect, when allosteric effectors act by shifting S0.5.",
+     "topic": "Allosteric effectors of PFK-1",
+     "mastery_sheet_id": "1D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P4_Q2",
+     "stem": "The effect of 5 mM ATP in Figure 1 is best described as which type of regulation?",
+     "options": {
+      "A": "Competitive inhibition at the active site that lowers Vmax as ATP concentration rises",
+      "B": "Feedforward activation by product that increases the rate at low F6P concentration",
+      "C": "Allosteric inhibition at a regulatory site that raises S0.5 without changing Vmax",
+      "D": "Covalent modification by phosphorylation that irreversibly decreases enzyme turnover"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) ATP at high concentration binds a separate regulatory site, lowering affinity for F6P. Why the others are wrong: A) ATP is also a substrate, but the data show unchanged Vmax and a raised S0.5, with a regulatory site involved. B) velocity is lower, not higher, at low F6P with 5 mM ATP. D) a rise in S0.5 with unchanged Vmax in vitro does not indicate covalent modification.",
+     "trap": "Labeling any decrease in rate as inhibition at the active site, ignoring the unchanged Vmax and the separate regulatory site.",
+     "topic": "K-type allosteric inhibition",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P4_Q3",
+     "stem": "In the liver of a fasting person with high glucagon, how would F2,6BP and glycolytic flux most likely change?",
+     "options": {
+      "A": "F2,6BP is unchanged, because F2,6BP regulates only the muscle isoform of PFK-1",
+      "B": "F2,6BP rises, so PFK-1 activity increases and glycolytic flux rises",
+      "C": "F2,6BP falls, so PFK-1 activity declines and gluconeogenesis is favored",
+      "D": "F2,6BP rises, so fructose 1,6-bisphosphatase is activated and glucose is released"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) glucagon, via PKA, shifts PFK-2/FBPase-2 toward degrading F2,6BP, removing activation of PFK-1. Why the others are wrong: A) F2,6BP is a major regulator of the liver isoform, as the passage states. B) high F2,6BP is a fed-state, insulin-driven signal, the opposite of the fasting condition. D) F2,6BP inhibits fructose 1,6-bisphosphatase; a rise would suppress, not activate, gluconeogenesis.",
+     "trap": "Remembering that F2,6BP activates PFK-1 but forgetting that glucagon lowers its level through PKA-mediated phosphorylation.",
+     "topic": "Hormonal control of F2,6BP",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P4_Q4",
+     "stem": "Which interpretation of the effect of citrate in Table 1 is most consistent with cellular energy metabolism?",
+     "options": {
+      "A": "Citrate is the product of PFK-1, so inhibition is simple product inhibition at the active site",
+      "B": "Citrate signals low energy charge, so strong inhibition of PFK-1 prevents ATP synthesis",
+      "C": "Citrate signals insulin action, so inhibition of PFK-1 diverts F6P to the pentose phosphate pathway",
+      "D": "Citrate signals abundant precursors and acetyl-CoA flux, so slowing glycolysis conserves glucose"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) high cytosolic citrate indicates the citric acid cycle is saturated, a feedback signal to reduce glycolysis. Why the others are wrong: A) citrate is not a product of the PFK-1 reaction; fructose 1,6-bisphosphate is. B) low energy charge would raise AMP and activate PFK-1, not inhibit it. C) citrate is not an insulin signal and its effect on PFK-1 is not designed to divert flux that way.",
+     "trap": "Assuming any metabolite that inhibits PFK-1 must signal low energy, instead of recognizing it as a sign of plentiful fuel.",
+     "topic": "Feedback inhibition by citrate",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P4_Q5",
+     "stem": "The sigmoidal shape of the velocity curves in Figure 1 is most consistent with which property of PFK-1?",
+     "options": {
+      "A": "Irreversible inactivation of the enzyme by substrate at high F6P concentration",
+      "B": "A single active site obeying Michaelis-Menten kinetics with a hyperbolic velocity curve",
+      "C": "Cooperative substrate binding among subunits of the tetrameric enzyme",
+      "D": "Competitive binding of ATP and F6P to the same site on a monomeric enzyme"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) binding of F6P to one subunit increases the affinity of the others, producing a sigmoidal curve. Why the others are wrong: A) substrate inactivation would produce a decline at high F6P, which is not observed. B) Michaelis-Menten kinetics gives a hyperbola, not a sigmoid. D) a monomeric enzyme with competition at one site would not show sigmoidal behavior.",
+     "trap": "Assuming all enzymes give hyperbolic curves and attributing a sigmoid to experimental error.",
+     "topic": "Cooperativity in PFK-1",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_BB_P5",
+   "passage_text": "The Na+/K+ ATPase uses ATP to export three Na+ ions and import two K+ ions per cycle, and cardiac glycosides such as ouabain bind its extracellular face and block it. Cultured epithelial cells that express an Na+-dependent glucose transporter (SGLT) were incubated under four conditions. Intracellular Na+ and K+ were measured by atomic absorption, membrane potential by patch-clamp recording, and Na+-dependent glucose uptake by a radiolabeled glucose analog. Control cells had normal ion gradients. Ouabain (100 uM) was applied for 1 hour or 6 hours. In a fourth group, ATP synthesis was blocked for 1 hour with oligomycin and 2-deoxyglucose. Extracellular Na+ was 145 mM and extracellular K+ was 5 mM throughout. Table 1 gives the measurements and Figure 1 shows intracellular Na+ over time in control cells and in ouabain-treated cells. Each measurement was repeated on three separate cultures, and values are means. Cell viability, assessed by dye exclusion, exceeded 95 percent in every condition, and glucose uptake was measured over a 5 minute window at the end of each incubation.",
+   "table_data": "Table 1. Ion concentrations, membrane potential, and glucose uptake\n\n| Condition | Intracellular Na+ (mM) | Intracellular K+ (mM) | Membrane potential (mV) | Na+-dependent glucose uptake (% of control) |\n|---|---|---|---|---|\n| Control | 12 | 140 | -70 | 100 |\n| Ouabain, 1 h | 28 | 112 | -52 | 71 |\n| Ouabain, 6 h | 52 | 70 | -28 | 28 |\n| ATP depletion, 1 h | 30 | 105 | -45 | 25 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Intracellular Na+ over time",
+    "x_label": "Time (h)",
+    "y_label": "Intracellular Na+ (mM)",
+    "series": [
+     {
+      "name": "Control",
+      "points": [
+       [
+        0,
+        12
+       ],
+       [
+        1,
+        12
+       ],
+       [
+        2,
+        12
+       ],
+       [
+        4,
+        12
+       ],
+       [
+        6,
+        12
+       ]
+      ]
+     },
+     {
+      "name": "Ouabain",
+      "points": [
+       [
+        0,
+        12
+       ],
+       [
+        1,
+        28
+       ],
+       [
+        2,
+        36
+       ],
+       [
+        4,
+        46
+       ],
+       [
+        6,
+        52
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_BB_P5_Q1",
+     "stem": "By what factor did intracellular Na+ increase after 6 hours of ouabain treatment relative to control cells?",
+     "options": {
+      "A": "About 3.3-fold, since 40 mM was gained and 12 mM was the starting concentration",
+      "B": "About 4.3-fold, since 52 mM divided by 12 mM is approximately 4.3",
+      "C": "About 2.3-fold, since the cell lost 70 mM K+ and gained a comparable amount of Na+",
+      "D": "About 5.2-fold, since the final concentration of 52 mM is compared with 10 mM"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 52/12 = 4.33. Why the others are wrong: A) 40/12 is 3.3 and gives the increment relative to baseline, while the fold change is final divided by initial. C) K+ loss is not used to compute Na+ fold change, which is the ratio of 52 to 12. D) the control concentration is 12 mM, not 10 mM.",
+     "trap": "Computing the change (40 mM) over baseline instead of the final value divided by baseline when a fold increase is requested.",
+     "topic": "Intracellular ion changes",
+     "mastery_sheet_id": "2A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_BB_P5_Q2",
+     "stem": "The depolarization of the ouabain-treated cells from -70 mV to -28 mV is best explained by which mechanism?",
+     "options": {
+      "A": "Increased extracellular K+ because the cells release K+ faster than the medium can buffer it",
+      "B": "Opening of voltage-gated Na+ channels because intracellular Na+ is higher than extracellular Na+",
+      "C": "Direct electrogenic pumping that adds negative charge, which is lost when the pump is blocked",
+      "D": "Loss of the K+ gradient as intracellular K+ falls, since resting potential is set mainly by K+ leak channels"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) less K+ inside shifts the K+ equilibrium potential toward zero and the membrane depolarizes. Why the others are wrong: A) extracellular K+ was held at 5 mM throughout the experiment. B) intracellular Na+ (52 mM) is still far below extracellular Na+ (145 mM). C) the pump's electrogenic contribution is small; the main effect of blocking it is dissipation of the gradients.",
+     "trap": "Attributing the resting potential mainly to the pump's electrogenic effect rather than to the K+ gradient and leak channels.",
+     "topic": "Resting membrane potential",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P5_Q3",
+     "stem": "Which explanation best accounts for the fall in Na+-dependent glucose uptake in ouabain-treated cells?",
+     "options": {
+      "A": "The inward Na+ gradient that powers the SGLT symporter is dissipated as intracellular Na+ rises",
+      "B": "Ouabain binds the SGLT transporter and directly blocks the glucose binding site",
+      "C": "Hyperpolarization of the membrane reduces the driving force for glucose entry via SGLT",
+      "D": "Intracellular K+ falls, which blocks the entry of glucose through facilitated diffusion carriers"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) SGLT is secondary active transport that depends on the Na+ gradient set by the pump. Why the others are wrong: B) ouabain is specific to the Na+/K+ ATPase and does not bind SGLT. C) the cells depolarize rather than hyperpolarize in the ouabain groups. D) K+ is not a cosubstrate for SGLT, and the uptake measured is the Na+-dependent component.",
+     "trap": "Assuming ouabain acts on every transporter directly instead of inferring the indirect loss of the Na+ gradient.",
+     "topic": "Secondary active transport",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P5_Q4",
+     "stem": "Cardiac glycosides increase the force of cardiac muscle contraction. Which mechanism best explains this effect using the data above?",
+     "options": {
+      "A": "Reduced intracellular Na+ increases Ca2+ extrusion by the Na+/Ca2+ exchanger and shortens relaxation",
+      "B": "Elevated intracellular K+ depolarizes the membrane and triggers sustained opening of ryanodine receptors",
+      "C": "Raised intracellular Na+ reduces Na+/Ca2+ exchange, so cytosolic Ca2+ rises and enhances contraction",
+      "D": "Higher ATP levels in the cell increase cross-bridge cycling because the pump no longer uses ATP"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) less Na+ gradient reduces Ca2+ extrusion, so more Ca2+ is available for contraction. Why the others are wrong: A) ouabain raises, not lowers, intracellular Na+ according to Table 1. B) intracellular K+ falls with ouabain, as the table shows. D) ATP is not the limiting factor in this effect, and pump inhibition does not make ATP the explanation for greater contractility.",
+     "trap": "Reading the rise in intracellular Na+ as a direct activator of contraction instead of connecting it to reduced Ca2+ extrusion.",
+     "topic": "Cardiac glycosides and Ca2+",
+     "mastery_sheet_id": "2A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_BB_P6",
+   "passage_text": "Bacteria in batch culture pass through lag, exponential, stationary, and death phases. An investigator inoculated a nutrient broth with Escherichia coli, incubated it at 37 degrees C with shaking, and measured viable counts (colony-forming units, CFU, per mL) at the times in Table 1. Three flasks were prepared. The control flask received no drug. In the second flask, ampicillin, an inhibitor of peptidoglycan cross-linking, was added at 2 hours. In the third flask, chloramphenicol, an inhibitor of the bacterial ribosome, was added at 2 hours. Viable counts are expressed as log10 CFU per mL. Figure 1 plots the same data. Colonies recovered at 10 hours from the ampicillin flask were picked, regrown, and exposed again to ampicillin, and the new culture was killed with the same kinetics as the original strain. Cultures were started from a single colony grown overnight and diluted to the same starting density. Samples were serially diluted in saline and plated on drug-free agar, and colonies were counted after 24 hours. Each point is the mean of three replicate flasks.",
+   "table_data": "Table 1. Viable counts (log10 CFU/mL)\n\n| Time (h) | No drug | Ampicillin at 2 h | Chloramphenicol at 2 h |\n|---|---|---|---|\n| 0 | 5.0 | 5.0 | 5.0 |\n| 1 | 5.0 | 5.0 | 5.0 |\n| 2 | 5.6 | 5.6 | 5.6 |\n| 3 | 6.2 | 4.6 | 5.6 |\n| 4 | 6.8 | 3.6 | 5.6 |\n| 6 | 8.0 | 2.4 | 5.5 |\n| 8 | 9.1 | 2.2 | 5.6 |\n| 10 | 9.2 | 2.2 | 5.6 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Viable counts over time",
+    "x_label": "Time (h)",
+    "y_label": "log10 CFU/mL",
+    "series": [
+     {
+      "name": "No drug",
+      "points": [
+       [
+        0,
+        5.0
+       ],
+       [
+        1,
+        5.0
+       ],
+       [
+        2,
+        5.6
+       ],
+       [
+        3,
+        6.2
+       ],
+       [
+        4,
+        6.8
+       ],
+       [
+        6,
+        8.0
+       ],
+       [
+        8,
+        9.1
+       ],
+       [
+        10,
+        9.2
+       ]
+      ]
+     },
+     {
+      "name": "Ampicillin at 2 h",
+      "points": [
+       [
+        0,
+        5.0
+       ],
+       [
+        1,
+        5.0
+       ],
+       [
+        2,
+        5.6
+       ],
+       [
+        3,
+        4.6
+       ],
+       [
+        4,
+        3.6
+       ],
+       [
+        6,
+        2.4
+       ],
+       [
+        8,
+        2.2
+       ],
+       [
+        10,
+        2.2
+       ]
+      ]
+     },
+     {
+      "name": "Chloramphenicol at 2 h",
+      "points": [
+       [
+        0,
+        5.0
+       ],
+       [
+        1,
+        5.0
+       ],
+       [
+        2,
+        5.6
+       ],
+       [
+        3,
+        5.6
+       ],
+       [
+        4,
+        5.6
+       ],
+       [
+        6,
+        5.5
+       ],
+       [
+        8,
+        5.6
+       ],
+       [
+        10,
+        5.6
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_BB_P6_Q1",
+     "stem": "What is the approximate doubling time of the untreated culture during exponential growth?",
+     "options": {
+      "A": "30 minutes, since log10 CFU rises by 0.6 per hour, equal to two doublings per hour",
+      "B": "60 minutes, since the count rises by 0.6 log units, which equals one doubling per hour",
+      "C": "15 minutes, since the count rises by 0.6 log units per hour, equal to four doublings per hour",
+      "D": "120 minutes, since the count rises by 0.6 log units over the 2 hours of the log phase"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 0.6/0.301 = 2 doublings per hour. Why the others are wrong: B) one doubling is 0.301 log units; 0.6 log units is two doublings. C) this would require a 1.2 log increase per hour. D) the 0.6 log increase occurs per hour, not over two hours.",
+     "trap": "Treating a 1 log10 or 0.6 log10 change as one doubling instead of converting with log10 of 2 (0.301).",
+     "topic": "Bacterial growth rate",
+     "mastery_sheet_id": "2B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.ars.usda.gov/northeast-area/wyndmoor-pa/eastern-regional-research-center/microbial-and-chemical-food-safety/docs/pathogen-modeling-program/pmp-faqs-generation-time-and-growth-rate/"
+      ]
+     }
+    },
+    {
+     "id": "FL05_BB_P6_Q2",
+     "stem": "Between 2 and 4 hours, approximately what percentage of viable cells in the ampicillin flask were killed?",
+     "options": {
+      "A": "50%, since the counts fell from 5.6 to 3.6 and 3.6 is about half of 5.6",
+      "B": "90%, since a 1 log decrease means that 1 cell in 10 survives",
+      "C": "99%, since a 2.0 log decrease means that 1 cell in 100 survives",
+      "D": "99.9%, since a 3 log decrease means that 1 cell in 1000 survives"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 5.6 to 3.6 is a 2-log fall, a 100-fold decrease. Why the others are wrong: A) log values cannot be compared as simple fractions; each unit is a tenfold change. B) the decrease from 5.6 to 3.6 is 2 log units, not 1. D) the fall is 2 log units, not 3.",
+     "trap": "Reading the log scale as linear and comparing 3.6 with 5.6 directly as a percentage.",
+     "topic": "Kill curve calculation",
+     "mastery_sheet_id": "2B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_BB_P6_Q3",
+     "stem": "The plateau at about 2.2 log10 CFU/mL in the ampicillin flask, together with the final regrowth experiment, is best explained by which of the following?",
+     "options": {
+      "A": "A small subpopulation of dormant persister cells that survive without heritable resistance",
+      "B": "A subpopulation carrying heritable beta-lactamase genes that grows normally in the drug",
+      "C": "Complete degradation of ampicillin by 6 hours, allowing the surviving cells to grow again",
+      "D": "Conversion of the survivors into spores that resist the antibiotic through a thick coat"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) the survivors give a susceptible culture on regrowth, the signature of phenotypic tolerance. Why the others are wrong: B) the regrown cells were killed with the original kinetics, arguing against heritable resistance. C) counts stay flat rather than rising, and the drug effect persists. D) E. Coli does not form endospores.",
+     "trap": "Equating any survivors of an antibiotic with genetic resistance, ignoring that the regrown cells were susceptible.",
+     "topic": "Persister cells",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P6_Q4",
+     "stem": "Compared with a culture treated at 2 hours, an identical culture treated with ampicillin at 10 hours would most likely show which result?",
+     "options": {
+      "A": "Bacteriostatic behavior with flat counts, because ampicillin inhibits DNA gyrase in nongrowing cells",
+      "B": "Faster killing, because stationary cells have a thinner outer membrane that admits more drug",
+      "C": "Much less killing, because cells in stationary phase are not actively synthesizing new peptidoglycan",
+      "D": "The same killing rate, because ampicillin acts on the ribosome irrespective of growth rate"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) beta-lactams kill by corrupting cell wall synthesis in growing cells, so stationary cells are relatively tolerant. Why the others are wrong: A) DNA gyrase is the target of quinolones, not ampicillin. B) there is no basis for a thinner membrane in stationary cells, and growth state is the key factor. D) ampicillin targets cell wall cross-linking, not the ribosome.",
+     "trap": "Assuming that bactericidal antibiotics kill equally well regardless of growth state of the target cells.",
+     "topic": "Beta-lactam mechanism",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_BB_P7",
+   "passage_text": "Apoptosis is a regulated cell death program carried out by caspases. To dissect the pathway, human T-lymphoma cells were treated with etoposide, a DNA-damaging drug, and sampled over 8 hours. Cytosolic cytochrome c was measured by immunoblot after subcellular fractionation, caspase-9 and caspase-3 activities were measured with fluorogenic substrates and normalized to untreated cells (1.0), and the percentage of cells staining with Annexin V was measured by flow cytometry. Figure 1 shows caspase activities over time. Table 1 shows results after 8 hours for etoposide alone, etoposide plus the pan-caspase inhibitor Z-VAD-FMK, and etoposide in cells that overexpress the anti-apoptotic protein Bcl-2. Untreated cells had cytosolic cytochrome c of 1.0 and 4% Annexin V-positive cells. Cytochrome c is reported relative to untreated cells. Each condition was run in three independent experiments, and values are means with variation below 10 percent. Equal protein was used in every enzyme reaction, and Z-VAD-FMK was added 1 hour before etoposide.",
+   "table_data": "Table 1. Measurements after 8 hours\n\n| Condition | Cytosolic cytochrome c | Caspase-9 | Caspase-3 | Annexin V-positive cells (%) |\n|---|---|---|---|---|\n| Etoposide | 8.0 | 6.5 | 12.0 | 62 |\n| Etoposide + Z-VAD-FMK | 7.8 | 1.4 | 1.2 | 14 |\n| Etoposide in Bcl-2 cells | 1.3 | 1.2 | 1.4 | 11 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Caspase activity after etoposide",
+    "x_label": "Time (h)",
+    "y_label": "Activity (relative to untreated)",
+    "series": [
+     {
+      "name": "Caspase-9",
+      "points": [
+       [
+        0,
+        1.0
+       ],
+       [
+        2,
+        3.5
+       ],
+       [
+        4,
+        6.2
+       ],
+       [
+        8,
+        6.5
+       ]
+      ]
+     },
+     {
+      "name": "Caspase-3",
+      "points": [
+       [
+        0,
+        1.0
+       ],
+       [
+        2,
+        1.6
+       ],
+       [
+        4,
+        5.0
+       ],
+       [
+        8,
+        12.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_BB_P7_Q1",
+     "stem": "By approximately what percentage did Z-VAD-FMK reduce the proportion of Annexin V-positive cells after etoposide treatment at 8 hours?",
+     "options": {
+      "A": "86%, since the 14% remaining is subtracted from 100% to give the reduction",
+      "B": "48%, since the difference between 62% and 14% is 48 percentage points",
+      "C": "23%, since 14% divided by 62% gives the proportion of cells left after treatment",
+      "D": "77%, because 48 of the 62 starting percentage points were lost"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) (62 - 14)/62 = 0.77. Why the others are wrong: A) this ignores that the starting value is 62%, not 100%. B) 48 is the absolute difference, not the percentage reduction relative to 62%. C) 14/62 is 23% remaining, not the percentage reduced.",
+     "trap": "Reporting the percentage-point difference or the fraction remaining rather than the relative reduction.",
+     "topic": "Relative reduction",
+     "mastery_sheet_id": "2C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_BB_P7_Q2",
+     "stem": "What do the results in the Bcl-2 cells indicate about the position of Bcl-2 in the pathway?",
+     "options": {
+      "A": "Bcl-2 acts upstream of cytochrome c release, since cytochrome c stays low and caspases stay off",
+      "B": "Bcl-2 activates caspase-9 directly, since caspase-9 activity is higher than in untreated cells",
+      "C": "Bcl-2 acts as a caspase inhibitor like Z-VAD-FMK, since cytochrome c release is unaffected",
+      "D": "Bcl-2 acts downstream of caspase-3, since caspase-3 activity is cleaved into inactive fragments"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) with Bcl-2, cytosolic cytochrome c stays near baseline, so release from mitochondria is blocked. Why the others are wrong: B) caspase-9 activity is 1.2, close to baseline, not elevated. C) in Bcl-2 cells cytochrome c release is reduced, whereas Z-VAD-FMK leaves it high (7.8). D) caspase-3 activity is low because upstream events are blocked, not because Bcl-2 acts after it.",
+     "trap": "Comparing Bcl-2 with Z-VAD-FMK as if both blocked caspases directly, missing that cytochrome c release is blocked only by Bcl-2.",
+     "topic": "Bcl-2 family regulation",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P7_Q3",
+     "stem": "In Figure 1, caspase-3 activity ends higher than caspase-9 activity. Which statement best accounts for this difference?",
+     "options": {
+      "A": "Caspase-3 is activated first and then cleaves procaspase-9, forming a positive feedback loop",
+      "B": "Each active caspase-9 molecule cleaves many procaspase-3 molecules, amplifying the signal",
+      "C": "Caspase-3 is produced by new transcription of the gene after the DNA damage is detected",
+      "D": "Caspase-9 is degraded more quickly than caspase-3 by the proteasome in the first 4 hours"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) a protease cascade amplifies because one active enzyme can activate many downstream zymogens. Why the others are wrong: A) caspase-9 activity rises earlier in Figure 1, so caspase-3 follows rather than precedes it. C) the caspases exist as inactive zymogens and are activated by cleavage. D) caspase-9 activity keeps rising to 6.5, not falling.",
+     "trap": "Reversing the order of the cascade because the downstream enzyme shows the larger signal.",
+     "topic": "Caspase cascade amplification",
+     "mastery_sheet_id": "2C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P7_Q4",
+     "stem": "Annexin V staining marks cells in early apoptosis because Annexin V binds which cellular change?",
+     "options": {
+      "A": "Cleavage of poly(ADP-ribose) polymerase by active executioner caspases",
+      "B": "Phosphatidylserine moving from the inner to the outer leaflet of the plasma membrane",
+      "C": "Release of cytochrome c into the cytosol after mitochondrial permeabilization",
+      "D": "Fragmentation of nuclear DNA into nucleosome-sized pieces inside the nucleus"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) phosphatidylserine exposure is an early apoptotic signal for phagocytes. Why the others are wrong: A) PARP cleavage is detected by immunoblot, and Annexin V is a phospholipid-binding protein. C) cytochrome c release is measured by fractionation and immunoblot, as in Table 1. D) DNA laddering is detected by other assays such as TUNEL and gel electrophoresis, not by Annexin V.",
+     "trap": "Mixing up the markers of apoptosis and assigning a nuclear or mitochondrial event to the membrane stain.",
+     "topic": "Apoptosis markers",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_BB_P8",
+   "passage_text": "Serotonin (5-HT) released at synapses is cleared mainly by reuptake through the serotonin transporter (SERT) and degraded by monoamine oxidase (MAO). Researchers used in vivo microdialysis in the prefrontal cortex of adult rats and measured extracellular 5-HT as a percentage of baseline. Drug X is a selective SERT inhibitor, drug Y is an MAO inhibitor, and WAY-100635 blocks inhibitory 5-HT1A autoreceptors on serotonergic neurons in the raphe nuclei. Drugs were given by injection at time 0. Table 1 lists the peak extracellular 5-HT in each group, and Figure 1 shows the time course for drug X at 5 mg/kg compared with saline. Peak values were reached 60 minutes after injection in the groups receiving drug X, and 90 minutes after injection of drug Y. Each group contained eight animals. Probes were implanted one day before the experiment, and animals moved freely during sampling. Dialysate samples were collected every 30 minutes and analyzed by high-performance liquid chromatography, with baseline defined as the mean of three samples before injection.",
+   "table_data": "Table 1. Peak extracellular 5-HT\n\n| Treatment | Peak 5-HT (% of baseline) |\n|---|---|\n| Saline | 100 |\n| Drug X, 1 mg/kg | 210 |\n| Drug X, 5 mg/kg | 340 |\n| Drug Y, 5 mg/kg | 260 |\n| Drug X, 5 mg/kg + WAY-100635 | 520 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Extracellular 5-HT after injection",
+    "x_label": "Time after injection (min)",
+    "y_label": "Extracellular 5-HT (% of baseline)",
+    "series": [
+     {
+      "name": "Saline",
+      "points": [
+       [
+        0,
+        100
+       ],
+       [
+        30,
+        100
+       ],
+       [
+        60,
+        100
+       ],
+       [
+        90,
+        100
+       ],
+       [
+        120,
+        100
+       ],
+       [
+        180,
+        100
+       ]
+      ]
+     },
+     {
+      "name": "Drug X, 5 mg/kg",
+      "points": [
+       [
+        0,
+        100
+       ],
+       [
+        30,
+        220
+       ],
+       [
+        60,
+        340
+       ],
+       [
+        90,
+        300
+       ],
+       [
+        120,
+        230
+       ],
+       [
+        180,
+        130
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_BB_P8_Q1",
+     "stem": "The increase above baseline produced by 5 mg/kg of drug X is about how many times the increase produced by 1 mg/kg?",
+     "options": {
+      "A": "5.0 times, because the dose was raised from 1 to 5 mg/kg and the response is proportional",
+      "B": "1.6 times, because 340 divided by 210 is approximately 1.6",
+      "C": "2.2 times, because 240 divided by 110 is approximately 2.2",
+      "D": "3.4 times, because the peak at 5 mg/kg is 340% of the baseline value"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) increase above baseline is 240 versus 110. Why the others are wrong: A) the response is not proportional to dose, as the data show. B) this compares the peak values, not the increases above the 100% baseline. D) this restates the peak relative to baseline instead of comparing the two doses.",
+     "trap": "Comparing peak levels rather than the increase above baseline, which understates the dose effect.",
+     "topic": "Dose response calculation",
+     "mastery_sheet_id": "3A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_BB_P8_Q2",
+     "stem": "Why did adding the 5-HT1A antagonist WAY-100635 to drug X produce a larger peak (520%) than drug X alone?",
+     "options": {
+      "A": "The antagonist inhibits MAO, so that cytosolic 5-HT is degraded more slowly in terminals",
+      "B": "Blocking autoreceptors removes inhibitory feedback on raphe neuron firing, so more 5-HT is released",
+      "C": "The antagonist is converted into 5-HT in the terminal, adding to the endogenous transmitter",
+      "D": "The antagonist stimulates SERT in the presynaptic membrane, so that 5-HT reuptake increases"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) autoreceptor activation by increased extracellular 5-HT normally reduces serotonergic firing and release. Why the others are wrong: A) WAY-100635 acts at 5-HT1A receptors; MAO inhibition was the action of drug Y. C) WAY-100635 is a receptor antagonist, not a serotonin precursor. D) stimulating SERT would lower, not raise, extracellular 5-HT.",
+     "trap": "Forgetting that presynaptic autoreceptors provide negative feedback, so blocking them increases release.",
+     "topic": "Autoreceptor feedback",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P8_Q3",
+     "stem": "If drug X and drug Y were administered together at 5 mg/kg, which outcome is most likely?",
+     "options": {
+      "A": "Extracellular 5-HT would exceed either drug alone, raising serotonin syndrome risk",
+      "B": "Extracellular 5-HT would return to baseline, because reuptake and degradation offset each other",
+      "C": "Extracellular 5-HT would be lower than with either drug alone, because the drugs compete at SERT",
+      "D": "Extracellular 5-HT would equal the drug X value, because MAO acts only in the synaptic cleft"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) two mechanisms (blocked reuptake and blocked degradation) are additive or synergistic. Why the others are wrong: B) the two drugs both increase availability, so their effects do not cancel. C) drug Y acts on MAO, not at SERT, so they do not compete for the same target. D) MAO is located on mitochondria in the presynaptic neuron and glia, not within the cleft.",
+     "trap": "Assuming that two drugs affecting the same transmitter must be redundant or competing, instead of acting through different steps.",
+     "topic": "Combined serotonergic drugs",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P8_Q4",
+     "stem": "The energy that drives serotonin uptake by SERT is most directly derived from which source?",
+     "options": {
+      "A": "The inward Na+ gradient, which is maintained by the Na+/K+ ATPase",
+      "B": "The outward H+ gradient generated in the synaptic vesicle membrane by the V-ATPase",
+      "C": "The concentration gradient of 5-HT itself, so that uptake is passive facilitated diffusion",
+      "D": "Direct hydrolysis of ATP by SERT during each transport cycle"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) SERT is a secondary active transporter coupled to Na+ and Cl- influx. Why the others are wrong: B) the vesicular H+ gradient drives packaging into vesicles (VMAT), not plasma membrane reuptake. C) uptake occurs against a large concentration gradient and is therefore not passive. D) SERT is not an ATPase; it is coupled to ion gradients.",
+     "trap": "Treating reuptake as passive or ATP-driven, instead of secondary active transport using the sodium gradient.",
+     "topic": "Secondary active transport in neurons",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_BB_P9",
+   "passage_text": "Antidiuretic hormone (ADH, vasopressin) controls urine concentration by acting on the collecting duct. Five groups of adult rats were studied. Water-loaded rats were given a large volume of water by gavage. Dehydrated rats were deprived of water for 24 hours. A third group had surgical removal of the posterior pituitary (central diabetes insipidus model) and a fourth group were the same animals after injection of dDAVP, a long-acting V2 receptor agonist. The fifth group carried a mutation that eliminates the V2 receptor in the kidney (nephrogenic diabetes insipidus model). Urine flow, urine osmolality, plasma osmolality, and plasma ADH were measured and are shown in Table 1. Figure 1 plots urine osmolality against plasma ADH concentration for rats with intact kidneys and pituitaries across several levels of hydration. Rats were housed in metabolic cages for timed urine collection, and blood was drawn at the end of each collection period. Each group contained six animals and values are group means. Osmolality was determined by freezing-point depression, and ADH by radioimmunoassay.",
+   "table_data": "Table 1. Renal and plasma measurements\n\n| Group | Urine flow (uL/min) | Urine osmolality (mOsm/kg) | Plasma osmolality (mOsm/kg) | Plasma ADH (pg/mL) |\n|---|---|---|---|---|\n| Water-loaded | 60 | 100 | 285 | 0.5 |\n| Dehydrated, 24 h | 6 | 1100 | 305 | 6.0 |\n| Central diabetes insipidus | 70 | 90 | 310 | 0.0 |\n| Central diabetes insipidus + dDAVP | 9 | 900 | 292 | 0.0 |\n| Nephrogenic diabetes insipidus | 68 | 110 | 311 | 12.0 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Urine osmolality versus plasma ADH",
+    "x_label": "Plasma ADH (pg/mL)",
+    "y_label": "Urine osmolality (mOsm/kg)",
+    "series": [
+     {
+      "name": "Intact rats",
+      "points": [
+       [
+        0.5,
+        100
+       ],
+       [
+        1,
+        300
+       ],
+       [
+        2,
+        550
+       ],
+       [
+        4,
+        850
+       ],
+       [
+        6,
+        1100
+       ],
+       [
+        8,
+        1200
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_BB_P9_Q1",
+     "stem": "By approximately what percentage did urine flow fall between the water-loaded and the dehydrated groups?",
+     "options": {
+      "A": "90%, since the flow dropped from 60 to 6 uL/min",
+      "B": "10%, since the dehydrated flow of 6 is one tenth of the value in the water-loaded group",
+      "C": "54%, since the difference between the two values is 54 uL/min",
+      "D": "99%, since the urine osmolality rose by a factor of 11 between the groups"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) (60 - 6)/60 = 0.90. Why the others are wrong: B) 6 is 10% of 60, which is the fraction remaining, not the decrease. C) 54 is the absolute difference in uL/min, not a percentage. D) this confuses osmolality with flow and gives an unsupported percentage.",
+     "trap": "Reporting the fraction remaining or the absolute change instead of the percentage decrease.",
+     "topic": "Percent change",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_BB_P9_Q2",
+     "stem": "Which conclusion about the nephrogenic diabetes insipidus group is best supported by Table 1?",
+     "options": {
+      "A": "The defect would be corrected by dDAVP, since that drug acts on the V2 receptors in the kidney",
+      "B": "The defect lies in ADH secretion, since plasma ADH is lower than in the dehydrated group",
+      "C": "The defect lies in the collecting duct response, since ADH is high but urine stays dilute",
+      "D": "The defect lies in the hypothalamic osmoreceptors, since plasma osmolality is below normal"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) high plasma ADH with dilute urine shows that target cells cannot respond. Why the others are wrong: A) this group lacks the V2 receptor, so dDAVP could not act. B) plasma ADH is 12.0 pg/mL, higher than in the dehydrated group (6.0). D) plasma osmolality is high (311), not below normal.",
+     "trap": "Attributing dilute urine to a lack of hormone without checking that plasma ADH is actually elevated.",
+     "topic": "Nephrogenic versus central DI",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P9_Q3",
+     "stem": "Concentrated urine depends on a steep osmotic gradient in the renal medulla. Which segment makes the major contribution to this gradient by actively reabsorbing solute without water?",
+     "options": {
+      "A": "The descending limb of the loop of Henle, via active secretion of urea into the lumen",
+      "B": "The proximal convoluted tubule, via sodium-coupled cotransport of glucose and amino acids",
+      "C": "The thick ascending limb of the loop of Henle, via the Na+-K+-2Cl- cotransporter",
+      "D": "The distal convoluted tubule, via the aquaporin-2 channels inserted in response to ADH"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) this segment is water-impermeable and reabsorbs NaCl, generating the medullary gradient. Why the others are wrong: A) the descending limb is water-permeable and has little active solute transport. B) the proximal tubule reabsorbs solute and water in proportion, so it does not build the gradient. D) aquaporin-2 channels operate in the collecting duct and use the gradient rather than create it.",
+     "trap": "Choosing the proximal tubule because most reabsorption occurs there, instead of the segment that creates the gradient.",
+     "topic": "Countercurrent multiplier",
+     "mastery_sheet_id": "3B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P9_Q4",
+     "stem": "What stimulus most directly triggered the rise in plasma ADH in the dehydrated rats?",
+     "options": {
+      "A": "Increased plasma osmolality sensed by hypothalamic osmoreceptors, leading to release from the posterior pituitary",
+      "B": "Increased plasma glucose sensed by pancreatic beta cells, leading to release from the hypothalamus",
+      "C": "Decreased plasma ADH feedback on the adrenal cortex, leading to release of aldosterone",
+      "D": "Decreased urine osmolality sensed by receptors in the collecting duct, leading to release from the anterior pituitary"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) plasma osmolality rose from 285 to 305, the main trigger for ADH release. Why the others are wrong: B) glucose is not the stimulus for ADH, and beta cells do not control its release. C) ADH release is not controlled by adrenal feedback in this way. D) urine osmolality was high, and ADH is released from the posterior pituitary.",
+     "trap": "Assigning ADH release to the anterior pituitary or to renal sensors rather than to hypothalamic osmoreceptors.",
+     "topic": "Control of ADH release",
+     "mastery_sheet_id": "3B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL05_BB_P10",
+   "passage_text": "Vaccines exploit immune memory. Mice were immunized intramuscularly on day 0 with a protein antigen combined with an adjuvant, and received an identical booster on day 28. Serum antigen-specific antibody titers (reciprocal of the highest dilution giving a positive signal) were measured by ELISA on the days shown in Table 1. A second group of mice was treated with an antibody that depletes CD4+ T cells before the first immunization and throughout the study; only IgG titers are shown for these mice. Titers of 10 are the assay detection limit. Figure 1 shows the IgM and IgG responses of the control group. In the control mice, IgM was the main class early in the primary response, while after the booster the IgG response was both faster and larger. Antibody affinity measured separately was about 20 times higher at day 35 than at day 14. Each group contained ten mice, and sera from individual animals were pooled by group at each time point. Each sample was assayed in duplicate and values shown are geometric means.",
+   "table_data": "Table 1. Antigen-specific antibody titers\n\n| Day | IgM (control) | IgG (control) | IgG (CD4-depleted) |\n|---|---|---|---|\n| 0 | 10 | 10 | 10 |\n| 7 | 320 | 40 | 20 |\n| 14 | 160 | 160 | 40 |\n| 28 | 40 | 80 | 30 |\n| 35 | 60 | 5120 | 80 |\n| 42 | 40 | 2560 | 60 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Antibody titers in control mice",
+    "x_label": "Day",
+    "y_label": "Titer",
+    "series": [
+     {
+      "name": "IgM",
+      "points": [
+       [
+        0,
+        10
+       ],
+       [
+        7,
+        320
+       ],
+       [
+        14,
+        160
+       ],
+       [
+        28,
+        40
+       ],
+       [
+        35,
+        60
+       ],
+       [
+        42,
+        40
+       ]
+      ]
+     },
+     {
+      "name": "IgG",
+      "points": [
+       [
+        0,
+        10
+       ],
+       [
+        7,
+        40
+       ],
+       [
+        14,
+        160
+       ],
+       [
+        28,
+        80
+       ],
+       [
+        35,
+        5120
+       ],
+       [
+        42,
+        2560
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL05_BB_P10_Q1",
+     "stem": "The peak IgG titer after the booster is how many times larger than the peak IgG titer of the primary response in control mice?",
+     "options": {
+      "A": "32 times, since 5120 divided by 160 equals 32",
+      "B": "16 times, since 5120 divided by the day 7 IgM titer of 320 equals 16",
+      "C": "2 times, since 5120 divided by the day 42 titer of 2560 equals 2",
+      "D": "64 times, since 5120 divided by the day 28 titer of 80 equals 64"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) peak primary IgG is 160 at day 14; peak secondary is 5120 at day 35. Why the others are wrong: B) this divides an IgG value by an IgM value and uses the wrong time. C) this compares the secondary peak with its own later decline. D) day 28 is a decayed value just before the booster, not the primary peak.",
+     "trap": "Dividing by a titer measured just before the booster rather than by the peak of the primary response.",
+     "topic": "Primary versus secondary response",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL05_BB_P10_Q2",
+     "stem": "The weak IgG response in CD4-depleted mice most directly supports which conclusion?",
+     "options": {
+      "A": "Helper T cells are the cells that secrete antibody, so removal eliminates the IgG supply",
+      "B": "CD4+ T cells present antigen on MHC class I, so that depletion prevents antigen recognition by B cells",
+      "C": "Helper T cells provide CD40 ligand and cytokines that drive class switching and memory",
+      "D": "Cytotoxic T cells kill the antibody-secreting plasma cells unless helper T cells are present"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) B cells need T cell help for isotype switching and affinity maturation to protein antigens. Why the others are wrong: A) plasma cells derived from B cells secrete antibody, not T cells. B) CD4+ T cells recognize antigen on MHC class II and do not present it. D) the data do not suggest cytotoxic killing of plasma cells.",
+     "trap": "Thinking T cells make antibody, instead of recognizing that helper T cells instruct B cells.",
+     "topic": "T cell help for B cells",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P10_Q3",
+     "stem": "Which process best accounts for the roughly 20-fold higher antibody affinity measured at day 35 compared with day 14?",
+     "options": {
+      "A": "V(D)J recombination in the bone marrow that generates new receptor specificities after each booster",
+      "B": "Negative selection of self-reactive B cells in the spleen, which raises the average affinity for antigen",
+      "C": "Complement binding to antibody, which increases the intrinsic binding strength for the antigen",
+      "D": "Somatic hypermutation in germinal centers, with selection of B cells that bind antigen best"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) mutated B cell clones with better binding survive, giving affinity maturation. Why the others are wrong: A) V(D)J recombination occurs before antigen exposure and does not change affinity after activation. B) negative selection removes self-reactive cells and is not the cause of improved affinity to the immunizing antigen. C) complement acts after antibody binds and does not alter affinity.",
+     "trap": "Confusing V(D)J recombination, which creates diversity before antigen exposure, with somatic hypermutation after exposure.",
+     "topic": "Affinity maturation",
+     "mastery_sheet_id": "3B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL05_BB_P10_Q4",
+     "stem": "Why was an adjuvant included with the antigen in the immunization?",
+     "options": {
+      "A": "To supply preformed IgG that neutralizes the antigen and prevents local tissue damage",
+      "B": "To prevent processing of the antigen so that the protein is displayed intact on B cells",
+      "C": "To deplete CD4+ T cells at the injection site so that tolerance to the antigen is avoided",
+      "D": "To activate innate immune cells, increasing costimulation and T cell help"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) adjuvants provide danger signals that enhance antigen-presenting cell activation. Why the others are wrong: A) adjuvants do not supply antibody; passive immunity would be provided by transferred antibody. B) antigen processing is needed for T cell help; adjuvants do not prevent it. C) adjuvants enhance rather than deplete T cell responses.",
+     "trap": "Believing that an adjuvant delivers antibody or antigen rather than boosting the innate signals needed for adaptive activation.",
+     "topic": "Adjuvants",
+     "mastery_sheet_id": "3B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL05_BB_D1",
+   "stem": "Which amino acid, when located in the middle of an alpha helix, is most likely to disrupt the helix?",
+   "options": {
+    "A": "Leucine, because its branched hydrophobic side chain prevents formation of backbone hydrogen bonds",
+    "B": "Glutamate, because its negatively charged side chain cannot form any stabilizing contacts with other residues",
+    "C": "Proline, because its ring fixes the backbone angle and its nitrogen lacks a hydrogen for H-bonding",
+    "D": "Alanine, because its small methyl side chain cannot pack against neighboring residues in the helix"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) proline introduces a kink and breaks the i to i+4 hydrogen bond pattern. Why the others are wrong: A) leucine is a frequent helix residue; side chains do not block backbone hydrogen bonding. B) glutamate can form salt bridges with residues one turn away, and it is helix-favoring. D) alanine has a high helix propensity and is common in helices.",
+   "trap": "Picking a charged or hydrophobic residue by intuition instead of recalling that proline lacks the amide hydrogen and has a fixed phi angle.",
+   "topic": "Alpha helix breakers",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_BB_D2",
+   "stem": "During lagging-strand DNA synthesis in E. coli, which enzyme seals the nick between adjacent Okazaki fragments once the RNA primer has been replaced with DNA?",
+   "options": {
+    "A": "DNA primase, which synthesizes the short RNA primers needed for each new fragment",
+    "B": "DNA helicase, which unwinds the parental duplex ahead of the replication fork using ATP",
+    "C": "DNA topoisomerase, which relieves supercoiling ahead of the fork by transient strand breaks",
+    "D": "DNA ligase, which forms a phosphodiester bond using the 3' hydroxyl and the 5' phosphate"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) ligase seals the nick after DNA polymerase I removes the primer and fills the gap. Why the others are wrong: A) primase starts fragments; it does not seal nicks. B) helicase separates strands and does not join DNA fragments. C) topoisomerase manages supercoils and does not seal the lagging strand nick.",
+   "trap": "Choosing primase or polymerase because they act on the lagging strand, rather than the enzyme that forms the final phosphodiester bond.",
+   "topic": "DNA replication enzymes",
+   "mastery_sheet_id": "1B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_BB_D3",
+   "stem": "A point mutation changes a codon in an mRNA from GAA to GAG. Both codons specify glutamate. Which description fits this mutation?",
+   "options": {
+    "A": "A missense mutation, because the change in the third base alters the charge of the amino acid",
+    "B": "A frameshift mutation, because the substitution changes how the following codons are read",
+    "C": "A nonsense mutation, because the change creates a stop codon that ends translation early",
+    "D": "A silent mutation, because the genetic code is degenerate at the third position"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) synonymous codons produce the same amino acid, so the protein is unchanged. Why the others are wrong: A) glutamate is specified by both codons, so no amino acid change occurs. B) a substitution does not change the reading frame; insertions or deletions do. C) GAG is not a stop codon; the stops are UAA, UAG, and UGA.",
+   "trap": "Calling any base change a missense mutation without checking whether the codon still specifies the same amino acid.",
+   "topic": "Point mutation types",
+   "mastery_sheet_id": "1B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_BB_D4",
+   "stem": "Two unaffected parents have a child with an autosomal recessive disease. Their unaffected daughter wants to know the probability that she is a carrier. What is that probability?",
+   "options": {
+    "A": "1/4, because a carrier requires two copies of the recessive allele in the cross",
+    "B": "3/4, because three of the four offspring genotype combinations produce an unaffected phenotype",
+    "C": "1/2, because each parent passes the recessive allele to the child with equal probability",
+    "D": "2/3, because among unaffected offspring of two carriers, two of three genotypes are heterozygous"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) unaffected offspring are AA (1/4) or Aa (1/2); Aa is 2 of the 3 possibilities. Why the others are wrong: A) 1/4 is the chance of an affected child, not of a carrier. B) 3/4 is the probability of being unaffected, not of being a carrier among unaffected. C) 1/2 is the probability for a random child, not conditioned on being unaffected.",
+   "trap": "Forgetting to restrict the sample space to unaffected individuals, which gives 1/2 instead of 2/3.",
+   "topic": "Carrier probability",
+   "mastery_sheet_id": "1C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://open-exam-prep.com/study-guides/abgc-cgc/pedigree-risk/mendelian-risk-calculations"
+    ]
+   }
+  },
+  {
+   "id": "FL05_BB_D5",
+   "stem": "Why can skeletal muscle glycogen not be used to raise blood glucose during fasting, whereas liver glycogen can?",
+   "options": {
+    "A": "Muscle lacks hexokinase, so glucose cannot be phosphorylated and trapped inside the cell",
+    "B": "Muscle lacks glucose 6-phosphatase, so it cannot release free glucose",
+    "C": "Muscle lacks glycogen phosphorylase, so glycogen cannot be degraded to glucose 1-phosphate",
+    "D": "Muscle glycogen has no alpha-1,6 branches, so debranching enzyme cannot release glucose"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) free glucose is released only by cells with glucose 6-phosphatase, such as hepatocytes. Why the others are wrong: A) hexokinase is expressed in muscle, which phosphorylates glucose for glycolysis. C) muscle has glycogen phosphorylase and uses its glycogen during exercise. D) muscle glycogen has the same branched structure as liver glycogen.",
+   "trap": "Assuming muscle cannot break down glycogen at all, rather than recognizing it cannot release free glucose.",
+   "topic": "Glycogen metabolism by tissue",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_BB_D6",
+   "stem": "Which statement about fuel use during prolonged fasting is correct?",
+   "options": {
+    "A": "The liver is the main consumer of ketone bodies because it contains abundant thiophorase activity",
+    "B": "Erythrocytes still depend on glycolysis because they lack mitochondria to oxidize ketone bodies",
+    "C": "Fatty acids are the main fuel of the brain because they cross the blood-brain barrier freely",
+    "D": "Ketone bodies are made from glucose in the kidney, since gluconeogenesis supplies acetyl-CoA"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) without mitochondria, red cells cannot oxidize ketone bodies. Why the others are wrong: A) the liver produces ketone bodies but lacks the enzyme needed to use them. C) fatty acids bound to albumin do not serve as the brain's major fuel. D) ketone bodies are made from acetyl-CoA from fatty acid oxidation, mainly in the liver.",
+   "trap": "Assuming that all tissues can switch to ketone bodies, forgetting that red cells lack mitochondria and the liver lacks thiophorase.",
+   "topic": "Ketone bodies and fasting",
+   "mastery_sheet_id": "1D",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_BB_D7",
+   "stem": "Cholera toxin causes severe watery diarrhea by modifying the G protein Galpha-s in intestinal epithelial cells. Which result most directly explains the loss of fluid?",
+   "options": {
+    "A": "Galpha-i is activated, so adenylyl cyclase is inhibited and chloride channels stay closed in the lumen",
+    "B": "Galpha-s stays active, so cAMP stays high and PKA opens chloride channels, driving water secretion",
+    "C": "Phospholipase C is activated, so IP3 releases intracellular calcium and closes sodium channels",
+    "D": "Galpha-s is permanently inactivated, so cAMP falls and sodium absorption by the epithelial cells increases"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) persistent adenylyl cyclase activation leads to chloride efflux and water loss. Why the others are wrong: A) the toxin acts on Galpha-s, which stimulates adenylyl cyclase. C) this is Gq signaling, which is not the pathway the toxin modifies. D) cholera toxin locks Galpha-s in the active state, not the inactive state.",
+   "trap": "Mixing up the G protein types, choosing a Gq or Gi mechanism for a toxin that locks Gs in the active state.",
+   "topic": "G protein signaling",
+   "mastery_sheet_id": "2A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_BB_D8",
+   "stem": "Human red blood cells, isotonic with 150 mM NaCl, are placed in 75 mM NaCl. Which outcome is most likely?",
+   "options": {
+    "A": "Water leaves the cells by osmosis, causing them to shrink and become crenated",
+    "B": "Water enters the cells by osmosis, causing them to swell and possibly lyse",
+    "C": "No net movement occurs, because the cell membrane is impermeable to both water and salt",
+    "D": "NaCl moves into the cells by active transport, until the concentrations are equal"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) the solution is hypotonic, so water moves into the cells. Why the others are wrong: A) this would occur in a hypertonic solution. C) red cells are highly permeable to water through aquaporins. D) NaCl diffusion would not be the major effect, and the key movement is water.",
+   "trap": "Reversing the direction of water movement by comparing solute concentrations rather than reasoning from tonicity.",
+   "topic": "Tonicity and osmosis",
+   "mastery_sheet_id": "2A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_BB_D9",
+   "stem": "An F+ strain of E. coli is mixed with an F- strain. Which result is expected after conjugation?",
+   "options": {
+    "A": "The recipient becomes F+ and the donor remains F+, since a copy of the F plasmid is transferred",
+    "B": "The recipient receives a large part of the donor chromosome and becomes Hfr",
+    "C": "The recipient receives the F plasmid through a bacteriophage that infects the donor",
+    "D": "The recipient becomes F+ and the donor becomes F-, since the plasmid is moved rather than copied"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) single-strand transfer followed by replication leaves both cells with the plasmid. Why the others are wrong: B) chromosome transfer requires integration of F into the chromosome, as in Hfr strains. C) conjugation is direct cell contact through a pilus, not phage transduction. D) the donor keeps a copy through rolling-circle replication.",
+   "trap": "Imagining the plasmid is moved away from the donor instead of being replicated during transfer.",
+   "topic": "Bacterial conjugation",
+   "mastery_sheet_id": "2B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_BB_D10",
+   "stem": "After decolorization with alcohol, a Gram-negative bacterium appears pink or red rather than purple. What is the best explanation?",
+   "options": {
+    "A": "A thin peptidoglycan layer beneath an outer membrane fails to retain the crystal violet complex",
+    "B": "A thick peptidoglycan layer traps the safranin counterstain within the cell wall",
+    "C": "Teichoic acids in the cell wall bind the crystal violet and are removed by alcohol",
+    "D": "A lipopolysaccharide-free outer membrane binds the crystal violet complex tightly"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) the alcohol washes out the stain, and safranin then counterstains the cell. Why the others are wrong: B) a thick peptidoglycan layer is characteristic of Gram-positive cells. C) teichoic acids are components of the Gram-positive wall. D) Gram-negative bacteria have an outer membrane that contains lipopolysaccharide.",
+   "trap": "Attributing the pink color to a thick wall, reversing the Gram-positive and Gram-negative cell wall architectures.",
+   "topic": "Gram stain",
+   "mastery_sheet_id": "2B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_BB_D11",
+   "stem": "A mutation inactivates a Hox gene in a developing fly embryo, and a body segment develops the structures normally formed by a different segment. What do Hox genes normally do?",
+   "options": {
+    "A": "They encode ribosomal RNAs that increase translation of maternal mRNAs in the egg",
+    "B": "They encode DNA repair enzymes that prevent mutations in the genes for segment shape",
+    "C": "They encode transcription factors that specify segment identity along the anterior-posterior axis",
+    "D": "They encode secreted growth factors that cause cells to proliferate in the future dorsal side"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) a homeotic transformation reflects loss of positional identity. Why the others are wrong: A) Hox genes encode transcription factors that act after fertilization. B) Hox genes are developmental regulators, not repair enzymes. D) Hox genes encode DNA-binding proteins and specify identity, not dorsal-ventral growth.",
+   "trap": "Recalling Hox genes only as 'developmental genes' without linking them to positional identity along the body axis.",
+   "topic": "Hox genes and patterning",
+   "mastery_sheet_id": "2C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_BB_D12",
+   "stem": "A neuron has an intracellular K+ concentration of 140 mM. If extracellular K+ is raised from 4 mM to 8 mM, what happens to the resting membrane potential, which is close to the K+ equilibrium potential?",
+   "options": {
+    "A": "It stays unchanged, since only Na+ concentrations determine the resting membrane potential",
+    "B": "It hyperpolarizes, since more extracellular K+ drives additional K+ into the cell",
+    "C": "It depolarizes, since the K+ equilibrium potential moves from about -94 mV to about -76 mV",
+    "D": "It depolarizes to about +30 mV, since K+ now flows out of the neuron more rapidly"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) 61 log(4/140) = -94 mV; 61 log(8/140) = -76 mV. Why the others are wrong: A) the resting potential is determined mainly by K+ permeability. B) higher extracellular K+ reduces the outward driving force, producing depolarization. D) the new equilibrium potential is about -76 mV, far from +30 mV.",
+   "trap": "Expecting that more extracellular K+ should hyperpolarize the neuron because K+ is a positive ion, instead of using the Nernst equation.",
+   "topic": "Nernst potential",
+   "mastery_sheet_id": "3A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.bristol.ac.uk/phys-pharm-neuro/media/plangton/ugteach/ugindex/m1_index/med_memb/file/Nernst1.htm"
+    ]
+   }
+  },
+  {
+   "id": "FL05_BB_D13",
+   "stem": "In the knee-jerk reflex, a tap on the patellar tendon stretches the quadriceps and causes it to contract. Which pathway is involved?",
+   "options": {
+    "A": "A sensory neuron synapses on an interneuron in the cerebral cortex, which activates the motor neuron",
+    "B": "A sensory neuron from the Golgi tendon organ synapses on an inhibitory interneuron that blocks the motor neuron",
+    "C": "A parasympathetic neuron from the vagus nerve activates the quadriceps through muscarinic receptors",
+    "D": "A sensory neuron from the muscle spindle synapses directly on an alpha motor neuron in the spinal cord"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) the reflex is monosynaptic, with no required synapse in the brain. Why the others are wrong: A) the reflex does not require the cortex. B) this describes the inverse myotatic reflex, not the stretch reflex. C) skeletal muscle is activated by somatic motor neurons through nicotinic receptors.",
+   "trap": "Assuming that all reflexes pass through the brain, or confusing the stretch reflex with the Golgi tendon reflex.",
+   "topic": "Reflex arc",
+   "mastery_sheet_id": "3A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_BB_D14",
+   "stem": "Trypsinogen secreted by the pancreas is converted into active trypsin in the small intestine. What activates it?",
+   "options": {
+    "A": "Enteropeptidase on the duodenal brush border, which cleaves trypsinogen to trypsin",
+    "B": "Gastric hydrochloric acid, which removes the inhibitory propeptide from trypsinogen in the stomach",
+    "C": "Pepsin from the stomach, which cleaves trypsinogen as chyme enters the duodenum",
+    "D": "Secretin, which binds trypsinogen and induces its autocatalytic cleavage in the duct"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) trypsin then activates other zymogens such as chymotrypsinogen. Why the others are wrong: B) trypsinogen is secreted by the pancreas into the duodenum, not the stomach. C) pepsin is inactivated at the neutral pH of the duodenum and is not the activator. D) secretin stimulates bicarbonate secretion and does not cleave proteins.",
+   "trap": "Selecting an acid or an enzyme from the stomach because they are familiar in digestion.",
+   "topic": "Pancreatic zymogen activation",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL05_BB_D15",
+   "stem": "A person who ascends rapidly to a high altitude develops tissue hypoxia. Which renal response contributes to long-term adaptation?",
+   "options": {
+    "A": "Juxtaglomerular cells decrease renin release, which lowers angiotensin II and reduces blood volume",
+    "B": "The proximal tubule increases bicarbonate secretion, which lowers blood pH to promote oxygen release",
+    "C": "The collecting duct reduces erythropoietin secretion to prevent excessive blood viscosity",
+    "D": "Peritubular interstitial cells release more erythropoietin, raising red blood cell production"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) hypoxia stabilizes HIF, increasing erythropoietin gene expression. Why the others are wrong: A) this is not the main response to hypoxia and does not improve oxygen delivery. B) the kidney responds to altitude hypocapnia by excreting bicarbonate, and erythropoietin is the key response for oxygen carrying. C) erythropoietin secretion increases rather than decreases in hypoxia.",
+   "trap": "Choosing the renin-angiotensin response because it is the best known renal hormone, rather than erythropoietin.",
+   "topic": "Erythropoietin and hypoxia",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

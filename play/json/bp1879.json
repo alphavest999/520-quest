@@ -1,0 +1,88 @@
+{
+  "passage_id": "bp1879",
+  "passage": "A structural biology group at the Nakamura institute is purifying a recombinant enzyme that contains a single surface-exposed histidine near its active site. To locate the residue's ionization constant, the group titrated the protein in a series of buffers while following the histidine imidazole ring by NMR, which reports the fraction of side chains in the protonated, positively charged form. Protein concentration, ionic strength, and temperature were kept constant across buffers, and each measurement was repeated twice. The group later planned to bind the protein to a cation-exchange column and needed to understand how pH controls the protein's net charge. The protonation data also guided a decision about which buffering species to use for storage, since a buffer is most effective within about one pH unit of its own pKa. The protein was greater than 98% pure and monomeric by size-exclusion chromatography. All procedures followed the laboratory's standard operating protocols, and raw data were archived before analysis.",
+  "table": "Table 1. Protonation of the active-site histidine\n\n| Buffer pH | Histidine side chains protonated (%) |\n|---|---|\n| 5 | 99 |\n| 6 | 90.9 |\n| 7 | 50 |\n| 8 | 9.1 |\n| 9 | 1 |",
+  "questions": [
+    {
+      "stem": "At which pH is the histidine approximately half-protonated?",
+      "options": {
+        "A": "pH 9",
+        "B": "pH 7",
+        "C": "pH 6",
+        "D": "pH 8"
+      },
+      "correct": "B",
+      "explanation": "Half-protonation (about 50%) occurs at pH = pKa, which in Table 1 is pH 7.",
+      "topic": "Acid–base chemistry: data interpretation",
+      "trap": "Choosing a pH at the end of the range, such as pH 9, where ionization is nearly complete; half-protonation occurs at pH = pKa, which is pH 7.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "5A",
+      "id": "bp1879-1"
+    },
+    {
+      "stem": "Which design would best verify that the NMR signal reports histidine ionization and not a pH-dependent conformational change?",
+      "options": {
+        "A": "Repeat the titration without the protein",
+        "B": "Repeat the titration with a variant in which the histidine is mutated to alanine",
+        "C": "Repeat the titration at twice the protein concentration",
+        "D": "Repeat the titration with a different counterion only"
+      },
+      "correct": "B",
+      "explanation": "Removing the titratable group should abolish the signal's pH dependence if it truly reports that residue.",
+      "topic": "Protein biochemistry: experimental design",
+      "trap": "Doubling protein concentration or changing the counterion would not separate ionization from conformational change; only removing the titratable residue tests that.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1879-2"
+    },
+    {
+      "stem": "What is the ratio [protonated]:[deprotonated] at pH 5?",
+      "options": {
+        "A": "2:1",
+        "B": "1:100",
+        "C": "100:1",
+        "D": "1000:1"
+      },
+      "correct": "C",
+      "explanation": "pH = pKa + log([A⁻]/[HA]), so log([A⁻]/[HA]) = −2 and [HA]/[A⁻] = 10^2 = 100.",
+      "topic": "Henderson–Hasselbalch calculation",
+      "trap": "Choosing 1:100 or 1000:1 by inverting or miscounting the pH units; pH 5 is two units below the pKa, so protonated:deprotonated = 100:1.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "5A",
+      "id": "bp1879-3"
+    },
+    {
+      "stem": "Which statement about buffers and this titration is INCORRECT?",
+      "options": {
+        "A": "Buffering capacity is greatest near the pKa",
+        "B": "A buffer's pH is independent of its conjugate base to acid ratio",
+        "C": "Protonated histidine carries a positive charge",
+        "D": "The histidine side chain is mostly neutral at pH well above its pKa"
+      },
+      "correct": "B",
+      "explanation": "The Henderson–Hasselbalch equation shows pH depends directly on the base-to-acid ratio.",
+      "topic": "Buffers: trap",
+      "trap": "Believing buffer pH is independent of the base-to-acid ratio; pH = pKa + log([A-]/[HA]), so the ratio sets the pH.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "5A",
+      "id": "bp1879-4"
+    },
+    {
+      "stem": "At physiological pH, why do histidine residues frequently serve as general acid–base catalysts in enzymes?",
+      "options": {
+        "A": "Its side chain is always fully protonated at pH 7.4",
+        "B": "Its side chain carries no ionizable group",
+        "C": "Its side chain pKa is near physiological pH, so it can readily donate or accept a proton",
+        "D": "Its side chain forms disulfide bonds with other residues"
+      },
+      "correct": "C",
+      "explanation": "A side chain pKa near 6–7 means both protonated and deprotonated forms are populated near pH 7.4, ideal for proton transfer in catalysis (e.g., serine proteases).",
+      "topic": "Amino acid properties: histidine catalysis",
+      "trap": "Choosing 'always fully protonated at pH 7.4'; with a pKa near 6 to 7 histidine is only partly protonated at pH 7.4, so both forms are present for proton transfer.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1879-5"
+    }
+  ],
+  "accuracy_verified": true
+}

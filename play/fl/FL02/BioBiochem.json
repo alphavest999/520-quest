@@ -1,0 +1,1625 @@
+{
+ "exam": "FL02",
+ "section": "BB",
+ "passages": [
+  {
+   "passage_id": "FL02_BB_P1",
+   "passage_text": "A research group purified protein Z from a bacterial lysate. The lysate was adjusted to pH 8.0 and loaded onto an anion-exchange column, whose beads carry positively charged groups. After washing, bound proteins were eluted with a gradient of increasing NaCl concentration, and absorbance at 280 nm was monitored (Figure 1). Peak fractions were then analyzed in three ways: SDS-PAGE in the presence of the reducing agent beta-mercaptoethanol (BME), SDS-PAGE without BME, and gel filtration under native conditions, which separates proteins by size and reports apparent native mass. SDS denatures proteins and disrupts noncovalent interactions, and BME breaks disulfide bonds. The four major proteins in the lysate are called X, Y, Z, and W. Their properties are summarized in Table 1. The isoelectric point (pI) of each protein was calculated from its amino acid sequence. All chromatography steps were performed at 4 degrees C with protease inhibitors present, and each experiment was repeated three times with similar results.",
+   "table_data": "| Protein | pI | SDS-PAGE +BME (kDa) | SDS-PAGE -BME (kDa) | Native mass (kDa) | NaCl at elution peak (mM) |\n|---|---|---|---|---|---|\n| X | 9.1 | 25 | 25 | 25 | 0 (flow-through) |\n| Y | 6.8 | 45 | 45 | 45 | 120 |\n| Z | 5.2 | 45 | 45 | 90 | 250 |\n| W | 4.9 | 45 | 90 | 90 | 400 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Anion-exchange elution profile",
+    "x_label": "NaCl (mM)",
+    "y_label": "A280",
+    "series": [
+     {
+      "name": "Lysate",
+      "points": [
+       [
+        0,
+        0.9
+       ],
+       [
+        60,
+        0.05
+       ],
+       [
+        120,
+        0.8
+       ],
+       [
+        190,
+        0.05
+       ],
+       [
+        250,
+        0.6
+       ],
+       [
+        320,
+        0.05
+       ],
+       [
+        400,
+        0.5
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_BB_P1_Q1",
+     "stem": "Protein X appears in the flow-through at pH 8.0. Which statement best explains this?",
+     "options": {
+      "A": "X is too small to enter the pores of the beads and is excluded from the resin matrix entirely",
+      "B": "X carries a net positive charge at pH 8.0 and is repelled by the positively charged beads",
+      "C": "X is uncharged at pH 8.0 because its pI is above 8.0, so it passes through without binding",
+      "D": "X contains no hydrophobic residues, so it cannot interact with the bead surface at all"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) X has a pI of 9.1, which is above 8.0, so it is protonated overall and positive, like the resin. Why the others are wrong: A) pore-size exclusion is how gel filtration works, not ion exchange. C) a protein is neutral only when pH equals pI; at pH below pI it is positive. D) hydrophobicity is irrelevant to binding of an ion-exchange resin.",
+     "trap": "Confusing pore-size exclusion with charge-based binding, or assuming pH below pI means neutral.",
+     "topic": "Ion-exchange chromatography",
+     "mastery_sheet_id": "1A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P1_Q2",
+     "stem": "Protein W elutes at the highest NaCl concentration because:",
+     "options": {
+      "A": "it has the largest native mass, so it is retained longest inside the bead pores",
+      "B": "it forms a disulfide-linked dimer, which neutralizes its charge and weakens resin binding",
+      "C": "it has the lowest pI and therefore the greatest net negative charge at pH 8.0",
+      "D": "it is positively charged at pH 8.0 and binds the resin through ionic attraction"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) At pH 8.0 proteins whose pI is below 8 are anionic, and W (pI 4.9) is the most negative and binds the cationic beads most tightly. Why the others are wrong: A) size does not determine ion-exchange binding; Y and Z have the same subunit mass but elute earlier. B) disulfide formation does not neutralize charge and would not strengthen binding to the resin. D) a positive protein would be repelled by positively charged beads, as X is.",
+     "trap": "Equating larger size with stronger binding on an ion-exchange column.",
+     "topic": "Net charge and pI",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P1_Q3",
+     "stem": "The SDS-PAGE results for protein W (45 kDa with BME, 90 kDa without BME) indicate that W is:",
+     "options": {
+      "A": "a single 90-kDa polypeptide with internal disulfide bonds",
+      "B": "a noncovalent dimer of two 45-kDa chains",
+      "C": "a 45-kDa monomer that aggregates only when BME is absent",
+      "D": "two 45-kDa polypeptides linked by interchain disulfide bonds"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Without BME the disulfide bond holds the chains together and they run as 90 kDa; BME cleaves the link and each chain runs at 45 kDa. Why the others are wrong: A) a single chain would run at 90 kDa with and without BME. B) SDS would break noncovalent contacts, giving 45 kDa in both lanes, as seen for Z. C) the native mass of 90 kDa shows a stable dimer; BME-sensitive linkage indicates covalent disulfides.",
+     "trap": "Forgetting that SDS disrupts noncovalent but not disulfide bonds.",
+     "topic": "Quaternary structure and disulfides",
+     "mastery_sheet_id": "1A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P1_Q4",
+     "stem": "Which description best fits protein Z?",
+     "options": {
+      "A": "A homodimer held together by noncovalent interactions",
+      "B": "A monomer of 90 kDa",
+      "C": "A homodimer joined by disulfide bonds",
+      "D": "A homotetramer"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Native mass is 90 kDa but SDS-PAGE gives 45 kDa regardless of BME, so the subunits are not covalently linked. Why the others are wrong: B) a monomer would give 90 kDa on SDS-PAGE. C) Z runs at 45 kDa without BME, so no disulfide links the subunits. D) four 45-kDa subunits would have a native mass near 180 kDa.",
+     "trap": "Treating native mass alone as proof of a disulfide-linked or single-chain protein.",
+     "topic": "Quaternary structure",
+     "mastery_sheet_id": "1A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P1_Q5",
+     "stem": "If the chromatography were repeated at pH 5.0, how would protein Z most likely behave relative to pH 8.0?",
+     "options": {
+      "A": "It would bind more tightly because the solution is more acidic",
+      "B": "It would behave identically because its mass does not change",
+      "C": "It would elute at the same salt concentration but as a monomer",
+      "D": "It would bind much more weakly and elute at lower salt or in the flow-through"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Near its pI of 5.2 Z has little or slightly positive net charge, so attraction to the anion-exchange beads falls sharply. Why the others are wrong: A) lowering pH below the pI adds positive charge, which reduces anion-exchange binding. B) ion exchange depends on charge, which depends on pH. C) pH change does not by itself dissociate the dimer or alter elution salt in that way.",
+     "trap": "Assuming lower pH always increases binding to an anion exchanger.",
+     "topic": "pH and protein charge",
+     "mastery_sheet_id": "1A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_BB_P2",
+   "passage_text": "Gene G encodes a metabolic enzyme and has five exons. The mature mRNA region amplified in this study spans exons 1 through 5; exon lengths in this region are 90, 120, 80, 150, and 105 base pairs, respectively. RNA was isolated from fibroblasts of a control subject and of three patients, each carrying a different single-nucleotide change at an intron-exon boundary, as confirmed by sequencing of genomic DNA. RNA was converted to complementary DNA (cDNA) using reverse transcriptase, and the cDNA was amplified by PCR using one primer in exon 1 and one in exon 5. PCR products were separated by gel electrophoresis, and each sample produced a single band. Product sizes and the location of each mutation are shown in Table 1. Researchers hypothesized that each mutation disrupts recognition of a splice site, causing the adjacent exon to be omitted from the mature mRNA. Translation of the control cDNA proceeds in the reading frame established at the start codon in exon 1.",
+   "table_data": "| Sample | Mutation location | RT-PCR product (bp) |\n|---|---|---|\n| Control | none | 545 |\n| Patient 1 | 5' donor site of intron 2 | 425 |\n| Patient 2 | 3' acceptor site of intron 2 | 465 |\n| Patient 3 | 3' acceptor site of intron 3 | 395 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL02_BB_P2_Q1",
+     "stem": "Based on the product sizes, which patient's mRNA most likely contains a frameshift downstream of the skipped exon?",
+     "options": {
+      "A": "Patient 1 only",
+      "B": "Patient 2 only",
+      "C": "Patient 3 only",
+      "D": "All three patients"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Patient 2 lost exon 3 (80 bp, not a multiple of 3), shifting the reading frame; exons 2 (120 bp) and 4 (150 bp) are multiples of 3. Why the others are wrong: A) exon 2 is 120 bp, a multiple of 3, so skipping it deletes whole codons without a frameshift. C) exon 4 is 150 bp, a multiple of 3, so the frame is maintained. D) only the patient missing the 80-bp exon has a length not divisible by 3.",
+     "trap": "Assuming any exon skipping causes a frameshift instead of checking divisibility by 3.",
+     "topic": "Exon skipping and reading frame",
+     "mastery_sheet_id": "1B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5453576/",
+       "https://gtgt.readthedocs.io/en/latest/examples.html"
+      ]
+     }
+    },
+    {
+     "id": "FL02_BB_P2_Q2",
+     "stem": "Why was reverse transcriptase included in the procedure?",
+     "options": {
+      "A": "To synthesize a DNA copy of the mature mRNA that can serve as a template for PCR",
+      "B": "To remove introns from the pre-mRNA so that the PCR primers can anneal to the exons",
+      "C": "To add a poly-A tail to the mature mRNA so that the primers can bind to it",
+      "D": "To transcribe genomic DNA into RNA that can then be amplified in the reaction"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) PCR polymerases need a DNA template, so spliced mRNA is first copied into cDNA. Why the others are wrong: B) intron removal is done by the spliceosome in cells, not by reverse transcriptase. C) primers here anneal to exon sequences, not a poly-A tail. D) reverse transcriptase makes DNA from an RNA template, the opposite direction.",
+     "trap": "Mixing up the direction of reverse transcription with splicing or transcription.",
+     "topic": "RT-PCR",
+     "mastery_sheet_id": "1B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P2_Q3",
+     "stem": "The protein produced from Patient 1's mRNA is expected to differ from the control protein by:",
+     "options": {
+      "A": "a loss of 120 amino acids",
+      "B": "a premature stop codon immediately after exon 1",
+      "C": "an in-frame loss of about 40 amino acids",
+      "D": "no difference, because the genomic DNA sequence is intact"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The 120-bp difference corresponds to 40 codons removed while the reading frame is retained. Why the others are wrong: A) 120 is the number of base pairs, not codons; divide by 3. B) the frame is maintained, so no new stop is created by this deletion. D) the mRNA, not the genomic DNA, determines the protein, and the mRNA lacks exon 2.",
+     "trap": "Reporting base pairs lost as amino acids lost.",
+     "topic": "Splicing and protein length",
+     "mastery_sheet_id": "1B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5453576/",
+       "https://gtgt.readthedocs.io/en/latest/examples.html"
+      ]
+     }
+    },
+    {
+     "id": "FL02_BB_P2_Q4",
+     "stem": "The mutation in Patient 1 alters the 5' end of intron 2. Disruption of which interaction most directly explains exon skipping?",
+     "options": {
+      "A": "Binding of the ribosome to the start codon",
+      "B": "Base pairing of U1 snRNA with the 5' splice site",
+      "C": "Recognition of the poly-A signal by cleavage factors",
+      "D": "Addition of the 7-methylguanosine cap to the 5' end of the transcript"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The 5' donor site is recognized by U1 snRNP through RNA-RNA base pairing at the start of splicing. Why the others are wrong: A) translation initiation does not occur on introns and is unrelated to splice-site recognition. C) the poly-A signal is at the 3' end of the transcript, not intron 2. D) capping occurs at the 5' end of the whole transcript and not at internal introns.",
+     "trap": "Confusing the 5' splice site with the 5' cap of the transcript.",
+     "topic": "Splicing machinery",
+     "mastery_sheet_id": "1B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_BB_P3",
+   "passage_text": "Disorder D is caused by loss of function of an enzyme encoded on the X chromosome. Individual II-1, a male, is affected. His parents, I-1 and I-2, are unaffected, and there is no history of the disorder on either side of the family beyond II-1. His sister II-2 is unaffected and has married II-3, an unaffected man with no family history. Researchers measured enzyme activity in cultured skin fibroblasts from each family member (Table 1). Fibroblast colonies grown from single cells of I-2 and II-2 were also tested: about half of the colonies had normal enzyme activity and half had almost none. Disorder D follows a recessive pattern, and the family is not known to have any new mutation. Assume that II-2 and II-3 have not yet had any children and that the gene is not in the pseudoautosomal region. Written informed consent was obtained from all family members, and enzyme assays were performed in duplicate with the technician blinded to the pedigree and to the phenotype of each sample.",
+   "table_data": "| Individual | Sex | Phenotype | Enzyme activity (% of normal) |\n|---|---|---|---|\n| I-1 | Male | Unaffected | 100 |\n| I-2 | Female | Unaffected | 52 |\n| II-1 | Male | Affected | 3 |\n| II-2 | Female | Unaffected | 48 |\n| II-3 | Male | Unaffected | 98 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL02_BB_P3_Q1",
+     "stem": "Before enzyme activity was measured, what was the probability that II-2 is a carrier?",
+     "options": {
+      "A": "1/2",
+      "B": "1/4",
+      "C": "2/3",
+      "D": "1"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) I-2 must be a carrier (she has an affected son and an unaffected father); each daughter receives the mutant X with probability 1/2, while I-1 passes his normal X to all daughters. Why the others are wrong: B) this would apply if the carrier status of I-2 were itself uncertain or two independent 1/2 events were needed. C) this is the conditional probability used for an unaffected child of two autosomal carriers, not an X-linked pedigree. D) II-2 would be a certain carrier only if her father were affected.",
+     "trap": "Applying the autosomal 2/3 rule to an X-linked pedigree.",
+     "topic": "X-linked inheritance",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_BB_P3_Q2",
+     "stem": "Assuming II-2 is a carrier, what is the probability that the first child of II-2 and II-3 is an affected boy?",
+     "options": {
+      "A": "1/2",
+      "B": "1/8",
+      "C": "0",
+      "D": "1/4"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A carrier mother passes the mutant X to half of her children, and half of the children are male: 1/2 x 1/2 = 1/4. Why the others are wrong: A) this is the chance that any child inherits the mutant X, but daughters with II-3's normal X would be unaffected. B) this double counts by multiplying in the 1/2 carrier probability, which is already given. C) the father is unaffected, but the mother is a carrier and can transmit the allele to sons.",
+     "trap": "Multiplying in the carrier probability again after being told she is a carrier.",
+     "topic": "X-linked inheritance probability",
+     "mastery_sheet_id": "1C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_BB_P3_Q3",
+     "stem": "The intermediate enzyme activity in I-2 and II-2 and the mixed colony results are best explained by:",
+     "options": {
+      "A": "incomplete penetrance of the mutant allele, so only some carriers show any phenotype",
+      "B": "inactivation of the paternal X in every cell, so all cells express the maternal allele",
+      "C": "random inactivation of one X chromosome in each cell early in female development",
+      "D": "codominance of two different alleles at an autosomal locus within each cell of the body"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) X inactivation yields a mosaic: roughly half of the cells express the normal X and half the mutant X. Why the others are wrong: A) penetrance describes whether a genotype produces a phenotype, not a cell-by-cell mix of enzyme activity. B) if the same X were inactivated in all cells, colonies would be uniform, not half and half. D) the gene is X-linked and one allele is inactive, not co-expressed in each cell.",
+     "trap": "Treating mosaic expression as incomplete dominance rather than X inactivation.",
+     "topic": "X inactivation",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P3_Q4",
+     "stem": "If II-1 had children with a woman who does not carry the mutation, what fraction of their daughters would be carriers?",
+     "options": {
+      "A": "None",
+      "B": "All",
+      "C": "Half",
+      "D": "One-fourth"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) II-1 gives his only X, bearing the mutant allele, to every daughter, who also receives a normal X from her mother. Why the others are wrong: A) daughters always receive the father's X, so they carry the allele. C) this is the expectation for daughters of a carrier mother, not an affected father. D) this has no basis because the father's contribution is fixed rather than random.",
+     "trap": "Forgetting that affected fathers transmit their X to all daughters.",
+     "topic": "X-linked transmission from fathers",
+     "mastery_sheet_id": "1C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_BB_P4",
+   "passage_text": "Two children with fasting hypoglycemia were evaluated for inherited defects of hepatic glucose release. Patient A has a deficiency of glucose-6-phosphatase, and Patient B has a deficiency of liver glycogen phosphorylase. A healthy child served as a comparison. Subjects were fed, then fasted for 12 hours, with blood glucose measured at intervals (Figure 1). At 8 hours of fasting, blood lactate was measured, and glucagon was injected to measure the change in blood glucose 30 minutes later. Liver glycogen content was measured by biopsy in the fed state. Results are in Table 1. Glucagon activates hepatic glycogen breakdown through a protein kinase A pathway. In the liver, gluconeogenesis uses lactate, amino acids, and glycerol as substrates, and glucose-6-phosphate produced by gluconeogenesis must be dephosphorylated before glucose can leave the cell. Gluconeogenesis was assumed to be intact in Patient B. Both children were otherwise growing normally and had normal kidney function, and all measurements were repeated on a second day to confirm that the results were reproducible and not due to illness.",
+   "table_data": "| Subject | Fed liver glycogen (g/100 g) | Glucose at 8 h (mg/dL) | Lactate at 8 h (mmol/L) | Glucose rise after glucagon (mg/dL) |\n|---|---|---|---|---|\n| Healthy | 5 | 85 | 1.0 | 30 |\n| Patient A | 9 | 38 | 6.5 | 0 |\n| Patient B | 10 | 52 | 1.2 | 4 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Blood glucose during fasting",
+    "x_label": "Fasting time (h)",
+    "y_label": "Blood glucose (mg/dL)",
+    "series": [
+     {
+      "name": "Healthy",
+      "points": [
+       [
+        0,
+        92
+       ],
+       [
+        4,
+        88
+       ],
+       [
+        8,
+        85
+       ],
+       [
+        12,
+        82
+       ]
+      ]
+     },
+     {
+      "name": "Patient A",
+      "points": [
+       [
+        0,
+        70
+       ],
+       [
+        4,
+        50
+       ],
+       [
+        8,
+        38
+       ],
+       [
+        12,
+        30
+       ]
+      ]
+     },
+     {
+      "name": "Patient B",
+      "points": [
+       [
+        0,
+        88
+       ],
+       [
+        4,
+        75
+       ],
+       [
+        8,
+        52
+       ],
+       [
+        12,
+        44
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_BB_P4_Q1",
+     "stem": "Why does glucagon fail to raise blood glucose in Patient A?",
+     "options": {
+      "A": "Glucagon cannot activate protein kinase A in the liver of this patient",
+      "B": "Glycogen synthase is overactive, converting all glucose to glycogen",
+      "C": "The liver lacks hexokinase, so it cannot take up glucose",
+      "D": "Glycogen breakdown yields glucose-6-phosphate, which cannot be converted to free glucose without glucose-6-phosphatase"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Glucagon still triggers glycogenolysis, but without dephosphorylation the product remains trapped in the hepatocyte. Why the others are wrong: A) the defect is in an enzyme downstream; the glucagon signal itself is not described as defective. B) glycogen synthase activity is inhibited by glucagon signaling, and does not explain the loss of release. C) uptake is irrelevant to glucose release during fasting.",
+     "trap": "Assuming glucagon fails because the hormone pathway is broken.",
+     "topic": "Glycogenolysis and glucose-6-phosphatase",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P4_Q2",
+     "stem": "The elevated lactate in Patient A at 8 hours is best explained by:",
+     "options": {
+      "A": "absence of lactate dehydrogenase, which prevents pyruvate from being converted to lactate",
+      "B": "increased oxidative phosphorylation in the liver, which consumes lactate and lowers blood levels",
+      "C": "accumulation of glucose-6-phosphate that is diverted into glycolysis and yields pyruvate and lactate",
+      "D": "increased gluconeogenesis from lactate, which would lower rather than raise blood lactate"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Because glucose-6-phosphate cannot be released as glucose, it enters glycolysis, and the resulting pyruvate is reduced to lactate. Why the others are wrong: A) LDH activity is not missing; lactate is clearly being produced. B) greater oxidative phosphorylation would oxidize pyruvate, not raise lactate. D) gluconeogenesis cannot be completed in this patient, so it does not clear lactate.",
+     "trap": "Linking high lactate to oxygen shortage rather than diverted glucose-6-phosphate.",
+     "topic": "Gluconeogenesis and glycolysis",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P4_Q3",
+     "stem": "Patient B maintains a higher fasting glucose than Patient A mainly because:",
+     "options": {
+      "A": "gluconeogenesis is intact and glucose-6-phosphatase is present",
+      "B": "Patient B stores less glycogen than Patient A",
+      "C": "Patient B has a higher rate of glycogenolysis",
+      "D": "Patient B oxidizes fatty acids to make glucose directly"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Patient B can still make glucose from lactate, amino acids, and glycerol, and release it. Why the others are wrong: B) B actually stores more glycogen; the amount stored does not determine output when it cannot be broken down. C) the glucagon response of 4 mg/dL shows that glycogenolysis is largely absent. D) animals cannot convert fatty acid acetyl-CoA into net glucose.",
+     "trap": "Believing fatty acids can be converted to glucose.",
+     "topic": "Gluconeogenesis",
+     "mastery_sheet_id": "1D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P4_Q4",
+     "stem": "In healthy individuals, muscle glycogen cannot directly raise blood glucose primarily because muscle lacks:",
+     "options": {
+      "A": "glucose-6-phosphatase",
+      "B": "glycogen phosphorylase",
+      "C": "phosphoglucomutase",
+      "D": "hexokinase"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Without this enzyme muscle cannot dephosphorylate glucose-6-phosphate for export. Why the others are wrong: B) muscle has phosphorylase and uses it to degrade glycogen. C) muscle uses it to convert glucose-1-phosphate into glucose-6-phosphate. D) muscle expresses hexokinase for glucose phosphorylation.",
+     "trap": "Naming a glycogenolysis enzyme that muscle does have.",
+     "topic": "Tissue-specific metabolism",
+     "mastery_sheet_id": "1D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P4_Q5",
+     "stem": "Based on Figure 1, the approximate rate of fall in blood glucose for Patient B between 4 and 8 hours is:",
+     "options": {
+      "A": "0.75 mg/dL per hour",
+      "B": "6 mg/dL per hour",
+      "C": "3 mg/dL per hour",
+      "D": "23 mg/dL per hour"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) From 75 to 52 is a drop of 23 mg/dL over 4 hours, or about 5.75, rounded to 6. Why the others are wrong: A) this is approximately the rate for the healthy subject (88 to 85). C) this is the rate for Patient A (50 to 38). D) this is the total decline and has not been divided by the 4-hour interval.",
+     "trap": "Reporting the total change instead of the rate, or reading the wrong curve.",
+     "topic": "Graph rate calculation",
+     "mastery_sheet_id": "1D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_BB_P5",
+   "passage_text": "Uptake of two solutes, S and T, was studied in isolated red blood cells suspended in buffer. Both solutes are uncharged and are not metabolized in the cell. Initial uptake rates were measured over a range of external concentrations (Figure 1). Solute S is a small polar molecule, and solute T is a small nonpolar molecule that dissolves readily in lipids. In a second experiment, uptake rates were measured at an external concentration of 6 mM under four conditions (Table 1): untreated cells, cells treated with a compound that binds covalently to a membrane protein and blocks the carrier for S, cells in which ATP was depleted with metabolic poisons for 30 minutes, and cells chilled to 4 degrees C. The intracellular concentrations of both solutes were kept near zero by the assay design so that uptake rates reflect initial inward movement. Rates are reported in micromoles per liter of cells per minute.",
+   "table_data": "| Condition | S uptake | T uptake |\n|---|---|---|\n| Untreated | 40 | 9 |\n| Carrier-blocking compound | 6 | 9 |\n| ATP depleted | 40 | 9 |\n| 4 degrees C | 14 | 6 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Uptake rate versus external concentration",
+    "x_label": "External concentration (mM)",
+    "y_label": "Uptake rate (umol/L cells/min)",
+    "series": [
+     {
+      "name": "Solute S",
+      "points": [
+       [
+        1,
+        15
+       ],
+       [
+        3,
+        30
+       ],
+       [
+        6,
+        40
+       ],
+       [
+        12,
+        48
+       ],
+       [
+        24,
+        53.3
+       ]
+      ]
+     },
+     {
+      "name": "Solute T",
+      "points": [
+       [
+        1,
+        1.5
+       ],
+       [
+        3,
+        4.5
+       ],
+       [
+        6,
+        9
+       ],
+       [
+        12,
+        18
+       ],
+       [
+        24,
+        36
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_BB_P5_Q1",
+     "stem": "Which mechanism best accounts for the uptake of solute S?",
+     "options": {
+      "A": "Simple diffusion through the lipid bilayer",
+      "B": "Primary active transport",
+      "C": "Facilitated diffusion through a carrier protein",
+      "D": "Secondary active transport coupled to a Na+ gradient"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Uptake is saturable, blocked by a carrier inhibitor, and unaffected by ATP depletion, consistent with passive carrier-mediated transport. Why the others are wrong: A) simple diffusion is not saturable and is not blocked by a carrier inhibitor. B) this would fall when ATP is depleted, but S uptake is unchanged. D) this would need an ion gradient and is not supported by the data; ATP depletion eventually dissipates such gradients.",
+     "trap": "Assuming any saturable transport is active transport.",
+     "topic": "Membrane transport",
+     "mastery_sheet_id": "2A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P5_Q2",
+     "stem": "Based on Figure 1, the external concentration of S at which uptake is half-maximal is closest to:",
+     "options": {
+      "A": "1 mM",
+      "B": "6 mM",
+      "C": "12 mM",
+      "D": "3 mM"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The curve approaches about 60, and half of this (30) occurs at 3 mM. Why the others are wrong: A) the rate at 1 mM is 15, only a quarter of the maximum. B) at 6 mM the rate is already two-thirds of maximum. C) at 12 mM the rate is 48, which is 80 percent of maximum.",
+     "trap": "Reading the half-maximal point from the y-axis value of the last data point.",
+     "topic": "Carrier kinetics",
+     "mastery_sheet_id": "2A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P5_Q3",
+     "stem": "Which best explains why the uptake of T rises linearly over the range studied?",
+     "options": {
+      "A": "T crosses the bilayer by simple diffusion, so its rate is proportional to the concentration gradient",
+      "B": "T uses a carrier that is not yet saturated at 24 mM, so uptake still rises with concentration",
+      "C": "T uptake requires ATP hydrolysis at each step, so the rate depends on cellular ATP levels",
+      "D": "T enters through a gated channel that opens only at high concentrations of the solute"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) With no carrier to saturate, flux increases in proportion to the gradient. Why the others are wrong: B) the carrier for S saturates near 3 to 6 mM, and T is unaffected by the carrier blocker. C) ATP depletion did not change T uptake. D) gating by concentration would produce a nonlinear curve.",
+     "trap": "Reading a linear curve as evidence of a carrier that has not yet saturated.",
+     "topic": "Simple diffusion",
+     "mastery_sheet_id": "2A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P5_Q4",
+     "stem": "If the linear relationship for T continued at higher concentrations, at about what external concentration would T uptake reach 60, the maximum rate for S?",
+     "options": {
+      "A": "24 mM",
+      "B": "40 mM",
+      "C": "30 mM",
+      "D": "60 mM"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The slope is 1.5 per mM (36/24), so 60/1.5 = 40 mM. Why the others are wrong: A) T uptake at 24 mM is only 36. C) this would give a rate of 45 at the observed slope. D) this treats slope as 1, the value of the rate itself.",
+     "trap": "Setting concentration equal to the target rate without dividing by the slope.",
+     "topic": "Diffusion calculation",
+     "mastery_sheet_id": "2A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_BB_P6",
+   "passage_text": "A bacterial culture in rich medium was divided into three flasks and incubated with shaking. At 2 hours, drug M was added to one flask and drug N to another, and the third served as a control. Viable counts were determined every 2 hours (Figure 1). Drug M inhibits the bacterial ribosome. Drug N blocks the final cross-linking step of peptidoglycan synthesis. A susceptible strain (A) and a strain (B) carrying a plasmid were compared by determining the minimum inhibitory concentration (MIC), the lowest drug concentration that prevents visible growth (Table 1). The plasmid in strain B encodes an enzyme that is secreted into the periplasm; its substrate specificity was not examined further. Colony counts are reported as log10 of colony-forming units per milliliter. In the control flask the culture grew exponentially during the 6 hours, and nutrients were not limiting. Counts for the culture in the first two hours were identical in all flasks.",
+   "table_data": "| Drug | MIC for strain A (ug/mL) | MIC for strain B (ug/mL) |\n|---|---|---|\n| M | 4 | 4 |\n| N | 2 | 128 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Viable count over time",
+    "x_label": "Time (h)",
+    "y_label": "log10 CFU/mL",
+    "series": [
+     {
+      "name": "Control",
+      "points": [
+       [
+        0,
+        5.0
+       ],
+       [
+        2,
+        5.9
+       ],
+       [
+        4,
+        6.8
+       ],
+       [
+        6,
+        7.7
+       ]
+      ]
+     },
+     {
+      "name": "Drug M",
+      "points": [
+       [
+        0,
+        5.0
+       ],
+       [
+        2,
+        5.9
+       ],
+       [
+        4,
+        5.9
+       ],
+       [
+        6,
+        5.8
+       ]
+      ]
+     },
+     {
+      "name": "Drug N",
+      "points": [
+       [
+        0,
+        5.0
+       ],
+       [
+        2,
+        5.9
+       ],
+       [
+        4,
+        4.2
+       ],
+       [
+        6,
+        2.9
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_BB_P6_Q1",
+     "stem": "What is the approximate doubling time of the control culture? (A doubling increases log10 by about 0.3.)",
+     "options": {
+      "A": "20 minutes",
+      "B": "60 minutes",
+      "C": "120 minutes",
+      "D": "40 minutes"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The count rises 0.9 log units in 2 hours, about 3 doublings, or one doubling per 40 minutes. Why the others are wrong: A) this would give 6 doublings (1.8 log units) in 2 hours. B) this would give only 2 doublings (0.6 log units) in 2 hours. C) this would give one doubling (0.3 log units) in 2 hours.",
+     "trap": "Treating the log-unit change as the number of doublings.",
+     "topic": "Bacterial growth rate",
+     "mastery_sheet_id": "2B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_BB_P6_Q2",
+     "stem": "Which classification fits drug M based on Figure 1?",
+     "options": {
+      "A": "Bactericidal, because the viable count is lower than that of the untreated control",
+      "B": "Ineffective, because the viable count does not fall below the starting inoculum",
+      "C": "Bacteriostatic, because it halts growth without substantially lowering the viable count",
+      "D": "Selectively toxic to only dividing cells, so non-growing cells would be unaffected entirely"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) After addition the count stays near 5.9 rather than falling. Why the others are wrong: A) M-treated cells are not killed; the count is simply not increasing. B) stopping growth is an effect, and the count is far below the control by 6 hours. D) the data do not address which cells are affected.",
+     "trap": "Equating no decrease in viable count with no drug effect.",
+     "topic": "Antibiotic action",
+     "mastery_sheet_id": "2B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P6_Q3",
+     "stem": "Strain B has a 64-fold higher MIC for drug N but the same MIC for drug M. Which is the most likely explanation?",
+     "options": {
+      "A": "A mutation in the ribosome that prevents binding of both drugs",
+      "B": "A plasmid-encoded enzyme that specifically inactivates drug N",
+      "C": "Loss of the cell wall in strain B",
+      "D": "A general efflux pump expelling both drugs"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Resistance limited to N implicates a drug-specific mechanism, such as a periplasmic enzyme that degrades N, while the ribosome target of M is unaltered. Why the others are wrong: A) a ribosomal change would affect M and not N. C) the plasmid enzyme explains resistance; there is no evidence of wall loss, and wall loss would not specifically change only the N MIC. D) MIC for M is unchanged, so a general pump is unlikely.",
+     "trap": "Assuming resistance always arises from target alteration or general efflux.",
+     "topic": "Antibiotic resistance",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P6_Q4",
+     "stem": "If drug M were added to a culture at the same time as drug N, the killing by drug N would most likely be:",
+     "options": {
+      "A": "increased, because both drugs target the same structure",
+      "B": "unchanged, because the drugs act independently",
+      "C": "increased, because M would stop repair of the cell wall",
+      "D": "reduced, because drug N kills only actively growing cells that are synthesizing peptidoglycan"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Drug M stops growth, and drug N needs cells that are building new wall to lyse them. Why the others are wrong: A) M targets the ribosome, not the wall. B) M halts growth, and growth is required for N to act. C) M's effect on protein synthesis stops growth, protecting the cells from N.",
+     "trap": "Assuming that two antibiotics together are always additive.",
+     "topic": "Antibiotic interactions",
+     "mastery_sheet_id": "2B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_BB_P7",
+   "passage_text": "In the developing vertebrate neural tube, cells at the ventral midline secrete the signaling protein Sonic hedgehog (Shh). Shh diffuses away from this source and binds the receptor Patched on nearby cells, relieving inhibition of the membrane protein Smoothened and ultimately activating transcription factors that specify cell fate. The measured concentration of Shh at increasing distance from the source is plotted in Figure 1, and the concentration thresholds associated with each fate are given in Table 1. In experiments on chick embryos, researchers treated embryos with cyclopamine, which inhibits Smoothened, and observed cell types after 48 hours. In another experiment, a second Shh-secreting tissue was grafted to the dorsal side of the neural tube. Concentration is expressed in arbitrary units, with 100 at the source. Shh concentration at a distance d (micrometers) fits the equation 100 x e^(-d/100). Embryos were staged by somite number, fixed, and stained for cell-type-specific markers, and each experimental group contained at least ten embryos, all of which gave consistent results.",
+   "table_data": "| Shh concentration | Distance from source (um) | Cell fate |\n|---|---|---|\n| Above 60 | Less than 50 | Floor plate |\n| 30 to 60 | 50 to 120 | Motor neuron |\n| 15 to 30 | 120 to 190 | V2 interneuron |\n| Below 15 | More than 190 | Dorsal cell types |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Shh concentration versus distance",
+    "x_label": "Distance from source (um)",
+    "y_label": "Shh concentration (arbitrary units)",
+    "series": [
+     {
+      "name": "Shh",
+      "points": [
+       [
+        0,
+        100
+       ],
+       [
+        50,
+        60.7
+       ],
+       [
+        100,
+        36.8
+       ],
+       [
+        150,
+        22.3
+       ],
+       [
+        200,
+        13.5
+       ],
+       [
+        300,
+        5.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_BB_P7_Q1",
+     "stem": "A cell located 100 um from the source would most likely become:",
+     "options": {
+      "A": "a motor neuron",
+      "B": "a floor plate cell",
+      "C": "a V2 interneuron",
+      "D": "a dorsal cell type"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At 100 um the concentration is about 37, within the 30 to 60 range for motor neurons. Why the others are wrong: B) floor plate fates require concentrations above 60, found within about 50 um. C) this fate requires concentrations of 15 to 30, found at greater distances. D) this requires concentrations below 15.",
+     "trap": "Reading the fate from the wrong concentration range.",
+     "topic": "Morphogen gradients",
+     "mastery_sheet_id": "2C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P7_Q2",
+     "stem": "Cells at 25 um from the source in a cyclopamine-treated embryo would most likely adopt:",
+     "options": {
+      "A": "a floor plate fate, because Shh concentration is highest there",
+      "B": "a motor neuron fate, because cyclopamine reduces Shh concentration",
+      "C": "a dorsal fate, because they cannot respond to Shh",
+      "D": "apoptosis, because they lack the signal"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Blocking Smoothened prevents signal transduction, so cells take the fate that occurs without Shh signaling regardless of concentration. Why the others are wrong: A) the cells cannot transduce the signal, so concentration is irrelevant. B) cyclopamine blocks Smoothened and does not change Shh levels. D) the data do not indicate cell death; cells instead adopt default fates.",
+     "trap": "Assuming cell fate follows the concentration even when the receptor pathway is blocked.",
+     "topic": "Signal transduction inhibition",
+     "mastery_sheet_id": "2C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P7_Q3",
+     "stem": "What outcome is most likely after grafting a second Shh source to the dorsal side?",
+     "options": {
+      "A": "Ventral cell types, such as floor plate and motor neurons, would form near the graft",
+      "B": "Only the original ventral cell types would form because fate is fixed before Shh acts",
+      "C": "Dorsal cell types would expand because Shh inhibits ventral fates",
+      "D": "No change, because Shh diffuses only ventrally"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Cells near the graft experience high Shh and follow the same concentration-dependent fates. Why the others are wrong: B) fate depends on current signaling, as shown by the gradient. C) Shh promotes ventral fates. D) diffusion occurs in all directions from the source.",
+     "trap": "Assuming developmental fate is predetermined and not induced by signals.",
+     "topic": "Induction",
+     "mastery_sheet_id": "2C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P7_Q4",
+     "stem": "Signaling by Shh from the midline to nearby cells is best described as:",
+     "options": {
+      "A": "endocrine signaling",
+      "B": "autocrine signaling",
+      "C": "juxtacrine signaling",
+      "D": "paracrine signaling"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Shh is secreted and acts on nearby cells over short distances. Why the others are wrong: A) this requires transport through the bloodstream to distant cells. B) this means the cell responds to its own signal. C) this requires direct contact between cell surfaces, while Shh diffuses through tissue.",
+     "trap": "Calling any secreted signal endocrine.",
+     "topic": "Cell signaling",
+     "mastery_sheet_id": "2C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P7_Q5",
+     "stem": "Based on the equation or Figure 1, the Shh concentration falls by half over a distance of about:",
+     "options": {
+      "A": "35 um",
+      "B": "70 um",
+      "C": "50 um",
+      "D": "100 um"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Half the source concentration (50) occurs at d = 100 ln2, about 69 um. Why the others are wrong: A) this is half the correct distance. C) at 50 um the concentration is still about 61. D) at 100 um the concentration is about 37, less than half.",
+     "trap": "Choosing the length constant of 100 um as the half-distance.",
+     "topic": "Exponential decay",
+     "mastery_sheet_id": "2C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_BB_P8",
+   "passage_text": "The hypothalamic-pituitary-thyroid axis was evaluated in three patients with suspected thyroid dysfunction. Thyrotropin-releasing hormone (TRH) from the hypothalamus stimulates the anterior pituitary to release thyroid-stimulating hormone (TSH), which stimulates the thyroid to make and secrete thyroxine (T4). T4 and its more active derivative T3 feed back to inhibit TRH and TSH secretion. Baseline serum TSH and free T4 were measured (Table 1). Patients 2 and 3 and a healthy control were then given an intravenous dose of TRH, and serum TSH was measured over 2 hours (Figure 1). Reference ranges are 0.4 to 4.0 mU/L for TSH and 0.8 to 1.8 ng/dL for free T4. Patient 1 had antibodies that activate the TSH receptor on thyroid cells. Patient 2 had a thyroid gland that had been damaged by autoimmune inflammation. Patient 3 had a tumor that compressed the pituitary gland. Samples were drawn after an overnight fast, none of the patients was taking medications known to affect thyroid function, and all assays were run in the same laboratory using the same standards.",
+   "table_data": "| Subject | TSH (mU/L) | Free T4 (ng/dL) |\n|---|---|---|\n| Patient 1 | 0.02 | 3.5 |\n| Patient 2 | 15 | 0.4 |\n| Patient 3 | 0.5 | 0.4 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Serum TSH after TRH injection",
+    "x_label": "Time (min)",
+    "y_label": "TSH (mU/L)",
+    "series": [
+     {
+      "name": "Control",
+      "points": [
+       [
+        0,
+        2
+       ],
+       [
+        30,
+        12
+       ],
+       [
+        60,
+        8
+       ],
+       [
+        120,
+        4
+       ]
+      ]
+     },
+     {
+      "name": "Patient 2",
+      "points": [
+       [
+        0,
+        15
+       ],
+       [
+        30,
+        60
+       ],
+       [
+        60,
+        50
+       ],
+       [
+        120,
+        35
+       ]
+      ]
+     },
+     {
+      "name": "Patient 3",
+      "points": [
+       [
+        0,
+        0.5
+       ],
+       [
+        30,
+        0.6
+       ],
+       [
+        60,
+        0.6
+       ],
+       [
+        120,
+        0.5
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_BB_P8_Q1",
+     "stem": "Why is TSH nearly undetectable in Patient 1?",
+     "options": {
+      "A": "The antibodies destroy pituitary thyrotrophs, so TSH output falls despite low hormone",
+      "B": "TRH secretion is increased, which should increase TSH and raise thyroid hormone output",
+      "C": "High circulating T4 and T3 exert negative feedback on the pituitary and hypothalamus",
+      "D": "The thyroid is unable to respond to TSH because its receptors are fully desensitized"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Because the thyroid is overstimulated by antibodies, hormone levels are high and suppress TSH. Why the others are wrong: A) the antibodies act at the thyroid TSH receptor, not at the pituitary. B) high T4 reduces TRH and TSH secretion. D) the thyroid is overactive, as shown by T4 of 3.5.",
+     "trap": "Assuming that low TSH means a primary pituitary problem.",
+     "topic": "Negative feedback",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P8_Q2",
+     "stem": "Patient 3's lack of TSH response to TRH most strongly suggests a defect in:",
+     "options": {
+      "A": "the thyroid gland",
+      "B": "the hypothalamus",
+      "C": "the anterior pituitary",
+      "D": "the posterior pituitary"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) TRH acts directly on pituitary thyrotrophs, and a pituitary tumor prevents the TSH response. Why the others are wrong: A) a thyroid defect would give a high TSH and a normal or large response to TRH, as seen in Patient 2. B) a hypothalamic defect would still show a TSH rise when TRH is given. D) this does not secrete TSH.",
+     "trap": "Choosing the hypothalamus because the TRH level is not measured.",
+     "topic": "Endocrine axis localization",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P8_Q3",
+     "stem": "At 30 minutes, the TSH in Patient 2 is about how many times that of the control?",
+     "options": {
+      "A": "5",
+      "B": "2",
+      "C": "15",
+      "D": "30"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 60 mU/L divided by 12 mU/L equals 5. Why the others are wrong: B) 2 is the control's baseline TSH in mU/L, not a ratio. C) 15 is the baseline TSH of Patient 2, not a ratio. D) 30 is 60/2, dividing Patient 2's 30-minute TSH by the control's baseline value rather than by its 30-minute value.",
+     "trap": "Reporting the baseline value as the ratio.",
+     "topic": "Data reading",
+     "mastery_sheet_id": "3A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_BB_P8_Q4",
+     "stem": "TSH stimulates thyroid cells by binding a receptor that:",
+     "options": {
+      "A": "diffuses into the nucleus and alters transcription directly",
+      "B": "activates a G protein coupled pathway raising cAMP",
+      "C": "is a ligand-gated ion channel",
+      "D": "has intrinsic tyrosine kinase activity"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) TSH is a glycoprotein hormone that acts on a cell-surface G protein coupled receptor. Why the others are wrong: A) this describes thyroid hormone and steroid receptors. C) TSH acts through a G protein pathway, not ion channels. D) this describes insulin and growth factor receptors.",
+     "trap": "Attributing nuclear receptor action to TSH, a peptide-type hormone.",
+     "topic": "Hormone receptors",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_BB_P9",
+   "passage_text": "Hemodynamic measurements were obtained in a healthy adult at rest, the same adult during moderate exercise, and a patient with chronic systolic heart failure at rest (Table 1). End-diastolic volume (EDV) and end-systolic volume (ESV) are the ventricular volumes before and after contraction. Stroke volume (SV) is EDV minus ESV, ejection fraction (EF) is SV divided by EDV, cardiac output (CO) is heart rate (HR) times SV, and total peripheral resistance (TPR) is mean arterial pressure (MAP) divided by CO. The relationship between EDV and SV was also measured in ventricles from healthy and failing hearts by varying filling volume at constant heart rate (Figure 1). Systolic heart failure is characterized by reduced contractility. During exercise, sympathetic nerves release norepinephrine, which binds beta-1 receptors in the heart, and metabolites accumulate in active skeletal muscle. Pressures and volumes were obtained by catheterization and echocardiography, and the healthy adult had no history of cardiovascular disease and was not taking any medications during testing.",
+   "table_data": "| Condition | HR (beats/min) | EDV (mL) | ESV (mL) | MAP (mmHg) |\n|---|---|---|---|---|\n| Healthy, rest | 70 | 120 | 50 | 98 |\n| Healthy, exercise | 150 | 130 | 40 | 110 |\n| Heart failure, rest | 90 | 200 | 150 | 80 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Stroke volume versus end-diastolic volume",
+    "x_label": "EDV (mL)",
+    "y_label": "SV (mL)",
+    "series": [
+     {
+      "name": "Healthy",
+      "points": [
+       [
+        80,
+        40
+       ],
+       [
+        100,
+        55
+       ],
+       [
+        120,
+        70
+       ],
+       [
+        140,
+        82
+       ],
+       [
+        160,
+        90
+       ]
+      ]
+     },
+     {
+      "name": "Heart failure",
+      "points": [
+       [
+        120,
+        30
+       ],
+       [
+        160,
+        40
+       ],
+       [
+        200,
+        50
+       ],
+       [
+        240,
+        55
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL02_BB_P9_Q1",
+     "stem": "What is the ejection fraction in the patient with heart failure?",
+     "options": {
+      "A": "33%",
+      "B": "50%",
+      "C": "75%",
+      "D": "25%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) SV = 200 - 150 = 50 mL; EF = 50/200 = 25 percent. Why the others are wrong: A) 50/150 uses ESV as the denominator instead of EDV. B) this is the stroke volume in mL, not a percentage of EDV. C) this is the fraction that remains in the ventricle (ESV/EDV).",
+     "trap": "Dividing stroke volume by ESV or reporting ESV/EDV.",
+     "topic": "Ejection fraction",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_BB_P9_Q2",
+     "stem": "What is the cardiac output of the healthy adult during exercise?",
+     "options": {
+      "A": "10.5 L/min",
+      "B": "19.5 L/min",
+      "C": "135 L/min",
+      "D": "13.5 L/min"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) SV = 130 - 40 = 90 mL, and 150 x 90 = 13,500 mL/min. Why the others are wrong: A) 150 x 70 uses the resting stroke volume, ignoring its rise during exercise. B) this uses EDV of 130 mL as the stroke volume. C) a decimal error: 13,500 mL is 13.5 L.",
+     "trap": "Using EDV instead of stroke volume.",
+     "topic": "Cardiac output",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL02_BB_P9_Q3",
+     "stem": "From rest to exercise in the healthy adult, which change contributed more to the rise in cardiac output?",
+     "options": {
+      "A": "The increase in stroke volume",
+      "B": "A decrease in end-systolic volume only",
+      "C": "The increase in heart rate",
+      "D": "A decrease in mean arterial pressure"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) HR rose about 2.1-fold (70 to 150) while SV rose about 1.3-fold (70 to 90). Why the others are wrong: A) SV increased by less than HR. B) the ESV change is part of the stroke volume increase, which was smaller. D) MAP increased, not decreased.",
+     "trap": "Assuming stroke volume is the major driver of increased output.",
+     "topic": "Cardiac output regulation",
+     "mastery_sheet_id": "3B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P9_Q4",
+     "stem": "Based on Figure 1, which best explains the lower stroke volume in the failing heart at an EDV of 160 mL?",
+     "options": {
+      "A": "Reduced contractility",
+      "B": "Reduced preload",
+      "C": "Increased sympathetic stimulation of beta-1 receptors",
+      "D": "Higher venous return"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At the same filling volume the failing ventricle ejects less (40 versus 90 mL), shifting the curve down. Why the others are wrong: B) the EDV is the same at 160 mL for both curves. C) this would increase contractility and shift the curve up. D) the filling volume is already specified as equal.",
+     "trap": "Attributing a downward shift of the Starling curve to altered preload.",
+     "topic": "Frank-Starling relationship",
+     "mastery_sheet_id": "3B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P9_Q5",
+     "stem": "What is the approximate TPR during exercise, and what likely accounts for its change from rest (about 20 mmHg min/L)?",
+     "options": {
+      "A": "About 8 mmHg min/L, due to sympathetic constriction of arterioles throughout the body",
+      "B": "About 8 mmHg min/L, due to vasodilation of skeletal muscle arterioles by local metabolites",
+      "C": "About 120 mmHg min/L, due to the increased MAP",
+      "D": "About 20 mmHg min/L, unchanged from rest"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 110/13.5 is about 8; metabolites such as adenosine, potassium and lactate dilate arterioles in active muscle. Why the others are wrong: A) constriction would raise TPR, not lower it. C) this is not MAP divided by CO; resistance is MAP/CO. D) resting TPR is 98/4.9 = 20, but exercise lowers it.",
+     "trap": "Multiplying MAP by CO instead of dividing, or ignoring local vasodilation.",
+     "topic": "Vascular resistance",
+     "mastery_sheet_id": "3B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL02_BB_P10",
+   "passage_text": "The neuromuscular junction was studied in isolated mouse nerve-diaphragm preparations. The motor nerve was stimulated while the end-plate potential (EPP) was recorded from the muscle fiber with an intracellular electrode, and muscle twitch was observed. In a separate test, the muscle was stimulated directly with electrodes placed on the fiber. Spontaneous miniature end-plate potentials (mEPPs), each resulting from release of one vesicle of acetylcholine (ACh), were also recorded. Toxin alpha, toxin beta, and neostigmine were tested individually, and neostigmine was also applied after toxin beta (Table 1). Toxin alpha reduced both the frequency and amplitude of mEPPs; toxin beta reduced mEPP amplitude but not frequency. Neostigmine inhibits acetylcholinesterase, the enzyme that degrades ACh in the synaptic cleft. The nicotinic ACh receptor is a ligand-gated channel permeable to Na+ and K+. EPP duration is the time for the potential to fall to half its peak amplitude. Preparations were bathed in oxygenated physiological saline at 35 degrees C, and each treatment was applied to at least six preparations, with representative values reported for each treatment.",
+   "table_data": "| Treatment | EPP amplitude (mV) | EPP duration (ms) | Twitch after nerve stimulation | Twitch after direct stimulation |\n|---|---|---|---|---|\n| Control | 40 | 2 | Yes | Yes |\n| Toxin alpha | 0.5 | 2 | No | Yes |\n| Toxin beta | 3 | 2 | No | Yes |\n| Neostigmine | 55 | 10 | Yes | Yes |\n| Toxin beta + neostigmine | 30 | 10 | Yes | Yes |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL02_BB_P10_Q1",
+     "stem": "The mEPP data for toxin alpha most strongly suggest that it:",
+     "options": {
+      "A": "blocks nicotinic receptors on the muscle membrane",
+      "B": "inhibits acetylcholinesterase",
+      "C": "reduces the release of ACh from the presynaptic terminal",
+      "D": "damages the contractile machinery of the muscle"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Fewer vesicles are released (lower frequency), while the preserved direct twitch shows the muscle remains excitable. Why the others are wrong: A) a receptor blocker would reduce mEPP amplitude but not frequency, as with toxin beta. B) this would increase EPP duration, which did not change. D) twitch after direct stimulation is intact.",
+     "trap": "Ignoring the mEPP frequency and attributing the effect to the receptor.",
+     "topic": "Synaptic transmission",
+     "mastery_sheet_id": "3A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P10_Q2",
+     "stem": "The longer EPP duration with neostigmine is best explained by:",
+     "options": {
+      "A": "increased reuptake of ACh into the presynaptic terminal",
+      "B": "slowed breakdown of ACh in the cleft, so it persists and keeps receptors activated",
+      "C": "increased synthesis of ACh by choline acetyltransferase",
+      "D": "direct opening of nicotinic receptor channels"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Inhibiting acetylcholinesterase prolongs ACh presence in the synaptic cleft. Why the others are wrong: A) this would shorten the EPP. C) this would not change the duration of a single EPP. D) neostigmine acts on the enzyme, not on the receptors.",
+     "trap": "Assuming that reuptake rather than enzymatic degradation clears ACh at this synapse.",
+     "topic": "Acetylcholinesterase",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P10_Q3",
+     "stem": "Why does neostigmine partially reverse the effect of toxin beta?",
+     "options": {
+      "A": "Neostigmine irreversibly displaces toxin beta from the receptor",
+      "B": "Neostigmine increases the frequency of vesicle release",
+      "C": "Neostigmine blocks voltage-gated Na+ channels in the muscle",
+      "D": "Higher ACh concentrations in the cleft compete more effectively with the reversible antagonist"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Toxin beta acts as a competitive receptor antagonist, and prolonging ACh action raises effective concentration. Why the others are wrong: A) neostigmine acts on the enzyme and not on the receptor. B) there is no evidence for increased vesicle release. C) blocking channels would reduce excitation, not restore it.",
+     "trap": "Assuming the rescue works at the receptor rather than through higher ACh.",
+     "topic": "Competitive antagonism",
+     "mastery_sheet_id": "3A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL02_BB_P10_Q4",
+     "stem": "The EPP is a depolarization because ACh binding to the nicotinic receptor causes:",
+     "options": {
+      "A": "net inward movement of Na+ through the channel",
+      "B": "net outward movement of K+",
+      "C": "influx of Cl- through the channel",
+      "D": "release of Ca2+ from the sarcoplasmic reticulum directly through the receptor"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Both Na+ and K+ pass, but the driving force on Na+ is much larger, producing net depolarization. Why the others are wrong: B) this would hyperpolarize the membrane. C) the channel is cation selective and does not carry Cl-. D) Ca2+ release occurs after action potentials, not from this ligand-gated channel.",
+     "trap": "Forgetting that the channel is nonselective for cations but dominated by Na+ influx.",
+     "topic": "Ligand-gated channels",
+     "mastery_sheet_id": "3A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL02_BB_D1",
+   "stem": "At a physiological pH of 7.4, which amino acid side chain is predominantly uncharged and also able to act as a proton donor or acceptor near neutral pH?",
+   "options": {
+    "A": "Lysine",
+    "B": "Aspartate",
+    "C": "Histidine",
+    "D": "Arginine"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) The imidazole side chain has a pKa near 6, so at pH 7.4 it is mostly deprotonated and neutral, and it buffers near neutrality. Why the others are wrong: A) the side chain pKa is about 10.5, so it is protonated and positive at pH 7.4. B) the side chain pKa is near 4, so it is deprotonated and negative at pH 7.4. D) its guanidinium group has a pKa above 12 and is always positive at this pH.",
+   "trap": "Calling histidine charged at pH 7.4 because it is classified as a basic amino acid.",
+   "topic": "Amino acid side chains",
+   "mastery_sheet_id": "1A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_BB_D2",
+   "stem": "Many collagen mutations that replace a glycine residue with a bulky amino acid cause severe disease. The most likely reason is that glycine:",
+   "options": {
+    "A": "forms disulfide bonds that link the three strands together at regular intervals along the helix",
+    "B": "is the only residue that can be hydroxylated by prolyl hydroxylase, which stabilizes the helix",
+    "C": "is required to start translation of every collagen chain, as the initiator residue at the N-terminus",
+    "D": "fits into the crowded interior of the triple helix because its side chain is only a hydrogen atom"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Every third residue sits at the center of the tight triple helix, where only the smallest side chain fits. Why the others are wrong: A) glycine has no thiol group and cannot form disulfides. B) hydroxylation involves proline and lysine, not glycine. C) translation starts with methionine.",
+   "trap": "Assuming glycine matters because of a special chemical reactivity rather than small size.",
+   "topic": "Collagen structure",
+   "mastery_sheet_id": "1A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_BB_D3",
+   "stem": "An enzyme has a Km of 4 mM. At a substrate concentration of 12 mM, the reaction velocity is closest to what fraction of Vmax?",
+   "options": {
+    "A": "75%",
+    "B": "50%",
+    "C": "67%",
+    "D": "90%"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) v/Vmax = [S]/(Km + [S]) = 12/16 = 0.75. Why the others are wrong: B) this occurs when [S] equals Km, or 4 mM. C) this results from 8/12, using the wrong denominator. D) this requires [S] about nine times Km, or 36 mM.",
+   "trap": "Assuming velocity is half of Vmax at any concentration above Km.",
+   "topic": "Michaelis-Menten kinetics",
+   "mastery_sheet_id": "1A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://teaching.ncl.ac.uk/bms/wiki/index.php/Michaelis_menten_equation",
+     "https://mail.goldbook.iupac.org/terms/view/M03892"
+    ]
+   }
+  },
+  {
+   "id": "FL02_BB_D4",
+   "stem": "A tRNA has the anticodon 5'-GAA-3'. Which mRNA codon does it recognize?",
+   "options": {
+    "A": "5'-CUU-3'",
+    "B": "5'-UUC-3'",
+    "C": "5'-GAA-3'",
+    "D": "5'-AAG-3'"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Codon and anticodon pair antiparallel, so the complement of GAA read 5' to 3' is UUC. Why the others are wrong: A) this is the complement written in the wrong direction. C) this is the sequence of the anticodon itself, not its complement. D) this is the reverse of the anticodon without complementing.",
+   "trap": "Writing the complement 3' to 5' and reading it as 5' to 3'.",
+   "topic": "Translation and codon pairing",
+   "mastery_sheet_id": "1B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://rotel.pressbooks.pub/genetics/?p=193",
+     "https://biomodel.uah.es/en/model4/dna/codons.htm"
+    ]
+   }
+  },
+  {
+   "id": "FL02_BB_D5",
+   "stem": "A linear 8-kb DNA fragment is cut once by a restriction enzyme at 2 kb from its left end and again at 5 kb from the left end. What fragment sizes will be seen after complete digestion?",
+   "options": {
+    "A": "2 kb, 3 kb, and 3 kb",
+    "B": "2 kb and 6 kb",
+    "C": "3 kb and 5 kb",
+    "D": "2 kb, 5 kb, and 8 kb"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Two cuts divide the line into three pieces: 0-2, 2-5, and 5-8 kb. Why the others are wrong: B) this would result from a single cut at 2 kb. C) this would result from a single cut at 3 kb. D) these are the cut positions, not fragment lengths.",
+   "trap": "Reporting the positions of the cuts as fragment sizes.",
+   "topic": "Restriction digests",
+   "mastery_sheet_id": "1B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute",
+    "sources": []
+   }
+  },
+  {
+   "id": "FL02_BB_D6",
+   "stem": "Treatment of cells with a histone deacetylase (HDAC) inhibitor is most likely to cause:",
+   "options": {
+    "A": "decreased histone acetylation, tighter chromatin packing, and gene silencing at many loci",
+    "B": "methylation of CpG islands in all promoters, which shuts off transcription genome-wide",
+    "C": "increased histone acetylation, looser chromatin, and increased transcription of many genes",
+    "D": "a decrease in transcription due to tighter DNA-histone binding and condensed nucleosomes"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Acetyl groups neutralize lysine charges and open chromatin; blocking their removal keeps chromatin accessible. Why the others are wrong: A) inhibiting the deacetylase prevents loss of acetyl groups. B) HDAC inhibition does not directly add DNA methylation. D) acetylation lowers histone affinity for DNA.",
+   "trap": "Reversing the roles of acetylation and deacetylation.",
+   "topic": "Epigenetic regulation",
+   "mastery_sheet_id": "1B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_BB_D7",
+   "stem": "A species survives a disease outbreak that reduces its population to 20 individuals, and the population then recovers. Compared with the original population, the recovered population will most likely show:",
+   "options": {
+    "A": "increased genetic diversity due to new mutations in the survivors",
+    "B": "the same allele frequencies, because selection was strong",
+    "C": "greater heterozygosity due to outbreeding",
+    "D": "reduced genetic diversity, with allele frequencies that differ from the original by chance"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) A bottleneck strongly amplifies genetic drift, so many alleles are lost or change randomly in frequency. Why the others are wrong: A) the diversity of survivors is only a sample of the original diversity. B) the survivors were not necessarily selected for specific alleles; random sampling dominates. C) a small number of founders increases inbreeding and reduces heterozygosity.",
+   "trap": "Assuming survivors are a representative sample of the original population.",
+   "topic": "Genetic drift",
+   "mastery_sheet_id": "1C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_BB_D8",
+   "stem": "In Labrador retrievers, allele B (black) is dominant to b (brown), and a second gene determines deposition of pigment: ee dogs are yellow regardless of the B gene. In a cross of BbEe x BbEe, what fraction of offspring is yellow?",
+   "options": {
+    "A": "1/16",
+    "B": "1/4",
+    "C": "3/16",
+    "D": "9/16"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) All ee offspring are yellow: 1/4 of offspring are ee, regardless of the B genotype. Why the others are wrong: A) this is the fraction that is bbee only. C) this is the fraction that is brown (bbE_). D) this is the fraction that is black (B_E_).",
+   "trap": "Counting only bbee dogs as yellow.",
+   "topic": "Epistasis",
+   "mastery_sheet_id": "1C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute",
+    "sources": []
+   }
+  },
+  {
+   "id": "FL02_BB_D9",
+   "stem": "A reaction has a standard free energy change of +20 kJ/mol. It is coupled to the hydrolysis of ATP, whose standard free energy change is -30.5 kJ/mol. What is the standard free energy change of the coupled process?",
+   "options": {
+    "A": "-10.5 kJ/mol",
+    "B": "+50.5 kJ/mol",
+    "C": "+10.5 kJ/mol",
+    "D": "-50.5 kJ/mol"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The values add: +20 + (-30.5) = -10.5 kJ/mol, so the coupled process is spontaneous. Why the others are wrong: B) this subtracts the ATP value instead of adding it. C) this has the wrong sign for a favorable coupled process. D) this adds the magnitudes without regard to sign.",
+   "trap": "Adding magnitudes instead of the signed values.",
+   "topic": "Free energy and coupling",
+   "mastery_sheet_id": "1D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://people.uleth.ca/~steven.mosimann/bchm3300/Bchm3300_L3.pdf",
+     "https://digfir-published.macmillanusa.com/life11e/life11e_ch08_11.html"
+    ]
+   }
+  },
+  {
+   "id": "FL02_BB_D10",
+   "stem": "During prolonged fasting, the liver converts acetyl-CoA to ketone bodies rather than oxidizing it in the citric acid cycle. The main reason is that:",
+   "options": {
+    "A": "fatty acid oxidation stops, so acetyl-CoA levels fall and ketone bodies are not made",
+    "B": "oxaloacetate is diverted to gluconeogenesis, limiting condensation with acetyl-CoA",
+    "C": "the liver has no mitochondria, so it cannot oxidize fatty acids at all",
+    "D": "high insulin levels stimulate ketogenesis by activating hormone-sensitive lipase"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) With oxaloacetate depleted, citrate synthase cannot use all the acetyl-CoA, which is diverted to ketone body synthesis. Why the others are wrong: A) fatty acid oxidation is increased during fasting. C) ketogenesis occurs in liver mitochondria. D) insulin is low in fasting and it inhibits ketogenesis.",
+   "trap": "Believing that ketone body production reflects low acetyl-CoA availability.",
+   "topic": "Ketogenesis",
+   "mastery_sheet_id": "1D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_BB_D11",
+   "stem": "Which sequence correctly describes the path of a newly made secreted protein through the cell?",
+   "options": {
+    "A": "Golgi apparatus, rough ER, lysosome, plasma membrane",
+    "B": "Free cytosolic ribosome, nucleus, Golgi apparatus, plasma membrane",
+    "C": "Smooth ER, mitochondrion, secretory vesicle, plasma membrane",
+    "D": "Rough ER, Golgi apparatus, secretory vesicle, plasma membrane"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Secreted proteins are made on ribosomes bound to the rough ER, packaged and modified in the Golgi, and exported in vesicles. Why the others are wrong: A) the Golgi comes after the ER, and lysosomes are for degradation. B) the nucleus is not on the secretory pathway. C) the mitochondria are not part of the secretory pathway.",
+   "trap": "Placing the Golgi apparatus before the ER.",
+   "topic": "Secretory pathway",
+   "mastery_sheet_id": "2A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_BB_D12",
+   "stem": "Which feature is characteristic of the lysogenic cycle of a bacteriophage?",
+   "options": {
+    "A": "Host cells burst immediately after viral assembly, releasing progeny phage at once",
+    "B": "The viral genome is degraded in the cytoplasm by host nucleases soon after entry",
+    "C": "The viral genome integrates into the host chromosome and is replicated along with it",
+    "D": "Phage coat proteins are produced in large numbers right after infection and assembled"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) In the lysogenic cycle the prophage is passed to daughter cells without lysing the host. Why the others are wrong: A) this describes the lytic cycle. B) lysogeny requires a stable phage genome. D) this is the lytic cycle; in lysogeny repressors keep these genes off.",
+   "trap": "Mixing up the features of the lytic and lysogenic cycles.",
+   "topic": "Bacteriophage life cycles",
+   "mastery_sheet_id": "2B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_BB_D13",
+   "stem": "Which of the following tissues is derived from embryonic mesoderm?",
+   "options": {
+    "A": "The epidermis of the skin",
+    "B": "The epithelial lining of the lungs",
+    "C": "The neurons of the retina",
+    "D": "Cardiac muscle"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) The heart muscle arises from mesoderm, along with skeletal muscle, bone, and blood. Why the others are wrong: A) this derives from ectoderm. B) this derives from endoderm. C) these derive from neural ectoderm.",
+   "trap": "Placing organ epithelia in mesoderm because they are within the body.",
+   "topic": "Germ layers",
+   "mastery_sheet_id": "2C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_BB_D14",
+   "stem": "The effects of cortisol on gene expression take hours, whereas the effects of epinephrine on glycogen breakdown take seconds. This difference is best explained by:",
+   "options": {
+    "A": "cortisol acting through intracellular receptors that alter transcription, while epinephrine acts through surface receptors and second messengers",
+    "B": "cortisol being secreted by the posterior pituitary",
+    "C": "epinephrine entering the nucleus to act on DNA",
+    "D": "cortisol binding G protein coupled receptors on the plasma membrane"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Cortisol is a lipophilic steroid that must change gene expression and protein levels, while epinephrine triggers a rapid phosphorylation cascade. Why the others are wrong: B) cortisol is produced by the adrenal cortex. C) epinephrine binds membrane receptors. D) steroid receptors are intracellular.",
+   "trap": "Thinking all hormones act through surface receptors.",
+   "topic": "Hormone mechanisms",
+   "mastery_sheet_id": "3A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL02_BB_D15",
+   "stem": "A virus-infected body cell displays viral peptides to cytotoxic T cells. These peptides are presented on:",
+   "options": {
+    "A": "MHC class II molecules",
+    "B": "MHC class I molecules",
+    "C": "Free antibodies on the surface of the cell",
+    "D": "Complement protein C3b"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) MHC I is found on nearly all nucleated cells and presents intracellular peptides to CD8+ T cells. Why the others are wrong: A) these present extracellular antigens to CD4+ helper T cells and are limited to antigen-presenting cells. C) antibodies are produced by plasma cells and are not displays of peptide antigens. D) complement marks pathogens for destruction, but does not present peptides to T cells.",
+   "trap": "Choosing MHC II because the antigen is from a virus.",
+   "topic": "Immune system",
+   "mastery_sheet_id": "3B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

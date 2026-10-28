@@ -1,0 +1,39 @@
+{
+ "logname": "MiniA",
+ "files": "mini/Mini01-05",
+ "in_scope": 100,
+ "matched_after_fix": 100,
+ "matched_initially": 92,
+ "fixed": [
+  "Mini01_BB_P1: restored dropped first table row | WT | 58 |",
+  "Mini01_BB_P2: restored dropped first table row | Carboxyl terminus | 3.1 |",
+  "Mini01_BB_P3: restored dropped first table row | R1 | 1 × 10⁶ | 0.010 | 0.50 | 0.91 |",
+  "Mini01_BB_P4: restored dropped first table row | EcoRI | 6.0 |",
+  "Mini01_BB_P5: restored dropped first table row | G | Vehicle | 24 | 18 |",
+  "Mini01_BB_P7: restored dropped first table row | RR | 20 |",
+  "Mini01_BB_P8: restored dropped first table row | Purple, starchy | 440 |",
+  "Mini01_BB_P9: restored dropped first table row | ATP + H2O → ADP + Pi | -30.5 |",
+  "Mini01_BB_P10: restored dropped first table row | 40 | 1.0 | 0.9 |",
+  "Mini02_CP_P8: graph point ln k at 330 K corrected -6.29 -> -6.32 (ln 1.8e-3); Q1 explanation Ea 79 ~ 80 kJ/mol",
+  "Mini03_PS_P1: d' table value 1.72 -> 1.71 (z(.62)-z(.08)=1.711)",
+  "Mini04_BB_P3_Q1: option C 4-fold -> 5-fold (5.8/1.2=4.8)",
+  "Mini05_CP_P2_Q2: option D explanation corrected (8.4 = 63/7.5)",
+  "Mini05_CP_P3_Q1: option C 72 mm -> 384 mm (64 x 6.0); explanation fixed",
+  "Mini05_CP_P4_Q1: option A explanation fixed",
+  "Mini05_CP_P4_Q4: option B explanation fixed (Z-2 gives 1.7, 1.4 is unsquared sqrt E)",
+  "Mini05_CP_P5_Q5: options A/D made 3.3e-8 / 3.3e-7 to match sqrt(Kw)",
+  "Mini05_CP_P7_Q3: options did not match the stem (layer descriptions); rewritten as 0.454/0.046/0.092/0.250 g, key C->B"
+ ],
+ "verified_true": 60,
+ "searches": [
+  {
+   "query": "peptide isoelectric point pI average of pKa ... Henderson-Hasselbalch",
+   "confirmed": "pI = midpoint of flanking pKa values; charge via Henderson-Hasselbalch (openstax 26.2, Pearson calculator)"
+  },
+  {
+   "query": "first-order half-life t1/2 = ln 2 / k",
+   "confirmed": "t1/2 = ln2/k = 0.693/k (UCalgary chem textbook)"
+  }
+ ],
+ "note": "Web search budget exhausted after 2 successful searches; category B questions needing other facts left accuracy_verified=false (map units, delta G=-RT lnK, Graham, Faraday/Ecell, P=V^2/R, statics, calorimetry, r^2, familywise error, dependency ratio, plaque titer, Hardy-Weinberg, beta-oxidation, pKw, pKa-Ka, Rf, discrete basic-physics items). Mini01 tables had first data row dropped (restored); other Mini01 passages (e.g. P6) not in scope may have same bug."
+}

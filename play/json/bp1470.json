@@ -1,0 +1,242 @@
+[
+  {
+    "id": "bp1470_q1",
+    "type": "data_reading",
+    "passage_id": "bp1470",
+    "passage_text": "Researchers investigated the relationship between light intensity and photosynthetic oxygen production in the aquatic plant Lemna minor. They measured O2 production rates at five different photon flux densities (PFD) under controlled temperature and CO2 conditions. The experiment used a Clark-type electrode to record O2 evolution over a 10‑minute interval, and data were averaged over three replicates. The results, summarized in Table 1, show a saturating response with a plateau at high light levels. The authors concluded that photosynthetic capacity saturates at ~800 µmol photons m‑2 s‑1, suggesting that light stops limiting photosynthesis above this intensity. They also noted that the steep initial rise indicates a high quantum yield, while the leveling off marks the transition to light‑saturated metabolism. These findings have implications for optimizing growth conditions in bioreactors and for modeling primary productivity in shallow freshwater ecosystems.",
+    "table_data": [
+      [
+        "Light Intensity (µmol photons m‑2 s‑1)",
+        "O2 Production (µmol O2 g‑1 leaf h‑1)"
+      ],
+      [
+        200,
+        350
+      ],
+      [
+        400,
+        550
+      ],
+      [
+        600,
+        720
+      ],
+      [
+        800,
+        840
+      ],
+      [
+        1000,
+        860
+      ]
+    ],
+    "stem": "Which of the following best describes the trend observed in the data presented in Table 1?",
+    "options": {
+      "A": "A linear increase in O2 production with increasing light intensity.",
+      "B": "An exponential increase in O2 production with increasing light intensity.",
+      "C": "An increase that is steep at low light and levels off at high light intensities.",
+      "D": "A decrease in O2 production as light intensity increases."
+    },
+    "correct": "C",
+    "explanation": "Correct: O2 production rises by 200, 170, 120 and then only 20 units across successive 200-unit light steps, i.e. it saturates. Why the others are wrong: A) the increments shrink, so the rise is not linear. B) an exponential increase would get steeper, but here the increments shrink. D) O2 production never decreases.",
+    "trap": "Misreading the plateau at high light as a decline or as a continuing linear rise.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp1470_q2",
+    "type": "experimental_design",
+    "passage_id": "bp1470",
+    "passage_text": "Researchers investigated the relationship between light intensity and photosynthetic oxygen production in the aquatic plant Lemna minor. They measured O2 production rates at five different photon flux densities (PFD) under controlled temperature and CO2 conditions. The experiment used a Clark-type electrode to record O2 evolution over a 10‑minute interval, and data were averaged over three replicates. The results, summarized in Table 1, show a saturating response with a plateau at high light levels. The authors concluded that photosynthetic capacity saturates at ~800 µmol photons m‑2 s‑1, suggesting that light stops limiting photosynthesis above this intensity. They also noted that the steep initial rise indicates a high quantum yield, while the leveling off marks the transition to light‑saturated metabolism. These findings have implications for optimizing growth conditions in bioreactors and for modeling primary productivity in shallow freshwater ecosystems.",
+    "table_data": [
+      [
+        "Light Intensity (µmol photons m‑2 s‑1)",
+        "O2 Production (µmol O2 g‑1 leaf h‑1)"
+      ],
+      [
+        200,
+        350
+      ],
+      [
+        400,
+        550
+      ],
+      [
+        600,
+        720
+      ],
+      [
+        800,
+        840
+      ],
+      [
+        1000,
+        860
+      ]
+    ],
+    "stem": "Which of the following was a key experimental control in this study?",
+    "options": {
+      "A": "Varying the temperature of the incubation chamber.",
+      "B": "Maintaining a constant CO2 concentration in the water.",
+      "C": "Changing the light intensity during the measurement period.",
+      "D": "Using a different type of oxygen electrode for each replicate."
+    },
+    "correct": "B",
+    "explanation": "The researchers explicitly controlled temperature and CO2, keeping them constant while varying only light intensity. Option B reflects this control.",
+    "trap": "Students sometimes think that varying light itself is a control; however, it is the independent variable, not a control.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:02:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp1470_q3",
+    "type": "calculation",
+    "passage_id": "bp1470",
+    "passage_text": "Researchers investigated the relationship between light intensity and photosynthetic oxygen production in the aquatic plant Lemna minor. They measured O2 production rates at five different photon flux densities (PFD) under controlled temperature and CO2 conditions. The experiment used a Clark-type electrode to record O2 evolution over a 10‑minute interval, and data were averaged over three replicates. The results, summarized in Table 1, show a saturating response with a plateau at high light levels. The authors concluded that photosynthetic capacity saturates at ~800 µmol photons m‑2 s‑1, suggesting that light stops limiting photosynthesis above this intensity. They also noted that the steep initial rise indicates a high quantum yield, while the leveling off marks the transition to light‑saturated metabolism. These findings have implications for optimizing growth conditions in bioreactors and for modeling primary productivity in shallow freshwater ecosystems.",
+    "table_data": [
+      [
+        "Light Intensity (µmol photons m‑2 s‑1)",
+        "O2 Production (µmol O2 g‑1 leaf h‑1)"
+      ],
+      [
+        200,
+        350
+      ],
+      [
+        400,
+        550
+      ],
+      [
+        600,
+        720
+      ],
+      [
+        800,
+        840
+      ],
+      [
+        1000,
+        860
+      ]
+    ],
+    "stem": "By what percent does O2 production increase when light intensity doubles from 200 to 400 µmol photons m-2 s-1?",
+    "options": {
+      "A": "36%",
+      "B": "57%",
+      "C": "100%",
+      "D": "157%"
+    },
+    "correct": "B",
+    "explanation": "Percent increase = (550 - 350)/350 x 100 = 57.1%. Doubling the light does not double O2 output because the response is saturating.",
+    "trap": "Assuming O2 output doubles when light doubles (100%) or dividing the 200-unit increase by the final 550 value (36%) instead of the starting 350.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:04:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp1470_q4",
+    "type": "trap",
+    "passage_id": "bp1470",
+    "passage_text": "Researchers investigated the relationship between light intensity and photosynthetic oxygen production in the aquatic plant Lemna minor. They measured O2 production rates at five different photon flux densities (PFD) under controlled temperature and CO2 conditions. The experiment used a Clark-type electrode to record O2 evolution over a 10‑minute interval, and data were averaged over three replicates. The results, summarized in Table 1, show a saturating response with a plateau at high light levels. The authors concluded that photosynthetic capacity saturates at ~800 µmol photons m‑2 s‑1, suggesting that light stops limiting photosynthesis above this intensity. They also noted that the steep initial rise indicates a high quantum yield, while the leveling off marks the transition to light‑saturated metabolism. These findings have implications for optimizing growth conditions in bioreactors and for modeling primary productivity in shallow freshwater ecosystems.",
+    "table_data": [
+      [
+        "Light Intensity (µmol photons m‑2 s‑1)",
+        "O2 Production (µmol O2 g‑1 leaf h‑1)"
+      ],
+      [
+        200,
+        350
+      ],
+      [
+        400,
+        550
+      ],
+      [
+        600,
+        720
+      ],
+      [
+        800,
+        840
+      ],
+      [
+        1000,
+        860
+      ]
+    ],
+    "stem": "Which of the following statements is a common misconception about photosynthetic light response curves?",
+    "options": {
+      "A": "The light saturation point indicates that photosynthesis cannot increase further with light.",
+      "B": "O2 production is directly proportional to light intensity at all levels.",
+      "C": "The Clark electrode is the standard method for measuring O2 evolution.",
+      "D": "The experiment used three replicates to improve precision."
+    },
+    "correct": "B",
+    "explanation": "Correct: B is the misconception. O2 production is not directly proportional to light at all levels; doubling light from 200 to 400 raised it only 57% and gains fell to 20 units between 800 and 1000. Why the others are wrong: A) saturation does mean output stops rising further with light, so this is a correct statement. C) Clark electrodes are a standard way to measure O2 evolution, and the passage used one. D) the passage states three replicates were averaged.",
+    "trap": "Students often think that a linear relationship holds across all light levels, ignoring the saturation phase.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:06:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  },
+  {
+    "id": "bp1470_q5",
+    "type": "link",
+    "passage_id": "bp1470",
+    "passage_text": "Researchers investigated the relationship between light intensity and photosynthetic oxygen production in the aquatic plant Lemna minor. They measured O2 production rates at five different photon flux densities (PFD) under controlled temperature and CO2 conditions. The experiment used a Clark-type electrode to record O2 evolution over a 10‑minute interval, and data were averaged over three replicates. The results, summarized in Table 1, show a saturating response with a plateau at high light levels. The authors concluded that photosynthetic capacity saturates at ~800 µmol photons m‑2 s‑1, suggesting that light stops limiting photosynthesis above this intensity. They also noted that the steep initial rise indicates a high quantum yield, while the leveling off marks the transition to light‑saturated metabolism. These findings have implications for optimizing growth conditions in bioreactors and for modeling primary productivity in shallow freshwater ecosystems.",
+    "table_data": [
+      [
+        "Light Intensity (µmol photons m‑2 s‑1)",
+        "O2 Production (µmol O2 g‑1 leaf h‑1)"
+      ],
+      [
+        200,
+        350
+      ],
+      [
+        400,
+        550
+      ],
+      [
+        600,
+        720
+      ],
+      [
+        800,
+        840
+      ],
+      [
+        1000,
+        860
+      ]
+    ],
+    "stem": "Which 200 µmol photons m⁻² s⁻¹ interval of light intensity produced the smallest increase in O2 production in Table 1?",
+    "options": {
+      "A": "200 to 400",
+      "B": "400 to 600",
+      "C": "600 to 800",
+      "D": "800 to 1000"
+    },
+    "correct": "D",
+    "explanation": "Correct: The increase from 800 to 1000 is 860 - 840 = 20 units, the smallest. Why the others are wrong: A) the increase is 200 units, the largest. B) the increase is 170 units. C) the increase is 120 units.",
+    "trap": "Expecting equal gains for equal light increases and ignoring the saturation near 800.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:08:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "1D"
+  }
+]

@@ -1,0 +1,88 @@
+{
+  "passage_id": "bp1842",
+  "passage": "In the Petrov laboratory, researchers measured dehydrogenase activity in a liver homogenate by following production of NADH, which absorbs light at 340 nm with a molar extinction coefficient of 6,220 M⁻¹cm⁻¹, whereas NAD⁺ does not absorb appreciably at this wavelength. The homogenate was diluted 50-fold in assay buffer before use, and 1 mL reactions in a 1 cm cuvette contained saturating substrate and NAD⁺ at 25 °C. Absorbance at 340 nm was recorded every minute. A blank containing all components except substrate was run in parallel to correct for non-enzymatic changes. The initial linear region of the progress curve was used to calculate velocity. The researchers wished to report the activity of the undiluted homogenate and to compare it with a published value from a different laboratory. The spectrophotometer was zeroed against buffer, and all readings fell within the instrument's linear range. All procedures followed the laboratory's standard operating protocols, and raw data were archived before analysis.",
+  "table": "Table 1. Absorbance at 340 nm\n\n| Time (min) | A340, sample | A340, blank (no substrate) |\n|---|---|---|\n| 0 | 0.05 | 0.05 |\n| 1 | 0.361 | 0.05 |\n| 2 | 0.672 | 0.05 |\n| 3 | 0.983 | 0.05 |",
+  "questions": [
+    {
+      "stem": "What is the change in A340 of the sample between 0 and 2 minutes, according to Table 1?",
+      "options": {
+        "A": "0.672",
+        "B": "0.311",
+        "C": "0.622",
+        "D": "0.933"
+      },
+      "correct": "C",
+      "explanation": "A(2 min) − A(0 min) = 0.672 − 0.05 = 0.622.",
+      "topic": "Spectrophotometric assays: data interpretation",
+      "trap": "Picking 0.672 (the raw 2 min value, option A), 0.311 (the 1 min change, option B) or 0.933 (the 3 min change, option D) instead of 0.672 − 0.05 at 2 min.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "4D",
+      "id": "bp1842-1"
+    },
+    {
+      "stem": "Why is a blank lacking substrate included?",
+      "options": {
+        "A": "To convert NAD⁺ to NADH",
+        "B": "To detect absorbance changes that occur without the enzyme-catalyzed reaction",
+        "C": "To ensure the enzyme is saturated",
+        "D": "To increase the extinction coefficient of NADH"
+      },
+      "correct": "B",
+      "explanation": "The blank accounts for background drift (e.g., contaminating reductants, instrument drift) independent of the reaction under study.",
+      "topic": "Enzyme assays: experimental design",
+      "trap": "Choosing the options about converting NAD⁺, saturation or extinction coefficient; the no-substrate blank only reports non-enzymatic absorbance drift.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1842-2"
+    },
+    {
+      "stem": "Using Beer–Lambert, what is the initial rate of NADH formation in the cuvette (µM/min), and what activity does the undiluted homogenate have (µM/min)?",
+      "options": {
+        "A": "50 µM/min in the cuvette; 50 µM/min in the undiluted homogenate",
+        "B": "0.05 µM/min in the cuvette; 2.5 µM/min in the undiluted homogenate",
+        "C": "50 µM/min in the cuvette; 2500 µM/min in the undiluted homogenate",
+        "D": "2500 µM/min in the cuvette; 125000 µM/min in the undiluted homogenate"
+      },
+      "correct": "C",
+      "explanation": "Rate = (ΔA/min)/(ε·l) = 0.311/6220 = 50 µM/min in the cuvette. Multiply by the 50-fold dilution to get 2500 µM/min for the undiluted homogenate.",
+      "topic": "Beer–Lambert law: rate calculation",
+      "trap": "Forgetting the 50-fold dilution (option A) or slipping by a factor of 1,000 in units (options B and D).",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "4D",
+      "id": "bp1842-3"
+    },
+    {
+      "stem": "Which statement about this assay is INCORRECT?",
+      "options": {
+        "A": "The initial linear portion of the curve gives the most reliable velocity",
+        "B": "Both NAD⁺ and NADH absorb strongly at 340 nm, so the signal reflects total coenzyme",
+        "C": "NADH absorbs at 340 nm while NAD⁺ does not",
+        "D": "Substrate must be saturating for the rate to approximate Vmax"
+      },
+      "correct": "B",
+      "explanation": "Only the reduced coenzyme absorbs at 340 nm; that selective absorbance makes the assay possible.",
+      "topic": "Spectrophotometry: trap",
+      "trap": "Missing the INCORRECT wording or assuming NAD⁺ also absorbs at 340 nm; only NADH absorbs, so the signal tracks NADH formation, not total coenzyme.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "4D",
+      "id": "bp1842-4"
+    },
+    {
+      "stem": "Which type of assay couples an enzyme of interest to NADH oxidation so that its activity can be monitored at 340 nm?",
+      "options": {
+        "A": "A coupled assay using lactate dehydrogenase to reduce pyruvate formed by pyruvate kinase",
+        "B": "A gel assay using SDS-PAGE mobility",
+        "C": "An immunoassay using antibodies against the enzyme",
+        "D": "A radioactive assay using ³²P-labeled ATP"
+      },
+      "correct": "A",
+      "explanation": "Pyruvate kinase produces pyruvate; LDH then oxidizes NADH to NAD⁺, causing a decrease in A340 proportional to pyruvate kinase activity.",
+      "topic": "Metabolism link: coupled enzyme assays",
+      "trap": "Choosing a gel, immunoassay or radioactive assay; these do not report on NADH oxidation by A340, which is the basis of coupled assays.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1842-5"
+    }
+  ],
+  "accuracy_verified": true
+}

@@ -1,0 +1,117 @@
+[
+  {
+    "id": "bp1542-01",
+    "type": "question",
+    "passage_id": "bp1542",
+    "passage_text": "Researchers at XYZ University conducted a randomized controlled trial to investigate the impact of caffeine intake on cognitive performance, specifically reaction time in a simple visual task. Twenty healthy adults were recruited and randomly assigned to one of five groups, each receiving a different caffeine dose (0 mg placebo, 50, 100, 150, or 200 mg). After a 30‑minute absorption period, participants performed a computerized go‑no‑go task, and their reaction times (RT) were recorded. The study aimed to determine whether higher caffeine doses correlate with faster RTs and to assess the dose–response relationship. The researchers also monitored heart rate and subjective alertness to control for potential confounding variables. The data were analyzed using ANOVA to compare mean RTs across dose groups and regression to model the dose–response curve. Findings suggested a modest but statistically significant improvement in RT at 100 mg, with diminishing returns at higher doses. These results contribute to understanding how caffeine modulates neural processing speed and inform guidelines for optimal dosing in cognitive tasks.",
+    "table_data": "Group | Dose (mg) | Mean RT (ms) | SD (ms)\n------------ | --------- | ------------ | -------\nGroup 1 | 0 | 350 | 12\nGroup 2 | 50 | 335 | 10\nGroup 3 | 100 | 320 | 8\nGroup 4 | 150 | 322 | 9\nGroup 5 | 200 | 330 | 11",
+    "stem": "Which group had the fastest mean reaction time?",
+    "options": {
+      "A": "Group 1",
+      "B": "Group 2",
+      "C": "Group 3",
+      "D": "Group 4"
+    },
+    "correct": "C",
+    "explanation": "Correct: Group 3 (100 mg) had the lowest mean RT, 320 ms. Why the others are wrong: A) Group 1 (0 mg) was slowest at 350 ms. B) Group 2 had 335 ms. D) Group 4 had 322 ms.",
+    "trap": "Assuming a higher dose always gives faster responses.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  },
+  {
+    "id": "bp1542-02",
+    "type": "question",
+    "passage_id": "bp1542",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which experimental design best isolates the effect of caffeine on reaction time while controlling for individual differences?",
+    "options": {
+      "A": "Cross‑sectional design with a single caffeine dose",
+      "B": "Randomized controlled trial with a placebo group",
+      "C": "Observational study of habitual caffeine consumers",
+      "D": "Case‑control study comparing high and low RT participants"
+    },
+    "correct": "B",
+    "explanation": "A randomized controlled trial with a placebo group controls for individual differences and placebo effects, allowing causal inference about caffeine’s impact.",
+    "trap": "Choosing a cross-sectional or observational design because it studies caffeine users, although without random assignment and a placebo group individual differences confound the dose effect.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:02:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1542-03",
+    "type": "question",
+    "passage_id": "bp1542",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Calculate the mean of the five group mean reaction times.",
+    "options": {
+      "A": "328 ms",
+      "B": "331 ms",
+      "C": "335 ms",
+      "D": "340 ms"
+    },
+    "correct": "B",
+    "explanation": "Correct: (350 + 335 + 320 + 322 + 330) / 5 = 331.4, about 331 ms. Why the others are wrong: A) 328 ms is lower than the computed mean. C) 335 ms is the 50 mg value, not the mean. D) 340 ms is too high.",
+    "trap": "Taking a single group's mean, such as 335 ms at 50 mg, as the average instead of summing all five means (1657 ms) and dividing by 5.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:04:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  },
+  {
+    "id": "bp1542-04",
+    "type": "question",
+    "passage_id": "bp1542",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which of the following statements is NOT supported by the data presented?",
+    "options": {
+      "A": "Caffeine at 100 mg improves reaction time compared to placebo.",
+      "B": "Higher caffeine doses beyond 100 mg do not further improve reaction time.",
+      "C": "The mean reaction time at 100 mg was lower than at 50 mg.",
+      "D": "All participants showed improved reaction times relative to baseline."
+    },
+    "correct": "D",
+    "explanation": "The table has no baseline (pre-dose) data, so improvement relative to baseline cannot be assessed; the other statements are supported (320 < 335 < 350 ms; 322 and 330 ms are not lower than 320 ms).",
+    "trap": "Reading between-group differences in mean RT as an improvement within every participant, when no baseline measurements were reported.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:06:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  },
+  {
+    "id": "bp1542-05",
+    "type": "question",
+    "passage_id": "bp1542",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which description best fits the dose-response relationship in Table 1?",
+    "options": {
+      "A": "Mean RT decreased steadily as dose increased.",
+      "B": "Mean RT fell to a minimum at 100 mg and was slightly higher at 150 and 200 mg.",
+      "C": "Mean RT was higher than the 0 mg group at every caffeine dose.",
+      "D": "Mean RT did not change across doses."
+    },
+    "correct": "B",
+    "explanation": "Correct: RT was 350, 335, 320, then 322 and 330 ms, a minimum at 100 mg. Why the others are wrong: A) RT rose again above 100 mg. C) All caffeine doses had lower RT than 0 mg. D) RT ranged from 320 to 350 ms.",
+    "trap": "Assuming more caffeine is always better.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:08:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  }
+]

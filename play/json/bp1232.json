@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "type": "data_reading",
+    "passage_id": "bp1232",
+    "passage_text": "Researchers investigated the impact of a novel probiotic strain, L. fermentum X, on the gut microbiome composition and fecal pH levels in a controlled mouse model. Twenty-four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1×10^9 CFU L. fermentum X). Over a 4‑week period, fecal samples were collected weekly and analyzed for pH and microbial diversity via 16S rRNA sequencing. The probiotic group exhibited a statistically significant reduction in fecal pH (6.5 versus 7.2 in the Control group), alongside an increase in beneficial Bacteroidetes relative abundance. No adverse effects were observed. The study suggests that L. fermentum X may modulate gut acidity and microbial balance, potentially influencing host metabolic pathways.",
+    "table_data": [
+      {
+        "Group": "Control",
+        "Sample Size": 8,
+        "Mean Fecal pH": 7.2,
+        "Std Dev": 0.15
+      },
+      {
+        "Group": "Placebo",
+        "Sample Size": 8,
+        "Mean Fecal pH": 7.1,
+        "Std Dev": 0.12
+      },
+      {
+        "Group": "Treatment",
+        "Sample Size": 8,
+        "Mean Fecal pH": 6.5,
+        "Std Dev": 0.1
+      }
+    ],
+    "stem": "Which statement best describes the change in mean fecal pH observed in the Treatment group compared to the Control group?",
+    "options": {
+      "A": "The mean fecal pH increased by 0.7 units.",
+      "B": "The mean fecal pH decreased by 0.7 units.",
+      "C": "The mean fecal pH decreased by 0.5 units.",
+      "D": "The mean fecal pH remained unchanged."
+    },
+    "correct": "B",
+    "explanation": "Mean pH fell from 7.2 to 6.5, a 0.7‑unit decrease.",
+    "trap": "Option A misleads by stating an increase rather than a decrease.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "5:00",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "5A"
+  },
+  {
+    "id": 2,
+    "type": "experimental_design",
+    "passage_id": "bp1232",
+    "passage_text": "Researchers investigated the impact of a novel probiotic strain, L. fermentum X, on the gut microbiome composition and fecal pH levels in a controlled mouse model. Twenty-four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1×10^9 CFU L. fermentum X). Over a 4‑week period, fecal samples were collected weekly and analyzed for pH and microbial diversity via 16S rRNA sequencing. The probiotic group exhibited a statistically significant reduction in fecal pH (6.5 versus 7.2 in the Control group), alongside an increase in beneficial Bacteroidetes relative abundance. No adverse effects were observed. The study suggests that L. fermentum X may modulate gut acidity and microbial balance, potentially influencing host metabolic pathways.",
+    "table_data": [
+      {
+        "Group": "Control",
+        "Sample Size": 8,
+        "Mean Fecal pH": 7.2,
+        "Std Dev": 0.15
+      },
+      {
+        "Group": "Placebo",
+        "Sample Size": 8,
+        "Mean Fecal pH": 7.1,
+        "Std Dev": 0.12
+      },
+      {
+        "Group": "Treatment",
+        "Sample Size": 8,
+        "Mean Fecal pH": 6.5,
+        "Std Dev": 0.1
+      }
+    ],
+    "stem": "Which comparison best isolates the effect of L. fermentum X itself from the effect of the gavage vehicle?",
+    "options": {
+      "A": "Treatment versus Control",
+      "B": "Treatment versus Placebo",
+      "C": "Placebo versus Control",
+      "D": "Control at week 1 versus Control at week 4"
+    },
+    "correct": "B",
+    "explanation": "Correct: Treatment and Placebo mice both received gavage, so they differ only in the probiotic (6.5 versus 7.1, a 0.6 difference). Why the others are wrong: A) Control mice received no gavage, so this comparison mixes probiotic and vehicle effects. C) this comparison shows only the vehicle effect (0.1 unit). D) this compares the same untreated group over time and says nothing about the probiotic.",
+    "trap": "Comparing Treatment with the untreated Control, which confounds the probiotic with the vehicle and gavage procedure.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "5:00",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": 3,
+    "type": "calculation",
+    "passage_id": "bp1232",
+    "passage_text": "Researchers investigated the impact of a novel probiotic strain, L. fermentum X, on the gut microbiome composition and fecal pH levels in a controlled mouse model. Twenty-four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1×10^9 CFU L. fermentum X). Over a 4‑week period, fecal samples were collected weekly and analyzed for pH and microbial diversity via 16S rRNA sequencing. The probiotic group exhibited a statistically significant reduction in fecal pH (6.5 versus 7.2 in the Control group), alongside an increase in beneficial Bacteroidetes relative abundance. No adverse effects were observed. The study suggests that L. fermentum X may modulate gut acidity and microbial balance, potentially influencing host metabolic pathways.",
+    "table_data": [
+      {
+        "Group": "Control",
+        "Sample Size": 8,
+        "Mean Fecal pH": 7.2,
+        "Std Dev": 0.15
+      },
+      {
+        "Group": "Placebo",
+        "Sample Size": 8,
+        "Mean Fecal pH": 7.1,
+        "Std Dev": 0.12
+      },
+      {
+        "Group": "Treatment",
+        "Sample Size": 8,
+        "Mean Fecal pH": 6.5,
+        "Std Dev": 0.1
+      }
+    ],
+    "stem": "What is the percent reduction in mean fecal pH from Control to Treatment?",
+    "options": {
+      "A": "9.7%",
+      "B": "12.5%",
+      "C": "15.8%",
+      "D": "20.0%"
+    },
+    "correct": "A",
+    "explanation": "Percent reduction = (7.2 − 6.5)/7.2 × 100 ≈ 9.7 %.",
+    "trap": "Using the wrong baseline for percent change; the 0.7 pH drop must be divided by the Control mean (7.2), not the Treatment mean.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "5:00",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "5A"
+  },
+  {
+    "id": 4,
+    "type": "trap",
+    "passage_id": "bp1232",
+    "passage_text": "Researchers investigated the impact of a novel probiotic strain, L. fermentum X, on the gut microbiome composition and fecal pH levels in a controlled mouse model. Twenty‑four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1×10^9 CFU L. fermentum X). Over a 4‑week period, fecal samples were collected weekly and analyzed for pH and microbial diversity via 16S rRNA sequencing. The probiotic group exhibited a statistically significant reduction in fecal pH (6.5 versus 7.2 in the Control group), alongside an increase in beneficial Bacteroidetes relative abundance. No adverse effects were observed. The study suggests that L. fermentum X may modulate gut acidity and microbial balance, potentially influencing host metabolic pathways.",
+    "table_data": [
+      {
+        "Group": "Control",
+        "Sample Size": 8,
+        "Mean Fecal pH": 7.2,
+        "Std Dev": 0.15
+      },
+      {
+        "Group": "Placebo",
+        "Sample Size": 8,
+        "Mean Fecal pH": 7.1,
+        "Std Dev": 0.12
+      },
+      {
+        "Group": "Treatment",
+        "Sample Size": 8,
+        "Mean Fecal pH": 6.5,
+        "Std Dev": 0.1
+      }
+    ],
+    "stem": "Which conclusion is NOT supported by the data presented?",
+    "options": {
+      "A": "L. fermentum X lowers fecal pH in mice.",
+      "B": "The probiotic group had a higher mean pH than the Control group.",
+      "C": "The vehicle alone had a minor effect on pH.",
+      "D": "No adverse effects were observed in the Treatment group."
+    },
+    "correct": "B",
+    "explanation": "The Treatment group’s mean pH (6.5) is lower than the Control group’s (7.2), so option B is false. All other statements are supported by the data.",
+    "trap": "Option A is tempting because it states the correct effect, but the question asks for the unsupported conclusion.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "5:00",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "5A"
+  },
+  {
+    "id": 5,
+    "type": "link",
+    "passage_id": "bp1232",
+    "passage_text": "Researchers investigated the impact of a novel probiotic strain, L. fermentum X, on the gut microbiome composition and fecal pH levels in a controlled mouse model. Twenty‑four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1×10^9 CFU L. fermentum X). Over a 4‑week period, fecal samples were collected weekly and analyzed for pH and microbial diversity via 16S rRNA sequencing. The probiotic group exhibited a statistically significant reduction in fecal pH (6.5 versus 7.2 in the Control group), alongside an increase in beneficial Bacteroidetes relative abundance. No adverse effects were observed. The study suggests that L. fermentum X may modulate gut acidity and microbial balance, potentially influencing host metabolic pathways.",
+    "table_data": [
+      {
+        "Group": "Control",
+        "Sample Size": 8,
+        "Mean Fecal pH": 7.2,
+        "Std Dev": 0.15
+      },
+      {
+        "Group": "Placebo",
+        "Sample Size": 8,
+        "Mean Fecal pH": 7.1,
+        "Std Dev": 0.12
+      },
+      {
+        "Group": "Treatment",
+        "Sample Size": 8,
+        "Mean Fecal pH": 6.5,
+        "Std Dev": 0.1
+      }
+    ],
+    "stem": "Which broader physiological concept is most directly linked to the observed decrease in fecal pH?",
+    "options": {
+      "A": "Insulin resistance",
+      "B": "Short‑chain fatty acid (SCFA) production",
+      "C": "Renal acid‑base balance",
+      "D": "Central nervous system neurotransmission"
+    },
+    "correct": "B",
+    "explanation": "Lower fecal pH often reflects increased SCFA production by gut microbes, which acidify the lumen. SCFAs are linked to metabolic health, making option B the most relevant link.",
+    "trap": "Option A might attract students due to the metabolic focus, but insulin resistance is not directly measured here.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "5:00",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "5A"
+  }
+]

@@ -1,0 +1,432 @@
+[
+ {
+  "id": "d_1B_1",
+  "type": "discrete",
+  "stem": "A template DNA strand reads 3'-TACGGATTC-5'. What is the mRNA transcribed from it?",
+  "options": {
+   "A": "5'-AUGCCUAAG-3'",
+   "B": "5'-UACGGAUUC-3'",
+   "C": "3'-AUGCCUAAG-5'",
+   "D": "5'-ATGCCTAAG-3'"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) mRNA is complementary and antiparallel to the template, with U replacing T: 3'-TACGGATTC-5' gives 5'-AUGCCUAAG-3'. Why the others are wrong: B) 5'-UACGGAUUC-3' simply copies the template sequence with U in place of T instead of its complement. C) 3'-AUGCCUAAG-5' has the correct bases but the wrong polarity. D) 5'-ATGCCTAAG-3' contains T instead of U, which is DNA, not RNA.",
+  "trap": "Writing the complement without reversing polarity or leaving thymine in RNA.",
+  "topic": "Transcription",
+  "mastery_sheet_id": "1B",
+  "difficulty": "517",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1B_2",
+  "type": "discrete",
+  "stem": "The mRNA codon 5'-AUG-3' pairs with which tRNA anticodon?",
+  "options": {
+   "A": "5'-CAU-3'",
+   "B": "5'-UAC-3'",
+   "C": "3'-GUA-5'",
+   "D": "5'-GUA-3'"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) The anticodon is complementary and antiparallel to the codon: 3'-UAC-5', which written 5' to 3' is 5'-CAU-3'. Why the others are wrong: B) 5'-UAC-3' is the complement of the codon written without reversing polarity. C) 3'-GUA-5' is the codon sequence itself read backwards (identical to 5'-AUG-3'), not its complement. D) 5'-GUA-3' is not complementary to AUG.",
+  "trap": "Reading the anticodon 5' to 3' as UAC.",
+  "topic": "Translation: codons and anticodons",
+  "mastery_sheet_id": "1B",
+  "difficulty": "522",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1B_3",
+  "type": "discrete",
+  "stem": "There are 61 sense codons but fewer than 61 distinct tRNAs. What explains this?",
+  "options": {
+   "A": "tRNAs read two codon positions at once",
+   "B": "Flexible pairing at the third codon position",
+   "C": "Ribosomes read mRNA in both directions",
+   "D": "Some codons are read by rRNA instead of tRNA"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Wobble pairing at the third codon position lets one anticodon recognize several codons differing at that base. Why the others are wrong: A) TRNAs read all three codon positions, not two at once. C) Ribosomes read mRNA only 5' to 3'. D) TRNAs, not rRNA, decode all sense codons.",
+  "trap": "Believing the genetic code is unambiguous per tRNA.",
+  "topic": "Wobble",
+  "mastery_sheet_id": "1B",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_4",
+  "type": "discrete",
+  "stem": "A point mutation changes a codon from GAA to GAG, both coding for glutamate. This is",
+  "options": {
+   "A": "missense",
+   "B": "nonsense",
+   "C": "silent",
+   "D": "frameshift"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Because the code is degenerate, GAA and GAG both specify glutamate, so the amino acid is unchanged (a silent mutation). Why the others are wrong: A) Missense would change the amino acid. B) Nonsense would create a stop codon. D) Frameshift is an insertion or deletion not divisible by three, not a substitution.",
+  "trap": "Assuming any base substitution alters the protein.",
+  "topic": "Mutation types",
+  "mastery_sheet_id": "1B",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_5",
+  "type": "discrete",
+  "stem": "Deletion of three consecutive nucleotides within the coding region would most likely",
+  "options": {
+   "A": "shift the reading frame for all downstream codons",
+   "B": "remove one amino acid while preserving the downstream reading frame",
+   "C": "always create a premature stop codon",
+   "D": "have no effect on the protein"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Three nucleotides equal one codon, so the reading frame is maintained and a single amino acid is lost (or one is changed). Why the others are wrong: A) A frameshift requires a deletion that is not a multiple of three. C) A premature stop is not guaranteed, since the deleted codon is usually a sense codon. D) The protein length changes by one residue, so it is not without effect.",
+  "trap": "Assuming all deletions cause frameshifts.",
+  "topic": "Mutation types",
+  "mastery_sheet_id": "1B",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_6",
+  "type": "discrete",
+  "stem": "A mutation changes the conserved GU at a 5' splice donor site. What is the most likely outcome?",
+  "options": {
+   "A": "Failure of 5' capping",
+   "B": "Abnormal splicing such as exon skipping or intron retention",
+   "C": "Premature poly-A addition",
+   "D": "Loss of the promoter"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The spliceosome recognizes the conserved GU at the 5' donor site; disrupting it produces aberrant mRNA, often with exon skipping or intron retention. Why the others are wrong: A) 5' capping occurs at the transcript's start and uses different signals. C) Polyadenylation uses an AAUAAA signal at the 3' end, not the splice donor. D) The promoter lies upstream of the gene and is unaffected by an intronic splice site.",
+  "trap": "Thinking exons are spliced out and introns are retained.",
+  "topic": "RNA splicing",
+  "mastery_sheet_id": "1B",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_7",
+  "type": "discrete",
+  "stem": "Which function is provided by the 5' cap and poly-A tail of eukaryotic mRNA?",
+  "options": {
+   "A": "Template for reverse transcription",
+   "B": "Signal for splicing of introns",
+   "C": "Binding site for RNA polymerase",
+   "D": "Protection from exonuclease degradation and enhanced translation"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The cap and poly-A tail protect mRNA from exonucleases and help ribosome recruitment and export, enhancing translation. Why the others are wrong: A) Reverse transcription templating is not a function of the cap or tail. B) Splicing uses internal consensus sequences, not the cap or tail. C) RNA polymerase binds promoters in DNA, not the mRNA cap.",
+  "trap": "Thinking processing elements are encoded in DNA templates.",
+  "topic": "mRNA processing",
+  "mastery_sheet_id": "1B",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_8",
+  "type": "discrete",
+  "stem": "Cells are treated with alpha-amanitin at a concentration that inhibits RNA polymerase II but not I or III. Which is most directly reduced?",
+  "options": {
+   "A": "mRNA synthesis",
+   "B": "Ribosomal RNA (28S) synthesis",
+   "C": "tRNA synthesis",
+   "D": "All rRNA and tRNA synthesis"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Pol II transcribes protein-coding genes, so inhibiting it most directly reduces mRNA synthesis. Why the others are wrong: B) 28S rRNA is made by Pol I, which is unaffected. C) TRNA is made by Pol III, which is unaffected. D) RRNA and tRNA are made by Pol I and Pol III, so synthesis continues.",
+  "trap": "Mixing up which polymerase makes which RNA.",
+  "topic": "RNA polymerases",
+  "mastery_sheet_id": "1B",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_9",
+  "type": "discrete",
+  "stem": "E. coli is grown with lactose but no glucose. Which describes the lac operon?",
+  "options": {
+   "A": "Repressor remains bound and cAMP is low",
+   "B": "Repressor binds allolactose and cAMP is low",
+   "C": "Allolactose inactivates the repressor and CAP-cAMP enhances transcription",
+   "D": "Glucose binds CAP to activate transcription"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Lactose yields allolactose, which inactivates the repressor, and low glucose raises cAMP, which binds CAP and enhances transcription. Why the others are wrong: A) A bound repressor would block transcription, and cAMP is high, not low, without glucose. B) Allolactose releases the repressor rather than helping it bind, and low cAMP gives little transcription. D) Glucose lowers cAMP and does not bind CAP to activate transcription.",
+  "trap": "Forgetting that cAMP rises when glucose is absent.",
+  "topic": "lac operon",
+  "mastery_sheet_id": "1B",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_10",
+  "type": "discrete",
+  "stem": "A mutation in the lac operator prevents repressor binding. What is the likely phenotype in a haploid cell?",
+  "options": {
+   "A": "No expression even with lactose",
+   "B": "Expression only when glucose is present",
+   "C": "Normal regulation",
+   "D": "Constitutive expression of lac genes even without lactose"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Without repressor binding at the operator, RNA polymerase transcribes the lac genes freely, giving constitutive expression. Why the others are wrong: A) An operator mutation removes repression, so it cannot block expression. B) Glucose still reduces CAP-cAMP activation but does not restore repression. C) Regulation is lost, since the repressor can no longer bind.",
+  "trap": "Confusing an operator mutation with a mutation that makes a super-repressor.",
+  "topic": "lac operon mutations",
+  "mastery_sheet_id": "1B",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_11",
+  "type": "discrete",
+  "stem": "A cell has defective DNA ligase. Which is expected to accumulate?",
+  "options": {
+   "A": "Unwound DNA with no primers",
+   "B": "Long leading strand fragments",
+   "C": "Unjoined Okazaki fragments with nicks in the lagging strand",
+   "D": "RNA primers with no DNA"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Ligase seals the nicks between Okazaki fragments after the RNA primer is replaced with DNA, so without it unjoined fragments accumulate. Why the others are wrong: A) Unwinding and primer synthesis depend on helicase and primase, which are unaffected. B) The leading strand is synthesized continuously and needs no ligation of fragments. D) Primers are replaced by DNA polymerase, which is unaffected.",
+  "trap": "Assigning ligase function to helicase or primase.",
+  "topic": "DNA replication",
+  "mastery_sheet_id": "1B",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_12",
+  "type": "discrete",
+  "stem": "Telomerase solves which problem?",
+  "options": {
+   "A": "Supercoiling ahead of the replication fork",
+   "B": "Shortening of linear chromosome ends because the lagging strand cannot be fully replicated",
+   "C": "Mismatch repair after replication",
+   "D": "Separating the two DNA strands"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Telomerase is a reverse transcriptase carrying its own RNA template that extends telomeres, countering shortening of linear chromosome ends. Why the others are wrong: A) Supercoiling ahead of the fork is relieved by topoisomerase. C) Mismatch repair is a separate pathway. D) Strand separation is performed by helicase.",
+  "trap": "Forgetting telomerase carries its own RNA template.",
+  "topic": "Telomerase",
+  "mastery_sheet_id": "1B",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_13",
+  "type": "discrete",
+  "stem": "Which activity of DNA polymerase III allows proofreading?",
+  "options": {
+   "A": "3' to 5' exonuclease activity",
+   "B": "5' to 3' polymerase activity",
+   "C": "5' to 3' exonuclease activity",
+   "D": "Helicase activity"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Pol III's 3' to 5' exonuclease activity removes a mismatched nucleotide just added, which is proofreading. Why the others are wrong: B) 5' to 3' polymerase activity adds nucleotides rather than removing errors. C) 5' to 3' exonuclease activity removes RNA primers (Pol I). D) Helicase unwinds the duplex and does not remove mismatches.",
+  "trap": "Confusing proofreading with primer removal.",
+  "topic": "DNA proofreading",
+  "mastery_sheet_id": "1B",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_14",
+  "type": "discrete",
+  "stem": "Xeroderma pigmentosum patients are hypersensitive to UV light because they lack",
+  "options": {
+   "A": "base excision repair for uracil",
+   "B": "nucleotide excision repair",
+   "C": "telomere maintenance",
+   "D": "spliceosome function"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) UV light causes thymine dimers, which are repaired by nucleotide excision repair; XP patients lack this pathway. Why the others are wrong: A) Base excision repair fixes single damaged bases such as uracil, not bulky dimers. C) Telomere maintenance is unrelated to UV damage repair. D) Spliceosome function is unrelated to UV damage repair.",
+  "trap": "Mixing up NER and mismatch repair.",
+  "topic": "DNA repair",
+  "mastery_sheet_id": "1B",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_15",
+  "type": "discrete",
+  "stem": "A eukaryotic mRNA lacks the 5' cap. Which is the most likely effect?",
+  "options": {
+   "A": "Increased splicing",
+   "B": "No effect",
+   "C": "Premature termination at the poly-A tail",
+   "D": "Decreased translation initiation and stability"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) The 5' cap recruits initiation factors and the small subunit, which scans to the AUG, and it protects the mRNA, so loss decreases initiation and stability. Why the others are wrong: A) Splicing is a separate process and would not be increased by losing the cap. B) Capping matters for translation and stability, so the effect is not nil. C) Termination depends on stop codons, not the poly-A tail.",
+  "trap": "Applying prokaryotic Shine-Dalgarno logic to eukaryotes.",
+  "topic": "Translation initiation",
+  "mastery_sheet_id": "1B",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_16",
+  "type": "discrete",
+  "stem": "Which catalyzes peptide bond formation on the ribosome?",
+  "options": {
+   "A": "Aminoacyl-tRNA synthetase",
+   "B": "The rRNA of the large subunit",
+   "C": "Elongation factor Tu",
+   "D": "The small subunit proteins"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Peptidyl transferase activity resides in the large-subunit rRNA, making the ribosome a ribozyme. Why the others are wrong: A) Aminoacyl-tRNA synthetase charges tRNAs with amino acids. C) EF-Tu delivers aminoacyl-tRNA to the A site. D) The small subunit proteins help decode mRNA and do not form the peptide bond.",
+  "trap": "Assuming enzymes are always proteins.",
+  "topic": "Peptide bond formation",
+  "mastery_sheet_id": "1B",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_17",
+  "type": "discrete",
+  "stem": "About how many high-energy phosphate bonds are consumed to add one amino acid to a growing chain?",
+  "options": {
+   "A": "1",
+   "B": "2",
+   "C": "6",
+   "D": "4"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Charging uses 2 high-energy bonds (ATP to AMP + PPi), delivery uses 1 GTP, and translocation uses 1 GTP: 2 + 1 + 1 = 4. Why the others are wrong: A) 1 counts only a single step. B) 2 counts only the charging step. C) 6 overcounts the steps.",
+  "trap": "Counting only the two GTP steps and forgetting the ATP spent charging the tRNA.",
+  "topic": "Energetics of translation",
+  "mastery_sheet_id": "1B",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_18",
+  "type": "discrete",
+  "stem": "Histone acetylation generally",
+  "options": {
+   "A": "tightens chromatin and decreases transcription",
+   "B": "removes histones from DNA permanently",
+   "C": "loosens chromatin and increases transcription",
+   "D": "methylates DNA cytosines"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Acetyl groups neutralize lysine's positive charge, weakening histone-DNA binding, loosening chromatin and increasing transcription. Why the others are wrong: A) Tightening chromatin and decreasing transcription describes deacetylation. B) Histones are not permanently removed by acetylation. D) Methylating DNA cytosines is a separate process.",
+  "trap": "Reversing acetylation and methylation effects.",
+  "topic": "Chromatin and gene regulation",
+  "mastery_sheet_id": "1B",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_19",
+  "type": "discrete",
+  "stem": "Methylation of CpG islands in a gene promoter typically results in",
+  "options": {
+   "A": "gene silencing",
+   "B": "increased transcription",
+   "C": "increased mRNA stability",
+   "D": "loss of introns"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Methylated CpG islands recruit proteins that compact chromatin, silencing the gene. Why the others are wrong: B) Increased transcription would follow demethylation. C) MRNA stability is not affected by promoter methylation. D) Introns are unaffected by promoter methylation.",
+  "trap": "Assuming methylation activates genes.",
+  "topic": "Epigenetics",
+  "mastery_sheet_id": "1B",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_20",
+  "type": "discrete",
+  "stem": "A nascent polypeptide with an N-terminal signal sequence is recognized by SRP. Where does translation continue?",
+  "options": {
+   "A": "In the nucleus",
+   "B": "On free cytosolic ribosomes",
+   "C": "In the mitochondrial matrix",
+   "D": "On the rough ER, with the protein entering the lumen"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) SRP directs the ribosome to the ER translocon, so translation continues on the rough ER with cotranslational import into the lumen. Why the others are wrong: A) Nuclear proteins are targeted by an NLS, not an SRP signal sequence. B) Free cytosolic ribosomes make cytosolic proteins lacking a signal sequence. C) Mitochondrial proteins are imported post-translationally.",
+  "trap": "Confusing SRP-dependent targeting with nuclear localization.",
+  "topic": "Protein targeting",
+  "mastery_sheet_id": "1B",
+  "difficulty": "528",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_21",
+  "type": "discrete",
+  "stem": "In E. coli, translation can begin before transcription of an mRNA is complete because",
+  "options": {
+   "A": "there is no nuclear envelope separating transcription and translation",
+   "B": "prokaryotic mRNA is spliced",
+   "C": "ribosomes bind the 5' cap",
+   "D": "prokaryotic mRNA has a poly-A tail"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Prokaryotes lack a nuclear envelope, so ribosomes can bind the mRNA while it is still being transcribed. Why the others are wrong: B) Prokaryotic mRNA is not spliced because it lacks introns. C) Prokaryotic ribosomes bind a Shine-Dalgarno sequence, not a 5' cap. D) Prokaryotic mRNA lacks a poly-A tail.",
+  "trap": "Applying eukaryotic processing to bacteria.",
+  "topic": "Prokaryotic gene expression",
+  "mastery_sheet_id": "1B",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1B_22",
+  "type": "discrete",
+  "stem": "A coding region (excluding stop codon) is 1,200 nucleotides long. How many amino acids does it encode?",
+  "options": {
+   "A": "1,200",
+   "B": "600",
+   "C": "400",
+   "D": "3,600"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Three nucleotides encode one amino acid, so 1,200/3 = 400. Why the others are wrong: A) 1,200 ignores that codons are triplets. B) 600 divides by 2 rather than 3. D) 3,600 multiplies rather than divides.",
+  "trap": "Forgetting that three nucleotides specify each amino acid (the triplet code).",
+  "topic": "Gene to protein calculation",
+  "mastery_sheet_id": "1B",
+  "difficulty": "524",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ }
+]

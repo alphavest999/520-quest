@@ -1,0 +1,88 @@
+{
+  "passage_id": "bp1347",
+  "passage": "The Abara group investigated turnover of IκBα, a regulatory protein that is rapidly degraded in proliferating cells. To measure stability without confounding new synthesis, cells were treated with cycloheximide, an inhibitor of translation elongation, and harvested at the times shown. Lysates were resolved by SDS-PAGE, transferred to a membrane, and probed with an antibody against IκBα; band intensities were quantified and normalized to a loading control. Degradation of IκBα was assumed to follow first-order kinetics. The researchers hoped to compare half-lives under normal and stressed conditions and to learn whether proteasome inhibition would stabilize the protein. Results from unstressed cells are shown; each value is the mean of three biological replicates, with errors below 5% of the mean. Equal total protein was loaded in every lane, as confirmed by the loading control. All procedures followed the laboratory's standard operating protocols, and raw data were archived before analysis.",
+  "table": "Table 1. Decay of IκBα\n\n| Time after cycloheximide (min) | IκBα remaining (%) |\n|---|---|\n| 0 | 100 |\n| 30 | 50 |\n| 60 | 25 |\n| 90 | 12.5 |",
+  "questions": [
+    {
+      "stem": "What fraction of IκBα remains 60 minutes after cycloheximide treatment?",
+      "options": {
+        "A": "75%",
+        "B": "50%",
+        "C": "25%",
+        "D": "12.5%"
+      },
+      "correct": "C",
+      "explanation": "At 60 min, two half-lives have elapsed (100 → 50 → 25%).",
+      "topic": "Protein turnover: data interpretation",
+      "trap": "Taking 75% by assuming a linear loss of 25% per 30 minutes, or 50% by stopping at the first half-life; at 60 min two half-lives have passed, giving 25%.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1347-1"
+    },
+    {
+      "stem": "Why is cycloheximide used in this experiment?",
+      "options": {
+        "A": "It increases transcription of the gene",
+        "B": "It blocks new synthesis so that the loss of existing protein can be followed",
+        "C": "It accelerates proteasomal degradation of all proteins",
+        "D": "It labels the protein for detection by antibody"
+      },
+      "correct": "B",
+      "explanation": "Without blocking translation, newly synthesized protein would obscure the decay of the pre-existing pool.",
+      "topic": "Cell biology techniques: experimental design",
+      "trap": "Thinking cycloheximide acts on transcription or on degradation; it blocks translation elongation, so no new protein is made and any decline reflects decay of the existing pool.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1347-2"
+    },
+    {
+      "stem": "If the decay continues to be first-order, what percentage of IκBα remains after 150 minutes?",
+      "options": {
+        "A": "1.562%",
+        "B": "3.125%",
+        "C": "6.25%",
+        "D": "96.875%"
+      },
+      "correct": "B",
+      "explanation": "150 min = 5 half-lives of 30 min, so 100 × (1/2)^5 = 3.125%.",
+      "topic": "First-order kinetics: half-life calculation",
+      "trap": "Miscounting half-lives and choosing 6.25% (4 half-lives) or 1.562% (6 half-lives); 150 min / 30 min = 5 half-lives, giving 3.125%.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "5E",
+      "id": "bp1347-3"
+    },
+    {
+      "stem": "Which statement about first-order decay is INCORRECT?",
+      "options": {
+        "A": "The half-life equals ln 2 divided by the rate constant",
+        "B": "The half-life increases as the starting amount of protein increases",
+        "C": "The half-life is independent of starting concentration",
+        "D": "The rate of decay is proportional to the amount remaining"
+      },
+      "correct": "B",
+      "explanation": "In first-order kinetics, t½ = ln 2/k and does not depend on starting concentration.",
+      "topic": "Kinetics: trap on half-life",
+      "trap": "Believing a larger starting amount takes longer to halve; in first-order decay the half-life is ln 2/k and does not depend on starting amount.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "5E",
+      "id": "bp1347-4"
+    },
+    {
+      "stem": "IκBα turnover is typically controlled by which system?",
+      "options": {
+        "A": "Phosphorylation by glycolytic kinases that leads to secretion",
+        "B": "Ubiquitination and degradation by the proteasome",
+        "C": "Glycosylation in the Golgi apparatus that prevents degradation",
+        "D": "Lysosomal degradation of the ribosome"
+      },
+      "correct": "B",
+      "explanation": "Polyubiquitin chains (K48-linked) mark proteins for proteasomal degradation; proteasome inhibitors such as MG132 stabilize short-lived regulatory proteins.",
+      "topic": "Protein degradation: ubiquitin–proteasome link",
+      "trap": "Picking glycosylation or glycolytic-kinase phosphorylation because they sound regulatory; short-lived regulators are tagged with polyubiquitin and degraded by the proteasome.",
+      "accuracy_verified": true,
+      "mastery_sheet_id": "1A",
+      "id": "bp1347-5"
+    }
+  ],
+  "accuracy_verified": true
+}

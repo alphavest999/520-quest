@@ -1,0 +1,838 @@
+[
+ {
+  "id": "d_1C_1",
+  "type": "discrete",
+  "stem": "Which event of meiosis is responsible for reducing the chromosome number from diploid to haploid?",
+  "options": {
+   "A": "Separation of sister chromatids during anaphase II",
+   "B": "Replication of DNA during the S phase preceding meiosis",
+   "C": "Exchange of segments between homologs during prophase I",
+   "D": "Separation of homologous chromosomes during anaphase I"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) In anaphase I each homolog (still two chromatids) moves to an opposite pole, so each daughter cell receives one chromosome of each pair, halving ploidy. Why the others are wrong: A) Sister chromatid separation in anaphase II leaves ploidy unchanged (haploid to haploid). B) DNA replication in S phase doubles DNA content and does not alter chromosome number. C) Crossing over rearranges alleles between homologs without changing chromosome number.",
+  "trap": "Thinking that sister chromatid separation, the step that resembles mitosis, is what halves ploidy.",
+  "topic": "Meiosis I vs II",
+  "mastery_sheet_id": "1C",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_2",
+  "type": "discrete",
+  "stem": "Crossing over generates new allele combinations on a single chromosome. Between which structures and during which phase does it occur?",
+  "options": {
+   "A": "Non-sister chromatids of homologous chromosomes, in prophase I",
+   "B": "Sister chromatids of the same chromosome, in prophase II",
+   "C": "Non-homologous chromosomes, in metaphase I",
+   "D": "Sister chromatids, in the S phase before meiosis"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Homologs pair (synapsis) in prophase I to form tetrads, and chiasmata mark exchange between non-sister chromatids. Why the others are wrong: B) Sister chromatids are genetically identical, so exchange between them creates no new combinations, and prophase II has no paired homologs. C) Non-homologous chromosomes do not pair or exchange segments. D) Homologs are not paired in S phase, and sister-chromatid exchange creates no new allele combinations.",
+  "trap": "Believing recombination occurs between sister chromatids, which are identical copies.",
+  "topic": "Crossing over",
+  "mastery_sheet_id": "1C",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_3",
+  "type": "discrete",
+  "stem": "Failure of one homologous pair to separate during meiosis I (and no other errors) is expected to produce which set of gametes from that cell?",
+  "options": {
+   "A": "Four aneuploid gametes: two with n+1 and two with n-1",
+   "B": "Two normal gametes and two aneuploid gametes",
+   "C": "Four normal haploid gametes",
+   "D": "Two n+1 gametes and two normal gametes"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Both homologs move to one pole in meiosis I, so both secondary cells are abnormal and all four products are aneuploid (two n+1, two n-1). Why the others are wrong: B) Two normal and two aneuploid gametes is the result of nondisjunction in meiosis II, where only one secondary cell is affected. C) All four gametes normal would need no error at all. D) N-1 gametes also form, so two n+1 and two normal is incomplete and wrong.",
+  "trap": "Confusing the outcomes of meiosis I and meiosis II nondisjunction.",
+  "topic": "Nondisjunction",
+  "mastery_sheet_id": "1C",
+  "difficulty": "527",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1C_4",
+  "type": "discrete",
+  "stem": "A diploid organism has 2n = 6. Ignoring crossing over, how many genetically distinct gametes can it produce through independent assortment?",
+  "options": {
+   "A": "3",
+   "B": "8",
+   "C": "6",
+   "D": "64"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Each of the 3 homologous pairs orients independently, so 2^3 = 8 combinations. Why the others are wrong: A) 3 is the haploid number of chromosomes, not the number of combinations. C) 6 is the diploid number, not the number of combinations. D) 64 is 2^6, wrongly using the diploid number as the exponent.",
+  "trap": "Using 2n rather than the number of homolog pairs (n) in the exponent.",
+  "topic": "Independent assortment",
+  "mastery_sheet_id": "1C",
+  "difficulty": "518",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1C_5",
+  "type": "discrete",
+  "stem": "In a trihybrid cross AaBbCc x AaBbCc with independent assortment and complete dominance, what fraction of offspring have the genotype pattern aa, B_ , cc (homozygous recessive for A and C, at least one dominant B allele)?",
+  "options": {
+   "A": "1/64",
+   "B": "9/64",
+   "C": "3/64",
+   "D": "1/16"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Multiply independent probabilities: aa = 1/4, B_ = 3/4, cc = 1/4, so 3/64. Why the others are wrong: A) 1/64 is the probability of aabbcc, treating B_ as 1/4. B) 9/64 is (3/4)^2 x 1/4, treating two loci as dominant-phenotype classes instead of only B_. D) 1/16 equals 4/64 and does not equal the product 1/4 x 3/4 x 1/4.",
+  "trap": "Treating the dominant phenotype class (B_) as 1/4 instead of 3/4.",
+  "topic": "Mendelian probability",
+  "mastery_sheet_id": "1C",
+  "difficulty": "523",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1C_6",
+  "type": "discrete",
+  "stem": "A recessive autosomal disorder affects 1 in 10,000 people in a population at Hardy-Weinberg equilibrium. About what fraction of the population are carriers?",
+  "options": {
+   "A": "1 in 50",
+   "B": "1 in 100",
+   "C": "1 in 5,000",
+   "D": "1 in 10,000"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) q^2 = 0.0001, so q = 0.01 and p is about 0.99; carriers = 2pq = about 0.0198, roughly 1 in 50. Why the others are wrong: B) 1 in 100 is the allele frequency q, not the carrier frequency. C) 1 in 5,000 would be q^2/2 and does not follow from the Hardy-Weinberg equation. D) 1 in 10,000 is q^2, the affected frequency, not the carrier frequency.",
+  "trap": "Reporting q (allele frequency) instead of 2pq (heterozygote frequency).",
+  "topic": "Hardy-Weinberg",
+  "mastery_sheet_id": "1C",
+  "difficulty": "528",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://pubmed.ncbi.nlm.nih.gov/18498203/",
+    "https://www.gktoday.in/hardy-weinberg-equilibrium-and-its-applications/"
+   ]
+  }
+ },
+ {
+  "id": "d_1C_7",
+  "type": "discrete",
+  "stem": "Which scenario most clearly violates the assumptions needed for Hardy-Weinberg equilibrium?",
+  "options": {
+   "A": "The population is very large",
+   "B": "Individuals preferentially mate with partners of similar phenotype",
+   "C": "There is no net mutation at the locus",
+   "D": "There is no migration into or out of the population"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Non-random (assortative) mating shifts genotype frequencies away from p^2, 2pq, q^2 even if allele frequencies stay the same. Why the others are wrong: A) A very large population is a required condition for equilibrium, not a violation. C) No net mutation is a required condition for equilibrium, not a violation. D) No migration is a required condition for equilibrium, not a violation.",
+  "trap": "Mistaking the required conditions for the violations.",
+  "topic": "Hardy-Weinberg assumptions",
+  "mastery_sheet_id": "1C",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_8",
+  "type": "discrete",
+  "stem": "A small group of birds colonizes an island, and a rare allele that was uncommon on the mainland becomes common among their descendants. This best illustrates",
+  "options": {
+   "A": "the founder effect",
+   "B": "gene flow",
+   "C": "directional selection",
+   "D": "the bottleneck effect"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) A new population established by a few individuals carries only a sample of the source gene pool, so allele frequencies shift by chance. Why the others are wrong: B) Gene flow requires ongoing migration between populations, not a one-time colonization. C) Directional selection requires a fitness difference favoring the allele, which is not described. D) A bottleneck is a drastic reduction of an existing population, not colonization of a new site.",
+  "trap": "Confusing founder effect (colonization) with bottleneck (population crash).",
+  "topic": "Genetic drift",
+  "mastery_sheet_id": "1C",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_9",
+  "type": "discrete",
+  "stem": "A mother who is a carrier of an X-linked recessive allele and an unaffected father have a child. What is the probability that the child is an affected male?",
+  "options": {
+   "A": "1/2",
+   "B": "1/8",
+   "C": "0",
+   "D": "1/4"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Half of children are male (1/2) and half of the sons inherit the mutant X (1/2): 1/2 x 1/2 = 1/4. Why the others are wrong: A) 1/2 is the probability among sons only, not among all children. B) 1/8 does not match the cross and would halve the answer again. C) 0 is wrong because sons can inherit the mutant X from the carrier mother.",
+  "trap": "Reporting the risk for a son (1/2) when the question asks about a child of unknown sex.",
+  "topic": "X-linked inheritance",
+  "mastery_sheet_id": "1C",
+  "difficulty": "515",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1C_10",
+  "type": "discrete",
+  "stem": "A testcross of a dihybrid yields 440 parental-type and 60 recombinant offspring. What is the map distance between the two genes?",
+  "options": {
+   "A": "6 map units (cM)",
+   "B": "14 map units (cM)",
+   "C": "12 map units (cM)",
+   "D": "88 map units (cM)"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Recombination frequency = 60/500 = 12 percent = 12 cM. Why the others are wrong: A) 6 map units halves the correct value. B) 14 map units results from dividing recombinants by parental types (60/440). D) 88 map units is the parental percentage, not the recombinant percentage.",
+  "trap": "Dividing recombinants by parentals rather than by total offspring.",
+  "topic": "Linkage and recombination",
+  "mastery_sheet_id": "1C",
+  "difficulty": "520",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://rotel.pressbooks.pub/genetics/chapter/calculating-map-distances-with-a-dihybrid-testcross/"
+   ]
+  }
+ },
+ {
+  "id": "d_1C_11",
+  "type": "discrete",
+  "stem": "Two genes are 50 cM apart on the same chromosome. How are their alleles expected to assort?",
+  "options": {
+   "A": "As if they were completely linked",
+   "B": "As if they were unlinked",
+   "C": "With 100 percent recombination",
+   "D": "With no crossovers between them"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) A recombination frequency of 50 percent is the maximum and matches independent assortment, so the genes assort as if unlinked. Why the others are wrong: A) Complete linkage would mean 0 percent recombination. C) 100 percent recombination is impossible because multiple crossovers cancel, capping frequency at 50 percent. D) No crossovers between them would also mean complete linkage.",
+  "trap": "Thinking tightly linked genes cannot be 50 cM apart or that recombination can exceed 50 percent.",
+  "topic": "Linkage",
+  "mastery_sheet_id": "1C",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_12",
+  "type": "discrete",
+  "stem": "A parent has genotype AB/ab and the genes show 20 percent recombination. What fraction of its gametes are Ab?",
+  "options": {
+   "A": "20 percent",
+   "B": "40 percent",
+   "C": "10 percent",
+   "D": "5 percent"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Recombinant gametes (Ab and aB) total 20 percent and are formed equally, so each is 10 percent. Why the others are wrong: A) 20 percent is the total of both recombinant types, not of Ab alone. B) 40 percent is the frequency of each parental type (AB or ab), not of Ab. D) 5 percent halves the correct value again.",
+  "trap": "Assigning the total recombination frequency to one recombinant class.",
+  "topic": "Linkage calculation",
+  "mastery_sheet_id": "1C",
+  "difficulty": "516",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://rotel.pressbooks.pub/genetics/chapter/calculating-map-distances-with-a-dihybrid-testcross/"
+   ]
+  }
+ },
+ {
+  "id": "d_1C_13",
+  "type": "discrete",
+  "stem": "Crossing red-flowered snapdragons with white-flowered ones gives pink F1 plants (incomplete dominance). What is the expected phenotypic ratio in the F2?",
+  "options": {
+   "A": "3 red : 1 white",
+   "B": "1 red : 2 pink : 1 white",
+   "C": "1 pink : 1 white",
+   "D": "9 : 3 : 3 : 1"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) With incomplete dominance heterozygotes are intermediate, so the 1:2:1 genotype ratio of the F2 is also the phenotype ratio (1 red : 2 pink : 1 white). Why the others are wrong: A) 3 red : 1 white applies to complete dominance. C) 1 pink : 1 white would come from a testcross-like backcross, not an F1 x F1 cross. D) 9:3:3:1 is a dihybrid ratio, but only one gene is involved here.",
+  "trap": "Applying a complete-dominance 3:1 ratio to an incomplete-dominance trait.",
+  "topic": "Incomplete dominance",
+  "mastery_sheet_id": "1C",
+  "difficulty": "521",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1C_14",
+  "type": "discrete",
+  "stem": "A mother with blood type A (genotype IAi) and a father with blood type B (genotype IBi) have a child. What is the probability that the child has type O?",
+  "options": {
+   "A": "0",
+   "B": "1/4",
+   "C": "1/2",
+   "D": "3/4"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Type O requires genotype ii; each heterozygous parent passes i with probability 1/2, so 1/2 x 1/2 = 1/4. Why the others are wrong: A) 0 ignores that both parents carry the recessive i allele. C) 1/2 overstates the chance, since both parents must pass i. D) 3/4 is the probability of a non-O child, not of type O.",
+  "trap": "Forgetting that type A and B parents can be heterozygous and carry i.",
+  "topic": "Codominance",
+  "mastery_sheet_id": "1C",
+  "difficulty": "526",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1C_15",
+  "type": "discrete",
+  "stem": "A person carries a dominant disease allele but shows no signs of the disease, while a sibling with the same allele is severely affected. The first person's lack of phenotype is an example of",
+  "options": {
+   "A": "variable expressivity",
+   "B": "codominance",
+   "C": "epistasis",
+   "D": "incomplete penetrance"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Penetrance is the fraction of individuals with a genotype who show any phenotype; carrying the allele with no signs reflects incomplete (reduced) penetrance. Why the others are wrong: A) Variable expressivity concerns differing severity among individuals who all show the trait, which does not describe a person with no signs. B) Codominance describes two alleles both expressed in a heterozygote, not a missing phenotype. C) Epistasis describes one gene masking another, which is not given here.",
+  "trap": "Mixing up penetrance (whether) and expressivity (how much).",
+  "topic": "Penetrance and expressivity",
+  "mastery_sheet_id": "1C",
+  "difficulty": "517",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_16",
+  "type": "discrete",
+  "stem": "A father has a disease caused by a mutation in mitochondrial DNA. What proportion of his children is expected to inherit the mutation?",
+  "options": {
+   "A": "None of them",
+   "B": "All of his sons",
+   "C": "All of his daughters",
+   "D": "Half of his children"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Mitochondria are inherited essentially from the egg cytoplasm, so mitochondrial mutations pass only through the mother and a father transmits none. Why the others are wrong: B) All his sons would inherit it only with paternal transmission, but sperm mitochondria do not contribute. C) All his daughters would inherit it only with paternal transmission, but sperm mitochondria do not contribute. D) Half of his children would inherit it only with Mendelian paternal transmission, which does not apply to mtDNA.",
+  "trap": "Treating mitochondrial inheritance as sex-linked through the father.",
+  "topic": "Mitochondrial inheritance",
+  "mastery_sheet_id": "1C",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_17",
+  "type": "discrete",
+  "stem": "Loss of functional p53 in a cell with DNA damage would most likely result in",
+  "options": {
+   "A": "progression through the G1/S checkpoint with damaged DNA",
+   "B": "arrest in G2 with no possibility of progression",
+   "C": "accelerated apoptosis",
+   "D": "lengthening of telomeres"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) p53 normally halts the cycle (via p21) or triggers apoptosis after damage; without it, damaged cells pass the G1/S checkpoint and keep dividing. Why the others are wrong: B) Loss of p53 removes arrest, so cells would not stay permanently arrested in G2. C) Apoptosis would be reduced, not accelerated, without p53. D) Telomere lengthening requires telomerase and is not directly caused by p53 loss.",
+  "trap": "Thinking p53 promotes proliferation, as an oncogene would.",
+  "topic": "Cell cycle checkpoints",
+  "mastery_sheet_id": "1C",
+  "difficulty": "527",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_18",
+  "type": "discrete",
+  "stem": "A mutation that locks the Ras protein in its active GTP-bound state is best described as",
+  "options": {
+   "A": "a loss-of-function mutation of a tumor suppressor",
+   "B": "a silent mutation",
+   "C": "a gain-of-function mutation of a proto-oncogene",
+   "D": "a frameshift mutation in a DNA repair gene"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Constitutively active Ras drives proliferation; a single mutated allele is enough, so this is a gain-of-function mutation of a proto-oncogene. Why the others are wrong: A) Tumor suppressors typically require loss of both alleles, and Ras is not a tumor suppressor. B) The mutation changes protein function, so it is not silent. D) The effect is a hyperactive signaling protein, not a frameshift in a repair gene.",
+  "trap": "Treating oncogene mutations as recessive loss-of-function events.",
+  "topic": "Cancer genes",
+  "mastery_sheet_id": "1C",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_19",
+  "type": "discrete",
+  "stem": "Colchicine prevents microtubule polymerization. Dividing cells treated with it would be arrested at which point?",
+  "options": {
+   "A": "Telophase, because the nuclear envelope cannot reform",
+   "B": "Metaphase, because the spindle cannot form and attach to chromosomes",
+   "C": "S phase, because DNA cannot replicate",
+   "D": "Prophase, because chromosomes cannot condense"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Without a spindle, chromosomes cannot align or be pulled apart, so cells halt before anaphase (in practice at prometaphase/metaphase, used for karyotyping). Why the others are wrong: A) Telophase occurs after chromosome separation, which the drug prevents from happening. C) S phase replication does not depend on microtubules. D) Chromosome condensation in prophase occurs without a spindle.",
+  "trap": "Choosing an interphase or later stage that does not depend on microtubules.",
+  "topic": "Mitosis",
+  "mastery_sheet_id": "1C",
+  "difficulty": "523",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_20",
+  "type": "discrete",
+  "stem": "A diploid G1 cell contains an amount of DNA X. How much DNA does a secondary spermatocyte contain?",
+  "options": {
+   "A": "2X",
+   "B": "X/2",
+   "C": "4X",
+   "D": "X"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) After replication the cell has 2X; meiosis I halves chromosome number but each chromosome still has two chromatids, so a secondary spermatocyte has X. Why the others are wrong: A) 2X is the DNA content of the primary spermatocyte. B) X/2 is reached only after meiosis II (spermatid). C) 4X would require another round of replication.",
+  "trap": "Thinking meiosis I reduces DNA content to haploid (X/2).",
+  "topic": "DNA content",
+  "mastery_sheet_id": "1C",
+  "difficulty": "528",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1C_21",
+  "type": "discrete",
+  "stem": "At which stage are primary oocytes arrested from fetal life until puberty?",
+  "options": {
+   "A": "Metaphase II",
+   "B": "Anaphase I",
+   "C": "G1 of interphase",
+   "D": "Prophase I"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Primary oocytes are arrested in prophase I from before birth until ovulation; the secondary oocyte then arrests in metaphase II until fertilization. Why the others are wrong: A) Metaphase II arrest applies to the secondary oocyte after ovulation. B) Anaphase I is not an arrest point. C) G1 of interphase is not an arrest point for primary oocytes.",
+  "trap": "Swapping the prophase I arrest with the metaphase II arrest.",
+  "topic": "Oogenesis",
+  "mastery_sheet_id": "1C",
+  "difficulty": "519",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_22",
+  "type": "discrete",
+  "stem": "Klinefelter syndrome (47,XXY) could arise from which event?",
+  "options": {
+   "A": "Fertilization by a sperm lacking sex chromosomes",
+   "B": "Loss of one X in an early embryonic cell",
+   "C": "Fertilization of an XX egg by a Y-bearing sperm",
+   "D": "Fertilization of a normal egg by two sperm"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Nondisjunction in the mother can give an XX egg, and a Y-bearing sperm then produces 47,XXY. Why the others are wrong: A) A sperm with no sex chromosome plus an X egg gives 45,X (Turner syndrome). B) Losing an X in an early embryonic cell gives mosaicism rather than 47,XXY. D) Fertilization by two sperm (dispermy) gives triploidy, not 47,XXY.",
+  "trap": "Remembering only paternal nondisjunction as the cause.",
+  "topic": "Aneuploidy",
+  "mastery_sheet_id": "1C",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_23",
+  "type": "discrete",
+  "stem": "Calico coat color in cats occurs almost exclusively in females because",
+  "options": {
+   "A": "the Y chromosome carries a color-suppressing gene",
+   "B": "males inactivate their only X chromosome",
+   "C": "random X inactivation in each cell produces patches expressing different X-linked alleles",
+   "D": "each cell inactivates the same X in every patch"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Female cells randomly silence one X early in development, and descendant cells keep that choice, creating mosaic patches expressing different X-linked color alleles. Why the others are wrong: A) Males normally have one X and a Y that does not suppress color. B) Males do not inactivate their only X, since that would be lethal. D) If the same X were silenced everywhere there would be no mosaic patches.",
+  "trap": "Assuming X inactivation always silences the same (paternal) X.",
+  "topic": "X inactivation",
+  "mastery_sheet_id": "1C",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_24",
+  "type": "discrete",
+  "stem": "A bacteriophage packages a fragment of host bacterial DNA and delivers it to a second bacterium. This process is",
+  "options": {
+   "A": "transformation",
+   "B": "transduction",
+   "C": "conjugation",
+   "D": "binary fission"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) Phage-mediated transfer of bacterial DNA to another bacterium is transduction. Why the others are wrong: A) Transformation is uptake of free DNA from the environment, with no phage. C) Conjugation requires cell-to-cell contact via a pilus. D) Binary fission is asexual division, not DNA transfer.",
+  "trap": "Confusing the three horizontal gene transfer mechanisms.",
+  "topic": "Bacterial genetics",
+  "mastery_sheet_id": "1C",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_25",
+  "type": "discrete",
+  "stem": "An Hfr bacterium conjugates with an F- cell. What is the usual result?",
+  "options": {
+   "A": "The recipient becomes F+",
+   "B": "The recipient becomes Hfr",
+   "C": "The donor loses its entire chromosome",
+   "D": "The recipient remains F- but may receive part of the donor chromosome"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) In Hfr cells the F factor is integrated in the chromosome and transferred last, so mating is usually interrupted before it enters and the recipient stays F- with part of the donor chromosome. Why the others are wrong: A) The recipient does not become F+ because the F factor rarely reaches it. B) The recipient does not become Hfr because the integrated F factor is not transferred. C) The donor retains its chromosome, since only a copy is transferred.",
+  "trap": "Treating Hfr like an F+ cell that transfers the F plasmid.",
+  "topic": "Conjugation",
+  "mastery_sheet_id": "1C",
+  "difficulty": "525",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_26",
+  "type": "discrete",
+  "stem": "Heterozygous carriers of the sickle cell allele are more resistant to severe malaria. Which outcome does this best explain?",
+  "options": {
+   "A": "Maintenance of the HbS allele in malaria-endemic regions",
+   "B": "Fixation of the HbS allele in all populations",
+   "C": "Rapid elimination of the HbS allele",
+   "D": "Evolution by drift alone"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Heterozygote advantage maintains both alleles at intermediate frequency, since homozygotes for either allele have lower fitness, explaining persistence of HbS in malaria regions. Why the others are wrong: B) Fixation fails because homozygous sickle cell disease has reduced fitness. C) Rapid elimination fails because heterozygotes have higher fitness. D) Drift alone does not explain it, since the allele persists because of selection.",
+  "trap": "Assuming deleterious alleles must be eliminated.",
+  "topic": "Balancing selection",
+  "mastery_sheet_id": "1C",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_27",
+  "type": "discrete",
+  "stem": "Two closely related frog species breed at different times of the year and therefore rarely interbreed. This is an example of",
+  "options": {
+   "A": "a postzygotic barrier",
+   "B": "hybrid sterility",
+   "C": "geographic (allopatric) isolation",
+   "D": "a prezygotic barrier"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Temporal isolation prevents mating or fertilization before a zygote forms, which is a prezygotic barrier. Why the others are wrong: A) Postzygotic barriers act after fertilization, which is not described. B) Hybrid sterility is a postzygotic barrier, and no hybrids are mentioned. C) Geographic isolation involves physical separation of ranges, whereas these frogs differ in breeding season.",
+  "trap": "Misclassifying temporal isolation as postzygotic.",
+  "topic": "Reproductive isolation",
+  "mastery_sheet_id": "1C",
+  "difficulty": "521",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_28",
+  "type": "discrete",
+  "stem": "A mule (horse 2n = 64, donkey 2n = 62) is usually sterile. What is the best explanation?",
+  "options": {
+   "A": "Its 63 chromosomes cannot pair normally during meiosis",
+   "B": "It lacks an X chromosome",
+   "C": "It is triploid",
+   "D": "Its mitochondria cannot divide"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Horse and donkey chromosomes differ in number and structure, so the mule's 63 chromosomes cannot synapse properly in meiosis and viable gametes rarely form. Why the others are wrong: B) Mules have both sex chromosomes and are not lacking an X. C) Mules are diploid hybrids, not triploid. D) Mitochondrial division is not the cause of sterility.",
+  "trap": "Believing sterility means the hybrid lacks a sex chromosome or is triploid rather than failing to pair homologs in meiosis.",
+  "topic": "Hybrid sterility",
+  "mastery_sheet_id": "1C",
+  "difficulty": "526",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_29",
+  "type": "discrete",
+  "stem": "According to Hamilton's rule, an altruistic act is favored when rB > C. If the act costs the actor 3 units of fitness and benefits a full sibling (r = 0.5), what benefit is needed for the act to be favored?",
+  "options": {
+   "A": "More than 1.5 units",
+   "B": "More than 3 units",
+   "C": "More than 6 units",
+   "D": "More than 12 units"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) 0.5 x B > 3 requires B > 6. Why the others are wrong: A) 1.5 multiplies the cost by r instead of dividing by r. B) 3 ignores relatedness (it would be correct only for r = 1). D) 12 divides by r twice or otherwise overshoots.",
+  "trap": "Ignoring relatedness (r) when applying Hamilton's rule.",
+  "topic": "Kin selection",
+  "mastery_sheet_id": "1C",
+  "difficulty": "517",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://philosophyofbrains.com/2-relatedness-altruism"
+   ]
+  }
+ },
+ {
+  "id": "d_1C_30",
+  "type": "discrete",
+  "stem": "The forelimbs of a bat and of a human have similar bone arrangements but different functions. These structures are",
+  "options": {
+   "A": "homologous",
+   "B": "analogous",
+   "C": "vestigial",
+   "D": "convergent adaptations"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Similar structures inherited from a shared ancestor are homologous, even when used for different functions. Why the others are wrong: B) Analogous structures share function but not ancestry (as bird versus insect wings), which is not true of bat and human limbs. C) Vestigial structures are reduced and functionless, not functional limbs. D) Convergent adaptations would share function without shared bone plan, but these share ancestry.",
+  "trap": "Equating similar function with common ancestry.",
+  "topic": "Homology",
+  "mastery_sheet_id": "1C",
+  "difficulty": "522",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_31",
+  "type": "discrete",
+  "stem": "In a population of 500 at equilibrium, 45 individuals show a recessive trait. About how many are heterozygous carriers?",
+  "options": {
+   "A": "90",
+   "B": "210",
+   "C": "105",
+   "D": "300"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) q^2 = 45/500 = 0.09, so q = 0.3, p = 0.7, and 2pq = 0.42; 0.42 x 500 = 210. Why the others are wrong: A) 90 is double the number of recessive homozygotes (2 x 45), not the carrier count. C) 105 does not follow from the allele frequencies (it would be 0.21 x 500). D) 300 (0.6 x 500) does not correspond to p, q, or 2pq for these frequencies.",
+  "trap": "Using q^2 or q instead of 2pq to count heterozygotes.",
+  "topic": "Hardy-Weinberg calculation",
+  "mastery_sheet_id": "1C",
+  "difficulty": "527",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute + web check",
+   "sources": [
+    "https://pubmed.ncbi.nlm.nih.gov/18498203/",
+    "https://www.gktoday.in/hardy-weinberg-equilibrium-and-its-applications/"
+   ]
+  }
+ },
+ {
+  "id": "d_1C_32",
+  "type": "discrete",
+  "stem": "A purple-flowered plant of unknown genotype is crossed with a white-flowered (recessive) plant and all progeny are purple. The unknown plant is most likely",
+  "options": {
+   "A": "heterozygous",
+   "B": "homozygous dominant",
+   "C": "homozygous recessive",
+   "D": "codominant"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) A heterozygote would produce about half white offspring in a testcross, so all-purple progeny point to a homozygous dominant parent. Why the others are wrong: A) A heterozygote gives a 1:1 purple:white ratio, not all purple. C) A homozygous recessive plant crossed with white would give all white. D) Codominance would not give all purple offspring from a purple and white cross.",
+  "trap": "Not applying the testcross logic that heterozygotes give recessive progeny.",
+  "topic": "Test cross",
+  "mastery_sheet_id": "1C",
+  "difficulty": "518",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_33",
+  "type": "discrete",
+  "stem": "In Labrador retrievers, B (black) is dominant to b (brown), but ee prevents pigment deposition, giving yellow regardless of B genotype. A BbEe x BbEe cross yields what phenotypic ratio?",
+  "options": {
+   "A": "9 black : 3 brown : 3 yellow : 1 other",
+   "B": "12 black : 3 brown : 1 yellow",
+   "C": "9 black : 3 brown : 4 yellow",
+   "D": "9 black : 7 yellow"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) B_E_ gives 9 black, bbE_ gives 3 brown, and all ee (3 + 1) give 4 yellow, a 9:3:4 recessive epistasis ratio. Why the others are wrong: A) The 9:3:3:1 split does not combine the ee classes, which both look yellow. B) 12:3:1 describes dominant epistasis. D) 9:7 describes complementary gene action.",
+  "trap": "Applying the plain 9:3:3:1 dihybrid ratio when one gene masks another.",
+  "topic": "Epistasis",
+  "mastery_sheet_id": "1C",
+  "difficulty": "523",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1C_34",
+  "type": "discrete",
+  "stem": "A colorblind man (X-linked recessive) and a woman with normal vision whose father was colorblind have a daughter. What is the probability that the daughter is colorblind?",
+  "options": {
+   "A": "0",
+   "B": "1/2",
+   "C": "1/4",
+   "D": "1"
+  },
+  "correct": "B",
+  "explanation": "Correct: B) The woman must be a carrier; the daughter always gets her father's affected X and gets the mother's affected X with probability 1/2. Why the others are wrong: A) 0 would ignore the mother's carrier status. C) 1/4 would halve the correct value, as if the father contributed an affected X only half the time. D) 1 would require a homozygous affected mother.",
+  "trap": "Forgetting that a daughter always inherits her father's X.",
+  "topic": "X-linked calculation",
+  "mastery_sheet_id": "1C",
+  "difficulty": "528",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1C_35",
+  "type": "discrete",
+  "stem": "Two unaffected parents have a child with an autosomal recessive disease. What is the probability that an unaffected sibling is a carrier?",
+  "options": {
+   "A": "1/2",
+   "B": "1/4",
+   "C": "1",
+   "D": "2/3"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Unaffected offspring are AA (1/4) or Aa (2/4); carrier probability = (2/4)/(3/4) = 2/3. Why the others are wrong: A) 1/2 ignores that the aa outcome is excluded from the denominator. B) 1/4 is the chance of an affected child, not of a carrier. C) 1 would mean all unaffected siblings are carriers, which ignores AA.",
+  "trap": "Failing to remove the affected class from the denominator.",
+  "topic": "Pedigree analysis",
+  "mastery_sheet_id": "1C",
+  "difficulty": "519",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1C_36",
+  "type": "discrete",
+  "stem": "The Philadelphia chromosome seen in chronic myelogenous leukemia results from",
+  "options": {
+   "A": "trisomy of chromosome 21",
+   "B": "a deletion on chromosome 5",
+   "C": "a reciprocal translocation between chromosomes 9 and 22",
+   "D": "inactivation of one X chromosome"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) The t(9;22) reciprocal translocation creates the BCR-ABL fusion gene with constitutive tyrosine kinase activity. Why the others are wrong: A) Trisomy 21 causes Down syndrome. B) A chromosome 5 deletion causes cri-du-chat. D) X inactivation is a normal process in females and not a cause of CML.",
+  "trap": "Confusing translocations with aneuploidies.",
+  "topic": "Chromosomal rearrangement",
+  "mastery_sheet_id": "1C",
+  "difficulty": "524",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_37",
+  "type": "discrete",
+  "stem": "The risk of having a child with Down syndrome increases with maternal age. Which factor best explains this?",
+  "options": {
+   "A": "Sperm quality declines with age",
+   "B": "Mitochondrial DNA mutations accumulate in the egg",
+   "C": "X inactivation becomes incomplete",
+   "D": "Oocytes remain arrested in prophase I for decades"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Prolonged arrest of oocytes in prophase I raises the chance of chromosome segregation errors when meiosis resumes decades later. Why the others are wrong: A) Sperm quality is not the cause of a maternal-age effect. B) Accumulated mitochondrial mutations are not the mechanism of trisomy 21. C) X inactivation changes are not the mechanism of trisomy 21.",
+  "trap": "Blaming paternal factors for a maternal-age effect.",
+  "topic": "Maternal age and aneuploidy",
+  "mastery_sheet_id": "1C",
+  "difficulty": "515",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_38",
+  "type": "discrete",
+  "stem": "Which statement correctly describes anaphase I of meiosis?",
+  "options": {
+   "A": "Homologous chromosomes separate, with each chromosome still composed of two sister chromatids",
+   "B": "Sister chromatids separate and move to opposite poles",
+   "C": "Chromosomes align as pairs at the metaphase plate",
+   "D": "Nuclear envelopes reform around four haploid nuclei"
+  },
+  "correct": "A",
+  "explanation": "Correct: A) Anaphase I segregates homologs, each still composed of two sister chromatids; sister chromatids separate in anaphase II. Why the others are wrong: B) Sister chromatid separation occurs in anaphase II (and mitosis), not anaphase I. C) Aligned pairs at the plate describe metaphase I. D) Nuclear envelopes reforming around four haploid nuclei describe the end of meiosis II (telophase II).",
+  "trap": "Confusing which structures separate in anaphase I versus anaphase II.",
+  "topic": "Meiosis vs mitosis",
+  "mastery_sheet_id": "1C",
+  "difficulty": "520",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ },
+ {
+  "id": "d_1C_39",
+  "type": "discrete",
+  "stem": "Two heterozygous carriers of an autosomal recessive disease have three children. What is the probability that none of the three is affected?",
+  "options": {
+   "A": "9/16",
+   "B": "3/4",
+   "C": "1/64",
+   "D": "27/64"
+  },
+  "correct": "D",
+  "explanation": "Correct: D) Each child is unaffected with probability 3/4, so (3/4)^3 = 27/64. Why the others are wrong: A) 9/16 is (3/4)^2, the answer for two children. B) 3/4 is the probability for a single child. C) 1/64 is the probability that all three are affected.",
+  "trap": "Using the single-child probability or the wrong number of children.",
+  "topic": "Probability",
+  "mastery_sheet_id": "1C",
+  "difficulty": "525",
+  "accuracy_verified": true,
+  "sonnet_built": true,
+  "verification": {
+   "method": "python recompute",
+   "sources": []
+  }
+ },
+ {
+  "id": "d_1C_40",
+  "type": "discrete",
+  "stem": "Compared with isolated populations, populations that exchange migrants (gene flow) will tend to",
+  "options": {
+   "A": "diverge genetically faster",
+   "B": "experience more mutation",
+   "C": "become genetically more similar",
+   "D": "speciate more rapidly"
+  },
+  "correct": "C",
+  "explanation": "Correct: C) Migration moves alleles between populations and homogenizes allele frequencies, so they become more similar. Why the others are wrong: A) Divergence is favored by isolation, not gene flow. B) Gene flow does not raise the mutation rate. D) Speciation is favored by isolation, whereas gene flow counteracts it.",
+  "trap": "Confusing gene flow, which homogenizes, with drift, which diverges.",
+  "topic": "Gene flow",
+  "mastery_sheet_id": "1C",
+  "difficulty": "516",
+  "accuracy_verified": false,
+  "sonnet_built": true
+ }
+]

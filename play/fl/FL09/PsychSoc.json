@@ -1,0 +1,1624 @@
+{
+ "exam": "FL09",
+ "section": "PS",
+ "passages": [
+  {
+   "passage_id": "FL09_PS_P1",
+   "passage_text": "Researchers examined how sleep loss affects emotional functioning. Forty-eight healthy adults (ages 19-30) were randomly assigned to one night of total sleep deprivation (n = 24) or one night of normal sleep at home (n = 24). The next day, participants completed the Profile of Mood States (POMS) negative-affect scale (range 0-60; higher scores indicate worse mood) at four sessions: 8:00, 12:00, 16:00, and 20:00. At 12:00, participants also viewed negative images while undergoing functional MRI. Amygdala reactivity was quantified as percent signal change relative to neutral images, and functional connectivity between the medial prefrontal cortex (mPFC) and the amygdala was expressed as a correlation coefficient. Scorers of the imaging data were blind to group. Group means are shown in Table 1 (standard deviations in parentheses); the difference in mean negative-affect score, averaged over the four sessions, was significant by independent-samples t-test (p < .01). Figure 1 shows negative-affect scores at each session.",
+   "table_data": "| Measure | Sleep-deprived | Normal sleep |\n|---|---|---|\n| Mean negative-affect score, 4 sessions (SD) | 31.2 (8.1) | 22.4 (7.5) |\n| Amygdala reactivity (% signal change) | 0.42 | 0.25 |\n| mPFC-amygdala connectivity (r) | 0.18 | 0.46 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Mean negative-affect score by session",
+    "x_label": "Time of day (hour, 24-h clock)",
+    "y_label": "Negative-affect score (0-60)",
+    "series": [
+     {
+      "name": "Sleep-deprived",
+      "points": [
+       [
+        8,
+        26.0
+       ],
+       [
+        12,
+        30.2
+       ],
+       [
+        16,
+        34.0
+       ],
+       [
+        20,
+        34.6
+       ]
+      ]
+     },
+     {
+      "name": "Normal sleep",
+      "points": [
+       [
+        8,
+        21.8
+       ],
+       [
+        12,
+        22.0
+       ],
+       [
+        16,
+        22.8
+       ],
+       [
+        20,
+        23.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_PS_P1_Q1",
+     "stem": "Approximating the pooled standard deviation as the square root of the average of the two group variances, the effect size (Cohen's d) for the group difference in mean negative-affect score is closest to:",
+     "options": {
+      "A": "0.6, the 8.8-point mean difference divided by the sum of the two SDs (15.6)",
+      "B": "1.1, the 8.8-point mean difference divided by a pooled SD of about 7.8",
+      "C": "8.8, the raw difference between the two group means in POMS points",
+      "D": "0.1, the 8.8-point mean difference divided by the average variance (about 61)"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Pooled SD = sqrt((8.1^2 + 7.5^2)/2) = sqrt(60.9) = 7.8; d = 8.8/7.8 = 1.1. Why the others are wrong: A) Dividing by the sum of the SDs (15.6) overstates the denominator; d uses a pooled SD, not a sum. C) The raw difference is not standardized, so it is not an effect size in SD units. D) Dividing by variance rather than SD gives units of 1/POMS point and a value that is far too small.",
+     "trap": "Reporting the raw mean difference (8.8) as the effect size, or dividing by a sum or variance instead of the pooled SD.",
+     "topic": "Sleep deprivation and mood effect size",
+     "mastery_sheet_id": "6C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://statisticsbyjim.com/basics/cohens-d/",
+       "https://stats.libretexts.org/Bookshelves/Applied_Statistics/Mikes_Biostatistics_Book_(Dohm)/11%3A_Power_Analysis/11.4%3A_Two-sample_effect_size"
+      ]
+     }
+    },
+    {
+     "id": "FL09_PS_P1_Q2",
+     "stem": "Greater amygdala reactivity to negative images in the sleep-deprived group is most consistent with which function of the amygdala?",
+     "options": {
+      "A": "Appraising the emotional significance of stimuli, particularly threatening ones",
+      "B": "Consolidating declarative memories of each image into long-term storage in the cortex",
+      "C": "Coordinating the motor planning needed to enter ratings on the response device",
+      "D": "Regulating body temperature and fluid balance during the long scanning session"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The amygdala evaluates emotional salience, particularly threat and negative valence, so heightened reactivity indicates amplified emotional responses. Why the others are wrong: B) Declarative memory consolidation is a hippocampal function, and the study did not measure memory. C) Motor planning relies on premotor cortex and basal ganglia, not the amygdala. D) Temperature and fluid balance are hypothalamic functions.",
+     "trap": "Confusing the amygdala with the hippocampus because both are limbic structures involved in emotional memories.",
+     "topic": "Amygdala and emotional salience",
+     "mastery_sheet_id": "6C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P1_Q3",
+     "stem": "Reduced mPFC-amygdala connectivity in the sleep-deprived group suggests that these participants would be most impaired in which of the following tasks?",
+     "options": {
+      "A": "Reappraising a distressing image to lessen its emotional impact",
+      "B": "Recognizing familiar faces among a large set of unfamiliar faces shown briefly",
+      "C": "Distinguishing a high-pitched tone from a low-pitched tone presented in quiet",
+      "D": "Maintaining balance while standing on an unstable surface with the eyes closed"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Top-down prefrontal control over the amygdala supports emotion regulation such as cognitive reappraisal, so weaker coupling should impair it. Why the others are wrong: B) Face recognition depends mainly on the fusiform and temporal regions, not on mPFC-amygdala coupling. C) Pitch discrimination depends on auditory cortex and the cochlea. D) Balance depends on the vestibular system and cerebellum.",
+     "trap": "Choosing any task that sounds impaired by poor sleep instead of the one that depends on the specific circuit measured.",
+     "topic": "Prefrontal regulation of the amygdala",
+     "mastery_sheet_id": "6C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P1_Q4",
+     "stem": "Random assignment of participants to the two sleep conditions primarily helps the researchers to:",
+     "options": {
+      "A": "Ensure that the sample is representative of all adults in the general population, including older adults and those with sleep disorders",
+      "B": "Distribute pre-existing differences, such as baseline mood or usual sleep habits, evenly across groups on average",
+      "C": "Prevent participants from knowing, until the end of the study, which sleep condition they were assigned to",
+      "D": "Guarantee that the mood scale gives consistent scores from one session to the next"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Random assignment makes the groups equivalent in expectation on both measured and unmeasured characteristics, supporting causal inference. Why the others are wrong: A) Representativeness comes from random sampling, not random assignment. C) Participants cannot be blinded to whether they stayed awake all night. D) Test reliability is a property of the instrument, not of how groups are formed.",
+     "trap": "Mixing up random assignment (internal validity) with random sampling (external validity).",
+     "topic": "Random assignment",
+     "mastery_sheet_id": "6C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P1_Q5",
+     "stem": "According to Figure 1 and Table 1, at which sessions did the gap between the two groups in negative-affect score exceed the overall mean group difference reported in Table 1?",
+     "options": {
+      "A": "12:00, 16:00, and 20:00, but not 8:00",
+      "B": "20:00 only, the last session of the day",
+      "C": "All four sessions, since the sleep-deprived group is higher throughout",
+      "D": "16:00 and 20:00 only"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Gaps are 4.2 (8:00), 8.2 (12:00), 11.2 (16:00), and 11.6 (20:00); only the last two exceed 8.8. Why the others are wrong: A) The 12:00 gap is 8.2, which is below 8.8. B) The 16:00 gap is 11.2, which also exceeds 8.8, so 20:00 is not the only session. C) Being higher at every session does not mean every gap exceeds the average gap; the 8:00 and 12:00 gaps are smaller.",
+     "trap": "Judging 'larger than average' by direction of the difference rather than computing each session's gap.",
+     "topic": "Reading a graph against a table",
+     "mastery_sheet_id": "6C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_PS_P2",
+   "passage_text": "Temperament refers to early-appearing, biologically based differences in emotional and behavioral reactivity. In a longitudinal study, 120 four-month-old infants were exposed in the laboratory to novel stimuli (a moving mobile, unfamiliar voices, and a swab with a faint odor). Trained observers coded motor activity and distress and classified each infant as high-reactive, moderate-reactive, or low-reactive. At age 4 years, children were observed with unfamiliar adults and peers in a playroom. A child was classified as behaviorally inhibited if he or she stayed near the caregiver and showed prolonged wariness. Observers coding the 4-year behavior did not know the infant classification. Of the 120 enrolled families, 100 completed the 4-year session; the 20 families lost to follow-up had, on average, lower household incomes. Table 1 shows the results for the 100 children who completed both phases. Across these children, the correlation between a continuous 4-month reactivity score and a 4-year inhibition score was r = .38.",
+   "table_data": "| 4-month reactivity | Children completing study (n) | Inhibited at age 4 (n) | Inhibited (%) |\n|---|---|---|---|\n| High | 20 | 12 | 60 |\n| Moderate | 40 | 10 | 25 |\n| Low | 40 | 4 | 10 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL09_PS_P2_Q1",
+     "stem": "What percentage of the children who completed the 4-year session were classified as behaviorally inhibited?",
+     "options": {
+      "A": "26%",
+      "B": "31.7%, the mean of the three group percentages",
+      "C": "60%, the rate among the high-reactive group",
+      "D": "22%, the number inhibited divided by the 120 enrolled infants"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 12 + 10 + 4 = 26 inhibited out of 100 completers = 26%. Why the others are wrong: B) Averaging percentages ignores the unequal group sizes (20, 40, 40). C) 60% is the rate in one group only, not the whole sample. D) Dividing by 120 includes the 20 families lost to follow-up, who have no 4-year data.",
+     "trap": "Averaging the three percentages instead of weighting by group size.",
+     "topic": "Infant temperament",
+     "mastery_sheet_id": "7A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_PS_P2_Q2",
+     "stem": "Approximately what proportion of the variance in 4-year inhibition scores is statistically accounted for by the 4-month reactivity score?",
+     "options": {
+      "A": "38%, because the proportion equals the correlation coefficient itself",
+      "B": "14%",
+      "C": "62%, because the remainder is 1 minus the correlation coefficient",
+      "D": "3.8%, because the coefficient is divided by 10 to give a percentage"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Variance explained is r squared: .38 x .38 = .144, or about 14%. Why the others are wrong: A) The proportion of variance is r^2, not r. C) 1 - r (.62) has no meaning as variance explained; unexplained variance would be 1 - r^2. D) Dividing r by ten is not a valid transformation.",
+     "trap": "Reading the correlation coefficient as the percentage of variance explained.",
+     "topic": "Interpreting a correlation",
+     "mastery_sheet_id": "7A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P2_Q3",
+     "stem": "Eight of the 20 high-reactive children were not classified as inhibited at age 4. This finding is best interpreted as evidence that:",
+     "options": {
+      "A": "Infant temperament has no biological basis and is determined solely by learning",
+      "B": "The laboratory reactivity measure is invalid because it did not predict perfectly",
+      "C": "Inhibition at age 4 is determined only by the parents' own temperament",
+      "D": "Experiences such as caregiving style can moderate how an early temperament is expressed"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A partial, probabilistic link between infant reactivity and later inhibition fits a model in which biology sets tendencies that environment shapes. Why the others are wrong: A) Substantial prediction (60% vs 10%) argues against a purely learned account. B) Imperfect prediction is expected for any behavioral measure and does not make it invalid. C) The study did not measure parental temperament, and the data do not support exclusive parental determination.",
+     "trap": "Treating an imperfect prediction as proof that a measure or a biological account is wrong.",
+     "topic": "Temperament and environment",
+     "mastery_sheet_id": "7A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P2_Q4",
+     "stem": "The 20 families lost to follow-up had lower incomes on average. This attrition most directly threatens the study's:",
+     "options": {
+      "A": "Generalizability, because lower-income children may be underrepresented among completers",
+      "B": "Blinding, because observers could then infer each child's infant classification during the playroom session",
+      "C": "Temporal order, because later behavior was measured before infant behavior",
+      "D": "Construct validity, because inhibition was defined using caregiver proximity"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Systematic dropout of one subgroup means the final sample no longer represents the original population, limiting generalization. Why the others are wrong: B) Dropout does not unblind observers, who never saw the infant classifications. C) Infant measures came first at 4 months, so temporal order is intact. D) How inhibition is defined is unrelated to who dropped out.",
+     "trap": "Confusing attrition (a sampling and external-validity problem) with measurement problems.",
+     "topic": "Attrition in longitudinal research",
+     "mastery_sheet_id": "7A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_PS_P3",
+   "passage_text": "The social facilitation effect, in which the presence of others alters performance, was tested in a laboratory study. Sixty undergraduates were randomly assigned (n = 20 per group) to complete tasks alone, in front of an audience of three silent observers, or in front of an audience of six. Each participant completed a simple task (sorting cards by color) and a complex task (solving difficult anagrams), in counterbalanced order, while heart rate was recorded. Observers were told to watch the participant's performance closely. Accuracy was measured as the percentage of items answered correctly. Table 1 shows group means, and Figure 1 plots accuracy against audience size. Heart rate was higher in both audience conditions than in the alone condition (p < .01). Participants had no prior experience with the anagram task. Group differences were analyzed with a mixed-design ANOVA, which showed a significant interaction between audience size and task type (p < .001). Participants were run individually in 10-minute sessions, and the observers were confederates following a script.",
+   "table_data": "| Audience size | Mean heart rate (bpm) | Simple task accuracy (%) | Complex task accuracy (%) |\n|---|---|---|---|\n| 0 (alone) | 72 | 78 | 70 |\n| 3 | 84 | 88 | 58 |\n| 6 | 90 | 91 | 49 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Accuracy by audience size and task",
+    "x_label": "Audience size (number of observers)",
+    "y_label": "Accuracy (%)",
+    "series": [
+     {
+      "name": "Simple task",
+      "points": [
+       [
+        0,
+        78
+       ],
+       [
+        3,
+        88
+       ],
+       [
+        6,
+        91
+       ]
+      ]
+     },
+     {
+      "name": "Complex task",
+      "points": [
+       [
+        0,
+        70
+       ],
+       [
+        3,
+        58
+       ],
+       [
+        6,
+        49
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_PS_P3_Q1",
+     "stem": "Which explanation best accounts for why an audience lowered accuracy on the anagram task but raised it on the card-sorting task?",
+     "options": {
+      "A": "Observers provide corrective feedback during the easy task but are unable to assist during the difficult anagram task, so errors accumulate",
+      "B": "Participants lose motivation on difficult tasks because the audience makes success seem unattainable",
+      "C": "Arousal strengthens the dominant response, which is correct for an easy task but often incorrect for a difficult, unpracticed task",
+      "D": "An audience reduces arousal on simple tasks, which brings it closer to the optimum for card sorting"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Social facilitation theory predicts that arousal enhances well-learned (dominant) responses and impairs poorly learned ones. Why the others are wrong: A) Observers were silent in every condition, so no feedback was given. B) Lower motivation would predict worse performance on both tasks, but simple-task accuracy increased. D) Heart rate rose with an audience, so arousal increased rather than decreased.",
+     "trap": "Assuming an audience helps or hurts all performance regardless of task difficulty.",
+     "topic": "Social facilitation and the dominant response",
+     "mastery_sheet_id": "7B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P3_Q2",
+     "stem": "From the alone condition to the audience of six, the relative decrease in complex-task accuracy was closest to:",
+     "options": {
+      "A": "21%, the absolute drop in percentage points",
+      "B": "43%, the drop divided by the audience-of-six accuracy",
+      "C": "70%, the accuracy of the alone condition",
+      "D": "30%, the drop relative to the alone condition"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) (70 - 49)/70 = 21/70 = 0.30, a 30% relative decrease. Why the others are wrong: A) 21 is the absolute change in percentage points, not a relative change. B) Dividing by the final value (49) instead of the starting value (70) gives 43%. C) 70 is the baseline accuracy, not a change.",
+     "trap": "Computing a percent change relative to the endpoint instead of the baseline, or reporting percentage points.",
+     "topic": "Percent change from a table",
+     "mastery_sheet_id": "7B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_PS_P3_Q3",
+     "stem": "Which added condition would best test whether the audience effect depends on being evaluated, as opposed to the mere presence of others?",
+     "options": {
+      "A": "An audience of nine observers, to determine whether accuracy keeps changing as the audience grows",
+      "B": "An audience of six who are blindfolded and wearing headphones, so that they are present but cannot evaluate the participant",
+      "C": "A condition in which heart rate is recorded at more frequent intervals during each of the tasks to improve measurement precision",
+      "D": "A condition in which participants complete the anagram task before the card-sorting task"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Holding presence constant while removing the observers' ability to evaluate isolates evaluation apprehension. Why the others are wrong: A) A larger audience varies size, not evaluative potential. C) More frequent heart-rate recording changes measurement, not the social manipulation. D) Task order is already counterbalanced and unrelated to the evaluation question.",
+     "trap": "Choosing a manipulation that varies audience size rather than the specific mechanism in question.",
+     "topic": "Mere presence versus evaluation apprehension",
+     "mastery_sheet_id": "7B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P3_Q4",
+     "stem": "If participants had practiced the anagram task for several weeks before testing, the audience would most likely:",
+     "options": {
+      "A": "Reduce anagram accuracy, because the audience always impairs complex tasks",
+      "B": "Leave anagram accuracy unchanged, because practice eliminates arousal",
+      "C": "Improve anagram accuracy, because the well-learned correct response would now be dominant",
+      "D": "Lower heart rate, because practiced tasks no longer cause physiological arousal"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Practice makes correct responses dominant, so audience-induced arousal facilitates rather than impairs performance. Why the others are wrong: A) Impairment depends on task mastery, not on complexity alone. B) Practice does not eliminate arousal; audiences still raise it. D) Heart rate rises with an audience regardless of task familiarity in this account.",
+     "trap": "Treating task complexity as fixed rather than dependent on the performer's skill.",
+     "topic": "Practice and the dominant response",
+     "mastery_sheet_id": "7B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P3_Q5",
+     "stem": "The increase in heart rate seen in the audience conditions most directly reflects:",
+     "options": {
+      "A": "Greater parasympathetic activity, as acetylcholine released by the vagus nerve speeds the sinoatrial node",
+      "B": "Lower sympathetic activity, which disinhibits the atrioventricular node",
+      "C": "Greater sympathetic activity, as norepinephrine acts on the sinoatrial node to speed pacemaker firing",
+      "D": "Greater somatic motor output, as skeletal muscle contraction pumps blood back to the heart"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Arousal activates the sympathetic division, whose norepinephrine increases heart rate via the sinoatrial node. Why the others are wrong: A) Vagal acetylcholine slows the heart, not speeds it. B) Reduced sympathetic input would slow, not raise, heart rate. D) Somatic motor output does not directly set heart rate through the pacemaker.",
+     "trap": "Mixing up sympathetic and parasympathetic effects on heart rate.",
+     "topic": "Autonomic arousal",
+     "mastery_sheet_id": "7B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_PS_P4",
+   "passage_text": "Habituation and sensitization are simple forms of non-associative learning. In this study, 40 adults sat in a quiet room while skin conductance response (SCR, in microsiemens, uS), a measure of sympathetic arousal, was recorded. All participants heard a moderate 70-dB tone presented once every 30 seconds, in eight blocks of five tones. In Group A (n = 20), the tone was presented alone throughout. In Group B (n = 20), a brief, unexpected 100-dB noise burst was delivered between block 4 and block 5, after which the 70-dB tone resumed. Mean SCR to the tone for each block is shown in Figure 1 and for selected blocks in Table 1. Participants reported no hearing difficulty, and SCR to the 100-dB burst itself did not differ between groups. A repeated-measures ANOVA with block as a within-subjects factor and group as a between-subjects factor showed a significant group x block interaction (p < .01). Participants were assigned to groups at random, and the person scoring the SCR recordings did not know group membership.",
+   "table_data": "| Block | Group A mean SCR (uS) | Group B mean SCR (uS) |\n|---|---|---|\n| 1 | 0.80 | 0.80 |\n| 4 | 0.30 | 0.30 |\n| 5 | 0.24 | 0.62 |\n| 8 | 0.16 | 0.30 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Mean SCR to the 70-dB tone by block",
+    "x_label": "Block of tones (1-8)",
+    "y_label": "Mean SCR (uS)",
+    "series": [
+     {
+      "name": "Group A (tone only)",
+      "points": [
+       [
+        1,
+        0.8
+       ],
+       [
+        2,
+        0.55
+       ],
+       [
+        3,
+        0.4
+       ],
+       [
+        4,
+        0.3
+       ],
+       [
+        5,
+        0.24
+       ],
+       [
+        6,
+        0.2
+       ],
+       [
+        7,
+        0.18
+       ],
+       [
+        8,
+        0.16
+       ]
+      ]
+     },
+     {
+      "name": "Group B (noise burst after block 4)",
+      "points": [
+       [
+        1,
+        0.8
+       ],
+       [
+        2,
+        0.55
+       ],
+       [
+        3,
+        0.4
+       ],
+       [
+        4,
+        0.3
+       ],
+       [
+        5,
+        0.62
+       ],
+       [
+        6,
+        0.48
+       ],
+       [
+        7,
+        0.38
+       ],
+       [
+        8,
+        0.3
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_PS_P4_Q1",
+     "stem": "Which observation in the data best supports interpreting the decline in Group A's response as habituation rather than simple fatigue of the ear's receptors?",
+     "options": {
+      "A": "Group A's SCR fell by more than half between block 1 and block 4",
+      "B": "Group A's SCR remained above zero even at block 8",
+      "C": "Both groups had identical SCR in blocks 1 through 4",
+      "D": "Group B's response to the same tone rebounded in block 5 after a different, intense stimulus"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) If receptors were fatigued, an unrelated stimulus would not restore the response to the same tone; the rebound indicates a central change in responsiveness. Why the others are wrong: A) A large decline fits both habituation and fatigue, so it does not discriminate between them. B) A nonzero residual response is expected under either account. C) Identical early responses show the groups started alike but say nothing about the mechanism.",
+     "trap": "Using the size of the decline as evidence of mechanism when only a restored response distinguishes habituation from fatigue.",
+     "topic": "Habituation versus fatigue",
+     "mastery_sheet_id": "7C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P4_Q2",
+     "stem": "In block 5, Group B's mean SCR was approximately how many times Group A's?",
+     "options": {
+      "A": "0.4 times, since Group B's response was lower than Group A's",
+      "B": "1.6 times, since the groups differed by 1.6 uS",
+      "C": "2.6 times",
+      "D": "3.9 times, since 0.62 divided by 0.16 gives the ratio"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 0.62/0.24 = 2.58, or about 2.6. Why the others are wrong: A) Group B's response was higher, so the ratio must exceed 1; 0.4 reverses numerator and denominator. B) A difference of 1.6 uS does not exist; the actual difference is 0.38 uS and a difference is not a ratio. D) 0.62/0.16 uses the block 8 value for Group A instead of block 5.",
+     "trap": "Dividing by a value from the wrong block or reporting the difference (0.38) instead of the ratio.",
+     "topic": "Ratio from a table",
+     "mastery_sheet_id": "7C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_PS_P4_Q3",
+     "stem": "Which of the following is the best everyday example of sensitization?",
+     "options": {
+      "A": "A new resident stops noticing the sound of a nearby train after several weeks",
+      "B": "A dog salivates at the sound of a bell that has been paired with food",
+      "C": "After a car backfires loudly, a pedestrian startles at ordinary street sounds she had been ignoring",
+      "D": "A child learns to avoid a hot stove after being burned once and receiving a reprimand"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Sensitization is an increased response to a range of stimuli after a strong or noxious event. Why the others are wrong: A) Ceasing to notice a repeated harmless sound is habituation. B) Salivating to a bell paired with food is classical conditioning. D) Avoiding a stove after punishment reflects associative learning, not a generalized change in responsiveness.",
+     "trap": "Calling any change in response to a stimulus sensitization, including decreases and associative learning.",
+     "topic": "Recognizing sensitization",
+     "mastery_sheet_id": "7C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P4_Q4",
+     "stem": "The drop in Group B's SCR from 0.62 uS (block 5) to 0.30 uS (block 8) is best explained by:",
+     "options": {
+      "A": "Permanent damage to the sympathetic pathway caused by the noise burst",
+      "B": "Sensitization from the burst wearing off while habituation to the repeated tone continued",
+      "C": "Classical conditioning of the 70-dB tone to the noise burst, which strengthens the response",
+      "D": "Extinction of the response to the 100-dB burst because it was no longer presented"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Sensitization is transient, and ongoing habituation to the benign tone drives the response back down. Why the others are wrong: A) Responses did not disappear; they were still above Group A's, so there is no evidence of damage. C) Conditioning would sustain or increase the response, not reduce it. D) Extinction applies to conditioned responses and the burst was never repeated or measured here.",
+     "trap": "Treating a rebound as a permanent change instead of a transient state superimposed on ongoing habituation.",
+     "topic": "Interplay of habituation and sensitization",
+     "mastery_sheet_id": "7C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_PS_P5",
+   "passage_text": "Cognitive-developmental theories propose that children's understanding of gender develops in stages: gender labeling (correctly identifying oneself and others as boys or girls), gender stability (understanding that gender stays the same over time), and gender consistency (understanding that gender stays the same despite changes in clothing, hairstyle, or activities). In a cross-sectional study, 150 children in three age groups (n = 50 each) were interviewed with picture cards. To assess consistency, for example, a child viewed a photo of a boy wearing a dress and was asked whether he was a boy or a girl. A child received credit for a stage only if he or she also passed all earlier stages. Table 1 gives the percentage of each age group passing each stage, and Figure 1 plots the same data. Separately, the time children spent playing with toys stereotyped for their own gender was recorded; it was similar across children at all stages (p > .05).",
+   "table_data": "| Age group (mean age) | Labeling (%) | Stability (%) | Consistency (%) |\n|---|---|---|---|\n| 3-4 years (3.5) | 88 | 36 | 8 |\n| 5-6 years (5.5) | 98 | 82 | 44 |\n| 7-8 years (7.5) | 100 | 96 | 90 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Percentage passing each stage by age group",
+    "x_label": "Mean age of group (years)",
+    "y_label": "Children passing stage (%)",
+    "series": [
+     {
+      "name": "Labeling",
+      "points": [
+       [
+        3.5,
+        88
+       ],
+       [
+        5.5,
+        98
+       ],
+       [
+        7.5,
+        100
+       ]
+      ]
+     },
+     {
+      "name": "Stability",
+      "points": [
+       [
+        3.5,
+        36
+       ],
+       [
+        5.5,
+        82
+       ],
+       [
+        7.5,
+        96
+       ]
+      ]
+     },
+     {
+      "name": "Consistency",
+      "points": [
+       [
+        3.5,
+        8
+       ],
+       [
+        5.5,
+        44
+       ],
+       [
+        7.5,
+        90
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_PS_P5_Q1",
+     "stem": "How many of the 5- to 6-year-old children passed gender stability but did not pass gender consistency?",
+     "options": {
+      "A": "22 children, the number who passed gender consistency",
+      "B": "40 children, the number who passed labeling but not consistency in the 3-4 group",
+      "C": "41 children, the number who passed gender stability",
+      "D": "19 children, the 38% of the group who passed stability only"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Because credit was cumulative, 82% passed stability and 44% of these also passed consistency; (82 - 44)% of 50 = 38% x 50 = 19. Why the others are wrong: A) 22 is the number who passed consistency (44% of 50), not those who failed it. B) The 3-4 group is a different age group, and the figure is not the one asked for. C) 41 children passed stability, but 22 of them also passed consistency and must be excluded.",
+     "trap": "Reporting the number who passed stability without subtracting those who also passed consistency.",
+     "topic": "Gender constancy stages",
+     "mastery_sheet_id": "8A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_PS_P5_Q2",
+     "stem": "Within a cognitive-developmental framework, gender consistency emerges last because it:",
+     "options": {
+      "A": "Depends on the child having been rewarded for gender-typed behavior many times",
+      "B": "Requires understanding that an attribute persists despite superficial changes, reasoning akin to conservation in the concrete operational stage",
+      "C": "Requires the hormonal changes of puberty to define one's gender and sexual identity in later childhood",
+      "D": "Demands abstract hypothetical reasoning that appears only in the formal operational stage"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Recognizing that gender is constant despite changes in appearance parallels conservation, which develops around ages 6-8. Why the others are wrong: A) Reinforcement is the mechanism emphasized by social learning theory, not cognitive-developmental theory. C) Most 7- to 8-year-olds passed consistency, years before puberty. D) Abstract hypothetical reasoning arises in adolescence, but 90% of 7- to 8-year-olds passed.",
+     "trap": "Attributing a stage that emerges by about age 7 to puberty or formal operational thought.",
+     "topic": "Cognitive-developmental explanation",
+     "mastery_sheet_id": "8A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P5_Q3",
+     "stem": "A limitation of studying three different age groups at one point in time is that:",
+     "options": {
+      "A": "The same children are retested, so practice with the picture cards inflates scores in the older groups",
+      "B": "Differences among the age groups may reflect cohort differences rather than development within individual children",
+      "C": "Children who drop out between sessions can bias the sample toward more advanced understanding",
+      "D": "Observers may record play behavior differently as they learn which children are in which group"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A cross-sectional design cannot follow individuals, so age effects are confounded with cohort and background differences. Why the others are wrong: A) Each child was interviewed once, so there is no retesting or practice effect. C) Attrition between sessions is a feature of longitudinal, not cross-sectional, designs. D) Nothing in the design suggests changing observer coding standards across groups.",
+     "trap": "Attributing longitudinal problems (practice, attrition) to a cross-sectional design.",
+     "topic": "Cross-sectional limitations",
+     "mastery_sheet_id": "8A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P5_Q4",
+     "stem": "The finding that own-gender toy play was similar across children at all stages is more consistent with:",
+     "options": {
+      "A": "Cognitive-developmental theory, which predicts that gender-typed play appears only after gender consistency",
+      "B": "Psychoanalytic theory, in which gender-typed play arises only after resolving conflicts with the same-sex parent",
+      "C": "Social learning theory, in which gender-typed behavior arises from reinforcement and modeling before full understanding of gender",
+      "D": "Biological theory, which predicts that play preferences are fixed at birth and cannot be changed by the environment or reinforcement"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Gender-typed play was present before children understood gender stability or consistency, which a cognitive-developmental sequence does not predict but social learning permits. Why the others are wrong: A) Cognitive-developmental theory predicts that stage understanding precedes gender-typed behavior. B) The data do not address identification with a parent, and the theory's timeline would not fit toddlers' play. D) Similar play across ages does not show immutability; no environmental manipulation occurred.",
+     "trap": "Assuming any early-appearing behavior must be purely biological.",
+     "topic": "Social learning versus cognitive development",
+     "mastery_sheet_id": "8A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P5_Q5",
+     "stem": "A 6-year-old girl states firmly that she is a girl but prefers trucks and refuses dresses. Her statements and behavior illustrate:",
+     "options": {
+      "A": "Gender dysphoria, since gender-atypical play indicates that identity differs from assigned sex",
+      "B": "A stable gender identity that is distinct from her gender role preferences",
+      "C": "A lack of gender constancy, since she plays with toys associated with boys",
+      "D": "A sexual orientation, since toy preference predicts later attraction to partners"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Gender identity is the internal sense of being male, female, or another gender, while gender role and expression concern behaviors and preferences. Why the others are wrong: A) Gender-atypical play alone does not indicate that identity differs from assigned sex. C) Constancy concerns understanding that gender persists over change, which her statement demonstrates. D) Toy preference does not determine sexual orientation.",
+     "trap": "Equating gender-atypical behavior with a different gender identity or with orientation.",
+     "topic": "Gender identity versus expression",
+     "mastery_sheet_id": "8A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_PS_P6",
+   "passage_text": "The stereotype content model proposes that groups are stereotyped along two dimensions, warmth (friendly, well-intentioned) and competence (capable, skilled), and that each combination elicits a characteristic emotion. In a survey, 120 adults rated four social groups on both dimensions using 7-point scales (1 = not at all, 7 = extremely). To reduce social-desirability pressure, participants were asked how they believe most people in society view each group, rather than how they personally view it. Participants also chose the emotion they thought society most often directs toward each group. Mean ratings and the most frequently chosen emotion are shown in Table 1, and Figure 1 plots warmth against competence for each group. Respondents were recruited online and were balanced by gender and age. Each rating was averaged across respondents, and the standard error of every mean was below 0.15. Groups were presented in random order to prevent order effects, and responses from participants who failed an attention check were excluded.",
+   "table_data": "| Group | Mean warmth | Mean competence | Most chosen emotion |\n|---|---|---|---|\n| Older adults | 5.6 | 3.2 | Pity |\n| Wealthy professionals | 3.0 | 6.1 | Envy |\n| Middle-class workers | 5.8 | 5.9 | Pride |\n| People experiencing homelessness | 2.4 | 2.2 | Disgust |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Perceived warmth and competence of four groups",
+    "x_label": "Mean warmth rating (1-7)",
+    "y_label": "Mean competence rating (1-7)",
+    "series": [
+     {
+      "name": "Older adults",
+      "points": [
+       [
+        5.6,
+        3.2
+       ]
+      ]
+     },
+     {
+      "name": "Wealthy professionals",
+      "points": [
+       [
+        3.0,
+        6.1
+       ]
+      ]
+     },
+     {
+      "name": "Middle-class workers",
+      "points": [
+       [
+        5.8,
+        5.9
+       ]
+      ]
+     },
+     {
+      "name": "People experiencing homelessness",
+      "points": [
+       [
+        2.4,
+        2.2
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_PS_P6_Q1",
+     "stem": "According to Table 1 and the model, which group is perceived as high in competence but low in warmth, and which emotion does this combination elicit?",
+     "options": {
+      "A": "Wealthy professionals; envy",
+      "B": "Older adults; pity",
+      "C": "Middle-class workers; pride",
+      "D": "People experiencing homelessness; disgust"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Wealthy professionals have competence 6.1 and warmth 3.0, the high-competence, low-warmth pattern that elicits envy. Why the others are wrong: B) Older adults are high in warmth (5.6) and low in competence (3.2). C) Middle-class workers are high on both dimensions. D) People experiencing homelessness are low on both dimensions.",
+     "trap": "Reversing the two axes and assigning pity to the group that is competent but cold.",
+     "topic": "Stereotype content model",
+     "mastery_sheet_id": "8B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P6_Q2",
+     "stem": "The pity that participants believed society directs toward older adults is best classified as which component of intergroup bias?",
+     "options": {
+      "A": "Stereotype, because it is a belief about the traits of group members",
+      "B": "Discrimination, because it is differential treatment of group members",
+      "C": "Ethnocentrism, because it is a belief that one's own group is superior to all others",
+      "D": "Prejudice, because it is an affective response toward members of a group"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Prejudice is the affective (feeling) component; pity is an emotion. Why the others are wrong: A) A stereotype is the cognitive component, such as the belief that older adults are warm but incompetent. B) Discrimination is a behavior, and no behavior was measured. C) Ethnocentrism refers to judging other groups by one's own group's standards; pity toward older adults does not show that.",
+     "trap": "Confusing emotions toward a group (prejudice) with beliefs about it (stereotypes).",
+     "topic": "Components of intergroup attitudes",
+     "mastery_sheet_id": "8B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P6_Q3",
+     "stem": "Which group shows the largest absolute difference between its competence rating and its warmth rating, and what is that difference?",
+     "options": {
+      "A": "Wealthy professionals, 3.1 points",
+      "B": "Older adults, 2.4 points",
+      "C": "People experiencing homelessness, 0.2 points",
+      "D": "Middle-class workers, 0.1 points"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Gaps: older adults 2.4, wealthy professionals 3.1, middle-class workers 0.1, homeless 0.2; the largest is 3.1. Why the others are wrong: B) 2.4 is the gap for older adults, which is smaller than 3.1. C) 0.2 is the smallest nonzero gap but not the largest. D) 0.1 is the gap for the middle-class group and is the smallest of the four.",
+     "trap": "Ignoring the sign of the difference or stopping after the first group computed.",
+     "topic": "Computing a rating gap",
+     "mastery_sheet_id": "8B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_PS_P6_Q4",
+     "stem": "Because participants rated how most people in society view each group, the results most directly reflect:",
+     "options": {
+      "A": "Culturally shared stereotypes that participants know, not necessarily their own prejudices",
+      "B": "Participants' own implicit attitudes toward each group, measured without social pressure",
+      "C": "The actual warmth and competence of the members of each group",
+      "D": "Participants' behavior toward members of each group in real interactions"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Asking about societal views measures awareness of cultural stereotype content, which may differ from personal endorsement. Why the others are wrong: B) Implicit attitudes require indirect measures such as the IAT, and these ratings were explicit. C) Ratings reflect perceptions, not objective traits of the groups. D) The survey did not measure behavior.",
+     "trap": "Reading perceived societal views as the respondents' personal beliefs.",
+     "topic": "Interpreting survey instructions",
+     "mastery_sheet_id": "8B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_PS_P7",
+   "passage_text": "Realistic conflict theory predicts that competition for scarce resources breeds intergroup hostility. In a summer program, 60 adolescents who did not know each other were divided into two teams of 30 and housed separately. During days 1-4, the teams competed in tournaments for prizes. Teams were then randomly split, within each team, into three conditions of 20 (10 from each team): (1) contact, in which members of both teams ate meals and watched films together; (2) superordinate goal, in which members of both teams jointly repaired the camp's failed water supply, a task neither team could complete alone; and (3) control, in which team members stayed separated. Outgroup bias was measured on a 7-point scale (higher = more negative toward the other team) at baseline, after the competition, and after a 3-day intervention. Table 1 and Figure 1 show the mean scores. Bias scores were analyzed with a mixed-design ANOVA (condition x phase), and the interaction was significant (p < .001); post hoc tests showed that only the superordinate goal group differed from the control group.",
+   "table_data": "| Condition | Baseline | After competition | After intervention | Change |\n|---|---|---|---|---|\n| Contact | 2.0 | 4.1 | 3.9 | -0.2 |\n| Superordinate goal | 2.1 | 4.2 | 2.3 | -1.9 |\n| Control | 2.0 | 4.0 | 4.0 | 0.0 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Mean outgroup bias by phase",
+    "x_label": "Phase (0 = baseline, 1 = after competition, 2 = after intervention)",
+    "y_label": "Outgroup bias (1-7)",
+    "series": [
+     {
+      "name": "Contact",
+      "points": [
+       [
+        0,
+        2.0
+       ],
+       [
+        1,
+        4.1
+       ],
+       [
+        2,
+        3.9
+       ]
+      ]
+     },
+     {
+      "name": "Superordinate goal",
+      "points": [
+       [
+        0,
+        2.1
+       ],
+       [
+        1,
+        4.2
+       ],
+       [
+        2,
+        2.3
+       ]
+      ]
+     },
+     {
+      "name": "Control",
+      "points": [
+       [
+        0,
+        2.0
+       ],
+       [
+        1,
+        4.0
+       ],
+       [
+        2,
+        4.0
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_PS_P7_Q1",
+     "stem": "In the superordinate goal condition, the reduction in bias from the post-competition level to the post-intervention level was closest to what percentage of the post-competition level?",
+     "options": {
+      "A": "19%, the change in points multiplied by 10",
+      "B": "55%, the post-intervention level as a share of the post-competition level",
+      "C": "45%",
+      "D": "83%, the change divided by the post-intervention level"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) (4.2 - 2.3)/4.2 = 1.9/4.2 = 0.45. Why the others are wrong: A) Multiplying the 1.9-point change by ten is not a percentage of any base. B) 2.3/4.2 = 55% is the remaining bias, not the reduction. D) Dividing by the final value (2.3) gives 83%, but a percent reduction uses the starting value.",
+     "trap": "Using the wrong denominator or reporting the remaining level instead of the reduction.",
+     "topic": "Superordinate goals",
+     "mastery_sheet_id": "8C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_PS_P7_Q2",
+     "stem": "The contact condition produced little reduction in bias, most likely because:",
+     "options": {
+      "A": "Contact between competing groups always increases hostility regardless of the setting",
+      "B": "The participants in the contact condition were more biased at baseline than the other participants",
+      "C": "Shared meals and films did not require the groups to cooperate toward a goal that depended on both",
+      "D": "Superordinate goals reduce bias only for groups that have never competed"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Contact reduces prejudice when it involves cooperative interdependence; passive, parallel contact did not. Why the others are wrong: A) Contact did not increase bias here (4.1 to 3.9), and contact is not always harmful. B) Baseline scores were similar (2.0 vs 2.1 and 2.0). D) These groups had competed, and the superordinate goal still worked.",
+     "trap": "Assuming that any contact, regardless of its structure, should reduce prejudice.",
+     "topic": "Conditions for effective contact",
+     "mastery_sheet_id": "8C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P7_Q3",
+     "stem": "The control condition was included mainly to determine whether:",
+     "options": {
+      "A": "The two teams differed in their initial skill at the tournaments",
+      "B": "Participants responded to the questionnaire consistently with their true attitudes",
+      "C": "Adolescents are more susceptible to bias than adults",
+      "D": "Bias would have declined on its own as time passed after the competition ended"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A no-intervention group shows the natural course of bias, so changes in other groups can be attributed to the interventions. Why the others are wrong: A) Team skill is not tested by a control group that stays separated. B) Questionnaire honesty requires other safeguards, not a control group. C) No adult group was included, so age comparisons cannot be made.",
+     "trap": "Reading a control group as a check on measurement or on sample characteristics instead of on natural change.",
+     "topic": "Purpose of a control group",
+     "mastery_sheet_id": "8C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P7_Q4",
+     "stem": "Which of the following is the closest real-world application of the strategy that worked best in this study?",
+     "options": {
+      "A": "Two rival hospital departments are jointly assigned to cut infection rates, a target neither department can reach alone",
+      "B": "Two rival departments hold a quarterly social mixer where staff from both are encouraged to chat and share a meal",
+      "C": "Two rival departments are ranked, with rewards for the better-performing department",
+      "D": "Two rival departments are merged and the budget of the smaller one is eliminated"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) A superordinate goal requires cooperation between groups to achieve an outcome that neither can accomplish alone. Why the others are wrong: B) A mixer is passive contact, like the contact condition, and was not very effective. C) Ranking and rewards create competition, which promotes hostility. D) Cutting the smaller department's budget creates a resource conflict, not a shared goal.",
+     "trap": "Treating friendly contact or merging as equivalent to genuine cooperative interdependence.",
+     "topic": "Applying superordinate goals",
+     "mastery_sheet_id": "8C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_PS_P8",
+   "passage_text": "Max Weber described bureaucracy as the most rationalized form of organization, marked by hierarchy, a division of labor, written rules, and impersonal application of procedures. A researcher studied 30 municipal permit offices that varied in how strongly they had standardized their procedures (checklists, written decision rules, and fixed approval chains) and grouped them into three levels of standardization, with 10 offices per level. Processing times and error rates came from public records. Applicants (n = 900) rated the fairness of their treatment (1 = very unfair, 5 = very fair), and employees (n = 300) rated job satisfaction (1-5). Offices were not randomly assigned to levels; the most standardized offices tended to be larger and to serve bigger populations. Table 1 lists the mean values at each level. Differences across levels were tested with one-way ANOVAs and were significant (p < .05), although the researchers noted the small number of offices. No statistical adjustment for office size was made.",
+   "table_data": "| Standardization level | Mean days to process | Error rate (%) | Applicant fairness (1-5) | Employee satisfaction (1-5) |\n|---|---|---|---|---|\n| Low | 24 | 12 | 3.1 | 3.8 |\n| Medium | 18 | 8 | 3.6 | 3.4 |\n| High | 14 | 4 | 4.0 | 2.9 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL09_PS_P8_Q1",
+     "stem": "Which finding in Table 1 best fits Weber's concern that rationalization can be dehumanizing for the people within organizations?",
+     "options": {
+      "A": "Processing time decreased as standardization increased",
+      "B": "Error rate decreased as standardization increased",
+      "C": "Applicant fairness ratings increased as standardization increased",
+      "D": "Employee satisfaction decreased as standardization increased"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Weber's 'iron cage' idea is that rigid rules and routines can constrain workers; falling employee satisfaction is the cost pattern. Why the others are wrong: A) Faster processing reflects efficiency, one of the benefits of rationalization. B) Fewer errors reflect predictability and calculability, also benefits. C) Higher perceived fairness reflects impersonal treatment, again a benefit.",
+     "trap": "Picking an efficiency benefit when the question asks for a human cost.",
+     "topic": "Weber and the iron cage",
+     "mastery_sheet_id": "9A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P8_Q2",
+     "stem": "From low to high standardization, the error rate fell by approximately what percentage of the low-standardization error rate?",
+     "options": {
+      "A": "67%",
+      "B": "8%, the absolute difference in percentage points",
+      "C": "33%, the high-standardization error rate as a share of the low rate",
+      "D": "50%, the point midway between the two rates"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) (12 - 4)/12 = 8/12 = 0.67. Why the others are wrong: B) 8 is the absolute change in percentage points, not a relative reduction. C) 4/12 = 33% is the remaining error rate, not the reduction. D) The midpoint of the rates is 8%, which has no relation to a percent reduction.",
+     "trap": "Reporting remaining share or percentage points as a relative reduction.",
+     "topic": "Percent reduction",
+     "mastery_sheet_id": "9A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_PS_P8_Q3",
+     "stem": "Which characteristic of bureaucracy most directly explains the higher fairness ratings at the highly standardized offices?",
+     "options": {
+      "A": "A rigid hierarchy, so that each employee answers to a single supervisor",
+      "B": "A division of labor, so that each employee performs a narrow specialized task very efficiently and repeatedly",
+      "C": "Reliance on tradition, so that decisions follow the customs of long-serving staff",
+      "D": "Impersonal application of written rules, so that applicants are treated the same regardless of who they are"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Impersonal, uniform rules reduce favoritism, which applicants perceive as fair. Why the others are wrong: A) Hierarchy clarifies authority but does not itself ensure equal treatment of applicants. B) Specialization raises efficiency, not necessarily perceived fairness. C) Bureaucracy replaces traditional authority with rational-legal authority.",
+     "trap": "Choosing a defining feature of bureaucracy that is not the one linked to equal treatment.",
+     "topic": "Impersonality in bureaucracy",
+     "mastery_sheet_id": "9A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P8_Q4",
+     "stem": "Which statement is the most important caution about concluding from Table 1 that standardization causes lower error rates?",
+     "options": {
+      "A": "Error rates are measured in percentages, which cannot be compared across offices",
+      "B": "Office size may be a confounding variable, because the most standardized offices were also larger",
+      "C": "Public records are inherently unreliable sources of data about processing times",
+      "D": "The sample of 30 offices is too small to calculate a mean for each level"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) When offices were not randomly assigned and standardization co-varies with size, size could explain differences in errors. Why the others are wrong: A) Percentages can be compared across groups. C) Nothing in the description questions the reliability of the records. D) Ten offices per level is small but sufficient for means; the main issue is confounding, not computability.",
+     "trap": "Attributing an observational association to causation without considering confounders.",
+     "topic": "Confounding in observational data",
+     "mastery_sheet_id": "9A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_PS_P9",
+   "passage_text": "The natural sex ratio at birth (SRB) is about 105 boys per 100 girls. In \"Country X,\" where cultural preference for sons was strong, the government in 2012 banned prenatal sex determination and began cash payments to families with daughters. Researchers analyzed national birth-registry data, calculating SRB (boys per 100 girls) separately for first births and third births at ten-year intervals (Table 1; Figure 1). Third births are informative because couples who already have daughters may be more likely to use sex selection. Registry coverage exceeded 95% in each year. The researchers also noted that the cohort born in 2010 would reach typical marriage ages around 2035. Sex-selective abortion cannot be observed directly in registry data, so the researchers used excess male births as an indirect indicator. Because the registry records millions of births, even small differences in ratios are statistically significant, so the researchers focused on the size of the differences.",
+   "table_data": "| Year | First-birth SRB | Third-birth SRB |\n|---|---|---|\n| 1990 | 106 | 112 |\n| 2000 | 108 | 125 |\n| 2010 | 108 | 132 |\n| 2020 | 106 | 115 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Sex ratio at birth by birth order",
+    "x_label": "Year",
+    "y_label": "Boys per 100 girls",
+    "series": [
+     {
+      "name": "First births",
+      "points": [
+       [
+        1990,
+        106
+       ],
+       [
+        2000,
+        108
+       ],
+       [
+        2010,
+        108
+       ],
+       [
+        2020,
+        106
+       ]
+      ]
+     },
+     {
+      "name": "Third births",
+      "points": [
+       [
+        1990,
+        112
+       ],
+       [
+        2000,
+        125
+       ],
+       [
+        2010,
+        132
+       ],
+       [
+        2020,
+        115
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_PS_P9_Q1",
+     "stem": "Which pattern in the data is the strongest evidence that sex selection, rather than biology, raised the sex ratio in the 2000s?",
+     "options": {
+      "A": "Both ratios were above the natural ratio of 105 boys per 100 girls in every year of the study, from 1990 to 2020",
+      "B": "Third-birth ratios rose far above the biological norm while first-birth ratios remained near it",
+      "C": "The third-birth ratio in 2020 was lower than in 2010",
+      "D": "First-birth ratios rose by 2 points between 1990 and 2000"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A birth-order-specific excess, concentrated where couples already have daughters, is the signature of sex-selective practices. Why the others are wrong: A) Both being slightly above 105 does not distinguish selection; first-birth values were close to the norm. C) A decline in 2020 suggests the ban had an effect but is not evidence about the cause of the earlier increase. D) A 2-point rise in first births is small and within normal variation.",
+     "trap": "Taking any value above 105 as proof of selection rather than a birth-order-specific pattern.",
+     "topic": "Sex ratio and sex selection",
+     "mastery_sheet_id": "9B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P9_Q2",
+     "stem": "What percentage of third-birth babies were boys in 2010?",
+     "options": {
+      "A": "57%",
+      "B": "32%, the number of boys above 100 per 100 girls",
+      "C": "51%, the share of boys at the natural ratio",
+      "D": "66%, the ratio of boys to girls expressed as 132/200"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 132 boys per 100 girls means 132 boys out of 232 births = 0.569, or about 57%. Why the others are wrong: B) 132 - 100 = 32 is a count per 100 girls, not a percentage of births. C) The natural ratio of 105 gives about 51%, and 2010 values are far higher. D) Dividing by 200 assumes 200 total babies; the total is 232.",
+     "trap": "Treating a ratio (boys per 100 girls) as a percentage of all births.",
+     "topic": "Percent male from a sex ratio",
+     "mastery_sheet_id": "9B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_PS_P9_Q3",
+     "stem": "The researchers' note about the 2010 birth cohort anticipates which long-term demographic consequence?",
+     "options": {
+      "A": "A rise in the dependency ratio because of a surplus of children relative to working-age adults",
+      "B": "A shortage of women relative to men at marriage ages, known as a marriage squeeze",
+      "C": "A decline in life expectancy at birth because of excess male mortality in infancy",
+      "D": "A rise in international migration of women from poorer regions to Country X"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A male-skewed cohort will face fewer potential female partners when it reaches marriage age. Why the others are wrong: A) The sex-ratio imbalance does not itself create a surplus of children relative to workers. C) Life expectancy is not determined by the birth sex ratio; excess male infant mortality is not described. D) Migration responses are possible but are speculation, not the direct consequence signaled by the cohort note.",
+     "trap": "Choosing a general demographic effect instead of the one tied to cohort sex imbalance.",
+     "topic": "Consequences of skewed sex ratios",
+     "mastery_sheet_id": "9B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P9_Q4",
+     "stem": "Which feature most limits the conclusion that the 2012 policy caused the decline in third-birth SRB by 2020?",
+     "options": {
+      "A": "The use of national registry data instead of a survey of individual couples",
+      "B": "The calculation of ratios separately by birth order instead of overall",
+      "C": "The use of ten-year intervals, which cannot show the exact timing of changes relative to the 2012 policy",
+      "D": "No comparison country without the policy, so simultaneous changes such as rising female education cannot be ruled out"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) With no comparison group, other concurrent trends can account for the change. Why the others are wrong: A) High-coverage registry data are a strength, not a limitation. B) Separating by birth order is informative and strengthens the inference. C) Multiple time points are better than one for showing a trend.",
+     "trap": "Interpreting a before-and-after change as caused by the policy without a comparison group.",
+     "topic": "Time-series limitations",
+     "mastery_sheet_id": "9B",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL09_PS_P10",
+   "passage_text": "Bourdieu proposed that cultural capital, familiarity with the dominant culture's tastes, language, and norms, is transmitted through families and can be converted into educational advantage. Researchers surveyed 480 first-year students at a large public university (240 with at least one parent holding a college degree and 240 without). Students completed a 10-point cultural capital index based on childhood museum visits, reading, and comfort interacting with faculty. The researchers recorded whether each student had been placed in the advanced academic track and collected faculty ratings of how well each student fit the academic environment (1-5). In a regression predicting advanced-track placement that controlled for standardized test scores, cultural capital remained a significant predictor (standardized beta = .24, p < .001), as did parental education (beta = .12, p = .03). Table 1 gives group means, and Figure 1 shows placement by cultural capital quartile. Differences between the two groups on each measure were significant (p < .001). Faculty raters did not know the students' parental education.",
+   "table_data": "| Parental education | n | Mean cultural capital (0-10) | Advanced track (%) | Mean faculty fit rating (1-5) |\n|---|---|---|---|---|\n| At least one college degree | 240 | 6.8 | 62 | 4.1 |\n| No college degree | 240 | 3.9 | 28 | 3.2 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Advanced-track placement by cultural capital quartile",
+    "x_label": "Cultural capital quartile (1 = lowest)",
+    "y_label": "Placed in advanced track (%)",
+    "series": [
+     {
+      "name": "All students",
+      "points": [
+       [
+        1,
+        18
+       ],
+       [
+        2,
+        34
+       ],
+       [
+        3,
+        52
+       ],
+       [
+        4,
+        76
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL09_PS_P10_Q1",
+     "stem": "What percentage of all 480 students were placed in the advanced track?",
+     "options": {
+      "A": "90%, the sum of the two groups' placement percentages (62 + 28)",
+      "B": "62%, the placement rate among students with a college-educated parent",
+      "C": "45%",
+      "D": "28%, the placement rate among students whose parents have no college degree"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Advanced-track students: 0.62 x 240 = 149 plus 0.28 x 240 = 67, totaling 216 of 480 = 45%. Why the others are wrong: A) Adding two percentages that describe different halves of the sample double counts; the combined rate is their average when group sizes are equal. B) 62% applies only to the subgroup of 240 students with a college-educated parent. D) 28% applies only to the subgroup of 240 students without a college-educated parent.",
+     "trap": "Rounding or selecting a single group's rate instead of weighting both groups.",
+     "topic": "Educational stratification",
+     "mastery_sheet_id": "10A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL09_PS_P10_Q2",
+     "stem": "The persistence of cultural capital as a predictor after controlling for test scores most strongly suggests that:",
+     "options": {
+      "A": "Standardized test scores had no relationship with track placement",
+      "B": "Cultural capital is a more valid measure of intelligence than test scores",
+      "C": "Track placement depends partly on factors other than measured achievement",
+      "D": "Parental education has no influence on placement once cultural capital is known"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A significant coefficient with achievement held constant implies that placement reflects something beyond tested achievement. Why the others are wrong: A) Controlling for scores does not show that scores are unrelated to placement. B) The data say nothing about cultural capital measuring intelligence. D) Parental education remained significant (beta = .12, p = .03).",
+     "trap": "Reading statistical control as proof that the control variable is irrelevant.",
+     "topic": "Regression and unmeasured selection criteria",
+     "mastery_sheet_id": "10A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P10_Q3",
+     "stem": "According to Figure 1, between which two consecutive quartiles was the increase in placement percentage greatest?",
+     "options": {
+      "A": "Quartile 3 to quartile 4, an increase of 24 percentage points",
+      "B": "Quartile 1 to quartile 2, an increase of 16 percentage points",
+      "C": "Quartile 2 to quartile 3, an increase of 22 percentage points",
+      "D": "Quartile 1 to quartile 4, an increase of 58 percentage points"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Consecutive increases are 16 (1 to 2), 18 (2 to 3), and 24 (3 to 4). Why the others are wrong: B) The quartile 1 to 2 increase is 16, the smallest. C) The quartile 2 to 3 increase is 18, not 22, and is smaller than 24. D) Quartile 1 to 4 is not a consecutive pair.",
+     "trap": "Reading the endpoints instead of consecutive differences.",
+     "topic": "Graph reading",
+     "mastery_sheet_id": "10A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P10_Q4",
+     "stem": "Which perspective would most likely interpret the track-placement results as schools helping to reproduce class advantage?",
+     "options": {
+      "A": "Functionalism, because schools sort students by ability to fill social roles efficiently",
+      "B": "Symbolic interactionism, because individual students construct meaning from daily classroom interactions",
+      "C": "Conflict theory, because schools reward the cultural resources of already advantaged families",
+      "D": "Rational choice theory, because each family weighs costs and benefits of education"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Conflict theory stresses how institutions perpetuate inequality, and cultural capital is the mechanism proposed by Bourdieu. Why the others are wrong: A) Functionalism would interpret tracking as meritocratic sorting, which the results call into question. B) Interactionism could describe the fit rating but not the reproduction of class advantage. D) Rational choice theory focuses on individual cost-benefit calculations, not structural reproduction.",
+     "trap": "Choosing functionalism because tracking sounds like sorting by ability.",
+     "topic": "Conflict theory and cultural reproduction",
+     "mastery_sheet_id": "10A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL09_PS_P10_Q5",
+     "stem": "Which of the following is the best example of cultural capital as Bourdieu used the term?",
+     "options": {
+      "A": "A student whose family can pay for private tutoring and test preparation courses",
+      "B": "A student whose uncle is friends with the dean and can arrange an introduction",
+      "C": "A student who earned a high score on a standardized mathematics exam",
+      "D": "A student who learned at home how to discuss literature and address professors in ways that teachers reward"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Cultural capital is knowledge, tastes, and styles transmitted by families and valued by institutions. Why the others are wrong: A) Money for tutoring is economic capital. B) Useful connections are social capital. C) A test score is a measure of achievement, not an inherited cultural resource.",
+     "trap": "Treating any family advantage as cultural capital.",
+     "topic": "Defining cultural capital",
+     "mastery_sheet_id": "10A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL09_PS_D1",
+   "stem": "A person can just barely distinguish a 50-g weight from a 51-g weight. According to Weber's law, the just-noticeable difference for a 400-g weight is closest to:",
+   "options": {
+    "A": "1 g, because the just-noticeable difference is constant for all weights",
+    "B": "8 g",
+    "C": "4 g, because 400 g is four times the size of the 100-g reference",
+    "D": "16 g, because the weight is eight times as large as the reference"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The Weber fraction is 1/50 = 2%; 2% of 400 g = 8 g. Why the others are wrong: A) Weber's law says the JND is proportional to the baseline, not constant. C) The baseline weight is 8 times 50 g, not 4 times a 100-g reference. D) Doubling the proportional change gives 16 g, which overstates the 2% fraction.",
+   "trap": "Assuming the JND is a fixed amount rather than a fixed proportion of the baseline.",
+   "topic": "Weber's law",
+   "mastery_sheet_id": "6A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://elvers.us/perception/WebersLaw/",
+     "https://www.vedantu.com/physics/webers-law"
+    ]
+   }
+  },
+  {
+   "id": "FL09_PS_D2",
+   "stem": "After entering a dark theater, a person sees a dim exit sign better when looking slightly to the side of it than directly at it. This is best explained by:",
+   "options": {
+    "A": "A high density of cones in the peripheral retina, which allows color discrimination in very dim light",
+    "B": "A high density of rods in the fovea, which makes the center of the visual field most sensitive to dim light",
+    "C": "Dilation of the pupil, which projects the dim light directly onto the optic disc",
+    "D": "A high density of rods, which are more light-sensitive than cones, in the peripheral retina compared with the fovea"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Rods function in low light and are concentrated outside the fovea; the fovea is dominated by cones. Why the others are wrong: A) Cones need brighter light and are concentrated in the fovea, not the periphery. B) The fovea contains almost no rods. C) The optic disc is the blind spot, which has no photoreceptors.",
+   "trap": "Assuming the fovea, the center of sharp vision, is also the most sensitive region in dim light.",
+   "topic": "Rods, cones, and dark adaptation",
+   "mastery_sheet_id": "6A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_PS_D3",
+   "stem": "A viewer looks at several separated arcs arranged in a circle and perceives a complete circle. Which Gestalt principle best explains this perception?",
+   "options": {
+    "A": "Closure",
+    "B": "Similarity",
+    "C": "Figure-ground",
+    "D": "Proximity"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Closure is the tendency to fill gaps to perceive a complete, whole form. Why the others are wrong: B) Similarity groups elements that look alike, but the arcs' resemblance does not complete the circle. C) Figure-ground concerns separating an object from its background. D) Proximity groups elements that are near each other, but this does not explain the filled-in gaps.",
+   "trap": "Choosing proximity because the arcs are near each other.",
+   "topic": "Gestalt principles",
+   "mastery_sheet_id": "6A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_PS_D4",
+   "stem": "A reader sees the phrase 'THE CAT' printed so that the H in 'THE' and the A in 'CAT' are the same ambiguous shape, yet she reads each letter correctly. This best illustrates:",
+   "options": {
+    "A": "Bottom-up processing, in which features are assembled from sensory data without prior knowledge or expectations",
+    "B": "Sensory adaptation, in which a constant stimulus gradually becomes less noticeable",
+    "C": "Top-down processing, in which context and expectations shape the interpretation of sensory input",
+    "D": "Transduction, in which light energy is converted into neural signals by photoreceptors"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) The same shape is perceived as different letters depending on the word context, which is knowledge-driven processing. Why the others are wrong: A) Bottom-up processing would give the same interpretation of the identical shape in both words. B) Adaptation concerns decreasing responsiveness to constant stimuli. D) Transduction occurs in the retina and is the same for both letters.",
+   "trap": "Ignoring that identical input produced different percepts, which can only be explained by context.",
+   "topic": "Top-down processing",
+   "mastery_sheet_id": "6A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_PS_D5",
+   "stem": "Participants study a list of 20 words and then recall them. In one condition they recall immediately; in another they count backward for 30 seconds before recalling. Compared with immediate recall, the delay condition most likely shows:",
+   "options": {
+    "A": "Markedly poorer recall of the first few words, with late-word recall largely unchanged",
+    "B": "Better recall of middle words, because interference is lower at the center of the list",
+    "C": "No change in the shape of the serial position curve, since recall depends on the total number of words",
+    "D": "Markedly poorer recall of the last few words, with early-word recall largely unchanged"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) A distractor task removes the recency effect because the last items are held in short-term memory and are displaced, while primacy reflects long-term encoding. Why the others are wrong: A) The primacy effect depends on rehearsal into long-term memory and is not removed by a brief delay. B) Middle words are typically recalled worst, and the delay does not help them. C) The curve changes shape: the recency portion falls.",
+   "trap": "Confusing the primacy effect (long-term memory) with the recency effect (short-term memory).",
+   "topic": "Serial position effect",
+   "mastery_sheet_id": "6B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_PS_D6",
+   "stem": "After a stroke, a patient speaks fluently in long sentences that contain made-up words and make no sense, and she cannot follow simple spoken commands. Damage is most likely in:",
+   "options": {
+    "A": "The left inferior frontal gyrus (Broca's area)",
+    "B": "The posterior superior temporal lobe of the left hemisphere (Wernicke's area)",
+    "C": "The primary auditory cortex of both hemispheres",
+    "D": "The primary motor cortex controlling the muscles of the mouth and tongue"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Fluent but meaningless speech with impaired comprehension is the pattern of Wernicke's aphasia. Why the others are wrong: A) Broca's area damage produces halting, effortful speech with preserved comprehension. C) Bilateral primary auditory damage would cause hearing deficits, not fluent speech production. D) Primary motor damage would impair articulation, not the content of speech.",
+   "trap": "Confusing fluent aphasia with nonfluent aphasia.",
+   "topic": "Language areas of the brain",
+   "mastery_sheet_id": "6B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_PS_D7",
+   "stem": "A child watches water poured from a short, wide glass into a tall, thin glass and says the tall glass now holds more water. According to Piaget, this child is most likely in which stage, and why?",
+   "options": {
+    "A": "Sensorimotor, because the child has not yet developed object permanence or symbolic thought",
+    "B": "Concrete operational, because the child reasons using the reversibility of physical actions and logical rules",
+    "C": "Preoperational, because the child focuses on one dimension (height) and has not mastered conservation",
+    "D": "Formal operational, because the child is generating hypotheses about the amount of water"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Failing conservation by centering on one dimension is characteristic of the preoperational stage (about ages 2-7). Why the others are wrong: A) Sensorimotor children are infants, and a child who can talk about glasses is beyond this stage. B) Reversibility would let the child see that pouring back restores the original, and concrete operational children pass conservation. D) Hypothetical reasoning is a formal operational skill and would not produce this error.",
+   "trap": "Assuming that any child who can talk about quantities has acquired conservation.",
+   "topic": "Piaget's conservation",
+   "mastery_sheet_id": "6B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_PS_D8",
+   "stem": "After using the same locker combination for a year, a student is given a new combination and keeps reciting the old one. This is best described as:",
+   "options": {
+    "A": "Proactive interference, in which previously learned information disrupts recall of new information",
+    "B": "Retroactive interference, in which newly learned information disrupts recall of old information",
+    "C": "Anterograde amnesia, in which a brain injury prevents the formation of any new long-term memories",
+    "D": "Decay, in which memory traces gradually fade over time because they are not used or rehearsed"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The old combination (learned earlier) interferes with the new one, which is proactive interference. Why the others are wrong: B) Retroactive interference would be forgetting the old combination because of learning the new one. C) Anterograde amnesia is neurological and would affect memory formation generally, not just this item. D) Decay concerns fading with disuse; the old combination is being recalled too strongly, not fading.",
+   "trap": "Reversing proactive and retroactive interference.",
+   "topic": "Interference in memory",
+   "mastery_sheet_id": "6B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_PS_D9",
+   "stem": "A disease has a prevalence of 10% in a population of 1000 people. A screening test has 90% sensitivity and 80% specificity. Among those who test positive, what proportion actually have the disease?",
+   "options": {
+    "A": "50%, because sensitivity and specificity average to 85%",
+    "B": "33%",
+    "C": "80%, because specificity gives the proportion of positives that are real",
+    "D": "90%, because sensitivity gives the proportion of positives that are real"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) 100 have disease: 90 true positives. 900 are healthy: 20% false positives = 180. PPV = 90/(90 + 180) = 33%. Why the others are wrong: A) Averaging sensitivity and specificity does not give a predictive value and 50% is not supported by the counts. C) Specificity is the proportion of healthy people testing negative, not a predictive value. D) Sensitivity is the proportion of diseased people who test positive, not the proportion of positives who have disease.",
+   "trap": "Equating sensitivity with the probability that a positive result is correct, ignoring prevalence.",
+   "topic": "Predictive value of a diagnostic test",
+   "mastery_sheet_id": "SIRS",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://radiopaedia.org/articles/positive-predictive-value"
+    ]
+   }
+  },
+  {
+   "id": "FL09_PS_D10",
+   "stem": "A researcher tests 20 independent hypotheses, all of which are actually true null hypotheses, each at alpha = .05. The probability of obtaining at least one statistically significant result is closest to:",
+   "options": {
+    "A": "5%, because each test has a 5% false-positive rate",
+    "B": "64%",
+    "C": "36%, because this is the probability that all 20 tests are nonsignificant",
+    "D": "100%, because with 20 tests at least one must be significant"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) P(at least one) = 1 - 0.95^20 = 1 - 0.36 = 0.64. Why the others are wrong: A) 5% is the chance for a single test; across 20 tests the chances accumulate. C) 0.95^20 = 0.36 is the chance that none is significant, not that at least one is. D) The probability is high but not certain.",
+   "trap": "Using the per-test error rate as the family-wise error rate.",
+   "topic": "Multiple comparisons",
+   "mastery_sheet_id": "SIRS",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.statology.org/family-wise-error-rate/",
+     "https://www.real-statistics.com/hypothesis-testing/familywise-error"
+    ]
+   }
+  },
+  {
+   "id": "FL09_PS_D11",
+   "stem": "A researcher wants to increase the probability of detecting a true difference between two groups without changing the significance level. The most effective change would be to:",
+   "options": {
+    "A": "Lower alpha from .05 to .01, which makes a result more convincing when it is detected",
+    "B": "Recruit a more heterogeneous sample, which increases the variability of scores",
+    "C": "Increase the sample size in each group, which reduces the standard error of the mean difference",
+    "D": "Use a one-sample design with a smaller expected effect, which reduces the required measurements"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Larger samples reduce standard error, so a true effect is more likely to reach significance. Why the others are wrong: A) A stricter alpha reduces power; the question states alpha should not change. B) Greater variability increases the standard error and reduces power. D) A smaller expected effect is harder to detect, not easier.",
+   "trap": "Believing that a stricter alpha makes a study stronger, when it lowers power.",
+   "topic": "Statistical power",
+   "mastery_sheet_id": "SIRS",
+   "skill": "experimental design",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_PS_D12",
+   "stem": "Depression scores (a continuous measure) are compared among three independent groups of patients receiving cognitive-behavioral therapy, an antidepressant, or a placebo. Which analysis is most appropriate?",
+   "options": {
+    "A": "One-way ANOVA, since it compares means across three independent groups",
+    "B": "A paired t-test, because the same measure is used in all groups",
+    "C": "A chi-square test of independence, because treatments are categories",
+    "D": "Three separate independent-samples t-tests, each at alpha = .05 and without correction"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) ANOVA tests for mean differences among three or more independent groups while controlling the overall Type I error rate. Why the others are wrong: B) A paired t-test applies to two related measurements, but these are independent groups. C) Chi-square analyzes categorical outcomes, and depression scores are continuous. D) Three uncorrected t-tests would inflate the overall chance of a false positive.",
+   "trap": "Defaulting to repeated t-tests, which inflates the Type I error rate.",
+   "topic": "Choosing a statistical test",
+   "mastery_sheet_id": "SIRS",
+   "skill": "experimental design",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_PS_D13",
+   "stem": "A woman has adequate food and water but has just been laid off and lives in a neighborhood with frequent break-ins. According to Maslow's hierarchy, which need most likely dominates her motivation?",
+   "options": {
+    "A": "Physiological needs",
+    "B": "Esteem needs",
+    "C": "Self-actualization",
+    "D": "Safety needs"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Her physiological needs are met, so the next unmet level, safety (security of income and personal safety), dominates. Why the others are wrong: A) Her food and water are adequate, so physiological needs are not the priority. B) Esteem needs lie higher in the hierarchy and take priority only when lower needs are met. C) Self-actualization is the highest level and is pursued after lower needs are met.",
+   "trap": "Picking the lowest need because the scenario involves hardship.",
+   "topic": "Maslow's hierarchy of needs",
+   "mastery_sheet_id": "6C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_PS_D14",
+   "stem": "A man seeks help for 3 weeks of depressed mood and loss of interest. He reports that last year he had one week of unusually elevated mood, little need for sleep, grandiose plans, and spending sprees. Which diagnosis is most consistent with his history?",
+   "options": {
+    "A": "Major depressive disorder, because he currently meets criteria for a depressive episode",
+    "B": "Persistent depressive disorder, because his symptoms involve low mood",
+    "C": "Bipolar disorder, because he has had a manic episode in addition to depression",
+    "D": "Generalized anxiety disorder, because his sleep and spending patterns are disrupted"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) A history of a manic episode (a week of elevated mood with decreased need for sleep, grandiosity, and risky spending) points to bipolar disorder. Why the others are wrong: A) Major depressive disorder requires no history of mania. B) Persistent depressive disorder requires a chronic low mood of at least two years and no manic history. D) Generalized anxiety disorder involves excessive worry and does not explain elevated mood.",
+   "trap": "Diagnosing from the current episode alone and ignoring a past manic episode.",
+   "topic": "Distinguishing mood disorders",
+   "mastery_sheet_id": "7A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL09_PS_D15",
+   "stem": "A country defines poverty as household income below 50% of the national median, which is $40,000. A household with an income of $18,000 would be classified as:",
+   "options": {
+    "A": "In relative poverty, because its income is below the $20,000 threshold set at half the median",
+    "B": "In absolute poverty, because its income falls below a fixed amount needed to meet basic survival needs in any society",
+    "C": "Not in poverty, because the income is greater than one third of the national median",
+    "D": "In relative poverty, because any income below the national median counts as poverty"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Fifty percent of $40,000 is $20,000, and $18,000 is below it, so the household is in relative poverty. Why the others are wrong: B) Absolute poverty is defined by a fixed subsistence standard, not by comparison with the median, and the stem gives no such standard. C) The country's threshold is 50% of the median; being above one third is irrelevant. D) The country's definition is half of the median, not the median itself.",
+   "trap": "Applying the median instead of the stated percentage threshold.",
+   "topic": "Absolute versus relative poverty",
+   "mastery_sheet_id": "10A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute",
+    "sources": []
+   }
+  }
+ ]
+}

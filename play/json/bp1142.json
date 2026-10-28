@@ -1,0 +1,142 @@
+[
+  {
+    "id": "bp1142_q1",
+    "type": "question",
+    "passage_id": "bp1142",
+    "passage_text": "Researchers investigated how different cognitive load conditions affect reaction times in a visual search task. Participants were randomly assigned to one of four groups: (1) low load, (2) moderate load, (3) high load, and (4) control (no additional task). Each participant completed 100 trials while their reaction times (RT) were recorded in milliseconds. The study aimed to determine whether increasing cognitive load would systematically slow visual search performance. Data were analyzed using descriptive statistics and an ANOVA to assess group differences. The researchers also examined the variability of responses within each group to understand consistency under varying load levels. Findings suggested a clear trend: as load increased, mean RT rose and variability widened. These results have implications for designing work environments where multitasking may impair performance and for understanding the limits of human attentional capacity.",
+    "table_data": [
+      {
+        "Group": "Low Load",
+        "Mean RT (ms)": 420,
+        "Std Dev": 35,
+        "Sample Size": 30
+      },
+      {
+        "Group": "Moderate Load",
+        "Mean RT (ms)": 485,
+        "Std Dev": 48,
+        "Sample Size": 30
+      },
+      {
+        "Group": "High Load",
+        "Mean RT (ms)": 560,
+        "Std Dev": 62,
+        "Sample Size": 30
+      },
+      {
+        "Group": "Control",
+        "Mean RT (ms)": 395,
+        "Std Dev": 28,
+        "Sample Size": 30
+      }
+    ],
+    "stem": "Which statement best describes the trend observed in the data?",
+    "options": {
+      "A": "Reaction times decrease as cognitive load increases.",
+      "B": "Reaction times remain unchanged across all load conditions.",
+      "C": "Reaction times increase with higher cognitive load, and variability also rises.",
+      "D": "Only the control group shows higher reaction times than the load groups."
+    },
+    "correct": "C",
+    "explanation": "The table shows mean RTs rising from 395 ms in the control to 560 ms in the high load group, with standard deviations also increasing, indicating greater variability under higher load.",
+    "trap": "Reading the control group (listed last) as the slowest, or assuming no trend, instead of comparing means from 395 to 560 ms.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  },
+  {
+    "id": "bp1142_q2",
+    "type": "question",
+    "passage_id": "bp1142",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which feature of the described design most directly supports a causal interpretation of the effect of load on reaction time?",
+    "options": {
+      "A": "Random assignment of participants to the load conditions",
+      "B": "Recording 100 trials per participant",
+      "C": "Reporting a standard deviation for each group",
+      "D": "Using the same sample size in every group"
+    },
+    "correct": "A",
+    "explanation": "Correct: A) Random assignment balances other participant characteristics across groups, so differences in RT can be attributed to load. Why the others are wrong: B) More trials improve precision of each participant estimate but do not address confounding. C) Reporting SDs describes variability and does not rule out confounders. D) Equal group size helps balance the analysis but does not by itself establish causation.",
+    "trap": "Treating precision or descriptive features (more trials, reported SDs) as if they, rather than random assignment, justified a causal claim.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:01:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1142_q3",
+    "type": "question",
+    "passage_id": "bp1142",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Calculate the Cohen’s d effect size for the difference between the high load and low load groups using the provided means and standard deviations.",
+    "options": {
+      "A": "0.70",
+      "B": "2.8",
+      "C": "4.0",
+      "D": "2.3"
+    },
+    "correct": "B",
+    "explanation": "Pooled SD (equal n) = √((35² + 62²)/2) = 50.3 ms. Difference = 560 − 420 = 140 ms. Cohen's d = 140/50.3 ≈ 2.8.",
+    "trap": "Option C divides by only the low-load SD (140/35 = 4.0); option D divides by only the high-load SD (140/62 = 2.3).",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:02:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1142_q4",
+    "type": "question",
+    "passage_id": "bp1142",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "Which of the following statements incorrectly interprets the data presented in the table?",
+    "options": {
+      "A": "The high load group has the highest mean reaction time.",
+      "B": "The standard deviation for the high load group is larger than that for the low load group.",
+      "C": "The control group’s mean reaction time is higher than the low load group’s.",
+      "D": "The sample size is the same for all groups."
+    },
+    "correct": "C",
+    "explanation": "The control group's mean (395 ms) is lower than the low load group's (420 ms); statement C reverses this and is incorrect.",
+    "trap": "Assuming the control group should have the highest RT, or misreading 395 ms as larger than the low load mean of 420 ms.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:03:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  },
+  {
+    "id": "bp1142_q5",
+    "type": "question",
+    "passage_id": "bp1142",
+    "passage_text": "",
+    "table_data": [],
+    "stem": "How does the observed relationship between cognitive load and reaction time relate to the broader concept of attentional capacity limits?",
+    "options": {
+      "A": "It demonstrates that attentional capacity is unlimited when multitasking.",
+      "B": "It indicates that attentional resources are shared and limited, leading to slower performance under higher load.",
+      "C": "It shows that reaction time is unrelated to cognitive load.",
+      "D": "It proves that visual search tasks are unaffected by secondary tasks."
+    },
+    "correct": "B",
+    "explanation": "The increase in reaction time and variability with higher load reflects the finite nature of attentional resources; when more resources are demanded, performance suffers.",
+    "trap": "Choosing the option that says attentional capacity is unlimited, which contradicts reaction times rising from 395 to 560 ms.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T12:04:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "6B"
+  }
+]

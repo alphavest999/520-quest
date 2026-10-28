@@ -1,0 +1,117 @@
+[
+  {
+    "id": "bp1231_q1",
+    "type": "question",
+    "passage_id": "bp1231",
+    "passage_text": "Researchers at the Institute for Cellular Pharmacology investigated the cytotoxic effects of a novel small‑molecule inhibitor, Compound X, on human breast cancer cell lines MCF‑7 and MDA‑MB‑231. Cells were seeded at 5 × 10³ cells per well in 96‑well plates and treated with Compound X at concentrations ranging from 0 µM (vehicle control) to 200 µM for 48 h. Cell viability was assessed using the MTT assay, and absorbance at 570 nm was converted to percent viability relative to the vehicle control. The results for MCF‑7 cells, summarized in Table 1, show a concentration‑dependent decrease in viability, with an IC₅₀ of approximately 75 µM for MCF‑7 and 90 µM for MDA‑MB‑231. Standard deviations were calculated from triplicate wells. The investigators also performed a time‑course study at 24 h and 72 h to confirm the 48‑h time point was representative. These data suggest that Compound X reduces the viability of these breast cancer cell lines and warrants further preclinical evaluation.",
+    "table_data": "Table 1: Cell viability (% of control) after 48 h treatment with Compound X\n\nConcentration (µM) | MCF-7 viability (%) | SD\n0 | 100 | 2\n10 | 92 | 3\n50 | 65 | 4\n100 | 35 | 5\n200 | 12 | 6",
+    "stem": "What percent viability was observed at 50 µM?",
+    "options": {
+      "A": "92%",
+      "B": "65%",
+      "C": "35%",
+      "D": "12%"
+    },
+    "correct": "B",
+    "explanation": "The table lists 65% viability at a 50 µM concentration of Compound X.",
+    "trap": "Reading the 92% value at 10 uM, or 35% at 100 uM, instead of the 50 uM row.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2C"
+  },
+  {
+    "id": "bp1231_q2",
+    "type": "question",
+    "passage_id": "bp1231",
+    "passage_text": "Researchers at the Institute for Cellular Pharmacology investigated the cytotoxic effects of a novel small‑molecule inhibitor, Compound X, on human breast cancer cell lines MCF‑7 and MDA‑MB‑231. Cells were seeded at 5 × 10³ cells per well in 96‑well plates and treated with Compound X at concentrations ranging from 0 µM (vehicle control) to 200 µM for 48 h. Cell viability was assessed using the MTT assay, and absorbance at 570 nm was converted to percent viability relative to the vehicle control. The results for MCF‑7 cells, summarized in Table 1, show a concentration‑dependent decrease in viability, with an IC₅₀ of approximately 75 µM for MCF‑7 and 90 µM for MDA‑MB‑231. Standard deviations were calculated from triplicate wells. The investigators also performed a time‑course study at 24 h and 72 h to confirm the 48‑h time point was representative. These data suggest that Compound X reduces the viability of these breast cancer cell lines and warrants further preclinical evaluation.",
+    "table_data": "Table 1: Cell viability (% of control) after 48 h treatment with Compound X\n\nConcentration (µM) | MCF-7 viability (%) | SD\n0 | 100 | 2\n10 | 92 | 3\n50 | 65 | 4\n100 | 35 | 5\n200 | 12 | 6",
+    "stem": "Viability is expressed as a percentage of a reference condition. Which control defines the 100% viability reference?",
+    "options": {
+      "A": "Cells treated with the solvent alone (0 µM vehicle control)",
+      "B": "Cells treated with 200 µM Compound X",
+      "C": "Wells containing medium and MTT but no cells",
+      "D": "Cells treated with Compound X at its IC50"
+    },
+    "correct": "A",
+    "explanation": "Correct: The passage states viability was converted to percent relative to the vehicle control (0 uM), which is therefore the 100% reference. Why the others are wrong: B) 200 uM is the highest dose with 12% viability, a treated condition. C) cell-free wells give a background blank, not viability of cells. D) cells at the IC50 are by definition about 50% viable.",
+    "trap": "Choosing the cell-free blank because it is also called a control.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2C"
+  },
+  {
+    "id": "bp1231_q3",
+    "type": "question",
+    "passage_id": "bp1231",
+    "passage_text": "Researchers at the Institute for Cellular Pharmacology investigated the cytotoxic effects of a novel small‑molecule inhibitor, Compound X, on human breast cancer cell lines MCF‑7 and MDA‑MB‑231. Cells were seeded at 5 × 10³ cells per well in 96‑well plates and treated with Compound X at concentrations ranging from 0 µM (vehicle control) to 200 µM for 48 h. Cell viability was assessed using the MTT assay, and absorbance at 570 nm was converted to percent viability relative to the vehicle control. The results for MCF‑7 cells, summarized in Table 1, show a concentration‑dependent decrease in viability, with an IC₅₀ of approximately 75 µM for MCF‑7 and 90 µM for MDA‑MB‑231. Standard deviations were calculated from triplicate wells. The investigators also performed a time‑course study at 24 h and 72 h to confirm the 48‑h time point was representative. These data suggest that Compound X reduces the viability of these breast cancer cell lines and warrants further preclinical evaluation.",
+    "table_data": "Table 1: Cell viability (% of control) after 48 h treatment with Compound X\n\nConcentration (µM) | MCF-7 viability (%) | SD\n0 | 100 | 2\n10 | 92 | 3\n50 | 65 | 4\n100 | 35 | 5\n200 | 12 | 6",
+    "stem": "Calculate the mean viability across all concentrations (including 0 µM). What is the value?",
+    "options": {
+      "A": "50.4%",
+      "B": "60.8%",
+      "C": "70.2%",
+      "D": "80.6%"
+    },
+    "correct": "B",
+    "explanation": "Mean = (100 + 92 + 65 + 35 + 12) / 5 = 304 / 5 = 60.8%.",
+    "trap": "Averaging only the treated concentrations (51%) or mis-summing the five values.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2C"
+  },
+  {
+    "id": "bp1231_q4",
+    "type": "question",
+    "passage_id": "bp1231",
+    "passage_text": "Researchers at the Institute for Cellular Pharmacology investigated the cytotoxic effects of a novel small‑molecule inhibitor, Compound X, on human breast cancer cell lines MCF‑7 and MDA‑MB‑231. Cells were seeded at 5 × 10³ cells per well in 96‑well plates and treated with Compound X at concentrations ranging from 0 µM (vehicle control) to 200 µM for 48 h. Cell viability was assessed using the MTT assay, and absorbance at 570 nm was converted to percent viability relative to the vehicle control. The results for MCF‑7 cells, summarized in Table 1, show a concentration‑dependent decrease in viability, with an IC₅₀ of approximately 75 µM for MCF‑7 and 90 µM for MDA‑MB‑231. Standard deviations were calculated from triplicate wells. The investigators also performed a time‑course study at 24 h and 72 h to confirm the 48‑h time point was representative. These data suggest that Compound X reduces the viability of these breast cancer cell lines and warrants further preclinical evaluation.",
+    "table_data": "Table 1: Cell viability (% of control) after 48 h treatment with Compound X\n\nConcentration (µM) | MCF-7 viability (%) | SD\n0 | 100 | 2\n10 | 92 | 3\n50 | 65 | 4\n100 | 35 | 5\n200 | 12 | 6",
+    "stem": "Between which two tested concentrations does Table 1 show viability crossing 50%?",
+    "options": {
+      "A": "0 and 10 µM",
+      "B": "10 and 50 µM",
+      "C": "50 and 100 µM",
+      "D": "100 and 200 µM"
+    },
+    "correct": "C",
+    "explanation": "Correct: Viability is 65% at 50 uM and 35% at 100 uM, so 50% falls between them. Why the others are wrong: A) viability is 100% and 92% at these concentrations, both above 50%. B) viability is 92% and 65%, both above 50%. D) viability is 35% and 12%, both below 50%.",
+    "trap": "Assuming the steepest drop in viability occurs at the lowest concentrations rather than locating where the values cross 50%.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2C"
+  },
+  {
+    "id": "bp1231_q5",
+    "type": "question",
+    "passage_id": "bp1231",
+    "passage_text": "Researchers at the Institute for Cellular Pharmacology investigated the cytotoxic effects of a novel small‑molecule inhibitor, Compound X, on human breast cancer cell lines MCF‑7 and MDA‑MB‑231. Cells were seeded at 5 × 10³ cells per well in 96‑well plates and treated with Compound X at concentrations ranging from 0 µM (vehicle control) to 200 µM for 48 h. Cell viability was assessed using the MTT assay, and absorbance at 570 nm was converted to percent viability relative to the vehicle control. The results for MCF‑7 cells, summarized in Table 1, show a concentration‑dependent decrease in viability, with an IC₅₀ of approximately 75 µM for MCF‑7 and 90 µM for MDA‑MB‑231. Standard deviations were calculated from triplicate wells. The investigators also performed a time‑course study at 24 h and 72 h to confirm the 48‑h time point was representative. These data suggest that Compound X reduces the viability of these breast cancer cell lines and warrants further preclinical evaluation.",
+    "table_data": "Table 1: Cell viability (% of control) after 48 h treatment with Compound X\n\nConcentration (µM) | MCF-7 viability (%) | SD\n0 | 100 | 2\n10 | 92 | 3\n50 | 65 | 4\n100 | 35 | 5\n200 | 12 | 6",
+    "stem": "How many percentage points did viability decrease between 100 µM and 200 µM Compound X?",
+    "options": {
+      "A": "23",
+      "B": "12",
+      "C": "35",
+      "D": "88"
+    },
+    "correct": "A",
+    "explanation": "Correct: Viability fell from 35% to 12%, a decrease of 23 percentage points. Why the others are wrong: B) 12 is the viability at 200 uM, not the decrease. C) 35 is the viability at 100 uM. D) 88 is the total decrease from 100% to 12%.",
+    "trap": "Reporting the final viability value instead of the difference between the two concentrations.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-27T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2C"
+  }
+]

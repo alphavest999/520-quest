@@ -1,0 +1,1535 @@
+{
+ "exam": "FL03",
+ "section": "CP",
+ "passages": [
+  {
+   "passage_id": "FL03_CP_P1",
+   "passage_text": "A student reproduces a Joule-type experiment. A 10.0 kg mass hangs from a string that passes over a pulley and turns a paddle wheel inside an insulated container of water. The mass is lowered slowly at constant speed through 1.50 m, then lifted back by hand with the paddle disengaged, and this cycle is called one drop. The water has mass 0.500 kg (c = 4184 J/(kg·K)), and the paddle and container add a heat capacity of 108 J/K, so the total heat capacity is 2200 J/K. Assume g = 9.8 m/s². The student assumes all the gravitational energy lost by the mass is converted to thermal energy. After 20, 40, 60, and 80 drops, the temperature rise of the water is measured with a digital thermometer. Table 1 gives the predicted and measured values, and Figure 1 plots them against the number of drops. The student suspects that the small shortfall in the measured values arises from heat exchanged with the surroundings.",
+   "table_data": "| Drops | Energy dissipated (J) | Predicted ΔT (K) | Measured ΔT (K) |\n|---|---|---|---|\n| 20 | 2940 | 1.34 | 1.26 |\n| 40 | 5880 | 2.67 | 2.52 |\n| 60 | 8820 | 4.01 | 3.78 |\n| 80 | 11760 | 5.35 | 5.04 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Temperature rise of the water versus number of drops",
+    "x_label": "Number of drops",
+    "y_label": "Temperature rise (K)",
+    "series": [
+     {
+      "name": "Predicted",
+      "points": [
+       [
+        20,
+        1.34
+       ],
+       [
+        40,
+        2.67
+       ],
+       [
+        60,
+        4.01
+       ],
+       [
+        80,
+        5.35
+       ]
+      ]
+     },
+     {
+      "name": "Measured",
+      "points": [
+       [
+        20,
+        1.26
+       ],
+       [
+        40,
+        2.52
+       ],
+       [
+        60,
+        3.78
+       ],
+       [
+        80,
+        5.04
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL03_CP_P1_Q1",
+     "stem": "How much gravitational potential energy does the 10.0 kg mass lose in one drop?",
+     "options": {
+      "A": "15 J",
+      "B": "98 J",
+      "C": "147 J",
+      "D": "1470 J"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) ΔU = mgh = (10.0 kg)(9.8 m/s²)(1.50 m) = 147 J, which matches 2940 J / 20 drops in Table 1. Why the others are wrong: A) 15 J multiplies mass by height and omits g. B) 98 J omits the 1.50 m height. D) 1470 J is a factor of ten too large.",
+     "trap": "Leaving out g or the height, or dropping a factor in a three-variable product such as mgh.",
+     "topic": "Gravitational potential energy",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://openstax.org/books/college-physics-2e/pages/7-3-gravitational-potential-energy"
+      ]
+     }
+    },
+    {
+     "id": "FL03_CP_P1_Q2",
+     "stem": "During one slow descent at constant speed, the work done by the string tension on the 10.0 kg mass is:",
+     "options": {
+      "A": "+147 J, because the tension supplies the energy that heats the water in the container",
+      "B": "−147 J, because the mass accelerates downward under gravity throughout the descent",
+      "C": "0 J, because the net force on the mass is zero at constant speed and so no work is done by any force",
+      "D": "−147 J, because tension points up, the displacement is down, and T equals mg"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) At constant speed T = mg, directed upward, while the displacement is downward, so W = −(98 N)(1.50 m) = −147 J; the negative sign means the mass loses energy to the paddle. Why the others are wrong: A) The sign is wrong; the string does negative work on the mass. B) The mass does not accelerate; the −147 J arises because T = mg, not because of acceleration. C) The net work is zero, but the tension alone still does work.",
+     "trap": "Concluding that zero net force means zero work by each individual force.",
+     "topic": "Work by a nonconservative-type force",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P1_Q3",
+     "stem": "At 80 drops, the measured temperature rise is closest to what percentage of the predicted rise?",
+     "options": {
+      "A": "85%",
+      "B": "94%",
+      "C": "106%",
+      "D": "6%"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 5.04 / 5.35 = 0.942, or about 94%. The 6% shortfall is consistent with heat loss to the surroundings. Why the others are wrong: A) 85% does not match the table values. C) 106% would require the measured rise to exceed the predicted rise. D) 6% is the shortfall, not the fraction obtained.",
+     "trap": "Reporting the percentage lost rather than the percentage obtained.",
+     "topic": "Efficiency from data",
+     "mastery_sheet_id": "4A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P1_Q4",
+     "stem": "Using the measured trend in Table 1, about how many drops would be needed to raise the water temperature by 10.0 K?",
+     "options": {
+      "A": "142",
+      "B": "150",
+      "C": "159",
+      "D": "168"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The measured rise is 5.04 K / 80 = 0.063 K per drop, so 10.0 K / 0.063 K = about 159 drops. Why the others are wrong: A) 142 drops uses only the water's heat capacity (2092 J/K) and ignores the apparatus. B) 150 drops assumes 100% conversion (2200 J/K × 10.0 K / 147 J = 150). D) 168 drops overcorrects for losses.",
+     "trap": "Using the predicted rate per drop and ignoring the measured shortfall.",
+     "topic": "Calorimetry with heat capacity",
+     "mastery_sheet_id": "4A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL03_CP_P1_Q5",
+     "stem": "The student replaces the 10.0 kg mass with a 20.0 kg mass lowered through 0.75 m per drop, and performs 40 drops under the same conditions. The predicted temperature rise would be:",
+     "options": {
+      "A": "half of 2.67 K, because the height is halved",
+      "B": "one-quarter of 2.67 K, because both quantities change",
+      "C": "double 2.67 K, because the mass is doubled",
+      "D": "unchanged at 2.67 K, because mgh per drop is unchanged"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) mgh = (20.0)(9.8)(0.75) = 147 J, the same energy per drop, so 40 drops still dissipate 5880 J and raise the temperature by 2.67 K. Why the others are wrong: A) Halving only h ignores the doubled mass. B) The changes multiply to give a factor of one, not one-quarter. C) Doubling only m ignores the halved height.",
+     "trap": "Changing one variable in a product and ignoring the compensating change in the other.",
+     "topic": "Work and energy",
+     "mastery_sheet_id": "4A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_CP_P2",
+   "passage_text": "A student builds a simple hydrometer from a uniform solid cylinder of mass 60 g, length 20 cm, and cross-sectional area 4.0 cm², giving it a density of 0.75 g/cm³. The cylinder is placed upright in four different liquids and allowed to float at rest, as shown in Table 1. For each liquid, the student records the density and the depth to which the cylinder is submerged. The cylinder floats upright in every liquid. The student then tests an unknown liquid in which the cylinder floats with 12.0 cm submerged. Assume that the density of water is 1.00 g/cm³ (1000 kg/m³), that g = 9.8 m/s², and that atmospheric pressure acts equally on the liquid surface and the top of the cylinder, so that only gauge pressure needs to be considered. The student wants to use the results to understand how the density of a liquid determines how deeply a floating body sinks, and to connect that depth to the forces acting on the cylinder and to the pressure of the liquid at its bottom face. The cylinder is dry before each trial and is left to settle for one minute before the depth is read from a ruler along its side.",
+   "table_data": "| Liquid | Density (g/cm³) | Submerged depth (cm) |\n|---|---|---|\n| Ethanol solution | 0.90 | 16.7 |\n| Water | 1.00 | 15.0 |\n| Salt solution | 1.20 | 12.5 |\n| Sugar solution | 1.50 | 10.0 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL03_CP_P2_Q1",
+     "stem": "What is the magnitude of the buoyant force on the floating cylinder in water?",
+     "options": {
+      "A": "0.78 N",
+      "B": "0.059 N",
+      "C": "1.2 N",
+      "D": "0.59 N"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A floating object is in equilibrium, so the buoyant force equals the weight: 0.060 kg × 9.8 m/s² = 0.59 N. Why the others are wrong: A) 0.78 N would be the buoyant force if the entire 80 cm³ were submerged, but only 60 cm³ is. B) 0.059 N is off by a factor of 10 from a unit conversion error. C) 1.2 N is twice the weight and would make the cylinder accelerate upward.",
+     "trap": "Using the cylinder's full volume instead of the submerged volume to find buoyant force.",
+     "topic": "Buoyant force at equilibrium",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "Archimedes principle (Wikipedia; LibreTexts OpenStax College Physics 11.07)"
+      ]
+     }
+    },
+    {
+     "id": "FL03_CP_P2_Q2",
+     "stem": "How does the buoyant force on the cylinder in the sugar solution compare to that in water?",
+     "options": {
+      "A": "It is 1.5 times larger in the sugar solution.",
+      "B": "It is the same in both liquids.",
+      "C": "It is 1.5 times smaller in the sugar solution.",
+      "D": "It is larger in the sugar solution because the liquid is denser, but by a factor of 1.2."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) In both liquids the cylinder floats at rest, so the buoyant force equals its weight. The denser liquid simply needs less displaced volume to supply the same force. Why the others are wrong: A) Greater density alone would raise the force only if displaced volume stayed fixed, but the submerged depth decreases. C) The force cannot be smaller; it must still balance the unchanged weight. D) 1.2 is the density ratio of the salt solution to water and is unrelated to the equilibrium condition.",
+     "trap": "Assuming a denser fluid exerts more buoyant force even when the object floats in both.",
+     "topic": "Floating equilibrium",
+     "mastery_sheet_id": "4B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P2_Q3",
+     "stem": "The unknown liquid submerges the cylinder to a depth of 12.0 cm. What is its density?",
+     "options": {
+      "A": "1.25 g/cm³",
+      "B": "0.80 g/cm³",
+      "C": "1.67 g/cm³",
+      "D": "1.20 g/cm³"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Weight equals ρgAh, so ρ = m/(Ah) = 60 g/(4.0 cm² × 12.0 cm) = 1.25 g/cm³. Why the others are wrong: B) 0.80 g/cm³ is 12/15, a ratio that is inversely related to the correct form. C) 1.67 g/cm³ is 20/12 and uses the full cylinder length instead of mass. D) 1.20 g/cm³ is the density of the salt solution, which submerges the cylinder 12.5 cm, not 12.0 cm.",
+     "trap": "Picking the nearest table entry instead of calculating from m = ρAh.",
+     "topic": "Hydrometer calculation",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL03_CP_P2_Q4",
+     "stem": "What is the gauge pressure at the bottom face of the cylinder when it floats in water?",
+     "options": {
+      "A": "2.0 × 10³ Pa",
+      "B": "1.0 × 10⁵ Pa",
+      "C": "1.5 × 10⁴ Pa",
+      "D": "1.5 × 10³ Pa"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The bottom face is 0.150 m below the surface: P = ρgh = 1000 × 9.8 × 0.150 = 1.47 × 10³ Pa, which gives a force of 0.59 N on 4.0 cm², matching the weight. Why the others are wrong: A) 2.0 × 10³ Pa uses the full 0.20 m length rather than the submerged depth. B) 1.0 × 10⁵ Pa is roughly atmospheric pressure, which is not part of gauge pressure. C) 1.5 × 10⁴ Pa results from a power-of-ten error when converting 15 cm to meters.",
+     "trap": "Using cylinder length rather than submerged depth in P = ρgh.",
+     "topic": "Hydrostatic pressure",
+     "mastery_sheet_id": "4B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "LibreTexts OpenStax College Physics 11.07 (P = rho g h)"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_CP_P3",
+   "passage_text": "A galvanic cell is assembled from a zinc strip in 1.0 M Zn(NO₃)₂ and a silver wire in AgNO₃ of variable concentration. The two half-cells are joined by a salt bridge containing KNO₃ in agar, and a high-impedance voltmeter connects the metals. Standard reduction potentials are E°(Zn²⁺/Zn) = −0.76 V and E°(Ag⁺/Ag) = +0.80 V. At 25 °C the Nernst equation can be written E = E° − (0.0592/n) log Q. The student prepares AgNO₃ solutions at four concentrations, keeps [Zn²⁺] at 1.0 M, and records the cell potential once the reading stabilizes. Table 1 lists the results, and Figure 1 plots the potential against log[Ag⁺]. In a second experiment, the student replaces the voltmeter with a small resistor and lets the cell discharge for several hours with [Ag⁺] initially 1.0 M. The Faraday constant is 96,485 C/mol e⁻. Each solution is freshly prepared by dilution from the 1.0 M stock, and the electrodes are polished with fine abrasive and rinsed between trials. The temperature of the room is 25 °C.",
+   "table_data": "| [Ag⁺] (M) | log[Ag⁺] | Measured E (V) |\n|---|---|---|\n| 1.0 | 0 | 1.56 |\n| 0.10 | −1 | 1.50 |\n| 0.010 | −2 | 1.44 |\n| 0.0010 | −3 | 1.38 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Cell potential versus log[Ag⁺]",
+    "x_label": "log[Ag⁺]",
+    "y_label": "Cell potential (V)",
+    "series": [
+     {
+      "name": "Measured",
+      "points": [
+       [
+        -3,
+        1.38
+       ],
+       [
+        -2,
+        1.44
+       ],
+       [
+        -1,
+        1.5
+       ],
+       [
+        0,
+        1.56
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL03_CP_P3_Q1",
+     "stem": "Toward which half-cell do the nitrate ions in the salt bridge migrate while the cell operates?",
+     "options": {
+      "A": "Toward the silver half-cell, because the cathode attracts anions",
+      "B": "Toward the silver half-cell, where Ag⁺ is being consumed from solution",
+      "C": "Toward the zinc half-cell, where oxidation produces excess positive charge",
+      "D": "Neither; the bridge only carries electrons between the electrodes"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Zn is oxidized at the anode, increasing [Zn²⁺]; anions flow toward the anode compartment to preserve neutrality (and K⁺ flows toward the cathode). Why the others are wrong: A) In a galvanic cell the cathode is positive, but its charge is balanced by cation flow into it. B) Removal of Ag⁺ leaves excess negative charge in the silver half-cell, so cations, not anions, move there. D) Electrons travel through the external wire; the bridge carries ions.",
+     "trap": "Thinking the salt bridge conducts electrons, or sending anions toward the cathode.",
+     "topic": "Salt bridge function",
+     "mastery_sheet_id": "4C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P3_Q2",
+     "stem": "Using the Nernst equation, what is the cell potential when [Ag⁺] = 0.010 M and [Zn²⁺] = 1.0 M?",
+     "options": {
+      "A": "1.32 V",
+      "B": "1.44 V",
+      "C": "1.50 V",
+      "D": "1.68 V"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) E° = 0.80 − (−0.76) = 1.56 V; Q = [Zn²⁺]/[Ag⁺]² = 1/(1.0×10⁻⁴) = 1.0×10⁴, so E = 1.56 − (0.0592/2)(4) = 1.44 V. Why the others are wrong: A) 1.32 V uses 0.0592 without dividing by n. C) 1.50 V treats Q as 1/[Ag⁺] instead of 1/[Ag⁺]². D) 1.68 V has the wrong sign for the correction.",
+     "trap": "Forgetting that Ag⁺ is squared in Q when the half-reactions are balanced for 2 electrons.",
+     "topic": "Nernst equation",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL03_CP_P3_Q3",
+     "stem": "The slope of the line in Figure 1 is closest to:",
+     "options": {
+      "A": "+0.030 V per unit log[Ag⁺]",
+      "B": "+0.059 V per unit log[Ag⁺]",
+      "C": "−0.059 V per unit log[Ag⁺]",
+      "D": "+0.118 V per unit log[Ag⁺]"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) E = E° + (0.0592/2)(2)log[Ag⁺], so the slope is +0.0592 V per tenfold change; the data fall 0.06 V per decade. Why the others are wrong: A) 0.030 V ignores the squared term in Q. C) The slope is positive because E rises with [Ag⁺]. D) 0.118 V doubles the factor and does not match the data.",
+     "trap": "Using 0.0592/n for the slope without accounting for the exponent of 2 on [Ag⁺].",
+     "topic": "Reading slope from graph",
+     "mastery_sheet_id": "4C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P3_Q4",
+     "stem": "What is the standard free energy change for the cell reaction Zn(s) + 2 Ag⁺(aq) → Zn²⁺(aq) + 2 Ag(s)?",
+     "options": {
+      "A": "−150 kJ/mol",
+      "B": "−301 kJ/mol",
+      "C": "+301 kJ/mol",
+      "D": "−602 kJ/mol"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) ΔG° = −nFE° = −(2)(96,485 C/mol)(1.56 V) = −3.01×10⁵ J/mol. Why the others are wrong: A) −150 kJ uses n = 1. C) The sign is wrong for a spontaneous cell. D) −602 kJ uses n = 4.",
+     "trap": "Using n = 1 because each silver ion accepts only one electron, ignoring the 2 e⁻ transferred per reaction.",
+     "topic": "Free energy and cell potential",
+     "mastery_sheet_id": "4C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "Pearson/Brown-Tro electrochemistry solutions (dG = -nFE, F = 96485 C/mol)"
+      ]
+     }
+    },
+    {
+     "id": "FL03_CP_P3_Q5",
+     "stem": "During the long discharge through the resistor with no replenishment of solutions, the cell potential is expected to:",
+     "options": {
+      "A": "remain at 1.56 V, because E° is a constant of the electrode materials",
+      "B": "drop to zero immediately, because the resistor removes the potential difference",
+      "C": "rise gradually, because Zn²⁺ accumulation increases the driving force",
+      "D": "fall gradually toward zero, because Q increases toward K as Ag⁺ is consumed"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Ag⁺ is consumed and Zn²⁺ is produced, so Q grows toward K and E falls toward 0 at equilibrium. Why the others are wrong: A) E° is constant, but E depends on Q. B) The resistor draws current but the potential persists until reactants are depleted. C) Increasing [Zn²⁺] raises Q and lowers E.",
+     "trap": "Equating E with E° and forgetting that cell potential depends on concentrations as the reaction proceeds.",
+     "topic": "Cell discharge",
+     "mastery_sheet_id": "4C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_CP_P4",
+   "passage_text": "A student studies image formation with a thin converging lens. An illuminated arrow 2.0 cm tall is placed on an optical bench at several distances d₀ from the lens, and a screen is moved until a sharp image appears at distance dᵢ. The student uses the convention that distances for real objects and real images are positive. Table 1 lists the measured values and the image height. The student then plots 1/dᵢ against 1/d₀ in Figure 1. Finally, the lens is removed and replaced with a concave spherical mirror at the same location, and the arrow is again placed 15.0 cm in front of the reflecting surface. The mirror has a radius of curvature of 20.0 cm. Throughout, the student uses the relation 1/d₀ + 1/dᵢ = 1/f and the magnification m = −dᵢ/d₀. All images discussed are formed with paraxial rays. The bench is shielded from stray light, the lens is mounted on a vertical holder at the 0 cm mark, and each image distance is judged as the screen position that gives the sharpest edges.",
+   "table_data": "| d₀ (cm) | dᵢ (cm) | Image height (cm) |\n|---|---|---|\n| 15.0 | 30.0 | 4.0 |\n| 20.0 | 20.0 | 2.0 |\n| 30.0 | 15.0 | 1.0 |\n| 40.0 | 13.3 | 0.67 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Reciprocal of image distance versus reciprocal of object distance",
+    "x_label": "1/d₀ (cm⁻¹)",
+    "y_label": "1/dᵢ (cm⁻¹)",
+    "series": [
+     {
+      "name": "Measured",
+      "points": [
+       [
+        0.025,
+        0.075
+       ],
+       [
+        0.0333,
+        0.0667
+       ],
+       [
+        0.05,
+        0.05
+       ],
+       [
+        0.0667,
+        0.0333
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL03_CP_P4_Q1",
+     "stem": "With the object at 15.0 cm, which description fits the image on the screen?",
+     "options": {
+      "A": "Real, inverted, and reduced",
+      "B": "Real, upright, and the same size",
+      "C": "Virtual, upright, and enlarged",
+      "D": "Real, inverted, and enlarged"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A real image captured on a screen is inverted; the image height of 4.0 cm exceeds the object's 2.0 cm, so m = −2.0. Why the others are wrong: A) The image is larger than the object, not smaller. B) Upright real images do not occur with a single lens, and the sizes differ. C) A virtual image cannot be projected on a screen.",
+     "trap": "Forgetting that a real image formed on a screen by a single lens is always inverted.",
+     "topic": "Image characteristics",
+     "mastery_sheet_id": "4D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P4_Q2",
+     "stem": "From the intercept of the line in Figure 1, the focal length of the lens is:",
+     "options": {
+      "A": "5.0 cm",
+      "B": "10 cm",
+      "C": "20 cm",
+      "D": "0.10 cm"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The line obeys 1/dᵢ = 1/f − 1/d₀, so the y-intercept is 1/f = 0.100 cm⁻¹ and f = 10 cm. Why the others are wrong: A) 5.0 cm would correspond to an intercept of 0.20 cm⁻¹, twice the observed value. C) 20 cm is the d₀ where dᵢ = d₀ (twice the focal length). D) 0.10 is the intercept itself, 1/f, not f.",
+     "trap": "Reporting the intercept 1/f directly as the focal length.",
+     "topic": "Linearizing the lens equation",
+     "mastery_sheet_id": "4D",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P4_Q3",
+     "stem": "If the arrow were placed 5.0 cm from the lens, the image would be:",
+     "options": {
+      "A": "real, inverted, and located 10 cm behind the lens",
+      "B": "virtual, inverted, and located 3.3 cm on the object side",
+      "C": "real, upright, and located 3.3 cm behind the lens",
+      "D": "virtual, upright, and located 10 cm on the object side of the lens"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) 1/dᵢ = 1/10 − 1/5 = −1/10, so dᵢ = −10 cm; the negative sign marks a virtual image on the object side, with m = +2 (upright). Why the others are wrong: A) The sign of dᵢ is negative, not positive. B) Virtual images from a converging lens are upright. C) 3.3 cm results from adding rather than subtracting reciprocals, and a real image requires d₀ > f.",
+     "trap": "Dropping the sign of dᵢ when the object lies inside the focal length.",
+     "topic": "Virtual images",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL03_CP_P4_Q4",
+     "stem": "With the concave mirror (R = 20.0 cm) and the object 15.0 cm in front of it, the image is located:",
+     "options": {
+      "A": "60 cm behind the mirror and is virtual",
+      "B": "30 cm behind the mirror and is virtual",
+      "C": "30 cm in front of the mirror and is real",
+      "D": "20 cm in front of the mirror and is real"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) f = R/2 = 10.0 cm, so dᵢ = 30.0 cm, positive, in front of the mirror, as for the lens at the same d₀ (real, inverted). Why the others are wrong: A) 60 cm uses f = R = 20 cm. B) A positive dᵢ for a mirror is on the reflecting side, so it cannot be behind the mirror. D) 20 cm would apply when the object is at 2f = 20 cm.",
+     "trap": "Using the radius of curvature as the focal length of a mirror.",
+     "topic": "Spherical mirrors",
+     "mastery_sheet_id": "4D",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "Oregon State/UTK/UMD optics notes (mirror equation, f = R/2)"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_CP_P5",
+   "passage_text": "Iodine-131 (Z = 53) is used to treat thyroid disease. It decays by beta emission, accompanied by gamma rays. To measure its half-life, a technician places a small sealed I-131 source at a fixed distance from a detector and records the activity (background already subtracted) at intervals over 24 days. Table 1 lists the corrected activity, and Figure 1 plots activity against time. The technician states that the detector response is proportional to the number of decays per second and that the geometry did not change. In a separate calculation, the technician needs to estimate the remaining activity of a similar sample at a time between measurements. Use ln 2 = 0.693 and 2^(−2.5) = 0.177 where needed. A patient who receives I-131 also loses it by biological excretion, but only the physical decay of the isolated source is studied here. The source is kept in a shielded container between readings, and each reading is taken for a counting time long enough to make statistical fluctuations small.",
+   "table_data": "| Time (days) | Activity (MBq) |\n|---|---|\n| 0 | 400 |\n| 4 | 283 |\n| 8 | 200 |\n| 12 | 141 |\n| 16 | 100 |\n| 24 | 50 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Activity of the I-131 source versus time",
+    "x_label": "Time (days)",
+    "y_label": "Activity (MBq)",
+    "series": [
+     {
+      "name": "Net activity",
+      "points": [
+       [
+        0,
+        400
+       ],
+       [
+        4,
+        283
+       ],
+       [
+        8,
+        200
+       ],
+       [
+        12,
+        141
+       ],
+       [
+        16,
+        100
+       ],
+       [
+        24,
+        50
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL03_CP_P5_Q1",
+     "stem": "Which nuclide is the product of the beta decay of I-131?",
+     "options": {
+      "A": "¹³¹₅₄Xe",
+      "B": "¹³¹₅₂Te",
+      "C": "¹²⁷₅₁Sb",
+      "D": "¹³⁰₅₃I"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Beta-minus decay converts a neutron to a proton, so Z rises from 53 to 54 and A stays 131, giving xenon-131. Why the others are wrong: B) Te-131 (Z = 52) would result from positron emission or electron capture. C) Sb-127 (Z = 51, A = 127) would result from alpha emission. D) I-130 would require loss of a neutron, which is not beta decay.",
+     "trap": "Lowering Z in beta-minus decay, as occurs in beta-plus decay or electron capture.",
+     "topic": "Beta decay products",
+     "mastery_sheet_id": "4E",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P5_Q2",
+     "stem": "From Figure 1, the half-life of I-131 is closest to:",
+     "options": {
+      "A": "4 days",
+      "B": "8 days",
+      "C": "12 days",
+      "D": "16 days"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Activity falls from 400 to 200 MBq in 8 days, and again from 200 to 100 MBq between 8 and 16 days. Why the others are wrong: A) At 4 days, the activity is 283 MBq, about 71% of the initial value, not 50%. C) At 12 days, the activity is 141 MBq, which is about 35% of the initial value. D) At 16 days, the activity has fallen to 25% of its initial value (two half-lives).",
+     "trap": "Choosing the time at which the activity reaches 25%, which corresponds to two half-lives.",
+     "topic": "Half-life from a decay graph",
+     "mastery_sheet_id": "4E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P5_Q3",
+     "stem": "What is the decay constant of I-131?",
+     "options": {
+      "A": "0.125 d⁻¹",
+      "B": "0.087 d⁻¹",
+      "C": "0.69 d⁻¹",
+      "D": "11.5 d⁻¹"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) λ = ln 2 / t½ = 0.693 / 8.0 d = 0.087 d⁻¹. Why the others are wrong: A) 0.125 d⁻¹ is 1/t½, which omits the ln 2 factor. C) 0.69 d⁻¹ is ln 2 without division by the half-life. D) 11.5 is t½ / ln 2, which is the mean lifetime in days, not a rate.",
+     "trap": "Taking the decay constant as 1/t½ rather than ln 2/t½.",
+     "topic": "Decay constant",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "Britannica decay constant; LibreTexts 11.03 Radioactive Decay"
+      ]
+     }
+    },
+    {
+     "id": "FL03_CP_P5_Q4",
+     "stem": "Which value is closest to the activity of the source at 20 days?",
+     "options": {
+      "A": "50 MBq",
+      "B": "71 MBq",
+      "C": "75 MBq",
+      "D": "100 MBq"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 20 d is 2.5 half-lives: 400 × 2^(−2.5) = 400 × 0.177 = 71 MBq. Why the others are wrong: A) 50 MBq is the activity at 24 days (3 half-lives). C) 75 MBq is the linear average of the 16-day and 24-day readings, but decay is exponential, not linear. D) 100 MBq is the activity at 16 days.",
+     "trap": "Interpolating linearly between data points on an exponential decay curve.",
+     "topic": "Exponential decay calculation",
+     "mastery_sheet_id": "4E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "Britannica decay constant; LibreTexts 11.03 Radioactive Decay"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_CP_P6",
+   "passage_text": "A student studies a phosphate buffer made from NaH₂PO₄ (H₂PO₄⁻, the acid) and Na₂HPO₄ (HPO₄²⁻, the conjugate base), for which pKa = 7.21 at 25 °C. Four buffers are prepared, each with a total volume of 100 mL and a total phosphate content of 10.0 mmol, but with different ratios of base to acid. The pH of each is measured with a calibrated meter. Then 1.0 mL of 1.0 M HCl (1.0 mmol H⁺) is added to each buffer and the pH is measured again. Table 1 shows the composition and results, and Figure 1 plots the magnitude of the pH change against the initial pH. The student assumes that volume changes are negligible and that activity coefficients are close to 1. Use log 2 = 0.30 and log 3 = 0.48. The meter is calibrated with standards at pH 4.00, 7.00, and 10.00 before each use, and the solutions are stirred gently for 30 seconds after the acid is added so that the reading is stable.",
+   "table_data": "| Buffer | HPO₄²⁻ (mmol) | H₂PO₄⁻ (mmol) | Initial pH | pH after HCl | ΔpH |\n|---|---|---|---|---|---|\n| 1 | 5.0 | 5.0 | 7.21 | 7.03 | −0.18 |\n| 2 | 8.0 | 2.0 | 7.81 | 7.58 | −0.23 |\n| 3 | 2.0 | 8.0 | 6.61 | 6.26 | −0.35 |\n| 4 | 9.0 | 1.0 | 8.16 | 7.81 | −0.35 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Magnitude of pH change versus initial pH",
+    "x_label": "Initial pH",
+    "y_label": "|ΔpH| after 1.0 mmol HCl",
+    "series": [
+     {
+      "name": "Buffers 1-4",
+      "points": [
+       [
+        6.61,
+        0.35
+       ],
+       [
+        7.21,
+        0.18
+       ],
+       [
+        7.81,
+        0.23
+       ],
+       [
+        8.16,
+        0.35
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL03_CP_P6_Q1",
+     "stem": "Which statement best explains why buffer 1 resists the added acid most effectively?",
+     "options": {
+      "A": "Its pH equals the pKa, so both components are present at their highest combined capacity",
+      "B": "Its pH is nearest 7.4, the pH of blood, so it contains the largest total phosphate",
+      "C": "It contains the most HPO₄²⁻, which is the component that neutralizes the acid",
+      "D": "It has the lowest ionic strength, so the added HCl is diluted to the greatest extent"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) At pH = pKa, [HPO₄²⁻] = [H₂PO₄⁻], so the buffer can absorb the greatest amount of either acid or base before the ratio changes much. Why the others are wrong: B) All four buffers contain the same total phosphate (10.0 mmol), and the pH of blood is not a factor. C) Buffer 4 contains more HPO₄²⁻ (9.0 mmol) yet changed pH more. D) Ionic strength does not differ by design, and dilution is the same for each buffer.",
+     "trap": "Assuming that the buffer with the most base is the strongest buffer against acid.",
+     "topic": "Buffer capacity",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P6_Q2",
+     "stem": "What is the initial pH of buffer 2?",
+     "options": {
+      "A": "6.61",
+      "B": "7.51",
+      "C": "7.81",
+      "D": "8.16"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) pH = 7.21 + log(8.0/2.0) = 7.21 + log 4 = 7.21 + 0.60 = 7.81. Why the others are wrong: A) 6.61 inverts the ratio (2.0/8.0). B) 7.51 uses a ratio of 2 instead of 4. D) 8.16 corresponds to a ratio of 9, which belongs to buffer 4.",
+     "trap": "Inverting the base to acid ratio in the Henderson-Hasselbalch equation.",
+     "topic": "Henderson-Hasselbalch",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "LibreTexts Henderson-Hasselbalch Approximation"
+      ]
+     }
+    },
+    {
+     "id": "FL03_CP_P6_Q3",
+     "stem": "Which reaction primarily accounts for the small pH change when HCl is added to these buffers?",
+     "options": {
+      "A": "H⁺ + HPO₄²⁻ → H₂PO₄⁻",
+      "B": "H⁺ + H₂PO₄⁻ → H₃PO₄",
+      "C": "H⁺ + OH⁻ → H₂O",
+      "D": "H₂PO₄⁻ + HPO₄²⁻ → H₃PO₄ + PO₄³⁻"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The conjugate base HPO₄²⁻ accepts the proton and converts to H₂PO₄⁻, so the ratio changes only modestly. Why the others are wrong: B) Protonating H₂PO₄⁻ to H₃PO₄ would need a pH near pKa₁ (about 2). C) At pH 6 to 8, [OH⁻] is about 10⁻⁷ M or less, so it cannot neutralize 1.0 mmol of H⁺. D) This is not a net acid-base reaction in the buffer and does not absorb added acid.",
+     "trap": "Choosing the reaction of H⁺ with the acid form, which cannot neutralize additional acid.",
+     "topic": "Buffer action",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P6_Q4",
+     "stem": "Why does buffer 3 show a larger |ΔpH| than buffer 1 when the same 1.0 mmol of HCl is added?",
+     "options": {
+      "A": "Its pKa is lower than that of buffer 1, so it is a weaker acid and less effective",
+      "B": "Its H₂PO₄⁻ concentration is high, so it dissociates and consumes the added acid",
+      "C": "Its HPO₄²⁻ supply is small, so 1.0 mmol of H⁺ shifts the base to acid ratio from 1:4 to 1:9",
+      "D": "The HCl is not completely neutralized in buffer 3, leaving free H⁺ at 0.01 M"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Buffer 3 has only 2.0 mmol HPO₄²⁻; after 1.0 mmol H⁺ the ratio goes from 2.0:8.0 to 1.0:9.0, so the logarithm falls by 0.35. In buffer 1 the ratio only goes from 1:1 to 4:6. Why the others are wrong: A) The pKa is a property of the acid and is the same in all buffers. B) H₂PO₄⁻ does not consume H⁺ at this pH. D) HCl is completely consumed because 2.0 mmol of base exceeds 1.0 mmol of acid.",
+     "trap": "Treating the pKa as variable between buffers made of the same conjugate pair.",
+     "topic": "Limits of buffer capacity",
+     "mastery_sheet_id": "5A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P6_Q5",
+     "stem": "How much HCl could buffer 1 absorb before its pH falls to 6.21 (one unit below the pKa)?",
+     "options": {
+      "A": "0.91 mmol",
+      "B": "4.1 mmol",
+      "C": "4.5 mmol",
+      "D": "5.0 mmol"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) At pH = pKa − 1, the base to acid ratio is 1:10; with 10.0 mmol total, HPO₄²⁻ = 10.0/11 = 0.91 mmol. HPO₄²⁻ consumed = 5.0 − 0.91 = 4.1 mmol, which equals the H⁺ added. Why the others are wrong: A) 0.91 mmol is the HPO₄²⁻ remaining, not the amount consumed. C) 4.5 mmol would leave only 0.5 mmol HPO₄²⁻ (a 1:19 ratio), overshooting the target pH of 6.21. D) 5.0 mmol would remove all the base, leaving no buffer.",
+     "trap": "Reporting the amount of base remaining instead of the amount of acid absorbed.",
+     "topic": "Buffer capacity calculation",
+     "mastery_sheet_id": "5A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "LibreTexts Henderson-Hasselbalch Approximation"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_CP_P7",
+   "passage_text": "An unknown liquid with molecular formula C₄H₈O₂ has a boiling point of 77°C. Its infrared spectrum shows a very strong, sharp absorption at 1740 cm⁻¹ and strong absorptions near 1240 and 1050 cm⁻¹, but no broad absorption between 2500 and 3500 cm⁻¹. The 1H NMR spectrum, recorded in CDCl₃, gives three signals, summarized in Table 1. A student considers two structural isomers consistent with the formula: ethyl acetate and butanoic acid. Butanoic acid boils at 164°C and displays a very broad IR absorption centered near 3000 cm⁻¹ along with a one-proton NMR singlet near 11 ppm. The student uses the data to assign the structure of the unknown and to rationalize the difference in boiling points between the two isomers. All spectra were obtained on a purified sample that had been dried over anhydrous sodium sulfate. The student reasons from the molecular formula to the degree of unsaturation, then uses the IR spectrum to identify the functional group before using the NMR integration and splitting to determine connectivity, and finally compares the physical properties of the two isomers.",
+   "table_data": "| Signal (δ, ppm) | Integration | Multiplicity |\n|---|---|---|\n| 1.26 | 3H | triplet |\n| 2.04 | 3H | singlet |\n| 4.12 | 2H | quartet |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL03_CP_P7_Q1",
+     "stem": "How many degrees of unsaturation does C₄H₈O₂ have?",
+     "options": {
+      "A": "1",
+      "B": "0",
+      "C": "2",
+      "D": "4"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) DoU = (2C + 2 − H)/2 = (10 − 8)/2 = 1, accounted for by one C=O. Why the others are wrong: B) 0 would be a fully saturated acyclic compound such as C₄H₁₀O₂. C) 2 counts the two oxygen atoms as unsaturations. D) 4 uses the carbon count directly.",
+     "trap": "Counting oxygen atoms in the degrees of unsaturation formula.",
+     "topic": "Degrees of unsaturation",
+     "mastery_sheet_id": "5B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "JoVE 7.3 Degree of Unsaturation"
+      ]
+     }
+    },
+    {
+     "id": "FL03_CP_P7_Q2",
+     "stem": "Which functional group is indicated by the IR data for the unknown?",
+     "options": {
+      "A": "A carboxylic acid",
+      "B": "An ester",
+      "C": "A ketone",
+      "D": "An alcohol"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) A strong C=O stretch at 1740 cm⁻¹, C–O stretches near 1240 and 1050, and no O–H band are characteristic of an ester. Why the others are wrong: A) A carboxylic acid would show a very broad O–H stretch from 2500 to 3500. C) A ketone would not account for both oxygen atoms and has no C–O stretches near 1240 and 1050. D) An alcohol would show a broad O–H absorption near 3300.",
+     "trap": "Assigning any 1700–1750 cm⁻¹ peak to a ketone without checking for C–O and O–H signals.",
+     "topic": "IR spectroscopy",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P7_Q3",
+     "stem": "Why does the signal at 4.12 ppm appear as a quartet and at a relatively downfield position?",
+     "options": {
+      "A": "It is a CH₃ next to a CH₂ (n + 1 = 3) and is shielded by the carbonyl.",
+      "B": "It is a CH₂ with four neighboring protons and is bonded to carbon only.",
+      "C": "It is a CH₂ next to a CH₃ (n + 1 = 4) and is deshielded by the adjacent oxygen.",
+      "D": "It is a single proton split by three equivalent neighbors and deshielded by the carbonyl."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The 2H signal is the O–CH₂ of the ethyl group, split by three CH₃ protons into a quartet and shifted downfield by oxygen's electronegativity. Why the others are wrong: A) A CH₃ would have 3H integration, not 2H. B) A carbon-bonded CH₂ would not shift to 4.12, and four neighbors would give a quintet. D) A single proton would integrate for 1H.",
+     "trap": "Using the number of neighbors as the multiplicity instead of n + 1.",
+     "topic": "1H NMR splitting",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P7_Q4",
+     "stem": "Which statement best explains why butanoic acid boils at a much higher temperature than ethyl acetate?",
+     "options": {
+      "A": "Butanoic acid has a greater molar mass than ethyl acetate, so its dispersion forces are much stronger",
+      "B": "Ethyl acetate has stronger London dispersion forces than butanoic acid because of its branched structure",
+      "C": "Ethyl acetate is nonpolar while butanoic acid is polar, so only butanoic acid has dipole-dipole attractions",
+      "D": "Butanoic acid forms hydrogen-bonded dimers through O–H and C=O groups, which ethyl acetate cannot do"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Carboxylic acids form hydrogen-bonded dimers, which require much more energy to separate than the dipole-dipole forces in the ester. Why the others are wrong: A) Both isomers have the same formula and therefore the same molar mass. B) Both have similar dispersion forces; that is not the difference. C) Esters are polar as well, since they contain C=O and C–O bonds.",
+     "trap": "Overlooking that isomers have equal masses so hydrogen bonding must account for the difference.",
+     "topic": "Hydrogen bonding and boiling point",
+     "mastery_sheet_id": "5B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_CP_P8",
+   "passage_text": "A biochemist separates a mixture of four amino acids on a cation-exchange column. The resin contains fixed sulfonate groups (−SO₃⁻), and the column is equilibrated and loaded at pH 3.0. The amino acids are then eluted with a buffer whose NaCl concentration is gradually increased. At pH 3.0, aspartate is close to neutral or slightly negative, glutamate is nearly neutral with slight positive charge, glycine is about +0.2, and lysine is about +1.1. Table 1 lists the isoelectric point (pI) and the elution volume for each. Figure 1 plots elution volume against pI. For lysine, the pKa values are 2.18 (α-COOH), 8.95 (α-NH₃⁺), and 10.53 (side-chain NH₃⁺). For comparison, a second column of anion-exchange resin, with fixed positively charged groups, is considered for the same sample at pH 3.0. Samples of each amino acid are detected as they leave the column by reaction with ninhydrin, and the elution volume is taken at the center of each peak. Flow rate, column length, and temperature are kept constant, so differences in elution volume reflect differences in the strength of binding to the resin.",
+   "table_data": "| Amino acid | pI | Elution volume (mL) |\n|---|---|---|\n| Aspartate | 2.77 | 12 |\n| Glutamate | 3.22 | 16 |\n| Glycine | 5.97 | 25 |\n| Lysine | 9.74 | 48 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Elution volume versus pI on a cation-exchange column",
+    "x_label": "Isoelectric point (pI)",
+    "y_label": "Elution volume (mL)",
+    "series": [
+     {
+      "name": "Amino acids",
+      "points": [
+       [
+        2.77,
+        12
+       ],
+       [
+        3.22,
+        16
+       ],
+       [
+        5.97,
+        25
+       ],
+       [
+        9.74,
+        48
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL03_CP_P8_Q1",
+     "stem": "Why does lysine elute last from the cation-exchange column?",
+     "options": {
+      "A": "It has the lowest pI of the four amino acids, so it is the most strongly retained by the resin",
+      "B": "It carries the greatest net negative charge at pH 3.0 and is therefore pulled toward the resin by the sulfonate groups",
+      "C": "It carries the greatest net positive charge at pH 3.0 and binds most tightly to the resin",
+      "D": "It is the smallest of the four amino acids and so diffuses most slowly through the resin pores"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Cation-exchange resin retains positively charged molecules. Lysine's net charge near +1.1 gives the strongest electrostatic attraction, so a higher salt concentration is needed to displace it. Why the others are wrong: A) Lysine has the highest pI (9.74) of the four. B) Lysine is not negatively charged at pH 3.0, and a negative net charge would cause weaker retention, not stronger. D) Lysine is larger than glycine, and size is not the basis of ion-exchange separation.",
+     "trap": "Assuming elution order tracks size instead of charge.",
+     "topic": "Cation-exchange chromatography",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P8_Q2",
+     "stem": "Which change to the elution conditions would cause lysine to elute sooner?",
+     "options": {
+      "A": "Increasing the NaCl concentration of the eluting buffer",
+      "B": "Lowering the pH of the buffer to 1.5",
+      "C": "Lowering the NaCl concentration of the eluting buffer",
+      "D": "Switching the column to a size-exclusion resin without changing the buffer"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Na⁺ competes with lysine for the sulfonate groups, so a higher salt concentration displaces it more quickly. Why the others are wrong: B) A lower pH increases the positive charge and retention. C) Lower salt reduces competition for resin sites, so lysine elutes later. D) A size-exclusion resin separates by size rather than charge, so it does not address how fast lysine leaves an ion-exchange column.",
+     "trap": "Thinking that more positive charge makes elution faster.",
+     "topic": "Salt gradients",
+     "mastery_sheet_id": "5C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P8_Q3",
+     "stem": "On an anion-exchange column at pH 3.0, which amino acid would elute first?",
+     "options": {
+      "A": "Glycine",
+      "B": "Glutamate",
+      "C": "Lysine",
+      "D": "Aspartate"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The anion-exchange resin is positively charged and retains negatively charged species. Lysine is net positive and is repelled, so it passes through first. Why the others are wrong: A) Glycine has a slight positive charge (+0.2) and is weakly repelled, so it elutes after lysine. B) Glutamate is close to neutral, so it is retained more than the positively charged lysine. D) Aspartate is the most negative at this pH and is retained most strongly by the positive resin.",
+     "trap": "Reversing the logic from the cation-exchange column.",
+     "topic": "Anion-exchange chromatography",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P8_Q4",
+     "stem": "Which explanation best accounts for glutamate eluting after aspartate on the cation-exchange column?",
+     "options": {
+      "A": "Glutamate has a lower molar mass than aspartate, so it moves through the resin bed more slowly",
+      "B": "The side chain of glutamate is positively charged at pH 3.0, so it binds the sulfonate resin more strongly",
+      "C": "Glutamate is more hydrophobic than aspartate, so it dissolves in the mobile phase and is carried along less",
+      "D": "Glutamate's side-chain carboxyl has a higher pKa, so it is less deprotonated at pH 3.0 and the amino acid is less negative"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Glutamate's side-chain pKa (about 4.25) is higher than aspartate's (about 3.65), so at pH 3.0 more of it is protonated and the net charge is closer to positive, which binds the resin more. Why the others are wrong: A) Glutamate is the larger of the two, so mass cannot explain it; mass does not determine ion-exchange retention. B) The carboxyl side chain is neutral or negative, never positive at this pH. C) Hydrophobicity is not the main factor in ion-exchange retention.",
+     "trap": "Ignoring side-chain pKa differences between Asp and Glu.",
+     "topic": "Amino acid ionization",
+     "mastery_sheet_id": "5C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P8_Q5",
+     "stem": "Using the pKa values given, what is the pI of lysine?",
+     "options": {
+      "A": "9.74",
+      "B": "5.57",
+      "C": "7.22",
+      "D": "10.53"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The neutral zwitterion lies between deprotonation of the α-NH₃⁺ and side-chain, so pI = (8.95 + 10.53)/2 = 9.74. Why the others are wrong: B) 5.57 averages the first two pKa values and applies to a neutral side chain. C) 7.22 averages all three pKa values. D) 10.53 is the pKa of the side chain, not the pI.",
+     "trap": "Averaging the wrong pair of pKa values for a basic amino acid.",
+     "topic": "Isoelectric point",
+     "mastery_sheet_id": "5C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "Orgosolver / NPTEL amino acid pKa and pI notes (pI = average of flanking pKa values)"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_CP_P9",
+   "passage_text": "A chemist compares the rates of base-promoted hydrolysis (saponification) of several esters, RCO₂R′, in aqueous ethanol containing excess NaOH at 25°C. The reaction is monitored by the disappearance of hydroxide. The mechanism involves addition of hydroxide to the carbonyl carbon to give a tetrahedral intermediate, followed by loss of the alkoxide (R′O⁻) and an acid-base reaction between the resulting carboxylic acid and a base. The approximate relative rates, referenced to methyl acetate, are given in Table 1. The tert-butyl ester is hydrolyzed very slowly under these basic conditions. The chemist also notes that, when ethyl acetate is hydrolyzed with a stoichiometric amount of NaOH, the hydroxide is consumed completely, and that the same hydrolysis in dilute aqueous acid is reversible. Each ester is used at the same initial concentration, and the temperature is controlled with a water bath so that the rate comparisons are valid. Rates are determined from the change in hydroxide concentration over the first several minutes of reaction, before the concentrations have changed appreciably.",
+   "table_data": "| Ester | Relative rate of hydrolysis |\n|---|---|\n| Methyl acetate | 1.0 |\n| Ethyl acetate | 0.6 |\n| Isopropyl acetate | 0.2 |\n| tert-Butyl acetate | 0.01 |\n| Methyl chloroacetate | 150 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL03_CP_P9_Q1",
+     "stem": "What is the first step in the mechanism of saponification?",
+     "options": {
+      "A": "Hydroxide adds to the carbonyl carbon, forming a tetrahedral intermediate",
+      "B": "Water protonates the alkoxy oxygen, converting the alkoxide into a better leaving group",
+      "C": "Hydroxide displaces the alkoxide group by SN2 attack at the carbon of the R′ group",
+      "D": "Hydroxide removes an α-hydrogen, generating an enolate that is then protonated by water"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Hydroxide is a strong nucleophile that adds to the electrophilic C=O carbon, producing a tetrahedral alkoxide intermediate. Why the others are wrong: B) Protonation of the alkoxy oxygen to make a better leaving group occurs in acid-catalyzed hydrolysis, not under basic conditions. C) SN2 displacement at the R′ carbon is not the pathway; attack at the acyl carbon is much faster. D) Enolate formation is a side equilibrium that does not cleave the ester.",
+     "trap": "Mixing up the acid-catalyzed and base-promoted mechanisms.",
+     "topic": "Nucleophilic acyl substitution",
+     "mastery_sheet_id": "5D",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P9_Q2",
+     "stem": "Which statement best explains the slow rate of hydrolysis of tert-butyl acetate?",
+     "options": {
+      "A": "tert-Butoxide is a better leaving group than methoxide, which should speed the collapse of the intermediate.",
+      "B": "The tert-butyl group donates electron density into the carbonyl carbon by resonance, making it less electrophilic.",
+      "C": "tert-Butyl acetate lacks a carbonyl group and therefore cannot form a tetrahedral intermediate.",
+      "D": "Steric crowding from the tert-butyl group raises the energy of the tetrahedral transition state."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Bulky R′ groups crowd the tetrahedral intermediate and the approach of OH⁻, increasing the activation energy and lowering the rate. Why the others are wrong: A) tert-Butoxide is a stronger base and therefore a poorer leaving group, so a better leaving group would not explain a slower rate; the observed trend follows sterics. B) Alkyl groups donate through induction, not resonance, and the effect is small. C) tert-Butyl acetate does contain a carbonyl group.",
+     "trap": "Attributing the rate trend to leaving-group acidity when the observed trend follows sterics.",
+     "topic": "Steric effects",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P9_Q3",
+     "stem": "Why is methyl chloroacetate hydrolyzed much faster than methyl acetate?",
+     "options": {
+      "A": "Chlorine is a bulky substituent that crowds the carbonyl carbon and stabilizes the intermediate by shielding.",
+      "B": "Chlorine donates electrons by resonance to the carbonyl carbon, making addition of hydroxide easier.",
+      "C": "Electron-withdrawing chlorine makes the carbonyl carbon more electrophilic and stabilizes the intermediate.",
+      "D": "Chloride is a better leaving group than methoxide, so the intermediate collapses more rapidly."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The inductive effect of Cl makes the carbonyl carbon more positive and the intermediate more stable, so addition of OH⁻ is faster. Why the others are wrong: A) Steric crowding would slow the reaction, not accelerate it, and shielding does not stabilize a negatively charged intermediate. B) Chlorine withdraws electrons inductively; donation would reduce the electrophilicity and slow the reaction. D) The leaving group is methoxide in both esters; Cl remains on the acyl carbon chain.",
+     "trap": "Treating the chlorine as the leaving group because it is a halogen.",
+     "topic": "Inductive effects",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P9_Q4",
+     "stem": "Why is the saponification of ethyl acetate effectively irreversible, while acid-catalyzed hydrolysis is reversible?",
+     "options": {
+      "A": "Ethanol is volatile and escapes from the reaction mixture, so the reverse reaction cannot occur.",
+      "B": "The tetrahedral intermediate is more stable under basic conditions, so it never reverts to the ester.",
+      "C": "Hydroxide deprotonates the acid product to a carboxylate, which ethanol cannot attack.",
+      "D": "Hydroxide is regenerated at the end of the mechanism and acts as a catalyst, driving the reaction forward."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The final acid-base step forms acetate, which resists attack by nucleophiles because of resonance and charge, so the reaction proceeds to completion. Base is consumed, not catalytic. Why the others are wrong: A) Volatility is not required; the reaction is irreversible even in a sealed vessel. B) The stability of the intermediate does not determine reversibility. D) Hydroxide is consumed in the process, not regenerated.",
+     "trap": "Calling hydroxide a catalyst even though it is consumed.",
+     "topic": "Irreversibility of saponification",
+     "mastery_sheet_id": "5D",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL03_CP_P10",
+   "passage_text": "Crystal violet, a purple dye, is bleached by hydroxide: CV⁺ + OH⁻ → colorless product. A student follows the reaction in a spectrophotometer at 590 nm using a cuvette of path length 1.00 cm. The molar absorptivity of CV⁺ at this wavelength is 8.7 × 10⁴ M⁻¹cm⁻¹, and the product does not absorb. The initial [CV⁺] is 1.0 × 10⁻⁵ M, and [OH⁻] is 0.050 M, which is in large excess. Absorbance is recorded at 30 s intervals at 25 °C. Table 1 lists the absorbance (A) and its natural logarithm, and Figure 1 plots ln A against time. In a second run at the same temperature with [OH⁻] = 0.100 M and the same [CV⁺], the half-life was 15 s. The student assumes the rate law is rate = k[CV⁺][OH⁻] and treats the data as pseudo-first-order. The solutions are thermostatted in a water bath, and the spectrophotometer is zeroed with a blank containing only hydroxide solution before each run.",
+   "table_data": "| Time (s) | A | ln A |\n|---|---|---|\n| 0 | 0.870 | -0.139 |\n| 30 | 0.435 | -0.832 |\n| 60 | 0.217 | -1.526 |\n| 90 | 0.109 | -2.219 |\n| 120 | 0.054 | -2.912 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. ln A versus time for the bleaching of crystal violet",
+    "x_label": "Time (s)",
+    "y_label": "ln A",
+    "series": [
+     {
+      "name": "[OH⁻] = 0.050 M",
+      "points": [
+       [
+        0,
+        -0.139
+       ],
+       [
+        30,
+        -0.832
+       ],
+       [
+        60,
+        -1.526
+       ],
+       [
+        90,
+        -2.219
+       ],
+       [
+        120,
+        -2.912
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL03_CP_P10_Q1",
+     "stem": "What is [CV⁺] at 60 s?",
+     "options": {
+      "A": "2.5 × 10⁻⁶ M",
+      "B": "5.0 × 10⁻⁶ M",
+      "C": "7.5 × 10⁻⁶ M",
+      "D": "2.5 × 10⁻⁵ M"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) c = A/(εb) = 0.217/[(8.7×10⁴)(1.00)] = 2.5×10⁻⁶ M, one quarter of the initial concentration (two half-lives). Why the others are wrong: B) 5.0×10⁻⁶ M is the concentration at 30 s (one half-life). C) 7.5×10⁻⁶ M is the amount consumed, not remaining. D) 2.5×10⁻⁵ M is larger than the initial concentration of 1.0×10⁻⁵ M.",
+     "trap": "Misplacing the decimal when converting absorbance to concentration with a large ε.",
+     "topic": "Beer-Lambert law",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "LibreTexts The Beer-Lambert Law"
+      ]
+     }
+    },
+    {
+     "id": "FL03_CP_P10_Q2",
+     "stem": "What is the pseudo-first-order rate constant for the first run?",
+     "options": {
+      "A": "0.023 s⁻¹",
+      "B": "0.033 s⁻¹",
+      "C": "0.69 s⁻¹",
+      "D": "43 s⁻¹"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The slope of ln A versus t is (−2.912 − (−0.139))/120 s = −0.0231 s⁻¹, so k_obs = 0.023 s⁻¹ (also ln 2/30 s). Why the others are wrong: B) 0.033 s⁻¹ equals 1/t½, which omits ln 2. C) 0.69 s⁻¹ is ln 2 and omits division by the half-life. D) 43 s⁻¹ is the reciprocal of the correct value, with the wrong units.",
+     "trap": "Using 1/t½ as the first-order rate constant.",
+     "topic": "First-order kinetics from a plot",
+     "mastery_sheet_id": "5E",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL03_CP_P10_Q3",
+     "stem": "What is the second-order rate constant k for the bleaching reaction?",
+     "options": {
+      "A": "0.46 M⁻¹s⁻¹",
+      "B": "1.2 × 10⁻³ M⁻¹s⁻¹",
+      "C": "0.023 M⁻¹s⁻¹",
+      "D": "0.92 M⁻¹s⁻¹"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) k = k_obs/[OH⁻] = 0.0231/0.050 = 0.46 M⁻¹s⁻¹; the second run gives (ln 2/15)/0.100 = 0.46 M⁻¹s⁻¹, confirming first order in OH⁻. Why the others are wrong: B) 1.2×10⁻³ comes from multiplying k_obs by [OH⁻]. C) 0.023 reuses k_obs and does not divide by [OH⁻]. D) 0.92 comes from dividing the second-run constant by the first concentration.",
+     "trap": "Multiplying rather than dividing k_obs by the hydroxide concentration.",
+     "topic": "Rate constant and order",
+     "mastery_sheet_id": "5E",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "LibreTexts 4.03 Determining Rate Laws (pseudo-first-order); Britannica decay constant (t1/2 = ln2/k)"
+      ]
+     }
+    },
+    {
+     "id": "FL03_CP_P10_Q4",
+     "stem": "Why was [OH⁻] kept in large excess over [CV⁺]?",
+     "options": {
+      "A": "So the product also absorbs at 590 nm and amplifies the signal",
+      "B": "So the reaction becomes zero order in CV⁺ and the plot of A against time is linear",
+      "C": "So the activation energy falls and the reaction is completed within the 120 s observed",
+      "D": "So [OH⁻] stays nearly constant, making the rate depend only on [CV⁺]"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) With [OH⁻] ≫ [CV⁺], [OH⁻] barely changes, so rate = k_obs[CV⁺] and ln A is linear in time. Why the others are wrong: A) The product is colorless and does not absorb. B) The reaction remains first order in CV⁺, so A versus t is exponential. C) Concentration does not change the activation energy; only the rate is affected.",
+     "trap": "Believing that excess reagent changes the activation energy rather than the apparent order.",
+     "topic": "Pseudo-first-order conditions",
+     "mastery_sheet_id": "5E",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL03_CP_D1",
+   "stem": "A 2.0 kg cart moving at 3.0 m/s collides with a stationary 1.0 kg cart and the two stick together. What is the speed of the combined carts immediately after the collision?",
+   "options": {
+    "A": "1.0 m/s",
+    "B": "2.0 m/s",
+    "C": "3.0 m/s",
+    "D": "1.5 m/s"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Momentum is conserved: (2.0)(3.0) = (3.0)v, so v = 2.0 m/s. Why the others are wrong: A) 1.0 m/s divides the momentum by 6 kg. C) 3.0 m/s ignores the added mass. D) 1.5 m/s is half the initial speed, which would apply only for equal masses.",
+   "trap": "Assuming the speed is unchanged or splitting it evenly regardless of the masses.",
+   "topic": "Inelastic collisions",
+   "mastery_sheet_id": "4A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "Perfectly inelastic collision momentum notes (MSU PHY231 lecture; Vedantu)"
+    ]
+   }
+  },
+  {
+   "id": "FL03_CP_D2",
+   "stem": "A satellite moves in a circular orbit of radius r at speed v. If it is moved to a circular orbit of radius 2r, what is its new speed?",
+   "options": {
+    "A": "v/2",
+    "B": "v√2",
+    "C": "v/√2",
+    "D": "2v"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Gravity supplies the centripetal force: GMm/r² = mv²/r gives v = √(GM/r), so doubling r divides v by √2. Why the others are wrong: A) v/2 assumes v is inversely proportional to r. B) v√2 has the wrong direction; higher orbits are slower. D) 2v has the wrong direction and the wrong magnitude.",
+   "trap": "Using v ∝ 1/r instead of v ∝ 1/√r.",
+   "topic": "Orbital motion",
+   "mastery_sheet_id": "4A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_CP_D3",
+   "stem": "In a hydraulic lift, the small piston has an area of 2.0 cm² and the large piston has an area of 50 cm². What force on the small piston can support a 1000 N load on the large piston?",
+   "options": {
+    "A": "1.6 N",
+    "B": "80 N",
+    "C": "40 N",
+    "D": "25,000 N"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Pressure is equal in both pistons: F₁ = F₂(A₁/A₂) = 1000 × (2/50) = 40 N. Why the others are wrong: A) 1.6 N multiplies by A₁/A₂ twice or mishandles the ratio. B) 80 N doubles the correct force. D) 25,000 N multiplies the load by the area ratio instead of dividing.",
+   "trap": "Using the area ratio in the wrong direction.",
+   "topic": "Pascal's principle",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "NASA Glenn Pascal principle page; UCF Pressbooks Pascal principle"
+    ]
+   }
+  },
+  {
+   "id": "FL03_CP_D4",
+   "stem": "Water exits a small hole in the side of a large open tank 5.0 m below the water surface. Neglecting viscosity, what is the approximate exit speed?",
+   "options": {
+    "A": "7.0 m/s",
+    "B": "98 m/s",
+    "C": "9.9 m/s",
+    "D": "49 m/s"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Bernoulli's equation gives v = √(2gh) = √(2 × 9.8 × 5.0) = 9.9 m/s. Why the others are wrong: A) 7.0 m/s is √(gh), missing the factor of 2. B) 98 m/s is 2gh, without the square root. D) 49 m/s is gh, without the factor of 2 or the square root.",
+   "trap": "Forgetting the factor of 2 or the square root in Torricelli's law.",
+   "topic": "Bernoulli's equation",
+   "mastery_sheet_id": "4B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "Torricelli's law (planetcalc; Vedantu)"
+    ]
+   }
+  },
+  {
+   "id": "FL03_CP_D5",
+   "stem": "A 12 V battery of negligible internal resistance is connected across a 4.0 Ω resistor and a 2.0 Ω resistor in series. What is the power dissipated in the 4.0 Ω resistor?",
+   "options": {
+    "A": "36 W",
+    "B": "16 W",
+    "C": "8.0 W",
+    "D": "48 W"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) I = 12/6.0 = 2.0 A, so P = I²R = (2.0)²(4.0) = 16 W. Why the others are wrong: A) 36 W is V²/R with the full 12 V across the 4.0 Ω resistor. C) 8.0 W is the power in the 2.0 Ω resistor. D) 48 W is V × I with 12 V times 4.0.",
+   "trap": "Using the full battery voltage across a single resistor in a series circuit.",
+   "topic": "DC circuits",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.pa.uky.edu/~kwng/fall2017/PHY%20232/Lecture%20slides/Class%2022%20Oct%2013%20-%20Resistors%20in%20series%20and%20parallel.pdf",
+     "https://urlectures.web.illinois.edu/Lecture03.pdf"
+    ]
+   }
+  },
+  {
+   "id": "FL03_CP_D6",
+   "stem": "A galvanic cell made from Zn/Zn²⁺ and Cu/Cu²⁺ under standard conditions has E°cell = 1.10 V and transfers 2 moles of electrons per mole of reaction. What is ΔG° per mole of reaction?",
+   "options": {
+    "A": "−106 kJ",
+    "B": "−212 kJ",
+    "C": "+212 kJ",
+    "D": "−425 kJ"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) ΔG° = −nFE° = −(2)(96,485)(1.10) = −212 kJ/mol. Why the others are wrong: A) −106 kJ uses n = 1. C) +212 kJ has the wrong sign; a positive E° means spontaneous. D) −425 kJ uses n = 4.",
+   "trap": "Using the wrong n or the wrong sign in ΔG = −nFE.",
+   "topic": "Cell potential and free energy",
+   "mastery_sheet_id": "4C",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "Pearson/Brown-Tro electrochemistry solutions (dG = -nFE)"
+    ]
+   }
+  },
+  {
+   "id": "FL03_CP_D7",
+   "stem": "Light travels from glass (n = 1.50) toward an interface with air. What is the critical angle for total internal reflection?",
+   "options": {
+    "A": "48°",
+    "B": "42°",
+    "C": "34°",
+    "D": "90°"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) sin θc = n₂/n₁ = 1.00/1.50 = 0.667, so θc = 42°. Why the others are wrong: A) 48° is the complement of the critical angle. C) 34° is arctan(0.667). D) 90° would be the angle of refraction at the critical angle.",
+   "trap": "Using tangent or cosine in place of sine in Snell's law.",
+   "topic": "Total internal reflection",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "UTK Phys222 total internal reflection; critical angle worked solutions"
+    ]
+   }
+  },
+  {
+   "id": "FL03_CP_D8",
+   "stem": "The intensity of a sound is increased by a factor of 100. By how many decibels does the sound intensity level increase?",
+   "options": {
+    "A": "20 dB",
+    "B": "2 dB",
+    "C": "100 dB",
+    "D": "10 dB"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Δβ = 10 log(100) = 20 dB. Why the others are wrong: B) 2 dB is log(100), omitting the factor 10. C) 100 dB confuses the intensity ratio with the decibel change. D) 10 dB corresponds to a factor of 10 in intensity.",
+   "trap": "Dropping the factor 10 in the decibel formula.",
+   "topic": "Sound intensity level",
+   "mastery_sheet_id": "4D",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "SFU Sonic Studio Handbook Decibel"
+    ]
+   }
+  },
+  {
+   "id": "FL03_CP_D9",
+   "stem": "Radium-226 (atomic number 88) undergoes alpha decay. What is the daughter nuclide?",
+   "options": {
+    "A": "²²²₉₀Th",
+    "B": "²²⁶₈₉Ac",
+    "C": "²²⁶₈₇Fr",
+    "D": "²²²₈₆Rn"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) An alpha particle (⁴₂He) removes 2 protons and 4 nucleons, giving A = 222 and Z = 86 (radon-222). Why the others are wrong: A) Thorium-222 would have Z = 90, a gain of two protons. B) Actinium-226 has the same mass number, so it would result from beta decay. C) Francium-226 has Z = 87 and is the product of beta-plus decay, not alpha.",
+   "trap": "Mixing up how Z and A change for alpha and beta decays.",
+   "topic": "Alpha decay",
+   "mastery_sheet_id": "4E",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_CP_D10",
+   "stem": "A buffer contains 0.20 M NH₃ and 0.10 M NH₄Cl. The pKb of NH₃ is 4.74. What is the pH of the buffer?",
+   "options": {
+    "A": "9.56",
+    "B": "8.96",
+    "C": "9.26",
+    "D": "4.44"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) pOH = pKb + log([NH₄⁺]/[NH₃]) = 4.74 + log(0.50) = 4.44, so pH = 14.00 − 4.44 = 9.56. Why the others are wrong: B) 8.96 inverts the ratio. C) 9.26 would apply if the concentrations of base and acid were equal. D) 4.44 is the pOH, not the pH.",
+   "trap": "Reporting pOH as pH or inverting the buffer ratio.",
+   "topic": "Buffers",
+   "mastery_sheet_id": "5A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.aatbio.com/tools/quick-calculator/henderson-hasselbalch-base-calculator",
+     "https://live.ocw.mit.edu/courses/5-111-principles-of-chemical-science-fall-2008/7da6e0c3e5377bcb40cefb3e6ad94916_lecnotes22.pdf"
+    ]
+   }
+  },
+  {
+   "id": "FL03_CP_D11",
+   "stem": "What is the molecular geometry of XeF₄?",
+   "options": {
+    "A": "Tetrahedral",
+    "B": "Square planar",
+    "C": "Seesaw",
+    "D": "Octahedral"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Xe has 4 bonding pairs and 2 lone pairs, giving octahedral electron geometry; the lone pairs occupy opposite positions and the molecular shape is square planar. Why the others are wrong: A) Tetrahedral applies to four bonds and no lone pairs. C) Seesaw applies to four bonds and one lone pair. D) Octahedral describes the electron geometry, not the molecular geometry.",
+   "trap": "Naming the electron geometry rather than the molecular shape.",
+   "topic": "VSEPR",
+   "mastery_sheet_id": "5B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_CP_D12",
+   "stem": "A mixture of three proteins with molecular masses of 150 kDa, 45 kDa, and 12 kDa is passed through a size-exclusion (gel filtration) column. In what order do the proteins elute?",
+   "options": {
+    "A": "150 kDa, 45 kDa, 12 kDa",
+    "B": "12 kDa, 45 kDa, 150 kDa",
+    "C": "45 kDa, 150 kDa, 12 kDa",
+    "D": "All proteins elute together"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Large proteins are excluded from the pores and travel through the void volume, while small proteins enter the pores and are delayed. Why the others are wrong: B) That reverses the order, as in a sieve gel such as SDS-PAGE with migration distance. C) That order does not follow size. D) Separation depends on size, so they elute at different times.",
+   "trap": "Reversing the order, as in gel electrophoresis where small molecules travel farthest.",
+   "topic": "Size-exclusion chromatography",
+   "mastery_sheet_id": "5C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_CP_D13",
+   "stem": "Optically active (R)-3-bromo-3-methylhexane is dissolved in ethanol and slowly forms an ether. What is the expected stereochemical outcome?",
+   "options": {
+    "A": "A single enantiomer with inverted configuration",
+    "B": "A single enantiomer with retained configuration",
+    "C": "A meso compound",
+    "D": "A racemic mixture of ethers"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) The tertiary substrate ionizes to a planar carbocation (SN1), which ethanol can attack from either face with equal probability, yielding both enantiomers. Why the others are wrong: A) Complete inversion is the SN2 outcome, which is not feasible for a tertiary center. B) Complete retention is not expected without a neighboring group. C) A meso compound requires internal symmetry and two stereocenters.",
+   "trap": "Applying SN2 inversion to a tertiary halide in a protic solvent.",
+   "topic": "SN1 stereochemistry",
+   "mastery_sheet_id": "5D",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL03_CP_D14",
+   "stem": "The initial rate of a reaction A + B → products is 2.0 × 10⁻³ M/s when [A] = [B] = 0.10 M. Doubling [A] gives 8.0 × 10⁻³ M/s, and tripling [B] gives 6.0 × 10⁻³ M/s. What is the rate constant?",
+   "options": {
+    "A": "0.20 M⁻¹ s⁻¹",
+    "B": "0.020 s⁻¹",
+    "C": "0.50 M² s",
+    "D": "2.0 M⁻² s⁻¹"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Doubling [A] quadruples the rate (second order in A) and tripling [B] triples it (first order in B). Rate = k[A]²[B], so k = 2.0 × 10⁻³/(0.10² × 0.10) = 2.0 M⁻² s⁻¹. Why the others are wrong: A) 0.20 M⁻¹ s⁻¹ assumes overall second-order kinetics. B) 0.020 s⁻¹ assumes overall first-order kinetics. C) 0.50 M² s is the reciprocal of the correct value.",
+   "trap": "Assuming order from stoichiometric coefficients instead of the initial-rate data.",
+   "topic": "Rate laws",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "LibreTexts 4.03 Determining Rate Laws (method of initial rates)"
+    ]
+   }
+  },
+  {
+   "id": "FL03_CP_D15",
+   "stem": "When 0.020 mol of a salt dissolves in 50.0 g of water, the temperature rises by 6.0°C. Taking the specific heat of the solution as 4.184 J/(g·°C) and neglecting the heat capacity of the calorimeter, what is ΔH of dissolution per mole of salt?",
+   "options": {
+    "A": "+63 kJ/mol",
+    "B": "−1.3 kJ/mol",
+    "C": "−63 kJ/mol",
+    "D": "−31 kJ/mol"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) q = (50.0)(4.184)(6.0) = 1255 J absorbed by the water, so the dissolution released 1.26 kJ. Per mole: −1.26 kJ/0.020 mol = −63 kJ/mol. Why the others are wrong: A) +63 kJ/mol has the wrong sign; a temperature rise means an exothermic process. B) −1.3 kJ/mol is the total heat and is not divided by moles. D) −31 kJ/mol would result from dividing by 0.040 mol.",
+   "trap": "Giving the sign of ΔH as the sign of ΔT or forgetting to divide by moles.",
+   "topic": "Calorimetry",
+   "mastery_sheet_id": "5E",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "BU CH131 Exp06 Calorimetry (q = mcdT, dH = -q/n)"
+    ]
+   }
+  }
+ ]
+}

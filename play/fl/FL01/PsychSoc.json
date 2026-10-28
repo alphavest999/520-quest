@@ -1,0 +1,1422 @@
+{
+ "exam": "FL01",
+ "section": "PS",
+ "passages": [
+  {
+   "passage_id": "FL01_PS_P1",
+   "passage_text": "Researchers examined the effect of acute sleep restriction on working memory. Sixty healthy adults aged 19 to 30 were randomly assigned to one of two groups. The control group slept 8 hours in the laboratory, and the restricted group was allowed only 4 hours. The next morning, each participant completed a computerized 2-back task, in which letters appear one at a time and the participant indicates whether the current letter matches the one shown two items earlier. Accuracy and mean reaction time on correct trials were recorded. The experimenters who scored the task did not know each participant's group, but participants knew how long they had been allowed to sleep. Group means were compared with independent-samples t-tests, using a significance threshold of p < 0.05. Results are shown in Table 1. In a separate sample of sleep-restricted adults, functional imaging showed reduced activation of the dorsolateral prefrontal cortex during the same task, relative to well-rested adults. The investigators concluded that a single night of short sleep impairs the ability to hold and update information over a few seconds.",
+   "table_data": "**Table 1. 2-back performance (mean, with SD in parentheses)**\n\n| Measure | Control (n = 30) | Restricted (n = 30) | p |\n|---|---|---|---|\n| Accuracy (%) | 84 (6) | 76 (8) | < 0.001 |\n| Reaction time (ms) | 612 (70) | 668 (92) | 0.01 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_PS_P1_Q1",
+     "stem": "Random assignment of participants to the two sleep conditions primarily served to:",
+     "options": {
+      "A": "ensure that every participant would respond identically to the 2-back task regardless of sleep condition.",
+      "B": "make the results generalize to all adults regardless of age, sex, or baseline sleep habits.",
+      "C": "eliminate the need for a statistical test of the group difference in 2-back accuracy.",
+      "D": "distribute pre-existing differences, such as baseline memory ability, roughly equally across groups."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Random assignment makes the groups comparable on average before treatment, so confounders are balanced by chance rather than by design. Why the others are wrong: A) Individuals still differ in their sensitivity to sleep loss; randomization does not remove that variability. B) Generalizability depends on how participants were sampled, not on how they were assigned. C) Randomization does not remove chance differences, so a statistical test is still needed.",
+     "trap": "Confusing random assignment (internal validity) with random sampling (external validity).",
+     "topic": "Random assignment",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P1_Q2",
+     "stem": "Relative to the control group mean, the percent decrease in accuracy in the restricted group was closest to:",
+     "options": {
+      "A": "8%",
+      "B": "10.5%",
+      "C": "9.5%",
+      "D": "12.0%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The difference is 84 - 76 = 8 percentage points; 8/84 = 0.095, or about 9.5% of the control value. Why the others are wrong: A) 8 is the absolute difference in percentage points, not a relative percent change. B) This divides 8 by the restricted mean (76) rather than by the control baseline. D) This value does not follow from either mean; 8/84 is about 0.095.",
+     "trap": "Dividing the difference by the wrong baseline (the experimental mean) or reporting percentage points as a percent change.",
+     "topic": "Percent change",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_PS_P1_Q3",
+     "stem": "The imaging finding in the sleep-restricted adults is most consistent with the idea that the dorsolateral prefrontal cortex:",
+     "options": {
+      "A": "encodes new declarative memories into long-term storage after a delay.",
+      "B": "controls the release of cortisol and other hormones during stress.",
+      "C": "supports the maintenance and manipulation of information in working memory.",
+      "D": "coordinates the timing and sequencing of voluntary movements of the limbs."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The DLPFC is a core region for executive function and working memory, so reduced activation fits poorer 2-back performance. Why the others are wrong: A) Long-term declarative encoding relies chiefly on the hippocampus and medial temporal lobe. B) Cortisol release is governed by the hypothalamic-pituitary-adrenal axis. D) Movement timing is associated with the cerebellum and basal ganglia.",
+     "trap": "Attributing every memory deficit to the hippocampus when the task is short-term manipulation of information.",
+     "topic": "Working memory and brain regions",
+     "mastery_sheet_id": "6B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P1_Q4",
+     "stem": "Which feature of the design most weakens the conclusion that sleep loss alone caused the group difference in accuracy?",
+     "options": {
+      "A": "The scorers of the task did not know the group assignments of the participants.",
+      "B": "Both groups completed the same 2-back task in the morning under identical conditions of testing.",
+      "C": "Participants knew their sleep condition, so expectations or effort could have differed between groups.",
+      "D": "Participants were randomly assigned to the sleep-deprived or the rested group before any testing began."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Participant awareness permits demand characteristics or motivational differences, a threat that cannot be fully blinded in a sleep manipulation. Why the others are wrong: A) Blind scoring reduces experimenter bias and is a strength. B) Identical tasks and timing hold the testing conditions constant, which is a strength. D) Random assignment strengthens causal inference.",
+     "trap": "Choosing a design strength because it sounds technical when the question asks for a weakness.",
+     "topic": "Blinding and demand characteristics",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P1_Q5",
+     "stem": "The reaction-time results in Table 1 indicate that the restricted group:",
+     "options": {
+      "A": "responded faster but less accurately, showing a speed-accuracy trade-off in the sleep-deprived group.",
+      "B": "was slower and less accurate, so the deficit is not a speed-accuracy trade-off.",
+      "C": "showed no reliable difference from controls in either measure because the SDs are large.",
+      "D": "was more accurate on trials with longer reaction times, as expected for a speed-accuracy trade-off."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Reaction time rose from 612 to 668 ms (p = 0.01) while accuracy fell, so the group was impaired on both measures. Why the others are wrong: A) Faster responding would show a lower mean RT, but the restricted mean RT is higher. C) The reported p = 0.01 is below 0.05, so the difference is statistically significant despite the SDs. D) Table 1 reports group means only and says nothing about accuracy as a function of trial RT.",
+     "trap": "Assuming overlapping SDs automatically mean a non-significant result.",
+     "topic": "Interpreting a results table",
+     "mastery_sheet_id": "SIRS",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_PS_P2",
+   "passage_text": "Dark adaptation was measured in two groups of observers. Each observer first viewed an intense light for 5 minutes. The room was then darkened, and at set intervals the dimmest flash that the observer could detect was determined. The flash was a small dim 500-nm spot presented 10 degrees away from the point of fixation. Threshold is expressed in log units, where a lower value indicates greater sensitivity. Group N contained 10 observers with normal vision, and Group V contained 10 observers with a dietary deficiency of vitamin A. Mean thresholds are plotted in Figure 1. Normal observers reported that the flash appeared colorless at the later time points, although it appeared faintly colored at early time points. Observers in Group V had normal visual acuity under daylight conditions and did not differ from Group N in the size of the initial threshold elevation immediately after the bright light. In Group V, a clinical examination showed no damage to the optic nerve or to the cornea. The researchers wished to link the shape of each curve to the photoreceptor populations of the retina and to the photopigment that each population uses.",
+   "table_data": "",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Dark adaptation",
+    "x_label": "Time in darkness (min)",
+    "y_label": "Threshold (log units)",
+    "series": [
+     {
+      "name": "Group N (normal)",
+      "points": [
+       [
+        0,
+        6.0
+       ],
+       [
+        2,
+        4.5
+       ],
+       [
+        5,
+        3.5
+       ],
+       [
+        8,
+        3.4
+       ],
+       [
+        10,
+        3.2
+       ],
+       [
+        15,
+        2.0
+       ],
+       [
+        20,
+        1.4
+       ],
+       [
+        30,
+        1.0
+       ]
+      ]
+     },
+     {
+      "name": "Group V (vitamin A deficient)",
+      "points": [
+       [
+        0,
+        6.0
+       ],
+       [
+        2,
+        4.6
+       ],
+       [
+        5,
+        3.6
+       ],
+       [
+        8,
+        3.5
+       ],
+       [
+        10,
+        3.5
+       ],
+       [
+        15,
+        3.4
+       ],
+       [
+        20,
+        3.3
+       ],
+       [
+        30,
+        3.2
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_PS_P2_Q1",
+     "stem": "The second downward phase of Group N's curve, after about 10 minutes, most likely reflects:",
+     "options": {
+      "A": "regeneration of rhodopsin in rods, which are more sensitive than cones in dim light.",
+      "B": "regeneration of cone photopigment, which is more sensitive than rhodopsin in dim light.",
+      "C": "dilation of the pupil to its maximum diameter.",
+      "D": "recovery of horizontal cells in the fovea."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The rod-cone break marks the point where rods, once their rhodopsin has regenerated, become more sensitive than cones; thresholds then keep falling. Why the others are wrong: B) Cones adapt quickly and account for the early plateau, not the later fall. C) Pupil dilation takes seconds and explains little of a 30-minute change. D) The fovea contains cones and no rods, so it cannot explain the late rod-driven phase.",
+     "trap": "Reversing the roles: the early fast phase is cone-mediated and the late slow phase is rod-mediated.",
+     "topic": "Dark adaptation",
+     "mastery_sheet_id": "6A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P2_Q2",
+     "stem": "Which explanation best accounts for the flat later portion of Group V's curve?",
+     "options": {
+      "A": "Without enough vitamin A, retinal cannot be supplied to regenerate rhodopsin in the rods.",
+      "B": "Vitamin A deficiency destroys the cones first, so the early phase of dark adaptation does not occur.",
+      "C": "Vitamin A is needed for transmission of visual signals across the optic chiasm to the cortex.",
+      "D": "The deficiency prevents the cornea and lens from refracting incoming light onto the retina."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Retinal is derived from vitamin A and is the chromophore of rhodopsin; deficiency produces night blindness while the cone-based early phase is preserved. Why the others are wrong: B) Group V's early phase matches Group N's, indicating cones function. C) The examination showed no optic nerve damage, and vitamin A is not a chiasm transmitter. D) The cornea was normal, and refraction does not explain a rod-specific deficit.",
+     "trap": "Assuming a visual deficit must involve the optic nerve or the lens rather than the photopigment.",
+     "topic": "Phototransduction",
+     "mastery_sheet_id": "6A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P2_Q3",
+     "stem": "At 30 minutes, the threshold for Group V is higher than that for Group N by 2.2 log units. Group V therefore needed a flash that was approximately how many times more intense?",
+     "options": {
+      "A": "2.2 times",
+      "B": "160 times",
+      "C": "16 times",
+      "D": "1,000 times"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Log units are powers of 10: 10^2.2 is about 158, so roughly 160 times more intense. Why the others are wrong: A) 2.2 is the log difference, not the ratio of intensities. C) 10^1.2 is about 16; the exponent of 10 is 2.2, not 1.2. D) 1,000 is 10^3, which would be a 3.0 log unit difference.",
+     "trap": "Treating a difference in log units as a difference in the original units.",
+     "topic": "Log-scale calculation",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_PS_P2_Q4",
+     "stem": "The test flash was presented 10 degrees from fixation and appeared colorless at the later time points. These observations are best explained by the fact that:",
+     "options": {
+      "A": "cones, concentrated outside the fovea, contain three pigments and signal only brightness at low light.",
+      "B": "the fovea contains the highest density of rods, so peripheral light is not detected by the eye.",
+      "C": "rods, concentrated outside the fovea, contain a single photopigment and thus do not signal color.",
+      "D": "color is encoded only after the signal reaches the optic nerve, not in the photoreceptors."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Rods predominate in the periphery, use one pigment (rhodopsin), and give achromatic vision; the late flash was detected by rods. Why the others are wrong: A) Cones are concentrated in the fovea and the three cone types support color vision. B) The fovea is rod-free and cone-dense, the opposite of the statement. D) Color coding begins in the retina with different cone types and opponent processing, not at the optic nerve.",
+     "trap": "Placing rods in the fovea; fovea is cone-only, rods are peripheral.",
+     "topic": "Rods and cones",
+     "mastery_sheet_id": "6A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_PS_P3",
+   "passage_text": "Stress responses were studied in 48 undergraduates using a 2 x 2 between-subjects design with 12 participants per cell. Participants were randomly assigned to perform either a stressful task (an unrehearsed, videotaped speech judged by a panel) or a non-stressful control task (reading aloud in an empty room). Within each task, participants waited beforehand either alone or with a supportive friend who was allowed to talk with them but who did not take part in the task. Saliva samples were collected 20 minutes after the task ended, and cortisol was measured. Participants also rated their anxiety on a 10-point scale. Mean cortisol is shown in Table 2. A two-way analysis of variance showed a significant main effect of task (p < 0.001), a significant main effect of support (p = 0.002), and a significant task by support interaction (p = 0.01). Anxiety ratings paralleled cortisol results. In a post-study questionnaire, participants in the speech task who waited with a friend reported being more confident that they could cope with the speech than did those who waited alone. Cortisol was sampled in the afternoon in all conditions.",
+   "table_data": "**Table 2. Salivary cortisol 20 min after the task (nmol/L; mean, SD in parentheses; n = 12 per cell)**\n\n| | Waited alone | Waited with friend |\n|---|---|---|\n| Speech (stress) | 14.0 (3.0) | 9.5 (2.8) |\n| Reading (control) | 6.0 (1.8) | 5.8 (1.7) |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_PS_P3_Q1",
+     "stem": "The hormone measured in this study is released as the final step of an axis in which:",
+     "options": {
+      "A": "the hypothalamus releases CRH, the anterior pituitary releases ACTH, and the adrenal cortex releases cortisol.",
+      "B": "the posterior pituitary releases ACTH, which then stimulates the adrenal medulla to release cortisol directly into the blood.",
+      "C": "the adrenal medulla releases cortisol directly in response to sympathetic input.",
+      "D": "the thyroid releases cortisol in response to TSH from the hypothalamus."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Cortisol is a glucocorticoid made by the adrenal cortex under control of ACTH (anterior pituitary), itself driven by hypothalamic CRH. Why the others are wrong: B) ACTH comes from the anterior pituitary and acts on the cortex; the medulla makes catecholamines. C) The medulla releases epinephrine and norepinephrine, not cortisol. D) TSH acts on the thyroid, a different axis; the thyroid does not release cortisol.",
+     "trap": "Mixing up the adrenal cortex (cortisol, HPA axis) and adrenal medulla (epinephrine, sympathetic).",
+     "topic": "HPA axis",
+     "mastery_sheet_id": "6C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P3_Q2",
+     "stem": "The significant task by support interaction indicates that:",
+     "options": {
+      "A": "the speech task raised cortisol equally whether or not a friend was present.",
+      "B": "the presence of a friend had no effect on cortisol in any condition tested.",
+      "C": "anxiety ratings caused the cortisol differences between the friend and no-friend groups.",
+      "D": "the effect of a friend on cortisol depended on whether the task was stressful."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A friend lowered cortisol by 4.5 nmol/L in the speech task but by only 0.2 nmol/L in the reading task, so the support effect depends on stress. Why the others are wrong: A) Speech cortisol was 14.0 alone and 9.5 with a friend, so the rise was not equal. B) The main effect of support was significant (p = 0.002), so a friend did matter overall. C) The design cannot show that anxiety ratings caused cortisol; they only paralleled it.",
+     "trap": "Equating a main effect with an interaction; an interaction means one factor's effect changes across levels of the other.",
+     "topic": "Interpreting ANOVA interaction",
+     "mastery_sheet_id": "SIRS",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P3_Q3",
+     "stem": "The post-study confidence ratings are most consistent with which view of how support reduced the stress response?",
+     "options": {
+      "A": "The James-Lange theory: support directly changed bodily arousal, which was then labeled as calm by the participant.",
+      "B": "Cognitive appraisal: support raised participants' perceived ability to cope, lowering perceived threat.",
+      "C": "Classical conditioning: the friend became a conditioned stimulus for cortisol release.",
+      "D": "Learned helplessness: friends taught participants that outcomes are uncontrollable."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) In appraisal models of stress, a stressor is judged against coping resources; support raises perceived resources and so lowers the stress response. Why the others are wrong: A) James-Lange begins with arousal; here the proposed first step is a change in cognitive evaluation (confidence). C) Nothing in the design involves pairing a neutral stimulus with cortisol release; support reduced cortisol. D) Learned helplessness would predict higher, not lower, stress responses.",
+     "trap": "Choosing a named theory because it is familiar without checking what the data say about timing.",
+     "topic": "Appraisal of stress",
+     "mastery_sheet_id": "6C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P3_Q4",
+     "stem": "In the speech condition, the reduction in mean cortisol associated with waiting with a friend, expressed as a percentage of the 'alone' mean, was closest to:",
+     "options": {
+      "A": "4.5%",
+      "B": "32%",
+      "C": "47%",
+      "D": "68%"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Reduction = 14.0 - 9.5 = 4.5 nmol/L; 4.5/14.0 = 0.32, or 32%. Why the others are wrong: A) 4.5 is the absolute reduction in nmol/L, not a percentage. C) 47% divides 4.5 by 9.5, the 'friend' mean, not the baseline. D) 68% is the remaining fraction (9.5/14.0), not the reduction.",
+     "trap": "Using the post-intervention mean as the denominator of a percent reduction.",
+     "topic": "Percent change",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_PS_P4",
+   "passage_text": "Researchers studied observational learning in 90 children aged 4 to 6 (45 boys, 45 girls). Each child watched a short film of an adult model who played with an inflatable doll by hitting it. Children were randomly assigned, within sex, to one of three versions of the film's ending: the model was praised and given candy (rewarded), the model was scolded and spanked (punished), or nothing happened (no consequence). There were 15 children per sex per condition. Each child was then taken to a playroom containing the same doll and other toys and observed through a one-way mirror for 10 minutes. Observers who did not know which film the child had seen counted the number of imitative aggressive acts. The mean counts are given in Table 3 and Figure 2. In a second phase, every child was told that they would get a sticker for each action by the model that they could reproduce, and almost all children, regardless of condition, then reproduced many of the model's aggressive acts. A statistical analysis showed significant main effects of condition (p < 0.01) and sex (p < 0.05), and no interaction.",
+   "table_data": "**Table 3. Mean imitative aggressive acts in 10 minutes (n = 15 per cell)**\n\n| Film ending | Boys | Girls |\n|---|---|---|\n| Model rewarded | 7.6 | 5.1 |\n| No consequence | 6.8 | 4.4 |\n| Model punished | 3.2 | 1.7 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 2. Imitative aggression by condition and sex",
+    "x_label": "Film ending (1 = rewarded, 2 = no consequence, 3 = punished)",
+    "y_label": "Mean aggressive acts",
+    "series": [
+     {
+      "name": "Boys",
+      "points": [
+       [
+        1,
+        7.6
+       ],
+       [
+        2,
+        6.8
+       ],
+       [
+        3,
+        3.2
+       ]
+      ]
+     },
+     {
+      "name": "Girls",
+      "points": [
+       [
+        1,
+        5.1
+       ],
+       [
+        2,
+        4.4
+       ],
+       [
+        3,
+        1.7
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_PS_P4_Q1",
+     "stem": "The lower imitation in the 'punished' condition is best explained by:",
+     "options": {
+      "A": "negative reinforcement: the film removed an aversive stimulus from the children after the behavior.",
+      "B": "vicarious punishment: the model's observed consequences reduced the children's tendency to act.",
+      "C": "classical conditioning of fear to the doll through direct pairing of the doll with spanking of the child.",
+      "D": "habituation to the film after repeated viewing, reducing the children's attention to the model."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) In social learning theory, observed consequences change the likelihood that the observer performs the behavior (vicarious reinforcement and punishment). Why the others are wrong: A) Negative reinforcement requires the child's own behavior to remove an aversive stimulus, which did not occur. C) The children were never spanked; the model was. D) Each child viewed the film once, so repeated exposure and habituation are not involved.",
+     "trap": "Treating observed consequences as if they were directly experienced by the learner.",
+     "topic": "Observational learning",
+     "mastery_sheet_id": "7B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P4_Q2",
+     "stem": "Among boys, the decrease in mean aggressive acts from the 'no consequence' condition to the 'punished' condition, as a percentage of the 'no consequence' mean, was closest to:",
+     "options": {
+      "A": "3.6%",
+      "B": "47%",
+      "C": "35%",
+      "D": "53%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Decrease = 6.8 - 3.2 = 3.6; 3.6/6.8 = 0.529, or about 53%. Why the others are wrong: A) 3.6 is the absolute difference in acts. B) 47% divides 3.6 by 7.6, the rewarded mean, rather than the no-consequence baseline. C) 35% does not follow from any pairing of the table values.",
+     "trap": "Dividing by the wrong comparison condition when computing a relative decrease.",
+     "topic": "Percent change",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_PS_P4_Q3",
+     "stem": "Why is the observed sex difference a weaker basis for a causal claim than the condition difference?",
+     "options": {
+      "A": "Children cannot be randomly assigned to sex, so other differences in upbringing may be confounded with it.",
+      "B": "Sex was measured with less precision than the film condition, which weakens the internal validity of the whole study.",
+      "C": "Observers knew each child's sex, but not each child's film condition, so scoring was blind to film.",
+      "D": "The sex difference was non-significant, so no conclusion about it can be drawn from these data."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Randomization supports causal claims for the manipulated variable only; sex is a quasi-independent (subject) variable. Why the others are wrong: B) Sex is easy to measure; the problem is lack of random assignment, not precision. C) Whether observers were aware of sex does not address causal attribution; it is still a non-manipulated variable. D) The text states the main effect of sex was significant (p < 0.05).",
+     "trap": "Assuming a significant effect of any factor in an ANOVA is causal.",
+     "topic": "Quasi-independent variables",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P4_Q4",
+     "stem": "In the second phase, children in all conditions reproduced the model's behavior once they were offered stickers. This finding suggests that:",
+     "options": {
+      "A": "the children in the punished condition had not learned the behavior during the first phase.",
+      "B": "stickers acted as punishment and suppressed imitation in the second phase.",
+      "C": "observational learning requires direct reinforcement of the observer in order to be acquired.",
+      "D": "the punished children had learned the behavior but were less likely to perform it spontaneously."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Learning and performance differ: acquisition occurred through observation, and incentives revealed it in children who had not shown it. Why the others are wrong: A) If they had not learned it, they could not have reproduced it on request. B) Stickers are positive reinforcement and increased, not suppressed, imitation. C) Observational learning occurs without reinforcement of the observer; the model's consequences only influence performance.",
+     "trap": "Equating a lack of performance with a lack of learning.",
+     "topic": "Learning vs performance",
+     "mastery_sheet_id": "7A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P4_Q5",
+     "stem": "Neural activity in premotor and inferior frontal regions that fires both when an individual performs an action and when the individual observes the same action performed by another is most closely associated with:",
+     "options": {
+      "A": "place cells.",
+      "B": "Purkinje cells.",
+      "C": "grid cells.",
+      "D": "mirror neurons."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Mirror neurons respond during both execution and observation of actions and are proposed to support imitation. Why the others are wrong: A) Place cells in the hippocampus fire for a specific location in space. B) Purkinje cells are cerebellar output neurons involved in motor coordination. C) Grid cells in the entorhinal cortex map space in a periodic pattern.",
+     "trap": "Selecting a well-known spatial cell type because it is also a named class of neuron.",
+     "topic": "Mirror neurons",
+     "mastery_sheet_id": "7A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_PS_P5",
+   "passage_text": "A laboratory study examined how the number of people who witness an emergency affects helping. Participants (n = 200) were told they were in a study of reactions to a noisy office. Each sat in a cubicle and completed a questionnaire. After several minutes, they heard what appeared to be a worker in the next room dropping a shelf and crying out in pain. In the 'alone' condition, the participant was by himself or herself. In the other three conditions, the participant was in a room with one, two, or four other people who were research assistants instructed to continue working and to show no concern. There were 50 participants in each of the four conditions, and all conditions had the same distribution of age and sex. The experimenters recorded whether the participant left the cubicle to help within 2 minutes and the time to respond. Results are summarized in Table 4 and Figure 3. A chi-square test of helping (yes or no) by condition was significant (p < 0.001). In interviews afterward, many non-helping participants said that the emergency 'did not seem that serious' because the others seemed calm.",
+   "table_data": "**Table 4. Helping by group size (n = 50 per condition)**\n\n| Total people present | Participants who helped | Percent who helped | Median latency (s) |\n|---|---|---|---|\n| 1 (alone) | 42 | 84% | 18 |\n| 2 | 32 | 64% | 31 |\n| 3 | 24 | 48% | 52 |\n| 5 | 17 | 34% | 90 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 3. Helping decreases with group size",
+    "x_label": "Total people present",
+    "y_label": "Participants who helped (%)",
+    "series": [
+     {
+      "name": "Percent helping",
+      "points": [
+       [
+        1,
+        84
+       ],
+       [
+        2,
+        64
+       ],
+       [
+        3,
+        48
+       ],
+       [
+        5,
+        34
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_PS_P5_Q1",
+     "stem": "The decline in helping as group size increased is best explained by:",
+     "options": {
+      "A": "social loafing, in which individuals reduce effort when they believe their output cannot be individually evaluated.",
+      "B": "deindividuation, in which anonymity within a crowd raises aggression.",
+      "C": "diffusion of responsibility, in which each person feels less personally obligated to act when others are present.",
+      "D": "group polarization, in which discussion makes the group's view more extreme."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The bystander effect is attributed to diffusion of responsibility, and here the research assistants' inaction also signals that action is unnecessary. Why the others are wrong: A) Social loafing concerns reduced effort on a shared task, not response to an emergency. B) Deindividuation involves loss of self-awareness in a crowd, which was not the case in the cubicles. D) There was no group discussion, so polarization is not involved.",
+     "trap": "Selecting a different well-known group phenomenon that sounds similar.",
+     "topic": "Bystander effect",
+     "mastery_sheet_id": "7C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P5_Q2",
+     "stem": "Across all 200 participants, the overall percentage who helped within 2 minutes was:",
+     "options": {
+      "A": "57.5%",
+      "B": "52.5%",
+      "C": "62.5%",
+      "D": "58.0%"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 42 + 32 + 24 + 17 = 115 helpers; 115/200 = 0.575, or 57.5%. Why the others are wrong: B) 52.5% would correspond to 105 helpers. C) 62.5% would correspond to 125 helpers. D) 58.0% would correspond to 116 helpers; the total is 115.",
+     "trap": "Averaging the four percentages incorrectly or mis-summing the helper counts.",
+     "topic": "Proportion calculation",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_PS_P5_Q3",
+     "stem": "Participants' statements that the event 'did not seem that serious' because others seemed calm best illustrates:",
+     "options": {
+      "A": "normative social influence driven by a desire for approval from the group.",
+      "B": "the foot-in-the-door technique, in which a small request precedes a larger one.",
+      "C": "social facilitation of a well-learned response in the presence of others.",
+      "D": "informational social influence leading to pluralistic ignorance."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Participants used others' calm as information about whether the situation was an emergency, and the others' behavior was itself uninformed. Why the others are wrong: A) Normative influence concerns conforming to gain acceptance; participants said they reinterpreted the event. B) Foot-in-the-door involves a small request followed by a larger one. C) Social facilitation is about performance in the presence of others on tasks, not interpretation of ambiguity.",
+     "trap": "Equating all conformity with normative influence.",
+     "topic": "Social influence",
+     "mastery_sheet_id": "8C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P5_Q4",
+     "stem": "A chi-square test was an appropriate choice for the analysis of helping because:",
+     "options": {
+      "A": "the outcome was a continuous variable with an approximately normal distribution within each group.",
+      "B": "the outcome (helped or not) is categorical and was compared across independent groups.",
+      "C": "the same participants were measured repeatedly in all four conditions of the experiment.",
+      "D": "the study compared the means of exactly two independent groups."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Chi-square tests whether frequencies of a categorical outcome differ across categories or groups. Why the others are wrong: A) A continuous, normally distributed outcome would call for a t-test or ANOVA. C) Different participants were in each condition, so measures were independent. D) Four groups were compared, and means are not the unit of analysis.",
+     "trap": "Picking a test by the number of groups without considering the type of outcome variable.",
+     "topic": "Choosing statistical tests",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_PS_P6",
+   "passage_text": "A study examined whether a reminder about group stereotypes affects performance in a domain that is important to the test-taker's identity. Ninety-six undergraduates who rated mathematics as highly important to their self-concept were recruited: 64 women and 32 men. Women were randomly assigned to one of two conditions. In the 'threat' condition, they were told before a difficult 20-item math test that the test had shown gender differences in the past. In the 'no threat' condition, they were told that the test showed no gender differences. All 32 men received the 'threat' instructions. Participants were tested individually and then rated their anxiety during the test on a 7-point scale. Results are summarized in Table 5. Scores of the women in the 'threat' condition were significantly lower than those of women in the 'no threat' condition (p < 0.01), and the 'no threat' women and men did not differ significantly. A statistical mediation analysis found that test anxiety accounted for part of the effect of the instructions on women's scores. Prior math achievement, measured by self-reported scores on a college entrance exam, did not differ between the two groups of women.",
+   "table_data": "**Table 5. Math test performance and anxiety (mean, SD in parentheses)**\n\n| Group | n | Score (out of 20) | Anxiety (1-7) |\n|---|---|---|---|\n| Women, threat | 32 | 11.2 (3.4) | 4.1 |\n| Women, no threat | 32 | 13.6 (3.1) | 3.0 |\n| Men, threat | 32 | 14.0 (3.2) | 3.2 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_PS_P6_Q1",
+     "stem": "The lower scores of women in the threat condition are best interpreted as an example of:",
+     "options": {
+      "A": "stereotype threat, in which fear of confirming a negative group stereotype impairs performance.",
+      "B": "the self-serving bias, in which people credit their own successes to internal causes.",
+      "C": "the Pygmalion effect, in which the high expectations of others raise a person's performance over time.",
+      "D": "the fundamental attribution error, in which others' behavior is attributed to disposition."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Reminding a stereotyped group of the stereotype in a domain they care about can raise anxiety and lower performance. Why the others are wrong: B) The self-serving bias concerns attributions of success and failure, not a drop in test performance. C) Pygmalion is a positive expectation effect, the opposite of the pattern seen here. D) The fundamental attribution error concerns explanations of other people's behavior, not performance changes.",
+     "trap": "Choosing an attribution bias because the scenario mentions explanation of performance.",
+     "topic": "Stereotype threat",
+     "mastery_sheet_id": "8B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P6_Q2",
+     "stem": "Using the pooled standard deviation of the two groups of women, the effect size (Cohen's d) for the difference between the threat and no threat conditions is closest to:",
+     "options": {
+      "A": "0.7",
+      "B": "2.4",
+      "C": "0.3",
+      "D": "1.3"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Difference = 13.6 - 11.2 = 2.4. Pooled SD (equal n) = sqrt((3.4^2 + 3.1^2)/2) = sqrt(10.6) = 3.25. d = 2.4/3.25 = 0.74. Why the others are wrong: B) 2.4 is the raw difference in points, not standardized. C) 0.3 would correspond to a mean difference of about 1 point. D) 1.3 would require a pooled SD of only about 1.8 points.",
+     "trap": "Reporting the raw mean difference as an effect size, or dividing by the wrong SD.",
+     "topic": "Effect size",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://rdrr.io/cran/lsr/man/cohensD.html"
+      ]
+     }
+    },
+    {
+     "id": "FL01_PS_P6_Q3",
+     "stem": "What was the main purpose of including the group of men?",
+     "options": {
+      "A": "To serve as a group that was randomly assigned to the 'no threat' condition for comparison with women.",
+      "B": "To test whether the anxiety measure is reliable across the threat and no-threat conditions.",
+      "C": "To show that the 'threat' instructions alone do not reduce performance, so the effect depends on the stereotype.",
+      "D": "To increase the sample size so that the sex difference in the main comparison would be significant."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Men heard the same instructions but scored like 'no threat' women, indicating that the instructions are not harmful per se. Why the others are wrong: A) All men received the 'threat' instructions, so none were assigned to 'no threat'. B) A single administration of the anxiety scale in one group does not test its reliability. D) The goal was a comparison control, not statistical power to produce significance.",
+     "trap": "Reading a comparison group as a way to boost sample size rather than as a control.",
+     "topic": "Control groups",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P6_Q4",
+     "stem": "Participants were chosen because mathematics was highly important to their self-concept. This selection criterion was most likely used because:",
+     "options": {
+      "A": "people who do not care about math cannot take a math test or be affected by its context in any way.",
+      "B": "self-concept is determined only by performance feedback received from other people.",
+      "C": "identity is formed entirely during adolescence and is unchanging in adulthood.",
+      "D": "stereotype threat is expected to be stronger when the domain is central to identity."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Domain identification raises the stakes of a negative stereotype, so threat effects are most apparent among strongly identified individuals. Why the others are wrong: A) Someone who cares little about math can still take the test; the issue is the personal stakes. B) Self-concept is shaped by multiple sources, including self-perception and social comparison, not only others' feedback. C) Identity continues to develop and change across adulthood.",
+     "trap": "Overgeneralizing a developmental claim to justify a selection criterion.",
+     "topic": "Self-concept and identity",
+     "mastery_sheet_id": "8A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_PS_P7",
+   "passage_text": "Researchers examined how implicit and explicit measures of attitudes toward an out-group predict behavior. A total of 120 participants completed an Implicit Association Test (IAT), in which faster pairing of out-group faces with negative words yields a higher D score, and a self-report scale on explicit attitudes toward the out-group, in which higher scores indicate more negative attitudes. Participants were told that the study concerned computer tasks and that a member of the out-group, who was a trained confederate, would join them for a second task. While the participant waited, the researchers measured how far (in cm) the participant placed his or her chair from the confederate's chair. Correlations among the measures are given in Table 6. Figure 4 plots a random subset of 8 participants' IAT scores against seating distance. The researchers argued that implicit attitudes reflect automatic associations that are less open to deliberate control. They also noted that participants were told the study was not about attitudes and that explicit responses were anonymous, but that the sample was drawn only from an undergraduate psychology subject pool.",
+   "table_data": "**Table 6. Correlations (r) among measures (N = 120)**\n\n| Pair of measures | r | p |\n|---|---|---|\n| IAT D score and seating distance | 0.34 | < 0.001 |\n| Explicit attitude score and seating distance | 0.12 | 0.19 |\n| IAT D score and explicit attitude score | 0.18 | 0.05 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 4. IAT score and seating distance (subset, n = 8)",
+    "x_label": "IAT D score",
+    "y_label": "Seating distance (cm)",
+    "series": [
+     {
+      "name": "Participants",
+      "points": [
+       [
+        0.0,
+        60
+       ],
+       [
+        0.2,
+        68
+       ],
+       [
+        0.4,
+        72
+       ],
+       [
+        0.5,
+        85
+       ],
+       [
+        0.7,
+        80
+       ],
+       [
+        0.9,
+        95
+       ],
+       [
+        1.1,
+        92
+       ],
+       [
+        1.3,
+        108
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_PS_P7_Q1",
+     "stem": "The proportion of variance in seating distance that is shared with IAT D scores is closest to:",
+     "options": {
+      "A": "34%",
+      "B": "3%",
+      "C": "58%",
+      "D": "12%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The coefficient of determination is r squared: 0.34^2 = 0.1156, or about 12%. Why the others are wrong: A) 34% is r itself, not the proportion of variance. B) 3% would result from squaring 0.18 (or 0.12^2, which is about 1%), not 0.34. C) 58% is the square root of 0.34, not its square.",
+     "trap": "Reporting r as the percent of variance explained rather than r squared.",
+     "topic": "Coefficient of determination",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://personal.utdallas.edu/~herve/abdi-CorrelationCoefficient-sage2022.pdf"
+      ]
+     }
+    },
+    {
+     "id": "FL01_PS_P7_Q2",
+     "stem": "Which statement is best supported by Table 6?",
+     "options": {
+      "A": "Implicit negative attitudes cause people to sit farther from out-group members in a waiting room.",
+      "B": "Implicit attitudes were more strongly related to seating distance than were explicit attitudes.",
+      "C": "Explicit attitudes are unrelated to implicit attitudes in the general population of adults.",
+      "D": "Seating distance is a valid measure of explicit attitudes."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The correlation with seating distance was significant for the IAT (0.34, p < 0.001) but not for explicit attitudes (0.12, p = 0.19). Why the others are wrong: A) Correlation does not establish causation; a third variable or reverse causation is possible. C) The implicit-explicit correlation of 0.18 was reported at p = 0.05, indicating a weak relation, not proof of no relation. D) The data do not show that seating distance measures explicit attitudes; its correlation with them was non-significant.",
+     "trap": "Inferring causation from a correlation coefficient, however significant.",
+     "topic": "Correlation vs causation",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P7_Q3",
+     "stem": "Explicit self-reports of attitudes toward out-groups are often weaker predictors of behavior than implicit measures, most likely because explicit reports are:",
+     "options": {
+      "A": "subject to social desirability bias and limited introspective access.",
+      "B": "unaffected by participants' awareness of what is being measured by the questionnaire.",
+      "C": "determined only by genetic factors rather than by learning and experience.",
+      "D": "only reliable when the scale has few items and a simple response format."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Participants may hide or lack awareness of negative attitudes, so explicit responses can differ from automatic evaluation. Why the others are wrong: B) Explicit measures are affected by awareness, which is the weakness. C) Attitudes are shaped by learning and social factors, not genetics alone. D) The number of items does not address the bias in reporting.",
+     "trap": "Overlooking that responding in a socially acceptable way is a threat to self-report validity.",
+     "topic": "Implicit and explicit attitudes",
+     "mastery_sheet_id": "8B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P7_Q4",
+     "stem": "The chair-placement behavior, if driven by negative attitudes toward the out-group, is best classified as:",
+     "options": {
+      "A": "prejudice.",
+      "B": "a stereotype.",
+      "C": "a self-fulfilling prophecy.",
+      "D": "discrimination."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Discrimination is behavior, and prejudice is an attitude; avoidance by seating distance is a behavior. Why the others are wrong: A) Prejudice is the attitude (affect) that the IAT or scale assessed, not the chair placement. B) A stereotype is a cognitive generalization about a group, not an action. C) A self-fulfilling prophecy requires a belief that leads to behavior that makes the belief true.",
+     "trap": "Mixing up the three components: stereotype (cognition), prejudice (affect), discrimination (behavior).",
+     "topic": "Prejudice and discrimination",
+     "mastery_sheet_id": "8B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P7_Q5",
+     "stem": "Based on the line connecting the lowest and highest IAT points in Figure 4, the approximate increase in seating distance per 0.5 unit increase in IAT D score is:",
+     "options": {
+      "A": "37 cm",
+      "B": "18 cm",
+      "C": "9 cm",
+      "D": "48 cm"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) From (0.0, 60) to (1.3, 108): slope = 48/1.3 = about 37 cm per unit, so 0.5 unit corresponds to about 18 cm. Why the others are wrong: A) 37 cm is the change per full unit of D score. C) 9 cm would correspond to a slope of about 18 cm per unit. D) 48 cm is the total rise across the whole range of 1.3 units.",
+     "trap": "Using the entire rise instead of the rise for the interval asked.",
+     "topic": "Reading a scatterplot",
+     "mastery_sheet_id": "SIRS",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_PS_P8",
+   "passage_text": "A variation of a classic conformity study examined the conditions under which individuals yield to a group. Each of 100 participants was seated with five confederates and judged which of three comparison lines matched a standard line. On 12 critical trials, all five confederates gave the same incorrect answer. Participants were randomly assigned to one of four conditions (n = 25 each). In the 'unanimous' condition, participants answered aloud after hearing all confederates. In the 'ally' condition, one confederate gave the correct answer on every critical trial, and the other four gave the incorrect answer. In the 'dissenter' condition, one confederate gave a different incorrect answer, and the other four gave a common incorrect answer. In the 'private' condition, there were five unanimous confederates, but the participant wrote the answer on paper, without it being seen by others. The outcome was the number of conformist (incorrect) responses, out of 12. Results are shown in Table 7. When the lines are presented alone, participants make fewer than 1% errors. Afterwards, participants were fully debriefed about the deception.",
+   "table_data": "**Table 7. Conformist responses out of 12 critical trials**\n\n| Condition | n | Mean | SD |\n|---|---|---|---|\n| Unanimous | 25 | 4.2 | 2.1 |\n| Ally (correct dissenter) | 25 | 1.1 | 1.2 |\n| Dissenter (different wrong answer) | 25 | 1.8 | 1.5 |\n| Private response | 25 | 1.4 | 1.3 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_PS_P8_Q1",
+     "stem": "The lower conformity in the 'private' condition relative to the 'unanimous' condition suggests that:",
+     "options": {
+      "A": "conformity was due entirely to informational influence, because participants doubted their own perception.",
+      "B": "participants in the private condition had better vision.",
+      "C": "much of the conformity was due to normative influence, a desire to avoid disapproval from the group.",
+      "D": "conformity occurs only when the group is larger than ten people."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) When answers are public, social pressure is greatest; removing public exposure reduced conformity, implicating normative influence. Why the others are wrong: A) If it were purely informational, private responding would not reduce it, because the group's information would still be available. B) Participants were randomly assigned, so vision should be equivalent across groups. D) Group size was five confederates in every condition; the data say nothing about a threshold of ten.",
+     "trap": "Treating any reduction in conformity as evidence of doubt about perception rather than of social pressure.",
+     "topic": "Normative vs informational influence",
+     "mastery_sheet_id": "8C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P8_Q2",
+     "stem": "The 'dissenter' condition was included to determine whether:",
+     "options": {
+      "A": "participants will conform less when the majority is correct than when it is incorrect.",
+      "B": "a correct answer from an ally is necessary in order to reduce conformity to the majority.",
+      "C": "confederates are more convincing in groups than when they respond alone.",
+      "D": "breaking the unanimity of the majority reduces conformity even if the dissenter is wrong."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The dissenter gave a wrong answer yet conformity fell from 4.2 to 1.8, so lack of unanimity matters beyond the provision of correct information. Why the others are wrong: A) In every condition, the majority gave an incorrect answer. B) The result shows an ally is not necessary, because a wrong dissenter also lowered conformity. C) The dissenter condition does not compare group and lone confederates.",
+     "trap": "Assuming that only a correct dissenter provides a source of support.",
+     "topic": "Group dynamics",
+     "mastery_sheet_id": "8C",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P8_Q3",
+     "stem": "Relative to the 'unanimous' condition, the percent decrease in mean conformist responses in the 'ally' condition was closest to:",
+     "options": {
+      "A": "3.1%",
+      "B": "74%",
+      "C": "26%",
+      "D": "57%"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Decrease = 4.2 - 1.1 = 3.1; 3.1/4.2 = 0.738, or about 74%. Why the others are wrong: A) 3.1 is the absolute decrease in responses. C) 26% is the remaining proportion (1.1/4.2), not the decrease. D) 57% is the decrease for the dissenter condition (2.4/4.2), not for the ally condition.",
+     "trap": "Giving the fraction remaining rather than the fraction lost.",
+     "topic": "Percent change",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_PS_P8_Q4",
+     "stem": "Which of the following is a feature of the study that addresses an ethical concern raised by the deception?",
+     "options": {
+      "A": "Participants were randomly assigned to the four conditions.",
+      "B": "The sample contained 25 participants per condition.",
+      "C": "The outcome was recorded as the number of errors.",
+      "D": "Participants were fully debriefed after the study."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Debriefing explains the deception and the purpose of the study and is the standard remedy when deception is necessary. Why the others are wrong: A) Random assignment addresses internal validity, not ethics of deception. B) Sample size relates to statistical power, not the deception. C) The dependent measure has no bearing on the ethical issue.",
+     "trap": "Confusing methodological strengths with ethical safeguards.",
+     "topic": "Research ethics",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_PS_P9",
+   "passage_text": "A public health department compared mortality in four neighborhoods grouped by median household income quartile, from lowest (Q1) to highest (Q4). Each group contained 250,000 residents. The department reviewed death certificates for one calendar year and also computed the period life expectancy at birth for each group. The data are shown in Table 8, and life expectancy is plotted in Figure 5. Residents in the lowest-income neighborhoods were more likely to live near major highways and industrial sites, and fewer had employer-provided health insurance. Residents in the highest-income neighborhoods were more likely to have completed a college degree. The report noted that the analysis was cross-sectional, so each resident's income and health were measured at one time only, and that the data were aggregated by neighborhood. The department's authors stated that every step up the income ladder was associated with longer life, not only the step out of poverty, and discussed the idea that higher socioeconomic status gives people more flexible resources, such as money, knowledge, power, and social connections, that can be used to avoid risks and to benefit from new health advances.",
+   "table_data": "**Table 8. Mortality by income quartile**\n\n| Income quartile | Population | Deaths in the year | Life expectancy (years) |\n|---|---|---|---|\n| Q1 (lowest) | 250,000 | 2,500 | 74.1 |\n| Q2 | 250,000 | 2,000 | 77.0 |\n| Q3 | 250,000 | 1,750 | 79.6 |\n| Q4 (highest) | 250,000 | 1,500 | 82.3 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 5. Life expectancy by income quartile",
+    "x_label": "Income quartile (1 = lowest, 4 = highest)",
+    "y_label": "Life expectancy at birth (years)",
+    "series": [
+     {
+      "name": "Life expectancy",
+      "points": [
+       [
+        1,
+        74.1
+       ],
+       [
+        2,
+        77.0
+       ],
+       [
+        3,
+        79.6
+       ],
+       [
+        4,
+        82.3
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "FL01_PS_P9_Q1",
+     "stem": "The crude death rate in the Q1 neighborhoods, per 1,000 residents, was:",
+     "options": {
+      "A": "1",
+      "B": "100",
+      "C": "10",
+      "D": "0.1"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) 2,500 deaths / 250,000 residents = 0.01, which is 10 per 1,000. Why the others are wrong: A) 1 per 1,000 would correspond to 250 deaths. B) 100 per 1,000 would correspond to 25,000 deaths. D) 0.1 per 1,000 would correspond to 25 deaths.",
+     "trap": "Misplacing the decimal when converting a proportion to a rate per 1,000.",
+     "topic": "Mortality rate",
+     "mastery_sheet_id": "9B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_PS_P9_Q2",
+     "stem": "According to Figure 5, the gap in life expectancy between the highest and lowest income quartiles is:",
+     "options": {
+      "A": "8.2 years",
+      "B": "5.5 years",
+      "C": "5.3 years",
+      "D": "2.7 years"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 82.3 - 74.1 = 8.2 years. Why the others are wrong: B) 5.5 years is the Q1-to-Q3 gap (79.6 - 74.1), not the Q1-to-Q4 gap. C) 5.3 years is the Q2-to-Q4 gap (82.3 - 77.0). D) 2.7 years is the Q3-to-Q4 gap (82.3 - 79.6), not Q1 to Q4.",
+     "trap": "Reading the wrong pair of bars from the graph.",
+     "topic": "Reading a bar graph",
+     "mastery_sheet_id": "9B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P9_Q3",
+     "stem": "Because the study was cross-sectional, which alternative to the conclusion that low income causes poor health must be considered?",
+     "options": {
+      "A": "Poor health may reduce a person's ability to work and earn income (reverse causation).",
+      "B": "Mortality was measured in only four income groups, which is too few for any comparison.",
+      "C": "Residents of all neighborhoods have the same health risks regardless of income.",
+      "D": "Life expectancy is measured in years and income in dollars, so the two cannot be compared."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) A single time-point design cannot determine the direction of the association, and illness can lower earnings (health selection). Why the others are wrong: B) The number of groups does not address direction of causation. C) The report found differing exposures, such as highways and insurance, so risks are not the same. D) Differences in the units of measurement do not create any causal alternative.",
+     "trap": "Taking an association at one point in time as proof of causal direction.",
+     "topic": "Cross-sectional design",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P9_Q4",
+     "stem": "The authors' idea that higher socioeconomic status provides flexible resources that can be used to avoid health risks and to gain from new advances is most consistent with:",
+     "options": {
+      "A": "the demographic transition model of population change.",
+      "B": "symbolic interactionism as applied to everyday interaction.",
+      "C": "the strain theory of deviance proposed by Merton.",
+      "D": "the fundamental cause theory of health inequality."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Fundamental cause theory holds that SES gives access to flexible resources, so inequality persists even as specific disease mechanisms change. Why the others are wrong: A) The demographic transition model describes shifts in birth and death rates with industrialization. B) Symbolic interactionism focuses on meanings created in everyday interaction. C) Strain theory explains deviance as a result of a gap between goals and means.",
+     "trap": "Choosing a general sociological theory by name rather than matching to the argument.",
+     "topic": "SES and health",
+     "mastery_sheet_id": "10A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P9_Q5",
+     "stem": "The conclusion that any individual resident of a Q1 neighborhood will die earlier than any resident of a Q4 neighborhood would be an example of:",
+     "options": {
+      "A": "a placebo effect, because participants expected the neighborhood to affect their health.",
+      "B": "an ecological fallacy, because group-level data may not apply to individuals.",
+      "C": "regression to the mean, because extreme neighborhood values drift toward the average.",
+      "D": "a type II error, because a true difference between neighborhoods was missed."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Aggregated neighborhood data describe groups; individual outcomes vary widely and cannot be inferred with certainty. Why the others are wrong: A) A placebo effect is a response to an inert treatment, which does not apply. C) Regression to the mean concerns extreme values drifting toward average on remeasurement. D) A type II error is failing to reject a false null hypothesis, which is not what the statement describes.",
+     "trap": "Moving from a group-level pattern to a deterministic claim about individuals.",
+     "topic": "Ecological fallacy",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "FL01_PS_P10",
+   "passage_text": "Researchers followed a national sample of 2,000 adults, each with documented family income during childhood, and recorded the income quintile of each adult at age 40. Parents' income quintiles were assigned from tax records when the participants were children. The researchers also recorded whether each participant earned a college degree. Table 9 shows, for each parental income quintile, the percentage of adult children who ended up in the bottom and top quintiles of the adult income distribution, and the percentage who earned a degree. In interviews with a subset of the participants, children from top-quintile families more often described receiving help from parents in selecting colleges, guidance on how to interact with admissions officers and employers, and introductions to professional contacts. Children from bottom-quintile families more often reported that they were the first in their families to apply to college and that they did not know how to ask for financial aid. The authors framed the results as showing both movement and persistence in social class position across generations, and discussed competing explanations from functionalist and conflict perspectives.",
+   "table_data": "**Table 9. Adult outcomes by parental income quintile**\n\n| Parental quintile | Child in bottom quintile (%) | Child in top quintile (%) | Child with college degree (%) |\n|---|---|---|---|\n| Bottom | 34 | 8 | 18 |\n| Second | 27 | 11 | 27 |\n| Middle | 20 | 17 | 37 |\n| Fourth | 14 | 26 | 53 |\n| Top | 9 | 38 | 75 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "FL01_PS_P10_Q1",
+     "stem": "The interview findings regarding parents' guidance and professional contacts are best described by which concept?",
+     "options": {
+      "A": "Cultural and social capital, which are passed on within families and advantage high-income children.",
+      "B": "Anomie, a breakdown of social norms in times of rapid social change or upheaval.",
+      "C": "Relative deprivation, the perception of being worse off than other comparable people or groups.",
+      "D": "The looking-glass self, in which self-concept reflects imagined evaluations by other people."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Bourdieu's cultural capital and social capital describe the knowledge, skills, and networks that families pass to children and that help reproduce class position. Why the others are wrong: B) Anomie, as discussed by Durkheim, describes normlessness, not transmitted advantage. C) Relative deprivation refers to comparison with a reference group, not to family resources. D) The looking-glass self is a theory of self-concept formation, not of class reproduction.",
+     "trap": "Selecting a famous sociological term that is not tied to the evidence given.",
+     "topic": "Social reproduction",
+     "mastery_sheet_id": "9A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P10_Q2",
+     "stem": "The probability that a child from a top-quintile family reaches the top quintile, compared with a child from a bottom-quintile family, is about:",
+     "options": {
+      "A": "30 times as high",
+      "B": "4.75 times as high",
+      "C": "0.21 times as high",
+      "D": "3.2 times as high"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) 38%/8% = 4.75. Why the others are wrong: A) 30 is the difference in percentage points (38 - 8), not the ratio. C) 0.21 is the inverse ratio (8/38), which compares bottom to top. D) 3.2 does not follow from the table; the ratio of 38 to 8 is 4.75.",
+     "trap": "Subtracting percentages instead of dividing to compare probabilities.",
+     "topic": "Ratio of proportions",
+     "mastery_sheet_id": "10A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "FL01_PS_P10_Q3",
+     "stem": "Which interpretation of Table 9 is most consistent with a conflict perspective?",
+     "options": {
+      "A": "Unequal rewards motivate the most talented people to fill the most functionally important positions.",
+      "B": "Advantaged groups use their resources to preserve their position, which limits mobility for others.",
+      "C": "Class position has no effect on adult income once education is held constant.",
+      "D": "Social stratification is beneficial because it promotes social stability and cohesion."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Conflict theory views inequality as the result of competition in which dominant groups protect their advantages. Why the others are wrong: A) This is the functionalist (Davis-Moore) argument about talent and incentive. C) The table shows parental quintile strongly related to adult outcomes. D) Emphasis on stability and cohesion is a functionalist claim.",
+     "trap": "Selecting the functionalist claim when asked for the conflict reading.",
+     "topic": "Sociological perspectives",
+     "mastery_sheet_id": "9A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "FL01_PS_P10_Q4",
+     "stem": "The study compares the class position of adults with that of their parents. This type of change is called:",
+     "options": {
+      "A": "intragenerational mobility.",
+      "B": "structural mobility.",
+      "C": "social reproduction.",
+      "D": "intergenerational mobility."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Intergenerational mobility compares the status of children with that of their parents. Why the others are wrong: A) Intragenerational mobility compares a person's own status over his or her lifetime. B) Structural mobility is movement caused by changes in the economy that shift many people at once. C) Social reproduction is the persistence of class across generations, not the term for a change.",
+     "trap": "Confusing intergenerational (across generations) with intragenerational (within one lifetime).",
+     "topic": "Social mobility",
+     "mastery_sheet_id": "10A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "FL01_PS_D1",
+   "stem": "A person rubs her elbow immediately after striking it, and the pain lessens. According to the gate control theory of pain, this occurs because:",
+   "options": {
+    "A": "rubbing destroys the nociceptors in the elbow so pain signals can no longer be generated or transmitted.",
+    "B": "rubbing triggers release of cortisol, which blocks transmission along C fibers.",
+    "C": "activation of large-diameter touch fibers excites inhibitory interneurons that reduce pain transmission in the spinal cord.",
+    "D": "touch fibers travel to the thalamus faster than pain fibers and cancel the pain signals in the cortex."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) A-beta touch input closes the 'gate' by activating inhibitory interneurons in the dorsal horn, reducing relay of nociceptive signals. Why the others are wrong: A) Nociceptors are not destroyed by rubbing; their signaling is modulated. B) Cortisol release is a slow hormonal effect and does not explain immediate relief. D) The gate operates in the spinal cord, before the thalamus and cortex.",
+   "trap": "Placing the pain-modulating mechanism in the brain instead of the dorsal horn of the spinal cord.",
+   "topic": "Gate control theory",
+   "mastery_sheet_id": "6A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D2",
+   "stem": "In a signal detection experiment, an observer adopts a stricter criterion for reporting that a faint tone was present, while sensitivity does not change. Compared with before, the observer will have:",
+   "options": {
+    "A": "more hits and more false alarms, with no change in sensitivity.",
+    "B": "fewer hits and more false alarms, with no change in sensitivity.",
+    "C": "fewer hits and fewer false alarms, with no change in sensitivity.",
+    "D": "more hits and fewer false alarms, with no change in sensitivity."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) A stricter criterion makes the observer say 'yes' less often, lowering both hits and false alarms without changing the sensitivity (d'). Why the others are wrong: A) More of both occurs with a more lenient criterion. B) The two rates move in the same direction when only the criterion shifts. D) Gaining hits while losing false alarms would require an increase in sensitivity.",
+   "trap": "Believing that criterion shifts trade hits for false alarms in opposite directions.",
+   "topic": "Signal detection theory",
+   "mastery_sheet_id": "6A",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D3",
+   "stem": "A patient with bilateral hippocampal damage cannot recall meeting her doctor earlier in the day but improves from day to day on a mirror-tracing task without any memory of having practiced. These findings indicate that:",
+   "options": {
+    "A": "explicit and procedural memory share a single system located in the hippocampus and temporal lobes.",
+    "B": "procedural memory depends on systems other than those needed for new explicit memories.",
+    "C": "the patient has retrograde amnesia only, with intact formation of new memories.",
+    "D": "procedural memories are stored in Wernicke's area and retrieved there."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Impaired explicit encoding with intact skill learning shows a dissociation: skills rely on basal ganglia and cerebellum. Why the others are wrong: A) If one system served both, the skill learning would be lost. C) She cannot form new memories, which is anterograde amnesia; retrograde amnesia is loss of old memories. D) Wernicke's area is a language comprehension region.",
+   "trap": "Assuming all memory types depend on the hippocampus.",
+   "topic": "Amnesia and memory systems",
+   "mastery_sheet_id": "6B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D4",
+   "stem": "A 6-year-old watches water poured from a short, wide glass into a tall, thin glass and says that the tall glass now holds more water. According to Piaget, this child is most likely in the:",
+   "options": {
+    "A": "preoperational stage.",
+    "B": "sensorimotor stage.",
+    "C": "concrete operational stage.",
+    "D": "formal operational stage."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Failure to conserve volume because attention centers on one dimension (height) is typical of the preoperational stage. Why the others are wrong: B) The sensorimotor stage (birth to about age 2) involves object permanence. C) Concrete operational children understand conservation. D) Formal operational thinking involves abstract hypothetical reasoning in adolescence.",
+   "trap": "Assigning the stage by age alone without using the conservation clue.",
+   "topic": "Piaget's stages",
+   "mastery_sheet_id": "6B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D5",
+   "stem": "A man feels his heart pounding and his hands trembling after a near-collision, and he concludes that he must be afraid. This sequence is most consistent with:",
+   "options": {
+    "A": "the Cannon-Bard theory of emotion.",
+    "B": "the Yerkes-Dodson law.",
+    "C": "the James-Lange theory of emotion.",
+    "D": "the opponent-process theory of emotion."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) James-Lange proposes that perception of bodily arousal produces the emotion; here arousal precedes the emotional labeling. Why the others are wrong: A) Cannon-Bard holds that arousal and emotional experience occur simultaneously and independently. B) The Yerkes-Dodson law relates arousal to performance, not the origin of emotional experience. D) Opponent-process theory is about the aftereffects of emotional experiences, not their onset.",
+   "trap": "Choosing the better-known multi-factor theory when the sequence described is simple arousal then feeling.",
+   "topic": "Theories of emotion",
+   "mastery_sheet_id": "6C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D6",
+   "stem": "In a twin study of a personality trait, the twin correlation is r = 0.50 for monozygotic pairs and r = 0.20 for dizygotic pairs. Using Falconer's formula, heritability = 2 x (r_MZ - r_DZ), the estimated heritability is:",
+   "options": {
+    "A": "0.60",
+    "B": "0.30",
+    "C": "0.70",
+    "D": "1.00"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) 2 x (0.50 - 0.20) = 2 x 0.30 = 0.60. Why the others are wrong: B) 0.30 is the difference without the factor of 2. C) 0.70 is the sum of the two values, not the formula's difference. D) 1.00 would mean the trait is entirely genetic, which these data do not show.",
+   "trap": "Omitting the factor of 2 in Falconer's formula.",
+   "topic": "Twin studies and heritability",
+   "mastery_sheet_id": "7A",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://en.wikipedia.org/wiki/Falconer%27s_formula"
+    ]
+   }
+  },
+  {
+   "id": "FL01_PS_D7",
+   "stem": "A gambler keeps pulling a slot machine lever even though wins are unpredictable and sporadic. Which reinforcement schedule is operating, and why does it produce this pattern?",
+   "options": {
+    "A": "Fixed ratio, which yields a pause after each reinforcement and then a rapid burst of responding.",
+    "B": "Variable interval, which yields a slow and steady rate of responding with moderate extinction resistance.",
+    "C": "Variable ratio, which yields a high and steady rate of responding that is resistant to extinction.",
+    "D": "Fixed interval, which yields a scalloped pattern of responding that accelerates before reinforcement."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Reinforcement after an unpredictable number of responses is a variable ratio schedule, the most extinction-resistant schedule. Why the others are wrong: A) Slot machine wins are not tied to a fixed number of pulls. B) Variable interval depends on time elapsed, not on number of responses. D) Fixed interval depends on elapsed time, and rates accelerate before the interval ends.",
+   "trap": "Matching the schedule by name rather than by whether it depends on responses or on time.",
+   "topic": "Operant conditioning",
+   "mastery_sheet_id": "7B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D8",
+   "stem": "A viewer who is not interested in the topic of an advertisement for a car is persuaded because the commercial features an attractive celebrity. According to the elaboration likelihood model, this is an example of:",
+   "options": {
+    "A": "the central route to persuasion, which relies on careful evaluation of the argument.",
+    "B": "cognitive dissonance reduction, in which attitudes change to match behavior.",
+    "C": "the peripheral route to persuasion, which relies on superficial cues.",
+    "D": "the sleeper effect, in which a message persuades more after the source is forgotten."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) With low motivation, attitudes shift through superficial cues, such as source attractiveness, rather than argument quality. Why the others are wrong: A) The central route involves careful evaluation of argument quality by a motivated listener. B) Dissonance reduction involves changing attitudes to remove inconsistency with behavior. D) The sleeper effect is persuasion rising over time as the source is forgotten.",
+   "trap": "Calling a celebrity endorsement central because it is memorable.",
+   "topic": "Elaboration likelihood model",
+   "mastery_sheet_id": "7B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D9",
+   "stem": "An experienced pianist plays a well-rehearsed piece. Her performance is likely to be best when she plays in front of a large audience, compared with when she is alone. This is an example of:",
+   "options": {
+    "A": "social facilitation, because an audience raises arousal and enhances well-learned tasks.",
+    "B": "social loafing, because individual effort is reduced when people work together in groups.",
+    "C": "groupthink, because the audience suppresses dissent in favor of consensus.",
+    "D": "deindividuation, because the audience provides anonymity and reduces self-awareness."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Audience presence raises arousal, which strengthens the dominant response, and for well-learned tasks this is correct, improving performance. Why the others are wrong: B) Social loafing is reduced effort in a group when contributions are pooled, which is not the situation. C) Groupthink is a decision-making problem in cohesive groups. D) The pianist is identifiable to the audience, and deindividuation requires anonymity.",
+   "trap": "Predicting that an audience harms all performance, forgetting the task-difficulty qualifier.",
+   "topic": "Social facilitation",
+   "mastery_sheet_id": "7C",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D10",
+   "stem": "A teenager changes her goals and the way she dresses after noticing that her peers regard her as shy and unreliable. This is the best illustration of:",
+   "options": {
+    "A": "the self-serving bias.",
+    "B": "Cooley's looking-glass self.",
+    "C": "the actual self matching the ideal self.",
+    "D": "the spotlight effect."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) The looking-glass self holds that self-concept is based on how we imagine others perceive and judge us. Why the others are wrong: A) The self-serving bias is attributing successes to the self and failures to external causes. C) The scenario describes change prompted by others' views, with no stated match between actual and ideal self. D) The spotlight effect is overestimating how much others notice us, and not formation of the self-concept.",
+   "trap": "Choosing the self-concept term that sounds closest without matching the source of the change.",
+   "topic": "Self-concept formation",
+   "mastery_sheet_id": "8A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D11",
+   "stem": "A driver who is cut off in traffic concludes that the other driver is selfish and reckless. When the same person later cuts off another car, he explains that he was late for an important meeting. This pattern illustrates:",
+   "options": {
+    "A": "the self-serving bias exclusively, in which people credit successes to themselves and failures to others.",
+    "B": "the actor-observer bias, including the fundamental attribution error when judging others.",
+    "C": "the just-world hypothesis, in which people believe outcomes are deserved.",
+    "D": "the halo effect, in which one positive trait colors judgments of other traits."
+   },
+   "correct": "B",
+   "explanation": "Correct: B) He attributes others' behavior to disposition and his own to the situation, which is the actor-observer difference. Why the others are wrong: A) Self-serving bias concerns attributions after success and failure, not the differing explanations for actor and observer. C) The just-world hypothesis is the belief that people get what they deserve. D) The halo effect is generalizing from one positive trait to other traits.",
+   "trap": "Picking the self-serving bias because the person excuses his own behavior.",
+   "topic": "Attribution theory",
+   "mastery_sheet_id": "8B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D12",
+   "stem": "A researcher recruits adults who volunteer for a new therapy program and compares them with adults who did not volunteer, finding that the volunteers have better outcomes at 6 months. The most serious threat to the validity of concluding that the therapy caused the improvement is:",
+   "options": {
+    "A": "a ceiling effect on all outcome measures, which compresses variability in the scores.",
+    "B": "observer drift in blinded raters, which gradually changes how outcomes are scored.",
+    "C": "selection bias, because volunteers may differ in motivation from non-volunteers.",
+    "D": "the Hawthorne effect in the non-volunteer group, who changed behavior because they were observed."
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Without random assignment, volunteers may differ systematically, which confounds the therapy effect. Why the others are wrong: A) A ceiling effect is not suggested by the description. B) Observer drift is a measurement concern that is not described here. D) The non-volunteers were not enrolled and cannot show a response to being observed.",
+   "trap": "Overlooking that self-selection into a condition prevents causal conclusions.",
+   "topic": "Selection bias",
+   "mastery_sheet_id": "SIRS",
+   "skill": "experimental design",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D13",
+   "stem": "In a country with a high birth rate that has begun to improve sanitation and medical care, death rates fall while birth rates remain high. According to the demographic transition model, the population will most likely:",
+   "options": {
+    "A": "grow rapidly.",
+    "B": "shrink rapidly.",
+    "C": "remain stable.",
+    "D": "age rapidly with few children."
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Stage 2 features falling death rates with persistently high birth rates, so natural increase is large. Why the others are wrong: B) Shrinkage occurs only if deaths exceed births, as in some late-stage populations. C) Stability occurs when birth and death rates are both low and nearly equal (stage 4). D) A rapidly aging population results when birth rates are low, which has not occurred.",
+   "trap": "Confusing the early stage of the transition with the late stage.",
+   "topic": "Demographic transition",
+   "mastery_sheet_id": "9B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D14",
+   "stem": "A study shows that Black women in the United States experience worse maternal outcomes than would be expected by considering race alone or gender alone. Which concept best describes the framework used to explain this?",
+   "options": {
+    "A": "Anomie, in which social norms fail to regulate behavior during rapid social change.",
+    "B": "Meritocracy, in which rewards are distributed according to individual effort.",
+    "C": "Assimilation, in which a minority group adopts the dominant culture.",
+    "D": "Intersectionality, the overlap of social identities that yields distinct disadvantage."
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Intersectionality holds that overlapping categories, such as race and gender, combine to produce unique forms of disadvantage. Why the others are wrong: A) Anomie refers to normlessness. B) Meritocracy is the idea that people are rewarded on merit and does not explain outcomes tied to identity. C) Assimilation is cultural adoption by minorities, not a theory of combined disadvantage.",
+   "trap": "Treating race and gender effects as simply additive.",
+   "topic": "Intersectionality",
+   "mastery_sheet_id": "10A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "FL01_PS_D15",
+   "stem": "A sociologist studies how a group of hospital nurses and patients come to define a 'good patient' through their daily conversations, gestures, and labels. Which perspective is she using?",
+   "options": {
+    "A": "Functionalism, which views society as interdependent parts",
+    "B": "Conflict theory, which views society as competition over scarce resources",
+    "C": "Symbolic interactionism",
+    "D": "Rational choice theory, which views behavior as cost-benefit calculation"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Symbolic interactionism focuses on how shared meanings are created and sustained through face-to-face interaction and symbols. Why the others are wrong: A) Functionalism analyzes how social structures contribute to stability. B) Conflict theory emphasizes power and competition among groups. D) Rational choice theory assumes individuals weigh costs and benefits to maximize utility.",
+   "trap": "Using the macro-level theories for a micro-level interaction study.",
+   "topic": "Sociological perspectives",
+   "mastery_sheet_id": "9A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

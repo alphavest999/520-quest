@@ -1,0 +1,117 @@
+[
+  {
+    "id": "bp1207_q1",
+    "type": "Q1",
+    "passage_id": "bp1207",
+    "passage_text": "Researchers conducted a randomized controlled trial to evaluate the efficacy of a novel antihypertensive agent, Hypotensol, in adults with stage 1 hypertension. A total of 200 participants were randomly assigned to receive either Hypotensol (n = 100) or a placebo (n = 100) for 12 weeks. Systolic blood pressure (SBP) was measured at baseline and at weeks 4, 8, and 12. The study aimed to determine whether Hypotensol could produce a clinically meaningful reduction in SBP compared to placebo. The investigators also recorded adverse events and adherence rates. The primary endpoint was the mean change in SBP from baseline to week 12. Secondary endpoints included the proportion of patients achieving target SBP < 140 mmHg and the incidence of serious adverse events. The trial was double‑blinded, and all participants provided informed consent. The data presented in Table 1 summarize the mean SBP and standard deviation for each group at each time point. These results will inform clinicians about the potential benefits and safety profile of Hypotensol in a real‑world setting.",
+    "table_data": "| Week | Hypotensol Mean SBP (mmHg) | SD | Placebo Mean SBP (mmHg) | SD |\n|------|---------------------------|----|--------------------------|----|\n| 0    | 148.2 | 8.5 | 147.9 | 8.7 |\n| 4    | 140.5 | 7.9 | 145.3 | 8.2 |\n| 8    | 135.7 | 7.4 | 143.8 | 8.0 |\n| 12   | 130.1 | 6.9 | 141.2 | 7.8 |",
+    "stem": "What does the table primarily illustrate regarding the treatment groups over time?",
+    "options": {
+      "A": "The placebo group consistently had lower SBP than the Hypotensol group.",
+      "B": "Hypotensol produced a greater reduction in mean SBP compared to placebo.",
+      "C": "Both groups experienced identical changes in SBP over the 12 weeks.",
+      "D": "The standard deviations increased over time for both groups."
+    },
+    "correct": "B",
+    "explanation": "The table shows a progressive decline in mean SBP for the Hypotensol group, reaching 130.1 mmHg at week 12, whereas the placebo group remains above 140 mmHg. This indicates a greater reduction in SBP with Hypotensol.",
+    "trap": "Option A incorrectly states that the placebo group had lower SBP.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1207_q2",
+    "type": "Q2",
+    "passage_id": "bp1207",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which of the following study designs would best allow the researchers to attribute changes in SBP to Hypotensol?",
+    "options": {
+      "A": "A cross‑sectional survey of hypertensive patients using Hypotensol.",
+      "B": "A randomized, double‑blind, placebo‑controlled trial with parallel groups.",
+      "C": "A case‑control study comparing patients who achieved target SBP to those who did not.",
+      "D": "A cohort study following patients who choose to take Hypotensol versus those who do not."
+    },
+    "correct": "B",
+    "explanation": "Randomization and blinding control for confounding variables and bias, providing the strongest evidence that observed differences are due to the intervention.",
+    "trap": "Option D suggests a cohort design, which is more prone to selection bias.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:02:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": "bp1207_q3",
+    "type": "Q3",
+    "passage_id": "bp1207",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Calculate the percent reduction in mean SBP from baseline to week 12 for the Hypotensol group.",
+    "options": {
+      "A": "7.0%",
+      "B": "10.2%",
+      "C": "12.2%",
+      "D": "15.4%"
+    },
+    "correct": "C",
+    "explanation": "Percent reduction = [(148.2 - 130.1)/148.2] x 100 = 18.1/148.2 x 100 = 12.2%.",
+    "trap": "Using the placebo mean or the week-12 value as the denominator gives a different (incorrect) percentage.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:04:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1207_q4",
+    "type": "Q4",
+    "passage_id": "bp1207",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which statement is a potential trap when interpreting the study results?",
+    "options": {
+      "A": "The double‑blind design reduces observer bias.",
+      "B": "A statistically significant difference in SBP implies clinical significance.",
+      "C": "Adverse events were monitored throughout the trial.",
+      "D": "The study included a 12‑week follow‑up period."
+    },
+    "correct": "B",
+    "explanation": "Statistical significance does not automatically equate to clinical relevance; the magnitude of change and patient outcomes must also be considered.",
+    "trap": "Assuming that a statistically significant 11 mmHg difference between groups automatically means a clinically meaningful benefit for patients.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:06:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "3B"
+  },
+  {
+    "id": "bp1207_q5",
+    "type": "Q5",
+    "passage_id": "bp1207",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which statistical test is most appropriate for comparing the primary endpoint (mean change in SBP from baseline to week 12) between the two treatment groups?",
+    "options": {
+      "A": "Two-sample t-test",
+      "B": "Chi-square test of independence",
+      "C": "Log-rank test",
+      "D": "McNemar test"
+    },
+    "correct": "A",
+    "explanation": "The primary endpoint is a continuous variable (mean change in SBP) compared between two independent groups, so a two-sample t-test is appropriate. Chi-square and McNemar tests analyze categorical outcomes, and the log-rank test compares time-to-event data.",
+    "trap": "Choosing a categorical-outcome test (chi-square) because the secondary endpoint (proportion reaching target SBP) is dichotomous.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-25T10:08:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  }
+]

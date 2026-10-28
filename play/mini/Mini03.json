@@ -1,0 +1,1400 @@
+{
+ "exam": "Mini03",
+ "type": "mini",
+ "section": "PS",
+ "passages": [
+  {
+   "passage_id": "Mini03_PS_P1",
+   "passage_text": "Signal detection theory separates a listener's sensitivity from the criterion used to decide whether a stimulus was present. Forty adults listened for a faint 1,000-Hz tone embedded in white noise. In each of three payoff conditions, every listener completed 100 signal trials (tone present) and 100 noise trials (noise only) and responded \"yes\" or \"no\" after each trial. In the Liberal condition, a missed tone cost 5 points and a false alarm cost 1 point. In the Neutral condition, both errors cost 3 points. In the Conservative condition, a false alarm cost 5 points and a miss cost 1 point. Correct responses earned 1 point in all conditions. Tone intensity and noise level were identical across conditions, and condition order was counterbalanced across listeners. Pooled results are shown in Table 1, and Figure 1 plots hit rate against false-alarm rate for each condition. Listeners were screened to confirm normal hearing thresholds, wore the same headphones throughout, and received feedback on points earned after every block of 20 trials. The experimenter told them that the tone would be present on exactly half of the trials, so that the base rate was constant across conditions. A short practice block preceded each condition, and listeners were encouraged to maximize their total points.",
+   "table_data": "Table 1. Pooled trial counts (per 100 signal and 100 noise trials)\n\n| Condition | Hits | Misses | False alarms | Correct rejections | d' (calculated) |\n|---|---|---|---|---|---|\n| Liberal | 90 | 10 | 40 | 60 | 1.53 |\n| Neutral | 80 | 20 | 20 | 80 | 1.68 |\n| Conservative | 62 | 38 | 8 | 92 | 1.71 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Hit rate versus false-alarm rate",
+    "x_label": "False-alarm rate",
+    "y_label": "Hit rate",
+    "series": [
+     {
+      "name": "Observed conditions (Conservative, Neutral, Liberal)",
+      "points": [
+       [
+        0.08,
+        0.62
+       ],
+       [
+        0.2,
+        0.8
+       ],
+       [
+        0.4,
+        0.9
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini03_PS_P1_Q1",
+     "stem": "Which conclusion is best supported by Table 1?",
+     "options": {
+      "A": "The Liberal condition made listeners more sensitive to the tone because they produced the largest number of hits.",
+      "B": "The Conservative condition lowered the listeners' absolute threshold because they produced the fewest false alarms.",
+      "C": "The payoff structure shifted the listeners' response criterion while sensitivity to the tone stayed roughly constant.",
+      "D": "Penalizing misses damaged the auditory system's ability to transduce the tone, which reduced d' in the Liberal condition."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) d' stays between 1.53 and 1.71 while hits and false alarms both rise as the criterion becomes more liberal. Why the others are wrong: A) A high hit rate alone can come from a lax criterion; the false-alarm rate rose from 8 to 40 as well, and d' did not increase. B) Fewer false alarms reflect a stricter criterion, not a change in the sensory threshold; d' was in fact slightly the highest here. D) Payoffs are decision-level manipulations that cannot change transduction, and d' differed only modestly across conditions.",
+     "trap": "Treating a higher hit rate as better sensitivity without checking the false-alarm rate.",
+     "topic": "Signal detection: criterion vs sensitivity",
+     "mastery_sheet_id": "6A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P1_Q2",
+     "stem": "In the Conservative condition, what proportion of the listener's \"yes\" responses were correct?",
+     "options": {
+      "A": "0.62 of all yes responses",
+      "B": "About 0.89",
+      "C": "0.77 of all yes responses",
+      "D": "0.35 of all yes responses"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Yes responses = 62 hits + 8 false alarms = 70, and 62/70 is about 0.89. Why the others are wrong: A) This is the hit rate, 62 of 100 signal trials, not the share of yes responses that were correct. C) This is overall accuracy, (62 + 92)/200, which includes correct rejections that are not yes responses. D) This is the proportion of all 200 trials on which the listener said yes (70/200), not the proportion of those that were correct.",
+     "trap": "Using the hit rate as the answer instead of dividing hits by all yes responses.",
+     "topic": "Calculation from a 2 x 2 detection table",
+     "mastery_sheet_id": "6A",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini03_PS_P1_Q3",
+     "stem": "If tone intensity were increased while the Neutral payoffs were kept, which change in Figure 1 is most likely?",
+     "options": {
+      "A": "The Neutral point would move along the same curve toward the lower left, matching the Conservative point.",
+      "B": "The Neutral point would move toward the lower right, with more false alarms and fewer hits.",
+      "C": "The Neutral point would not move because payoffs, not stimulus intensity, determine the observed hit and false-alarm rates.",
+      "D": "The Neutral point would move toward the upper left, with a higher hit rate at a similar or lower false-alarm rate."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A stronger signal raises d', so hits rise with no increase in false alarms, shifting the point toward the upper-left corner. Why the others are wrong: A) Movement along one curve reflects a criterion change; a stronger tone changes sensitivity, which moves to a different curve. B) This would imply that a stronger tone is harder to detect, which contradicts the principle that sensitivity rises with signal strength. C) Payoffs influence only the criterion; stimulus intensity directly affects how well signal and noise trials can be separated.",
+     "trap": "Assuming that only payoffs, not stimulus strength, can move a point on the plot.",
+     "topic": "ROC shifts with signal strength",
+     "mastery_sheet_id": "6A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P1_Q4",
+     "stem": "A researcher argues that signal detection theory is superior to a classical absolute-threshold procedure. Which feature supports that argument?",
+     "options": {
+      "A": "It shows that a stimulus below a fixed intensity is never perceived, whatever the observer's expectations.",
+      "B": "It eliminates internal noise in the nervous system so that responses depend only on the physical stimulus.",
+      "C": "It separates the observer's sensory sensitivity from motivation and decision bias.",
+      "D": "It predicts that all observers have the same criterion once the stimulus intensity is held constant."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Thresholds from yes/no data mix sensitivity with willingness to say yes; d' and the criterion are estimated separately. Why the others are wrong: A) SDT rejects a single fixed intensity cutoff; detection is probabilistic and depends on noise and criterion. B) SDT assumes noise is always present in the system and builds it into the model rather than removing it. D) Criteria vary with payoffs, expectations, and motivation, as the three conditions show.",
+     "trap": "Believing that a threshold is a fixed property of the sensory system independent of motivation.",
+     "topic": "Absolute threshold vs SDT",
+     "mastery_sheet_id": "6A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P1_Q5",
+     "stem": "On Figure 1, what coordinates would describe a listener who answered \"yes\" on every trial regardless of the stimulus?",
+     "options": {
+      "A": "False-alarm rate 1.0 and hit rate 1.0",
+      "B": "False-alarm rate 0 and hit rate 1.0, which would indicate perfect discrimination",
+      "C": "False-alarm rate 0 and hit rate 0",
+      "D": "False-alarm rate 1.0 and hit rate 0"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Saying yes on all trials gives every signal trial a hit and every noise trial a false alarm, with zero sensitivity. Why the others are wrong: B) This is perfect discrimination, which requires saying yes only when the tone is present. C) This corresponds to answering \"no\" on every trial, the most conservative possible criterion. D) This would mean answering yes only on noise trials, which is a systematic reversal of the task and not a bias.",
+     "trap": "Confusing a maximally liberal criterion with perfect sensitivity.",
+     "topic": "Extreme criteria on a plot",
+     "mastery_sheet_id": "6A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini03_PS_P2",
+   "passage_text": "Taste sensitivity varies among people. Some individuals, called supertasters, report strong bitterness from 6-n-propylthiouracil (PROP), a compound that activates a bitter receptor encoded by the TAS2R38 gene. Researchers recruited 60 adults and stained the anterior tongue with blue food dye. They counted fungiform papillae (each of which holds taste buds) in a 6-mm circle. Participants then rated PROP bitterness, 0.5 M sucrose sweetness, and burn from a capsaicin solution on a 0 to 100 scale, with rinses between samples. Participants were sorted into three groups of 20 by papillae count. Across all 60 participants, papillae count correlated with PROP bitterness at r = +0.78. Group means are shown in Table 1. No participant had an olfactory or neurological disorder, and all wore nose clips during tasting. Papillae were counted by two raters who did not know the taste ratings, and their counts agreed closely. Participants were instructed to refrain from eating, drinking anything but water, and smoking for one hour before testing. Samples were presented in a randomized order, and participants used a labeled magnitude scale whose anchors were defined as the strongest sensation of any kind they had ever experienced.",
+   "table_data": "Table 1. Group means by fungiform papillae density\n\n| Group | Mean papillae count | PROP bitterness | Sucrose sweetness | Capsaicin burn |\n|---|---|---|---|---|\n| Low density | 9 | 12 | 55 | 38 |\n| Medium density | 22 | 38 | 60 | 49 |\n| High density | 41 | 71 | 68 | 66 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini03_PS_P2_Q1",
+     "stem": "Capsaicin burn ratings were higher in the high-density group. Which factor best explains this result?",
+     "options": {
+      "A": "Capsaicin binds the same G protein-coupled bitter receptor as PROP, so more taste buds mean a larger signal.",
+      "B": "Free nerve endings of the trigeminal nerve surround fungiform papillae, so denser papillae carry more pain-sensitive fibers.",
+      "C": "Taste receptor cells for burn project directly to the olfactory bulb, which amplifies the sensation in people with more papillae.",
+      "D": "Papillae density increases the number of rods in the tongue epithelium and therefore the sensitivity to heat."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Capsaicin activates nociceptors, not taste receptors, and trigeminal fibers innervate the papillae. Why the others are wrong: A) Capsaicin acts on a pain-related ion channel (TRPV1) on nociceptors, not on a bitter receptor. C) Taste does not relay through the olfactory bulb, and burn is a somatosensory sensation rather than a taste. D) Rods are photoreceptors in the retina and do not occur in the tongue.",
+     "trap": "Assuming burn is a taste quality processed by taste receptor cells.",
+     "topic": "Somatosensation on the tongue",
+     "mastery_sheet_id": "6A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P2_Q2",
+     "stem": "Approximately what percentage of the variability in PROP bitterness ratings is statistically accounted for by papillae count?",
+     "options": {
+      "A": "About 78% of the variance",
+      "B": "About 22% of the variance",
+      "C": "About 61%",
+      "D": "About 39% of the variance"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) r squared = 0.78 squared, which is about 0.61. Why the others are wrong: A) This treats r itself as the proportion of variance rather than squaring it. B) This is 1 - 0.78, which has no meaning as a variance share. D) This is the variance left unexplained, 1 - 0.61, not the variance accounted for.",
+     "trap": "Reporting r as if it were the proportion of variance explained.",
+     "topic": "Coefficient of determination",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.wikipedia.org/wiki/R-square",
+       "https://docmckee.com/oer/statistics/section-4/section-4-2/coefficient-of-determination/"
+      ]
+     }
+    },
+    {
+     "id": "Mini03_PS_P2_Q3",
+     "stem": "Why can the researchers NOT conclude from these data that high papillae density causes stronger bitterness?",
+     "options": {
+      "A": "The sample of 60 is too small for any correlation coefficient to be calculated.",
+      "B": "A correlation of +0.78 is too high to be real and probably results from measurement error.",
+      "C": "Participants wore nose clips, which prevents inference about taste perception in everyday conditions in a way that would invalidate the correlation between taste ratings and counts.",
+      "D": "Papillae density was measured, not manipulated, so a third variable such as TAS2R38 genotype could influence both measures."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A correlational design leaves room for confounders; causal claims require manipulation or additional control. Why the others are wrong: A) A correlation can be computed for any sample with variability; size affects precision, not feasibility. B) High correlations are not evidence of error; they only quantify the association. C) Nose clips remove olfactory confounds and improve, not prevent, interpretation of taste ratings.",
+     "trap": "Reading a strong correlation as proof that one variable causes the other.",
+     "topic": "Correlation vs causation",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P2_Q4",
+     "stem": "Which pathway carries taste information from the tongue to the cortex region that gives rise to conscious taste perception?",
+     "options": {
+      "A": "Spinal dorsal columns to the medulla, then the thalamus, then the primary somatosensory cortex alone as it does for taste",
+      "B": "Cranial nerves to the olfactory bulb, then directly to the amygdala, bypassing the thalamus",
+      "C": "Optic nerve to the lateral geniculate nucleus, then to the occipital lobe for integration with taste",
+      "D": "Cranial nerves to the brainstem, then the thalamus, then the insular and frontal operculum gustatory cortex"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Taste afferents synapse in the brainstem nucleus of the solitary tract, then relay through thalamus to gustatory cortex. Why the others are wrong: A) Dorsal columns carry fine touch and proprioception from the body, and taste does not use this route. B) Bypassing the thalamus is characteristic of olfaction, not of taste, which uses the thalamic relay. C) The optic pathway carries visual information; taste does not travel through the lateral geniculate nucleus.",
+     "trap": "Applying the olfactory exception of bypassing the thalamus to every sense.",
+     "topic": "Gustatory pathway",
+     "mastery_sheet_id": "6A",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P2_Q5",
+     "stem": "Which interpretation of Table 1 is best supported?",
+     "options": {
+      "A": "Papillae density affects only the perception of PROP, and sweetness is unrelated to density.",
+      "B": "Ratings of all three stimuli rise with papillae density, but the increase is much steeper for PROP than for sucrose.",
+      "C": "Low-density individuals cannot taste PROP at all, because their mean rating is close to zero.",
+      "D": "High-density individuals rated sucrose lower than low-density individuals, consistent with greater taste adaptation."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) PROP rises from 12 to 71, whereas sucrose rises from 55 to 68, so density has the larger association with bitterness. Why the others are wrong: A) Sucrose ratings still rise from 55 to 68, so the association is smaller but not absent. C) A mean of 12 reflects weak but nonzero bitterness, and a mean cannot establish that every individual lacks sensitivity. D) The table shows the opposite: high-density individuals gave higher sucrose ratings, 68 vs 55.",
+     "trap": "Overlooking that a smaller but real increase in sucrose ratings still exists.",
+     "topic": "Reading table trends",
+     "mastery_sheet_id": "6A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini03_PS_P3",
+   "passage_text": "According to the levels-of-processing framework, memory depends on the depth at which information is encoded. Ninety undergraduates were randomly assigned to one of three orienting-task groups (n = 30 each) and saw 60 common nouns, one every 3 seconds. Each word was accompanied by a yes/no question requiring a different kind of processing. The structural group judged whether the word was printed in capital letters. The phonemic group judged whether the word rhymed with a target. The semantic group judged whether the word fit into a sentence frame. Participants were not told that memory would be tested. After a 10-minute filler task, each participant first completed free recall and then a recognition test containing the 60 studied words and 60 new words. Results are summarized in Figure 1 and Table 1. Words were presented on a computer screen in a different random order for each participant, and no word was repeated. The word list was matched for length and frequency of use in everyday English. The filler task consisted of simple arithmetic problems that prevented rehearsal of the list. All testing was done individually in a quiet room, and each session lasted about 40 minutes, including consent and debriefing.",
+   "table_data": "Table 1. Recognition performance\n\n| Orienting task | Hit rate | False-alarm rate |\n|---|---|---|\n| Structural | 0.61 | 0.22 |\n| Phonemic | 0.74 | 0.20 |\n| Semantic | 0.91 | 0.12 |",
+   "graph": {
+    "type": "bar",
+    "title": "Figure 1. Mean free recall by orienting task",
+    "x_label": "Orienting task",
+    "y_label": "Words recalled (% of 60)",
+    "series": [
+     {
+      "name": "Mean recall",
+      "points": [
+       [
+        "Structural",
+        14
+       ],
+       [
+        "Phonemic",
+        27
+       ],
+       [
+        "Semantic",
+        58
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini03_PS_P3_Q1",
+     "stem": "Which conclusion about encoding is best supported by Figure 1 and Table 1?",
+     "options": {
+      "A": "Phonemic encoding is as effective as semantic encoding, since both groups recognized more than half of the words.",
+      "B": "Structural encoding produced the best performance because participants processed the visual appearance of each word and had the strongest traces.",
+      "C": "Meaning-based encoding produces stronger memory traces than perceptual or sound-based encoding on both recall and recognition.",
+      "D": "The effect of orienting task appeared only in free recall and disappeared when recognition cues were available."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The semantic group had the highest recall and hit rate and the lowest false-alarm rate. Why the others are wrong: A) Recognition of 0.74 vs 0.91 and recall of 27% vs 58% show a large advantage for semantic encoding. B) The structural group had the lowest recall and hit rate, indicating the shallowest encoding. D) Recognition hit rates also differed substantially across groups, so the effect did not disappear.",
+     "trap": "Assuming that any careful processing of a word helps memory equally.",
+     "topic": "Levels of processing",
+     "mastery_sheet_id": "6B",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P3_Q2",
+     "stem": "Semantic judgments are associated with greater activity in which brain region during encoding?",
+     "options": {
+      "A": "Primary visual cortex",
+      "B": "Cerebellar vermis",
+      "C": "Left inferior prefrontal cortex",
+      "D": "Primary auditory cortex in the temporal lobe"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) This region supports semantic elaboration and retrieval of word meaning during encoding. Why the others are wrong: A) This region processes basic visual features such as letter shapes, matching structural judgments instead. B) This region is involved in coordination of movement and not in semantic encoding of words. D) This region would be involved in analyzing sounds, relevant to phonemic judgments more than to meaning.",
+     "trap": "Linking semantic tasks to sensory cortex rather than to prefrontal regions.",
+     "topic": "Neural basis of encoding",
+     "mastery_sheet_id": "6B",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P3_Q3",
+     "stem": "Random assignment of participants to orienting tasks primarily helps the researchers do what?",
+     "options": {
+      "A": "Ensure that every participant is exposed to all three orienting tasks in the same order.",
+      "B": "Increase the external validity by sampling participants from the whole population of adults.",
+      "C": "Prevent participants from guessing the purpose of the study, which eliminates demand characteristics from a single exposure.",
+      "D": "Distribute preexisting differences in memory ability evenly across groups, so groups differ mainly in the task."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Randomization balances known and unknown participant characteristics across conditions on average. Why the others are wrong: A) That describes a within-subjects design, whereas this study placed each participant in one group. B) Random assignment concerns allocation to groups; random sampling affects generalizability. C) Incidental learning handles awareness of the memory test; randomization does not prevent guessing.",
+     "trap": "Confusing random assignment with random sampling.",
+     "topic": "Random assignment",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P3_Q4",
+     "stem": "On average, how many more words did the semantic group recall than the structural group?",
+     "options": {
+      "A": "About 26 words",
+      "B": "44 words, the percentage-point gap",
+      "C": "About 35 words, the semantic mean",
+      "D": "About 4 words, the ratio of the means"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The difference is 58% - 14% = 44% of 60 words, which is 26.4 words. Why the others are wrong: B) This reports the percentage-point difference as if it were a count of words. C) This is the semantic group's mean recall (58% of 60 is about 35), not the difference. D) This is the ratio 58/14 (about 4.1) mistaken for a difference in words.",
+     "trap": "Reporting a percentage-point gap as a number of words.",
+     "topic": "Percent of a total",
+     "mastery_sheet_id": "6B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini03_PS_P3_Q5",
+     "stem": "Recognition performance exceeded free recall in every group. Which explanation is best?",
+     "options": {
+      "A": "Recognition presents the studied items as retrieval cues, whereas recall requires generating items without them.",
+      "B": "Recognition depends on implicit memory, which is stronger than explicit memory for studied words.",
+      "C": "Recognition tests bypass the hippocampus, so storage in long-term memory is not required.",
+      "D": "Recognition measures the capacity of sensory memory, which has a greater capacity than long-term memory within seconds of the test."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Cues in the test make retrieval easier even when the memory trace is weak. Why the others are wrong: B) Both recall and recognition are explicit (declarative) tests that need conscious retrieval. C) Recognition of studied words also depends on stored traces that require consolidation. D) A 10-minute delay exceeds sensory memory, so recognition here reflects long-term storage.",
+     "trap": "Calling recognition tests implicit simply because they are easier.",
+     "topic": "Retrieval cues",
+     "mastery_sheet_id": "6B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini03_PS_P4",
+   "passage_text": "The linguistic relativity hypothesis proposes that the categories in a person's language influence perception and thought. Russian has separate basic words for light blue (goluboy) and dark blue (siniy), whereas English uses a single word, blue. Researchers tested 48 native Russian speakers and 48 native English speakers living in the same city. On each trial, a participant saw three blue squares, a target on top and two below, and pressed a key to indicate which lower square matched the target exactly. In half of the trials, the two lower squares fell on opposite sides of the Russian light/dark boundary (cross-category); in the other half, both fell on the same side (within-category). Color distances in perceptual space were equal across trial types. Half of each language group also performed the task while silently rehearsing an 8-digit string (verbal interference). Mean reaction times appear in Table 1. Accuracy was above 97% in every condition, so only correct trials were analyzed for reaction time. Participants were tested individually in a dimly lit room on a calibrated monitor, and all of them passed a standard color vision screening before the experiment began. Trials were presented in random order, and each participant completed 80 trials in each condition after a short practice block with feedback.",
+   "table_data": "Table 1. Mean reaction time (ms)\n\n| Group | Condition | Cross-category | Within-category | Difference |\n|---|---|---|---|---|\n| Russian | No interference | 512 | 561 | 49 |\n| Russian | Verbal interference | 556 | 559 | 3 |\n| English | No interference | 541 | 546 | 5 |\n| English | Verbal interference | 545 | 547 | 2 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini03_PS_P4_Q1",
+     "stem": "Which result best supports a weak version of linguistic relativity?",
+     "options": {
+      "A": "English speakers responded at similar speeds across both pair types, showing that they cannot perceive the difference between shades.",
+      "B": "Both groups slowed under verbal interference, showing that all thought requires inner speech.",
+      "C": "Russian speakers performed faster than English speakers in every condition of the table.",
+      "D": "Russian speakers responded faster to cross-category pairs than to within-category pairs when no interference was present."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) A 49-ms advantage appears only in the group whose language marks the boundary. Why the others are wrong: A) Similar speeds do not mean the shades cannot be seen; English speakers could still perform the task correctly. B) Interference mainly abolished the Russian advantage and did not slow everyone; the data do not show that thought requires speech. C) Under interference Russian times (556, 559) were slower than English times on cross-category trials (545).",
+     "trap": "Mistaking equal speed across pair types for inability to discriminate colors.",
+     "topic": "Linguistic relativity",
+     "mastery_sheet_id": "6B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P4_Q2",
+     "stem": "What does the loss of the Russian advantage under verbal interference suggest?",
+     "options": {
+      "A": "Digit rehearsal damaged color vision in Russian speakers while leaving English speakers unaffected.",
+      "B": "The Russian color boundary is a purely perceptual feature that does not involve language.",
+      "C": "The language effect depends on online use of verbal working memory resources during the task.",
+      "D": "The Russian advantage is a practice effect because Russian speakers had more experience with similar tasks."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Rehearsing digits occupies the phonological loop, so labels cannot be used and the cross-category advantage vanishes. Why the others are wrong: A) Interference is cognitive, not sensory, and it cannot impair photoreceptors for only one language group. B) If it were purely perceptual, verbal interference would not eliminate it. D) A practice account would not predict that the advantage disappears only with concurrent verbal load.",
+     "trap": "Attributing the interference effect to a sensory deficit rather than to competition for verbal working memory.",
+     "topic": "Working memory and language",
+     "mastery_sheet_id": "6B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P4_Q3",
+     "stem": "Which finding contradicts strong linguistic determinism, the claim that language determines thought?",
+     "options": {
+      "A": "Russian speakers had two color words available for blue and English speakers had only one when they viewed the colors.",
+      "B": "Speakers of both languages discriminated cross- and within-category pairs, differing only in response speed.",
+      "C": "Russian participants were faster on cross-category trials than on within-category trials.",
+      "D": "The language groups were tested in the same city using identical equipment."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) If language limited thought, English speakers could not distinguish the shades; here the effect is only in speed. Why the others are wrong: A) This is a premise of the study, which is consistent with, not contrary to, determinism. C) This supports an influence of language on performance, consistent with a weaker claim. D) Holding conditions constant is a design feature and does not address the claim.",
+     "trap": "Treating any language influence as proof of strong determinism.",
+     "topic": "Determinism vs relativity",
+     "mastery_sheet_id": "6B",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P4_Q4",
+     "stem": "What is the main limitation of comparing Russian and English speakers in this study?",
+     "options": {
+      "A": "Reaction time is an unreliable measure of perception because it varies from trial to trial.",
+      "B": "The perceptual distance between color pairs was equal, which prevents detection of any language effect on their own and in all conditions.",
+      "C": "Language group could not be randomly assigned, so cultural or educational differences may account for part of the difference.",
+      "D": "Using nonverbal stimuli means that results cannot be applied to language processing at all."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) This is a quasi-experimental comparison of preexisting groups, which weakens causal inference. Why the others are wrong: A) Averaged over many trials, reaction time is a standard and sensitive measure. B) Equating perceptual distance is a strength because it removes physical difference as an explanation. D) The aim was to test effects of language on perception, for which nonverbal stimuli are appropriate.",
+     "trap": "Ignoring that participants could not be assigned to a native language.",
+     "topic": "Quasi-experimental design",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P4_Q5",
+     "stem": "By what percentage did verbal interference reduce the Russian speakers' cross- versus within-category difference?",
+     "options": {
+      "A": "About 6% of the effect",
+      "B": "About 46% of the effect",
+      "C": "About 8% of the effect",
+      "D": "About 94%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The difference fell from 49 ms to 3 ms, a drop of 46 ms, and 46/49 is about 0.94. Why the others are wrong: A) This is the remaining effect, 3/49, not the reduction. B) This takes the 46-ms drop as if it were a percentage. C) This divides the 46-ms drop by the within-category mean of 561 ms instead of by the original 49-ms difference.",
+     "trap": "Reporting the milliseconds of change as a percentage.",
+     "topic": "Percent change",
+     "mastery_sheet_id": "6B",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini03_PS_P5",
+   "passage_text": "The two-factor theory of emotion proposes that an emotion arises from physiological arousal plus a cognitive label for the arousal. Excitation-transfer research suggests that leftover arousal from one event can intensify a reaction to an unrelated later event. Eighty undergraduates were randomly assigned to one of four groups (n = 20 each). Half ran in place for 90 seconds (high arousal) and half sat quietly (baseline arousal). Participants then viewed 12 mildly funny cartoons either 2 minutes later (short delay, while heart rate was still elevated) or 15 minutes later (long delay, after heart rate returned to baseline). They rated each cartoon's amusement from 1 (not at all) to 10 (extremely), and ratings were averaged per person. Participants were told the cartoons were part of a separate study of humor. Group means are shown in Table 1. Heart rate was recorded continuously with a chest strap and confirmed that it was elevated during the short delay and at baseline during the long delay. A research assistant, unaware of the exercise assignment, administered the cartoons. After the session, participants were asked what they thought the exercise was for, and none of them linked it to the cartoons. All participants gave informed consent and were debriefed fully.",
+   "table_data": "Table 1. Mean amusement rating\n\n| Exercise condition | Short delay (2 min) | Long delay (15 min) |\n|---|---|---|\n| Ran in place | 7.4 | 5.1 |\n| Sat quietly | 5.0 | 5.2 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini03_PS_P5_Q1",
+     "stem": "Which explanation best accounts for the 7.4 rating in the Ran in place, short-delay group?",
+     "options": {
+      "A": "Exercise directly causes humor by raising the level of dopamine in the hippocampus.",
+      "B": "Participants who exercised had stronger intrinsic motivation to complete the rating task accurately.",
+      "C": "Residual arousal from exercise was misattributed to the cartoons, strengthening the amusement label.",
+      "D": "Exercise lowered participants' arousal below baseline, so cartoons seemed more intense by contrast."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Arousal remained elevated, was not attributed to the exercise, and was therefore read as part of the emotional response to the cartoons. Why the others are wrong: A) The data show that exercise boosted ratings only when cartoons followed soon after, which a direct chemical effect on humor would not explain. B) Motivation would not explain why the long-delay exercise group, with the same motivation, rated near baseline. D) Exercise raised arousal, and short-delay measurements were taken while heart rate was still elevated.",
+     "trap": "Assuming that exercise itself increases humor, regardless of timing.",
+     "topic": "Two-factor theory",
+     "mastery_sheet_id": "6C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P5_Q2",
+     "stem": "Why did exercise fail to raise ratings in the long-delay condition?",
+     "options": {
+      "A": "Participants forgot the cartoons during the longer wait and responded randomly.",
+      "B": "The long-delay group experienced a cognitive label of fear, which canceled the amusement.",
+      "C": "Delayed viewing activates the parasympathetic system more strongly, which increases humor during a delay of this length.",
+      "D": "Arousal had dissipated by the time of the cartoons, so there was no residual arousal to be misattributed."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) After 15 minutes, heart rate had returned to baseline, and the mean (5.1) matched the seated group (5.2). Why the others are wrong: A) Forgetting would lower reliability but not produce a mean equal to baseline in the long-delay group. B) No fear label was introduced, and ratings equaled those of the baseline group, not lower. C) Parasympathetic activity lowers arousal, and ratings did not rise in this group.",
+     "trap": "Attributing an absent effect to forgetting instead of to dissipated arousal.",
+     "topic": "Excitation transfer",
+     "mastery_sheet_id": "6C",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P5_Q3",
+     "stem": "The elevated heart rate after running reflects slowly declining activity of which system?",
+     "options": {
+      "A": "Parasympathetic branch of the autonomic nervous system acting through the vagus nerve",
+      "B": "Somatic nervous system motor neurons controlling the heart's skeletal muscle",
+      "C": "Enteric nervous system through its control of gut motility",
+      "D": "Sympathetic branch of the autonomic nervous system, with circulating epinephrine"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Sympathetic activation and epinephrine raise heart rate and decline gradually after exertion. Why the others are wrong: A) Parasympathetic activity slows heart rate and promotes recovery, but it does not account for the elevation itself. B) The heart is cardiac muscle controlled by the autonomic nervous system, not by somatic motor neurons. C) The enteric system regulates digestion and does not drive exercise-related changes in heart rate.",
+     "trap": "Choosing the parasympathetic system because the arousal is declining.",
+     "topic": "Autonomic arousal",
+     "mastery_sheet_id": "6C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P5_Q4",
+     "stem": "The pattern in Table 1 is best described as which kind of statistical effect?",
+     "options": {
+      "A": "A main effect of exercise only, because the exercise groups always rated cartoons higher.",
+      "B": "A main effect of delay only, because short-delay groups always rated cartoons higher.",
+      "C": "No effect of either factor, because the grand mean of the four cells is close to the scale midpoint.",
+      "D": "An interaction, because the effect of exercise depends on the delay."
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Exercise raises ratings by 2.4 at the short delay but by -0.1 at the long delay, so the effect differs by delay. Why the others are wrong: A) The long-delay exercise group (5.1) did not exceed the seated group (5.2), so exercise had no consistent effect. B) Short-delay seated participants (5.0) rated cartoons lower than long-delay seated participants (5.2). C) The grand mean does not rule out strong differences among cells, as the 7.4 mean shows.",
+     "trap": "Describing any difference between groups as a main effect instead of checking for an interaction.",
+     "topic": "Factorial design",
+     "mastery_sheet_id": "SIRS",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini03_PS_P6",
+   "passage_text": "The Yerkes-Dodson law proposes that performance is best at an intermediate level of arousal and that the optimum depends on task difficulty. One hundred twenty adults each performed a simple task (cancel all of the letter \"e\" characters in a text) and a complex task (solve logic puzzles requiring multi-step inference) at five arousal levels in separate sessions. Arousal was manipulated by combining background noise and time pressure, and each level was verified by recording mean heart rate. Every participant completed both tasks at all five levels. The order of the levels was randomized and counterbalanced across participants, and sessions were separated by at least two days. Performance was scored from 0 to 100. Mean scores are plotted in Figure 1, and heart rates for the five levels are in Table 1. Noise intensity ranged from 45 dB at level 1 to 85 dB at level 5, and the time limit for each task shortened as the level rose. Participants practiced both tasks until their scores stabilized before the formal sessions began. Task scores were calculated automatically by the computer program, and no feedback about scores was given until all sessions were complete. All participants were healthy adults who reported normal or corrected vision.",
+   "table_data": "Table 1. Mean heart rate at each arousal level\n\n| Arousal level | 1 | 2 | 3 | 4 | 5 |\n|---|---|---|---|---|---|\n| Heart rate (beats per min) | 68 | 78 | 88 | 98 | 108 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Performance by arousal level and task",
+    "x_label": "Arousal level",
+    "y_label": "Mean performance score",
+    "series": [
+     {
+      "name": "Simple task",
+      "points": [
+       [
+        1,
+        40
+       ],
+       [
+        2,
+        62
+       ],
+       [
+        3,
+        80
+       ],
+       [
+        4,
+        88
+       ],
+       [
+        5,
+        78
+       ]
+      ]
+     },
+     {
+      "name": "Complex task",
+      "points": [
+       [
+        1,
+        52
+       ],
+       [
+        2,
+        80
+       ],
+       [
+        3,
+        66
+       ],
+       [
+        4,
+        45
+       ],
+       [
+        5,
+        30
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini03_PS_P6_Q1",
+     "stem": "Which statement best summarizes Figure 1?",
+     "options": {
+      "A": "Performance on both tasks rises steadily as arousal increases from level 1 to level 5.",
+      "B": "The arousal level that maximizes performance is lower for the complex task than for the simple task.",
+      "C": "Performance on the simple task is higher than on the complex task at every level of arousal because it was easier.",
+      "D": "The complex task is unaffected by arousal because its curve has no clear peak."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The complex task peaks at level 2, whereas the simple task peaks at level 4. Why the others are wrong: A) Both curves decline at high arousal: the simple task after level 4 and the complex task after level 2. C) At levels 1 and 2 the complex task score is higher (52 vs 40, 80 vs 62). D) The complex curve has a clear peak at level 2 and drops sharply afterward.",
+     "trap": "Assuming that more arousal always helps performance or that the peak is identical for all tasks.",
+     "topic": "Yerkes-Dodson law",
+     "mastery_sheet_id": "6C",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P6_Q2",
+     "stem": "By what percentage did the mean complex-task score fall between level 2 and level 5?",
+     "options": {
+      "A": "A fall of 37.5%",
+      "B": "A fall of 50%",
+      "C": "62.5%",
+      "D": "A fall of 167%"
+     },
+     "correct": "C",
+     "explanation": "Correct: C) The drop is 80 - 30 = 50 points, and 50/80 = 0.625. Why the others are wrong: A) This is 30/80, the fraction of the level-2 score that remained, not the fall. B) This gives the point drop of 50 as if it were a percentage. D) This divides the 50-point drop by the final score (30) instead of by the original score (80).",
+     "trap": "Dividing the change by the final value rather than the starting value.",
+     "topic": "Percent change",
+     "mastery_sheet_id": "6C",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini03_PS_P6_Q3",
+     "stem": "Which structure plays a central role in regulating general cortical arousal and wakefulness that varied across the five levels?",
+     "options": {
+      "A": "Hippocampus",
+      "B": "Reticular activating system in the brainstem",
+      "C": "Broca's area",
+      "D": "Primary motor cortex in the frontal lobe"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) The reticular formation projects diffusely to the cortex and sets the general level of alertness. Why the others are wrong: A) The hippocampus is primarily involved in forming declarative memories, not in setting the overall arousal level. C) This region is involved in speech production and does not regulate arousal. D) This region controls voluntary movement and does not set the level of alertness.",
+     "trap": "Choosing a memory or language structure for a generalized arousal function.",
+     "topic": "Arousal and the brain",
+     "mastery_sheet_id": "6C",
+     "skill": "foundations",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P6_Q4",
+     "stem": "Why did the researchers counterbalance the order of the arousal levels?",
+     "options": {
+      "A": "To ensure that random assignment produced equivalent groups for the two tasks on the two tasks",
+      "B": "To prevent practice and fatigue effects from being confounded with arousal level",
+      "C": "To increase the validity of heart rate as a measure of emotion",
+      "D": "To eliminate the need for a control condition in the experiment"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Each participant completed all levels, so a fixed order would mix order effects with the arousal effect. Why the others are wrong: A) Counterbalancing addresses order within participants, and each participant did both tasks. C) Order of presentation does not change what heart rate measures. D) Counterbalancing does not replace controls; it handles order effects in within-subject designs.",
+     "trap": "Confusing counterbalancing with random assignment to groups.",
+     "topic": "Within-subject design",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini03_PS_P7",
+   "passage_text": "Trait theories describe personality as relatively stable dispositions that predict behavior across situations. A company psychologist studied 300 customer-service employees hired over the past two years. Each employee completed a self-report Big Five inventory (each trait scored from 1 to 5). Supervisors independently rated job performance (0 to 100), and employees reported job satisfaction on a 1 to 7 scale. Only employees who passed a probationary period were included; those who left or were dismissed before it ended could not be studied. Pearson correlations for each trait appear in Table 1. Figure 1 shows conscientiousness and supervisor-rated performance for a random subset of 10 employees chosen to illustrate the relationship. Inventory items were scored so that higher values reflect more of each trait, and internal consistency of every scale exceeded 0.80. Supervisors did not see employees' personality scores, and employees did not see supervisors' ratings. Employees had been in their positions for at least one year when the measures were collected, and all data were collected within a single two-week window by an outside survey firm.",
+   "table_data": "Table 1. Correlations (r) with each outcome (N = 300)\n\n| Trait | Job performance | Job satisfaction |\n|---|---|---|\n| Conscientiousness | +0.31 | +0.18 |\n| Neuroticism | -0.19 | -0.42 |\n| Extraversion | +0.12 | +0.22 |\n| Agreeableness | +0.14 | +0.10 |\n| Openness | +0.04 | +0.05 |",
+   "graph": {
+    "type": "scatter",
+    "title": "Figure 1. Conscientiousness and job performance (10 employees)",
+    "x_label": "Conscientiousness score (1-5)",
+    "y_label": "Supervisor-rated performance (0-100)",
+    "series": [
+     {
+      "name": "Employees",
+      "points": [
+       [
+        2.0,
+        58
+       ],
+       [
+        2.5,
+        62
+       ],
+       [
+        3.0,
+        66
+       ],
+       [
+        3.2,
+        60
+       ],
+       [
+        3.5,
+        72
+       ],
+       [
+        3.8,
+        70
+       ],
+       [
+        4.0,
+        78
+       ],
+       [
+        4.3,
+        74
+       ],
+       [
+        4.6,
+        85
+       ],
+       [
+        4.8,
+        80
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini03_PS_P7_Q1",
+     "stem": "Which interpretation of the neuroticism-satisfaction correlation of -0.42 is most appropriate?",
+     "options": {
+      "A": "Employees higher in emotional instability tended to report higher job satisfaction.",
+      "B": "Neuroticism caused 42% of the variation in satisfaction among the employees.",
+      "C": "Employees higher in emotional instability tended to report lower job satisfaction.",
+      "D": "Neuroticism and satisfaction are unrelated because the correlation is below 0.50."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A negative r means that as neuroticism rises, satisfaction tends to fall. Why the others are wrong: A) The sign is negative, which indicates an inverse relationship. B) A correlation does not show causation, and variance explained would be r squared, about 18%. D) A correlation of -0.42 is a moderate, meaningful association, so unrelatedness is not implied.",
+     "trap": "Reading the sign of a correlation backward, or treating r as percent of variance.",
+     "topic": "Interpreting correlations",
+     "mastery_sheet_id": "7A",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P7_Q2",
+     "stem": "Approximately what proportion of the variance in performance is shared with conscientiousness?",
+     "options": {
+      "A": "About 0.10",
+      "B": "About 0.31 of the variance",
+      "C": "About 0.56 of the variance",
+      "D": "About 0.90 of the variance"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) r squared = 0.31 squared, which is about 0.096. Why the others are wrong: B) This reports r itself rather than squaring it. C) This is the square root of r, which is not a variance measure. D) This is 1 - 0.096, the variance not shared with conscientiousness.",
+     "trap": "Using r in place of r squared to describe variance explained.",
+     "topic": "Variance explained",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.wikipedia.org/wiki/R-square",
+       "https://docmckee.com/oer/statistics/section-4/section-4-2/coefficient-of-determination/"
+      ]
+     }
+    },
+    {
+     "id": "Mini03_PS_P7_Q3",
+     "stem": "What is the most reasonable conclusion about openness (r = +0.04 with performance)?",
+     "options": {
+      "A": "Openness has no influence of any kind on job performance, either directly or indirectly.",
+      "B": "There is almost no linear relationship, although a nonlinear relationship cannot be ruled out by r alone.",
+      "C": "Openness is the strongest predictor of job performance because the value is close to zero.",
+      "D": "Openness has a perfect nonlinear relationship with job performance that Pearson r cannot capture."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Pearson r measures linear association, so a value near zero does not exclude a curved pattern. Why the others are wrong: A) A near-zero correlation in one sample cannot prove the absence of all possible effects. C) Values close to zero indicate the weakest, not strongest, linear association. D) Nothing in the table implies a perfect relationship of any form.",
+     "trap": "Concluding that a near-zero r proves the variables are completely unrelated.",
+     "topic": "Limits of Pearson r",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P7_Q4",
+     "stem": "A limitation of self-reported personality scores is social desirability bias. Which procedure would best reduce it?",
+     "options": {
+      "A": "Increasing the sample size from 300 to 3,000 employees using the same inventory",
+      "B": "Asking employees to complete the inventory twice and averaging the two scores",
+      "C": "Using only employees with the highest conscientiousness scores to reduce variability",
+      "D": "Obtaining personality ratings from coworkers or supervisors who know the employee well in addition to self-reports"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) Informant reports provide an independent perspective that is not subject to the employee's own impression management. Why the others are wrong: A) A larger sample reduces random error but leaves a systematic bias in self-reports unchanged. B) Averaging repeated self-reports improves reliability but retains the same bias. C) Selecting on the outcome range does not address bias and adds restriction of range.",
+     "trap": "Assuming that bigger samples or repeated measures fix systematic bias.",
+     "topic": "Self-report bias",
+     "mastery_sheet_id": "7A",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P7_Q5",
+     "stem": "Because only employees who passed probation were included, how are the correlations in Table 1 most likely affected, compared with the full group of applicants?",
+     "options": {
+      "A": "They are probably weaker, because restriction of range reduces the observed correlation.",
+      "B": "They are probably stronger, because only successful employees can show clear associations.",
+      "C": "They are unaffected, because correlations do not depend on which participants are sampled.",
+      "D": "They are exactly the same but have a different sign because of selection."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Excluding low performers narrows the range of scores, which tends to attenuate correlations. Why the others are wrong: B) Truncating the range typically weakens, not strengthens, associations. C) Correlation estimates depend strongly on the range of values in the sample. D) Selection does not reverse a correlation's direction on its own.",
+     "trap": "Believing correlation is independent of the sampled range of the variables.",
+     "topic": "Restriction of range",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini03_PS_P8",
+   "passage_text": "Self-determination theory distinguishes intrinsic motivation, doing an activity for its own sake, from extrinsic motivation, doing it for external rewards. Ninety children aged 5 to 7 who often chose to draw during free play were randomly assigned to three groups (n = 30 each). In session 1, children in the expected-reward group were told they would receive a \"good player\" certificate for drawing and then received it. Children in the unexpected-reward group drew without any mention of a reward and were surprised with a certificate afterward. Children in the no-reward group drew with no certificate. Two weeks later, in a separate session with no certificates available, each child had 10 minutes of free play with drawing materials and other toys. Observers, who did not know the group assignments, recorded minutes spent drawing. Baseline minutes (before session 1) and follow-up minutes are given in Table 1. Certificates were printed with the child's name and identical in all groups that received them. The drawing session lasted 10 minutes, and the materials were the same markers and paper that children could use in the follow-up session. Observers recorded minutes of drawing using a stopwatch, and agreement between two observers on a subset of sessions exceeded 90%. Parents consented to the study and children could stop at any time.",
+   "table_data": "Table 1. Mean minutes spent drawing during 10-minute free play\n\n| Group | Baseline | Follow-up (2 weeks) |\n|---|---|---|\n| Expected reward | 5.8 | 3.1 |\n| Unexpected reward | 5.9 | 5.7 |\n| No reward | 5.7 | 5.6 |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini03_PS_P8_Q1",
+     "stem": "Which concept best explains the drop in drawing time in the expected-reward group?",
+     "options": {
+      "A": "Learned helplessness, in which uncontrollable events produce passivity.",
+      "B": "Overjustification, in which a reward given for an enjoyed activity shifts attributions away from intrinsic interest.",
+      "C": "Habituation, in which repeated exposure to the materials reduces the response to them.",
+      "D": "Drive reduction, in which behavior is motivated by reducing a physiological need."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Children began to see the reward as the reason for drawing, and interest fell once it was absent. Why the others are wrong: A) The children controlled their drawing and were not exposed to uncontrollable aversive events. C) Habituation would be seen in all groups, yet the control groups did not decline. D) Drawing does not reduce a biological deficit, and the theory would not predict a decline after a reward.",
+     "trap": "Selecting a theory that would predict declines in all groups rather than only the rewarded one.",
+     "topic": "Overjustification effect",
+     "mastery_sheet_id": "7A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P8_Q2",
+     "stem": "Why did the unexpected-reward group show almost no change in drawing time?",
+     "options": {
+      "A": "The reward was not offered in advance, so children could not infer that they drew in order to earn it.",
+      "B": "Children in this group did not receive a certificate, which equated them with the no-reward group.",
+      "C": "Unexpected rewards are always more reinforcing than expected rewards, which maintains behavior.",
+      "D": "The children forgot about the certificate during the two weeks, which restored their baseline."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Without an expectation of reward, the activity was not seen as a means to an end. Why the others are wrong: B) They received the certificate after drawing, as the passage states. C) The result is explained by attribution, not by the strength of reinforcement, and the claim is not generally true. D) The finding is explained more simply by the missing expectation, and forgetting is not supported.",
+     "trap": "Assuming the unexpected reward is simply stronger reinforcement.",
+     "topic": "Contingency and motivation",
+     "mastery_sheet_id": "7A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P8_Q3",
+     "stem": "What was the percentage decrease in drawing time in the expected-reward group from baseline to follow-up?",
+     "options": {
+      "A": "About 53% of baseline",
+      "B": "About 87% of baseline",
+      "C": "A decrease of 2.7%",
+      "D": "About 47%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) The change is 5.8 - 3.1 = 2.7 minutes, and 2.7/5.8 is about 0.47. Why the others are wrong: A) This is 3.1/5.8, the share of baseline drawing that remained, not the size of the fall. B) This divides the 2.7-minute drop by the follow-up value of 3.1 minutes instead of by baseline. C) This reports the drop in minutes as a percentage.",
+     "trap": "Dividing by the follow-up value rather than the baseline.",
+     "topic": "Percent change",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini03_PS_P8_Q4",
+     "stem": "What is the main purpose of the no-reward group?",
+     "options": {
+      "A": "It ensures that the observers cannot determine which children received a certificate.",
+      "B": "It estimates how drawing time changes over two weeks without any reward, controlling for time and familiarity.",
+      "C": "It provides a treatment group whose motivation is fully extrinsic.",
+      "D": "It allows measurement of the placebo effect from the experimenter's friendly attention."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Comparing against this baseline shows that the expected-reward drop is not just a time effect. Why the others are wrong: A) Observer blinding was achieved by hiding group assignments, not by the existence of this group. C) This group had no extrinsic reward at all. D) The group does not control for experimenter attention unless all groups were treated identically, and it is a no-treatment control.",
+     "trap": "Mistaking a no-treatment control for a placebo control.",
+     "topic": "Control groups",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P8_Q5",
+     "stem": "A strict operant-conditioning account predicts that, once certificates are removed, drawing in the expected-reward group should do which of the following?",
+     "options": {
+      "A": "Increase above the level during the reward period because the reinforcer is no longer present.",
+      "B": "Decline toward baseline through extinction, but not fall well below it.",
+      "C": "Remain at the level during reward because behavior is permanent after conditioning.",
+      "D": "Fall to zero immediately because operant behaviors vanish when rewards stop."
+     },
+     "correct": "B",
+     "explanation": "Correct: B) Removing the reinforcer should return responding to its pre-reinforcement level, not below it. Why the others are wrong: A) Removing a reinforcer cannot increase the reinforced behavior in an operant account. C) Reinforced behavior diminishes after reinforcement ends. D) Extinction is gradual and typically returns to baseline, and baseline here was above zero.",
+     "trap": "Thinking removal of reinforcement should push behavior below its natural baseline.",
+     "topic": "Operant extinction",
+     "mastery_sheet_id": "7A",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini03_PS_P9",
+   "passage_text": "A case-control study examined whether frequent use of headphones at high volume is associated with persistent tinnitus. Investigators identified 200 adults with persistent tinnitus (cases) from audiology clinics and 400 adults without tinnitus (controls) from the same clinics' patients seeking routine hearing screening, frequency-matched to cases by age group and sex. Interviewers asked each participant about listening habits during the preceding five years. \"High exposure\" was defined as listening at high volume for more than 2 hours per day. Interviewers knew case status. Results are shown in Table 1, with age stratified at 40 years. The odds ratio (OR) for each row is the odds of high exposure among cases divided by the odds of high exposure among controls. Cases were adults aged 20 to 65 who had reported tinnitus lasting at least six months, confirmed by a clinician using a standard questionnaire. Controls reported no tinnitus on the same questionnaire. The interviewers followed a written script but could ask clarifying questions. Participants with noisy occupations or a history of ear surgery were excluded from both groups to limit other explanations for hearing symptoms.",
+   "table_data": "Table 1. High and low exposure by group\n\n| Stratum | Cases high | Cases low | Controls high | Controls low | OR |\n|---|---|---|---|---|---|\n| Age < 40 | 90 | 30 | 70 | 130 | 5.6 |\n| Age 40 or older | 30 | 50 | 30 | 170 | 3.4 |\n| All participants | 120 | 80 | 100 | 300 | ? |",
+   "graph": null,
+   "questions": [
+    {
+     "id": "Mini03_PS_P9_Q1",
+     "stem": "What is the crude odds ratio for all participants?",
+     "options": {
+      "A": "An OR of 1.5",
+      "B": "4.5",
+      "C": "An OR of 1.2",
+      "D": "An OR of 0.22"
+     },
+     "correct": "B",
+     "explanation": "Correct: B) OR = (120 x 300)/(80 x 100) = 36,000/8,000 = 4.5. Why the others are wrong: A) This is the ratio of cases high to cases low, 120/80, which ignores the controls. C) This is 120/100, exposed cases divided by exposed controls, which ignores the unexposed groups entirely. D) This is the reciprocal of the correct value, from placing the cross-products in the wrong order.",
+     "trap": "Calculating a ratio from only the cases or only one cell pair instead of the cross-product.",
+     "topic": "Odds ratio",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute",
+      "sources": []
+     }
+    },
+    {
+     "id": "Mini03_PS_P9_Q2",
+     "stem": "Why can this study design not provide an estimate of the incidence of tinnitus among high-exposure listeners?",
+     "options": {
+      "A": "Participants were selected by outcome status, so the proportion of cases in the sample is fixed by the investigators.",
+      "B": "Tinnitus is a subjective symptom that cannot be counted in epidemiologic studies.",
+      "C": "Odds ratios can only be computed in randomized trials with a placebo group.",
+      "D": "The matching of controls to cases by age and sex makes all exposures equally common."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) In case-control sampling the case-to-control ratio is chosen, so risk or incidence cannot be calculated directly. Why the others are wrong: B) Case-control studies of subjective conditions are common and valid when a case definition exists. C) Odds ratios are the standard measure in case-control studies and are used widely in observational research. D) Matching ensures balance for age and sex only; it does not equalize exposure prevalence.",
+     "trap": "Applying cohort-study measures such as risk to a study that samples by outcome.",
+     "topic": "Case-control design",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P9_Q3",
+     "stem": "Interviewers who knew case status asked participants about listening habits. Which bias is the most direct concern?",
+     "options": {
+      "A": "Recall bias, because cases may search their memories and report past exposure differently than controls.",
+      "B": "Survivorship bias, because only participants who survived a long follow-up were interviewed.",
+      "C": "Attrition bias, because many participants dropped out between treatment and outcome measurement.",
+      "D": "Lead-time bias, because screening detects the disease earlier than it would otherwise appear."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) People with the condition often recall or report past exposures more thoroughly, inflating the odds ratio. Why the others are wrong: B) This study has no follow-up of survivors; it compares existing cases and controls. C) There was no treatment period or follow-up that could produce attrition. D) Lead-time bias applies to screening and survival timing, not to exposure reporting in a case-control study.",
+     "trap": "Naming a bias that belongs to cohort studies or screening rather than retrospective exposure reporting.",
+     "topic": "Recall bias",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P9_Q4",
+     "stem": "What can be concluded from comparing the age-specific ORs (5.6 and 3.4) with the crude OR?",
+     "options": {
+      "A": "Age is a strong confounder, because the crude OR is smaller than both of the stratum-specific ORs.",
+      "B": "Headphone use protects older adults, because the age 40 or older OR is lower.",
+      "C": "Age does not completely explain the association, because the odds ratio remains well above 1 in both age groups.",
+      "D": "High exposure caused tinnitus in both age groups, since both ORs exceed 3."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) Confounding by age would be expected to disappear within strata, which did not happen. Why the others are wrong: A) The crude OR (4.5) lies between the two stratum ORs, so this description is incorrect. B) An OR of 3.4 is still above 1 and indicates greater odds of exposure among cases. D) Stratified associations remain observational and cannot establish causation by themselves.",
+     "trap": "Interpreting a lower but still elevated OR as protective or as proof of causation.",
+     "topic": "Stratified analysis",
+     "mastery_sheet_id": "SIRS",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P9_Q5",
+     "stem": "Which design would best establish that high-volume listening precedes tinnitus onset?",
+     "options": {
+      "A": "A prospective cohort that measures listening habits in tinnitus-free adults and follows them for new-onset tinnitus",
+      "B": "A larger case-control study with additional controls from the general population",
+      "C": "A cross-sectional survey of current listening habits and tinnitus status in one sitting",
+      "D": "A case report describing one patient with tinnitus and a history of high-volume listening"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) Measuring exposure before the outcome occurs establishes temporal order without recall problems. Why the others are wrong: B) More controls improve precision but do not establish that exposure came first. C) Both variables are measured at once, so temporal order cannot be determined. D) A single case provides no comparison group and cannot establish temporal or causal relationships.",
+     "trap": "Assuming that bigger or more varied retrospective samples can establish temporal order.",
+     "topic": "Study design strength",
+     "mastery_sheet_id": "SIRS",
+     "skill": "experimental design",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  },
+  {
+   "passage_id": "Mini03_PS_P10",
+   "passage_text": "A randomized trial tested an 8-week mindfulness program for work-related anxiety. One hundred twenty employees were randomly assigned to the program (n = 60) or to a waitlist (n = 60) and completed measures at weeks 0, 4, and 8. The prespecified primary outcome was the change in an anxiety questionnaire score (lower is better). Four secondary outcomes were also analyzed. All tests were two-sided with a significance threshold of 0.05 unless adjusted. Participants knew their group assignments. Table 1 reports the mean change from week 0 to week 8 in each group, with the difference between groups, its 95% confidence interval (CI), and the p value. Figure 1 shows the mean anxiety score at each time point. Randomization was performed by computer using a list that was concealed from the staff enrolling participants. The program involved weekly group sessions of 90 minutes and a daily 10-minute home practice. Outcomes were self-reported on tablets in a private room. Participants who dropped out before week 8 were analyzed in their assigned groups using the last available measurement, and 5 participants in each group were lost to follow-up.",
+   "table_data": "Table 1. Change from week 0 to week 8\n\n| Outcome | Program | Waitlist | Difference | 95% CI | p |\n|---|---|---|---|---|---|\n| Anxiety score (primary) | -8.4 | -3.1 | -5.3 | -8.0 to -2.6 | <0.001 |\n| Sleep quality score | -2.1 | -1.0 | -1.1 | -2.2 to 0.0 | 0.049 |\n| Systolic blood pressure (mm Hg) | -3.0 | -1.5 | -1.5 | -4.9 to 1.9 | 0.38 |\n| Days absent | -0.8 | -0.3 | -0.5 | -1.4 to 0.4 | 0.27 |\n| Depressive symptom score | -3.9 | -1.9 | -2.0 | -3.9 to -0.1 | 0.04 |",
+   "graph": {
+    "type": "line",
+    "title": "Figure 1. Mean anxiety score",
+    "x_label": "Week",
+    "y_label": "Anxiety score",
+    "series": [
+     {
+      "name": "Program",
+      "points": [
+       [
+        0,
+        22.0
+       ],
+       [
+        4,
+        17.5
+       ],
+       [
+        8,
+        13.6
+       ]
+      ]
+     },
+     {
+      "name": "Waitlist",
+      "points": [
+       [
+        0,
+        21.8
+       ],
+       [
+        4,
+        20.1
+       ],
+       [
+        8,
+        18.7
+       ]
+      ]
+     }
+    ]
+   },
+   "questions": [
+    {
+     "id": "Mini03_PS_P10_Q1",
+     "stem": "Which statement about the 95% CI for the anxiety score difference is accurate?",
+     "options": {
+      "A": "Because the interval is wide, the difference is not statistically significant.",
+      "B": "The interval shows that 95% of employees improved by between 2.6 and 8.0 points.",
+      "C": "Because the interval excludes 0, the difference is statistically significant at the 0.05 level.",
+      "D": "The interval shows a 95% probability that the study results were due to chance."
+     },
+     "correct": "C",
+     "explanation": "Correct: C) A 95% CI that does not contain the null value corresponds to p below 0.05. Why the others are wrong: A) Width reflects precision, and this interval still excludes 0. B) A CI describes uncertainty about the group-level mean difference, not the range of individual responses. D) A confidence interval does not give the probability that chance produced the results.",
+     "trap": "Interpreting a confidence interval as the range of individual outcomes.",
+     "topic": "Confidence intervals",
+     "mastery_sheet_id": "SIRS",
+     "skill": "data reading",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P10_Q2",
+     "stem": "If the five outcomes were all truly unaffected by the program and independent, about what is the probability that at least one would reach p < 0.05?",
+     "options": {
+      "A": "About 5%",
+      "B": "About 25%",
+      "C": "About 77%",
+      "D": "About 23%"
+     },
+     "correct": "D",
+     "explanation": "Correct: D) 1 - (0.95)^5 = 1 - 0.774 = 0.226. Why the others are wrong: A) This is the error rate for a single test, not for five. B) This is 5 x 5%, which overstates the probability because tests overlap. C) This is the probability of no false positives, 0.95^5, not of at least one.",
+     "trap": "Adding error rates together or reporting the chance of none rather than at least one.",
+     "topic": "Multiple comparisons",
+     "mastery_sheet_id": "SIRS",
+     "skill": "calculation",
+     "accuracy_verified": true,
+     "sonnet_built": true,
+     "verification": {
+      "method": "python recompute + web check",
+      "sources": [
+       "https://www.statology.org/family-wise-error-rate/",
+       "https://arxiv.org/pdf/2108.04752"
+      ]
+     }
+    },
+    {
+     "id": "Mini03_PS_P10_Q3",
+     "stem": "If a Bonferroni correction is applied across the four secondary outcomes, what would be concluded?",
+     "options": {
+      "A": "None of the secondary outcomes would be significant, because the adjusted threshold is 0.0125.",
+      "B": "Sleep quality alone would remain significant, because it has the smallest confidence interval.",
+      "C": "Both sleep quality and depressive symptoms would remain significant, since both p values are below 0.05.",
+      "D": "All four would become significant, because correction lowers the p value for each test."
+     },
+     "correct": "A",
+     "explanation": "Correct: A) 0.05/4 = 0.0125, and the smallest secondary p value is 0.04. Why the others are wrong: B) Its p value of 0.049 exceeds 0.0125, and the CI width does not determine significance. C) The corrected threshold is lower than 0.05, so both would be nonsignificant. D) Bonferroni lowers the threshold for significance rather than the p values.",
+     "trap": "Thinking that correction for multiple tests makes it easier to reach significance.",
+     "topic": "Bonferroni correction",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    },
+    {
+     "id": "Mini03_PS_P10_Q4",
+     "stem": "The waitlist group's anxiety score also fell by 3.1 points. Which explanation is most reasonable?",
+     "options": {
+      "A": "Nonspecific factors such as regression to the mean, natural remission, and participation in a study",
+      "B": "A direct effect of the mindfulness program on participants who had not yet received it",
+      "C": "Measurement error that always lowers scores on repeated administration of the questionnaire",
+      "D": "A carryover effect from an earlier phase in which the waitlist group had received treatment"
+     },
+     "correct": "A",
+     "explanation": "Correct: A) The waitlist did not receive the intervention, so any improvement reflects factors other than the program. Why the others are wrong: B) Waitlist participants did not receive the program during the 8 weeks. C) Random error does not systematically lower scores. D) The design did not include a prior treatment phase for these participants.",
+     "trap": "Attributing any change in a control group to the intervention itself.",
+     "topic": "Control group change",
+     "mastery_sheet_id": "SIRS",
+     "skill": "reasoning",
+     "accuracy_verified": false,
+     "sonnet_built": true
+    }
+   ]
+  }
+ ],
+ "discrete": [
+  {
+   "id": "Mini03_PS_D1",
+   "stem": "A group of friends who each mildly favor a somewhat risky investment meet to discuss it, and after the meeting they all favor a much riskier option than any member preferred beforehand. Which concept best describes this outcome?",
+   "options": {
+    "A": "Group polarization, in which discussion strengthens the average initial leaning of the group",
+    "B": "Social loafing, in which individuals exert less effort when working in a group",
+    "C": "Deindividuation, in which anonymity reduces self-awareness and increases impulsive acts",
+    "D": "The mere exposure effect, in which repeated contact increases liking"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Discussion exposes members to persuasive arguments and social comparison, which pushes the group further in the direction it already leaned. Why the others are wrong: B) Social loafing concerns reduced effort, not extremity of opinions. C) The friends were not anonymous, and the outcome is a shift in attitude, not loss of identity. D) Repeated contact would affect liking for people or objects, not the extremity of a choice.",
+   "trap": "Choosing a group process that reduces effort or identity rather than one that amplifies opinions.",
+   "topic": "Group polarization",
+   "mastery_sheet_id": "7B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini03_PS_D2",
+   "stem": "In a jury, one member consistently and confidently argues for acquittal while ten others favor conviction. Over time, several jurors privately change their views. Which mechanism most likely explains the private change?",
+   "options": {
+    "A": "Normative influence from a majority that leads members to comply to avoid rejection",
+    "B": "Informational influence from a consistent minority that leads members to reconsider the evidence",
+    "C": "Obedience to an authority figure who has legitimate power over the jurors",
+    "D": "Social facilitation from the presence of others, which improves performance on well-learned tasks"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Consistent minorities cause people to think more deeply and sometimes actually change their private beliefs. Why the others are wrong: A) Conformity to a majority yields public compliance but not the change toward the minority position. C) The dissenting juror has no authority over the others. D) Facilitation concerns task performance and not opinion change toward a dissenting position.",
+   "trap": "Assuming that influence in groups always flows from the majority to the minority.",
+   "topic": "Minority influence",
+   "mastery_sheet_id": "7B",
+   "skill": "reasoning",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini03_PS_D3",
+   "stem": "A man who has never thought about his attitude toward running notices that he runs several mornings every week. He then concludes that he must enjoy running. This inference best illustrates which theory?",
+   "options": {
+    "A": "Self-perception theory, in which people infer their attitudes by observing their own behavior",
+    "B": "Cognitive dissonance theory, in which inconsistency between beliefs and behavior creates discomfort",
+    "C": "The elaboration likelihood model, in which attitudes change through central or peripheral routes",
+    "D": "Classical conditioning, in which a neutral stimulus acquires emotional value by pairing"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) The man infers a preference from his own behavior, with no prior attitude to compare. Why the others are wrong: B) The scenario describes no conflict or discomfort that he resolves. C) This involves a persuasive message, which is not present here. D) No pairing of stimuli is described.",
+   "trap": "Choosing dissonance whenever behavior and attitude are discussed together.",
+   "topic": "Self-perception theory",
+   "mastery_sheet_id": "7C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini03_PS_D4",
+   "stem": "A casino patron keeps pulling a slot machine that pays out after an unpredictable number of pulls and continues long after a losing streak begins. Which schedule of reinforcement does the machine use, and what does it predict?",
+   "options": {
+    "A": "Fixed-ratio, which produces a pause after each reinforcement and rapid extinction",
+    "B": "Variable-ratio, which produces a high, steady rate of responding that is highly resistant to extinction",
+    "C": "Variable-interval, which produces a slow, steady rate of responding based on time elapsed",
+    "D": "Fixed-interval, which produces a scalloped pattern with responding rising before each reinforcement"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) Unpredictable payoffs after varying numbers of responses sustain responding even during long dry spells. Why the others are wrong: A) A fixed ratio would pay off after a set number of pulls, not an unpredictable number. C) Payoffs here depend on the number of pulls, not on the passage of time. D) Fixed-interval schedules depend on time and predictable intervals, which do not describe a slot machine.",
+   "trap": "Mixing up the ratio and interval schedules or the fixed and variable patterns.",
+   "topic": "Reinforcement schedules",
+   "mastery_sheet_id": "7C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini03_PS_D5",
+   "stem": "A teenager who is repeatedly described as shy by family members and teachers begins to see herself as shy and avoids new social settings. Which sociological concept best describes the process by which her self-concept was shaped?",
+   "options": {
+    "A": "The looking-glass self, in which people form a self-concept from how they imagine others perceive them",
+    "B": "The generalized other, in which a person takes on the standards of society as a whole",
+    "C": "Anomie, in which social norms break down and individuals feel disconnected",
+    "D": "Role strain, in which demands within a single role conflict with each other"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) She internalizes the views of family and teachers as a mirror for her own identity. Why the others are wrong: B) This concept concerns internalized societal norms in role-taking, not responses to labels from particular people. C) Anomie describes normlessness in society, not the formation of an individual's self-concept. D) No conflicting demands within one role are described.",
+   "trap": "Selecting a broader social concept rather than the specific idea of reflected appraisal.",
+   "topic": "Looking-glass self",
+   "mastery_sheet_id": "8A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini03_PS_D6",
+   "stem": "Teachers are told that a randomly chosen group of students will show a late growth spurt in ability. At the end of the year, those students show larger gains than their classmates. Which mechanism best explains the finding?",
+   "options": {
+    "A": "The fundamental attribution error, in which dispositions are overestimated and situations underestimated",
+    "B": "The halo effect, in which one positive trait colors judgments of all other traits",
+    "C": "A self-fulfilling prophecy, in which expectations lead to behaviors that make the expectation come true",
+    "D": "Stereotype threat, in which fear of confirming a negative stereotype impairs performance"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Teacher expectations alter attention and feedback, which in turn help students achieve more. Why the others are wrong: A) This concerns explanations of others' behavior and not the effect of expectations on outcomes. B) The students were selected randomly, and no particular positive trait influenced the judgments. D) Positive expectations rather than fear of a negative stereotype are described.",
+   "trap": "Choosing a perception bias rather than a mechanism that changes actual behavior.",
+   "topic": "Self-fulfilling prophecy",
+   "mastery_sheet_id": "8B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini03_PS_D7",
+   "stem": "A person hears that a stranger was robbed and thinks, \"She must have been careless; things like that do not happen to people who are careful.\" Which belief does this reasoning most clearly reflect?",
+   "options": {
+    "A": "The self-serving bias, in which people credit successes to themselves and failures to situations",
+    "B": "The actor-observer effect, in which actors blame situations and observers blame dispositions",
+    "C": "The just-world hypothesis, in which people assume that outcomes are deserved",
+    "D": "The out-group homogeneity effect, in which members of other groups seem more alike"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) The person blames the victim to preserve the belief that the world is fair. Why the others are wrong: A) This bias concerns one's own outcomes, and the judgment here concerns a stranger. B) This describes differences in explaining one's own and others' actions, not the need to see outcomes as deserved. D) Nothing in the scenario refers to group membership or perceived similarity.",
+   "trap": "Picking the attribution effect that sounds close without matching the need for fairness.",
+   "topic": "Just-world hypothesis",
+   "mastery_sheet_id": "8B",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini03_PS_D8",
+   "stem": "A server who is polite and smiling at tables but complains and jokes openly with coworkers in the kitchen is best described by which concept?",
+   "options": {
+    "A": "Symbolic interaction, which holds that society consists of shared meanings that arise in social interaction",
+    "B": "The Thomas theorem, which says that situations defined as real are real in their consequences",
+    "C": "Role conflict, in which two statuses held by the same person make incompatible demands",
+    "D": "Impression management using front-stage and back-stage behavior in the dramaturgical approach"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) Different performances for different audiences are the core of dramaturgy. Why the others are wrong: A) This is a broad perspective, whereas the scenario illustrates a specific presentation of self. B) This concerns how definitions of situations produce effects, not the management of presentation. C) A server and coworker are a single role set without a conflict between demands.",
+   "trap": "Choosing the broad theoretical label instead of the specific dramaturgical concept.",
+   "topic": "Impression management",
+   "mastery_sheet_id": "8C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini03_PS_D9",
+   "stem": "Two people who are assigned to adjacent seats in a class become friends, and both discover they hold similar views on many topics. Which two factors most directly contribute to their attraction?",
+   "options": {
+    "A": "Proximity and similarity",
+    "B": "Reciprocity and complementarity",
+    "C": "Physical attractiveness and scarcity",
+    "D": "Anonymity and diffusion of responsibility"
+   },
+   "correct": "A",
+   "explanation": "Correct: A) Frequent contact and shared attitudes are two of the strongest predictors of attraction. Why the others are wrong: B) Complementarity (opposites attract) is weak, and the scenario describes similarity. C) Neither the person's looks nor limited availability is mentioned. D) These apply to behavior in groups or emergencies and not to attraction.",
+   "trap": "Assuming that opposites attract in forming friendships.",
+   "topic": "Attraction",
+   "mastery_sheet_id": "8C",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini03_PS_D10",
+   "stem": "A public school offers a lunch program to feed children and, as an unintended result, gives parents a chance to meet other parents and form social networks. Which sociological terms describe these two outcomes?",
+   "options": {
+    "A": "A latent function (feeding children) and a manifest function (building networks)",
+    "B": "A dysfunction (feeding children) and a manifest function (building networks)",
+    "C": "A manifest function (feeding children) and a latent function (building networks)",
+    "D": "A primary group (feeding children) and a secondary group (building networks)"
+   },
+   "correct": "C",
+   "explanation": "Correct: C) Manifest functions are intended and recognized, while latent functions are unintended consequences. Why the others are wrong: A) This reverses the labels, since feeding children is the intended purpose. B) Feeding children is not harmful, and networks were not the intended purpose. D) These terms classify social groups, not the purposes of a program.",
+   "trap": "Reversing intended and unintended functions.",
+   "topic": "Manifest and latent functions",
+   "mastery_sheet_id": "9A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  },
+  {
+   "id": "Mini03_PS_D11",
+   "stem": "A country has 1,000 people: 180 are aged 0 to 14, 620 are aged 15 to 64, and 200 are aged 65 or older. What is the total dependency ratio per 100 working-age people?",
+   "options": {
+    "A": "About 32 per 100",
+    "B": "About 61",
+    "C": "About 38 per 100",
+    "D": "About 29 per 100"
+   },
+   "correct": "B",
+   "explanation": "Correct: B) (180 + 200)/620 = 0.613, or about 61 dependents per 100 working-age people. Why the others are wrong: A) This is 200/620, the old-age dependency ratio alone. C) This divides the dependent population by the total population (380/1,000), which has a different denominator. D) This is 180/620, the child dependency ratio alone.",
+   "trap": "Using only one dependent group or the total population as the denominator.",
+   "topic": "Dependency ratio",
+   "mastery_sheet_id": "9B",
+   "skill": "calculation",
+   "accuracy_verified": true,
+   "sonnet_built": true,
+   "verification": {
+    "method": "python recompute + web check",
+    "sources": [
+     "https://www.unescwa.org/sd-glossary/dependency-ratios"
+    ]
+   }
+  },
+  {
+   "id": "Mini03_PS_D12",
+   "stem": "A researcher finds that Black women in a society earn less than both Black men and white women, an amount that exceeds what either race or gender alone would predict. Which concept best describes this pattern?",
+   "options": {
+    "A": "The glass ceiling, in which invisible barriers prevent advancement to top positions",
+    "B": "Residential segregation, in which groups are separated across neighborhoods",
+    "C": "Social reproduction, in which class position is passed on across generations",
+    "D": "Intersectionality, in which overlapping social categories combine to create distinct forms of disadvantage"
+   },
+   "correct": "D",
+   "explanation": "Correct: D) The compounded effects of race and gender together produce a distinct experience. Why the others are wrong: A) This concerns advancement into leadership positions, not the combined effect of two social categories. B) The scenario concerns income, not the spatial distribution of groups. C) This concerns the transmission of class status, not the combination of race and gender.",
+   "trap": "Describing a combined effect as simply the sum of two independent disadvantages.",
+   "topic": "Intersectionality",
+   "mastery_sheet_id": "10A",
+   "skill": "foundations",
+   "accuracy_verified": false,
+   "sonnet_built": true
+  }
+ ]
+}

@@ -1,0 +1,117 @@
+[
+  {
+    "id": 1,
+    "type": "question",
+    "passage_id": "bp1689",
+    "passage_text": "Researchers studied the pharmacokinetics of two novel antibiotics, Drug A and Drug B, in a controlled laboratory setting. A cohort of 20 healthy volunteers received a single oral dose of each drug on separate days. Blood samples were collected at 1, 2, 3, and 4 days post‑dose. The concentrations (in mg/L) were measured using high‑performance liquid chromatography. The data revealed a rapid decline in both drugs, with Drug A consistently maintaining higher plasma levels than Drug B. The study aimed to compare the elimination rates and assess whether Drug A could provide a longer therapeutic window. The researchers noted that both drugs’ concentrations fell by a constant amount each day (3 mg/L for Drug A and 2 mg/L for Drug B), although Drug A remained at higher absolute concentrations than Drug B. No therapeutic threshold concentration was reported. The investigators plan to extend the study to include patients with renal impairment to evaluate dose adjustments.",
+    "table_data": "Time (days) | Drug A (mg/L) | Drug B (mg/L)\n1 | 12 | 8\n2 | 9 | 6\n3 | 6 | 4\n4 | 3 | 2",
+    "stem": "Which day had the highest combined concentration of Drug A and Drug B?",
+    "options": {
+      "A": "Day 1",
+      "B": "Day 2",
+      "C": "Day 3",
+      "D": "Day 4"
+    },
+    "correct": "A",
+    "explanation": "Adding the concentrations for each day: Day 1 = 12 + 8 = 20 mg/L, Day 2 = 9 + 6 = 15 mg/L, Day 3 = 6 + 4 = 10 mg/L, Day 4 = 3 + 2 = 5 mg/L. The highest total is on Day 1.",
+    "trap": "Choosing a later day by assuming concentrations rise over time; both drugs fall each day, so the combined total is highest at Day 1.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": 2,
+    "type": "question",
+    "passage_id": "bp1689",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which experimental design would best test whether Drug A reduces bacterial load faster than Drug B?",
+    "options": {
+      "A": "Randomized controlled trial",
+      "B": "Observational cohort study",
+      "C": "Case‑control study",
+      "D": "Cross‑sectional survey"
+    },
+    "correct": "A",
+    "explanation": "A randomized controlled trial assigns participants to receive either Drug A or Drug B under controlled conditions, allowing direct comparison of their effects on bacterial load while minimizing bias.",
+    "trap": "Choosing an observational or case-control design; without random assignment, differences in bacterial load could reflect patient differences rather than the drug.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "SIRS"
+  },
+  {
+    "id": 3,
+    "type": "question",
+    "passage_id": "bp1689",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "What is the average concentration of Drug A over the 4‑day period?",
+    "options": {
+      "A": "7.5 mg/L",
+      "B": "8 mg/L",
+      "C": "9 mg/L",
+      "D": "10 mg/L"
+    },
+    "correct": "A",
+    "explanation": "Sum of Drug A concentrations = 12 + 9 + 6 + 3 = 30 mg/L. Divide by 4 days = 30 / 4 = 7.5 mg/L.",
+    "trap": "Taking the first-day value or the midpoint of two days instead of averaging all four values: (12 + 9 + 6 + 3)/4 = 7.5 mg/L.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": 4,
+    "type": "question",
+    "passage_id": "bp1689",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "Which statement is NOT supported by the data presented?",
+    "options": {
+      "A": "Drug A concentration decreases over time.",
+      "B": "Drug B concentration decreases over time.",
+      "C": "Drug A concentration is always higher than Drug B.",
+      "D": "Drug B concentration is always higher than Drug A."
+    },
+    "correct": "D",
+    "explanation": "The table shows Drug A concentrations (12, 9, 6, 3) are consistently higher than Drug B concentrations (8, 6, 4, 2). Thus, statement D is false.",
+    "trap": "Reversing which drug has the higher concentrations; Drug A exceeds Drug B at every time point (12 vs 8, 9 vs 6, 6 vs 4, 3 vs 2).",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  },
+  {
+    "id": 5,
+    "type": "question",
+    "passage_id": "bp1689",
+    "passage_text": "",
+    "table_data": "",
+    "stem": "By what percent did the Drug A concentration fall from day 1 to day 4?",
+    "options": {
+      "A": "25%",
+      "B": "50%",
+      "C": "75%",
+      "D": "300%"
+    },
+    "correct": "C",
+    "explanation": "Correct: C) (12 - 3)/12 x 100 = 75%. Why the others are wrong: A) 25% is the fraction remaining (3/12), not the fall. B) 50% is the fall between day 1 and day 3 only. D) 300% divides the fall by the day 4 value (9/3), the wrong denominator.",
+    "trap": "Dividing the fall by the final value (9/3 = 300%) or reporting the fraction remaining (25%) instead of dividing by the starting value.",
+    "sheet_link": "",
+    "mnemonic_link": "",
+    "difficulty": 520,
+    "time_tag": "2026-10-26T12:00:00Z",
+    "accuracy_verified": true,
+    "mastery_sheet_id": "2B"
+  }
+]
