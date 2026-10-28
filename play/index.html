@@ -1381,9 +1381,11 @@ const PQ = {};
 PASSAGES.forEach(p => { p.s = p.s || "CARS"; p.qs.forEach((q, i) => { q.id = p.id + "_" + i; q.s = "CARS"; q.pid = p.id; PQ[q.id] = q; }); });
 const anyQ = id => QBYID[id] || PQ[id] || (window.GEN && id.startsWith("g_") ? GEN.fromId(id) : null);
 /* ---------- question bank: thousands of extra questions load from bank/ after start ---------- */
+// Full-length and mini exam content (ids FL01_..., Mini01_...) is kept apart from the Qbank so it only appears in the Exams tab.
+const EXAM = { questions: [], passages: [] }, isExamId = id => /^(FL|Mini)\d+_/.test(id);
 function addBank(b) {
-  (b.questions || []).forEach(q => { if (QBYID[q.id] || !CAT[q.c]) return; q.note = q.note || ""; QUESTIONS.push(q); QBYID[q.id] = q; });
-  (b.passages || []).forEach(p => { if (PASSAGES.some(x => x.id === p.id)) return; p.s = p.s || "CARS"; p.qs.forEach((q, i) => { q.id = p.id + "_" + i; q.s = p.s; q.pid = p.id; PQ[q.id] = q; }); PASSAGES.push(p); });
+  (b.questions || []).forEach(q => { if (QBYID[q.id] || !CAT[q.c]) return; q.note = q.note || ""; (isExamId(q.id) ? EXAM.questions : QUESTIONS).push(q); QBYID[q.id] = q; });
+  (b.passages || []).forEach(p => { if (PASSAGES.some(x => x.id === p.id) || EXAM.passages.some(x => x.id === p.id)) return; p.s = p.s || "CARS"; p.qs.forEach((q, i) => { q.id = p.id + "_" + i; q.s = p.s; q.pid = p.id; PQ[q.id] = q; }); (isExamId(p.id) ? EXAM.passages : PASSAGES).push(p); });
 }
 // Saved answers for questions that are no longer in the bank would otherwise count against the free limit.
 function pruneStats() {
@@ -1418,6 +1420,7 @@ try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(fresh(),
 if (S.pro && S.proBy !== "account" && !S.admin) { S.pro = false; delete S.proBy; } // plans come only from a signed-in account
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} window.acctSync && acctSync(); }
 const hasKey = () => !!(S.admin || (window.acctHasKey && acctHasKey()));
+const adminNoKey = () => !!S.admin && !(window.acctHasKey && acctHasKey());
 if (S.admin) CONFIG.freeQuestions = 99999;
 const sheetOpen = x => x.free || hasKey();
 function rollDay() {
@@ -2351,7 +2354,7 @@ function openSheet(id, ret) {
       place(); requestAnimationFrame(place); setTimeout(place, 250);
       if (link) { link.classList.add("flash"); setTimeout(() => link.classList.remove("flash"), 2100); }
     }
-  }).catch(() => { $(".sv-doc", v).innerHTML = `<p>This sheet couldn't load. Check your connection and try again.</p>`; });
+  }).catch(() => { $(".sv-doc", v).innerHTML = adminNoKey() ? `<p>Admin is on, but this sheet is encrypted and the content key is missing. Add <code>content_key</code> to play/admin-private.json.</p>` : `<p>This sheet couldn't load. Check your connection and try again.</p>`; });
 }
 function closeSheet() { const v = $("#sheetView"); v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; }
 $("#sheetView").addEventListener("click", async e => {
@@ -2390,6 +2393,7 @@ function mnLinkHTML(q) {
 }
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-mnlink]"), m = b && MN && MN.find(x => String(x.id) === b.dataset.mnlink); if (!m) return;
+  if (m.locked && adminNoKey()) return lockedSheet("Content key missing", "Admin is on, but mnemonics are encrypted. Add content_key to play/admin-private.json.");
   if (m.locked) return lockedSheet(`${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 9,092 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
   mnView = { s: "mn", id: m.id }; go("course");
 });
@@ -2479,6 +2483,7 @@ $("#view-course").addEventListener("click", e => {
   const c = t.closest("[data-mncat]"); if (c) { mnView = { s: "cat", cat: c.dataset.mncat }; renderCourse(); v0(); return; }
   const it = t.closest("[data-mn]"); if (it) {
     const m = MN.find(x => String(x.id) === it.dataset.mn); if (!m) return;
+    if (m.locked && adminNoKey()) return lockedSheet("Content key missing", "Admin is on, but mnemonics are encrypted. Add content_key to play/admin-private.json.");
     if (m.locked) return lockedSheet(`${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 9,092 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
     mnView = { s: "mn", id: m.id, from: mnView.s !== "home" ? mnView : null }; renderCourse(); v0(); return;
   }
@@ -2673,17 +2678,24 @@ renderAll();
 // Reopening: Course or Map reopen where you were; otherwise Me after Done for the Day, else Scroll at your last question.
 const startTab = ["course", "map"].includes(S.lastTab) ? S.lastTab : S.today.doneDay ? "me" : "scroll"; if (startTab !== "scroll") go(startTab);
 bankReady.finally(() => welcomeBack());
-/* Owner-only unlock: ?admin=<pass> is checked (as a SHA-256) against play/admin-private.json, which is git-ignored and never deployed. Without that file this does nothing. ?admin=off turns it off. */
+/* Owner-only unlock: ?admin=<pass> is checked (as a SHA-256) against play/admin-private.json, which is git-ignored and never deployed. Without that file this does nothing. ?admin=off turns it off.
+   Sealed sheets and mnemonics are AES-encrypted; a paid account fetches the key from the server. For the owner the same base64 key can go in admin-private.json as "content_key". */
 (async () => {
-  const q = new URLSearchParams(location.search).get("admin"); if (q === null) return;
-  try { history.replaceState(null, "", location.pathname + location.hash); } catch (e) {}
+  const q = new URLSearchParams(location.search).get("admin");
+  if (q === null && !S.admin) return;
+  if (q !== null) { try { history.replaceState(null, "", location.pathname + location.hash); } catch (e) {} }
   const sha = async t => [...new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t)))].map(b => b.toString(16).padStart(2, "0")).join("");
   try {
-    if (q === "off") { S.admin = false; if (S.proBy === "admin") { S.pro = false; delete S.proBy; } CONFIG.freeQuestions = 100; save(); return renderAll(); }
+    if (q === "off") { S.admin = false; if (S.proBy === "admin") { S.pro = false; delete S.proBy; } CONFIG.freeQuestions = 100; try { localStorage.removeItem("quest520.ck"); } catch (e) {} save(); return renderAll(); }
     const r = await fetch("admin-private.json", { cache: "no-store" }); if (!r.ok) return;
-    const j = await r.json(), want = j.sha256 || (j.admin_code ? await sha(String(j.admin_code)) : "");
-    if (!want || await sha(q) !== want) return;
-    S.admin = true; S.pro = true; S.proBy = "admin"; CONFIG.freeQuestions = 99999; save(); renderAll(); toast("Admin unlocked.");
+    const j = await r.json();
+    if (q !== null) {
+      const want = j.sha256 || (j.admin_code ? await sha(String(j.admin_code)) : "");
+      if (!want || await sha(q) !== want) return;
+      S.admin = true; S.pro = true; S.proBy = "admin"; CONFIG.freeQuestions = 99999; save(); renderAll(); toast("Admin unlocked.");
+    }
+    if (S.admin && j.content_key && typeof useKey === "function") { try { localStorage.setItem("quest520.ck", String(j.content_key)); } catch (e) {} await useKey(String(j.content_key)); }
+    if (S.admin && !$("#view-course").hidden) renderCourse();
   } catch (e) {}
 })();
 

@@ -129,7 +129,7 @@ function refreshViews() {
 
 /* ---------- plans ---------- */
 const isPaid = () => !!(ACCT.profile && ACCT.profile.plan !== "free");
-const fullAccess = isPaid; // every plan unlocks all sheets and mnemonics
+const fullAccess = () => isPaid() || !!S.admin; // every plan unlocks all sheets and mnemonics; so does the owner admin flag
 function applyPlan() {
   if (isPaid() && !S.pro) { S.pro = true; S.proBy = "account"; save(); toast(`<b>${esc(PLAN_NAME[ACCT.profile.plan])}</b> is active on this device.`); }
   else if (!isPaid() && S.proBy === "account") { S.pro = false; delete S.proBy; save(); }

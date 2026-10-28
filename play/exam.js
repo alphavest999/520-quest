@@ -16,9 +16,9 @@
   function catalog() {
     if (CAT_X) return CAT_X;
     const ids = new Set();
-    PASSAGES.forEach(p => { const m = p.id.match(/^((?:FL|Mini)\d+)_/); if (m) ids.add(m[1]); });
+    EXAM.passages.forEach(p => { const m = p.id.match(/^((?:FL|Mini)\d+)_/); if (m) ids.add(m[1]); });
     const list = [...ids].sort((a, b) => (a[0] === b[0] ? num(a) - num(b) : a[0] === "F" ? -1 : 1)).map(id => {
-      const secs = [...new Set(PASSAGES.filter(p => p.id.startsWith(id + "_")).map(p => p.s))];
+      const secs = [...new Set(EXAM.passages.filter(p => p.id.startsWith(id + "_")).map(p => p.s))];
       const order = id.startsWith("FL") ? FL_ORDER.filter(s => secs.includes(s)) : secs;
       const sections = order.map(s => { const it = items(id, s); return { s, n: it.length, min: SEC[s].min }; });
       return { id, full: id.startsWith("FL"), sections, n: sections.reduce((a, s) => a + s.n, 0) };
@@ -28,8 +28,8 @@
   const ITEMS = {};
   function items(exam, sec) {
     const k = exam + "|" + sec; if (ITEMS[k]) return ITEMS[k];
-    const ps = PASSAGES.filter(p => p.id.startsWith(exam + "_" + sec + "_P")).sort((a, b) => num(a.id) - num(b.id));
-    const ds = QUESTIONS.filter(q => q.id.startsWith(exam + "_" + sec + "_D")).sort((a, b) => num(a.id) - num(b.id));
+    const ps = EXAM.passages.filter(p => p.id.startsWith(exam + "_" + sec + "_P")).sort((a, b) => num(a.id) - num(b.id));
+    const ds = EXAM.questions.filter(q => q.id.startsWith(exam + "_" + sec + "_D")).sort((a, b) => num(a.id) - num(b.id));
     const out = []; let used = 0;
     ps.forEach((p, i) => {
       p.qs.forEach(q => out.push({ q, p }));
