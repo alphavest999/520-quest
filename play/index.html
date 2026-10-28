@@ -1333,10 +1333,11 @@ const TRAPS = [
 /* ================= OWNER SETTINGS: edit these lines to start selling ================= */
 const CONFIG = {
   // Plans: paste each plan's Lemon Squeezy checkout link once the store is live. Empty links show "Opening soon".
+  // testUrl is the Lemon Squeezy TEST-mode link for the same plan. It is used only on localhost, or on any host after opening ?paytest=1 once (?paytest=0 turns it off), so real visitors never see it.
   plans: [
-    { id: "monthly", name: "Monthly", price: "$14.99", per: "/ month", url: "" },
-    { id: "sixmonth", name: "6 Months", price: "$44.99", per: "/ 6 months", url: "" },
-    { id: "yearly", name: "Yearly", price: "$79.99", per: "/ year", url: "", best: true }
+    { id: "monthly", name: "Monthly", price: "$14.99", per: "/ month", url: "", testUrl: "" },
+    { id: "sixmonth", name: "6 Months", price: "$44.99", per: "/ 6 months", url: "", testUrl: "" },
+    { id: "yearly", name: "Yearly", price: "$79.99", per: "/ year", url: "", testUrl: "", best: true }
   ],
   fromPrice: "$14.99/month",
   freeQuestions: 100,      // free players can open this many different questions in total
@@ -2201,21 +2202,32 @@ function copy(txt, done, area) {
   const fallback = () => { if (area) { area.focus(); area.select(); toast("Select-all done. Press copy on your keyboard."); } else toast(esc(txt)); };
   try { navigator.clipboard.writeText(txt).then(done, fallback); } catch (e) { fallback(); }
 }
-const planUrl = u => u + (u.includes("?") ? "&" : "?") + "embed=1&dark=1&media=0&desc=0&button_color=%23fb7185";
+try { const t = new URLSearchParams(location.search).get("paytest"); if (t !== null) localStorage.setItem("quest520.paytest", t === "0" ? "" : "1"); } catch (e) {}
+const PAY_TEST = ["localhost", "127.0.0.1"].includes(location.hostname) || (() => { try { return !!localStorage.getItem("quest520.paytest"); } catch (e) { return false; } })();
+const planLink = p => (PAY_TEST && p.testUrl) || (PAY_TEST ? "" : p.url);
+const anyPlanLink = () => CONFIG.plans.some(p => planLink(p));
+// The signed-in user's id and email ride along so the webhook can attach the plan to the right account.
+const planUrl = u => u + (u.includes("?") ? "&" : "?") + "embed=1&dark=1&media=0&desc=0&button_color=%23fb7185" +
+  (typeof ACCT !== "undefined" && ACCT.user ? "&checkout[email]=" + encodeURIComponent(ACCT.user.email || "") + "&checkout[custom][user_id]=" + encodeURIComponent(ACCT.user.id) : "");
 function showPro() {
   if (S.pro) { toast("<b>Your plan is active.</b> Everything is unlocked."); return; }
-  const open = CONFIG.plans.some(p => p.url);
+  const open = anyPlanLink();
   sheet(`<div class="eyebrow">520 Quest plans</div><h2>Unlock everything</h2>
     <p class="muted" style="margin:0">Every plan includes all 9,092 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles and duels, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
-    <div class="stack" style="gap:8px">${CONFIG.plans.map(p => `<div class="panel row" style="justify-content:space-between;flex-wrap:nowrap;gap:10px${p.best ? ";border-color:var(--volt)" : ""}"><div><b>${esc(p.name)}</b>${p.best ? ' <span class="tag sec">Best value</span>' : ""}<div class="small muted">${esc(p.price)} ${esc(p.per)}</div></div>${p.url ? `<a class="btn pro small lemonsqueezy-button" href="${esc(planUrl(p.url))}" target="_blank" rel="noopener">Choose</a>` : `<button class="btn small" disabled>Opening soon</button>`}</div>`).join("")}</div>
-    <p class="small muted" style="margin:0">${open ? "Plans renew automatically and can be cancelled anytime. After you subscribe, sign in with the same email in the Me tab." : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions, 5 Mastery Sheets and 1 mnemonic."}</p>
+    <div class="stack" style="gap:8px">${CONFIG.plans.map(p => `<div class="panel row" style="justify-content:space-between;flex-wrap:nowrap;gap:10px${p.best ? ";border-color:var(--volt)" : ""}"><div><b>${esc(p.name)}</b>${p.best ? ' <span class="tag sec">Best value</span>' : ""}<div class="small muted">${esc(p.price)} ${esc(p.per)}</div></div>${planLink(p) ? `<a class="btn pro small lemonsqueezy-button" href="${esc(planUrl(planLink(p)))}" target="_blank" rel="noopener">Choose</a>` : `<button class="btn small" disabled>Opening soon</button>`}</div>`).join("")}</div>
+    <p class="small muted" style="margin:0">${open ? "Plans renew automatically and can be cancelled anytime. After you subscribe, sign in with the same email in the Me tab." + (PAY_TEST && CONFIG.plans.some(p => p.testUrl) ? " <b>Test mode:</b> pay with card 4242 4242 4242 4242, any future date and any CVC. Nothing is charged." : "") : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions, 5 Mastery Sheets and 1 mnemonic."}</p>
     <div class="row"><button class="btn ghost" data-close>Not now</button></div>`);
   window.createLemonSqueezy && window.createLemonSqueezy();
 }
 
 // Lemon Squeezy pop-up checkout (stays inside the app). Offline, the link opens checkout normally.
-if (CONFIG.plans.some(p => p.url) && !S.pro && navigator.onLine) {
-  const ls = document.createElement("script"); ls.src = "https://assets.lemonsqueezy.com/lemon.js"; ls.defer = true; document.head.appendChild(ls);
+if (anyPlanLink() && !S.pro && navigator.onLine) {
+  const ls = document.createElement("script"); ls.src = "https://assets.lemonsqueezy.com/lemon.js"; ls.defer = true;
+  ls.onload = () => {
+    window.createLemonSqueezy && createLemonSqueezy();
+    window.LemonSqueezy && LemonSqueezy.Setup({ eventHandler: ev => { if (ev && ev.event === "Checkout.Success" && window.acctWatchPlan) acctWatchPlan(); } });
+  };
+  document.head.appendChild(ls);
 }
 
 /* ---------- boss battles ---------- */

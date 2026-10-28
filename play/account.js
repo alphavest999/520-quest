@@ -156,6 +156,20 @@ function unsealMnemonics() {
   }).catch(() => {});
 }
 window.acctHasKey = () => !!ACCT.key;
+// After a checkout succeeds, the webhook sets the plan a moment later: check the profile every 3 s for up to 90 s.
+let planWatch = null;
+window.acctWatchPlan = () => {
+  if (ACCT.state !== "in") { toast("<b>Payment received.</b> Sign in with the same email in the Me tab to unlock your plan."); return; }
+  clearInterval(planWatch); let n = 0;
+  toast("<b>Payment received.</b> Activating your plan…", 6000);
+  planWatch = setInterval(async () => {
+    try {
+      const sb = await sbLoad(), p = await sb.from("profiles").select("*").eq("id", ACCT.user.id).single();
+      if (!p.error && p.data && p.data.plan !== "free") { clearInterval(planWatch); ACCT.profile = p.data; applyPlan(); await loadKey(); refreshViews(); return; }
+    } catch (e) {}
+    if (++n >= 30) { clearInterval(planWatch); toast("Your plan is taking longer than usual. Reopen the app in a minute, or contact support."); }
+  }, 3000);
+};
 window.openSealed = id => fetch("sheets/" + encodeURIComponent(id) + ".enc.json").then(r => { if (!r.ok) throw 0; return r.json(); }).then(unseal);
 
 /* ---------- progress sync ---------- */
