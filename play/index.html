@@ -144,6 +144,7 @@ button { cursor: pointer; }
 .btn:disabled { opacity: .45; cursor: default; }
 .explain .fm { border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #f8fafc; color: #0f172a; } .explain .fm p { margin: 4px 0; } .explain .mem { margin: 4px 0 8px; padding-left: 20px; } .explain .eli { background: #fdf2f8; border-radius: 10px; padding: 8px 12px; }
 .backq { background: #f472b6; color: #fff; border: 0; padding: 8px 16px; border-radius: 8px; font: 700 14px/1.2 var(--body); cursor: pointer; margin-right: 10px; } .backq.bottom { position: fixed; left: 12px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 60; box-shadow: 0 4px 14px rgba(244,114,182,.5); }
+.nowbadge { background: #fdf2f8; color: #be185d; border: 1px solid #f472b6; border-radius: 99px; padding: 1px 8px; margin-left: 6px; font: 700 11px/1.4 var(--body); white-space: nowrap; }
 .verdict { font: 700 18px/1.2 var(--display); letter-spacing: .03em; }
 .verdict.ok { color: var(--good); }
 .verdict.no { color: var(--bad); }
@@ -1427,6 +1428,23 @@ function pruneStats() {
   if (n) save();
 }
 let bankLoaded = false;
+// Sub-topic tags and retired-question redirects live in bank/subtopics.json and bank/redirect.json.
+const SUBT = {}; let REDIR = {};
+fetch("bank/subtopics.json").then(r => r.json()).then(d => { Object.keys(d).filter(k => k[0] !== "_").forEach(k => SUBT[k] = d[k].map(x => Object.assign({}, x, { rx: new RegExp(x.re, "i") }))); if (!$("#view-map").hidden) renderMap(); }).catch(() => {});
+fetch("bank/redirect.json").then(r => r.json()).then(d => { REDIR = d; }).catch(() => {});
+function stOf(x) {
+  if (x._st !== undefined) return x._st;
+  const rules = SUBT[x.c]; if (!rules) return undefined;   // rules not loaded yet or none for this category: do not cache
+  const t = x.qs ? x.title + " " + x.text.join(" ").slice(0, 700) + " " + x.qs.map(q => q.q).join(" ") : x.q + " " + x.o.map(o => o[0]).join(" ");
+  const hit = rules.find(r => r.rx.test(t)); return (x._st = hit ? hit.id : null);
+}
+function subCounts(code) {
+  const rules = SUBT[code] || [], out = rules.map(r => ({ id: r.id, label: r.label, n: 0 }));
+  const add = x => { const id = stOf(x), o = out.find(y => y.id === id); if (o) o.n++; };
+  QUESTIONS.forEach(q => { if (q.c === code) add(q); });
+  PASSAGES.forEach(p => { if (p.s === "CARS") p.qs.forEach(q => { if (q.c === code) add(q); }); else if (p.c === code) p.qs.forEach(q => add(Object.assign({ c: code }, q))); });
+  return out.filter(o => o.n);
+}
 const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.json())
   .then(ix => Promise.all(ix.files.map(f => fetch("bank/" + f).then(r => r.json()).then(addBank).catch(() => {}))))
   .then(() => {
@@ -1718,7 +1736,7 @@ function kindCount(k) {
 function renderFilters() {
   $("#filters").innerHTML = FILTERS.map(([k, n]) => `<button class="chipbtn" data-f="${k}" aria-pressed="${S.filter === k && !S.focus}">${n}</button>`).join("") +
     `<button class="chipbtn" data-k="passage" aria-pressed="${S.kind === "passage"}" title="Passage-based questions">Passages${kindCount("passage")}</button><button class="chipbtn" data-k="discrete" aria-pressed="${S.kind === "discrete"}" title="Stand-alone questions">Discrete${kindCount("discrete")}</button>` +
-    (S.focus ? `<button class="chipbtn focus" data-f="clear" aria-pressed="false">Drilling ${esc(S.focus)} ✕</button>` : "") +
+    (S.focus ? `<button class="chipbtn focus" data-f="clear" aria-pressed="false">Drilling ${esc(S.focus)}${S.sub ? " · " + esc(((SUBT[S.focus] || []).find(x => x.id === S.sub) || {}).label || S.sub) : ""} ✕</button>` : "") +
     (S.review ? `<button class="chipbtn focus" data-f="endreview" aria-pressed="false">Reviewing today's mistakes ✕</button>` : "");
 }
 $("#filters").addEventListener("click", e => {
@@ -1726,7 +1744,7 @@ $("#filters").addEventListener("click", e => {
   if (k) { S.kind = S.kind === k.dataset.k ? null : k.dataset.k; S.review = null; save(); resetFeed(); return; }
   const b = e.target.closest("[data-f]"); if (!b) return;
   if (b.dataset.f === "endreview") S.review = null;
-  else if (b.dataset.f === "clear") S.focus = null; else { S.filter = b.dataset.f; S.focus = null; S.review = null; }
+  else if (b.dataset.f === "clear") { S.focus = null; S.sub = null; } else { S.filter = b.dataset.f; S.focus = null; S.sub = null; S.review = null; }
   save(); resetFeed();
 });
 function mastery(code) { const c = S.cat[code] || { a: 0, c: 0 }; return (c.c + 1) / (c.a + 2); }
@@ -1738,12 +1756,12 @@ function weakAreas(sec = "ALL", k = 3) {
 }
 function pickQuestion() {
   const sec = S.focus ? CAT[S.focus].s : S.filter;
-  let pool = QUESTIONS.filter(q => (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus));
+  let pool = QUESTIONS.filter(q => (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus) && (!S.sub || stOf(q) === S.sub));
   const now = Date.now();
   const due = pool.filter(q => S.revenge[q.id] && S.revenge[q.id].due <= now && !sessionSeen.has(q.id));
   if (due.length) return [due[0], true];
   // Generated questions: missed ones come back like any other, and fresh ones mix in at random.
-  if (window.GEN && sec !== "CARS") {
+  if (window.GEN && sec !== "CARS" && !S.sub) {
     const g = Object.keys(S.revenge).filter(id => id.startsWith("g_") && S.revenge[id].due <= now && !sessionSeen.has(id)).map(GEN.fromId)
       .find(q => q && (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus));
     if (g) return [g, true];
@@ -1780,7 +1798,7 @@ function freeReview() {
 let resumeOnce = true, reviewEnded = false, resumeLate = null;
 function resumeQ() {
   const q = S.resume && anyQ(S.resume), sec = S.focus ? CAT[S.focus].s : S.filter;
-  return q && q.s !== "CARS" && !q.pid && (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus) ? q : null;
+  return q && q.s !== "CARS" && !q.pid && (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus) && (!S.sub || stOf(q) === S.sub) ? q : null;
 }
 function nextCard() {
   if (S.review) {
@@ -1801,7 +1819,8 @@ function nextCard() {
   const fits = p => S.pro || seenCount() + p.qs.filter(q => !S.stats[q.id]).length <= CONFIG.freeQuestions;
   // Drilling a CARS skill (CF/CW/CB): only passages that have that question type, showing just those questions.
   let cars = PASSAGES.filter(p => p.s === "CARS");
-  if (S.focus && sec === "CARS") cars = cars.filter(p => p.qs.some(q => q.c === S.focus)).map(p => Object.assign({}, p, { qs: p.qs.filter(q => q.c === S.focus) }));
+  const carsFit = q => q.c === S.focus && (!S.sub || stOf(q) === S.sub);
+  if (S.focus && sec === "CARS") cars = cars.filter(p => p.qs.some(carsFit)).map(p => Object.assign({}, p, { qs: p.qs.filter(carsFit) }));
   if (!cars.length) return null;
   const nextP = cars[passI % cars.length], pFits = fits(nextP);
   if (sec === "CARS") { if (!pFits) { if (gateShown) return null; gateShown = true; return gateCard(); } passI++; return passageCard(nextP); }
@@ -1822,7 +1841,7 @@ function nextCard() {
 }
 // Science passages: an unanswered one from the current section or sheet, shown once per session.
 function nextSciPassage(sec) {
-  const ok = p => p.s !== "CARS" && !sessionSeen.has(p.id) && (S.focus ? p.c === S.focus : sec === "ALL" || p.s === sec);
+  const ok = p => p.s !== "CARS" && !sessionSeen.has(p.id) && (S.focus ? p.c === S.focus : sec === "ALL" || p.s === sec) && (!S.sub || stOf(p) === S.sub);
   const list = PASSAGES.filter(ok), p = list.find(p => !p.qs.some(q => S.stats[q.id])) || list[0];
   if (p) sessionSeen.add(p.id);
   return p;
@@ -2334,7 +2353,7 @@ function bossTurn() {
   const q = shuf(B.qs[B.i]); B.t = 95; B.start = Date.now();
   v.innerHTML = `<div class="arena"><div class="row" style="justify-content:space-between"><button class="btn small ghost" data-lobby>Retreat</button><span class="timer" id="bt">1:35</span></div>
     <div class="hpline"><span class="face" style="font:700 22px/1 var(--display);color:${B.boss.col}">${B.boss.face}</span><div class="hp"><i style="width:${B.hp / 70 * 100}%"></i></div><span class="small muted">${esc(B.boss.name)}</span></div>
-    <div class="row" style="justify-content:space-between"><div class="hearts">${[0, 1, 2, 3].map(i => `<i class="${i < B.hearts ? "" : "lost"}"></i>`).join("")}</div><span class="small muted">Question ${B.i + 1} of 10</span></div>
+    <div class="row" style="justify-content:space-between"><div class="hearts" title="4 wrong answers allowed" aria-label="${B.hearts} of 4 wrong answers left">${[0, 1, 2, 3].map(i => `<i class="${i < B.hearts ? "" : "lost"}"></i>`).join("")}<span class="small muted" style="margin-left:6px">wrong answers left</span></div><span class="small muted">Question ${B.i + 1} of 10</span></div>
     <article class="card" id="bcard" style="min-height:0"><div class="card-top"><span class="tag sec">${SECTIONS[q.s].name}</span><span class="tag">${q.c}</span>${diffDots(q.d)}</div><h2 class="stem">${q.q}</h2><div class="opts">${optsHTML(q)}</div><div class="reveal stack" hidden></div></article></div>`;
   const card = $("#bcard"); card._shown = Date.now();
   const box = $(".opts", card);
@@ -2376,17 +2395,22 @@ function bossEnd() {
 /* ---------- map ---------- */
 function renderMap() {
   const groups = ["CP", "CARS", "BB", "PS"];
-  $("#view-map").innerHTML = `<h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll (CARS skills open passages filtered to that question type).</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
+  const open = S.mapSub && CAT[S.mapSub] ? S.mapSub : null, osub = open ? subCounts(open) : [];
+  const subPanel = open ? `<div class="panel" style="margin-bottom:14px;border-color:#f472b6"><div class="row" style="justify-content:space-between"><h3 style="margin:0">${esc(open)} · ${esc(CAT[open].title)}</h3><button class="btn small ghost" data-subclose>Close</button></div><p class="small muted">Pick a concept to drill, or practice the whole category.</p><div class="row"><button class="chipbtn" data-drill="${esc(open)}">All ${esc(open)}</button>${osub.map(o => `<button class="chipbtn" data-drill="${esc(open)}" data-sub="${esc(o.id)}">${esc(o.label)} · ${o.n}</button>`).join("")}</div></div>` : "";
+  $("#view-map").innerHTML = subPanel + `<h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll (CARS skills open passages filtered to that question type).</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
   <div class="stack">${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
     const c = S.cat[code] || { a: 0, c: 0 }, m = c.a ? c.c / c.a : 0, col = !c.a ? "var(--line)" : m >= .8 ? "var(--good)" : m >= .6 ? "var(--volt)" : "var(--bad)";
     const drill = s === "CARS" ? PASSAGES.some(p => p.s === "CARS" && p.qs.some(q => q.c === code)) : QUESTIONS.some(q => q.c === code);
-    return `<button class="cat" ${drill ? `data-drill="${code}"` : "disabled"}><code>${code}</code><span class="t">${esc(title)}${hy ? ' <span style="color:var(--volt)">★</span>' : ""}<small>${c.a ? Math.round(m * 100) + "% of " + c.a : "Not tried yet"}</small></span><span class="meter"><i style="width:${c.a ? Math.max(6, m * 100) : 0}%;background:${col}"></i></span></button>`;
+    const subs = drill && SUBT[code] ? subCounts(code) : [];
+    return `<button class="cat" ${drill ? (subs.length > 1 ? `data-subopen="${code}"` : `data-drill="${code}"`) : "disabled"}><code>${code}</code><span class="t">${esc(title)}${hy ? ' <span style="color:var(--volt)">★</span>' : ""}<small>${c.a ? Math.round(m * 100) + "% of " + c.a : "Not tried yet"}</small></span><span class="meter"><i style="width:${c.a ? Math.max(6, m * 100) : 0}%;background:${col}"></i></span></button>`;
   }).join("")}</div></div>`).join("")}</div>`;
 }
 $("#view-map").addEventListener("click", e => {
   if (e.target.closest("[data-gocourse]")) return go("course");
+  if (e.target.closest("[data-subclose]")) { S.mapSub = null; return renderMap(); }
+  const so = e.target.closest("[data-subopen]"); if (so) { S.mapSub = so.dataset.subopen; renderMap(); $("#view-map").scrollTop = 0; return; }
   const b = e.target.closest("[data-drill]"); if (!b) return;
-  S.focus = b.dataset.drill; save(); go("scroll"); resetFeed(); toast(`Drilling <b>${S.focus}</b>. Clear the chip to go back to the mix.`);
+  S.focus = b.dataset.drill; S.sub = b.dataset.sub || null; S.mapSub = null; save(); go("scroll"); resetFeed(); toast(`Drilling <b>${S.focus}</b>${S.sub ? " · " + esc(((SUBT[S.focus] || []).find(x => x.id === S.sub) || {}).label || S.sub) : ""}. Clear the chip to go back to the mix.`);
 });
 
 /* ---------- Mastery Sheets: view-only, watermarked. Free preview sheets ship with the site; the rest wait for paid plans. ---------- */
@@ -2421,6 +2445,9 @@ function openSheet(id, ret) {
     if (v.hidden) return;
     const doc = $(".sv-doc", v); doc.innerHTML = d.html + `<div class="sv-wm" style="background-image:${wmImage(mark)}"></div>`;
     $$("[data-wm]", doc).forEach(x => x.textContent = mark);
+    // Some sheets (sealed ones included) still say "5,180 Qbank": add a note instead of editing sealed content.
+    const tw = document.createTreeWalker(doc, NodeFilter.SHOW_TEXT), hits = []; while (tw.nextNode()) if (/5,180/.test(tw.currentNode.nodeValue)) hits.push(tw.currentNode);
+    hits.forEach(n => { const i = n.nodeValue.indexOf("5,180") + 5, rest = n.splitText(i), b = document.createElement("span"); b.className = "nowbadge"; b.textContent = "Now 5,904 Qbank"; rest.parentNode.insertBefore(b, rest); });
     if (ret) {
       // Put the tapped link back where it was on screen (re-applied once layout settles).
       const body = $(".sv-body", v), links = $$(`.qref[data-q="${CSS.escape(ret.q)}"]`, doc);
@@ -2450,12 +2477,14 @@ $("#sheetView").addEventListener("click", async e => {
   if (!PASSAGES.some(p => p.id === q.dataset.q) && !anyQ(q.dataset.q)) await bankReady.catch(() => {}); // extra questions and passages may still be loading
   const sb = $(".sv-body"), top = sb ? sb.scrollTop : 0, same = $$(`.sv-doc .qref[data-q="${CSS.escape(q.dataset.q)}"]`);
   const ret = { id: $("#sheetView").dataset.id, top, q: q.dataset.q, n: same.indexOf(q), dy: q.offsetTop - top };
-  const psg = PASSAGES.find(p => p.id === q.dataset.q);
+  // A question retired from the bank: follow bank/redirect.json to the closest surviving question or passage in the same category.
+  const want = q.dataset.q, tid = !PASSAGES.some(p => p.id === want) && !anyQ(want) && REDIR[want] ? REDIR[want] : want;
+  const psg = PASSAGES.find(p => p.id === tid);
   if (psg) {
     if (!(S.pro || psg.qs.some(x => S.stats[x.id]) || !overFree())) { closeSheet(); return showPro(); }
     closeSheet(); go("scroll"); const c = passageCard(psg); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill(); return;
   }
-  const item = anyQ(q.dataset.q) || fallbackQ(q.dataset.q);
+  const item = anyQ(tid) || fallbackQ(want);
   if (!item) { const cat = catOfId(q.dataset.q), fp = PASSAGES.find(p => p.c === cat && p.s !== "CARS"); if (fp) { closeSheet(); go("scroll"); const c = passageCard(fp); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill(); return; } return toast("That question is still loading. Try again in a moment."); }
   if (!canOpen(item)) { closeSheet(); return showPro(); }
   closeSheet(); go("scroll"); sessionSeen.add(item.id);

@@ -1,0 +1,90 @@
+{
+ "_note": "First matching rule wins. Each rule: id, label, re (case-insensitive regex tested on the question text, its answer choices and, for passages, the passage text). Edit this file to add or retune sub-topics; no code change needed.",
+ "1A": [
+  {"id":"lineweaver-burk","label":"Lineweaver–Burk plots","re":"lineweaver|double.reciprocal|1/v|x-intercept|y-intercept"},
+  {"id":"enzyme-inhibition","label":"Enzyme inhibition","re":"competitive|noncompetitive|uncompetitive|inhibitor|\\bki\\b"},
+  {"id":"michaelis-menten","label":"Michaelis–Menten (Km, Vmax)","re":"michaelis|\\bkm\\b|vmax|kcat|saturat|initial rate"},
+  {"id":"histidine-henderson","label":"Histidine, pKa, Henderson–Hasselbalch","re":"histidine|imidazole|henderson|\\bpka\\b|isoelectric|\\bpi\\b|net charge|protonat|titration"},
+  {"id":"amino-acid-classes","label":"Amino acid classes (GAV LIMP FW, STC NQY, DE, HKR)","re":"amino acid|nonpolar|hydrophob|polar uncharged|acidic side|basic side|glycine|proline|cysteine|serine|tyrosine|lysine|arginine|aspartate|glutamate|leucine|tryptophan|phenylalanine"},
+  {"id":"hemoglobin-oxygen","label":"Hemoglobin and oxygen binding","re":"hemoglobin|myoglobin|\\bp50\\b|cooperativ|bohr|2,3-bpg|oxygen dissociation"},
+  {"id":"protein-separation","label":"SDS-PAGE, gel filtration, blotting","re":"sds|page\\b|gel filtration|size.exclusion|western|electrophoresis|chromatograph|centrifug"},
+  {"id":"protein-structure","label":"Protein structure and folding","re":"alpha.helix|α-helix|beta.sheet|β-sheet|tertiary|quaternary|folding|denatur|chaperone|disulfide|domain|secondary structure"},
+  {"id":"enzyme-regulation","label":"Enzyme regulation","re":"allosteric|phosphorylation|zymogen|feedback|covalent modification|regulat"}
+ ],
+ "1B": [
+  {"id":"transcription","label":"Transcription and gene regulation","re":"transcription|promoter|operon|enhancer|repressor|rna polymerase|gene expression"},
+  {"id":"translation","label":"Translation and the genetic code","re":"translation|ribosome|trna|codon|genetic code|mrna"},
+  {"id":"dna-replication-repair","label":"DNA replication and repair","re":"replication|polymerase|helicase|okazaki|repair|mutation|primase"}
+ ],
+ "1C": [
+  {"id":"hardy-weinberg","label":"Hardy–Weinberg and allele frequencies","re":"hardy|weinberg|allele frequen|carrier frequen|p\\u00b2|equilibrium"},
+  {"id":"inheritance-patterns","label":"Inheritance patterns","re":"mendel|punnett|linkage|pedigree|dominant|recessive|x-linked|blood type|\\babo\\b|codomina"},
+  {"id":"meiosis-genetics","label":"Meiosis and chromosomes","re":"meiosis|crossing over|nondisjunction|chromosom|aneuploid"}
+ ],
+ "1D": [
+  {"id":"glycolysis-krebs","label":"Glycolysis, Krebs cycle, oxidative phosphorylation","re":"glycoly|krebs|tca|citric|oxidative phosph|electron transport|fermentation|pyruvate|nadh|atp synthase"},
+  {"id":"photosynthesis","label":"Photosynthesis","re":"photosynth|chloroplast|calvin|light intensity|rubisco|oxygen evolution"},
+  {"id":"metabolic-control","label":"Metabolic regulation","re":"gluconeogen|glycogen|insulin|glucagon|pfk|rate.limiting|lipid|fatty acid"}
+ ],
+ "3A": [
+  {"id":"membrane-potential","label":"Resting potential and Nernst","re":"nernst|equilibrium potential|resting|goldman|membrane potential|hyperkal|e_k|e_na|e_cl"},
+  {"id":"action-potential","label":"Action potentials","re":"action potential|threshold|refractory|voltage.gated|depolariz|myelin|saltatory"},
+  {"id":"synapse","label":"Synapses and neurotransmitters","re":"synap|neurotransmitter|acetylcholine|gaba|glutamate receptor|dopamine|serotonin"},
+  {"id":"endocrine","label":"Endocrine system","re":"hormone|endocrine|pituitary|insulin|cortisol|thyroid|adrenal|feedback"}
+ ],
+ "4A": [
+  {"id":"kinematics","label":"Kinematics","re":"velocity|acceleration|projectile|dropped|free fall|displacement|constant acceleration|speed"},
+  {"id":"gravity","label":"Gravity and orbits","re":"gravit|orbit|surface value|escape"},
+  {"id":"newton-forces","label":"Newton's laws and forces","re":"newton|friction|normal force|tension|pulley|incline|third.law|net force"},
+  {"id":"work-energy","label":"Work, energy and momentum","re":"\\bwork\\b|energy|power|kinetic|potential|momentum|collision|impulse"},
+  {"id":"torque-equilibrium","label":"Torque and equilibrium","re":"torque|lever|equilibrium|center of mass|centripetal|circular"}
+ ],
+ "4B": [
+  {"id":"bernoulli-continuity","label":"Bernoulli and continuity","re":"bernoulli|continuity|narrow|constriction|stenosis|venturi"},
+  {"id":"poiseuille-viscosity","label":"Poiseuille flow and viscosity","re":"poiseuille|viscos|hematocrit|resistance|flow rate|radius"},
+  {"id":"pressure-buoyancy","label":"Pressure, density and buoyancy","re":"pressure|density|specific gravity|buoyan|archimedes|float|hydrostatic"},
+  {"id":"hemoglobin-gas","label":"Gas exchange and hemoglobin","re":"hemoglobin|myoglobin|co2|oxygen"}
+ ],
+ "5B": [
+  {"id":"acidity-resonance","label":"Acidity and resonance","re":"acidic|acidity|\\bpka\\b|resonance|conjugate base|inductive"},
+  {"id":"carbonyl-reactions","label":"Carbonyl reactions","re":"carbonyl|aldehyde|ketone|nucleophilic addition|grignard|ester|amide"}
+ ],
+ "5C": [
+  {"id":"separation-techniques","label":"Separation techniques","re":"sds|gel|chromatograph|electrophoresis|distillation|extraction|filtration"},
+  {"id":"spectroscopy","label":"Spectroscopy","re":"nmr|infrared|\\bir\\b|mass spec|uv|spectr"}
+ ],
+ "4E": [
+  {"id":"nuclear-decay","label":"Nuclear decay","re":"decay|alpha|beta|gamma|positron|half.life|nuclide|stability"},
+  {"id":"photons-atoms","label":"Photons and atomic energy","re":"photon|wavelength|absorb|emit|bohr|electron transition|energy level"}
+ ],
+ "3B": [
+  {"id":"study-design","label":"Study design and causality","re":"randomi|control group|placebo|blind|causal|confound|bias|trial|cohort|case.control|design"},
+  {"id":"data-reading","label":"Reading tables and graphs","re":"table|figure|graph|highest|lowest|trend|reduction|difference"},
+  {"id":"statistics","label":"Statistics and calculations","re":"mean|standard deviation|\\bsd\\b|p.value|significan|confidence|sample size|calculate|percent"}
+ ],
+ "6B": [
+  {"id":"study-design","label":"Study design and causality","re":"randomi|control group|placebo|blind|causal|confound|bias|trial|cohort|case.control|design"},
+  {"id":"data-reading","label":"Reading tables and graphs","re":"table|figure|graph|highest|lowest|trend|difference"},
+  {"id":"statistics","label":"Statistics and calculations","re":"mean|standard deviation|\\bsd\\b|p.value|significan|confidence|sample size|calculate|percent"}
+ ],
+ "SK": [
+  {"id":"study-design","label":"Study design and causality","re":"randomi|control group|placebo|blind|causal|confound|bias|trial|cohort|case.control|design|independent variable|dependent variable"},
+  {"id":"statistics","label":"Statistics and calculations","re":"mean|standard deviation|\\bsd\\b|p.value|significan|confidence|sample size|calculate|percent|correlation"},
+  {"id":"data-reading","label":"Reading tables and graphs","re":"table|figure|graph|highest|lowest|trend"}
+ ],
+ "CF": [
+  {"id":"main-idea","label":"Main idea and purpose","re":"main idea|central|primary purpose|thesis|best expresses|passage is primarily"},
+  {"id":"detail","label":"Detail and what the passage says","re":"according to the passage|passage states|passage mentions|which of the following does the author"},
+  {"id":"tone-attitude","label":"Tone and attitude","re":"attitude|tone|author's view|would most likely agree"}
+ ],
+ "CW": [
+  {"id":"function","label":"Function of a sentence or example","re":"serves mainly|serves to|function|purpose of|the author mentions|rhetorical|in order to"},
+  {"id":"inference","label":"Inference","re":"infer|implies|suggests|most likely|assum"},
+  {"id":"argument-logic","label":"Argument structure","re":"argument|reasoning|claim|evidence|conclusion|relationship between"}
+ ],
+ "CB": [
+  {"id":"application","label":"Apply to a new situation","re":"apply|analogous|most similar|new situation|would most likely|predict|parallel"},
+  {"id":"new-information","label":"New information strengthens or weakens","re":"strengthen|weaken|new evidence|if .{0,40}were found|finding|undermine|support"},
+  {"id":"extend-passage","label":"Extend the author's view","re":"author would|would the author|consistent with|extend"}
+ ]
+}
