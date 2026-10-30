@@ -2448,7 +2448,10 @@ document.addEventListener("click", e => {
   const sb = e.target.closest("[data-sheet]"); if (sb && !e.target.closest("#sheetView")) return openSheet(sb.dataset.sheet);
 });
 let MN = null, mnView = { s: "home" };
-const MN_CATS = ["Psych/Soc", "Bio/Biochem", "GenChem/OChem", "Physics"];
+const MN_CATS = ["Chem/Phys", "Bio/Biochem", "Psych/Soc", "CARS"];
+// Data categories GenChem/OChem and Physics both fold into Chem/Phys; the vault has no CARS items yet (placeholder shown).
+const MN_MAP = { "GenChem/OChem": "Chem/Phys", "Physics": "Chem/Phys" };
+const mnCat = m => MN_MAP[m.category] || m.category;
 const mnKey = c => String(c || "").replace(/\s+/g, "");
 const mnReady = CONFIG.flags.MNEMONICS_ENABLED ? fetch("mnem/index.json").then(r => r.ok ? r.json() : null).then(d => { MN = d && Array.isArray(d.items) ? d.items : []; if (!$("#view-course").hidden) renderCourse(); }).catch(() => { MN = []; }) : Promise.resolve();
 const mnVotes = id => (S.mnUp || {})[id] ? 1 : 0;
@@ -2489,16 +2492,16 @@ function mnHomeHTML() {
   const top = MN.filter(m => !m.locked).sort((a, b) => mnScore(b) - mnScore(a)).slice(0, 5);
   return `<div class="panel"><h3>Mnemonics Vault <span class="muted small">${MN.length}</span></h3>
     <input class="mn-search" type="search" placeholder="Search mnemonics, e.g. Krebs" id="mnSearch" aria-label="Search mnemonics">
-    <div class="mn-cats" style="margin-top:10px">${MN_CATS.map(c => `<button class="mn-cat" data-mncat="${esc(c)}">${esc(c)}<small>${MN.filter(m => mnKey(m.category) === mnKey(c)).length} mnemonics</small></button>`).join("")}</div>
+    <div class="mn-cats" style="margin-top:10px">${MN_CATS.map(c => `<button class="mn-cat" data-mncat="${esc(c)}">${esc(c)}<small>${MN.filter(m => mnKey(mnCat(m)) === mnKey(c)).length} mnemonics</small></button>`).join("")}</div>
     <h4 style="margin:14px 0 6px">Featured</h4><div class="mn-list">${top.map(mnItemHTML).join("")}</div></div>`;
 }
 function renderMn(v) {
   const back = `<button class="btn small pinkback" data-mnback>← BACK</button>`;
   if (mnView.s === "cat" || mnView.s === "search") {
-    const list = mnView.s === "cat" ? MN.filter(m => mnKey(m.category) === mnKey(mnView.cat)) : MN.filter(m => (m.concept + " " + (m.mnemonic_text || "") + " " + (m.funny_version || "")).toLowerCase().includes(mnView.q.toLowerCase()));
+    const list = mnView.s === "cat" ? MN.filter(m => mnKey(mnCat(m)) === mnKey(mnView.cat)) : MN.filter(m => (m.concept + " " + (m.mnemonic_text || "") + " " + (m.funny_version || "")).toLowerCase().includes(mnView.q.toLowerCase()));
     const lockedN = list.filter(m => m.locked).length;
     v.innerHTML = `${back}<h2 class="title" style="margin-top:10px">${mnView.s === "cat" ? esc(mnView.cat) : `Results for “${esc(mnView.q)}”`}</h2><p class="sub">${list.length} mnemonic${list.length === 1 ? "" : "s"}${lockedN ? ` · ${lockedN} locked` : ""}</p>
-      <div class="mn-list">${list.map(mnItemHTML).join("") || `<p class="muted">No matches.</p>`}</div>${lockedN ? `<div class="lockcta">Unlock ${MN.filter(m => m.locked).length} more mnemonics + all 9,092 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}<div class="small muted" style="font-weight:400;margin-top:4px"><button class="linkbtn" data-pro2>See plans</button></div></div>` : ""}`;
+      <div class="mn-list">${list.map(mnItemHTML).join("") || (mnView.s === "cat" ? `<p class="muted">CARS is a reading skill, so mnemonics for it are coming soon.</p>` : `<p class="muted">No matches.</p>`)}</div>${lockedN ? `<div class="lockcta">Unlock ${MN.filter(m => m.locked).length} more mnemonics + all 9,092 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}<div class="small muted" style="font-weight:400;margin-top:4px"><button class="linkbtn" data-pro2>See plans</button></div></div>` : ""}`;
     v.insertAdjacentHTML("beforeend", `<div style="margin-top:14px">${back}</div>`);
     return;
   }
