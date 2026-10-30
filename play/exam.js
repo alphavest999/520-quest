@@ -290,7 +290,7 @@
 .xopt { display: flex; gap: 6px; align-items: stretch; }
 .xpick { flex: 1; display: flex; gap: 10px; align-items: flex-start; text-align: left; background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
 .xpick b { flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); font: 700 13px/1 var(--display); }
-.xopt.sel .xpick { border-color: var(--volt); background: rgba(250,204,21,.12); } .xopt.sel .xpick b { background: var(--volt); color: var(--volt-ink); }
+.xopt.sel .xpick { border-color: var(--volt); background: rgba(236,72,153,.12); } .xopt.sel .xpick b { background: var(--volt); color: var(--volt-ink); }
 .xopt.struck .xpick span { text-decoration: line-through; opacity: .45; }
 .xstrike { flex: none; width: 38px; border: 1px solid var(--line); background: transparent; border-radius: 12px; color: var(--muted); }
 .xopt.struck .xstrike { color: var(--bad); border-color: var(--bad); }

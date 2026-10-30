@@ -421,13 +421,13 @@ function duelShareImg(d) {
   const me = myDuelSide(d), my = d["player" + me + "_score"], opp = d["player" + (3 - me) + "_score"], oppName = d["player" + (3 - me) + "_name"] || "my opponent";
   const won = d.winner_id === ACCT.user.id, tie = !d.winner_id;
   const c = document.createElement("canvas"); c.width = 1080; c.height = 1080; const g = c.getContext("2d");
-  const grd = g.createLinearGradient(0, 0, 1080, 1080); grd.addColorStop(0, "#11100c"); grd.addColorStop(1, "#29261d"); g.fillStyle = grd; g.fillRect(0, 0, 1080, 1080);
-  g.fillStyle = "#facc15"; g.beginPath(); g.arc(120, 120, 46, 0, 7); g.fill(); g.fillStyle = "#1a1500"; g.font = "800 30px sans-serif"; g.textAlign = "center"; g.fillText("520", 120, 131);
-  g.textAlign = "left"; g.fillStyle = "#f6f1e3"; g.font = "800 38px sans-serif"; g.fillText("520 Quest", 186, 133);
-  g.textAlign = "center"; g.fillStyle = "#facc15"; g.font = "800 64px sans-serif"; g.fillText(tie ? "MCAT DUEL: TIE" : won ? "👑 MCAT DUEL WON" : "MCAT DUEL", 540, 380);
-  g.fillStyle = "#f6f1e3"; g.font = "800 220px sans-serif"; g.fillText(`${my}–${opp}`, 540, 640);
+  const grd = g.createLinearGradient(0, 0, 1080, 1080); grd.addColorStop(0, "#0F1E3D"); grd.addColorStop(1, "#1b3470"); g.fillStyle = grd; g.fillRect(0, 0, 1080, 1080);
+  g.fillStyle = "#EC4899"; g.beginPath(); g.arc(120, 120, 46, 0, 7); g.fill(); g.fillStyle = "#ffffff"; g.font = "800 30px sans-serif"; g.textAlign = "center"; g.fillText("520", 120, 131);
+  g.textAlign = "left"; g.fillStyle = "#F8FAFC"; g.font = "800 38px sans-serif"; g.fillText("520 Quest", 186, 133);
+  g.textAlign = "center"; g.fillStyle = "#EC4899"; g.font = "800 64px sans-serif"; g.fillText(tie ? "MCAT DUEL: TIE" : won ? "👑 MCAT DUEL WON" : "MCAT DUEL", 540, 380);
+  g.fillStyle = "#F8FAFC"; g.font = "800 220px sans-serif"; g.fillText(`${my}–${opp}`, 540, 640);
   g.font = "600 44px sans-serif"; g.fillText("vs " + String(oppName).slice(0, 24), 540, 740);
-  g.fillStyle = "#aaa38f"; g.font = "600 36px sans-serif"; g.fillText("Think you can beat me? 520Quest.com", 540, 980);
+  g.fillStyle = "#a9b8d6"; g.font = "600 36px sans-serif"; g.fillText("Think you can beat me? 520Quest.com", 540, 980);
   c.toBlob(async blob => {
     const file = new File([blob], "520quest-duel.png", { type: "image/png" }), txt = `I ${tie ? "tied" : won ? "won" : "played"} a 520 Quest MCAT duel ${my}–${opp}. Think you can beat me? 520Quest.com`;
     try {

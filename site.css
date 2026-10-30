@@ -1,7 +1,7 @@
 /* 520 Quest marketing site. Same arcade-cabinet palette as the app. */
 :root {
-  --ink: #11100c; --panel: #1c1a14; --panel-2: #29261d; --line: #3a352a;
-  --text: #f6f1e3; --muted: #aaa38f; --volt: #facc15; --volt-ink: #1a1500;
+  --ink: #0F1E3D; --panel: #162a52; --panel-2: #1b3470; --line: #2b4680;
+  --text: #F8FAFC; --muted: #a9b8d6; --volt: #EC4899; --volt-ink: #ffffff;
   --good: #4ade80; --bad: #fb7185; --cool: #67e8f9; --heat: #fb923c;
   --display: "Chakra Petch", "Arial Narrow", system-ui, sans-serif;
   --body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -104,8 +104,8 @@ footer .wrap { display: grid; gap: 10px; }
 .blur-demo { filter: blur(4px); opacity: .7; user-select: none; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .phone { transform: none; } }
 
-/* Pro call to action: pink-to-yellow, used wherever someone can upgrade */
-.btn.pro { background: linear-gradient(135deg, #fb7185, #facc15); color: #1a0610; border: 0; box-shadow: 0 8px 24px rgba(251,113,133,.35); }
+/* Pro call to action: pink, used wherever someone can upgrade */
+.btn.pro { background: linear-gradient(135deg, #EC4899, #DB2777); color: #fff; border: 0; box-shadow: 0 8px 24px rgba(251,113,133,.35); }
 .btn.pro:hover { filter: brightness(1.06); }
 .buybar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: color-mix(in srgb, var(--ink) 92%, transparent); backdrop-filter: blur(8px); border-top: 1px solid #fb7185; }
 .buybar p { margin: 0; font-size: 15px; }
