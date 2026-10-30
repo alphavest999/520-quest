@@ -142,6 +142,7 @@ button { cursor: pointer; }
 .btn.ghost { background: #fff; color: #1e3a8a; border-color: #1e3a8a; }
 .btn.small { padding: 7px 10px; font-size: 13px; }
 .btn:disabled { opacity: .45; cursor: default; }
+.explain .fm { border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #f8fafc; color: #0f172a; } .explain .fm p { margin: 4px 0; } .explain .mem { margin: 4px 0 8px; padding-left: 20px; } .explain .eli { background: #fdf2f8; border-radius: 10px; padding: 8px 12px; }
 .verdict { font: 700 18px/1.2 var(--display); letter-spacing: .03em; }
 .verdict.ok { color: var(--good); }
 .verdict.no { color: var(--bad); }
@@ -1924,13 +1925,19 @@ function richExplainHTML(q, i, x) {
   const L = "ABCD", e = esc, picked = i >= 0 && i !== q.a, arr = a => Array.isArray(a) ? a : [];
   const others = q.o.map((_, j) => j).filter(j => j !== q.a && j !== i);
   const fx = arr(x.fx).filter(f => f && f.f), steps = arr(x.steps), refs = arr(x.ref).filter(r => r && /^https?:\/\//i.test(r.u || ""));
+  const fm = arr(x.fm).filter(f => f && f.f), mem = arr(x.mem);
   return `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4><p>${e(x.ox[q.a])}</p>` +
+    (x.eli ? `<p class="eli"><b>In plain words:</b> ${e(x.eli)}</p>` : "") +
+    (mem.length ? `<h5>Memorize for 520</h5><ul class="mem">${mem.map(m => `<li>${e(m)}</li>`).join("")}</ul>` : "") +
     (picked ? `<h4 class="miss">Your answer: ${L[i]}. ${e(q.o[i][0])}</h4><p>${e(x.ox[i])}</p>` : "") +
     arr(x.fig).map(figHTML).join("") +
     (others.length ? `<details class="exmore"><summary>Why the other choices are wrong</summary>${others.map(j => `<p><b>${L[j]}. ${e(q.o[j][0])}</b><br>${e(x.ox[j])}</p>`).join("")}</details>` : "") +
     (x.concept ? `<h5>The concept${x.concept.t ? `: ${e(x.concept.t)}` : ""}</h5>${arr(x.concept.p).map(p => `<p>${e(p)}</p>`).join("")}` : "") +
+    (fm.length ? `<h5>Formula, variables, substitution</h5>${fm.map(f => `<div class="fm"><p><b>Formula:</b> ${e(f.f)}</p>${f.v ? `<p><b>Variables:</b> ${e(f.v)}</p>` : ""}${f.s ? `<p><b>Substitution:</b> ${e(f.s)}</p>` : ""}${f.why ? `<p class="muted small"><b>Why this formula:</b> ${e(f.why)}</p>` : ""}</div>`).join("")}` : "") +
     (fx.length ? `<h5>Formula</h5>${fx.map(f => `<div class="fx"><code>${e(f.f)}</code>${f.w ? `<span>${e(f.w)}</span>` : ""}</div>`).join("")}` : "") +
     (steps.length ? `<h5>Worked solution</h5><ol class="steps">${steps.map(t => `<li>${e(t)}</li>`).join("")}</ol>` : "") +
+    (x.sc ? `<h5>Shortcut</h5><p>${e(x.sc)}</p>` : "") +
+    (x.mn ? `<h5>Mnemonic</h5><p>${e(x.mn)}</p>` : "") +
     (x.trap ? `<p class="trapline"><b>The trap:</b> ${e(x.trap)}</p>` : "") +
     (refs.length ? `<h5>Learn more</h5><ul class="refs">${refs.map(r => `<li><a href="${e(r.u)}" target="_blank" rel="noopener">${e(r.t || r.u)}</a></li>`).join("")}</ul>` : "");
 }
