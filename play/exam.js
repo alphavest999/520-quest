@@ -14,14 +14,19 @@
   /* ---------- catalog from the loaded bank ---------- */
   let CAT_X = null;
   window.CAT_RESET = () => { CAT_X = null; };
+  // Mini exams are fixed 32-question cuts of the Mini bank (about 24 passage + 8 discrete; CARS minis are all passage): json/mini_exams.json lists the question ids.
+  let CUT = null;
+  const SECQ = { CP: 59, CARS: 53, BB: 59, PS: 59 };
+  const CUTP = fetch("json/mini_exams.json", { cache: "no-cache" }).then(r => r.json()).then(j => { CUT = j; CAT_X = null; Object.keys(ITEMS).forEach(k => delete ITEMS[k]); const r = root(); if (r && !r.hidden && !S.exam) hub(); }).catch(() => { CUT = {}; });
   function catalog() {
     if (CAT_X) return CAT_X;
+    if (!CUT) return [];
     const ids = new Set();
     EXAM.passages.forEach(p => { const m = p.id.match(/^((?:FL|Mini)\d+)_/); if (m) ids.add(m[1]); });
     const list = [...ids].sort((a, b) => (a[0] === b[0] ? num(a) - num(b) : a[0] === "F" ? -1 : 1)).map(id => {
       const secs = [...new Set(EXAM.passages.filter(p => p.id.startsWith(id + "_")).map(p => p.s))];
       const order = id.startsWith("FL") ? FL_ORDER.filter(s => secs.includes(s)) : secs;
-      const sections = order.map(s => { const it = items(id, s); return { s, n: it.length, min: SEC[s].min }; });
+      const sections = order.map(s => { const it = items(id, s); return { s, n: it.length, min: id.startsWith("Mini") && CUT[id] ? Math.round(SEC[s].min * it.length / SECQ[s]) : SEC[s].min }; });
       return { id, full: id.startsWith("FL"), sections, n: sections.reduce((a, s) => a + s.n, 0) };
     });
     return list.length ? (CAT_X = list) : list;
@@ -29,8 +34,10 @@
   const ITEMS = {};
   function items(exam, sec) {
     const k = exam + "|" + sec; if (ITEMS[k]) return ITEMS[k];
-    const ps = EXAM.passages.filter(p => p.id.startsWith(exam + "_" + sec + "_P")).sort((a, b) => num(a.id) - num(b.id));
-    const ds = EXAM.questions.filter(q => q.id.startsWith(exam + "_" + sec + "_D")).sort((a, b) => num(a.id) - num(b.id));
+    let ps = EXAM.passages.filter(p => p.id.startsWith(exam + "_" + sec + "_P")).sort((a, b) => num(a.id) - num(b.id));
+    let ds = EXAM.questions.filter(q => q.id.startsWith(exam + "_" + sec + "_D")).sort((a, b) => num(a.id) - num(b.id));
+    const cut = CUT && CUT[exam];
+    if (cut) { const ok = new Set(cut); ps = ps.map(p => Object.assign({}, p, { qs: p.qs.filter(q => ok.has(q.id || p.id + "_" + p.qs.indexOf(q))) })).filter(p => p.qs.length); ds = ds.filter(q => ok.has(q.id)); }
     const out = []; let used = 0;
     ps.forEach((p, i) => {
       p.qs.forEach(q => out.push({ q, p }));
@@ -90,7 +97,7 @@
     const e = X(), s = secOf(), m = meta(e.id), n = items(e.id, s.s).length;
     const last = e.si === e.secs.length - 1;
     root().innerHTML = `<div class="xwrap"><span class="eyebrow">${esc(e.id)} · Section ${e.si + 1} of ${e.secs.length}</span><h2 class="title">${SEC[s.s].name}</h2>
-      <div class="panel"><p style="margin:0"><b>${n} questions</b> · <b>${SEC[s.s].min} minutes</b></p>
+      <div class="panel"><p style="margin:0"><b>${n} questions</b> · <b>${meta(e.id).sections.find(x => x.s === s.s).min} minutes</b></p>
       <ul class="small" style="margin:10px 0 0;padding-left:18px"><li>The timer starts when you press Begin and counts down.</li><li>Pause stops the clock and hides the questions.</li><li>Flag questions to revisit, strike out options, and use the navigator to jump around.</li><li>No answers are shown until the exam is finished. When you end a section you cannot return to it.</li></ul></div>
       <div class="row" style="margin-top:14px"><button class="btn primary" data-xbegin>Begin section</button><button class="btn ghost" data-xexit>Back to Exams</button></div></div>`;
   }
@@ -157,7 +164,7 @@
   }
   function endSection(timeUp) {
     const e = X(), s = secOf(); stopTick();
-    s.rem = Math.max(0, left(s)); s.t0 = null; s.done = true; s.used = Math.round(SEC[s.s].min * 60 - s.rem);
+    s.rem = Math.max(0, left(s)); s.t0 = null; s.done = true; s.used = Math.round(meta(e.id).sections.find(x => x.s === s.s).min * 60 - s.rem);
     const last = e.si >= e.secs.length - 1;
     if (last) { finish(); return; }
     e.phase = "break"; e.brk = { rem: BREAKS[e.si].min * 60, t0: Date.now() }; save(); breakView();
