@@ -2543,7 +2543,7 @@ function mnSubmitPrompt() {
 }
 $("#view-course").addEventListener("click", e => {
   const t = e.target;
-  const cr = t.closest("[data-crs]"); if (cr) { if (cr.dataset.crs === "exam") return go("exam"); crs = cr.dataset.crs; mnView = { s: "home" }; renderCourse(); v0(); return; }
+  const cr = t.closest("[data-crs]"); if (cr) { if (cr.dataset.crs === "exam") return go("exam"); if (cr.dataset.crs === "check") { location.href = "checklist.html"; return; } crs = cr.dataset.crs; mnView = { s: "home" }; renderCourse(); v0(); return; }
   if (t.closest("[data-crsback]")) { crs = "home"; renderCourse(); v0(); return; }
   const ck = t.closest("[data-chk]"); if (ck) { const d = chkGet(); if (ck.checked) d[ck.dataset.chk] = 1; else delete d[ck.dataset.chk]; localStorage.setItem(CHK_KEY, JSON.stringify(d)); return renderCourse(); }
   const c = t.closest("[data-mncat]"); if (c) { mnView = { s: "cat", cat: c.dataset.mncat }; renderCourse(); v0(); return; }
