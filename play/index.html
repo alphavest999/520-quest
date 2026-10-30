@@ -2482,8 +2482,8 @@ function renderCourse() {
       <button class="crsbtn crs-sheets" data-crs="sheets">📚 ${SHEETS ? SHEETS.length : 33} Mastery Sheets<small>Chem/Phys · Bio/Biochem · Psych/Soc · CARS</small></button>
       <button class="crsbtn crs-check" data-crs="check">✅ Memorization Checklist<small>Tick off what you've mastered</small></button>
       <button class="crsbtn crs-vault" data-crs="vault">🧠 ${MN && MN.length ? MN.length : 150} Mnemonics Vault<small>Funny, memorable, searchable</small></button>
-      <button class="crsbtn crs-mini" data-crs="exam" data-anchor="mini-exams">⏱ 4 Mini Exams<small>Single-section timed practice</small></button>
-      <button class="crsbtn crs-fl" data-crs="exam">🎯 3 FL<small>Full-length, 4 sections</small></button>
+      <button class="crsbtn crs-mini" data-crs="exam" data-anchor="mini-exams">⏱ ${(window.ExamUI && ExamUI.catalog().filter(c => !c.full).length) || 10} Mini Exams<small>Single-section timed practice</small></button>
+      <button class="crsbtn crs-fl" data-crs="exam">🎯 ${(window.ExamUI && ExamUI.catalog().filter(c => c.full).length) || 10} Full Length Exams<small>Full-length, 4 sections</small></button>
     </div>`;
 }
 function mnHomeHTML() {
