@@ -1,5 +1,5 @@
 // Offline support: cache the app shell, serve it when there is no connection.
-const CACHE = "quest520-v49";
+const CACHE = "quest520-v50";
 const FILES = ["./", "index.html", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-180.png", "gen.js", "music.js", "exam.js", "account.js", "checklist.html"];
 self.addEventListener("install", e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES.map(f => new Request(f, { cache: "reload" })))).then(() => self.skipWaiting())));
 self.addEventListener("activate", e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())));

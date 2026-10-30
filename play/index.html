@@ -1771,8 +1771,9 @@ const seenCount = () => Object.keys(S.stats).length;
 function overFree() { return !S.pro && seenCount() >= CONFIG.freeQuestions; }
 const canOpen = q => S.pro || !!S.stats[q.id] || !overFree();
 function freeReview() {
-  const now = Date.now();
-  const id = Object.keys(S.revenge).find(id => S.stats[id] && S.revenge[id].due <= now && !sessionSeen.has(id) && anyQ(id) && !PQ[id]);
+  const now = Date.now(), sec = S.focus ? CAT[S.focus].s : S.filter;
+  // A review card must fit the chosen section / drill, otherwise the filter chips look broken once the free limit is reached.
+  const id = Object.keys(S.revenge).find(id => S.stats[id] && S.revenge[id].due <= now && !sessionSeen.has(id) && anyQ(id) && !PQ[id] && (sec === "ALL" || anyQ(id).s === sec) && (!S.focus || anyQ(id).c === S.focus));
   return id ? anyQ(id) : null;
 }
 let resumeOnce = true, reviewEnded = false, resumeLate = null;
@@ -1936,6 +1937,7 @@ function richExplainHTML(q, i, x) {
     (fm.length ? `<h5>Formula, variables, substitution</h5>${fm.map(f => `<div class="fm"><p><b>Formula:</b> ${e(f.f)}</p>${f.v ? `<p><b>Variables:</b> ${e(f.v)}</p>` : ""}${f.s ? `<p><b>Substitution:</b> ${e(f.s)}</p>` : ""}${f.why ? `<p class="muted small"><b>Why this formula:</b> ${e(f.why)}</p>` : ""}</div>`).join("")}` : "") +
     (fx.length ? `<h5>Formula</h5>${fx.map(f => `<div class="fx"><code>${e(f.f)}</code>${f.w ? `<span>${e(f.w)}</span>` : ""}</div>`).join("")}` : "") +
     (steps.length ? `<h5>Worked solution</h5><ol class="steps">${steps.map(t => `<li>${e(t)}</li>`).join("")}</ol>` : "") +
+    (x.tb ? `<h5>Table</h5>${tableHTML(x.tb)}` : "") +
     (x.sc ? `<h5>Shortcut</h5><p>${e(x.sc)}</p>` : "") +
     (x.mn ? `<h5>Mnemonic</h5><p>${e(x.mn)}</p>` : "") +
     (x.trap ? `<p class="trapline"><b>The trap:</b> ${e(x.trap)}</p>` : "") +
@@ -1947,7 +1949,7 @@ function upgradeExplain(rv, q, i, ok) {
     if (!x || !rv.isConnected) return;
     const box = $(".explain", rv);
     if (box) { box.classList.add("rich"); box.innerHTML = richExplainHTML(q, i, x); return; }
-    if (ok) { const d = document.createElement("details"); d.className = "exmore explain rich"; d.innerHTML = `<summary>Full explanation</summary>${richExplainHTML(q, i, x)}`; const row = $(".row", rv); if (row) rv.insertBefore(d, row); else rv.appendChild(d); }
+    if (ok) { const d = document.createElement("details"); d.className = "exmore explain rich"; d.innerHTML = `<summary>Show Deep Dive: plain words, memorize list, formulas</summary>${richExplainHTML(q, i, x)}`; const gb = document.createElement("button"); gb.className = "btn small ghost"; gb.textContent = "Did you guess? Show the full explanation"; gb.addEventListener("click", () => { d.open = true; gb.remove(); d.scrollIntoView({ block: "nearest" }); }); rv.insertBefore(gb, $(".row", rv) || null); const row = $(".row", rv); if (row) rv.insertBefore(d, row); else rv.appendChild(d); }
   });
 }
 /* ---------- Anki queue: save missed questions, export them as a deck after a session ---------- */
