@@ -1442,7 +1442,7 @@ function subCounts(code) {
   const rules = SUBT[code] || [], out = rules.map(r => ({ id: r.id, label: r.label, n: 0 }));
   const add = x => { const id = stOf(x), o = out.find(y => y.id === id); if (o) o.n++; };
   QUESTIONS.forEach(q => { if (q.c === code) add(q); });
-  PASSAGES.forEach(p => { if (p.s === "CARS") p.qs.forEach(q => { if (q.c === code) add(q); }); else if (p.c === code) p.qs.forEach(q => add(Object.assign({ c: code }, q))); });
+  PASSAGES.forEach(p => { if (p.s === "CARS") p.qs.forEach(q => { if (q.c === code) add(q); }); else if (p.c === code) { const o = out.find(y => y.id === stOf(p)); if (o) o.n += p.qs.length; } });
   return out.filter(o => o.n);
 }
 const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.json())
@@ -1757,6 +1757,7 @@ function weakAreas(sec = "ALL", k = 3) {
 function pickQuestion() {
   const sec = S.focus ? CAT[S.focus].s : S.filter;
   let pool = QUESTIONS.filter(q => (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus) && (!S.sub || stOf(q) === S.sub));
+  if (!pool.length) return null;   // e.g. a sub-topic that only has passage questions
   const now = Date.now();
   const due = pool.filter(q => S.revenge[q.id] && S.revenge[q.id].due <= now && !sessionSeen.has(q.id));
   if (due.length) return [due[0], true];
@@ -1769,6 +1770,7 @@ function pickQuestion() {
     if (fits && Math.random() < (S.focus ? 0.4 : 0.15)) { const q = GEN.fresh(sec, S.focus); if (q) return [q, false]; }
   }
   let fresh = pool.filter(q => !sessionSeen.has(q.id));
+  if (!fresh.length && S.sub) return null;   // a small concept: do not repeat the same question back to back
   if (!fresh.length) { pool.forEach(q => sessionSeen.delete(q.id)); fresh = pool; }
   const weak = S.focus ? [] : weakAreas(sec);
   if (weak.length && Math.random() < .5) {
@@ -1835,7 +1837,12 @@ function nextCard() {
   if (cardN === 4 && !installed()) return installCard();
   if (!S.pro && cardN % 12 === 0) return promoCard();
   if (!S.focus && cardN % 5 === 0) return (cardN / 5) % 2 ? factCard() : trapCard();
-  const [q, rev, tgt] = pickQuestion(); sessionSeen.add(q.id);
+  const pick = pickQuestion();
+  if (!pick) {   // nothing stand-alone in this drill: serve its passages instead
+    let sp = nextSciPassage(sec); if (!sp) { PASSAGES.forEach(p => sessionSeen.delete(p.id)); sp = nextSciPassage(sec); }
+    return sp && fits(sp) ? passageCard(sp) : null;
+  }
+  const [q, rev, tgt] = pick; sessionSeen.add(q.id);
   if (!canOpen(q)) { if (gateShown) return null; gateShown = true; return gateCard(); }
   return questionCard(q, rev, tgt);
 }
