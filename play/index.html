@@ -142,7 +142,7 @@ button { cursor: pointer; }
 .btn.ghost { background: #fff; color: #1e3a8a; border-color: #1e3a8a; }
 .btn.small { padding: 7px 10px; font-size: 13px; }
 .btn:disabled { opacity: .45; cursor: default; }
-.explain .fm { font-family: "STIX Two Math", "Cambria Math", "Times New Roman", var(--body), serif; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #f8fafc; color: #0f172a; } .explain .fm p { margin: 4px 0; } .explain .fm .kx { color: #0f172a; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; margin: 4px 0; overflow-x: auto; font-size: 1.05em; } .explain .fm .kx.done .katex-display { margin: 0; } .explain .fm .kx:not(.done) { font-family: "STIX Two Math", "Cambria Math", serif; } .explain .mem { margin: 4px 0 8px; padding-left: 20px; } .explain .eli { background: #fdf2f8; border-radius: 10px; padding: 8px 12px; }
+.explain .fm { font-family: "STIX Two Math", "Cambria Math", "Times New Roman", var(--body), serif; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #f8fafc; color: #0f172a; } .explain .fm p { margin: 4px 0; } .explain .fm .kx { color: #0f172a; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; margin: 4px 0; overflow-x: auto; font-size: 1.05em; } .explain .fm .kx.done .katex-display { margin: 0; } .explain .fm .kx:not(.done) { font-family: "STIX Two Math", "Cambria Math", serif; } .explain .mem { margin: 4px 0 8px; padding-left: 20px; } .explain .plainbox { background: #fdf2f8; border-radius: 10px; padding: 8px 12px; }
 .backq { background: #f472b6; color: #fff; border: 0; padding: 8px 16px; border-radius: 8px; font: 700 14px/1.2 var(--body); cursor: pointer; margin-right: 10px; } .backq.bottom { position: fixed; left: 12px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 60; box-shadow: 0 4px 14px rgba(244,114,182,.5); }
 .nowbadge { background: #fdf2f8; color: #be185d; border: 1px solid #f472b6; border-radius: 99px; padding: 1px 8px; margin-left: 6px; font: 700 11px/1.4 var(--body); white-space: nowrap; }
 .verdict { font: 700 18px/1.2 var(--display); letter-spacing: .03em; }
@@ -2002,8 +2002,8 @@ function richExplainHTML(q, i, x) {
   const fx = arr(x.fx).filter(f => f && f.f), steps = arr(x.steps), refs = arr(x.ref).filter(r => r && /^https?:\/\//i.test(r.u || ""));
   const fm = arr(x.fm).filter(f => f && f.f), mem = arr(x.mem);
   return `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4><p>${e(x.ox[q.a])}</p>` +
-    (x.eli ? `<p class="eli"><b>In plain words:</b> ${e(x.eli)}</p>` : "") +
-    (mem.length ? `<h5>Memorize for 520</h5><ul class="mem">${mem.map(m => `<li>${e(m)}</li>`).join("")}</ul>` : "") +
+    (x.plain ? `<p class="plainbox"><b>In plain words:</b> ${e(x.plain)}</p>` : "") +
+    (mem.length ? `<h5>High-yield</h5><ul class="mem">${mem.map(m => `<li>${e(m)}</li>`).join("")}</ul>` : "") +
     (picked ? `<h4 class="miss">Your answer: ${L[i]}. ${e(q.o[i][0])}</h4><p>${e(x.ox[i])}</p>` : "") +
     arr(x.fig).concat(GRAPHS[x.graph] ? [{ f: GRAPHS[x.graph], alt: GRAPH_ALT[x.graph], cap: GRAPH_ALT[x.graph] }] : []).map(figHTML).join("") +
     (others.length ? `<details class="exmore"><summary>Why the other choices are wrong</summary>${others.map(j => `<p><b>${L[j]}. ${e(q.o[j][0])}</b><br>${e(x.ox[j])}</p>`).join("")}</details>` : "") +
@@ -2015,7 +2015,6 @@ function richExplainHTML(q, i, x) {
     (x.sc ? `<h5>Shortcut</h5><p>${e(x.sc)}</p>` : "") +
     (x.mn ? `<h5>Mnemonic</h5><p>${e(x.mn)}</p>` : "") +
     (x.trap ? `<p class="trapline"><b>The trap:</b> ${e(x.trap)}</p>` : "") +
-    (x.academic ? `<p class="muted small srcnote"><b>Source note:</b> ${e(x.academic)}</p>` : "") +
     (refs.length ? `<h5>Learn more</h5><ul class="refs">${refs.map(r => `<li><a href="${e(r.u)}" target="_blank" rel="noopener">${e(r.t || r.u)}</a></li>`).join("")}</ul>` : "");
 }
 // Upgrade a revealed explanation in place once its category file arrives.
