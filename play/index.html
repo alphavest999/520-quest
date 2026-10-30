@@ -11,11 +11,29 @@
 <meta name="apple-mobile-web-app-title" content="520 Quest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* White / navy / pink refinements */
+.adjgoal, #goalPanel > h3 + p + .row { }
+.adjgoal { background: #f472b6; color: #fff; border: 2px solid #1e3a8a; font-weight: 800; }
+.musicrow { padding: 10px 12px; border-radius: 12px; background: linear-gradient(135deg, #f472b6, #93c5fd); color: #1e3a8a; font-weight: 800; }
+.musicrow select { background: #fff; color: #1e3a8a; border-radius: 8px; border: 2px solid #1e3a8a; font-weight: 700; }
+.panel, .card { box-shadow: 0 1px 2px rgba(15,23,42,.06); }
+.crsbtn { width: 100%; min-height: 64px; border-radius: 16px; padding: 12px 14px; font: 800 17px/1.25 var(--body); text-align: center; cursor: pointer; display: grid; gap: 4px; justify-items: center; }
+.crsbtn small { font: 600 12px var(--body); opacity: .9; }
+.crs-sheets { background: #fbcfe8; border: 2px solid #f472b6; color: #1e3a8a; }
+.crs-check { background: #93c5fd; border: 2px solid #1e3a8a; color: #1e3a8a; }
+.crs-vault { background: #1e3a8a; border: 4px solid #f472b6; color: #fff; }
+.crs-mini { background: #f472b6; border: 2px solid #1e3a8a; color: #fff; }
+.crs-fl { background: #93c5fd; border: 2px solid #f472b6; color: #1e3a8a; }
+.btn.pinkback { background: #f472b6; color: #fff; border-color: #f472b6; font-weight: 800; }
+.xcard .btn.primary { background: #1e3a8a; color: #fff; border: 2px solid #f472b6; }
+.xcard { background: #fff; border: 2px solid #f472b6; border-left: 4px solid #1e3a8a; color: #0f172a; }
+.formula, .sv-doc pre, .sv-doc code.f, .sv-doc .formula { background: #f8fafc; border: 1px solid #e2e8f0; color: #0f172a; font-family: "STIX Two Math", Inter, serif; overflow: visible; }
+</style>
 </head>
 <body>
 <title>520 Quest</title>
-<meta name="theme-color" content="#11100c">
+<meta name="theme-color" content="#ffffff">
 <meta name="description" content="A free, game-style MCAT study app: swipe questions, beat bosses, fix your traps, aim for 520+.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,22 +41,32 @@
 <style>
 /* Layout: a phone-first game shell. HUD on top, one swipe feed in the middle, tab bar at the bottom. Dark arcade cabinet in the 520+ brand yellow. */
 :root {
-  --ink: #11100c;        /* page */
-  --panel: #1c1a14;      /* cards */
-  --panel-2: #29261d;    /* raised controls */
-  --line: #3a352a;       /* hairlines */
-  --text: #f6f1e3;
-  --muted: #aaa38f;
-  --volt: #facc15;       /* brand yellow */
-  --volt-ink: #1a1500;   /* text on yellow */
-  --good: #4ade80;
-  --bad: #fb7185;
-  --cool: #67e8f9;       /* xp + info */
-  --heat: #fb923c;       /* streak */
+  /* White / navy / pink theme. Legacy names (--ink, --panel, --volt ...) are remapped so existing rules pick it up. */
+  --bg:#ffffff; --bg-card:#ffffff; --bg-soft:#f8fafc; --bg-muted:#f1f5f9;
+  --text-primary:#0f172a; --text-secondary:#475569; --text-muted:#94a3b8;
+  --navy:#1e3a8a; --navy-dark:#1e293b; --navy-light:#1e40af;
+  --light-blue:#93c5fd; --light-blue-soft:#dbeafe;
+  --turquoise:#2dd4bf; --turquoise-soft:#ccfbf1;
+  --pink:#f472b6; --pink-light:#fbcfe8; --pink-soft:#fce7f3;
+  --green:#22c55e; --green-soft:#dcfce7; --peach:#FFCBA4;
+  --border:#e2e8f0; --border-strong:#cbd5e1;
+  --formula-bg:#f8fafc; --formula-border:#e2e8f0; --formula-text:#0f172a;
+  --ink: #ffffff;        /* page */
+  --panel: #ffffff;      /* cards */
+  --panel-2: #f1f5f9;    /* raised controls */
+  --line: #e2e8f0;       /* hairlines */
+  --text: #0f172a;
+  --muted: #475569;
+  --volt: #1e3a8a;       /* brand navy */
+  --volt-ink: #ffffff;   /* text on navy */
+  --good: #16a34a;
+  --bad: #e11d48;
+  --cool: #2dd4bf;       /* xp + info */
+  --heat: #f472b6;       /* streak */
   --display: "Chakra Petch", "Arial Narrow", system-ui, sans-serif;
   --body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
   --r: 14px;
-  color-scheme: dark;
+  color-scheme: light;
 }
 * { box-sizing: border-box; }
 html, body { height: 100%; }
@@ -60,18 +88,18 @@ button { cursor: pointer; }
 .pill svg { width: 15px; height: 15px; }
 .pill.streak { color: var(--heat); }
 .pill.goal { color: var(--good); }
-.hudpro { flex: none; display: inline-flex; align-items: center; gap: 5px; font: 700 13px/1 var(--display); letter-spacing: .06em; padding: 8px 11px; border-radius: 99px; border: 0; cursor: pointer; color: #1a0610; background: linear-gradient(135deg, #fb7185, #facc15); box-shadow: 0 0 0 0 rgba(251,113,133,.6); animation: proPulse 2.4s ease-in-out infinite; }
+.hudpro { flex: none; display: inline-flex; align-items: center; gap: 5px; font: 700 13px/1 var(--display); letter-spacing: .06em; padding: 8px 11px; border-radius: 99px; border: 0; cursor: pointer; color: #fff; background: #f472b6; box-shadow: 0 0 0 0 rgba(244,114,182,.6); animation: proPulse 2.4s ease-in-out infinite; }
 .hudpro svg { width: 14px; height: 14px; }
 .hudpro[hidden] { display: none; }
 .hudinst { flex: none; display: inline-flex; align-items: center; gap: 4px; font: 700 13px/1 var(--display); letter-spacing: .06em; padding: 7px 10px; border-radius: 99px; cursor: pointer; color: var(--volt); background: transparent; border: 2px solid var(--volt); }
 .hudinst svg { width: 14px; height: 14px; }
 .hudinst[hidden] { display: none; }
 @media (max-width: 400px) { .hud { gap: 6px; padding-left: 10px; padding-right: 10px; } .hud .pill { padding: 6px 7px; } .hudinst { padding: 7px 8px; } .hudpro { padding: 8px 9px; } }
-@keyframes proPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(251,113,133,.55); } 50% { box-shadow: 0 0 0 7px rgba(251,113,133,0); } }
-.card.promo { background: radial-gradient(circle at 85% 10%, rgba(250,204,21,.28), transparent 45%), linear-gradient(160deg, rgba(251,113,133,.30), var(--panel) 70%); border-color: #fb7185; }
+@keyframes proPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(244,114,182,.55); } 50% { box-shadow: 0 0 0 7px rgba(244,114,182,0); } }
+.card.promo { background: radial-gradient(circle at 85% 10%, rgba(244,114,182,.28), transparent 45%), linear-gradient(160deg, rgba(244,114,182,.30), var(--panel) 70%); border-color: #f472b6; }
 .card.promo .bigtext { margin: 0; }
-.btn.pro { background: linear-gradient(135deg, #fb7185, #facc15); color: #1a0610; border: 0; font-weight: 800; text-decoration: none; justify-content: center; }
-.probanner { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--r); background: linear-gradient(135deg, rgba(251,113,133,.25), rgba(250,204,21,.18)); border: 1px solid #fb7185; }
+.btn.pro { background: #f472b6; color: #fff; border: 0; font-weight: 800; text-decoration: none; justify-content: center; }
+.probanner { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--r); background: linear-gradient(135deg, rgba(244,114,182,.25), rgba(244,114,182,.18)); border: 1px solid #fb7185; }
 .probanner p { margin: 0; flex: 1; font-size: 14px; }
 .probanner b { font-family: var(--display); letter-spacing: .03em; }
 
@@ -109,7 +137,7 @@ button { cursor: pointer; }
 .opt.gone { opacity: .3; pointer-events: none; }
 .opt:disabled { cursor: default; }
 .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-.btn { border: 1px solid var(--line); background: var(--panel-2); border-radius: 12px; padding: 10px 14px; font: 600 14px/1.2 var(--body); }
+.btn { border: 1px solid #1e3a8a; background: #1e3a8a; color: #fff; border-radius: 12px; padding: 10px 14px; font: 600 14px/1.2 var(--body); }
 .btn.primary { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); font-weight: 800; }
 .btn.ghost { background: transparent; }
 .btn.small { padding: 7px 10px; font-size: 13px; }
@@ -131,8 +159,8 @@ button { cursor: pointer; }
 #sheetView[hidden] { display: none; }
 .sv-top { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
 .sv-top h2 { margin: 0; font: 700 16px/1.25 var(--display); flex: 1; min-width: 0; }
-.svclose { flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 10px 18px; border: 0; border-radius: 99px; cursor: pointer; font: 800 16px/1 var(--display); letter-spacing: .02em; color: var(--volt-ink); background: var(--volt); box-shadow: 0 0 0 3px rgba(250,204,21,.35), 0 4px 16px rgba(250,204,21,.45); }
-.svclose:hover, .svclose:focus-visible { filter: brightness(1.08); outline: none; box-shadow: 0 0 0 4px rgba(250,204,21,.6), 0 4px 18px rgba(250,204,21,.6); }
+.svclose { flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 10px 18px; border: 0; border-radius: 99px; cursor: pointer; font: 800 16px/1 var(--display); letter-spacing: .02em; color: var(--volt-ink); background: var(--volt); box-shadow: 0 0 0 3px rgba(244,114,182,.35), 0 4px 16px rgba(244,114,182,.45); }
+.svclose:hover, .svclose:focus-visible { filter: brightness(1.08); outline: none; box-shadow: 0 0 0 4px rgba(244,114,182,.6), 0 4px 18px rgba(244,114,182,.6); }
 .svclose span { font-size: 18px; }
 .sv-body { flex: 1; overflow-y: auto; padding: 16px 16px 60px; position: relative; }
 .sv-doc { max-width: 760px; margin: 0 auto; position: relative; font-size: 15px; line-height: 1.55; }
@@ -165,20 +193,20 @@ button { cursor: pointer; }
 @media print { #sheetView { display: none !important; } }
 /* Course tab, gold Mastery Sheets button, Mnemonics Vault */
 .tabs.five { grid-template-columns: repeat(5, 1fr); }
-.tab .tbadge { position: absolute; top: 0; left: 50%; margin-left: 6px; font: 700 9px/1 var(--display); background: linear-gradient(135deg, #ffd700, #ffa500); color: #1a1200; border-radius: 99px; padding: 2px 4px; letter-spacing: 0; }
-.goldbtn { width: 100%; min-height: 56px; border: 0; border-radius: 16px; padding: 10px 14px; background: linear-gradient(135deg, #ffd700, #ffa500); color: #1a1200; font: 800 16px/1.25 var(--body); display: grid; gap: 4px; justify-items: center; text-align: center; cursor: pointer; animation: goldglow 2s ease-in-out infinite; }
-.goldbtn small { font: 700 11px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; background: rgba(26, 18, 0, .14); border-radius: 99px; padding: 4px 8px; }
-@keyframes goldglow { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 196, 0, .55); } 50% { box-shadow: 0 0 22px 4px rgba(255, 196, 0, .55); } }
-.backsheet { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(80px + env(safe-area-inset-bottom, 0px)); z-index: 40; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; max-width: calc(100% - 32px); padding: 10px 18px; border: 0; border-radius: 99px; cursor: pointer; font: 800 15px/1.1 var(--display); color: var(--volt-ink); background: var(--volt); box-shadow: 0 0 0 3px rgba(250,204,21,.3), 0 6px 20px rgb(0 0 0 / .45); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tab .tbadge { position: absolute; top: 0; left: 50%; margin-left: 6px; font: 700 9px/1 var(--display); background: #f472b6; color: #fff; border-radius: 99px; padding: 2px 4px; letter-spacing: 0; }
+.goldbtn { width: 100%; min-height: 56px; border: 0; border-radius: 16px; padding: 10px 14px; background: #f472b6; color: #fff; font: 800 16px/1.25 var(--body); display: grid; gap: 4px; justify-items: center; text-align: center; cursor: pointer; animation: goldglow 2s ease-in-out infinite; }
+.goldbtn small { font: 700 11px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; background: rgba(255,255,255,.25); border-radius: 99px; padding: 4px 8px; }
+@keyframes goldglow { 0%, 100% { box-shadow: 0 0 0 0 rgba(244, 114, 182, .55); } 50% { box-shadow: 0 0 22px 4px rgba(244, 114, 182, .55); } }
+.backsheet { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(80px + env(safe-area-inset-bottom, 0px)); z-index: 40; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; max-width: calc(100% - 32px); padding: 10px 18px; border: 0; border-radius: 99px; cursor: pointer; font: 800 15px/1.1 var(--display); color: var(--volt-ink); background: var(--volt); box-shadow: 0 0 0 3px rgba(244,114,182,.3), 0 6px 20px rgb(0 0 0 / .45); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); }
 .sv-doc .qref.flash { animation: qflash 2s ease-out; border-radius: 4px; }
-@keyframes qflash { 0%, 50% { background: rgba(250,204,21,.35); box-shadow: 0 0 0 4px rgba(250,204,21,.35); } 100% { background: none; box-shadow: none; } }
+@keyframes qflash { 0%, 50% { background: rgba(244,114,182,.35); box-shadow: 0 0 0 4px rgba(244,114,182,.35); } 100% { background: none; box-shadow: none; } }
 #goalPanel.flash { animation: goalflash 1.6s ease-out; }
 @keyframes goalflash { 0%, 40% { box-shadow: 0 0 0 3px var(--volt); } 100% { box-shadow: 0 0 0 0 transparent; } }
 .card.goldcard { display: grid; gap: 10px; align-content: center; }
-.sheetlink { display: flex; gap: 8px; align-items: center; width: 100%; text-align: left; margin-top: 6px; padding: 10px 12px; border-radius: 12px; border: 1px solid #b8860b; background: color-mix(in srgb, #ffd700 10%, var(--panel)); color: var(--text); font: 600 14px/1.3 var(--body); cursor: pointer; }
-.sheetlink b { color: #ffd700; }
-.lockcta { margin-top: 12px; padding: 12px; border-radius: 12px; border: 1px dashed #b8860b; text-align: center; font-weight: 700; }
+.sheetlink { display: flex; gap: 8px; align-items: center; width: 100%; text-align: left; margin-top: 6px; padding: 10px 12px; border-radius: 12px; border: 1px solid #f472b6; background: #fce7f3; color: var(--text); font: 600 14px/1.3 var(--body); cursor: pointer; }
+.sheetlink b { color: #1e3a8a; }
+.lockcta { margin-top: 12px; padding: 12px; border-radius: 12px; border: 1px dashed #f472b6; text-align: center; font-weight: 700; }
 .mn-search { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--ink); color: var(--text); font: 15px var(--body); }
 .mn-cats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .mn-cat { border: 1px solid var(--line); background: var(--ink); color: var(--text); border-radius: 14px; padding: 14px; text-align: left; display: grid; gap: 4px; font: 700 15px/1.2 var(--display); cursor: pointer; }
@@ -316,10 +344,10 @@ a { color: var(--volt); }
 .toast { background: var(--panel-2); border: 1px solid var(--line); border-left: 4px solid var(--volt); border-radius: 12px; padding: 10px 12px; font-size: 14px; animation: up .2s ease-out; box-shadow: 0 8px 24px rgb(0 0 0 / .35); }
 #fx { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
 /* Mastery levels, results screen, analytics */
-.lvl.t5 { background: linear-gradient(135deg, #facc15, #fb7185); }
+.lvl.t5 { background: linear-gradient(135deg, #1e3a8a, #f472b6); }
 .lvbig { display: grid; justify-items: center; gap: 6px; text-align: center; padding: 6px 0; }
 .lvbig .badge-lv { font: 700 44px/1 var(--display); width: 96px; height: 96px; border-radius: 26px; display: grid; place-items: center; background: var(--volt); color: var(--volt-ink); box-shadow: 0 0 0 6px color-mix(in srgb, var(--volt) 22%, transparent); }
-.lvbig .badge-lv.t5 { background: linear-gradient(135deg, #facc15, #fb7185); }
+.lvbig .badge-lv.t5 { background: linear-gradient(135deg, #1e3a8a, #f472b6); }
 .lvbig strong { font: 700 22px/1.1 var(--display); letter-spacing: .03em; }
 .lvbar { display: grid; gap: 5px; }
 .lvbar .bar { height: 10px; }
@@ -331,7 +359,7 @@ a { color: var(--volt); }
 .ladder b { font: 700 13px/1 var(--display); }
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .pair .btn { padding: 16px 10px; font-size: 16px; text-align: center; justify-content: center; }
-.btn.review { background: linear-gradient(135deg, #fb7185, #facc15); color: #1a0610; border: 0; font-weight: 800; }
+.btn.review { background: #f472b6; color: #fff; border: 0; font-weight: 800; }
 .linkbtn { background: none; border: 0; color: var(--muted); text-decoration: underline; font-size: 13.5px; padding: 4px; }
 .subacts { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
 .chart { width: 100%; height: auto; display: block; }
@@ -359,7 +387,7 @@ a { color: var(--volt); }
   </header>
 
   <div class="views">
-    <section class="view" id="view-scroll" aria-label="Scroll">
+    <section class="view" id="view-scroll" aria-label="Qbank">
       <div class="filters" id="filters"></div>
       <div class="feed" id="feed" aria-live="polite"></div>
     </section>
@@ -373,7 +401,7 @@ a { color: var(--volt); }
   </div>
 
   <nav class="tabs six" role="tablist">
-    <button class="tab" role="tab" data-tab="scroll" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="3" width="12" height="18" rx="3"/><path d="M12 8v6M9.5 11.5 12 14l2.5-2.5"/></svg>Scroll</button>
+    <button class="tab" role="tab" data-tab="scroll" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="3" width="12" height="18" rx="3"/><path d="M12 8v6M9.5 11.5 12 14l2.5-2.5"/></svg>Qbank</button>
     <button class="tab" role="tab" data-tab="boss" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 15 9M14 4l6 6M9 9l6 6M5 15l4 4"/></svg>Boss</button>
     <button class="tab" role="tab" data-tab="course" aria-selected="false"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A1.5 1.5 0 0 0 5 19.5 1.5 1.5 0 0 0 6.5 21H20v1H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M8 6h8v1.6H8zM8 9h6v1.6H8z" fill="var(--ink)"/></svg>Course</button>
     <button class="tab" role="tab" data-tab="map" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>Map</button>
@@ -1350,7 +1378,7 @@ const CONFIG = {
   // 2027 is a ready-made alternative; add a new year's colors here to restyle the whole app.
   theme: 2026,
   themes: {
-    2026: { volt: "#facc15", "volt-ink": "#1a1500", ink: "#11100c", panel: "#1c1a14", "panel-2": "#29261d", line: "#3a352a", cool: "#67e8f9" },
+    2026: { volt: "#1e3a8a", "volt-ink": "#ffffff", ink: "#ffffff", panel: "#ffffff", "panel-2": "#f1f5f9", line: "#e2e8f0", cool: "#2dd4bf" },
     2027: { volt: "#38bdf8", "volt-ink": "#03131c", ink: "#0b0f14", panel: "#141b23", "panel-2": "#1e2833", line: "#2c3a47", cool: "#a78bfa" }
   },
   supportEmail: "info@unprocrastinatehub.com",
@@ -1410,7 +1438,7 @@ const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.js
 
 /* ---------- state ---------- */
 function fresh() {
-  return { v: 1, xp: 0, combo: 0, bestCombo: 0, chest: 0, hints: 1, freezes: 1, pro: false, sound: true, music: "boss", goal: 25,
+  return { v: 1, xp: 0, combo: 0, bestCombo: 0, chest: 0, hints: 1, freezes: 1, pro: false, sound: true, music: "on", goal: 25,
     streak: { count: 0, last: null }, today: { date: todayKey(), answered: 0, correct: 0, bosses: 0, goalShown: false },
     stats: {}, cat: {}, recent: { CP: [], CARS: [], BB: [], PS: [] }, revenge: {}, errors: [], facts: {}, traps: {},
     fl: [], anki: [], badges: {}, bossWins: {}, retired: 0, total: 0, totalCorrect: 0, filter: "ALL", focus: null,
@@ -1515,7 +1543,7 @@ function confetti() {
   if (reduce) return;
   const c = $("#fx"), app = $("#app"), ctx = c.getContext("2d");
   c.width = app.clientWidth; c.height = app.clientHeight;
-  const cols = ["#facc15", "#4ade80", "#67e8f9", "#fb923c", "#fb7185"];
+  const cols = ["#1e3a8a", "#22c55e", "#2dd4bf", "#f472b6", "#93c5fd"];
   const ps = Array.from({ length: 110 }, () => ({ x: c.width / 2, y: c.height / 3, vx: (Math.random() - .5) * 11, vy: Math.random() * -11 - 3, s: Math.random() * 6 + 4, c: cols[Math.random() * 5 | 0], r: Math.random() * 6 }));
   let n = 0;
   (function tick() {
@@ -1544,7 +1572,7 @@ async function installApp() {
 }
 function installCard() {
   const el = document.createElement("article"); el.className = "card promo";
-  el.innerHTML = `<div class="eyebrow" style="color:#facc15">Make it an app</div><p class="bigtext">Install 520 Quest on your home screen.</p>
+  el.innerHTML = `<div class="eyebrow" style="color:#1e3a8a">Make it an app</div><p class="bigtext">Install 520 Quest on your home screen.</p>
     <p class="muted" style="margin:0">One tap to open, full screen, and it works offline. Free, no app store needed.</p>
     <div class="row"><button class="btn" data-install>Install app</button></div>${SWIPE}`;
   return el;
@@ -2017,7 +2045,7 @@ function trapCard() {
 function promoCard() {
   const left = Math.max(0, CONFIG.freeQuestions - seenCount());
   const el = document.createElement("article"); el.className = "card promo";
-  el.innerHTML = `<div class="eyebrow" style="color:#fb7185">520 Quest plans</div><p class="bigtext">${left} of ${CONFIG.freeQuestions} free questions left.</p>
+  el.innerHTML = `<div class="eyebrow" style="color:#f472b6">520 Quest plans</div><p class="bigtext">${left} of ${CONFIG.freeQuestions} free questions left.</p>
     <p class="muted" style="margin:0">Every plan unlocks all 9,092 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles and duels, the score estimate and Anki export.</p>
     <div class="row"><button class="btn pro" data-pro>See plans, from ${esc(CONFIG.fromPrice)}</button></div>${SWIPE}`;
   return el;
@@ -2178,7 +2206,7 @@ function welcomeBack() {
     ${levelBarHTML()}
     <p class="small muted" style="margin:0;text-align:center">Today's goal: <b style="color:var(--text)">${S.goal} questions</b> · ${streakAlive()}-day streak · ${revCount()} in Revenge Queue${S.lv.pending ? ` · <b style="color:var(--volt)">Gatekeeper of Level ${S.lv.pending} is ready</b>` : ""}</p>
     <button class="btn primary" data-welstart style="font-size:18px;padding:16px">Start today's quest</button>
-    <button class="btn" data-welgoal>Adjust goals for the day</button>
+    <button class="btn adjgoal" data-welgoal>Adjust goals for the day</button>
     ${CONFIG.flags.MASTERY_SHEETS_CONSPICUOUS ? goldBtnHTML() : ""}`,
     s => s.addEventListener("click", e => {
       if (e.target.closest("[data-welstart]")) { $("#sheetHost").innerHTML = ""; go("scroll"); }
@@ -2407,7 +2435,7 @@ document.addEventListener("click", e => {
   const b = e.target.closest("[data-mnlink]"), m = b && MN && MN.find(x => String(x.id) === b.dataset.mnlink); if (!m) return;
   if (m.locked && adminNoKey()) return lockedSheet("Content key missing", "Admin is on, but mnemonics are encrypted. Add content_key to play/admin-private.json.");
   if (m.locked) return lockedSheet(`${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 9,092 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
-  mnView = { s: "mn", id: m.id }; go("course");
+  mnView = { s: "mn", id: m.id }; crs = "vault"; go("course");
 });
 function lockedSheet(title, line) {
   sheet(`<div class="eyebrow">Locked</div><h3>${title}</h3><p><b>${line}</b></p><p class="muted small">Monthly ${esc(CONFIG.plans[0].price)}, 6 Months ${esc(CONFIG.plans[1].price)} or Yearly ${esc(CONFIG.plans[2].price)}. Every plan unlocks everything.${S.pro ? " Already subscribed? Sign in on the Me tab." : ""}</p>
@@ -2428,14 +2456,32 @@ const mnScore = m => (m.upvotes || 0) + mnVotes(m.id);
 function mnItemHTML(m) {
   return `<button class="mn-item ${m.locked ? "locked" : ""}" data-mn="${esc(m.id)}"><span class="row" style="justify-content:space-between;flex-wrap:nowrap;gap:8px"><b>${esc(m.concept)}</b>${m.locked ? `<span class="tag">Locked</span>` : ""}</span>${m.locked ? "" : `<span class="mt">${esc(m.mnemonic_text)}</span>${m.funny_version ? `<span><span class="pill funny">Funny version</span></span>` : ""}`}</button>`;
 }
+let crs = "home"; // Course hub: home | sheets | check | vault
+const SHEET_GROUPS = [["Chem/Phys", /^(4|5)[A-E]$/], ["Bio/Biochem", /^[123][A-D]$/], ["Psych/Soc", /^(6|7|8|9|10)[A-C]$/], ["CARS", /^(CARS|SIRS)$/]];
+const CHK_KEY = "520quest.mastered.checklist.v5";
+function chkGet() { try { return JSON.parse(localStorage.getItem(CHK_KEY)) || {}; } catch (e) { return {}; } }
+function crsBack(label) { return `<button class="btn small pinkback" data-crsback>← ${label || "BACK"}</button>`; }
 function renderCourse() {
   const v = $("#view-course"), free = SHEETS ? SHEETS.filter(x => x.free).length : 0, locked = SHEETS ? SHEETS.filter(x => !sheetOpen(x)).length : 0;
   if (mnView.s === "cat" || mnView.s === "mn" || mnView.s === "search") return renderMn(v);
-  v.innerHTML = `<h2 class="title">Course</h2><p class="sub">Mastery Sheets for every MCAT content category, plus the Mnemonics Vault.</p>
-    <div class="stack"><div class="panel"><h3>Mastery Sheets</h3><p class="small muted" style="margin:4px 0 0">One-page reviews: high-yield summary, formulas and pathways, common traps and 3 practice questions.${S.pro || hasKey() ? "" : ` ${free} free previews.`}</p>
-      ${SHEETS ? `<div class="sheets-grid">${SHEETS.map(x => `<button class="shbtn ${sheetOpen(x) ? "" : "locked"}" data-sheet="${esc(x.id)}"><code>${sheetOpen(x) ? "" : "🔒 "}${esc(x.id)}</code><small>${esc(x.title)}</small></button>`).join("")}</div>` : `<p class="muted small">Loading…</p>`}
-      ${locked ? `<div class="lockcta">Unlock ${locked} more sheets + all 9,092 Qs with any plan, from ${esc(CONFIG.fromPrice)}<div class="small muted" style="font-weight:400;margin-top:4px"><button class="linkbtn" data-pro2>See plans</button></div></div>` : ""}</div>
-    ${CONFIG.flags.MNEMONICS_ENABLED ? mnHomeHTML() : ""}</div>`;
+  if (crs === "vault") { v.innerHTML = `${crsBack("BACK")}<h2 class="title" style="margin-top:10px">Mnemonics Vault</h2><div class="stack">${mnHomeHTML()}${crsBack("BACK")}</div>`; return; }
+  if (crs === "check") {
+    const done = chkGet(), n = SHEETS ? SHEETS.length : 0, got = SHEETS ? SHEETS.filter(x => done[x.id]).length : 0;
+    v.innerHTML = `${crsBack()}<h2 class="title" style="margin-top:10px">Memorization Checklist</h2><p class="sub">${got} of ${n} sheets mastered</p><div class="stack">${(SHEETS || []).map(x => `<label class="panel row small" style="flex-wrap:nowrap"><input type="checkbox" data-chk="${esc(x.id)}" ${done[x.id] ? "checked" : ""}> <b>${esc(x.id)}</b> ${esc(x.title)}</label>`).join("")}${crsBack()}</div>`; return;
+  }
+  if (crs === "sheets") {
+    v.innerHTML = `${crsBack()}<h2 class="title" style="margin-top:10px">Mastery Sheets</h2><p class="sub">One-page reviews: high-yield summary, formulas and pathways, common traps and 3 practice questions.${S.pro || hasKey() ? "" : ` ${free} free previews.`}</p><div class="stack">
+      ${SHEETS ? SHEET_GROUPS.map(([g, re]) => { const l = SHEETS.filter(x => re.test(x.id)); return l.length ? `<div class="panel"><h3>${g}</h3><div class="sheets-grid">${l.map(x => `<button class="shbtn ${sheetOpen(x) ? "" : "locked"}" data-sheet="${esc(x.id)}"><code>${sheetOpen(x) ? "" : "🔒 "}${esc(x.id)}</code><small>${esc(x.title)}</small></button>`).join("")}</div></div>` : ""; }).join("") : `<p class="muted">Loading sheets…</p>`}
+      ${locked ? `<div class="lockcta">Unlock ${locked} more sheets + all 9,092 Qs with any plan, from ${esc(CONFIG.fromPrice)}<div class="small muted" style="font-weight:400;margin-top:4px"><button class="linkbtn" data-pro2>See plans</button></div></div>` : ""}${crsBack()}</div>`; return;
+  }
+  v.innerHTML = `<h2 class="title">Course</h2><p class="sub">Mastery Sheets for every MCAT content category, plus the Mnemonics Vault and exams.</p>
+    <div class="stack">
+      <button class="crsbtn crs-sheets" data-crs="sheets">📚 ${SHEETS ? SHEETS.length : 33} Mastery Sheets<small>Chem/Phys · Bio/Biochem · Psych/Soc · CARS</small></button>
+      <button class="crsbtn crs-check" data-crs="check">✅ Memorization Checklist<small>Tick off what you've mastered</small></button>
+      <button class="crsbtn crs-vault" data-crs="vault">🧠 ${MN && MN.length ? MN.length : 150} Mnemonics Vault<small>Funny, memorable, searchable</small></button>
+      <button class="crsbtn crs-mini" data-crs="exam">⏱ 4 Mini Exams<small>Single-section timed practice</small></button>
+      <button class="crsbtn crs-fl" data-crs="exam">🎯 3 FL<small>Full-length, 4 sections</small></button>
+    </div>`;
 }
 function mnHomeHTML() {
   if (!MN) return `<div class="panel"><h3>Mnemonics Vault</h3><p class="muted small">Loading…</p></div>`;
@@ -2447,12 +2493,13 @@ function mnHomeHTML() {
     <h4 style="margin:14px 0 6px">Featured</h4><div class="mn-list">${top.map(mnItemHTML).join("")}</div></div>`;
 }
 function renderMn(v) {
-  const back = `<button class="btn small pro" data-mnback>← ${mnView.s === "mn" && mnView.from ? "Back" : "Course"}</button>`;
+  const back = `<button class="btn small pinkback" data-mnback>← BACK</button>`;
   if (mnView.s === "cat" || mnView.s === "search") {
     const list = mnView.s === "cat" ? MN.filter(m => mnKey(m.category) === mnKey(mnView.cat)) : MN.filter(m => (m.concept + " " + (m.mnemonic_text || "") + " " + (m.funny_version || "")).toLowerCase().includes(mnView.q.toLowerCase()));
     const lockedN = list.filter(m => m.locked).length;
     v.innerHTML = `${back}<h2 class="title" style="margin-top:10px">${mnView.s === "cat" ? esc(mnView.cat) : `Results for “${esc(mnView.q)}”`}</h2><p class="sub">${list.length} mnemonic${list.length === 1 ? "" : "s"}${lockedN ? ` · ${lockedN} locked` : ""}</p>
       <div class="mn-list">${list.map(mnItemHTML).join("") || `<p class="muted">No matches.</p>`}</div>${lockedN ? `<div class="lockcta">Unlock ${MN.filter(m => m.locked).length} more mnemonics + all 9,092 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}<div class="small muted" style="font-weight:400;margin-top:4px"><button class="linkbtn" data-pro2>See plans</button></div></div>` : ""}`;
+    v.insertAdjacentHTML("beforeend", `<div style="margin-top:14px">${back}</div>`);
     return;
   }
   const m = MN.find(x => String(x.id) === String(mnView.id)); if (!m) { mnView = { s: "home" }; return renderCourse(); }
@@ -2465,13 +2512,14 @@ function renderMn(v) {
     ${m.image_url && /^[\w\/.-]+\.(svg|png|jpe?g|webp)$/i.test(m.image_url) && !m.image_url.includes("..") ? `<figure class="exfig"><img src="${esc(m.image_url)}" alt="${esc(m.doodle_prompt || m.concept)}" loading="lazy"></figure>` : ""}
     <div class="row">${sh ? `<button class="btn small" data-sheet="${esc(sh.id)}">See Sheet ${esc(sh.id)}</button>` : ""}${qs.length ? `<button class="btn small" data-mnq="${esc(qs.join(","))}">Practice ${qs.length} question${qs.length === 1 ? "" : "s"}</button>` : ""}</div>
     <div class="row"><button class="btn small pro" data-mnshare="${esc(m.id)}">Share</button></div></div>`;
+  v.insertAdjacentHTML("beforeend", `<div style="margin-top:14px">${back}</div>`);
 }
 function mnShare(m) {
   const c = document.createElement("canvas"); c.width = 1080; c.height = 1080; const g = c.getContext("2d");
-  const grd = g.createLinearGradient(0, 0, 1080, 1080); grd.addColorStop(0, "#11100c"); grd.addColorStop(1, "#29261d"); g.fillStyle = grd; g.fillRect(0, 0, 1080, 1080);
-  g.fillStyle = "#facc15"; g.beginPath(); g.arc(120, 120, 46, 0, 7); g.fill(); g.fillStyle = "#1a1500"; g.font = "800 30px sans-serif"; g.textAlign = "center"; g.fillText("520", 120, 131);
+  const grd = g.createLinearGradient(0, 0, 1080, 1080); grd.addColorStop(0, "#1e3a8a"); grd.addColorStop(1, "#1e293b"); g.fillStyle = grd; g.fillRect(0, 0, 1080, 1080);
+  g.fillStyle = "#f472b6"; g.beginPath(); g.arc(120, 120, 46, 0, 7); g.fill(); g.fillStyle = "#ffffff"; g.font = "800 30px sans-serif"; g.textAlign = "center"; g.fillText("520", 120, 131);
   g.textAlign = "left"; g.fillStyle = "#f6f1e3"; g.font = "800 38px sans-serif"; g.fillText("520 Quest", 186, 133);
-  g.fillStyle = "#facc15"; g.font = "700 34px sans-serif"; g.fillText("MCAT MNEMONIC: " + String(m.concept).toUpperCase().slice(0, 34), 80, 280);
+  g.fillStyle = "#f472b6"; g.font = "700 34px sans-serif"; g.fillText("MCAT MNEMONIC: " + String(m.concept).toUpperCase().slice(0, 34), 80, 280);
   const text = m.funny_version || m.mnemonic_text, words = String(text).split(/\s+/); let size = 64, lines;
   const fit = () => { g.font = `800 ${size}px sans-serif`; lines = []; let cur = ""; words.forEach(w => { const t = cur ? cur + " " + w : w; if (g.measureText(t).width > 920 && cur) { lines.push(cur); cur = w; } else cur = t; }); if (cur) lines.push(cur); };
   fit(); while (lines.length * size * 1.25 > 560 && size > 30) { size -= 4; fit(); }
@@ -2492,6 +2540,9 @@ function mnSubmitPrompt() {
 }
 $("#view-course").addEventListener("click", e => {
   const t = e.target;
+  const cr = t.closest("[data-crs]"); if (cr) { if (cr.dataset.crs === "exam") return go("exam"); crs = cr.dataset.crs; mnView = { s: "home" }; renderCourse(); v0(); return; }
+  if (t.closest("[data-crsback]")) { crs = "home"; renderCourse(); v0(); return; }
+  const ck = t.closest("[data-chk]"); if (ck) { const d = chkGet(); if (ck.checked) d[ck.dataset.chk] = 1; else delete d[ck.dataset.chk]; localStorage.setItem(CHK_KEY, JSON.stringify(d)); return renderCourse(); }
   const c = t.closest("[data-mncat]"); if (c) { mnView = { s: "cat", cat: c.dataset.mncat }; renderCourse(); v0(); return; }
   const it = t.closest("[data-mn]"); if (it) {
     const m = MN.find(x => String(x.id) === it.dataset.mn); if (!m) return;
@@ -2499,7 +2550,7 @@ $("#view-course").addEventListener("click", e => {
     if (m.locked) return lockedSheet(`${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 9,092 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
     mnView = { s: "mn", id: m.id, from: mnView.s !== "home" ? mnView : null }; renderCourse(); v0(); return;
   }
-  if (t.closest("[data-mnback]")) { mnView = mnView.s === "mn" && mnView.from ? mnView.from : { s: "home" }; renderCourse(); return; }
+  if (t.closest("[data-mnback]")) { mnView = mnView.s === "mn" && mnView.from ? mnView.from : { s: "home" }; crs = "vault"; renderCourse(); v0(); return; }
   const up = t.closest("[data-mnup]"); if (up) { S.mnUp = S.mnUp || {}; const id = up.dataset.mnup; if (S.mnUp[id]) delete S.mnUp[id]; else S.mnUp[id] = 1; save(); renderCourse(); return; }
   const sh = t.closest("[data-mnshare]"); if (sh) { const m = MN.find(x => String(x.id) === sh.dataset.mnshare); if (m) mnShare(m); return; }
   const pq = t.closest("[data-mnq]"); if (pq) {
@@ -2578,9 +2629,8 @@ function renderMe() {
   const C = 2 * Math.PI * 31, pct = Math.min(1, S.today.answered / S.goal);
   $("#view-me").innerHTML = `${todaySummaryHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Subscriber" : ""}</p>
   <div class="stack">
-    <div class="panel">${levelBarHTML()}</div>
+    <div class="panel">${levelBarHTML()}<div class="row" style="margin-top:10px"><button class="btn pinkback" data-meqbank>← Back to Qbank</button></div></div>
     <div class="panel" id="goalPanel"><h3>Adjust goals for the day</h3><p class="small muted" style="margin:0 0 8px">How many questions do you want to do each day?</p><div class="row">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n ? "primary" : ""}" data-setgoal="${n}">${n} questions</button>`).join("")}</div></div>
-    ${window.acctPanelHTML ? acctPanelHTML() : ""}
     ${analyticsHTML()}
     <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
@@ -2601,19 +2651,23 @@ function renderMe() {
     <div class="panel"><h3>Settings</h3>
       <label class="row small" for="soundChk"><input type="checkbox" id="soundChk" ${S.sound ? "checked" : ""}> Sound and vibration</label>
       <label class="row small" for="fanChk"><input type="checkbox" id="fanChk" ${S.fanfare ? "checked" : ""}> Level-up fanfare</label>
-      <label class="row small" for="musicSel">Music <select id="musicSel">${[["boss", "Boss battles only"], ["on", "Always on"], ["off", "Off"]].map(([v, n]) => `<option value="${v}" ${S.music === v ? "selected" : ""}>${n}</option>`).join("")}</select></label>
+      <label class="row small musicrow" for="musicSel">🎵 Music <select id="musicSel">${[["boss", "Boss battles only"], ["on", "Always on"], ["off", "Off"]].map(([v, n]) => `<option value="${v}" ${S.music === v ? "selected" : ""}>${n}</option>`).join("")}</select></label>
       <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button><a class="btn small" href="../guide/" target="_blank" rel="noopener">How to use</a>${installed() ? "" : '<button class="btn small" data-install>Install app</button>'}${S.pro ? "" : '<button class="btn small pro" data-pro>See plans</button>'}</div><div id="backupOut"></div></div>
+    ${window.acctPanelHTML ? acctPanelHTML() : ""}
     ${CONFIG.resources.length ? `<div class="panel links"><h3>Resources</h3>${CONFIG.resources.map(r => `<p class="small"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a><br><span class="muted">${esc(r.note || "")}</span></p>`).join("")}</div>` : ""}
     <div class="panel"><h3>Help</h3>
       <p class="small">Questions about 520 Quest or your purchase? We reply within 24 to 48 hours.</p>
       <div class="row"><a class="btn small primary" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20support">Contact Support</a><a class="btn small" href="${esc(CONFIG.supportUrl)}" target="_blank" rel="noopener">FAQ</a><a class="btn small" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20feedback">Send feedback</a></div>
-      <p class="small muted">${esc(CONFIG.supportEmail)}</p></div>
+      <p class="text-sm" style="font-size:13px;color:#6b7280;margin:8px 0 0">Contact support: ${esc(CONFIG.supportEmail)}</p>
+      <p style="font-size:12px;color:#6b7280;margin:4px 0 0"><button class="linkbtn" data-cancelsub style="font-size:12px;color:#6b7280">Cancel subscription</button></p></div>
     <div class="panel"><h3>Privacy</h3><p class="small"><b>We help you get into medical school without selling your data.</b> Your progress stays on this device unless you sign in; then it's saved to your 520 Quest account so it follows you to your other devices. No ads, no trackers.</p></div>
     <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app.</p>
   </div>`;
 }
 $("#view-me").addEventListener("click", e => {
   const t = e.target;
+  if (t.closest("[data-cancelsub]")) { location.href = "mailto:" + CONFIG.supportEmail + "?subject=" + encodeURIComponent("Cancel my 520 Quest subscription"); return; }
+  if (t.closest("[data-meqbank]")) { go("scroll"); return; }
   const sg = t.closest("[data-setgoal]"); if (sg) { setGoal(+sg.dataset.setgoal); const y = $("#view-me").scrollTop; renderMe(); $("#view-me").scrollTop = y; return toast(`Daily goal: <b>${S.goal} questions</b>.`); }
   if (t.closest("[data-pro]")) return showPro();
   if (t.closest("[data-share]")) return share();

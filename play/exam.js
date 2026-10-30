@@ -13,6 +13,7 @@
 
   /* ---------- catalog from the loaded bank ---------- */
   let CAT_X = null;
+  window.CAT_RESET = () => { CAT_X = null; };
   function catalog() {
     if (CAT_X) return CAT_X;
     const ids = new Set();
@@ -23,7 +24,7 @@
       const sections = order.map(s => { const it = items(id, s); return { s, n: it.length, min: SEC[s].min }; });
       return { id, full: id.startsWith("FL"), sections, n: sections.reduce((a, s) => a + s.n, 0) };
     });
-    return (CAT_X = list);
+    return list.length ? (CAT_X = list) : list;
   }
   const ITEMS = {};
   function items(exam, sec) {
@@ -72,6 +73,7 @@
         <p class="small muted" style="margin:4px 0 8px">${c.n} questions · ${c.sections.length === 1 ? t : "4 sections · " + t + " testing time"}${b ? " · best " + b : ""}</p>
         <div class="row"><button class="btn primary small" data-xstart="${c.id}">${run ? "Resume" : open ? "Start" : "Unlock"}</button>${run ? `<button class="btn ghost small" data-xdrop="${c.id}">Discard attempt</button>` : ""}</div></div>`;
     };
+    if (!cat.length) { root().innerHTML = `<h2 class="title">Timed exams</h2><p class="sub">Exam content is still loading or could not be loaded. If the files are sealed, the content key is missing. Reload, or check that bank/FL.json and bank/MN.json are reachable.</p><button class="btn" onclick="CAT_RESET&&CAT_RESET();renderExam()">Retry</button>`; return; }
     const fl = cat.filter(c => c.full), mn = cat.filter(c => !c.full);
     root().innerHTML = `<h2 class="title">Timed exams</h2><p class="sub">Sit a section under real timing: countdown, pause, flag, end-of-section review and a scaled score estimate. Full-lengths run Chem/Phys, CARS, Bio/Biochem, Psych/Soc with breaks. Mini exams are one section.</p>
       ${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> Mini 1 is free. Plans unlock all 10 full-lengths and the other 9 minis.</p><button class="btn small pro" data-pro>See plans</button></div>`}
