@@ -1785,7 +1785,11 @@ function nextCard() {
   const sec = S.focus ? CAT[S.focus].s : S.filter;
   // A passage only appears when all its questions fit inside the free limit.
   const fits = p => S.pro || seenCount() + p.qs.filter(q => !S.stats[q.id]).length <= CONFIG.freeQuestions;
-  const cars = PASSAGES.filter(p => p.s === "CARS"), nextP = cars[passI % cars.length], pFits = fits(nextP);
+  // Drilling a CARS skill (CF/CW/CB): only passages that have that question type, showing just those questions.
+  let cars = PASSAGES.filter(p => p.s === "CARS");
+  if (S.focus && sec === "CARS") cars = cars.filter(p => p.qs.some(q => q.c === S.focus)).map(p => Object.assign({}, p, { qs: p.qs.filter(q => q.c === S.focus) }));
+  if (!cars.length) return null;
+  const nextP = cars[passI % cars.length], pFits = fits(nextP);
   if (sec === "CARS") { if (!pFits) { if (gateShown) return null; gateShown = true; return gateCard(); } passI++; return passageCard(nextP); }
   if (!S.focus && sec === "ALL" && cardN % 9 === 0 && pFits) { passI++; return passageCard(nextP); }
   if (cardN % 3 === 0) { const sp = nextSciPassage(sec); if (sp && fits(sp)) return passageCard(sp); }
@@ -2345,10 +2349,10 @@ function bossEnd() {
 /* ---------- map ---------- */
 function renderMap() {
   const groups = ["CP", "CARS", "BB", "PS"];
-  $("#view-map").innerHTML = `<h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll.</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
+  $("#view-map").innerHTML = `<h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll (CARS skills open passages filtered to that question type).</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
   <div class="stack">${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
     const c = S.cat[code] || { a: 0, c: 0 }, m = c.a ? c.c / c.a : 0, col = !c.a ? "var(--line)" : m >= .8 ? "var(--good)" : m >= .6 ? "var(--volt)" : "var(--bad)";
-    const drill = s !== "CARS" && QUESTIONS.some(q => q.c === code);
+    const drill = s === "CARS" ? PASSAGES.some(p => p.s === "CARS" && p.qs.some(q => q.c === code)) : QUESTIONS.some(q => q.c === code);
     return `<button class="cat" ${drill ? `data-drill="${code}"` : "disabled"}><code>${code}</code><span class="t">${esc(title)}${hy ? ' <span style="color:var(--volt)">★</span>' : ""}<small>${c.a ? Math.round(m * 100) + "% of " + c.a : "Not tried yet"}</small></span><span class="meter"><i style="width:${c.a ? Math.max(6, m * 100) : 0}%;background:${col}"></i></span></button>`;
   }).join("")}</div></div>`).join("")}</div>`;
 }
