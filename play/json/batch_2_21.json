@@ -1,0 +1,107 @@
+[
+  {
+    "id": "bp002_Q1",
+    "type": "passage",
+    "passage_id": "bp002",
+    "passage_text": "Researchers performed a stepwise titration of the tripeptide Gly‑Lys‑Asp (GKD) to study how its net charge changes with pH. The peptide contains four ionizable groups: the N‑terminus (pKa ≈ 8.0), the C‑terminus (pKa ≈ 3.1), the Lys side chain (pKa ≈ 10.5), and the Asp side chain (pKa ≈ 3.9). Table 1 shows the measured net charge at selected pH values. The experiment was conducted at 25 °C in 0.1 M phosphate buffer, and the charge was determined by capillary electrophoresis. The data illustrate the classic sigmoidal titration curve and provide a basis for calculating the isoelectric point (pI) of the peptide.",
+    "table_data": "| pH | N‑terminus | Lys side chain | Asp side chain | C‑terminus | Net charge |\n|---|---|---|---|---|---|\n| 2 | +1 | +1 | +1 | 0 | +3 |\n| 4 | +1 | +1 | –1 | –1 | 0 |\n| 6 | +1 | +1 | –1 | –1 | 0 |\n| 8 | +1 | +1 | –1 | –1 | 0 |\n| 10.5 | 0 | 0 | –1 | –1 | –2 |\n| 12 | 0 | 0 | –1 | –1 | –2 |",
+    "stem": "What is the independent variable in Table 1?",
+    "options": {
+      "A": "Net charge of the peptide",
+      "B": "pH of the titration solution",
+      "C": "Charge state of the Lys side chain",
+      "D": "Charge state of the Asp side chain"
+    },
+    "correct": "B",
+    "explanation": "Analogy: Think of a recipe where you change the amount of salt you add (pH) and watch how the taste (net charge) changes. The thing you change is the independent variable. Official: The independent variable is the one you manipulate—in this case, the pH. A confuses the outcome (net charge) with the cause; C and D focus on individual group charges, which are dependent on the pH you set.",
+    "trap": "Confusing outcome (net charge) with the variable you control (pH).",
+    "sheet_link": "See Mastery Sheet 1A (pKa, pI, Titration) + Variable table",
+    "mnemonic_link": "MV_1A_01",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  },
+  {
+    "id": "bp002_Q2",
+    "type": "passage",
+    "passage_id": "bp002",
+    "passage_text": "To determine the isoelectric point (pI) of GKD, the researchers could design an experiment that systematically varies the pH of the solution and measures the net charge of the peptide at each point. By plotting net charge versus pH, the pH at which the curve crosses zero gives the pI. An alternative approach would be to run the peptide on an isoelectric focusing gel and identify the band that migrates to the pH where it stops moving. The key is to keep all other conditions constant (temperature, ionic strength) so that the only changing factor is the proton concentration.",
+    "table_data": "",
+    "stem": "Which experimental design would best allow the researchers to determine the pI of GKD?",
+    "options": {
+      "A": "Measure the peptide’s melting temperature at various pH values.",
+      "B": "Titrate the peptide while recording its net charge and plot the curve.",
+      "C": "Vary the peptide concentration while keeping pH constant.",
+      "D": "Use mass spectrometry to measure the peptide’s mass at different pH levels."
+    },
+    "correct": "B",
+    "explanation": "Analogy: To find the exact spot where a ball stops rolling (pI), you need to see how its speed changes as you tilt the surface (pH). You measure the speed at each tilt. Official: The best method is to titrate while measuring net charge and plot the charge‑pH curve. A measures temperature, not charge; C changes concentration, not pH; D measures mass, which doesn’t change with protonation.",
+    "trap": "Choosing an unrelated measurement (melting temp, concentration, mass) instead of charge vs. pH.",
+    "sheet_link": "See Mastery Sheet 1A (pKa, pI, Titration) + Variable table",
+    "mnemonic_link": "MV_1A_02",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  },
+  {
+    "id": "bp002_Q3",
+    "type": "passage",
+    "passage_id": "bp002",
+    "passage_text": "Using the data in Table 1, the isoelectric point (pI) of GKD can be calculated by averaging the pKa values of the groups that change charge around the neutral net charge. The C‑terminus (pKa 3.1) deprotonates from neutral to –1, and the N‑terminus (pKa 8.0) protonates from 0 to +1. The pI is the mean of these two pKa’s:",
+    "table_data": "",
+    "stem": "Calculate the pI of GKD from the table data.",
+    "options": {
+      "A": "3.5",
+      "B": "5.6",
+      "C": "7.2",
+      "D": "10.5"
+    },
+    "correct": "B",
+    "explanation": "Analogy: Imagine two friends who meet halfway on a road. The meeting point is the average of their starting points. Official: pI = (pKa_N + pKa_C)/2 = (8.0 + 3.1)/2 = 5.55 ≈ 5.6. A uses only the Asp and C‑terminus pKa’s, C misapplies the formula, D is the Lys pKa, not relevant for pI.",
+    "trap": "Averaging the wrong set of pKa values or using the Lys pKa.",
+    "sheet_link": "See Mastery Sheet 1A (pKa, pI, Titration) + Variable table",
+    "mnemonic_link": "MV_1A_03",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  },
+  {
+    "id": "bp002_Q4",
+    "type": "passage",
+    "passage_id": "bp002",
+    "passage_text": "Students sometimes confuse the definition of pI with that of a pKa. The pI is the pH at which a molecule carries no net charge, whereas a pKa is the pH at which a specific ionizable group is half protonated. Understanding this distinction is crucial for interpreting titration curves and predicting protein behavior.",
+    "table_data": "",
+    "stem": "Which statement correctly distinguishes pI from pKa?",
+    "options": {
+      "A": "pI is the pH where a specific side chain is 50 % protonated.",
+      "B": "pI is the average of all pKa values of the molecule.",
+      "C": "pI is the pH at which the net charge of the molecule is zero.",
+      "D": "pKa values are irrelevant for calculating pI."
+    },
+    "correct": "C",
+    "explanation": "Analogy: pI is like the balance point of a see‑saw; pKa is like the point where one side of the see‑saw is exactly half up. Official: pI is the pH of zero net charge; pKa refers to a particular group’s protonation equilibrium. A confuses pI with a single group’s pKa; B misstates the calculation; D incorrectly dismisses the role of pKa values.",
+    "trap": "Mixing up the definitions of pI and pKa.",
+    "sheet_link": "See Mastery Sheet 1A (pKa, pI, Titration) + Variable table",
+    "mnemonic_link": "MV_1A_04",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  },
+  {
+    "id": "bp002_Q5",
+    "type": "passage",
+    "passage_id": "bp002",
+    "passage_text": "The isoelectric point of a protein has practical implications in biotechnology. At its pI, a protein is least soluble in aqueous solution and migrates slowly in an electric field during isoelectric focusing. This property is exploited in protein purification and in predicting how a protein will behave under different pH conditions.",
+    "table_data": "",
+    "stem": "Which property of a protein is most affected by its pI?",
+    "options": {
+      "A": "Solubility in aqueous solution",
+      "B": "Melting temperature",
+      "C": "Enzymatic activity",
+      "D": "All of the above"
+    },
+    "correct": "A",
+    "explanation": "Analogy: A protein’s pI is like the pH where it feels most comfortable; at that pH it doesn’t want to dissolve. Official: The pI primarily governs solubility; melting temperature and enzymatic activity are influenced by other structural factors. B and C are not directly determined by pI. D is too broad.",
+    "trap": "Assuming pI influences all physical properties equally.",
+    "sheet_link": "See Mastery Sheet 1A (pKa, pI, Titration) + Variable table",
+    "mnemonic_link": "MV_1A_05",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  }
+]

@@ -1,0 +1,596 @@
+[
+  {
+    "id": "bp_001",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "Which quantity in Table 1 was set by the investigators rather than measured as a response?",
+    "options": {
+      "A": "Net charge of the peptide",
+      "B": "pH of the solution",
+      "C": "Fraction of imidazole protonated",
+      "D": "Charge contributed by the two imidazoles"
+    },
+    "correct": "B",
+    "explanation": "The investigators chose the pH by adding acid or base, so pH is the independent variable. Net charge, protonation fraction and imidazole charge all change as a consequence of that choice and are read out from the experiment.",
+    "memorize": [
+      "pI is the pH of zero net charge; pKa is the pH of half protonation",
+      "Charge on a weak acid group is set by pH relative to its pKa"
+    ],
+    "fm": {
+      "formula": "pH = pKa + log([A-]/[HA])",
+      "variables": "pH is the solution proton concentration, pKa is the imidazole pKa of 6.0, and [A-]/[HA] is the deprotonated-to-protonated imidazole ratio",
+      "values": "pH 6.5, pKa 6.0",
+      "substitution": "pH - pKa = 0.5, so the deprotonated-to-protonated ratio is about 3.2",
+      "why": "Protonation of the imidazole is a single acid-base equilibrium, so its fraction follows directly from the Henderson-Hasselbalch ratio at each pH",
+      "no_calc": "Each whole pH unit away from the pKa changes the ratio tenfold; half a unit gives roughly 3:1"
+    },
+    "correct_rationale_plain": "pH is the manipulated variable; the charge columns are outcomes calculated from it.",
+    "wrong": {
+      "A": "Trap: net charge is the response the experiment measures, not the variable that was set",
+      "C": "Protonation fraction is a dependent quantity fixed by the pH you chose",
+      "D": "Imidazole charge is computed from the protonation fraction, so it is also dependent"
+    },
+    "sc": "Manipulated variable first: pH is dialed in, charge follows.",
+    "mn": "Titration order: you turn the pH knob, the charge meter moves.",
+    "tb": {
+      "caption": "Table 1. Titration of Ala-His-Gly-His-Leu-Lys-Asp",
+      "markdown": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_002",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "At which pH would this peptide solution most strongly resist a small addition of strong acid or base?",
+    "options": {
+      "A": "3.1",
+      "B": "7.4",
+      "C": "9.7",
+      "D": "6.0"
+    },
+    "correct": "D",
+    "explanation": "Buffering is strongest at the pH equal to the pKa of the group that is titrating, because that is where protonated and deprotonated forms are equal. The imidazole pKa is 6.0, and Table 1 shows the steepest charge change per pH unit in the 5.5 to 6.5 window. The carboxyl and amino groups buffer near 3.1 to 3.9 and 9.7 to 10.5, well away from 6.0.",
+    "memorize": [
+      "Best buffering at pH = pKa, useful range pKa plus or minus 1",
+      "Histidine imidazole pKa 6.0 is the only side chain that buffers near physiological pH"
+    ],
+    "fm": {
+      "formula": "buffer capacity is maximal at pH = pKa",
+      "variables": "pKa is the dissociation constant of the group being titrated; buffer capacity is the resistance to pH change",
+      "values": "His pKa 6.0",
+      "substitution": "pH = 6.0",
+      "why": "At pH = pKa the acid and conjugate base are equimolar, so added protons or hydroxide are absorbed by both reservoir forms",
+      "no_calc": "Compare pH with pKa; the closest pair wins without any arithmetic"
+    },
+    "correct_rationale_plain": "Imidazole has pKa 6.0, and a buffer works best within one pH unit of its pKa.",
+    "wrong": {
+      "A": "3.1 is the C-terminal pKa, so buffering there is carried by the carboxyl group, not the imidazole",
+      "B": "7.4 is physiological pH, but the only group near it is His at 6.0, which is 1.4 units away and mostly deprotonated",
+      "C": "9.7 is the N-terminal pKa, where the amino group buffers and the imidazoles are already deprotonated"
+    },
+    "sc": "Match pH to pKa; 6.0 is the only pKa inside the 5 to 7 range.",
+    "mn": "Histidine: proton at 6, release at 7.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_003",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "Using the pKa values given for this peptide, what is its isoelectric point?",
+    "options": {
+      "A": "6.0",
+      "B": "6.8",
+      "C": "7.4",
+      "D": "7.85"
+    },
+    "correct": "D",
+    "explanation": "Charge falls from +4 at low pH as groups deprotonate: C-terminus 3.1, Asp 3.9, the two imidazoles at 6.0, N-terminus 9.7, Lys 10.5. After both imidazoles lose their protons the peptide is neutral, and it stays neutral until the N-terminus deprotonates, so the pI is the average of 6.0 and 9.7, or 7.85.",
+    "memorize": [
+      "pI = mean of the two pKa values that bracket the neutral species",
+      "At pI net charge is zero and solubility is lowest"
+    ],
+    "fm": {
+      "formula": "pI = (pKa1 + pKa2)/2",
+      "variables": "pKa1 and pKa2 are the two ionizable groups on either side of the zero-charge form",
+      "values": "pKa1 = 6.0 (last imidazole), pKa2 = 9.7 (N-terminus)",
+      "substitution": "6.0 + 9.7 = 15.7, and 15.7/2 = 7.85",
+      "why": "The neutral form dominates only between the pKa that creates it and the pKa that destroys it, so the midpoint of that interval is the zero-charge pH",
+      "no_calc": "Spot the two pKa values around the neutral row of Table 1, then halve their sum"
+    },
+    "correct_rationale_plain": "The neutral species sits between the imidazole pKa of 6.0 and the N-terminal pKa of 9.7, so the pI is 7.85.",
+    "wrong": {
+      "A": "6.0 is the imidazole pKa alone, where the peptide still carries +1",
+      "B": "6.8 averages Asp 3.9 with the N-terminus 9.7 and ignores the imidazoles that keep the peptide positive until pH 8",
+      "C": "7.4 is a plausible physiological pH, but Table 1 shows a small positive charge there, not zero"
+    },
+    "sc": "Neutral row of the table sits between 6.0 and 9.7; average those two.",
+    "mn": "Bracket the zero, then split the bracket.",
+    "tb": {
+      "caption": "Table 1. Titration of Ala-His-Gly-His-Leu-Lys-Asp",
+      "markdown": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_004",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "What is the net charge of this peptide at pH 1.0, where every ionizable group is fully protonated?",
+    "options": {
+      "A": "+4",
+      "B": "+3",
+      "C": "+1",
+      "D": "-2"
+    },
+    "correct": "A",
+    "explanation": "At pH 1.0 all groups hold their protons. The N-terminus (+1), two imidazoles (+2) and Lys (+1) give +4, while Asp and the C-terminus are neutral carboxylic acids. The count is four positive charges and no negative charges.",
+    "memorize": [
+      "Fully protonated peptide: Lys and Arg positive, Asp and Glu neutral, His positive",
+      "Charge counting: sum the groups, do not average them"
+    ],
+    "fm": {
+      "formula": "net charge = sum of positive group charges plus sum of negative group charges",
+      "variables": "Each protonated basic group adds +1; each deprotonated acidic group adds -1",
+      "values": "N-terminus +1, two His +2, Lys +1, Asp 0, C-terminus 0",
+      "substitution": "1 + 2 + 1 = 4",
+      "why": "Below every pKa the protonated form dominates for both acids and bases, so the charge pattern is fixed by group identity",
+      "no_calc": "Count basic groups: three (N-terminus is one, His two, Lys one) gives +4"
+    },
+    "correct_rationale_plain": "Four basic groups are protonated at pH 1.0 and neither acid group is deprotonated, so the net charge is +4.",
+    "wrong": {
+      "B": "Trap: counting the two imidazoles as a single +1 gives +3 and drops one His",
+      "C": "+1 is the charge at pH 6.0, where each imidazole is half protonated",
+      "D": "-2 is the charge near pH 12, after the N-terminus and Lys have deprotonated"
+    },
+    "sc": "Low pH: count Lys, Arg, His and the N-terminus; ignore Asp and Glu.",
+    "mn": "Acid pH makes basic groups positive: Lys, Arg, His, N-term.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_005",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "At which pH would this peptide be least soluble in water?",
+    "options": {
+      "A": "3.1",
+      "B": "5.0",
+      "C": "7.85",
+      "D": "9.0"
+    },
+    "correct": "C",
+    "explanation": "Solubility is lowest at the pI, where the net charge is zero. With no net charge, molecules do not repel each other electrostatically, so they aggregate and precipitate. Table 1 shows the peptide passing through zero near pH 8, and the calculated pI is 7.85.",
+    "memorize": [
+      "At pI net charge 0, so solubility is lowest and precipitation is highest",
+      "Isoelectric focusing stops a protein at its pI"
+    ],
+    "fm": {
+      "formula": "pI = pH at which net charge = 0",
+      "variables": "Net charge is the sum of all group charges at a given pH",
+      "values": "pI 7.85 from (6.0 + 9.7)/2",
+      "substitution": "6.0 + 9.7 = 15.7, and 15.7/2 = 7.85",
+      "why": "Zero net charge removes electrostatic repulsion between peptide molecules, allowing hydrophobic and dipole contacts to drive aggregation",
+      "no_calc": "Find where the net charge column crosses zero; that pH is the answer"
+    },
+    "correct_rationale_plain": "At pH 7.85 the peptide carries no net charge, so repulsion between molecules disappears and it precipitates.",
+    "wrong": {
+      "A": "3.1 is the C-terminal pKa; the peptide is still net positive there because Lys and His are protonated",
+      "B": "At pH 5.0 the peptide carries about +0.8, and charge keeps it dissolved",
+      "D": "At pH 9.0 the peptide is net negative, and like charges repel, which favors solubility"
+    },
+    "sc": "Least soluble equals pI; find the zero crossing, not the extremes.",
+    "mn": "No charge, no repulsion, no solution.",
+    "tb": {
+      "caption": "Table 1. Titration of Ala-His-Gly-His-Leu-Lys-Asp",
+      "markdown": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_006",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "The peptide is placed at pH 7.4 in an electrophoresis lane. What is its approximate net charge and direction of migration?",
+    "options": {
+      "A": "About -0.9, migrating toward the anode",
+      "B": "About +0.1, migrating toward the cathode",
+      "C": "Exactly 0, so it does not move",
+      "D": "About +2.0, migrating toward the cathode twice as fast"
+    },
+    "correct": "B",
+    "explanation": "At pH 7.4 the imidazoles are more than 90 percent deprotonated, so the +2 from the N-terminus and Lys nearly cancels the -2 from Asp and the C-terminus, leaving a small positive charge. A net positive peptide migrates toward the negative electrode, the cathode. The charge is small, so migration is slow rather than absent.",
+    "memorize": [
+      "Cations migrate to the cathode; anions migrate to the anode",
+      "Near the pI, charge is small but not necessarily zero"
+    ],
+    "fm": {
+      "formula": "pH = pKa + log([A-]/[HA])",
+      "variables": "pH 7.4, imidazole pKa 6.0, and the ratio of deprotonated to protonated imidazole",
+      "values": "pH - pKa = 1.4",
+      "substitution": "10^1.4 is about 25, so roughly 1 imidazole in 26 is protonated",
+      "why": "A single Henderson-Hasselbalch ratio gives the residual positive charge contributed by each imidazole",
+      "no_calc": "1.4 units above the pKa means only a few percent stays protonated, so the charge is near zero but positive"
+    },
+    "correct_rationale_plain": "With the imidazoles deprotonated, the four fixed charges almost cancel, leaving about +0.1, so the peptide drifts toward the cathode.",
+    "wrong": {
+      "A": "Trap: subtracting the imidazole charge from the wrong column gives a net negative value; at pH 7.4 the peptide is slightly positive",
+      "C": "The neutral point is about pH 7.85, so at 7.4 a small charge remains",
+      "D": "+2.0 is the fully protonated charge of the two imidazoles, which are almost entirely deprotonated at 7.4"
+    },
+    "sc": "Just below pI means slightly positive, and positive goes to the cathode.",
+    "mn": "Cations to cathode, anions to anode: CAT, not CAT-ode confusion.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_007",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "A variant replaces both histidines with alanine. Assuming the other pKa values are unchanged, what is the pI of the variant?",
+    "options": {
+      "A": "7.85, because removing a side chain cannot change the pI",
+      "B": "9.7, because the N-terminus becomes the only titrating group",
+      "C": "6.8",
+      "D": "10.1"
+    },
+    "correct": "C",
+    "explanation": "Removing the imidazoles leaves Asp (3.9) as the last acidic group and the N-terminus (9.7) as the next group to deprotonate. The neutral form therefore exists between 3.9 and 9.7, so the pI falls to 6.8. Loss of a positive group at pH 7 shifts the zero-charge point downward.",
+    "memorize": [
+      "Replace His with Ala and you lose a positive charge near pH 6-7, lowering the pI",
+      "pI moves toward the pKa of the group that remains around neutrality"
+    ],
+    "fm": {
+      "formula": "pI = (pKa1 + pKa2)/2",
+      "variables": "pKa1 is the last acidic group, pKa2 the next basic group to deprotonate",
+      "values": "Asp 3.9 and N-terminus 9.7",
+      "substitution": "3.9 + 9.7 = 13.6, and 13.6/2 = 6.8",
+      "why": "With no imidazole, the neutral species spans the pH range between the Asp carboxylate and the alpha-amino group, so those two pKa values bracket it",
+      "no_calc": "Drop the imidazole rows from the table; the zero crossing slides down to the 3.9 to 9.7 window"
+    },
+    "correct_rationale_plain": "Without the two imidazoles, only Asp 3.9 and the N-terminus 9.7 bracket the neutral form, giving a pI of 6.8.",
+    "wrong": {
+      "A": "pI depends on which groups are present, so removing two ionizable side chains must change it",
+      "B": "9.7 is the N-terminal pKa, not a pI; Asp still contributes a negative charge below pH 9.7",
+      "D": "10.1 requires the neutral form to sit between 9.7 and 10.5, which happens only if Asp is removed, not His"
+    },
+    "sc": "Count remaining groups: Asp and N-term set the new bracket.",
+    "mn": "Take out the imidazoles, take the pI down.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_008",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "A second variant replaces the single aspartate with asparagine. What is the pI of this variant?",
+    "options": {
+      "A": "3.9",
+      "B": "6.8",
+      "C": "7.85",
+      "D": "10.1"
+    },
+    "correct": "D",
+    "explanation": "Asparagine has an amide side chain that does not ionize, so the only negative group left is the C-terminus at 3.1. After the two imidazoles and the C-terminus lose their protons the peptide is still positive, and it becomes neutral only when the N-terminus deprotonates at 9.7, then negative when Lys deprotonates at 10.5. The pI is therefore the average of 9.7 and 10.5.",
+    "memorize": [
+      "Asn and Gln are uncharged amides; Asp and Glu carry negative charge",
+      "Remove the only acidic side chain and the pI jumps toward the basic pKa values"
+    ],
+    "fm": {
+      "formula": "pI = (pKa1 + pKa2)/2",
+      "variables": "pKa1 is the N-terminal pKa, pKa2 is the Lys side-chain pKa, which bracket the neutral species after Asp is lost",
+      "values": "9.7 and 10.5",
+      "substitution": "9.7 + 10.5 = 20.2, and 20.2/2 = 10.1",
+      "why": "With no acidic side chain, the last positive charge to be lost above neutrality is the N-terminus, and Lys follows it",
+      "no_calc": "All remaining negatives are gone by pH 4, so the zero point must sit between the two basic pKa values near 10"
+    },
+    "correct_rationale_plain": "Without Asp, the neutral form lies between the N-terminus 9.7 and Lys 10.5, so the pI is 10.1.",
+    "wrong": {
+      "A": "3.9 is the pKa that was removed; a pI cannot equal a pKa of a group the variant lacks",
+      "B": "6.8 is the His-to-Ala variant, which keeps Asp and lowers the pI",
+      "C": "7.85 is the original peptide; deleting the only acidic side chain must raise the pI sharply"
+    },
+    "sc": "Lose the acid, gain a pI near 10: average 9.7 and 10.5.",
+    "mn": "Asn is Asp minus the charge: no acid, high pI.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_009",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "The peptide is loaded onto a cation-exchange column at pH 5.0 and eluted with a pH gradient. What behavior should be observed?",
+    "options": {
+      "A": "It binds at pH 5.0 and is released as the pH rises toward 8.0",
+      "B": "It binds at pH 8.0 and is released as the pH falls to 5.0",
+      "C": "It binds equally at pH 5.0 and pH 8.0 because Lys stays protonated",
+      "D": "It binds only at pH 9.0, where the net charge is most negative"
+    },
+    "correct": "A",
+    "explanation": "A cation exchanger carries negative charges and binds positively charged peptides. At pH 5.0 the peptide is about +0.8, so it binds; as the pH rises past the pI near 7.85 the net charge approaches zero and then turns negative, so the peptide no longer interacts and elutes. Charge, not the Lys side chain alone, decides binding.",
+    "memorize": [
+      "Cation exchange binds positive peptides; anion exchange binds negative ones",
+      "Raising pH above the pI makes a peptide negative and releases it from a cation exchanger"
+    ],
+    "fm": {
+      "formula": "net charge determines binding to a charged resin",
+      "variables": "Resin charge is negative for cation exchange; peptide charge comes from Table 1 at the loading pH",
+      "values": "net +0.82 at pH 5.0, net -0.01 at pH 8.0",
+      "substitution": "pH 5.0 gives +0.82, and pH 8.0 gives -0.01",
+      "why": "Opposite charges attract, so a positive peptide sticks to a negative resin and a neutral or negative peptide does not",
+      "no_calc": "Read the sign of net charge at each pH; positive binds, negative elutes"
+    },
+    "correct_rationale_plain": "The peptide is positive at pH 5.0 and nearly neutral at pH 8.0, so it binds at the low pH and elutes as the pH rises.",
+    "wrong": {
+      "B": "Reverses the charge logic; at pH 8.0 the peptide is near zero and cannot bind a cation exchanger",
+      "C": "Traps: one Lys stays positive, but the net charge near pH 8 is zero because Asp and the C-terminus cancel it",
+      "D": "At pH 9.0 the peptide is net negative, so a cation exchanger repels it"
+    },
+    "sc": "Cation exchange wants positive: load below pI, elute above it.",
+    "mn": "Cation exchange catches cations; raise the pH to let them go.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_010",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "Approximately how many protons are released when the peptide is titrated from pH 5.0 to pH 9.0?",
+    "options": {
+      "A": "One",
+      "B": "Two",
+      "C": "Four",
+      "D": "Six"
+    },
+    "correct": "B",
+    "explanation": "In this window the two imidazoles go from about 0.91 protonated to essentially 0, releasing roughly 1.8 protons, and the N-terminus loses a further small fraction as pH 9 is approached. The total is close to 2. Lys at 10.5 and the carboxyl groups at 3.1 to 3.9 are already fully titrated below pH 5, so they contribute nothing here.",
+    "memorize": [
+      "Protons released between two pH values equals the drop in bound protons on groups with pKa in that window",
+      "Groups with pKa outside the titration window contribute nothing"
+    ],
+    "fm": {
+      "formula": "protons released = change in total bound protons",
+      "variables": "Each group contributes its protonation fraction; multiply by the number of copies",
+      "values": "two imidazoles from 0.91 to 0.00, plus a small N-terminal change",
+      "substitution": "2 x 0.91 = 1.82, and the N-terminus adds about 0.15",
+      "why": "Only groups whose pKa lies inside the pH window change protonation, so the count is a sum of those fractions",
+      "no_calc": "Two imidazoles fully lose their protons across this window, so the answer is about two"
+    },
+    "correct_rationale_plain": "Both imidazoles deprotonate between pH 5 and 9, releasing about two protons, with a negligible extra from the N-terminus.",
+    "wrong": {
+      "A": "One proton would be a single His residue; this peptide has two",
+      "C": "Four would require the Lys and N-terminal protons to be released as well, and their pKa values are at 10.5 and 9.7",
+      "D": "Six counts every ionizable group, but the carboxyl groups are already deprotonated below pH 5"
+    },
+    "sc": "Count groups with pKa inside the window: two imidazoles.",
+    "mn": "Two His, two protons, one pH window.",
+    "tb": {
+      "caption": "Table 1. Titration of Ala-His-Gly-His-Leu-Lys-Asp",
+      "markdown": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_011",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "How well does the imidazole of this peptide buffer blood plasma at pH 7.4?",
+    "options": {
+      "A": "Strongly, because its pKa is close to physiological pH",
+      "B": "Strongly, because histidine is positively charged at pH 7.4",
+      "C": "Weakly, because pH 7.4 is about 1.4 units above the pKa of 6.0, so little protonated imidazole remains",
+      "D": "Not at all, because plasma contains no histidine"
+    },
+    "correct": "C",
+    "explanation": "A buffer works within about one pH unit of its pKa. At pH 7.4 the imidazole pKa of 6.0 is 1.4 units away, so more than 95 percent of the imidazole is deprotonated and almost no protonated reservoir is left to absorb added base. Histidine is far more effective near pH 6, which is why it is described as buffering near physiological pH only in the sense of being the closest side chain.",
+    "memorize": [
+      "Histidine pKa 6.0 is the closest side chain to physiological pH but still 1.4 units away",
+      "A buffer is useful within one pH unit of its pKa"
+    ],
+    "fm": {
+      "formula": "pH = pKa + log([A-]/[HA])",
+      "variables": "pH 7.4, pKa 6.0, ratio of deprotonated to protonated imidazole",
+      "values": "pH - pKa = 1.4",
+      "substitution": "10^1.4 is about 25, so 25 deprotonated forms for each protonated form",
+      "why": "Buffer capacity depends on having both forms present in comparable amounts, which fails when pH is far from pKa",
+      "no_calc": "More than one pH unit away means less than 10 percent of one form, so buffering is poor"
+    },
+    "correct_rationale_plain": "At pH 7.4 the imidazole is nearly fully deprotonated, so it has little capacity to absorb added base even though 6.0 is the nearest side-chain pKa.",
+    "wrong": {
+      "A": "6.0 is not close to 7.4 on a buffer scale, where one unit already halves capacity",
+      "B": "Positive charge is not the criterion; the ratio of protonated to deprotonated forms is",
+      "D": "Histidine is present in plasma proteins and in free amino acids, so the premise is false"
+    },
+    "sc": "Buffer range is pKa plus or minus 1; 6.0 plus 1 is 7.0, so 7.4 is outside.",
+    "mn": "His buffers at 6, not at 7.4.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_012",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "Which statement best explains why the net charge stays near zero between pH 7.0 and pH 9.0?",
+    "options": {
+      "A": "Both imidazoles are deprotonated, so +2 from the N-terminus and Lys balances -2 from Asp and the C-terminus",
+      "B": "The peptide has no ionizable groups above pH 7.0",
+      "C": "The Asp and Lys side chains titrate together at pH 8.0",
+      "D": "The N-terminus deprotonates at pH 7.0, canceling the C-terminus"
+    },
+    "correct": "A",
+    "explanation": "Once both imidazoles lose their protons, the remaining charges are fixed: the N-terminus and Lys give +2, and Asp and the C-terminus give -2. Those four groups have pKa values at 3.1, 3.9, 9.7 and 10.5, so they are all locked in their charged forms across pH 7 to 9. The sum is zero until the N-terminus begins to deprotonate near pH 9.7.",
+    "memorize": [
+      "Between pKa values, group charges are fixed and the net charge is constant",
+      "Zero net charge over a pH plateau comes from equal positive and negative fixed charges"
+    ],
+    "fm": {
+      "formula": "net charge = (+1 N-term) + (+1 Lys) + (-1 Asp) + (-1 C-term)",
+      "variables": "Each group contributes its full charge when the pH is more than one unit from its pKa",
+      "values": "N-terminus 9.7, Lys 10.5, Asp 3.9, C-terminus 3.1",
+      "substitution": "1 + 1 - 1 - 1 = 0",
+      "why": "In the plateau both imidazoles are deprotonated and the four remaining groups are far from their pKa values, so each contributes an integer charge",
+      "no_calc": "Two plus charges and two minus charges cancel exactly, so the plateau sits at zero"
+    },
+    "correct_rationale_plain": "The two imidazoles are empty in that range, leaving two positive and two negative fixed charges that cancel.",
+    "wrong": {
+      "B": "The N-terminus and Lys are still ionizable above pH 7; they simply stay protonated until 9.7 and 10.5",
+      "C": "Asp is already deprotonated below pH 5 and Lys deprotonates only above 10, so they do not titrate together",
+      "D": "The N-terminus has pKa 9.7, not 7.0, so it is still protonated throughout this plateau"
+    },
+    "sc": "Plateau means no group is titrating; add up the fixed +2 and -2.",
+    "mn": "Two up, two down, net zero.",
+    "tb": {
+      "caption": "Table 1. Titration of Ala-His-Gly-His-Leu-Lys-Asp",
+      "markdown": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_013",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "In an isoelectric focusing gel with a pH 3 to 10 gradient, where does this peptide focus?",
+    "options": {
+      "A": "pH 3.9",
+      "B": "pH 6.0",
+      "C": "pH 7.85",
+      "D": "pH 10.5"
+    },
+    "correct": "C",
+    "explanation": "In isoelectric focusing the electric field drives a peptide until its net charge is zero, at which point it stops moving. That position corresponds to its pI, which is 7.85 for this peptide. The peptide is positive below that pH and negative above it, so any displacement creates a restoring force back to 7.85.",
+    "memorize": [
+      "Isoelectric focusing separates by pI; the band stops where net charge is zero",
+      "A peptide is positive below its pI and negative above it"
+    ],
+    "fm": {
+      "formula": "migration stops where pH = pI",
+      "variables": "pI is the pH of zero net charge, computed from the pKa values bracketing the neutral species",
+      "values": "pKa 6.0 and 9.7",
+      "substitution": "6.0 + 9.7 = 15.7, and 15.7/2 = 7.85",
+      "why": "The electric field exerts no net force on a molecule with zero charge, so it remains at the pH where that condition holds",
+      "no_calc": "A pH gradient maps position to pH, so the answer is simply the pI"
+    },
+    "correct_rationale_plain": "The band stops at the pI, 7.85, where the peptide has no net charge.",
+    "wrong": {
+      "A": "3.9 is the Asp pKa, where the peptide is still strongly positive",
+      "B": "6.0 is the imidazole pKa, where the peptide carries about +1",
+      "D": "10.5 is the Lys pKa, where the peptide is net negative"
+    },
+    "sc": "IEF answer equals pI; compute the zero-charge pH.",
+    "mn": "Focus on zero: IEF parks at pI.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_014",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "A student calculates the pI by averaging all six ionizable groups and gets 6.53. Why is that value wrong?",
+    "options": {
+      "A": "It is not wrong; every ionizable group contributes equally to the pI",
+      "B": "Only the two pKa values on either side of the neutral species belong in the average",
+      "C": "The pI is always the lowest pKa in the peptide",
+      "D": "The average is right only if the peptide is zwitterionic at pH 7"
+    },
+    "correct": "B",
+    "explanation": "The pI is the pH at which the molecule is neutral, so only the two pKa values that convert the molecule into and out of the neutral form define it. Including groups that are already fully charged on both sides of neutrality pulls the average toward values that never bracket zero charge. Here the relevant pair is 6.0 and 9.7, giving 7.85.",
+    "memorize": [
+      "pI averages only the pKa pair flanking the neutral species",
+      "Averaging every pKa is the classic pI trap"
+    ],
+    "fm": {
+      "formula": "pI = (pKa1 + pKa2)/2",
+      "variables": "pKa1 and pKa2 are the two groups whose titration straddles the zero-charge form",
+      "values": "the student averaged all six: 9.7, 3.1, 10.5, 3.9, 6.0, 6.0",
+      "substitution": "9.7 + 3.1 + 10.5 + 3.9 + 6.0 + 6.0 = 39.2, and 39.2/6 = 6.53",
+      "why": "Groups far from neutrality are either fully protonated or fully deprotonated on both sides of the pI, so their pKa values carry no information about where the zero crossing lies",
+      "no_calc": "If a pKa is more than one unit outside the zero-charge window, leave it out of the average"
+    },
+    "correct_rationale_plain": "The pI comes from the pair of pKa values around the neutral form, 6.0 and 9.7, not from all six groups.",
+    "wrong": {
+      "A": "Groups with pKa values far from neutrality are fully charged on both sides, so they cannot shift the zero crossing",
+      "C": "The lowest pKa, 3.1, is the C-terminus, where the peptide is still net positive",
+      "D": "Zwitterionic at pH 7 does not make an all-group average valid; the bracket still decides the pI"
+    },
+    "sc": "Bracket first, average second, ignore the rest.",
+    "mn": "Two pKas, one pI.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_015",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "Which experiment would best test whether the two histidines cause the pH-dependent solubility of this peptide?",
+    "options": {
+      "A": "Measure solubility at pH 7.4 with and without 1 M NaCl",
+      "B": "Compare the wild-type peptide with a His-to-Ala double mutant across pH 5 to 9",
+      "C": "Increase peptide concentration at pH 6.0 until it precipitates",
+      "D": "Run SDS-PAGE at pH 6.0 and pH 8.0"
+    },
+    "correct": "B",
+    "explanation": "Removing the two imidazoles is the direct test of their contribution: if solubility no longer changes across pH 5 to 9 in the double mutant, the histidines were responsible. Testing salt effects or a single concentration changes other variables, and SDS-PAGE reports mass, not solubility.",
+    "memorize": [
+      "Test a side chain's role by mutating it and repeating the same assay",
+      "Solubility minimum at the pI is the readout for charge-driven precipitation"
+    ],
+    "fm": {
+      "formula": "solubility minimum at pH = pI",
+      "variables": "The independent variable is pH; the dependent variable is soluble peptide concentration",
+      "values": "wild type pI 7.85, His-to-Ala variant pI 6.8",
+      "substitution": "compare the two solubility versus pH curves",
+      "why": "A mutation that removes the imidazoles should move both the pI and the solubility minimum if histidine is the cause",
+      "no_calc": "Look for the solubility minimum shifting from 7.85 to 6.8"
+    },
+    "correct_rationale_plain": "A His-to-Ala mutant removes the suspected groups, so a shifted solubility curve would show they matter.",
+    "wrong": {
+      "A": "Salt changes ionic strength and would affect many residues, so it cannot isolate histidine",
+      "C": "A single pH and a single concentration give no pH dependence, which is the effect in question",
+      "D": "SDS-PAGE separates by mass and does not measure solubility"
+    },
+    "sc": "Mutate the group, then repeat the pH-solubility curve.",
+    "mn": "Change the residue, keep the assay.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_016",
+    "passage_text": "A lab expressed the heptapeptide Ala-His-Gly-His-Leu-Lys-Asp and titrated it from pH 2 to 12 at 25 °C in 0.1 M NaCl. Capillary electrophoresis gave the net charge at each pH. Table 1 lists the fraction of the two imidazoles that is protonated and the resulting net charge. The side-chain pKa values used were His 6.0, Asp 3.9, Lys 10.5, N-terminus 9.7 and C-terminus 3.1.",
+    "table_data": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 5.5 | 0.76 | +1.52 | +0.52 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 6.5 | 0.24 | +0.48 | +0.48 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |\n| 9.0 | <0.01 | 0.00 | -0.20 |",
+    "stem": "At pH 6.0 the peptide carries +1.0 even though it has two histidines that can each contribute +1. What explains the missing charge?",
+    "options": {
+      "A": "At pH equal to the pKa, half of each imidazole is protonated on average, giving +1 from the pair",
+      "B": "Both imidazoles are fully deprotonated at pH 6.0",
+      "C": "The N-terminus is deprotonated at pH 6.0 and cancels one charge",
+      "D": "Asp is protonated at pH 6.0 and adds a positive charge"
+    },
+    "correct": "A",
+    "explanation": "At pH = pKa an ionizable group is half protonated, so each imidazole contributes +0.5 and the pair contributes +1.0. Table 1 shows a protonation fraction of 0.50 and of +1.00 at pH 6.0. The N-terminus is still fully protonated at 6.0, and Asp is deprotonated, so neither accounts for the missing charge.",
+    "memorize": [
+      "At pH = pKa a group is 50 percent protonated",
+      "Two identical groups at pH = pKa contribute one net positive charge, not two"
+    ],
+    "fm": {
+      "formula": "fraction protonated = 1/(1 + 10^(pH - pKa))",
+      "variables": "pH = 6.0 and pKa = 6.0 for the imidazole",
+      "values": "2 imidazoles at 0.50 protonation each",
+      "substitution": "2 x 0.50 = 1.00",
+      "why": "Protonation is a population average, so a group at its pKa is protonated in half of the molecules at any instant",
+      "no_calc": "pH equals pKa means half, and two halves make one"
+    },
+    "correct_rationale_plain": "Each imidazole is half protonated at pH 6.0, so together they add +1 rather than +2.",
+    "wrong": {
+      "B": "Complete deprotonation would give zero from the imidazoles and a net charge near 0, not +1",
+      "C": "The N-terminus has pKa 9.7, so it is essentially fully protonated at pH 6.0",
+      "D": "Asp has pKa 3.9 and is deprotonated at pH 6.0, contributing -1 rather than a positive charge"
+    },
+    "sc": "pH = pKa means half, and two halves are one.",
+    "mn": "At the pKa, half the seats are taken.",
+    "tb": {
+      "caption": "Table 1. Titration of Ala-His-Gly-His-Leu-Lys-Asp",
+      "markdown": "| pH | Fraction of imidazole protonated | Charge from both imidazoles | Net charge |\n|---|---|---|---|\n| 5.0 | 0.91 | +1.82 | +0.82 |\n| 6.0 | 0.50 | +1.00 | +1.00 |\n| 7.0 | 0.09 | +0.18 | +0.18 |\n| 8.0 | 0.01 | +0.02 | -0.01 |"
+    },
+    "source": "High-yield"
+  }
+]

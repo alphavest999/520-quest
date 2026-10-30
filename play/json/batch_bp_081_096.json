@@ -1,0 +1,587 @@
+[
+  {
+    "id": "bp_081",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "Which condition demonstrates catabolite repression?",
+    "options": {
+      "A": "Lactose only, at 480 units",
+      "B": "Glucose plus lactose, at 12 units despite the presence of inducer",
+      "C": "Lactose plus IPTG, at 520 units",
+      "D": "Lactose with lacI deleted, at 510 units"
+    },
+    "correct": "B",
+    "explanation": "Lactose alone gives 480 units, but adding glucose drops activity to 12 even though the inducer is still present. Glucose lowers cAMP, so the CAP-cAMP complex does not form at the promoter and transcription cannot be activated. This is catabolite repression, a second layer of control on top of induction.",
+    "memorize": [
+      "Glucose lowers cAMP, so CAP cannot activate the lac promoter",
+      "Catabolite repression overrides induction when glucose is available"
+    ],
+    "fm": {
+      "formula": "transcription rate depends on both repressor state and CAP-cAMP occupancy",
+      "variables": "cAMP rises when glucose is low; CAP-cAMP binds the promoter and recruits RNA polymerase",
+      "values": "480 units with lactose alone, 12 units with glucose plus lactose",
+      "substitution": "12/480 = 0.025, a 97.5 percent drop",
+      "why": "Without CAP-cAMP, the promoter is weak and RNA polymerase binds poorly even when the operator is free",
+      "no_calc": "A 40-fold drop with inducer present means a second control layer is active"
+    },
+    "correct_rationale_plain": "Adding glucose to induced cells nearly abolishes expression, which is catabolite repression through low cAMP.",
+    "wrong": {
+      "A": "Lactose alone shows induction, not repression",
+      "C": "IPTG is a gratuitous inducer, so high activity is expected and shows nothing about glucose",
+      "D": "A lacI deletion removes repression entirely, so this condition shows constitutive expression"
+    },
+    "sc": "Inducer present plus glucose equals low activity: catabolite repression.",
+    "mn": "Glucose is the preferred meal, so lactose enzymes wait.",
+    "tb": {
+      "caption": "Table 1. Beta-galactosidase activity under different carbon sources",
+      "markdown": "| Condition | Units |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_082",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "What is the actual inducer that binds the lac repressor?",
+    "options": {
+      "A": "Lactose itself",
+      "B": "Glucose",
+      "C": "Allolactose, formed from lactose by beta-galactosidase",
+      "D": "cAMP"
+    },
+    "correct": "C",
+    "explanation": "Beta-galactosidase converts some lactose into allolactose, an isomer that binds the repressor and lowers its affinity for the operator. Lactose itself is a poor inducer, which is why IPTG, a nonmetabolizable analog, works so well. This arrangement means the cell must already have a little enzyme before full induction.",
+    "memorize": [
+      "Allolactose is the natural inducer of the lac operon",
+      "IPTG is a gratuitous, nonmetabolizable inducer"
+    ],
+    "fm": {
+      "formula": "lactose is hydrolyzed to glucose plus galactose; a side reaction makes allolactose",
+      "variables": "Beta-galactosidase catalyzes both hydrolysis and the transglycosylation that yields allolactose",
+      "values": "not needed; the inducer identity is structural",
+      "substitution": "not needed",
+      "why": "Only allolactose fits the repressor's inducer site well enough to cause release from the operator",
+      "no_calc": "Lactose is the substrate; allolactose is the signal"
+    },
+    "correct_rationale_plain": "Allolactose, made from lactose by beta-galactosidase, binds the repressor and causes induction.",
+    "wrong": {
+      "A": "Lactose binds the repressor weakly, and induction depends on its conversion to allolactose",
+      "B": "Glucose is the catabolite that lowers cAMP and represses the operon",
+      "D": "cAMP acts through CAP at the promoter, not at the repressor"
+    },
+    "sc": "Inducer equals allolactose, not lactose.",
+    "mn": "Allolactose is the alarm; lactose is the raw material.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_083",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "Why does the lacI deletion strain show 510 units with lactose and no added inducer?",
+    "options": {
+      "A": "The deletion raises cAMP and strengthens CAP binding",
+      "B": "The deletion removes the promoter, making expression constitutive",
+      "C": "The deletion increases lactose uptake tenfold",
+      "D": "Without repressor, the operator is never occupied, so RNA polymerase can transcribe whenever CAP allows"
+    },
+    "correct": "D",
+    "explanation": "lacI encodes the repressor that binds the operator and blocks RNA polymerase. Deleting it removes negative control, so the operon is transcribed whenever the promoter is active, regardless of inducer. The 510 units still require CAP-cAMP, since lactose is present and glucose is absent.",
+    "memorize": [
+      "lacI encodes the repressor; loss of function gives constitutive expression",
+      "Constitutive means independent of inducer, not independent of CAP"
+    ],
+    "fm": {
+      "formula": "expression = promoter strength x CAP activation x (1 - repressor occupancy)",
+      "variables": "Repressor occupancy depends on lacI function and inducer binding",
+      "values": "510 units without inducer in the lacI deletion",
+      "substitution": "not needed; the repressor term is zero",
+      "why": "No repressor protein means the operator is free at all times, so the only remaining control is positive control by CAP",
+      "no_calc": "High expression without inducer means repression was lost"
+    },
+    "correct_rationale_plain": "lacI makes the repressor, so deleting it leaves the operator open and expression constitutive.",
+    "wrong": {
+      "A": "cAMP is set by the carbon source, and lacI does not control adenylate cyclase",
+      "B": "The promoter is intact; the deleted gene is the repressor",
+      "C": "Lactose uptake depends on permease, which is expressed as a consequence rather than a cause"
+    },
+    "sc": "No repressor equals constitutive, but CAP still gates it.",
+    "mn": "lacI is the brake; delete it and the car rolls.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_084",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "The CAP site deletion strain gives only 8 units with lactose. What does this prove?",
+    "options": {
+      "A": "CAP-cAMP positive control is required for full expression even when the repressor is removed",
+      "B": "The deletion also removed the lac operator",
+      "C": "Lactose cannot enter cells without CAP",
+      "D": "The lac repressor became a permanent activator"
+    },
+    "correct": "A",
+    "explanation": "Lactose inactivates the repressor in this strain, so negative control is already relieved, yet activity stays at 8. That isolates the remaining defect to positive control: without the CAP site, RNA polymerase binds the weak promoter poorly. The result shows the operon needs both derepression and CAP activation.",
+    "memorize": [
+      "CAP-cAMP binds upstream of the promoter and recruits RNA polymerase",
+      "lac operon needs both removal of repressor and CAP activation"
+    ],
+    "fm": {
+      "formula": "expression requires CAP-cAMP bound at the promoter plus an unoccupied operator",
+      "variables": "The CAP site is a DNA sequence near the promoter; deleting it prevents activation",
+      "values": "8 units with lactose, versus 480 in the wild type",
+      "substitution": "8/480 is about 0.017, a 98 percent loss",
+      "why": "The lac promoter is intrinsically weak, so recruitment by CAP is necessary for a high transcription rate",
+      "no_calc": "Almost no expression despite inducer means positive control is broken"
+    },
+    "correct_rationale_plain": "With the repressor already inactivated by lactose, losing the CAP site still abolishes expression, proving CAP is required.",
+    "wrong": {
+      "B": "The operator is a separate sequence and remains intact",
+      "C": "Lactose enters through permease, and the low basal expression still allows some uptake",
+      "D": "The repressor is not converted into an activator; the deleted element is the CAP site"
+    },
+    "sc": "Inducer present but no CAP equals no expression.",
+    "mn": "Two keys turn the lac operon: no repressor and CAP.",
+    "tb": {
+      "caption": "Table 1. Beta-galactosidase activity under different carbon sources",
+      "markdown": "| Condition | Units |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_085",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "Adding cAMP to cells grown on glucose plus lactose raises activity from 12 to 450. What does that show?",
+    "options": {
+      "A": "cAMP binds the lac repressor and removes it from the operator",
+      "B": "cAMP restores CAP activation, so the block caused by glucose is relieved",
+      "C": "cAMP is a carbon source that replaces glucose",
+      "D": "cAMP inhibits adenylate cyclase in a feedback loop"
+    },
+    "correct": "B",
+    "explanation": "Glucose keeps cAMP low, so CAP cannot bind the promoter and expression stays low even with inducer present. Adding cAMP bypasses the glucose signal, forms the CAP-cAMP complex, and restores transcription to near the lactose-only level. The rescue shows that the glucose effect runs through cAMP.",
+    "memorize": [
+      "cAMP-CAP is the positive regulator of the lac operon",
+      "Glucose lowers cAMP; adding cAMP bypasses catabolite repression"
+    ],
+    "fm": {
+      "formula": "CAP binds DNA only as a CAP-cAMP complex",
+      "variables": "Adenylate cyclase makes cAMP when glucose is low; phosphodiesterase lowers it",
+      "values": "12 units to 450 units after cAMP addition",
+      "substitution": "450/12 = 37.5-fold increase",
+      "why": "Supplying cAMP restores the missing co-activator, so CAP can occupy its site and recruit RNA polymerase",
+      "no_calc": "A 37-fold rescue by cAMP means the glucose effect was mediated by cAMP"
+    },
+    "correct_rationale_plain": "cAMP replaces the signal that glucose suppresses, restoring CAP activation and high expression.",
+    "wrong": {
+      "A": "cAMP acts at CAP, not at the lac repressor",
+      "C": "cAMP is a signaling molecule, not a carbon source",
+      "D": "Adenylate cyclase activity is not the target here; the added cAMP acts downstream"
+    },
+    "sc": "cAMP plus glucose equals rescue: the block was cAMP.",
+    "mn": "cAMP is the green light CAP needs.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_086",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "Which lac gene encodes the membrane protein that imports lactose?",
+    "options": {
+      "A": "lacZ",
+      "B": "lacA",
+      "C": "lacY",
+      "D": "lacI"
+    },
+    "correct": "C",
+    "explanation": "lacY encodes lactose permease, a proton symporter in the inner membrane that brings lactose into the cell. lacZ encodes beta-galactosidase, lacA encodes thiogalactoside transacetylase, and lacI encodes the repressor. Permease is essential for induction because it delivers the substrate that becomes allolactose.",
+    "memorize": [
+      "lacZ beta-galactosidase, lacY permease, lacA transacetylase",
+      "lacI is the repressor gene, not part of the lacZYA transcript"
+    ],
+    "fm": {
+      "formula": "lacZYA are cotranscribed as one polycistronic mRNA",
+      "variables": "lacY product is a proton-lactose symporter",
+      "values": "not needed; gene identity is the question",
+      "substitution": "not needed",
+      "why": "Permease couples downhill proton entry to uphill lactose accumulation, which is required for induction",
+      "no_calc": "Y for permease, Z for the enzyme, A for the transferase"
+    },
+    "correct_rationale_plain": "lacY encodes lactose permease, the transporter that brings lactose into the cell.",
+    "wrong": {
+      "A": "lacZ encodes beta-galactosidase, the enzyme that cleaves lactose",
+      "B": "lacA encodes transacetylase, which transfers acetyl groups to thiogalactosides",
+      "D": "lacI encodes the repressor protein that binds the operator"
+    },
+    "sc": "Y equals permease; Z equals enzyme; A equals acetylase.",
+    "mn": "lacY lets lactose in.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_087",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "The assay measures cleavage of a chromogenic beta-galactoside. Which enzyme produces the color?",
+    "options": {
+      "A": "Beta-galactosidase, encoded by lacZ",
+      "B": "Lactose permease, encoded by lacY",
+      "C": "Transacetylase, encoded by lacA",
+      "D": "The lac repressor, encoded by lacI"
+    },
+    "correct": "A",
+    "explanation": "Beta-galactosidase hydrolyzes beta-galactosides, including the chromogenic substrate used in the assay, releasing a colored product. The measured activity therefore reports lacZ expression directly. Permease and transacetylase do not cleave the substrate, and the repressor binds DNA.",
+    "memorize": [
+      "Beta-galactosidase cleaves lactose and chromogenic beta-galactosides",
+      "lacZ expression is the standard readout of lac operon activity"
+    ],
+    "fm": {
+      "formula": "colorless beta-galactoside goes to colored product plus galactose",
+      "variables": "Beta-galactosidase catalyzes hydrolysis of the beta-1,4 linkage",
+      "values": "activity in Miller units is proportional to enzyme amount",
+      "substitution": "not needed; the assay is enzymatic",
+      "why": "The colored product absorbs light in proportion to the amount of enzyme, so activity tracks lacZ transcription and translation",
+      "no_calc": "More color means more beta-galactosidase"
+    },
+    "correct_rationale_plain": "Beta-galactosidase, the lacZ product, cleaves the chromogenic substrate and generates the color.",
+    "wrong": {
+      "B": "Permease is a transporter and does not cleave galactosides",
+      "C": "Transacetylase transfers acetyl groups and does not hydrolyze the indicator",
+      "D": "The repressor is a DNA-binding protein with no enzymatic activity"
+    },
+    "sc": "Color comes from lacZ enzyme activity.",
+    "mn": "Z does the cutting, so Z gives the color.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_088",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "Which pair of terms correctly describes control of the lac operon?",
+    "options": {
+      "A": "Positive control by the repressor and negative control by CAP",
+      "B": "Positive control only, because CAP activates transcription",
+      "C": "Negative control only, because the repressor blocks transcription",
+      "D": "Negative control by the repressor and positive control by CAP-cAMP"
+    },
+    "correct": "D",
+    "explanation": "The repressor binds the operator and blocks transcription, which is negative control. CAP-cAMP binds upstream and recruits RNA polymerase, which is positive control. The operon therefore integrates two signals: whether lactose is present and whether glucose is absent.",
+    "memorize": [
+      "lac operon: negative control by repressor plus positive control by CAP-cAMP",
+      "Both signals must favor expression for high transcription"
+    ],
+    "fm": {
+      "formula": "expression requires derepression and activation",
+      "variables": "Repressor occupancy is negative control; CAP-cAMP is positive control",
+      "values": "glucose plus lactose gives 12 units; lactose alone gives 480",
+      "substitution": "not needed; the two controls are logical gates",
+      "why": "Negative control blocks the promoter by steric hindrance, while positive control increases the rate of polymerase recruitment",
+      "no_calc": "Two independent inputs decide the output"
+    },
+    "correct_rationale_plain": "The repressor provides negative control and CAP-cAMP provides positive control, and both act on the same promoter.",
+    "wrong": {
+      "A": "The roles are reversed: the repressor is negative, CAP is positive",
+      "B": "Negative control is also present, as the lacI deletion shows",
+      "C": "Positive control is also present, as the CAP deletion shows"
+    },
+    "sc": "Repressor minus, CAP plus.",
+    "mn": "One brake, one accelerator.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_089",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "Why is expression low when both glucose and lactose are present, even though the inducer is abundant?",
+    "options": {
+      "A": "Glucose directly binds the operator and blocks polymerase",
+      "B": "Lactose cannot enter cells that contain glucose",
+      "C": "Glucose lowers cAMP, so CAP cannot activate, and the weak promoter needs CAP to recruit polymerase",
+      "D": "Glucose mutates the lac promoter"
+    },
+    "correct": "C",
+    "explanation": "Glucose is the preferred carbon source, and its metabolism lowers cAMP through inhibition of adenylate cyclase. Without cAMP, CAP cannot bind and RNA polymerase is recruited inefficiently to the weak lac promoter. Repression is relieved by lactose, but positive control is still missing, so transcription stays low.",
+    "memorize": [
+      "Glucose transport by the PTS lowers cAMP",
+      "Weak promoter plus no CAP equals low expression"
+    ],
+    "fm": {
+      "formula": "CAP-cAMP complex binds the promoter and raises polymerase recruitment",
+      "variables": "cAMP falls when glucose is high; the lac promoter is weak without CAP",
+      "values": "480 units with lactose alone, 12 units with glucose added",
+      "substitution": "12/480 = 0.025, a 97.5 percent reduction",
+      "why": "RNA polymerase has low intrinsic affinity for the lac promoter, so activation is required for high flux",
+      "no_calc": "Inducer alone is not enough; glucose blocks activation"
+    },
+    "correct_rationale_plain": "Glucose suppresses cAMP, so CAP cannot activate the weak lac promoter even though the repressor is removed.",
+    "wrong": {
+      "A": "Glucose does not bind the operator; the repressor does",
+      "B": "Permease is expressed at a low basal level and lactose still enters",
+      "D": "Glucose does not mutate DNA; it changes the cAMP signal"
+    },
+    "sc": "Glucose equals low cAMP equals no CAP equals low transcription.",
+    "mn": "Lactose opens the door, CAP starts the engine.",
+    "tb": {
+      "caption": "Table 1. Beta-galactosidase activity under different carbon sources",
+      "markdown": "| Condition | Units |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_090",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "A strain carries a lacI null mutation and an intact CAP site. What activity is expected with glucose as the only carbon source?",
+    "options": {
+      "A": "About 480 units, because the repressor is gone",
+      "B": "About 2 to 10 units, because glucose still prevents CAP activation",
+      "C": "Zero, because the operon is deleted",
+      "D": "About 250 units, half of full induction"
+    },
+    "correct": "B",
+    "explanation": "Losing the repressor removes negative control, but glucose keeps cAMP low and CAP inactive. The weak promoter cannot recruit RNA polymerase efficiently without CAP, so expression stays near basal levels. High expression requires both an intact CAP site and the absence of glucose, not just loss of the repressor.",
+    "memorize": [
+      "lacI null gives constitutive expression only when CAP is active",
+      "Glucose represses even a repressor-free strain"
+    ],
+    "fm": {
+      "formula": "expression = CAP activation x (1 - repressor occupancy)",
+      "variables": "With no repressor the second term is 1, but CAP activation is near zero on glucose",
+      "values": "basal activity about 2 units, induced about 500 units",
+      "substitution": "not needed; the product is limited by CAP",
+      "why": "A constitutively open operator cannot compensate for a promoter that needs activation",
+      "no_calc": "No CAP means low expression regardless of the repressor"
+    },
+    "correct_rationale_plain": "Without the repressor the operator is open, but glucose keeps CAP off, so expression remains near basal.",
+    "wrong": {
+      "A": "480 units requires CAP activation as well as derepression",
+      "C": "Only lacI is mutated; the structural genes are intact",
+      "D": "There is no mechanism that gives exactly half of induced activity here"
+    },
+    "sc": "No repressor is not enough when glucose is present.",
+    "mn": "Both keys or no engine.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_091",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "A strain has a mutation in the operator that prevents repressor binding but leaves the promoter intact. What is the expected phenotype?",
+    "options": {
+      "A": "The operon cannot be induced",
+      "B": "The operon is permanently repressed",
+      "C": "The operon responds only to glucose",
+      "D": "The operon is constitutively expressed whenever CAP is active"
+    },
+    "correct": "D",
+    "explanation": "An operator mutation that blocks repressor binding removes negative control, so transcription no longer depends on inducer. Positive control by CAP remains, so expression is high when glucose is absent and low when glucose is present. This is the classic operator-constitutive phenotype.",
+    "memorize": [
+      "Operator mutations that block repressor binding are constitutive",
+      "Promoter mutations usually lower expression instead"
+    ],
+    "fm": {
+      "formula": "expression = CAP activation x (1 - repressor occupancy)",
+      "variables": "An operator mutation sets repressor occupancy to zero",
+      "values": "high expression without inducer, low with glucose",
+      "substitution": "not needed; the repressor term is fixed at zero",
+      "why": "The repressor has no binding site, so inducer is irrelevant, but CAP still depends on cAMP",
+      "no_calc": "No repressor binding equals constitutive, subject to CAP"
+    },
+    "correct_rationale_plain": "Without a functional operator the repressor cannot bind, so expression is constitutive but still requires CAP.",
+    "wrong": {
+      "A": "Induction is irrelevant when the repressor cannot bind",
+      "B": "The mutation removes repression rather than locking it on",
+      "C": "CAP, not the operator, is what responds to glucose"
+    },
+    "sc": "Operator mutant equals constitutive; promoter mutant equals weak.",
+    "mn": "Break the parking spot, the repressor cannot park.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_092",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "A down mutation in the lac promoter reduces RNA polymerase binding. Which result is expected?",
+    "options": {
+      "A": "Low expression even with lactose present and glucose absent",
+      "B": "Constitutive high expression without inducer",
+      "C": "Normal induction but no catabolite repression",
+      "D": "Expression that is independent of CAP"
+    },
+    "correct": "A",
+    "explanation": "A promoter down mutation weakens the site where RNA polymerase binds, lowering the maximal transcription rate. Inducer can still remove the repressor and CAP can still bind, but the polymerase cannot initiate efficiently. Both controls are intact while the output is low.",
+    "memorize": [
+      "Promoter mutations change the maximum rate, not the logic of control",
+      "CAP site and operator mutations change regulation; promoter mutations change strength"
+    ],
+    "fm": {
+      "formula": "transcription rate = promoter strength x activation x derepression",
+      "variables": "A promoter down mutation lowers the first term",
+      "values": "maximal activity falls below the wild-type 480 units",
+      "substitution": "not needed; the effect is a reduced maximum",
+      "why": "RNA polymerase recruitment is limited by the promoter sequence even when activators are present",
+      "no_calc": "Weak promoter equals low ceiling"
+    },
+    "correct_rationale_plain": "A weaker promoter lowers transcription even under fully inducing, glucose-free conditions.",
+    "wrong": {
+      "B": "Constitutive expression requires loss of repressor binding, not a weak promoter",
+      "C": "Catabolite repression acts through CAP and would still operate",
+      "D": "CAP still binds its own site and still activates; the promoter is simply weaker"
+    },
+    "sc": "Weak promoter equals lower maximum.",
+    "mn": "A bad landing strip slows every plane.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_093",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "A partial diploid carries one wild-type lac operon and one operon with a lacI null mutation. How does it behave?",
+    "options": {
+      "A": "Constitutive, because the mutant repressor cannot bind DNA",
+      "B": "Noninducible, because two repressors are present",
+      "C": "Inducible, because the wild-type lacI allele supplies repressor in trans",
+      "D": "Constitutive only for lacZ, because the mutation is cis-acting"
+    },
+    "correct": "C",
+    "explanation": "lacI encodes a diffusible repressor protein, so the wild-type allele on the other DNA molecule supplies functional repressor to both operators. The diploid is therefore inducible, not constitutive, which shows that lacI acts in trans. Operator mutations, by contrast, act in cis because the operator is a DNA site.",
+    "memorize": [
+      "lacI acts in trans; operator and promoter mutations act in cis",
+      "A partial diploid with one good lacI is inducible"
+    ],
+    "fm": {
+      "formula": "trans-acting factors diffuse and act on both copies; cis elements act only on their own DNA",
+      "variables": "lacI product is a protein; the operator is a DNA sequence",
+      "values": "not needed; the complementation result is qualitative",
+      "substitution": "not needed",
+      "why": "Repressor protein made from one chromosome can bind the operator on either chromosome, so one good copy restores control",
+      "no_calc": "One good copy of a diffusible repressor is enough"
+    },
+    "correct_rationale_plain": "The wild-type lacI allele makes repressor protein that acts on both operons, so the diploid remains inducible.",
+    "wrong": {
+      "A": "The mutant allele makes no functional repressor, and the wild-type copy provides it",
+      "B": "Repressor amount is not the issue; control is restored, not strengthened",
+      "D": "lacI acts in trans, so the mutation affects both copies"
+    },
+    "sc": "Repressor diffuses, so lacI complements in trans.",
+    "mn": "One good lacI covers both chromosomes.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_094",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "Which experiment would test whether glucose represses the operon specifically through cAMP?",
+    "options": {
+      "A": "Add cAMP to glucose-grown, lactose-induced cells and compare activity with the same cells without added cAMP",
+      "B": "Add more glucose and measure growth rate",
+      "C": "Delete the lac operator and grow on glucose",
+      "D": "Measure lactose concentration in the medium"
+    },
+    "correct": "A",
+    "explanation": "If glucose acts by lowering cAMP, supplying cAMP should restore CAP activation and expression even though glucose is still present. Comparing activity with and without added cAMP at the same glucose and lactose concentrations isolates cAMP as the mediator. A growth-rate change would not distinguish cAMP from other glucose effects.",
+    "memorize": [
+      "Rescue experiments identify the missing mediator",
+      "Hold glucose and inducer constant while varying cAMP"
+    ],
+    "fm": {
+      "formula": "expression responds to cAMP if glucose acts through cAMP",
+      "variables": "Independent variable cAMP; dependent variable beta-galactosidase activity",
+      "values": "12 units without added cAMP, 450 with cAMP",
+      "substitution": "450/12 = 37.5-fold restoration",
+      "why": "Adding back the proposed mediator while keeping the original signal present is the direct test of mediation",
+      "no_calc": "If cAMP restores expression on glucose, the effect runs through cAMP"
+    },
+    "correct_rationale_plain": "Adding cAMP while glucose is still present tests whether cAMP is the missing signal that glucose suppresses.",
+    "wrong": {
+      "B": "Growth rate reflects many metabolic effects and cannot isolate the operon's control",
+      "C": "Deleting the operator removes repression, not the glucose effect",
+      "D": "Medium lactose reports uptake or consumption, not the regulatory mechanism"
+    },
+    "sc": "Vary only the suspected mediator.",
+    "mn": "Put back what you think glucose removed.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_095",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "The trp operon uses a different logic from the lac operon when tryptophan is abundant. What happens?",
+    "options": {
+      "A": "The repressor is inactivated, so transcription rises",
+      "B": "cAMP rises and CAP activates the operon",
+      "C": "The operator is deleted, making expression constitutive",
+      "D": "Tryptophan activates the repressor and also causes attenuation by stalling the leader peptide"
+    },
+    "correct": "D",
+    "explanation": "Tryptophan is a co-repressor that enables the trp repressor to bind the operator, shutting down initiation. In addition, abundant charged tryptophanyl-tRNA lets the ribosome finish the leader peptide quickly, which forms a terminator hairpin and stops transcription early. The two mechanisms together give tight repression.",
+    "memorize": [
+      "trp operon: repression plus attenuation",
+      "Abundant charged tRNA causes leader-peptide stalling patterns that terminate transcription"
+    ],
+    "fm": {
+      "formula": "trp operon output = initiation control x attenuation control",
+      "variables": "Tryptophan activates the repressor; charged tRNA sets ribosome speed through the leader",
+      "values": "not needed; the two mechanisms act in series",
+      "substitution": "not needed",
+      "why": "Attenuation couples transcription and translation, so the cell can fine-tune expression to amino acid supply",
+      "no_calc": "High tryptophan means repression plus termination"
+    },
+    "correct_rationale_plain": "Tryptophan both activates the repressor and, through charged tRNA, promotes attenuation, so expression falls sharply.",
+    "wrong": {
+      "A": "Tryptophan activates rather than inactivates the trp repressor",
+      "B": "cAMP-CAP regulation belongs to catabolite-repressed operons such as lac",
+      "C": "The operon is repressed, not made constitutive"
+    },
+    "sc": "lac is induction; trp is repression plus attenuation.",
+    "mn": "Tryptophan turns off its own factory twice.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_096",
+    "passage_text": "E. coli carrying a wild-type lac operon were grown in minimal medium with the carbon sources shown, and beta-galactosidase activity was measured in permeabilized cells after two hours. IPTG is a nonmetabolizable inducer, cAMP was added to 5 mM where noted, and one strain carried a deletion of the CAP binding site. Table 1 reports activity in Miller units. The lac operon encodes beta-galactosidase, lactose permease and thiogalactoside transacetylase.",
+    "table_data": "| Condition | Beta-galactosidase (units) |\n|---|---|\n| Glucose only | 2 |\n| Lactose only | 480 |\n| Glucose plus lactose | 12 |\n| Lactose plus IPTG | 520 |\n| Glucose plus lactose plus cAMP | 450 |\n| Lactose, CAP site deleted | 8 |\n| Lactose, lacI deleted | 510 |",
+    "stem": "Which statement best explains why IPTG gives 520 units while lactose alone gives 480?",
+    "options": {
+      "A": "IPTG is a better carbon source than lactose",
+      "B": "IPTG is not metabolized, so its concentration stays high and it keeps the repressor off without being consumed",
+      "C": "IPTG binds CAP and increases its affinity for DNA",
+      "D": "IPTG inhibits adenylate cyclase"
+    },
+    "correct": "B",
+    "explanation": "Lactose is both inducer precursor and substrate, so it is cleaved and consumed, and induction depends on continuous conversion to allolactose. IPTG cannot be hydrolyzed, so its intracellular concentration remains high and the repressor stays inactivated. The small difference in units reflects that steady, saturating induction.",
+    "memorize": [
+      "IPTG is a gratuitous inducer that is not metabolized",
+      "Lactose induces only after conversion to allolactose"
+    ],
+    "fm": {
+      "formula": "fraction of repressor bound to operator falls as inducer concentration rises",
+      "variables": "IPTG is nonmetabolizable, so its concentration is constant; lactose is consumed",
+      "values": "520 units with IPTG, 480 with lactose",
+      "substitution": "520 - 480 = 40 units",
+      "why": "A nonmetabolized inducer maintains a higher steady-state intracellular concentration, keeping repressor occupancy low",
+      "no_calc": "Percent difference is small; the mechanism is inducer stability"
+    },
+    "correct_rationale_plain": "IPTG is not broken down, so it keeps the repressor off continuously, whereas lactose is consumed and must be converted to allolactose.",
+    "wrong": {
+      "A": "IPTG is not a usable carbon source, which is why it persists",
+      "C": "IPTG acts on the repressor, not on CAP",
+      "D": "IPTG does not act on adenylate cyclase"
+    },
+    "sc": "Nonmetabolizable inducer equals steady induction.",
+    "mn": "IPTG stays; lactose goes.",
+    "tb": "",
+    "source": "High-yield"
+  }
+]

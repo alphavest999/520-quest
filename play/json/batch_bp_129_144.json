@@ -1,0 +1,587 @@
+[
+  {
+    "id": "bp_129",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "Which strain has a defect in mismatch repair?",
+    "options": {
+      "A": "uvrA minus",
+      "B": "mutS minus",
+      "C": "recA minus",
+      "D": "photolyase minus"
+    },
+    "correct": "B",
+    "explanation": "mutS encodes a protein that recognizes mismatched base pairs formed during replication, so losing it raises the spontaneous mutation rate 75-fold while leaving UV survival nearly intact. The mismatch repair pathway does not remove UV photoproducts, which is why the UV phenotype is mild. uvrA, recA and photolyase defects instead affect damage repair after UV exposure.",
+    "memorize": [
+      "mutS and mutL recognize replication mismatches; mutH nicks the new strand",
+      "Mismatch repair defects raise spontaneous mutation rates without strong UV sensitivity"
+    ],
+    "fm": {
+      "formula": "fold increase = mutant rate / wild-type rate",
+      "variables": "Rates are per base pair per generation",
+      "values": "0.15 and 0.002",
+      "substitution": "0.15/0.002 = 75",
+      "why": "Mismatch repair corrects errors that escape proofreading, so its loss multiplies the residual error rate",
+      "no_calc": "Two orders of magnitude above the wild type means a repair defect"
+    },
+    "correct_rationale_plain": "The mutS mutant has a large spontaneous mutation rate with near-normal UV survival, the signature of defective mismatch repair.",
+    "wrong": {
+      "A": "uvrA is needed for nucleotide excision repair of bulky lesions and shows strong UV sensitivity",
+      "C": "recA is required for recombination repair and is extremely UV sensitive",
+      "D": "Photolyase repairs pyrimidine dimers using visible light"
+    },
+    "sc": "High spontaneous rate plus normal UV equals mismatch repair.",
+    "mn": "mutS spots the mismatch.",
+    "tb": {
+      "caption": "Table 1. Mutation rate and UV survival of repair mutants",
+      "markdown": "| Strain | Spontaneous rate | UV survival |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_130",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "The uvrA mutant shows a normal spontaneous mutation rate but only 12 percent UV survival. What does uvrA encode?",
+    "options": {
+      "A": "A mismatch recognition protein",
+      "B": "A photolyase that uses visible light",
+      "C": "A component of nucleotide excision repair that removes bulky lesions such as thymine dimers",
+      "D": "The proofreading exonuclease of DNA polymerase"
+    },
+    "correct": "C",
+    "explanation": "Nucleotide excision repair recognizes helix-distorting lesions, nicks the damaged strand on both sides and removes a short oligonucleotide. UV light creates thymine dimers, which are substrates for this pathway, so losing uvrA causes marked UV sensitivity. Because NER does not correct replication mismatches, the spontaneous rate stays near normal.",
+    "memorize": [
+      "Nucleotide excision repair removes bulky helix-distorting lesions",
+      "uvrA, uvrB and uvrC are the bacterial NER nuclease components"
+    ],
+    "fm": {
+      "formula": "repair pathway choice depends on lesion structure",
+      "variables": "NER handles bulky adducts; mismatch repair handles replication errors; base excision repair handles small oxidized bases",
+      "values": "UV survival 12 percent with a normal spontaneous rate",
+      "substitution": "not needed; the lesion type identifies the pathway",
+      "why": "Thymine dimers distort the helix enough to recruit the NER machinery, which excises a patch around the damage",
+      "no_calc": "Normal spontaneous rate plus UV sensitivity equals NER defect"
+    },
+    "correct_rationale_plain": "uvrA is an NER component, so its loss makes cells unable to remove UV dimers while leaving mismatch repair intact.",
+    "wrong": {
+      "A": "Mismatch recognition is mutS; that mutant has a high spontaneous rate",
+      "B": "Photolyase is a separate light-dependent enzyme, and its mutant has 40 percent survival",
+      "D": "Proofreading is the polA exonuclease, whose mutant also has a high spontaneous rate"
+    },
+    "sc": "UV sensitive with normal spontaneous rate equals NER.",
+    "mn": "uvrA cuts out the UV blister.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_131",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "Why is the recA mutant the most UV-sensitive strain in Table 1?",
+    "options": {
+      "A": "recA encodes photolyase",
+      "B": "recA encodes the mismatch recognition protein",
+      "C": "recA encodes a base excision repair glycosylase",
+      "D": "RecA mediates homologous recombination and SOS induction, which repair collapsed replication forks and double-strand breaks after UV damage"
+    },
+    "correct": "D",
+    "explanation": "UV lesions block replication forks, and restarting those forks requires homologous recombination, in which RecA coats single-stranded DNA and promotes strand invasion. RecA also triggers the SOS response, which induces error-prone polymerases and other repair genes. Without RecA, blocked forks collapse into double-strand breaks that cannot be repaired, so survival falls below 1 percent.",
+    "memorize": [
+      "RecA mediates homologous recombination and SOS induction in bacteria",
+      "Blocked replication forks require recombination to restart"
+    ],
+    "fm": {
+      "formula": "fork restart requires strand invasion by a recombinase",
+      "variables": "RecA binds single-stranded DNA, forms a nucleoprotein filament and invades a homologous duplex",
+      "values": "UV survival 0.5 percent, the lowest in the table",
+      "substitution": "not needed; the phenotype is qualitative",
+      "why": "Replication forks stalled at lesions cannot restart without recombination, and unrepaired breaks are lethal",
+      "no_calc": "The most UV-sensitive mutant is the one that cannot repair breaks"
+    },
+    "correct_rationale_plain": "RecA drives homologous recombination and SOS induction, so losing it leaves UV-stalled forks and breaks unrepaired.",
+    "wrong": {
+      "A": "Photolyase is a separate gene; the photolyase mutant survives 40 percent",
+      "B": "Mismatch recognition is mutS, which has a high spontaneous rate but 96 percent UV survival",
+      "C": "Base excision repair uses glycosylases such as MutY and ung, not RecA"
+    },
+    "sc": "recA equals recombination plus SOS equals fork restart.",
+    "mn": "RecA restarts the stalled fork.",
+    "tb": {
+      "caption": "Table 1. Mutation rate and UV survival of repair mutants",
+      "markdown": "| Strain | Spontaneous rate | UV survival |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_132",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "The polA exonuclease mutant has a 60-fold higher spontaneous mutation rate. What function did it lose?",
+    "options": {
+      "A": "The 3-prime to 5-prime exonuclease that removes misincorporated nucleotides during replication",
+      "B": "The 5-prime to 3-prime exonuclease that removes RNA primers",
+      "C": "The helicase activity that unwinds the duplex",
+      "D": "The ligase activity that seals nicks"
+    },
+    "correct": "A",
+    "explanation": "DNA polymerase I has a 3-prime to 5-prime exonuclease activity that acts as a proofreading function, excising a mismatched nucleotide before extension continues. Loss of proofreading raises the error rate roughly two orders of magnitude. The separate 5-prime to 3-prime exonuclease removes RNA primers during Okazaki fragment maturation but does not affect fidelity.",
+    "memorize": [
+      "Proofreading is 3-prime to 5-prime exonuclease activity",
+      "Polymerase extends 5-prime to 3-prime and proofreads backward"
+    ],
+    "fm": {
+      "formula": "final error rate = polymerase error rate x proofreading efficiency x mismatch repair efficiency",
+      "variables": "Each fidelity layer multiplies the error rate down",
+      "values": "0.12 versus 0.002",
+      "substitution": "0.12/0.002 = 60",
+      "why": "Proofreading removes most misincorporated bases immediately, so its loss raises the mutation rate sharply",
+      "no_calc": "A 60-fold increase points to a fidelity function, not a primer-removal function"
+    },
+    "correct_rationale_plain": "The mutant lost 3-prime to 5-prime proofreading, so misincorporated bases persist and mutation rates rise.",
+    "wrong": {
+      "B": "Primer removal is a 5-prime to 3-prime exonuclease function and does not change base substitution fidelity",
+      "C": "Helicase activity is encoded by separate genes such as dnaB",
+      "D": "Ligase is a separate enzyme that seals nicks after repair"
+    },
+    "sc": "Proofreading equals 3-prime to 5-prime exonuclease.",
+    "mn": "Polymerase writes forward and proofreads backward.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_133",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "What reaction does photolyase catalyze after UV exposure?",
+    "options": {
+      "A": "It removes oxidized guanine from DNA",
+      "B": "It uses visible light to split pyrimidine dimers back into separate bases",
+      "C": "It adds methyl groups to the newly synthesized DNA strand",
+      "D": "It extends chromosome ends using an RNA template"
+    },
+    "correct": "B",
+    "explanation": "Photolyase binds pyrimidine dimers and uses energy absorbed from visible light to break the abnormal bonds, restoring the original bases in a process called photoreactivation. The enzyme is present in many bacteria, plants and some animals but not in humans, which rely on nucleotide excision repair. Its mutant is UV sensitive but has a nearly normal spontaneous mutation rate.",
+    "memorize": [
+      "Photolyase monomerizes pyrimidine dimers using visible light",
+      "Humans lack photolyase and depend on nucleotide excision repair"
+    ],
+    "fm": {
+      "formula": "pyrimidine dimer + visible light goes to two separate pyrimidines",
+      "variables": "Photolyase contains a light-absorbing chromophore that donates an electron to the dimer",
+      "values": "UV survival 40 percent in the mutant",
+      "substitution": "not needed; the reaction is photochemical",
+      "why": "The enzyme lowers the activation energy for breaking the cyclobutane ring only when light provides the energy",
+      "no_calc": "Light-dependent repair equals photolyase"
+    },
+    "correct_rationale_plain": "Photolyase uses visible light to reverse pyrimidine dimers, restoring the original bases.",
+    "wrong": {
+      "A": "Oxidized bases are removed by base excision repair glycosylases",
+      "C": "Methylation marks the old strand and is not performed by photolyase",
+      "D": "Telomerase is the reverse transcriptase that extends chromosome ends"
+    },
+    "sc": "Light plus dimer equals photolyase.",
+    "mn": "Photolyase photo-fixes dimers.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_134",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "How does mismatch repair know which strand to correct?",
+    "options": {
+      "A": "It removes both strands and resynthesizes the entire region",
+      "B": "It always corrects the older strand because it is more accurate",
+      "C": "It uses transient hemimethylation of the parental strand to identify the newly synthesized strand",
+      "D": "It relies on the sequence of the mismatch to decide which base is wrong"
+    },
+    "correct": "C",
+    "explanation": "In E. coli, adenine methylation at GATC sites lags behind replication, so the newly made strand is transiently unmethylated. MutH nicks the unmethylated strand, and excision removes the new strand's error before resynthesis. This strand discrimination is why mismatch repair is directional rather than random.",
+    "memorize": [
+      "Mismatch repair uses hemimethylated DNA to identify the new strand",
+      "MutH nicks the unmethylated strand; mutS and mutL recognize the mismatch"
+    ],
+    "fm": {
+      "formula": "strand discrimination depends on methylation state at GATC sites",
+      "variables": "Dam methylase methylates adenine in GATC; the new strand lags in methylation",
+      "values": "not needed; the mechanism is positional",
+      "substitution": "not needed",
+      "why": "Correcting the unmethylated strand preserves the parental information and removes the replication error",
+      "no_calc": "Methylation marks the old strand as correct"
+    },
+    "correct_rationale_plain": "Transient lack of methylation marks the newly synthesized strand, so repair removes the error from the new strand.",
+    "wrong": {
+      "A": "Repair is local and strand-specific, not a wholesale replacement",
+      "B": "The older strand is protected by methylation rather than by being more accurate",
+      "D": "The mismatch itself does not reveal which base is wrong; strand age does"
+    },
+    "sc": "Hemimethylation marks the new strand for correction.",
+    "mn": "Old strand methylated, new strand corrected.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_135",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "The Ames test scores reversion of histidine auxotrophs. Why is a liver extract sometimes added?",
+    "options": {
+      "A": "To supply histidine so the bacteria can grow",
+      "B": "To provide DNA repair enzymes that increase reversion",
+      "C": "To select for mutants that are already resistant",
+      "D": "To metabolically activate pro-mutagens into reactive forms, mimicking mammalian metabolism"
+    },
+    "correct": "D",
+    "explanation": "Many chemicals are not mutagenic until liver enzymes oxidize or conjugate them, so adding an S9 liver fraction reproduces that activation step. More revertant colonies indicate a mutagen. Histidine is deliberately limited so that only revertants can form colonies, and the extract is not a repair or selection reagent.",
+    "memorize": [
+      "Ames test: his-minus Salmonella reversion with limited histidine",
+      "S9 liver extract activates pro-mutagens"
+    ],
+    "fm": {
+      "formula": "revertant frequency rises with mutagen dose",
+      "variables": "The readout is colony count on histidine-limited plates",
+      "values": "not needed; the logic is selection for reversion",
+      "substitution": "not needed",
+      "why": "Only cells that regain histidine synthesis can divide on the selective plates, so colonies measure reversion",
+      "no_calc": "More colonies equals more mutations"
+    },
+    "correct_rationale_plain": "Liver extract supplies metabolic activation, converting pro-mutagens into the reactive species that damage DNA.",
+    "wrong": {
+      "A": "Histidine is kept limiting so that only revertants grow",
+      "B": "The extract adds metabolic enzymes, not repair enzymes",
+      "C": "Reversion is scored, not resistance selection"
+    },
+    "sc": "S9 equals activation of pro-mutagens.",
+    "mn": "Liver turns the chemical on.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_136",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "A single base insertion occurs in the middle of a coding exon. What is the most likely consequence?",
+    "options": {
+      "A": "A frameshift that changes every downstream codon and usually truncates the protein",
+      "B": "A silent mutation with no change in the protein",
+      "C": "A single amino acid substitution only",
+      "D": "No effect because the genetic code is degenerate"
+    },
+    "correct": "A",
+    "explanation": "Codons are read in nonoverlapping triplets, so inserting one base shifts the reading frame from that point onward. All downstream codons change, and a premature stop codon usually appears, truncating the protein. Degeneracy protects against some substitutions but cannot absorb an insertion that is not a multiple of three.",
+    "memorize": [
+      "Insertions or deletions not divisible by three cause frameshifts",
+      "Frameshifts alter every codon downstream of the lesion"
+    ],
+    "fm": {
+      "formula": "reading frame offset = insertion length modulo 3",
+      "variables": "A one-base insertion gives an offset of one, shifting all downstream codons",
+      "values": "1 mod 3 = 1",
+      "substitution": "1 mod 3 = 1",
+      "why": "The ribosome reads fixed triplets, so a one-base offset changes every subsequent triplet",
+      "no_calc": "One base shifts the frame; three bases would not"
+    },
+    "correct_rationale_plain": "A one-base insertion shifts the reading frame, changing all downstream codons and usually causing premature truncation.",
+    "wrong": {
+      "B": "A silent change requires a substitution within a codon, not a frame shift",
+      "C": "A single substitution changes one amino acid; an insertion changes the frame",
+      "D": "Degeneracy applies to third-base substitutions, not to insertions"
+    },
+    "sc": "One base in or out equals frameshift.",
+    "mn": "Off by one, ruined to the end.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_137",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "Which change is a transition mutation?",
+    "options": {
+      "A": "Adenine replaced by thymine",
+      "B": "Adenine replaced by guanine",
+      "C": "Guanine replaced by cytosine",
+      "D": "Adenine inserted next to a neighboring adenine"
+    },
+    "correct": "B",
+    "explanation": "Transitions swap a purine for a purine or a pyrimidine for a pyrimidine, so adenine to guanine is a transition. Adenine to thymine is a purine-to-pyrimidine change and is a transversion. Insertions are frameshifts, not substitutions.",
+    "memorize": [
+      "Transition: purine to purine or pyrimidine to pyrimidine",
+      "Transversion: purine to pyrimidine or the reverse"
+    ],
+    "fm": {
+      "formula": "purines are A and G; pyrimidines are C and T",
+      "variables": "A transition keeps the ring class; a transversion switches it",
+      "values": "A to G stays purine",
+      "substitution": "not needed; classification is by ring type",
+      "why": "The two purines have similar structures, so the change is a transition rather than a transversion",
+      "no_calc": "Same ring class means transition"
+    },
+    "correct_rationale_plain": "Adenine and guanine are both purines, so an A-to-G change is a transition.",
+    "wrong": {
+      "A": "Adenine to thymine crosses from purine to pyrimidine, a transversion",
+      "C": "Guanine to cytosine is purine to pyrimidine, also a transversion",
+      "D": "An insertion is a frameshift rather than a substitution"
+    },
+    "sc": "Same ring class equals transition.",
+    "mn": "Transitions stay in the family.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_138",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "Telomerase extends chromosome ends. What is its catalytic mechanism?",
+    "options": {
+      "A": "A DNA-dependent DNA polymerase that copies the telomere",
+      "B": "A helicase that unwinds the telomere",
+      "C": "A reverse transcriptase that copies its own RNA template onto the DNA end",
+      "D": "A ligase that joins Okazaki fragments"
+    },
+    "correct": "C",
+    "explanation": "Telomerase is a ribonucleoprotein whose RNA component serves as the template for synthesizing telomeric DNA repeats. It extends the 3-prime overhang of the parental strand, allowing conventional DNA polymerase to fill in the complementary strand. This solves the end-replication problem in germ cells, stem cells and many cancers.",
+    "memorize": [
+      "Telomerase is a reverse transcriptase with an RNA template",
+      "Telomerase solves the end-replication problem in germ and stem cells"
+    ],
+    "fm": {
+      "formula": "telomeric DNA is synthesized from an RNA template by reverse transcription",
+      "variables": "TERC is the RNA template; TERT is the catalytic reverse transcriptase",
+      "values": "human repeat TTAGGG added processively",
+      "substitution": "not needed; the mechanism is template-directed",
+      "why": "Copying RNA into DNA is reverse transcription, which is how telomerase adds repeats without a DNA template",
+      "no_calc": "RNA template plus DNA product equals reverse transcriptase"
+    },
+    "correct_rationale_plain": "Telomerase is a reverse transcriptase that uses its RNA component as the template for telomeric repeats.",
+    "wrong": {
+      "A": "It is RNA-dependent, not DNA-dependent",
+      "B": "Helicases separate strands and do not synthesize DNA",
+      "D": "Ligase seals nicks and cannot add telomeric repeats"
+    },
+    "sc": "Telomerase equals reverse transcriptase plus RNA template.",
+    "mn": "Telomerase carries its own template.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_139",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "Why is the lagging strand synthesized in short fragments while the leading strand is continuous?",
+    "options": {
+      "A": "DNA polymerase adds nucleotides only to a 3-prime end, and the lagging template runs in the opposite direction",
+      "B": "The lagging strand template contains more damage",
+      "C": "Only the leading strand is proofread",
+      "D": "The lagging strand is made by RNA polymerase"
+    },
+    "correct": "A",
+    "explanation": "DNA polymerases extend a primer only at its 3-prime end, so synthesis proceeds 5-prime to 3-prime on the new strand. Because the two template strands are antiparallel, one template is copied continuously toward the fork while the other must be copied in short Okazaki fragments as it is exposed. Both strands use the same polymerase and the same proofreading machinery.",
+    "memorize": [
+      "DNA synthesis is 5-prime to 3-prime on the new strand",
+      "Antiparallel templates make one strand continuous and the other fragmented"
+    ],
+    "fm": {
+      "formula": "new strand grows by adding to a 3-prime hydroxyl",
+      "variables": "The template is read 3-prime to 5-prime while the new strand grows 5-prime to 3-prime",
+      "values": "Okazaki fragments are about 100 to 200 nucleotides in eukaryotes",
+      "substitution": "not needed; the directionality explains the fragments",
+      "why": "The fixed 5-prime to 3-prime chemistry cannot follow a template that runs the other way continuously",
+      "no_calc": "One direction of synthesis plus antiparallel templates equals fragments"
+    },
+    "correct_rationale_plain": "Polymerase can only extend a 3-prime end, and the antiparallel lagging template forces synthesis in short pieces.",
+    "wrong": {
+      "B": "Damage does not explain the regular fragmentation of every lagging strand",
+      "C": "Both strands are proofread by the same polymerase complex",
+      "D": "RNA polymerase makes primers, not the bulk DNA"
+    },
+    "sc": "Antiparallel plus 5-prime to 3-prime synthesis equals Okazaki fragments.",
+    "mn": "One strand rides the fork, the other backfills.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_140",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "What problem does a topoisomerase solve during replication?",
+    "options": {
+      "A": "It adds nucleotides to the growing strand",
+      "B": "It proofreads misincorporated bases",
+      "C": "It methylates the new strand",
+      "D": "It relieves supercoiling ahead of the replication fork by breaking and rejoining DNA strands"
+    },
+    "correct": "D",
+    "explanation": "Unwinding by helicase creates positive supercoils ahead of the fork that would stall replication. Topoisomerases transiently break one or both strands, allow the DNA to rotate, and reseal the break. Bacterial gyrase is a type II topoisomerase targeted by fluoroquinolones.",
+    "memorize": [
+      "Topoisomerases relieve supercoiling by transient strand breaks",
+      "Gyrase is a bacterial type II topoisomerase"
+    ],
+    "fm": {
+      "formula": "linking number change equals the number of strand passages catalyzed",
+      "variables": "Type I enzymes cut one strand; type II enzymes cut both",
+      "values": "not needed; the function is mechanical",
+      "substitution": "not needed",
+      "why": "Rotation about a transient break dissipates the torsional stress built up by unwinding",
+      "no_calc": "Supercoil stress means a topoisomerase is needed"
+    },
+    "correct_rationale_plain": "Topoisomerases break and rejoin DNA to let it rotate, relieving the supercoiling that builds up ahead of the fork.",
+    "wrong": {
+      "A": "Nucleotide addition is polymerase activity",
+      "B": "Proofreading is the polymerase exonuclease activity",
+      "C": "Methylation is carried out by methyltransferases such as Dam"
+    },
+    "sc": "Supercoiling equals topoisomerase.",
+    "mn": "Topoisomerase untwists the rope.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_141",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "DNA polymerase alone incorporates a wrong base about once in 100,000 nucleotides. What brings the final mutation rate down to about one in a billion?",
+    "options": {
+      "A": "Proofreading plus mismatch repair",
+      "B": "Increased deoxynucleotide concentration",
+      "C": "Faster replication fork movement",
+      "D": "Removal of the RNA primer"
+    },
+    "correct": "A",
+    "explanation": "Proofreading removes most misincorporated bases immediately, improving fidelity about a hundredfold, and mismatch repair then corrects most of the errors that survive replication, improving it another hundredfold or more. Together the layers take the error rate from about 10 to the minus 5 to about 10 to the minus 9. Substrate concentration and fork speed do not add fidelity layers.",
+    "memorize": [
+      "Fidelity layers: base selection, proofreading, mismatch repair",
+      "Each layer improves accuracy by roughly two orders of magnitude"
+    ],
+    "fm": {
+      "formula": "final error rate = initial error rate / (proofreading factor x mismatch repair factor)",
+      "variables": "Initial misincorporation about 1 in 100,000; each layer improves fidelity roughly 100-fold",
+      "values": "1 in 100,000, two layers of 100",
+      "substitution": "100000 x 100 x 100 = 1000000000",
+      "why": "Sequential error correction multiplies the surviving error fraction down at each step",
+      "no_calc": "Two hundredfold improvements take 10 to the minus 5 to 10 to the minus 9"
+    },
+    "correct_rationale_plain": "Proofreading removes misincorporated bases and mismatch repair fixes most survivors, giving a billion-fold overall accuracy.",
+    "wrong": {
+      "B": "Higher nucleotide pools can increase misincorporation rather than reduce it",
+      "C": "Faster forks do not improve base selection",
+      "D": "Primer removal is part of maturation and does not correct mismatches"
+    },
+    "sc": "Fidelity equals proofreading times mismatch repair.",
+    "mn": "Write, check, recheck.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_142",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "Which pathway removes 8-oxoguanine and deaminated cytosine from DNA?",
+    "options": {
+      "A": "Base excision repair",
+      "B": "Nucleotide excision repair",
+      "C": "Mismatch repair",
+      "D": "Homologous recombination"
+    },
+    "correct": "A",
+    "explanation": "Base excision repair starts with a glycosylase that cleaves the base from the sugar, leaving an abasic site that is then processed and filled by a short patch of DNA synthesis. It handles small, non-helix-distorting lesions such as oxidized bases and uracil from cytosine deamination. NER handles bulky lesions, and mismatch repair handles replication errors.",
+    "memorize": [
+      "Base excision repair removes small modified bases via glycosylases",
+      "Uracil-DNA glycosylase removes uracil from deaminated cytosine"
+    ],
+    "fm": {
+      "formula": "glycosylase cleaves the N-glycosidic bond, creating an abasic site",
+      "variables": "The lesion is a single modified base that does not distort the helix",
+      "values": "not needed; lesion size determines the pathway",
+      "substitution": "not needed",
+      "why": "A single damaged base is removed individually, leaving the backbone to be repaired by a short patch",
+      "no_calc": "Small lesion equals base excision repair"
+    },
+    "correct_rationale_plain": "Base excision repair removes oxidized or deaminated bases one at a time, starting with a glycosylase.",
+    "wrong": {
+      "B": "NER removes bulky, helix-distorting lesions such as UV dimers",
+      "C": "Mismatch repair corrects replication errors, not oxidized bases",
+      "D": "Homologous recombination repairs double-strand breaks"
+    },
+    "sc": "Small base lesion equals BER.",
+    "mn": "BER plucks one bad base.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_143",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "Xeroderma pigmentosum causes extreme skin cancer risk after sun exposure. Which defect underlies it?",
+    "options": {
+      "A": "Loss of mismatch repair",
+      "B": "Loss of base excision repair glycosylases",
+      "C": "Loss of nucleotide excision repair",
+      "D": "Loss of telomerase"
+    },
+    "correct": "C",
+    "explanation": "Xeroderma pigmentosum is caused by mutations in nucleotide excision repair genes, so UV-induced pyrimidine dimers persist and cause mutations in skin cells. Patients must avoid sunlight because every exposure adds unrepaired damage. The disorder is distinct from mismatch repair defects, which cause hereditary nonpolyposis colon cancer.",
+    "memorize": [
+      "Xeroderma pigmentosum equals defective nucleotide excision repair",
+      "Lynch syndrome equals defective mismatch repair"
+    ],
+    "fm": {
+      "formula": "unrepaired UV dimers become mutations at the next replication",
+      "variables": "NER removes the dimer before replication; without it, translesion synthesis introduces mutations",
+      "values": "not needed; the pathway identifies the disease",
+      "substitution": "not needed",
+      "why": "Persistent dimers block replication and are bypassed by error-prone polymerases, producing mutations",
+      "no_calc": "Sun sensitivity plus skin cancer equals NER defect"
+    },
+    "correct_rationale_plain": "Xeroderma pigmentosum results from defective nucleotide excision repair, so UV dimers persist and cause mutations.",
+    "wrong": {
+      "A": "Mismatch repair defects cause hereditary colon cancer, not photosensitivity",
+      "B": "Base excision repair defects do not produce the classic UV sensitivity of this disorder",
+      "D": "Telomerase defects cause bone marrow failure and pulmonary fibrosis"
+    },
+    "sc": "XP equals NER.",
+    "mn": "XP cannot erase UV dimers.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_144",
+    "passage_text": "Isogenic E. coli strains carrying single repair defects were grown for many generations, and the spontaneous mutation rate was measured by fluctuation analysis at a neutral locus. UV survival was measured after a fixed dose of 254 nm light. Table 1 reports the spontaneous rate per 10 to the ninth base pairs per generation and the percentage of cells surviving the UV dose. Wild-type cells repair mismatches, bulky lesions, oxidized bases and double-strand breaks.",
+    "table_data": "| Strain | Spontaneous rate | UV survival (%) |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |",
+    "stem": "Why does the uvrA mutant keep a nearly normal spontaneous mutation rate while the mutS mutant does not?",
+    "options": {
+      "A": "uvrA only repairs damage caused by chemicals, not by replication",
+      "B": "uvrA is not expressed unless cells are irradiated",
+      "C": "Spontaneous mutations do not occur in E. coli",
+      "D": "Nucleotide excision repair targets externally induced bulky lesions, while mismatch repair corrects the replication errors that dominate the spontaneous rate"
+    },
+    "correct": "D",
+    "explanation": "Spontaneous mutations arise mainly from replication errors and from endogenous base damage that base excision repair handles. Nucleotide excision repair is dedicated to bulky, helix-distorting lesions such as UV dimers, which are rare without an external insult, so losing it barely changes the spontaneous rate. The UV survival column shows the phenotype that uvrA loss does produce.",
+    "memorize": [
+      "Each repair pathway has a distinct lesion specificity",
+      "Spontaneous mutations come mainly from replication errors"
+    ],
+    "fm": {
+      "formula": "spontaneous rate reflects replication fidelity plus endogenous damage repair",
+      "variables": "NER handles bulky adducts; mismatch repair handles replication errors",
+      "values": "uvrA 0.004 versus wild type 0.002; mutS 0.15",
+      "substitution": "0.004/0.002 = 2, versus 0.15/0.002 = 75",
+      "why": "A pathway only affects the mutation rate to the extent that its substrate lesions occur under the growth conditions",
+      "no_calc": "Twofold versus 75-fold tells you which pathway handles spontaneous errors"
+    },
+    "correct_rationale_plain": "NER's substrates are rare without UV exposure, while mismatch repair handles the replication errors that drive the spontaneous rate.",
+    "wrong": {
+      "A": "NER repairs UV and chemical adducts, and it is not the main spontaneous-error pathway",
+      "B": "uvrA is expressed constitutively as part of the SOS regulon and is not irradiation-gated",
+      "C": "Spontaneous mutations certainly occur; that is what the assay measures"
+    },
+    "sc": "Lesion specificity explains which mutant changes which rate.",
+    "mn": "NER waits for sunlight; mismatch repair works every division.",
+    "tb": {
+      "caption": "Table 1. Mutation rate and UV survival of repair mutants",
+      "markdown": "| Strain | Spontaneous rate | UV survival |\n|---|---|---|\n| Wild type | 0.002 | 100 |\n| mutS minus | 0.15 | 96 |\n| uvrA minus | 0.004 | 12 |\n| recA minus | 0.30 | 0.5 |\n| polA exonuclease minus | 0.12 | 55 |\n| photolyase minus | 0.003 | 40 |"
+    },
+    "source": "High-yield"
+  }
+]

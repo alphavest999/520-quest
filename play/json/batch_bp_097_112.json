@@ -1,0 +1,596 @@
+[
+  {
+    "id": "bp_097",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "In population A, what fraction of newborns are carriers of the disorder?",
+    "options": {
+      "A": "0.0004",
+      "B": "0.02",
+      "C": "0.0392",
+      "D": "0.98"
+    },
+    "correct": "C",
+    "explanation": "Affected infants are homozygous recessive, so q squared is 4/10,000, or 0.0004, and q is 0.02. Then p is 0.98 and the carrier frequency is 2pq, which is 2 times 0.98 times 0.02, or 0.0392. Carriers outnumber affected individuals by nearly a hundredfold.",
+    "memorize": [
+      "q squared is the affected fraction; q is its square root",
+      "Carrier frequency is 2pq, not q"
+    ],
+    "fm": {
+      "formula": "p^2 + 2pq + q^2 = 1",
+      "variables": "q is the recessive allele frequency, p is the dominant allele frequency, 2pq is the heterozygote frequency",
+      "values": "q^2 = 4/10,000 = 0.0004, so q = 0.02 and p = 0.98",
+      "substitution": "2 x 0.98 x 0.02 = 0.0392",
+      "why": "Hardy-Weinberg expands the square of the allele frequencies, so the heterozygote class is the cross term 2pq",
+      "no_calc": "q is 2 percent, so carriers are about twice that, near 4 percent"
+    },
+    "correct_rationale_plain": "q is 0.02 and p is 0.98, so 2pq gives 0.0392, meaning about 392 carriers among 10,000 newborns.",
+    "wrong": {
+      "A": "0.0004 is q squared, the affected frequency, not the carrier frequency",
+      "B": "0.02 is q, the allele frequency, which counts alleles rather than people",
+      "D": "0.98 is p, the frequency of the normal allele"
+    },
+    "sc": "Square root first, then double it and multiply by p.",
+    "mn": "Affected is q squared; carriers are 2pq.",
+    "tb": {
+      "caption": "Table 1. Recessive disorder in three populations",
+      "markdown": "| Population | Screened | Affected | Carriers | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_098",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "In population B, how many newborns are expected to be carriers?",
+    "options": {
+      "A": "About 25",
+      "B": "About 950",
+      "C": "About 500",
+      "D": "About 1,800"
+    },
+    "correct": "B",
+    "explanation": "With 25 affected among 10,000, q squared is 0.0025 and q is 0.05, so p is 0.95. The carrier frequency is 2 times 0.95 times 0.05, or 0.095, which is about 950 carriers in 10,000 newborns. Carriers are 38 times more common than affected infants.",
+    "memorize": [
+      "Carrier count equals 2pq times the population size",
+      "Carriers greatly outnumber affected individuals for rare recessive alleles"
+    ],
+    "fm": {
+      "formula": "carriers = 2pq x N",
+      "variables": "N is the number screened, p and q are allele frequencies",
+      "values": "q^2 = 25/10,000 = 0.0025, q = 0.05, p = 0.95, N = 10,000",
+      "substitution": "2 x 0.95 x 0.05 = 0.095, and 0.095 x 10,000 = 950",
+      "why": "The heterozygote frequency is the cross term in the expansion, so multiplying by population size gives the expected count",
+      "no_calc": "Carriers are roughly twice q, so about 10 percent, or 950 people"
+    },
+    "correct_rationale_plain": "q is 0.05, so carriers are 2 times 0.95 times 0.05, about 9.5 percent, or 950 newborns.",
+    "wrong": {
+      "A": "25 is the number affected, not the number of carriers",
+      "C": "500 would come from using q alone as the carrier frequency",
+      "D": "1,800 is the carrier count in population C, which has twice the allele frequency"
+    },
+    "sc": "Affected 25 means q equals 0.05; carriers near 10 percent.",
+    "mn": "Rare allele, many carriers.",
+    "tb": {
+      "caption": "Table 1. Recessive disorder in three populations",
+      "markdown": "| Population | Screened | Affected | Carriers | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_099",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "Which assumption of Hardy-Weinberg is most clearly violated by consanguineous marriage?",
+    "options": {
+      "A": "Random mating",
+      "B": "No mutation",
+      "C": "No selection",
+      "D": "Large population size"
+    },
+    "correct": "A",
+    "explanation": "Hardy-Weinberg assumes that mates are chosen at random with respect to genotype. Consanguineous marriage means relatives mate, which increases homozygosity across the genome, including at this locus, and raises the proportion of affected offspring without changing allele frequencies. Mutation, selection and drift are separate assumptions.",
+    "memorize": [
+      "Inbreeding changes genotype frequencies but not allele frequencies",
+      "Consanguinity increases homozygous recessive disease"
+    ],
+    "fm": {
+      "formula": "genotype frequencies are p^2 + Fpq, 2pq(1 - F), q^2 + Fpq",
+      "variables": "F is the inbreeding coefficient, the probability that two alleles are identical by descent",
+      "values": "F of 0.0625 for first-cousin offspring",
+      "substitution": "affected frequency becomes q^2 + 0.0625 x p x q",
+      "why": "Inbreeding raises the chance that both alleles at a locus come from the same ancestor, adding homozygotes at the expense of heterozygotes",
+      "no_calc": "F above zero shifts genotypes toward homozygosity while p and q stay fixed"
+    },
+    "correct_rationale_plain": "Consanguinity is nonrandom mating, which raises homozygous recessive births without changing allele frequencies.",
+    "wrong": {
+      "B": "Mutation rates are not directly changed by who marries whom",
+      "C": "Selection is about survival and reproduction, not mate choice by relatedness",
+      "D": "Population size is a separate assumption addressed by genetic drift"
+    },
+    "sc": "Inbreeding equals nonrandom mating.",
+    "mn": "Relatives marry: homozygotes rise, alleles stay.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_100",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "If the disorder is lethal before reproductive age and no new mutations occur, what happens to q over many generations?",
+    "options": {
+      "A": "It stays constant because Hardy-Weinberg equilibrium is stable",
+      "B": "It rises because heterozygotes are selected for",
+      "C": "It falls, because each affected homozygote removes two recessive alleles from the pool",
+      "D": "It doubles each generation"
+    },
+    "correct": "C",
+    "explanation": "Selection against affected homozygotes removes recessive alleles, but slowly at first because most copies are hidden in unaffected carriers. The decline is fastest when q is large and very slow when q is small, which is why mutation-selection balance can maintain a low q. Hardy-Weinberg applies only in the absence of selection.",
+    "memorize": [
+      "Selection against a recessive phenotype removes two q alleles per affected individual",
+      "Rare recessive alleles decline slowly because carriers shield them"
+    ],
+    "fm": {
+      "formula": "change in q from selection = -s q^2(1 - q)/(1 - s q^2) for a lethal recessive",
+      "variables": "s is the selection coefficient against homozygotes; with lethality s is 1",
+      "values": "q of 0.02 loses about 0.0004 per generation at most",
+      "substitution": "q^2 = 0.0004",
+      "why": "Only homozygotes express the phenotype, so the allele's removal rate scales with q squared rather than q",
+      "no_calc": "At low q, q squared is tiny, so the allele disappears very slowly"
+    },
+    "correct_rationale_plain": "Lethal homozygotes remove recessive alleles each generation, so q falls, but slowly because carriers hide most copies.",
+    "wrong": {
+      "A": "Hardy-Weinberg requires no selection, which is violated here",
+      "B": "Heterozygote advantage would maintain or raise q, but it is not stated",
+      "D": "Allele frequencies do not double; selection removes alleles rather than amplifying them"
+    },
+    "sc": "Selection against homozygotes removes two alleles per case.",
+    "mn": "Carriers hide the allele from selection.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_101",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "Population C has a much higher q than population A. Which process best explains a high allele frequency confined to one isolated group?",
+    "options": {
+      "A": "A higher mutation rate in the affected gene in population C",
+      "B": "A founder effect, where a small founding group carried the allele at high frequency",
+      "C": "Assortative mating within population C",
+      "D": "The allele is dominant in population C"
+    },
+    "correct": "B",
+    "explanation": "In a small founder population, allele frequencies can differ sharply from the source population by chance, and the allele can rise to a high frequency that persists in the isolated descendants. Mutation alone cannot produce such a large difference in a few generations. Assortative mating changes genotype proportions, not allele frequencies.",
+    "memorize": [
+      "Founder effect and bottlenecks change allele frequencies by chance",
+      "Genetic drift is strongest in small populations"
+    ],
+    "fm": {
+      "formula": "drift changes q by a random amount whose standard deviation is about sqrt(pq/2N)",
+      "variables": "N is the effective population size; smaller N gives larger random swings",
+      "values": "with N of 20, the standard deviation is about sqrt(0.1 x 0.9/40) = 0.047",
+      "substitution": "sqrt(0.09/40) = 0.047",
+      "why": "Random sampling of gametes in a small population can shift allele frequencies far from the parental values",
+      "no_calc": "Small population plus isolation means chance, not selection, dominates"
+    },
+    "correct_rationale_plain": "A founder effect in a small isolated group can fix a high allele frequency that then persists in descendants.",
+    "wrong": {
+      "A": "Mutation is too slow to explain a fivefold difference in allele frequency",
+      "C": "Nonrandom mating changes genotype frequencies without changing allele frequencies",
+      "D": "Dominance affects phenotype expression, not allele frequency"
+    },
+    "sc": "Isolated high frequency equals founder effect or drift.",
+    "mn": "Small founder, big allele.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_102",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "For an X-linked recessive disorder in equilibrium, what fraction of males is affected when q is 0.05?",
+    "options": {
+      "A": "0.0025",
+      "B": "0.05",
+      "C": "0.095",
+      "D": "0.10"
+    },
+    "correct": "B",
+    "explanation": "Males have one X chromosome, so they express the recessive allele whenever they carry it, and the affected fraction equals q. Females need two copies, so their affected fraction is q squared, or 0.0025. This is why X-linked recessive disorders are far more common in males.",
+    "memorize": [
+      "X-linked recessive: males affected at q, females at q squared",
+      "Males are hemizygous, so one allele is enough"
+    ],
+    "fm": {
+      "formula": "affected males = q; affected females = q^2",
+      "variables": "q is the recessive allele frequency on the X chromosome",
+      "values": "q = 0.05",
+      "substitution": "males 0.05, females 0.05 x 0.05 = 0.0025",
+      "why": "Hemizygosity means there is no second X allele to mask a recessive mutation in males",
+      "no_calc": "One X means the allele frequency is the disease frequency"
+    },
+    "correct_rationale_plain": "Males carry a single X, so the affected fraction equals q, which is 0.05.",
+    "wrong": {
+      "A": "0.0025 is q squared, the affected fraction among females",
+      "C": "0.095 is roughly 2pq, the female carrier frequency",
+      "D": "0.10 is twice q and has no direct meaning here"
+    },
+    "sc": "X-linked: males q, females q squared.",
+    "mn": "One X shows it; two X can hide it.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_103",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "Sickle cell trait persists at high frequency in malaria-endemic regions. Which mechanism explains this?",
+    "options": {
+      "A": "Heterozygote advantage, because carriers resist malaria more than either homozygote",
+      "B": "Higher mutation rate in endemic regions",
+      "C": "Genetic drift in large populations",
+      "D": "Assortative mating among carriers"
+    },
+    "correct": "A",
+    "explanation": "Heterozygotes have mild or no disease and are relatively protected against severe falciparum malaria, so they survive and reproduce better than either homozygote in endemic areas. Balancing selection maintains the allele at an intermediate frequency even though the homozygous state is harmful. This is not explained by mutation pressure or drift.",
+    "memorize": [
+      "Heterozygote advantage maintains polymorphic alleles by balancing selection",
+      "Sickle trait protects against falciparum malaria"
+    ],
+    "fm": {
+      "formula": "equilibrium q under heterozygote advantage satisfies the fitness-weighted allele balance",
+      "variables": "Fitness of AA, AS and SS genotypes determines the equilibrium frequency",
+      "values": "sickle allele frequency about 0.1 to 0.2 in endemic regions",
+      "substitution": "not needed; balancing selection sets an interior equilibrium",
+      "why": "Because the heterozygote has the highest fitness, selection pushes q toward an intermediate value instead of zero",
+      "no_calc": "Intermediate allele frequency with a harmful homozygote means heterozygote advantage"
+    },
+    "correct_rationale_plain": "Carriers survive malaria better, so balancing selection keeps the allele common despite disease in homozygotes.",
+    "wrong": {
+      "B": "Mutation alone cannot maintain such a high frequency against selection",
+      "C": "Drift is weak in large populations and does not produce a stable intermediate frequency",
+      "D": "Assortative mating changes genotype frequencies, not long-term allele frequency"
+    },
+    "sc": "Harmful homozygote plus common allele equals heterozygote advantage.",
+    "mn": "Trait beats malaria, so the allele stays.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_104",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "Two carriers have a child. What is the probability that the child is affected?",
+    "options": {
+      "A": "One quarter",
+      "B": "One half",
+      "C": "Three quarters",
+      "D": "Zero, because both parents are unaffected"
+    },
+    "correct": "A",
+    "explanation": "Each carrier parent transmits the recessive allele with probability one half, and the child needs both copies to be affected, so the probability is one half times one half, or one quarter. Half of the children are carriers and one quarter are homozygous normal. This risk is independent of the population allele frequency.",
+    "memorize": [
+      "Carrier by carrier cross: 1/4 affected, 1/2 carriers, 1/4 homozygous normal",
+      "Conditional on carrier parents, population frequency no longer matters"
+    ],
+    "fm": {
+      "formula": "P(affected) = P(allele from mother) x P(allele from father)",
+      "variables": "Each heterozygous parent transmits the recessive allele with probability 1/2",
+      "values": "1/2 and 1/2",
+      "substitution": "0.5 x 0.5 = 0.25",
+      "why": "The two transmission events are independent, so their probabilities multiply",
+      "no_calc": "Half of a half is a quarter"
+    },
+    "correct_rationale_plain": "Each carrier parent passes the allele half the time, so the child is affected one quarter of the time.",
+    "wrong": {
+      "B": "One half is the probability of receiving the allele from one parent only",
+      "C": "Three quarters is the probability of being unaffected",
+      "D": "Unaffected parents can be carriers, which is exactly the case here"
+    },
+    "sc": "Carrier cross equals 1 in 4.",
+    "mn": "Half times half is a quarter.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_105",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "Which finding would indicate that the population is NOT in Hardy-Weinberg equilibrium at this locus?",
+    "options": {
+      "A": "The number of carriers matches 2pq multiplied by population size",
+      "B": "The allele frequencies sum to 1",
+      "C": "The disorder is recessive",
+      "D": "Observed heterozygotes are far fewer than 2pq predicts"
+    },
+    "correct": "D",
+    "explanation": "Hardy-Weinberg predicts heterozygote frequency 2pq from the allele frequencies, so a large deficiency of heterozygotes signals a violated assumption such as inbreeding, selection or population structure. Allele frequencies always sum to 1, and recessiveness alone says nothing about equilibrium. A match between observed and expected carriers supports equilibrium.",
+    "memorize": [
+      "Test equilibrium by comparing observed heterozygotes with 2pq",
+      "Heterozygote deficit suggests inbreeding, selection or structure"
+    ],
+    "fm": {
+      "formula": "expected heterozygotes = 2pq x N",
+      "variables": "p and q are estimated from allele counts; N is the sample size",
+      "values": "population C expects 0.18 x 10,000 = 1,800 carriers",
+      "substitution": "0.18 x 10,000 = 1,800",
+      "why": "Genotype frequencies are predicted from allele frequencies only under random mating, no selection, no drift, no migration and no mutation",
+      "no_calc": "Compare observed carriers with 2pq times N"
+    },
+    "correct_rationale_plain": "A heterozygote deficit relative to 2pq is the classic sign that Hardy-Weinberg assumptions fail.",
+    "wrong": {
+      "A": "A match with 2pq supports equilibrium rather than contradicting it",
+      "B": "p plus q equals 1 by definition, so this is not a test",
+      "C": "Recessiveness is a dominance relationship and does not by itself violate equilibrium"
+    },
+    "sc": "Check heterozygotes against 2pq.",
+    "mn": "Too few heterozygotes means something is off.",
+    "tb": {
+      "caption": "Table 1. Recessive disorder in three populations",
+      "markdown": "| Population | Screened | Affected | Carriers | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_106",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "A new mutation appears at this locus at a rate of 1 in 100,000 alleles per generation. What is the long-term effect if the allele is neutral?",
+    "options": {
+      "A": "It rises to fixation by selection within one generation",
+      "B": "Its frequency is set by mutation alone and stays at 0.00001 forever",
+      "C": "It drifts randomly, and most new neutral alleles are eventually lost",
+      "D": "It is immediately removed by purifying selection"
+    },
+    "correct": "C",
+    "explanation": "A neutral allele has no fitness advantage, so its frequency changes by genetic drift, which is random. Most new neutral mutations are lost by chance within a few generations, and the probability that one eventually fixes equals its initial frequency. Mutation pressure alone does not hold a neutral allele at a fixed value.",
+    "memorize": [
+      "Neutral alleles drift; fixation probability equals initial frequency",
+      "Most new mutations are lost by drift"
+    ],
+    "fm": {
+      "formula": "probability of fixation for a neutral allele = its current frequency",
+      "variables": "A new mutation starts at frequency 1/(2N) in a diploid population",
+      "values": "N of 10,000 gives an initial frequency of 1/20,000",
+      "substitution": "1/20,000 = 0.00005",
+      "why": "Without selection, drift is the only force, and the chance of reaching fixation is proportional to starting frequency",
+      "no_calc": "Tiny starting frequency means tiny chance of fixation"
+    },
+    "correct_rationale_plain": "Neutral alleles change frequency by chance and are usually lost, with fixation probability equal to their starting frequency.",
+    "wrong": {
+      "A": "Selection has no advantage to act on for a neutral allele",
+      "B": "Mutation adds new copies, but drift and loss determine the frequency",
+      "D": "Purifying selection requires a harmful effect, which a neutral allele lacks"
+    },
+    "sc": "Neutral equals drift equals usually lost.",
+    "mn": "No advantage, no guarantee: drift decides.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_107",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "Which statement about the relationship between q and the number of affected individuals is correct?",
+    "options": {
+      "A": "Affected individuals increase in direct proportion to q",
+      "B": "Affected individuals increase with the square of q",
+      "C": "Affected individuals are independent of q",
+      "D": "Affected individuals decrease as q rises"
+    },
+    "correct": "B",
+    "explanation": "Affected individuals are homozygous recessive, so their frequency is q squared. Doubling q from 0.05 to 0.10 quadruples the affected frequency from 0.0025 to 0.01, which matches the rise from 25 to 100 cases in Table 1. That nonlinearity is why small changes in allele frequency cause large changes in disease incidence.",
+    "memorize": [
+      "Recessive disease incidence scales with q squared",
+      "Doubling q quadruples the affected fraction"
+    ],
+    "fm": {
+      "formula": "affected frequency = q^2",
+      "variables": "q is the recessive allele frequency",
+      "values": "q of 0.05 gives 0.0025; q of 0.10 gives 0.01",
+      "substitution": "0.05 x 0.05 = 0.0025, and 0.10 x 0.10 = 0.01",
+      "why": "Two independent allele transmissions are required, so the probabilities multiply",
+      "no_calc": "Double q, quadruple the cases"
+    },
+    "correct_rationale_plain": "Because affected individuals carry two recessive alleles, their frequency is q squared, so it rises nonlinearly with q.",
+    "wrong": {
+      "A": "Direct proportion would mean incidence equals q, which is the X-linked male pattern",
+      "C": "Incidence depends strongly on q",
+      "D": "Higher q always means more affected individuals for a recessive disorder"
+    },
+    "sc": "Recessive incidence equals q squared.",
+    "mn": "Two copies, so square the frequency.",
+    "tb": {
+      "caption": "Table 1. Recessive disorder in three populations",
+      "markdown": "| Population | Screened | Affected | Carriers | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_108",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "A couple from population A has one affected child. What is the probability that their next child is affected?",
+    "options": {
+      "A": "0.0004, the population incidence",
+      "B": "0.02, the allele frequency",
+      "C": "1.0, because the locus is now known to be present",
+      "D": "0.25, because both parents must be carriers"
+    },
+    "correct": "D",
+    "explanation": "An affected child proves that both parents carry the allele, so the population incidence no longer applies. Each parent transmits the allele with probability one half, giving one quarter for the next child. The prior probability based on population frequency was replaced by certain carrier status.",
+    "memorize": [
+      "An affected child identifies both parents as carriers",
+      "Carrier by carrier recurrence risk is 1 in 4 for each pregnancy"
+    ],
+    "fm": {
+      "formula": "P(affected next child) = 1/2 x 1/2",
+      "variables": "Both parents are obligate carriers after an affected child",
+      "values": "1/2 for each parent",
+      "substitution": "0.5 x 0.5 = 0.25",
+      "why": "The genotypes of the parents are now known, so the calculation uses transmission probabilities rather than population frequencies",
+      "no_calc": "Both carriers means one quarter for each child"
+    },
+    "correct_rationale_plain": "The affected child proves both parents are carriers, so each subsequent child has a one in four chance.",
+    "wrong": {
+      "A": "Population incidence applies before knowing the parents' genotypes",
+      "B": "The allele frequency describes the population, not a known carrier couple",
+      "C": "Carrying the allele does not guarantee transmission to every child"
+    },
+    "sc": "Known carrier parents: 1 in 4 each pregnancy.",
+    "mn": "One affected child reveals two carriers.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_109",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "Which condition would keep the allele frequency constant despite the disorder being harmful?",
+    "options": {
+      "A": "Mutation-selection balance, where new mutations replace alleles lost by selection",
+      "B": "Random mating in a large population",
+      "C": "Complete dominance of the normal allele",
+      "D": "A high rate of migration out of the population"
+    },
+    "correct": "A",
+    "explanation": "Selection removes recessive alleles when homozygotes fail to reproduce, and new mutations replenish them at a low rate. At equilibrium, the loss equals the gain, so q stays roughly constant at a value near the square root of the mutation rate divided by the selection coefficient. Random mating and dominance alone do not replace lost alleles.",
+    "memorize": [
+      "Mutation-selection balance keeps harmful recessive alleles at low frequency",
+      "Equilibrium q is approximately the square root of mutation rate over selection coefficient"
+    ],
+    "fm": {
+      "formula": "q at equilibrium is approximately sqrt(mu/s)",
+      "variables": "mu is the mutation rate and s is the selection coefficient against homozygotes",
+      "values": "mu of 1e-5 and s of 1 give q near 0.003",
+      "substitution": "sqrt(0.00001) is about 0.003",
+      "why": "The rate at which selection removes alleles equals the rate at which mutation creates them at equilibrium",
+      "no_calc": "Square root of a small mutation rate gives a slightly larger equilibrium frequency"
+    },
+    "correct_rationale_plain": "New mutations replace the alleles that selection removes, holding q at a low equilibrium value.",
+    "wrong": {
+      "B": "Random mating affects genotype frequencies but does not replenish lost alleles",
+      "C": "Dominance affects phenotype, not the rate at which alleles are lost or gained",
+      "D": "Emigration removes alleles and would lower q rather than stabilize it"
+    },
+    "sc": "Lost by selection, replaced by mutation.",
+    "mn": "Mutation pays the debt selection creates.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_110",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "Which genotype counts would be expected among 10,000 people in population B?",
+    "options": {
+      "A": "9,500 homozygous normal, 475 carriers, 25 affected",
+      "B": "9,025 homozygous normal, 900 carriers, 75 affected",
+      "C": "8,000 homozygous normal, 1,900 carriers, 100 affected",
+      "D": "9,025 homozygous normal, 950 carriers, 25 affected"
+    },
+    "correct": "D",
+    "explanation": "With q of 0.05 and p of 0.95, p squared is 0.9025, 2pq is 0.095 and q squared is 0.0025. Multiplying by 10,000 gives 9,025 homozygous normal, 950 carriers and 25 affected, which sums to 10,000. Checking that the three counts add to the total guards against arithmetic slips.",
+    "memorize": [
+      "p squared plus 2pq plus q squared equals 1",
+      "Multiply each frequency by N and confirm the total"
+    ],
+    "fm": {
+      "formula": "p^2 + 2pq + q^2 = 1",
+      "variables": "p is 0.95 and q is 0.05 in population B",
+      "values": "N = 10,000",
+      "substitution": "0.9025 + 0.0950 + 0.0025 = 1.0",
+      "why": "Hardy-Weinberg partitions the population into the three genotype classes, whose frequencies must sum to one",
+      "no_calc": "q is 5 percent, so affected are 0.25 percent and carriers 9.5 percent"
+    },
+    "correct_rationale_plain": "p squared, 2pq and q squared are 0.9025, 0.095 and 0.0025, which scale to 9,025, 950 and 25.",
+    "wrong": {
+      "A": "4,750 carriers would require 2pq near 0.475, far higher than 0.095",
+      "B": "75 affected would mean q squared of 0.0075 and q near 0.087, not 0.05",
+      "C": "These numbers match population C, where q is 0.10"
+    },
+    "sc": "Square p, double p q, square q, then scale by N.",
+    "mn": "p squared plus 2pq plus q squared fills the population.",
+    "tb": {
+      "caption": "Table 1. Recessive disorder in three populations",
+      "markdown": "| Population | Screened | Affected | Carriers | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_111",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "A bottleneck reduces an island population to 20 individuals, then it expands again. What is the most likely genetic consequence?",
+    "options": {
+      "A": "Allele frequencies return to the original values within one generation",
+      "B": "The population becomes homozygous for all loci",
+      "C": "Allele frequencies shift randomly and rare alleles may be lost or fixed",
+      "D": "Mutation rate increases to compensate for the small size"
+    },
+    "correct": "C",
+    "explanation": "In a population of 20, gamete sampling is small enough that allele frequencies can change sharply by chance, and alleles carried by few individuals may disappear entirely. The expanded population retains the shifted frequencies until migration or selection changes them. This is the bottleneck effect, a form of genetic drift.",
+    "memorize": [
+      "Bottlenecks reduce diversity and shift allele frequencies by chance",
+      "Drift is stronger when effective population size is small"
+    ],
+    "fm": {
+      "formula": "drift variance in allele frequency is about pq/(2N)",
+      "variables": "N is the effective population size after the bottleneck",
+      "values": "N = 20 with p = q = 0.5",
+      "substitution": "0.25/40 = 0.00625, so the standard deviation is about 0.079",
+      "why": "Random sampling of only 40 alleles per generation allows large frequency swings",
+      "no_calc": "Twenty individuals means forty alleles, so chance dominates"
+    },
+    "correct_rationale_plain": "A bottleneck makes drift strong, so allele frequencies shift randomly and rare alleles can be lost.",
+    "wrong": {
+      "A": "Drift is not self-correcting; frequencies stay shifted unless other forces act",
+      "B": "Homozygosity at all loci would require many generations of extreme inbreeding",
+      "D": "Mutation rate is not regulated by population size"
+    },
+    "sc": "Small population equals drift equals lost diversity.",
+    "mn": "Few individuals, few alleles survive.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_112",
+    "passage_text": "A screening program genotyped 10,000 newborns in each of three isolated populations for a recessive metabolic disorder caused by loss-of-function alleles at a single locus. Table 1 gives the number of affected infants and the allele frequencies calculated from the genotype counts. The populations differ in size, history of migration and rate of consanguineous marriage, but all are in Hardy-Weinberg equilibrium at this locus.",
+    "table_data": "| Population | Newborns screened | Affected (q squared) | Carrier frequency (2pq) | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |",
+    "stem": "Why is carrier screening more useful than testing only affected individuals for this disorder?",
+    "options": {
+      "A": "Carriers have a mild form of the disease that is easy to detect",
+      "B": "Affected individuals cannot be tested genetically",
+      "C": "Carrier testing changes allele frequencies in the population",
+      "D": "Most mutant alleles are in carriers, so screening them identifies couples at risk before an affected child is born"
+    },
+      "correct": "D",
+    "explanation": "For a rare recessive allele, nearly all copies are carried by unaffected heterozygotes, as Table 1 shows: 392 carriers versus 4 affected in population A. Screening carriers identifies couples who are both heterozygous and can then be offered counseling. Testing only affected individuals finds the allele after it has already caused disease.",
+    "memorize": [
+      "Most copies of a rare recessive allele are in carriers",
+      "Carrier screening identifies at-risk couples before disease occurs"
+    ],
+    "fm": {
+      "formula": "alleles in carriers = 2pq x N; alleles in affected = 2 x q^2 x N",
+      "variables": "Each carrier has one mutant allele and each affected person has two",
+      "values": "population A: 392 carriers and 4 affected",
+      "substitution": "392/4 = 98, so carriers hold about 98 times more mutant alleles",
+      "why": "The heterozygote class is far larger than the homozygote class when q is small, so it holds the bulk of the allele burden",
+      "no_calc": "Carriers vastly outnumber affected people, so they hold most alleles"
+    },
+    "correct_rationale_plain": "Almost all mutant alleles sit in unaffected carriers, so screening them finds at-risk couples before disease appears.",
+    "wrong": {
+      "A": "Carriers are clinically unaffected; that is why they are hard to find without testing",
+      "B": "Affected individuals can be tested, but testing them occurs too late to prevent disease",
+      "C": "Identifying carriers does not change allele frequencies"
+    },
+    "sc": "Rare allele lives in carriers, not in cases.",
+    "mn": "Hunt the carriers, not the cases.",
+    "tb": {
+      "caption": "Table 1. Recessive disorder in three populations",
+      "markdown": "| Population | Screened | Affected | Carriers | q |\n|---|---|---|---|---|\n| A | 10,000 | 4 | 0.0392 | 0.02 |\n| B | 10,000 | 25 | 0.0950 | 0.05 |\n| C | 10,000 | 100 | 0.1800 | 0.10 |"
+    },
+    "source": "High-yield"
+  }
+]

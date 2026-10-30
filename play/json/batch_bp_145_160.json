@@ -1,0 +1,593 @@
+[
+  {
+    "id": "bp_145",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "Why does the resting potential sit near -70 mV rather than at the sodium equilibrium potential?",
+    "options": {
+      "A": "Voltage-gated sodium channels are open at rest",
+      "B": "The sodium-potassium pump sets the potential directly",
+      "C": "Chloride is the only permeant ion at rest",
+      "D": "The membrane is far more permeable to potassium than to sodium at rest"
+    },
+    "correct": "D",
+    "explanation": "At rest, potassium leak channels dominate the membrane conductance, so the membrane potential sits near the potassium equilibrium potential of about -90 mV, pulled slightly positive by a small sodium leak. The pump contributes a few millivolts because it is electrogenic, but permeability sets the resting value. Voltage-gated sodium channels are closed at rest.",
+    "memorize": [
+      "Resting potential is set mainly by potassium permeability",
+      "The Na/K pump is electrogenic but contributes only a few mV"
+    ],
+    "fm": {
+      "formula": "Vm is a permeability-weighted average of equilibrium potentials",
+      "variables": "Potassium conductance dominates at rest; sodium conductance is small",
+      "values": "potassium equilibrium about -90 mV, sodium equilibrium about +60 mV",
+      "substitution": "not needed; weighting is qualitative at rest",
+      "why": "The Goldman equation weights each ion's equilibrium potential by its permeability, and potassium permeability is much larger at rest",
+      "no_calc": "Higher permeability to potassium pulls Vm toward -90"
+    },
+    "correct_rationale_plain": "Potassium leak conductance dominates at rest, so the membrane potential stays near the potassium equilibrium potential.",
+    "wrong": {
+      "B": "The pump maintains gradients and adds a small electrogenic component, but it does not set the potential directly",
+      "C": "Chloride contributes, but potassium permeability is the main determinant",
+      "A": "Voltage-gated sodium channels are closed at rest; opening them causes the upstroke"
+    },
+    "sc": "Rest equals potassium leak.",
+    "mn": "Resting membrane listens to potassium.",
+    "tb": {
+      "caption": "Table 1. Action potential parameters under different conditions",
+      "markdown": "| Condition | Resting (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_146",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "TTX abolishes the action potential without changing the resting potential. What does this show?",
+    "options": {
+      "A": "TTX blocks potassium channels",
+      "B": "The action potential upstroke requires voltage-gated sodium channels, while the resting potential does not",
+      "C": "TTX destroys the sodium gradient",
+      "D": "The resting potential requires voltage-gated sodium channels"
+    },
+    "correct": "B",
+    "explanation": "TTX binds the outer pore of voltage-gated sodium channels and prevents the regenerative sodium influx that produces the upstroke. Resting potential is maintained by potassium leak channels and the pump, so it is unaffected. This separation is why TTX can silence action potentials without depolarizing the cell.",
+    "memorize": [
+      "TTX blocks voltage-gated sodium channels",
+      "Action potential upstroke is sodium-dependent; resting potential is potassium-dependent"
+    ],
+    "fm": {
+      "formula": "upstroke rate depends on sodium conductance",
+      "variables": "TTX reduces sodium conductance to near zero",
+      "values": "peak falls from +35 to -68 mV, resting stays at -70 mV",
+      "substitution": "+35 - (-68) = 103 mV of peak lost",
+      "why": "Without sodium entry the membrane cannot depolarize past threshold, so no regenerative spike occurs",
+      "no_calc": "No spike but normal rest means the blocked channel is specific to the upstroke"
+    },
+    "correct_rationale_plain": "TTX blocks the sodium channels that carry the upstroke, leaving the potassium-based resting potential intact.",
+    "wrong": {
+      "A": "Potassium channel block is TEA, which broadens the spike instead of abolishing it",
+      "C": "TTX binds the channel pore and does not alter ion gradients",
+      "D": "Resting potential persists without voltage-gated sodium channels"
+    },
+    "sc": "TTX kills the spike, not the rest.",
+    "mn": "TTX plugs the sodium pore.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_147",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "Lidocaine lowers the peak to +5 mV and slows conduction to 8 m/s. What property of local anesthetics does this illustrate?",
+    "options": {
+      "A": "They activate potassium channels",
+      "B": "They block sodium channels preferentially in rapidly firing tissue",
+      "C": "They dissolve the axon membrane",
+      "D": "They increase the sodium gradient"
+    },
+    "correct": "B",
+    "explanation": "Lidocaine binds the inner pore of voltage-gated sodium channels, and its binding is favored when channels are open or inactivated, so rapidly firing neurons accumulate more block. That use dependence explains why local anesthetics silence pain fibers without stopping every neuron equally. The peak falls because fewer sodium channels are available for the upstroke.",
+    "memorize": [
+      "Local anesthetics are use-dependent sodium channel blockers",
+      "More frequent firing means more drug binding and more block"
+    ],
+    "fm": {
+      "formula": "block increases with the fraction of channels in the open or inactivated state",
+      "variables": "Use dependence arises because the drug accesses the pore only when the channel opens",
+      "values": "peak +35 to +5 mV, velocity 50 to 8 m/s",
+      "substitution": "35 - 5 = 30 mV lower peak",
+      "why": "Repeated opening gives repeated access to the binding site, so high-frequency tissue accumulates block",
+      "no_calc": "Lower peak with slower conduction means fewer active sodium channels"
+    },
+    "correct_rationale_plain": "Lidocaine blocks sodium channels in a use-dependent way, so rapidly firing pain fibers are silenced first.",
+    "wrong": {
+      "A": "Potassium channel activation would speed repolarization, not reduce the peak",
+      "C": "Local anesthetics partition into membranes but do not dissolve them at clinical doses",
+      "D": "They do not change the sodium gradient; they block the channel"
+    },
+    "sc": "Use-dependent block equals more firing, more block.",
+    "mn": "Lidocaine likes busy channels.",
+    "tb": {
+      "caption": "Table 1. Action potential parameters under different conditions",
+      "markdown": "| Condition | Resting (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_148",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "Raising extracellular potassium to 10 mM depolarizes the resting potential to -55 mV and reduces the peak. Why does the peak fall?",
+    "options": {
+      "A": "Potassium channels close completely",
+      "B": "Potassium now carries the upstroke",
+      "C": "The sodium gradient reverses",
+      "D": "More sodium channels are inactivated at the depolarized resting potential"
+    },
+    "correct": "D",
+    "explanation": "A less negative resting potential holds a larger fraction of voltage-gated sodium channels in the inactivated state, so fewer are available to open on stimulation. The upstroke is therefore smaller and slower. This is why hyperkalemia depresses cardiac and neuronal excitability even though it depolarizes the membrane.",
+    "memorize": [
+      "Depolarized resting potential inactivates sodium channels",
+      "Hyperkalemia reduces excitability despite depolarization"
+    ],
+    "fm": {
+      "formula": "fraction of available sodium channels falls as resting potential depolarizes",
+      "variables": "Inactivation gates close at potentials positive to about -60 mV",
+      "values": "resting -70 to -55 mV",
+      "substitution": "-70 + 15 = -55",
+      "why": "Steady depolarization shifts channels into the inactivated state, removing them from the pool that can open",
+      "no_calc": "Less negative rest means fewer channels ready to fire"
+    },
+    "correct_rationale_plain": "Depolarizing the resting potential inactivates sodium channels, so fewer are available for the upstroke.",
+    "wrong": {
+      "B": "The upstroke is carried by sodium, not potassium",
+      "C": "The sodium gradient is unchanged by extracellular potassium",
+      "A": "Potassium channels do not close completely at -55 mV"
+    },
+    "sc": "Depolarized rest equals inactivated sodium channels.",
+    "mn": "High potassium holds the gates shut.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_149",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "TEA raises the peak to +45 mV and slows conduction. What is the mechanism?",
+    "options": {
+      "A": "TEA blocks sodium channels",
+      "B": "TEA blocks voltage-gated potassium channels, delaying repolarization and broadening the spike",
+      "C": "TEA opens potassium leak channels",
+      "D": "TEA increases the sodium gradient"
+    },
+    "correct": "B",
+    "explanation": "TEA blocks the pore of voltage-gated potassium channels from the inside, slowing the outward potassium current that repolarizes the membrane. The spike therefore lasts longer and the peak can rise slightly before repolarization catches up. Slower repolarization also delays the next spike, which reduces conduction velocity.",
+    "memorize": [
+      "TEA blocks voltage-gated potassium channels",
+      "Blocking potassium channels broadens the action potential"
+    ],
+    "fm": {
+      "formula": "repolarization rate depends on potassium conductance",
+      "variables": "TEA reduces the delayed rectifier potassium current",
+      "values": "peak rises from +35 to +45 mV, velocity falls from 50 to 20 m/s",
+      "substitution": "45 - 35 = 10 mV higher peak",
+      "why": "Less outward current means the membrane takes longer to return toward rest, prolonging the spike",
+      "no_calc": "Broader spike means slower potassium exit"
+    },
+    "correct_rationale_plain": "TEA blocks potassium channels, so repolarization slows and the action potential broadens.",
+    "wrong": {
+      "A": "Sodium channel block is TTX and lidocaine, which lower the peak",
+      "C": "TEA blocks rather than opens potassium channels",
+      "D": "TEA does not change ion gradients"
+    },
+    "sc": "TEA equals potassium block equals wide spike.",
+    "mn": "No potassium exit, no quick reset.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_150",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "Ouabain slowly depolarizes the axon and eventually abolishes the action potential. Why?",
+    "options": {
+      "A": "It blocks sodium channels directly",
+      "B": "It inhibits the sodium-potassium ATPase, so ion gradients run down over time",
+      "C": "It opens potassium channels",
+      "D": "It destroys the myelin sheath"
+    },
+    "correct": "B",
+    "explanation": "Ouabain inhibits the sodium-potassium ATPase, so sodium slowly accumulates inside and potassium is lost. The gradients that make the action potential possible therefore shrink, and the resting potential drifts toward zero. The effect is slow because the gradients are large and only a small fraction of ions moves per spike.",
+    "memorize": [
+      "Ouabain inhibits the Na/K ATPase",
+      "Gradient rundown after pump inhibition is slow, not instantaneous"
+    ],
+    "fm": {
+      "formula": "resting potential depends on the potassium gradient maintained by the pump",
+      "variables": "Pump inhibition lets sodium enter and potassium leave down their gradients",
+      "values": "resting -70 to -68 mV early, then progressive loss of the spike",
+      "substitution": "not needed; the trend is time-dependent",
+      "why": "Without active transport, passive leaks gradually equalize ion concentrations across the membrane",
+      "no_calc": "Slow depolarization plus fading spike means gradient loss"
+    },
+    "correct_rationale_plain": "Ouabain stops the pump, so the sodium and potassium gradients decay and the action potential fails.",
+    "wrong": {
+      "A": "Ouabain does not bind the channel pore; TTX and lidocaine do",
+      "C": "Potassium channel opening would hyperpolarize rather than slowly depolarize",
+      "D": "Myelin is unaffected, and this preparation is a giant axon without myelin"
+    },
+    "sc": "Ouabain equals pump block equals gradient rundown.",
+    "mn": "No pump, no gradients, no spike.",
+    "tb": {
+      "caption": "Table 1. Action potential parameters under different conditions",
+      "markdown": "| Condition | Resting (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_151",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "Why do myelinated axons conduct faster than unmyelinated axons of the same diameter?",
+    "options": {
+      "A": "Myelin increases membrane capacitance and slows ion flow",
+      "B": "Myelin contains voltage-gated sodium channels",
+      "C": "Action potentials jump between nodes of Ranvier, where channels are concentrated",
+      "D": "Myelinated axons have a higher intracellular potassium concentration"
+    },
+    "correct": "C",
+    "explanation": "Myelin insulates the internodal membrane, so the local current spreads passively to the next node, where voltage-gated sodium channels are clustered. Regeneration occurs only at nodes, which makes conduction saltatory and much faster. Myelin lowers capacitance and raises resistance, both of which speed passive spread.",
+    "memorize": [
+      "Saltatory conduction jumps node to node",
+      "Myelin lowers capacitance and raises membrane resistance"
+    ],
+    "fm": {
+      "formula": "conduction velocity rises with membrane resistance and falls with capacitance",
+      "variables": "Myelin adds layers that increase resistance and decrease capacitance",
+      "values": "not needed; the structural effect is qualitative",
+      "substitution": "not needed",
+      "why": "A thicker insulator lets current spread farther before leaking out, so the next node is reached sooner",
+      "no_calc": "Insulation plus node clustering equals fast saltatory conduction"
+    },
+    "correct_rationale_plain": "Myelin insulates internodes so current spreads to the next node, where channels regenerate the spike.",
+    "wrong": {
+      "A": "Myelin decreases capacitance, and lower capacitance speeds conduction",
+      "B": "Myelin is a lipid sheath without channels; channels sit at nodes",
+      "D": "Myelin does not change intracellular ion concentrations"
+    },
+    "sc": "Saltatory equals node-to-node jumping.",
+    "mn": "Myelin makes the signal hop.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_152",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "What limits the maximum firing frequency of a neuron?",
+    "options": {
+      "A": "The resting potassium conductance",
+      "B": "The concentration of extracellular glucose",
+      "C": "The number of dendrites",
+      "D": "The absolute refractory period, when sodium channels are inactivated"
+    },
+    "correct": "D",
+    "explanation": "After an action potential, voltage-gated sodium channels remain inactivated until the membrane repolarizes, which defines the absolute refractory period. No stimulus can trigger another spike during that window, so it caps the firing rate. The relative refractory period follows, when a stronger stimulus can fire the cell.",
+    "memorize": [
+      "Absolute refractory period: sodium channels inactivated, no new spike possible",
+      "Refractory period sets the maximum firing frequency"
+    ],
+    "fm": {
+      "formula": "maximum firing rate is approximately 1/refractory period",
+      "variables": "Refractory period is the time sodium channels remain inactivated",
+      "values": "a 2 ms refractory period allows at most 500 spikes per second",
+      "substitution": "1/0.002 = 500",
+      "why": "Without available sodium channels the upstroke cannot be regenerated, so the interval sets a hard limit",
+      "no_calc": "Shorter refractory period means higher maximum rate"
+    },
+    "correct_rationale_plain": "Sodium channel inactivation during the absolute refractory period prevents a second spike, capping firing frequency.",
+    "wrong": {
+      "B": "Glucose supply affects metabolism, not the millisecond refractory limit",
+      "C": "Dendrite number affects input integration, not the spike limit",
+      "A": "Resting potassium conductance affects resting potential and excitability, not the refractory ceiling directly"
+    },
+    "sc": "Refractory period equals firing ceiling.",
+    "mn": "Inactivated channels cannot fire twice.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_153",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "A stimulus just below threshold produces a small depolarization that fades. Why does it not trigger an action potential?",
+    "options": {
+      "A": "Too few sodium channels open to produce a net inward current that exceeds the outward leak",
+      "B": "Potassium channels are blocked",
+      "C": "The sodium gradient reverses",
+      "D": "The axon has no myelin"
+    },
+    "correct": "A",
+    "explanation": "A subthreshold stimulus opens some sodium channels, but the resulting inward current is smaller than the outward potassium leak, so the membrane repolarizes passively. At threshold, sodium entry exceeds the leak and the regenerative cycle becomes self-sustaining. This is why action potentials are all-or-none rather than graded.",
+    "memorize": [
+      "Threshold is where sodium inward current exceeds potassium outward current",
+      "Action potentials are all-or-none once threshold is crossed"
+    ],
+    "fm": {
+      "formula": "threshold is reached when inward sodium current exceeds outward leak current",
+      "variables": "Small depolarizations open few channels; larger ones open enough to regenerate",
+      "values": "not needed; the criterion is current balance",
+      "substitution": "not needed",
+      "why": "The positive feedback of sodium channel opening only wins once recruitment is large enough to overwhelm the leak",
+      "no_calc": "Below threshold the leak wins, above threshold sodium wins"
+    },
+    "correct_rationale_plain": "A subthreshold stimulus opens too few sodium channels, so the potassium leak repolarizes the membrane before regeneration begins.",
+    "wrong": {
+      "B": "Potassium channels are open, not blocked, and they are what terminates the response",
+      "C": "The sodium gradient does not reverse during a subthreshold stimulus",
+      "D": "Myelination affects speed, not the threshold principle"
+    },
+    "sc": "Threshold equals sodium current beats leak.",
+    "mn": "Not enough sodium to start the fire.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_154",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "How does a neuron encode stimulus intensity if every action potential has the same amplitude?",
+    "options": {
+      "A": "By varying the amplitude of each spike",
+      "B": "By changing the resting potential",
+      "C": "By the frequency of action potentials and the number of active neurons",
+      "D": "By reversing the direction of the spike"
+    },
+    "correct": "C",
+    "explanation": "Action potentials are all-or-none, so intensity is encoded by firing rate and by recruitment of more neurons, not by spike height. Stronger stimuli produce more frequent spikes and activate more fibers. This frequency code is decoded at synapses, where repeated release accumulates transmitter.",
+    "memorize": [
+      "Action potential amplitude is all-or-none",
+      "Intensity is coded by frequency and recruitment"
+    ],
+    "fm": {
+      "formula": "intensity code = firing rate x recruited units",
+      "variables": "Spike amplitude is fixed; rate and population size vary",
+      "values": "not needed; the code is frequency-based",
+      "substitution": "not needed",
+      "why": "Because each spike is identical, only the number of spikes per unit time can carry graded information",
+      "no_calc": "Same size spikes mean count them, do not measure them"
+    },
+    "correct_rationale_plain": "Since spikes are all-or-none, intensity is signaled by how often they fire and how many neurons are active.",
+    "wrong": {
+      "A": "Amplitude is all-or-none in a given neuron",
+      "B": "Resting potential is not the coding variable for intensity",
+      "D": "Spike direction is fixed by channel distribution and does not encode intensity"
+    },
+    "sc": "All-or-none means frequency code.",
+    "mn": "Louder is faster, not taller.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_155",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "Which change would increase the peak amplitude of the action potential in a normal axon?",
+    "options": {
+      "A": "Blocking voltage-gated potassium channels with TEA",
+      "B": "Blocking voltage-gated sodium channels",
+      "C": "Lowering extracellular sodium",
+      "D": "Inhibiting the sodium-potassium ATPase"
+    },
+    "correct": "A",
+    "explanation": "TEA slows repolarization, so the upstroke continues longer before potassium current overtakes it, and the peak rises from +35 to +45 mV in Table 1. Raising extracellular sodium would also increase the peak by increasing the sodium driving force. Blocking sodium channels or the pump reduces the peak.",
+    "memorize": [
+      "Peak amplitude depends on the sodium driving force and the timing of repolarization",
+      "TEA broadens and slightly raises the peak"
+    ],
+    "fm": {
+      "formula": "peak approaches the sodium equilibrium potential when potassium current is delayed",
+      "variables": "Sodium driving force depends on the sodium gradient; repolarization timing depends on potassium conductance",
+      "values": "peak +35 mV control and +45 mV with TEA",
+      "substitution": "45 - 35 = 10 mV",
+      "why": "Delaying the outward potassium current gives the inward sodium current more time to depolarize the membrane",
+      "no_calc": "Slower repolarization equals a higher peak"
+    },
+    "correct_rationale_plain": "Blocking potassium channels delays repolarization, letting the sodium-driven upstroke reach a higher peak.",
+    "wrong": {
+      "B": "Sodium channel block lowers or abolishes the peak",
+      "C": "Lower extracellular sodium reduces the driving force and lowers the peak",
+      "D": "Pump inhibition eventually runs down the gradients and reduces the peak"
+    },
+    "sc": "Delay potassium, raise the peak.",
+    "mn": "TEA lets the spike climb.",
+    "tb": {
+      "caption": "Table 1. Action potential parameters under different conditions",
+      "markdown": "| Condition | Resting (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_156",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "Why does the action potential propagate in one direction along an axon?",
+    "options": {
+      "A": "Sodium channels behind the spike are inactivated, so the wave cannot travel backward",
+      "B": "Potassium channels are absent behind the spike",
+      "C": "The axon membrane is polarized in only one direction",
+      "D": "Myelin blocks backward current"
+    },
+    "correct": "A",
+    "explanation": "Channels immediately behind the advancing spike are refractory because their inactivation gates have not yet reset. Current can therefore depolarize only the region ahead, which is still excitable, so the wave moves forward. This refractory tail enforces one-way propagation.",
+    "memorize": [
+      "Refractory tail behind the spike enforces one-way propagation",
+      "Inactivated sodium channels cannot be re-excited immediately"
+    ],
+    "fm": {
+      "formula": "propagation direction is set by which neighboring region is excitable",
+      "variables": "Ahead of the spike channels are closed but available; behind they are inactivated",
+      "values": "not needed; the mechanism is refractory state",
+      "substitution": "not needed",
+      "why": "Current spreads in both directions, but only the region with available channels can regenerate a spike",
+      "no_calc": "Behind is refractory, ahead is ready, so the spike moves forward"
+    },
+    "correct_rationale_plain": "The region behind the spike is refractory, so current can only excite the membrane ahead, giving one-way travel.",
+    "wrong": {
+      "B": "Potassium channels are present throughout the axon",
+      "C": "The membrane is not structurally polarized along its length",
+      "D": "Myelin insulates internodes but does not enforce direction"
+    },
+    "sc": "Refractory tail equals one-way street.",
+    "mn": "The spike cannot go back where it came from.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_157",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "A drug hyperpolarizes the resting potential to -90 mV without blocking any channel. What is its likely action?",
+    "options": {
+      "A": "It opens voltage-gated sodium channels",
+      "B": "It blocks the sodium-potassium ATPase",
+      "C": "It increases potassium conductance or opens potassium channels",
+      "D": "It raises extracellular potassium"
+    },
+    "correct": "C",
+    "explanation": "Hyperpolarization toward the potassium equilibrium potential means the membrane has become more permeable to potassium. Opening potassium channels or increasing potassium leak conductance pulls the resting potential negative. Sodium channel opening, pump inhibition or high extracellular potassium would all depolarize instead.",
+    "memorize": [
+      "More potassium conductance means hyperpolarization",
+      "Less potassium conductance or more sodium conductance means depolarization"
+    ],
+    "fm": {
+      "formula": "resting potential follows the permeability-weighted equilibrium potentials",
+      "variables": "Increasing potassium permeability moves Vm toward the potassium equilibrium potential near -90 mV",
+      "values": "-70 to -90 mV",
+      "substitution": "not needed; the direction is set by permeability",
+      "why": "A larger potassium conductance gives potassium more weight in setting the membrane potential",
+      "no_calc": "Toward -90 means potassium permeability rose"
+    },
+    "correct_rationale_plain": "The membrane potential moved toward the potassium equilibrium potential, so potassium conductance increased.",
+    "wrong": {
+      "A": "Sodium channel opening depolarizes the membrane",
+      "B": "Pump inhibition causes slow depolarization as gradients run down",
+      "D": "Higher extracellular potassium depolarizes by reducing the potassium gradient"
+    },
+    "sc": "Hyperpolarization means more potassium permeability.",
+    "mn": "Potassium pulls the membrane down.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_158",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "How much does the membrane potential change during the upstroke of a normal action potential in Table 1?",
+    "options": {
+      "A": "About 35 mV",
+      "B": "About 70 mV",
+      "C": "About 105 mV",
+      "D": "About 140 mV"
+    },
+    "correct": "C",
+    "explanation": "The upstroke runs from the resting potential of -70 mV to a peak of +35 mV, a change of 105 mV. The amplitude is the difference between those two values, not the peak alone. This large swing reflects the change in membrane permeability from potassium-dominated to sodium-dominated.",
+    "memorize": [
+      "Action potential amplitude equals peak minus resting potential",
+      "Peak is not the same as amplitude"
+    ],
+    "fm": {
+      "formula": "amplitude = peak - resting",
+      "variables": "Peak and resting potentials in mV",
+      "values": "peak +35 mV, resting -70 mV",
+      "substitution": "35 - (-70) = 105",
+      "why": "The change in potential is the difference between the two states, and subtracting a negative adds",
+      "no_calc": "From -70 up to +35 crosses 70 plus 35, or 105 mV"
+    },
+    "correct_rationale_plain": "The membrane rises from -70 mV to +35 mV, a change of 105 mV.",
+    "wrong": {
+      "A": "35 mV is the peak value, not the change",
+      "B": "70 mV is the distance from rest to zero, ignoring the overshoot",
+      "D": "140 mV would double the actual swing"
+    },
+    "sc": "Peak minus rest; subtracting a negative adds.",
+    "mn": "Cross zero and keep counting.",
+    "tb": {
+      "caption": "Table 1. Action potential parameters under different conditions",
+      "markdown": "| Condition | Resting (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_159",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "Which pair correctly matches a channel to the phase it controls?",
+    "options": {
+      "A": "Voltage-gated sodium channels, repolarization",
+      "B": "Voltage-gated potassium channels, depolarization upstroke",
+      "C": "Potassium leak channels, neurotransmitter release",
+      "D": "Voltage-gated sodium channels, depolarizing upstroke; voltage-gated potassium channels, repolarization"
+    },
+    "correct": "D",
+    "explanation": "Sodium channels open in response to depolarization and carry the inward current of the upstroke. Potassium channels open more slowly and carry the outward current that repolarizes the membrane and ends the spike. Leak channels set the resting potential, while calcium entry triggers transmitter release at terminals.",
+    "memorize": [
+      "Upstroke: voltage-gated sodium channels",
+      "Repolarization: voltage-gated potassium channels"
+    ],
+    "fm": {
+      "formula": "upstroke from sodium influx; repolarization from potassium efflux",
+      "variables": "Channel opening kinetics differ: sodium opens fast, potassium slower",
+      "values": "not needed; phase assignment is standard",
+      "substitution": "not needed",
+      "why": "The delayed opening of potassium channels lets the sodium-driven upstroke finish before outward current takes over",
+      "no_calc": "Sodium in, potassium out"
+    },
+    "correct_rationale_plain": "Sodium channels drive the depolarizing upstroke and potassium channels drive repolarization.",
+    "wrong": {
+      "A": "Sodium channels drive depolarization, not repolarization",
+      "B": "Potassium channels drive repolarization, not the upstroke",
+      "C": "Leak channels set the resting potential; calcium entry triggers release"
+    },
+    "sc": "Sodium up, potassium down.",
+    "mn": "Sodium spikes it, potassium spikes it out.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_160",
+    "passage_text": "Giant axons were voltage-clamped and their action potentials recorded at 20 °C in artificial seawater. Peak depolarization and conduction velocity were measured before and after adding channel blockers or changing extracellular potassium. Table 1 reports the resting potential, the peak of the action potential and the conduction velocity. Tetrodotoxin (TTX) blocks voltage-gated sodium channels, tetraethylammonium (TEA) blocks voltage-gated potassium channels, and lidocaine is a use-dependent sodium channel blocker.",
+    "table_data": "| Condition | Resting potential (mV) | Peak (mV) | Velocity (m/s) |\n|---|---|---|---|\n| Control | -70 | +35 | 50 |\n| TTX 1 µM | -70 | -68 | 0 |\n| Lidocaine 0.5 mM | -70 | +5 | 8 |\n| High potassium, 10 mM | -55 | +20 | 25 |\n| TEA 10 mM | -70 | +45 | 20 |\n| Ouabain 1 µM | -68 | +30 | 40 |",
+    "stem": "Which observation would best show that conduction velocity depends on axon diameter rather than on myelin?",
+    "options": {
+      "A": "Compare two unmyelinated axons of different diameters and measure velocity",
+      "B": "Compare a myelinated and an unmyelinated axon of the same diameter",
+      "C": "Block sodium channels and measure velocity",
+      "D": "Change extracellular potassium and measure the resting potential"
+    },
+    "correct": "A",
+    "explanation": "To isolate diameter, myelin must be absent in both conditions and only diameter varied. Velocity rises with diameter because internal resistance falls, allowing current to spread farther. Comparing myelinated with unmyelinated axons varies myelin, not diameter.",
+    "memorize": [
+      "Isolate one variable at a time",
+      "Conduction velocity rises with axon diameter in unmyelinated fibers"
+    ],
+    "fm": {
+      "formula": "velocity rises with the square root of diameter in unmyelinated axons",
+      "variables": "Internal axial resistance falls as diameter increases",
+      "values": "not needed; the comparison is controlled",
+      "substitution": "not needed",
+      "why": "A wider axon has lower internal resistance, so local current spreads farther and faster",
+      "no_calc": "Same myelin status, different diameter: that isolates diameter"
+    },
+    "correct_rationale_plain": "Varying diameter while keeping both axons unmyelinated isolates diameter as the cause of the velocity difference.",
+    "wrong": {
+      "B": "That comparison varies myelin, not diameter",
+      "C": "Blocking channels changes excitability rather than testing diameter",
+      "D": "Potassium changes resting potential and does not address diameter"
+    },
+    "sc": "Control myelin, vary diameter.",
+    "mn": "One variable at a time.",
+    "tb": "",
+    "source": "High-yield"
+  }
+]

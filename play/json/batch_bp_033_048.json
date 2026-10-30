@@ -1,0 +1,593 @@
+[
+  {
+    "id": "bp_033",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "Which inhibitor raises the apparent Km while leaving Vmax unchanged?",
+    "options": {
+      "A": "Inhibitor B, because its double-reciprocal lines meet on the x-axis",
+      "B": "Inhibitor B, because it lowers the plateau velocity",
+      "C": "Inhibitor A, because its curve approaches the same plateau at higher substrate",
+      "D": "Both inhibitors, because both lower velocity at low substrate"
+    },
+    "correct": "C",
+    "explanation": "Inhibitor A behaves competitively: at 16 µM its velocity is 72.7 and still climbing toward 100, so Vmax is unchanged while half-maximal velocity now requires 6 µM instead of 2 µM. Inhibitor B lowers the plateau itself, so it is not competitive. A competitive inhibitor binds only the free enzyme, which substrate can outcompete at high concentration.",
+    "memorize": [
+      "Competitive inhibition: Km up, Vmax unchanged, overcome by more substrate",
+      "Noncompetitive inhibition: Vmax down, Km unchanged"
+    ],
+    "fm": {
+      "formula": "v = Vmax[S]/(Km + [S])",
+      "variables": "v is initial velocity, Vmax is the plateau, Km is the substrate concentration at half-maximal velocity, [S] is substrate concentration",
+      "values": "control Vmax 100 µmol/min and Km 2.0 µM; inhibitor A reaches 72.7 at 16 µM and 50 at 6 µM",
+      "substitution": "100 x 6/(2 + 6) = 75 without inhibitor, and the inhibited value is 50 at the same [S]",
+      "why": "The Michaelis-Menten equation separates a change in the plateau (Vmax) from a change in the half-saturation point (Km), so each inhibitor type leaves a different signature",
+      "no_calc": "If the inhibited curve still heads toward 100, Vmax is intact and only Km moved"
+    },
+    "correct_rationale_plain": "Inhibitor A leaves the plateau at 100 but doubles the half-saturation substrate, the classic competitive pattern.",
+    "wrong": {
+      "A": "Inhibitor B lowers the plateau, which means Vmax falls; its lines meet on the x-axis because Km is unchanged",
+      "B": "A lowered plateau is the noncompetitive signature, so B cannot be the one that leaves Vmax alone",
+      "D": "Both lower velocity at 1 µM, but that alone cannot tell Km from Vmax; the saturation behavior separates them"
+    },
+    "sc": "Same plateau means competitive; lower plateau means noncompetitive.",
+    "mn": "Competitive fights for the seat; noncompetitive wrecks the table.",
+    "tb": {
+      "caption": "Table 1. Initial velocities with two inhibitors",
+      "markdown": "| [S] (µM) | No inhibitor | + A | + B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_034",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "What is the apparent Km in the presence of inhibitor A?",
+    "options": {
+      "A": "6.0 µM",
+      "B": "2.0 µM",
+      "C": "33 µM",
+      "D": "100 µM"
+    },
+    "correct": "A",
+    "explanation": "Apparent Km is the substrate concentration that gives half of the unchanged Vmax, or 50 µmol/min. In the inhibitor A column, 50 appears at 6.0 µM, so Km rises from 2.0 to 6.0 µM. That is a threefold increase, consistent with a competitive inhibitor present at a concentration well above its Ki.",
+    "memorize": [
+      "Apparent Km is read at half of the observed Vmax",
+      "Competitive inhibitors multiply Km by alpha and leave Vmax alone"
+    ],
+    "fm": {
+      "formula": "Km,app = Km(1 + [I]/Ki)",
+      "variables": "Km is the uninhibited value, [I] is inhibitor concentration, Ki is the inhibition constant",
+      "values": "Km 2.0 µM, Km,app 6.0 µM",
+      "substitution": "6.0/2.0 = 3.0, so the alpha factor is 3",
+      "why": "A competitive inhibitor adds a term to the apparent dissociation constant for substrate, scaling Km without touching Vmax",
+      "no_calc": "Find 50 µmol/min in the inhibited column and read the [S] beside it"
+    },
+    "correct_rationale_plain": "Half of Vmax is 50, and inhibitor A reaches 50 at 6.0 µM, so the apparent Km is 6.0 µM.",
+    "wrong": {
+      "B": "2.0 µM is the uninhibited Km, where the control reaches 50",
+      "C": "33 µM mixes up the velocity value 33.3 with a substrate concentration",
+      "D": "100 µM is Vmax in µmol/min, a velocity rather than a concentration"
+    },
+    "sc": "Half-max velocity, then read the x-axis in that column.",
+    "mn": "Six is the new two when inhibitor A is around.",
+    "tb": {
+      "caption": "Table 1. Initial velocities with two inhibitors",
+      "markdown": "| [S] (µM) | No inhibitor | + A | + B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 16 | 88.9 | 72.7 | 29.6 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_035",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "What is the apparent Vmax in the presence of inhibitor B?",
+    "options": {
+      "A": "100 µmol/min",
+      "B": "33 µmol/min",
+      "C": "50 µmol/min",
+      "D": "10 µmol/min"
+    },
+    "correct": "B",
+    "explanation": "Inhibitor B lowers the plateau rather than the half-saturation point. The velocities at 8 and 16 µM are 26.7 and 29.6 and are still rising toward about 33, one third of the control Vmax. Because substrate cannot restore the plateau, B does not compete for the active site.",
+    "memorize": [
+      "Apparent Vmax is the plateau the curve approaches at saturating substrate",
+      "A noncompetitive inhibitor divides Vmax by alpha"
+    ],
+    "fm": {
+      "formula": "Vmax,app = Vmax/alpha",
+      "variables": "alpha is 1 + [I]/Ki for the inhibited enzyme form; Vmax is the uninhibited plateau",
+      "values": "Vmax 100 µmol/min, observed plateau about 33 µmol/min",
+      "substitution": "100/3 = 33.3",
+      "why": "When inhibitor binds enzyme-substrate complex as well as free enzyme, a fraction of catalytic sites is removed no matter how much substrate is added",
+      "no_calc": "The last two rows barely rise, so the curve is flattening near one third of 100"
+    },
+    "correct_rationale_plain": "The inhibited velocities level off near 30, so the apparent Vmax is about 33 µmol/min, one third of control.",
+    "wrong": {
+      "A": "100 µmol/min is the control plateau, which inhibitor A preserves and inhibitor B does not",
+      "C": "50 µmol/min is the control velocity at 2 µM, not a plateau",
+      "D": "10 µmol/min is lower than the measured 29.6 at 16 µM, so the curve has already passed it"
+    },
+    "sc": "Plateau equals the last rows, not the first.",
+    "mn": "B cuts the ceiling to a third.",
+    "tb": {
+      "caption": "Table 1. Initial velocities with two inhibitors",
+      "markdown": "| [S] (µM) | No inhibitor | + A | + B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_036",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "At the highest substrate concentration tested, which inhibitor lowers velocity more, and why?",
+    "options": {
+      "A": "Inhibitor A, because it competes directly with substrate",
+      "B": "Neither, because both are overcome at high substrate",
+      "C": "They are equal, because both bind the same site",
+      "D": "Inhibitor B, because it removes catalytic capacity instead of competing for the active site"
+    },
+    "correct": "D",
+    "explanation": "At 16 µM the control runs at 88.9 while inhibitor A gives 72.7 and inhibitor B gives 29.6. Competitive inhibition weakens as substrate rises because substrate displaces inhibitor from the active site, but a noncompetitive inhibitor bound away from the active site still removes a fraction of functional enzyme. The gap therefore widens in favor of B as substrate increases.",
+    "memorize": [
+      "High substrate rescues competitive but not noncompetitive inhibition",
+      "Noncompetitive inhibition lowers the effective enzyme concentration"
+    ],
+    "fm": {
+      "formula": "v/Vmax = [S]/(Km + [S]) for control; inhibited forms scale Km or Vmax",
+      "variables": "At high [S] the ratio approaches 1 for control and for competitive inhibition, but only Vmax,app/Vmax for noncompetitive",
+      "values": "at 16 µM, control 88.9, A 72.7, B 29.6",
+      "substitution": "88.9 - 72.7 = 16.2, and 88.9 - 29.6 = 59.3",
+      "why": "Dividing Vmax by alpha places an upper bound on velocity that no substrate concentration can exceed",
+      "no_calc": "Compare the last row: the smaller number is the stronger inhibition at saturation"
+    },
+    "correct_rationale_plain": "Inhibitor B still holds velocity near 30 at saturating substrate, so it removes catalytic capacity rather than competing.",
+    "wrong": {
+      "A": "Inhibitor A is displaced by substrate, so its effect shrinks as [S] rises",
+      "B": "Only A is overcome; B keeps velocity at about one third of control",
+      "C": "The crystal structure placed B in a pocket 20 Å from the active site, so they do not share a site"
+    },
+    "sc": "At saturating substrate, noncompetitive inhibition still wins.",
+    "mn": "Substrate evicts the competitor, not the saboteur.",
+    "tb": {
+      "caption": "Table 1. Initial velocities with two inhibitors",
+      "markdown": "| [S] (µM) | No inhibitor | + A | + B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_037",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "On a Lineweaver-Burk plot, how do the lines for inhibitor B relate to the control line?",
+    "options": {
+      "A": "They intersect on the y-axis at 1/Vmax",
+      "B": "They are parallel, with no intersection",
+      "C": "They intersect on the x-axis at -1/Km",
+      "D": "They coincide completely"
+    },
+    "correct": "C",
+    "explanation": "A noncompetitive inhibitor does not change Km, so both lines share the x-intercept of -1/Km and differ only in their y-intercepts, 1/Vmax and alpha/Vmax. Lines that meet on the x-axis are the signature of unchanged Km with reduced Vmax. Parallel lines would mean unchanged Km and unchanged Vmax, which is not inhibition at all.",
+    "memorize": [
+      "Double-reciprocal intercepts: y is 1/Vmax, x is -1/Km",
+      "Noncompetitive lines cross on the x-axis; competitive lines cross on the y-axis"
+    ],
+    "fm": {
+      "formula": "1/v = (Km/Vmax)(1/[S]) + 1/Vmax",
+      "variables": "The y-intercept is 1/Vmax and the x-intercept is -1/Km",
+      "values": "control x-intercept -0.5 µM^-1; inhibitor B x-intercept also -0.5 µM^-1",
+      "substitution": "-1/2.0 = -0.5",
+      "why": "Raising only the y-intercept scales Vmax down while leaving the x-intercept, and therefore Km, untouched",
+      "no_calc": "Same x-intercept means same Km, so the lines must cross on the x-axis"
+    },
+    "correct_rationale_plain": "Inhibitor B leaves Km at 2.0 µM, so its line meets the control line on the x-axis at -1/Km.",
+    "wrong": {
+      "A": "A y-axis intersection would mean equal Vmax with different Km, the competitive pattern",
+      "B": "Parallel lines require equal Vmax, but inhibitor B lowers Vmax",
+      "D": "Coincident lines would mean no inhibition at all, yet velocities fall"
+    },
+    "sc": "x-intercept equals Km; unchanged Km equals crossing on x.",
+    "mn": "Noncompetitive: same Km, lower ceiling, cross on x.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_038",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "Which inhibitor binds only to the free enzyme and not to the enzyme-substrate complex?",
+    "options": {
+      "A": "Inhibitor A",
+      "B": "Inhibitor B",
+      "C": "Both inhibitors",
+      "D": "Neither inhibitor"
+    },
+    "correct": "A",
+    "explanation": "Competitive inhibitors and substrate compete for the same site, so an inhibitor molecule cannot be bound at the same time as substrate. That is why raising substrate concentration restores velocity. Inhibitor B binds a separate pocket and can bind whether or not substrate is present, which is why its effect persists at saturation.",
+    "memorize": [
+      "Competitive inhibitor binds free enzyme only",
+      "Noncompetitive inhibitor binds free enzyme and enzyme-substrate complex"
+    ],
+    "fm": {
+      "formula": "competitive: E + I is in equilibrium with EI, and S and I exclude each other",
+      "variables": "E is free enzyme, S is substrate, I is inhibitor; the ESI complex is not formed by a pure competitive inhibitor",
+      "values": "Inhibitor A resembles substrate; inhibitor B binds 20 Å away",
+      "substitution": "not needed for the qualitative rule",
+      "why": "Mutual exclusion at one site makes the inhibitor's effect depend on the substrate concentration",
+      "no_calc": "If more substrate can displace it, the inhibitor was on the substrate site"
+    },
+    "correct_rationale_plain": "Inhibitor A competes with substrate at the active site, so it cannot bind the enzyme that already holds substrate.",
+    "wrong": {
+      "B": "Inhibitor B binds at a distant pocket and lowers Vmax whether or not substrate is bound",
+      "C": "Only a competitive inhibitor is excluded by bound substrate",
+      "D": "Both lower velocity, so at least one binds the enzyme"
+    },
+    "sc": "Same site means mutual exclusion.",
+    "mn": "Competitors cannot share a chair.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_039",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "Raising substrate from 8 µM to 16 µM in the presence of inhibitor A changes velocity from 57.1 to 72.7. What does that show?",
+    "options": {
+      "A": "The inhibitor is noncompetitive, because velocity is still below control",
+      "B": "The inhibition is surmountable, because substrate pushes the velocity toward the control plateau",
+      "C": "The inhibitor becomes covalent at high substrate",
+      "D": "The enzyme is denaturing at high substrate"
+    },
+    "correct": "B",
+    "explanation": "Doubling substrate raises velocity by 15.6 and moves it closer to the control value of 88.9, so the inhibitor is being outcompeted. With a competitive inhibitor, velocity at saturating substrate returns to the full Vmax of 100. A noncompetitive inhibitor would instead keep the curve near one third of the control plateau.",
+    "memorize": [
+      "Competitive inhibition is surmountable at high substrate",
+      "Approaching the control plateau means Vmax is intact"
+    ],
+    "fm": {
+      "formula": "v = Vmax[S]/(Km,app + [S])",
+      "variables": "Km,app is 6.0 µM with inhibitor A, and Vmax stays 100 µmol/min",
+      "values": "[S] 8 and 16 µM, velocities 57.1 and 72.7",
+      "substitution": "57.1 + 15.6 = 72.7",
+      "why": "As [S] exceeds Km,app, the denominator becomes dominated by [S] and velocity approaches Vmax regardless of the raised Km",
+      "no_calc": "Velocity climbing toward 88.9 means the ceiling is still 100"
+    },
+    "correct_rationale_plain": "More substrate pushes velocity back toward the control plateau, which is the definition of surmountable competitive inhibition.",
+    "wrong": {
+      "A": "Noncompetitive inhibition keeps velocity at a fixed fraction of control and does not recover with substrate",
+      "C": "Covalent irreversible inhibitors do not show a rising velocity as substrate increases",
+      "D": "Denaturation would lower velocity at high substrate and is not reversible by more substrate"
+    },
+    "sc": "Rising toward control at high S means competitive.",
+    "mn": "More substrate, more rescue: competitive.",
+    "tb": {
+      "caption": "Table 1. Initial velocities with two inhibitors",
+      "markdown": "| [S] (µM) | No inhibitor | + A | + B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_040",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "Given Vmax of 100 µmol/min and 0.5 µmol of enzyme in each assay, what is kcat?",
+    "options": {
+      "A": "0.2 min^-1",
+      "B": "50 min^-1",
+      "C": "100 min^-1",
+      "D": "200 min^-1"
+    },
+    "correct": "D",
+    "explanation": "kcat is Vmax divided by total enzyme, so 100 µmol/min divided by 0.5 µmol equals 200 per minute. That is about 3.3 catalytic events per second per enzyme molecule. kcat reports turnover at saturation and is independent of substrate concentration.",
+    "memorize": [
+      "kcat = Vmax/[E]total, in units of reciprocal time",
+      "kcat is turnover number per active site at saturation"
+    ],
+    "fm": {
+      "formula": "kcat = Vmax/[E]total",
+      "variables": "Vmax in µmol/min and total enzyme in µmol give kcat in min^-1",
+      "values": "Vmax 100 µmol/min, enzyme 0.5 µmol",
+      "substitution": "100/0.5 = 200",
+      "why": "Dividing the maximal rate by the number of enzyme molecules converts a bulk rate into a per-molecule turnover frequency",
+      "no_calc": "Dividing by one half doubles the number, so 100 becomes 200"
+    },
+    "correct_rationale_plain": "100 µmol/min divided by 0.5 µmol of enzyme is 200 min^-1.",
+    "wrong": {
+      "A": "0.2 inverts the ratio and uses the wrong units",
+      "B": "50 halves Vmax instead of dividing by the enzyme amount",
+      "C": "100 is Vmax itself, which ignores the enzyme concentration"
+    },
+    "sc": "Turnover equals rate over enzyme; dividing by 0.5 doubles.",
+    "mn": "kcat counts product per enzyme per minute.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_041",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "Using kcat of 200 min^-1 and Km of 2.0 µM, what is the catalytic efficiency?",
+    "options": {
+      "A": "About 1.7 x 10^6 M^-1 s^-1",
+      "B": "About 3.3 x 10^6 M^-1 s^-1",
+      "C": "About 1.7 x 10^2 M^-1 s^-1",
+      "D": "About 1.7 x 10^8 M^-1 s^-1"
+    },
+    "correct": "A",
+    "explanation": "Catalytic efficiency is kcat divided by Km in matching units. Converting kcat to seconds gives 200/60, or 3.33 s^-1, and Km of 2.0 µM is 2.0 x 10^-6 M. Dividing gives about 1.7 x 10^6 M^-1 s^-1. Values near 10^8 to 10^9 M^-1 s^-1 approach diffusion control.",
+    "memorize": [
+      "Catalytic efficiency = kcat/Km, with Km in molar units",
+      "Efficiency near 10^8 M^-1 s^-1 is diffusion-limited perfection"
+    ],
+    "fm": {
+      "formula": "kcat/Km",
+      "variables": "kcat in s^-1 and Km in M give efficiency in M^-1 s^-1",
+      "values": "kcat 200 min^-1 = 3.33 s^-1, Km 2.0 x 10^-6 M",
+      "substitution": "3.33/(2.0 x 10^-6) = 1.67 x 10^6",
+      "why": "At low substrate, velocity is proportional to (kcat/Km)[E][S], so the ratio is the second-order rate constant for productive encounters",
+      "no_calc": "Divide by 2 and multiply by a million: about 1.7 million per molar per second"
+    },
+    "correct_rationale_plain": "kcat of 3.33 s^-1 over Km of 2.0 x 10^-6 M gives 1.7 x 10^6 M^-1 s^-1.",
+    "wrong": {
+      "B": "This uses 200 s^-1 without converting minutes to seconds",
+      "C": "This divides by Km in µM without converting to molar, so the answer is a million times too small",
+      "D": "10^8 results from dividing by 20 nM rather than 2.0 µM, a hundredfold unit slip"
+    },
+    "sc": "Convert minutes to seconds and micromolar to molar before dividing.",
+    "mn": "kcat over Km, seconds and moles.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_042",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "A third compound lowers Vmax with no change in Km, and activity stays low after extensive dialysis. Which mechanism fits?",
+    "options": {
+      "A": "Reversible competitive inhibition",
+      "B": "Reversible noncompetitive inhibition",
+      "C": "Irreversible covalent modification of the enzyme",
+      "D": "Allosteric activation"
+    },
+    "correct": "C",
+    "explanation": "Persistence after dialysis means the inhibitor is not in reversible equilibrium with the enzyme; a covalent bond survives the removal of free drug. Lowered Vmax with unchanged Km is consistent with losing a fraction of active enzyme molecules. Reversible noncompetitive inhibition would be reversed by dialysis because the inhibitor would wash out.",
+    "memorize": [
+      "Dialysis removes reversible inhibitors but not covalent ones",
+      "Irreversible inhibition looks like a lower effective enzyme concentration"
+    ],
+    "fm": {
+      "formula": "Vmax = kcat[E]active",
+      "variables": "Irreversible inhibitor reduces the concentration of functional enzyme rather than its intrinsic kcat",
+      "values": "Vmax falls, Km unchanged",
+      "substitution": "Vmax,app/Vmax equals the fraction of enzyme still active",
+      "why": "Covalent modification permanently removes enzyme molecules from the active pool, which scales Vmax while leaving the remaining enzymes kinetically normal",
+      "no_calc": "No recovery after dialysis means the bond is covalent"
+    },
+    "correct_rationale_plain": "Activity that survives dialysis indicates a covalent, irreversible inhibitor, which lowers the amount of working enzyme and therefore Vmax.",
+    "wrong": {
+      "A": "Competitive inhibition is reversible and would wash out, and it raises Km",
+      "B": "Reversible noncompetitive inhibition would also be removed by dialysis",
+      "D": "Activation raises Vmax rather than lowering it"
+    },
+    "sc": "Dialysis-proof inhibition equals covalent.",
+    "mn": "If washing does not fix it, it is covalent.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_043",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "A different enzyme shows a sigmoid velocity curve and a Hill coefficient of 2.6. What does that indicate?",
+    "options": {
+      "A": "The enzyme has a single site with high affinity",
+      "B": "The substrate is being consumed faster than it is added",
+      "C": "The enzyme is inhibited irreversibly",
+      "D": "The enzyme has multiple interacting sites with positive cooperativity"
+    },
+    "correct": "D",
+    "explanation": "A Hill coefficient above 1 means binding at one site raises the affinity of the others, which produces the sigmoid curve. Values near 1 indicate independent sites, and below 1 indicate negative cooperativity. Hemoglobin with its Hill coefficient near 2.8 is the standard example outside enzymes.",
+    "memorize": [
+      "Hill coefficient above 1 means positive cooperativity",
+      "Sigmoid kinetics indicate interacting subunits, not Michaelis-Menten behavior"
+    ],
+    "fm": {
+      "formula": "Y = [S]^n/(K^n + [S]^n)",
+      "variables": "n is the Hill coefficient; n of 1 gives a hyperbola and n above 1 gives a sigmoid",
+      "values": "n = 2.6",
+      "substitution": "2.6 is nearly 3, the number of interacting sites if all cooperate",
+      "why": "The exponent n reflects how many ligand molecules must bind before affinity rises sharply, which only happens when sites communicate",
+      "no_calc": "n above 1 equals sigmoid equals cooperativity"
+    },
+    "correct_rationale_plain": "A Hill coefficient of 2.6 and a sigmoid curve mean several sites interact so that binding becomes easier as more substrate binds.",
+    "wrong": {
+      "A": "A single independent site gives a rectangular hyperbola with n of 1",
+      "B": "Rapid substrate consumption would distort a time course, not create a Hill coefficient above 1",
+      "C": "Irreversible inhibition lowers Vmax and does not steepen the curve"
+    },
+    "sc": "n above 1 means cooperativity, not Michaelis-Menten.",
+    "mn": "Sigmoid enzymes gossip: one binds, the others listen.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_044",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "Malonate inhibits succinate dehydrogenase, and the inhibition is relieved by raising succinate concentration. What type of inhibition is this?",
+    "options": {
+      "A": "Competitive, because malonate is a structural analog of succinate",
+      "B": "Noncompetitive, because malonate binds a separate site",
+      "C": "Irreversible, because malonate forms a covalent bond",
+      "D": "Uncompetitive, because malonate binds only the enzyme-product complex"
+    },
+    "correct": "A",
+    "explanation": "Malonate resembles succinate closely enough to occupy the dicarboxylate binding site, so it competes directly with the substrate. Because the interaction is reversible and mutually exclusive, more succinate displaces malonate and restores activity. Km rises and Vmax is unchanged, the competitive signature.",
+    "memorize": [
+      "Malonate inhibits succinate dehydrogenase competitively",
+      "Structural analog plus surmountable inhibition equals competitive"
+    ],
+    "fm": {
+      "formula": "v = Vmax[S]/(Km(1 + [I]/Ki) + [S])",
+      "variables": "Malonate is the inhibitor, succinate the substrate, and Ki its inhibition constant",
+      "values": "inhibition reverses as succinate rises",
+      "substitution": "not needed; the [S] dependence identifies the type",
+      "why": "The inhibitor appears only in the Km term, so increasing [S] dilutes its effect and the Vmax term remains available",
+      "no_calc": "Relief by more substrate means competition for the same site"
+    },
+    "correct_rationale_plain": "Malonate is a succinate analog that competes for the same site, so excess succinate outcompetes it.",
+    "wrong": {
+      "B": "Noncompetitive inhibitors do not share the substrate site and are not relieved by more substrate",
+      "C": "Malonate binds reversibly, and dialysis restores activity",
+      "D": "Uncompetitive inhibitors bind only the enzyme-substrate complex and lower both Vmax and Km"
+    },
+    "sc": "Analog plus surmountable equals competitive.",
+    "mn": "Malonate mimics succinate and steals its seat.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_045",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "Methotrexate inhibits dihydrofolate reductase by occupying the folate-binding site with much higher affinity than the substrate. Which kinetic pattern does it produce at therapeutic concentrations?",
+    "options": {
+      "A": "A large rise in apparent Km with Vmax unchanged",
+      "B": "A fall in Vmax with Km unchanged",
+      "C": "A fall in both Vmax and Km",
+      "D": "No change in either constant"
+    },
+    "correct": "A",
+    "explanation": "Methotrexate is a folate analog that binds the substrate site tightly and reversibly, so it behaves as a competitive inhibitor with a very small Ki. That produces a large alpha factor and a markedly raised apparent Km while Vmax stays at the uninhibited value. At saturating folate the inhibition can be partly overcome, which is the therapeutic basis for leucovorin rescue.",
+    "memorize": [
+      "Methotrexate is a competitive folate analog inhibitor of dihydrofolate reductase",
+      "Tight competitive binding raises Km a lot and leaves Vmax alone"
+    ],
+    "fm": {
+      "formula": "Km,app = Km(1 + [I]/Ki)",
+      "variables": "A small Ki makes the alpha factor large even at modest inhibitor concentrations",
+      "values": "methotrexate Ki is far below the folate Km",
+      "substitution": "not needed; the direction follows from [I]/Ki being large",
+      "why": "Competitive inhibitors alter only the substrate dissociation term, so the enzyme still reaches its normal Vmax when substrate outcompetes the drug",
+      "no_calc": "Very tight binding means a very large apparent Km"
+    },
+    "correct_rationale_plain": "Methotrexate competes at the folate site, so apparent Km rises sharply while Vmax is preserved.",
+    "wrong": {
+      "B": "A Vmax fall with unchanged Km is noncompetitive, which does not describe a substrate-site analog",
+      "C": "Uncompetitive inhibition lowers both, but methotrexate binds the free enzyme",
+      "D": "A tight-binding inhibitor must change at least one constant"
+    },
+    "sc": "Substrate analog means competitive, so Km moves and Vmax does not.",
+    "mn": "Methotrexate mimics folate and camps on the site.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_046",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "Penicillin kills growing bacteria by forming a covalent bond with the active-site serine of transpeptidase. Which statement about this inhibition is correct?",
+    "options": {
+      "A": "It is competitive and reversible, so Km rises",
+      "B": "It is allosteric and lowers affinity for substrate",
+      "C": "It is reversible only at high substrate concentration",
+      "D": "It is irreversible, so Vmax falls and cannot be restored by substrate"
+    },
+    "correct": "D",
+    "explanation": "Penicillin acylates the catalytic serine and remains attached, so enzyme molecules are permanently inactivated. The remaining active enzyme behaves normally, which lowers the effective Vmax without changing Km. Because the inhibited molecules never return, adding substrate cannot restore activity.",
+    "memorize": [
+      "Penicillin is a mechanism-based irreversible inhibitor of transpeptidase",
+      "Irreversible inhibition lowers Vmax irreversibly; substrate cannot rescue"
+    ],
+    "fm": {
+      "formula": "Vmax,app = kcat[E]active",
+      "variables": "Covalent modification removes enzyme molecules from the active pool",
+      "values": "Km unchanged, Vmax reduced in proportion to modified enzyme",
+      "substitution": "Vmax,app/Vmax equals the unmodified fraction",
+      "why": "A covalent inhibitor changes the amount of functional enzyme rather than the kinetics of the survivors",
+      "no_calc": "No rescue by substrate plus no recovery on dialysis means irreversible"
+    },
+    "correct_rationale_plain": "Penicillin forms a stable covalent acyl-enzyme, so functional enzyme is lost and Vmax drops permanently.",
+    "wrong": {
+      "A": "Competitive inhibitors bind reversibly and are displaced by substrate",
+      "B": "Penicillin acts at the catalytic serine, not at a regulatory site",
+      "C": "The covalent bond does not break when substrate is added"
+    },
+    "sc": "Covalent plus permanent equals irreversible, so Vmax falls.",
+    "mn": "Penicillin welds the active site shut.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_047",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "Why does raising substrate concentration fail to restore velocity in the presence of inhibitor B?",
+    "options": {
+      "A": "Inhibitor B binds the active site more tightly than substrate",
+      "B": "Inhibitor B is covalently attached to the enzyme",
+      "C": "Inhibitor B can bind the enzyme-substrate complex as well as free enzyme, so substrate cannot exclude it",
+      "D": "Inhibitor B increases the substrate concentration needed for half saturation"
+    },
+    "correct": "C",
+    "explanation": "A noncompetitive inhibitor binds a site distinct from the active site, so its occupancy does not depend on whether substrate is bound. Increasing substrate therefore cannot push the inhibitor off, and the inhibited fraction of enzyme stays inhibited at all substrate concentrations. The result is a lower plateau rather than a shifted half-saturation point.",
+    "memorize": [
+      "Noncompetitive inhibitor binds free enzyme and enzyme-substrate complex",
+      "Substrate exclusion only works for inhibitors at the substrate site"
+    ],
+    "fm": {
+      "formula": "v = (Vmax/alpha)[S]/(Km + [S])",
+      "variables": "alpha reflects inhibitor bound to both E and ES; Km is unchanged",
+      "values": "Vmax,app about 33 µmol/min from 100/3",
+      "substitution": "100/3 = 33.3",
+      "why": "The inhibitor is absent from the [S] term, so no substrate concentration can reduce its fractional occupancy of enzyme",
+      "no_calc": "A constant fraction of enzyme is always inhibited, so the ceiling is a third"
+    },
+    "correct_rationale_plain": "Because inhibitor B binds enzyme that already holds substrate, more substrate cannot displace it.",
+    "wrong": {
+      "A": "The crystal structure placed B 20 Å from the active site, and high substrate does not help",
+      "B": "Dialysis experiments with B show reversible binding; covalency is not required to block recovery",
+      "D": "Raising Km would mean competitive inhibition, but B leaves Km at 2.0 µM"
+    },
+    "sc": "Binds ES too means substrate cannot compete.",
+    "mn": "You cannot outnumber a saboteur who works after hours.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_048",
+    "passage_text": "A purified dehydrogenase was assayed at 30 °C in pH 7.4 buffer with 0.5 µmol of enzyme per assay, and initial velocities were measured at six substrate concentrations. Separate assays contained 10 µM of inhibitor A or 10 µM of inhibitor B. Inhibitor A resembles the substrate, while inhibitor B was shown by crystallography to occupy a pocket 20 Å from the active site. Table 1 gives velocities in µmol of product per minute; the uninhibited Vmax is 100 µmol/min and Km is 2.0 µM.",
+    "table_data": "| [S] (µM) | No inhibitor | + Inhibitor A | + Inhibitor B |\n|---|---|---|---|\n| 1 | 33.3 | 14.3 | 11.1 |\n| 2 | 50.0 | 25.0 | 16.7 |\n| 4 | 66.7 | 40.0 | 22.2 |\n| 6 | 75.0 | 50.0 | 25.0 |\n| 8 | 80.0 | 57.1 | 26.7 |\n| 16 | 88.9 | 72.7 | 29.6 |",
+    "stem": "Which experiment would best distinguish whether a new inhibitor is competitive or noncompetitive?",
+    "options": {
+      "A": "Measure the inhibitor's absorbance spectrum",
+      "B": "Measure velocity at several substrate concentrations with and without a fixed inhibitor concentration, then compare Lineweaver-Burk plots",
+      "C": "Measure velocity once at a single high substrate concentration",
+      "D": "Measure enzyme melting temperature with and without inhibitor"
+    },
+    "correct": "B",
+    "explanation": "Varying substrate at a fixed inhibitor concentration reveals whether the inhibitor changes Km, Vmax, or both, and a double-reciprocal plot makes the pattern visible as intercepts. A single substrate point cannot separate a shifted half-saturation point from a lowered plateau. Binding studies or melting curves report binding, not the kinetic mechanism.",
+    "memorize": [
+      "Mechanism comes from varying [S] at fixed [I]",
+      "Lineweaver-Burk intercepts identify Km and Vmax changes"
+    ],
+    "fm": {
+      "formula": "1/v = (Km/Vmax)(1/[S]) + 1/Vmax",
+      "variables": "y-intercept 1/Vmax and x-intercept -1/Km change differently for each inhibition type",
+      "values": "competitive: same y-intercept, different x-intercept; noncompetitive: different y-intercept, same x-intercept",
+      "substitution": "not needed; compare intercepts across conditions",
+      "why": "Each inhibition type modifies a different term in the rate equation, which maps to a different intercept",
+      "no_calc": "If the lines meet on the y-axis it is competitive; on the x-axis it is noncompetitive"
+    },
+    "correct_rationale_plain": "Varying substrate at fixed inhibitor and comparing reciprocal plots shows which kinetic constant moved.",
+    "wrong": {
+      "A": "A spectrum reports structure or concentration, not kinetic mechanism",
+      "C": "One high-substrate point cannot separate a Km shift from a Vmax drop",
+      "D": "Melting temperature reports stability, not inhibition type"
+    },
+    "sc": "Vary substrate, fix inhibitor, compare intercepts.",
+    "mn": "Two axes, two diagnoses.",
+    "tb": "",
+    "source": "High-yield"
+  }
+]

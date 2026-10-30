@@ -1,0 +1,107 @@
+[
+  {
+    "id": "bp367_Q1",
+    "type": "passage",
+    "passage_id": "bp367",
+    "passage_text": "Researchers studied the effect of a small-molecule inhibitor, Y, on the kinetic parameters of lactate dehydrogenase (LDH), an enzyme that requires the cofactor NADH. In a series of assays, the enzyme was incubated with varying concentrations of inhibitor Y (0, 5, and 10 µM) while the substrate concentration was held constant at 1 mM. Initial reaction velocities were measured over a 30‑second interval and converted to µmol min⁻¹. The data are summarized in Table 1. The investigators then plotted the data on a Lineweaver‑Burk plot to confirm the type of inhibition and calculated the apparent Km and Vmax values for each inhibitor concentration. The results showed a proportional increase in Km with little change in Vmax, suggesting competitive inhibition. The authors concluded that inhibitor Y binds to the active site, preventing NADH from accessing the catalytic pocket.",
+    "table_data": "| Inhibitor (µM) | Km (mM) | Vmax (µmol min⁻¹) |\n|---|---|---|\n| 0 | 0.15 | 12.0 |\n| 5 | 0.30 | 11.0 |\n| 10 | 0.45 | 10.0 |",
+    "stem": "What is the independent variable in Table 1?",
+    "options": {
+      "A": "The enzyme concentration",
+      "B": "The inhibitor concentration",
+      "C": "The substrate concentration",
+      "D": "The reaction time"
+    },
+    "correct": "B",
+    "explanation": "Analogy (10‑yr‑old): Imagine you’re filling a cup of water with a spoon. The spoon size you change is the independent variable—it’s what you decide to adjust. Official: In a data table, the independent variable is the factor that the experimenter changes to observe its effect on the dependent variable. In Table 1, the experimenter changed the amount of inhibitor Y, so the inhibitor concentration is the independent variable. Wrong answers: A confuses the amount of enzyme (which was kept constant); C mistakenly picks the substrate concentration, which was held steady at 1 mM; D refers to the time over which the velocity was measured, a dependent factor.\n",
+    "trap": "Confusing the constant enzyme or substrate concentration for the variable that was actually altered.",
+    "sheet_link": "See Mastery Sheet 1B + Variable table",
+    "mnemonic_link": "Cofactor_Mnemonic_01",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  },
+  {
+    "id": "bp367_Q2",
+    "type": "passage",
+    "passage_id": "bp367",
+    "passage_text": "Researchers want to confirm that inhibitor Y is a competitive inhibitor of LDH. To design this experiment, they will keep the inhibitor concentration fixed at 5 µM and vary the substrate concentration from 0.05 mM to 1 mM. By measuring the initial velocity at each substrate level, they can plot a Michaelis‑Menten curve and compare it to the control (0 µM inhibitor). If the inhibitor is truly competitive, the curves will intersect at the y‑axis, indicating unchanged Vmax but increased apparent Km.",
+    "table_data": "| Substrate (mM) | Velocity (µmol min⁻¹) |\n|---|---|\n| 0.05 | 0.5 |\n| 0.1 | 1.0 |\n| 0.5 | 5.0 |\n| 1.0 | 10.0 |",
+    "stem": "To test whether inhibitor Y is competitive, which variable should the researchers vary while keeping the inhibitor concentration constant?",
+    "options": {
+      "A": "Enzyme concentration",
+      "B": "Inhibitor concentration",
+      "C": "Substrate concentration",
+      "D": "Reaction temperature"
+    },
+    "correct": "C",
+    "explanation": "Analogy (10‑yr‑old): If you’re trying to see how a new toy works, you keep the toy the same and change the way you play with it. Here, the toy is the inhibitor (kept constant), and you change the amount of food (substrate) the enzyme eats. Official: In competitive inhibition, the inhibitor competes with the substrate for the same binding site, so varying substrate concentration while holding inhibitor constant reveals changes in apparent Km but not Vmax. Wrong answers: A keeps the enzyme the same but doesn’t test competition; B keeps the inhibitor variable, which would make it hard to interpret; D changes temperature, affecting many kinetic parameters unrelated to competition.\n",
+    "trap": "Assuming the inhibitor concentration should be varied to determine competitive inhibition.",
+    "sheet_link": "See Mastery Sheet 1B + Variable table",
+    "mnemonic_link": "Cofactor_Mnemonic_01",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  },
+  {
+    "id": "bp367_Q3",
+    "type": "passage",
+    "passage_id": "bp367",
+    "passage_text": "The variable table for LDH (Mastery Sheet 1B) lists the total enzyme concentration as 0.05 µM. Using the Vmax value from Table 1 at 0 µM inhibitor (12.0 µmol min⁻¹), calculate the catalytic turnover number (kcat) of LDH. Recall that kcat = Vmax / [E]t, where Vmax must be expressed in mol s⁻¹ and [E]t in mol.",
+    "table_data": "| Inhibitor (µM) | Km (mM) | Vmax (µmol min⁻¹) |\n|---|---|---|\n| 0 | 0.15 | 12.0 |\n| 5 | 0.30 | 11.0 |\n| 10 | 0.45 | 10.0 |",
+    "stem": "What is the kcat of LDH at 0 µM inhibitor?",
+    "options": {
+      "A": "0.4 s⁻¹",
+      "B": "4 s⁻¹",
+      "C": "40 s⁻¹",
+      "D": "400 s⁻¹"
+    },
+    "correct": "B",
+    "explanation": "Analogy (10‑yr‑old): Imagine a factory that produces 12 cars per minute with 0.05 workers. kcat tells you how many cars each worker makes per second. Official: Convert Vmax to mol s⁻¹ (12 µmol min⁻¹ = 2 × 10⁻⁷ mol s⁻¹). Divide by enzyme concentration (5 × 10⁻⁸ mol) → 4 s⁻¹. Wrong answers: A underestimates by a factor of 10; C overestimates by a factor of 10; D overestimates by a factor of 100. These traps arise from mis‑converting units or mis‑placing the decimal.\n",
+    "trap": "Unit conversion errors (µmol min⁻¹ to mol s⁻¹) and mis‑reading enzyme concentration.",
+    "sheet_link": "See Mastery Sheet 1B + Variable table",
+    "mnemonic_link": "Cofactor_Mnemonic_01",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  },
+  {
+    "id": "bp367_Q4",
+    "type": "passage",
+    "passage_id": "bp367",
+    "passage_text": "A student misinterprets Table 1 and assumes that the inhibitor concentration is the dependent variable that changes with enzyme activity. They then conclude that increasing inhibitor concentration decreases enzyme activity directly, without considering the effect on Km.",
+    "table_data": "| Inhibitor (µM) | Km (mM) | Vmax (µmol min⁻¹) |\n|---|---|---|\n| 0 | 0.15 | 12.0 |\n| 5 | 0.30 | 11.0 |\n| 10 | 0.45 | 10.0 |",
+    "stem": "What is the most likely mistake in the student's reasoning?",
+    "options": {
+      "A": "Treating inhibitor concentration as a dependent variable instead of independent",
+      "B": "Assuming Vmax changes with inhibitor concentration",
+      "C": "Ignoring the role of NADH as a cofactor",
+      "D": "Converting µmol min⁻¹ to mol s⁻¹ incorrectly"
+    },
+    "correct": "A",
+    "explanation": "Analogy (10‑yr‑old): If you think the amount of paint you use depends on how many brushes you have, you’re mixing up cause and effect. Official: The experimenter deliberately changes inhibitor concentration (independent variable) to observe its effect on enzyme velocity (dependent). The student reversed this relationship. Wrong answers: B incorrectly states that Vmax changes, but it remains essentially constant in competitive inhibition; C is unrelated to the specific error; D is a separate unit conversion issue.\n",
+    "trap": "Confusing cause and effect; treating the variable that is altered as the outcome.",
+    "sheet_link": "See Mastery Sheet 1B + Variable table",
+    "mnemonic_link": "Cofactor_Mnemonic_01",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  },
+  {
+    "id": "bp367_Q5",
+    "type": "passage",
+    "passage_id": "bp367",
+    "passage_text": "LDH catalyzes the interconversion of pyruvate and lactate with NAD⁺/NADH as a cofactor. In the context of the experiment described above, the presence of NADH is essential for the enzyme’s catalytic cycle. Students often confuse the roles of NAD⁺ and NADH in this reaction.",
+    "table_data": "",
+    "stem": "Which cofactor is required for LDH to function in the direction of lactate → pyruvate?",
+    "options": {
+      "A": "FAD",
+      "B": "NAD⁺",
+      "C": "CoA",
+      "D": "FMN"
+    },
+    "correct": "B",
+    "explanation": "Analogy (10‑yr‑old): Think of LDH as a factory that needs a power plug (cofactor) to run. For the factory to convert lactate into pyruvate, it plugs into NAD⁺, which accepts electrons. Official: LDH uses NAD⁺ as the electron acceptor in the forward direction (lactate → pyruvate). NADH is the reduced form used in the reverse reaction. Wrong answers: A and D are cofactors for other oxidoreductases; C is involved in acyl‑CoA metabolism, not this reaction.\n",
+    "trap": "Confusing the oxidized vs reduced form of the cofactor (NAD⁺ vs NADH).",
+    "sheet_link": "See Mastery Sheet 1B + Variable table",
+    "mnemonic_link": "Cofactor_Mnemonic_01",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  }
+]

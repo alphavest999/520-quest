@@ -1,0 +1,587 @@
+[
+  {
+    "id": "bp_065",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "Rotenone lowers oxygen consumption to 4, but adding succinate restores it to 38. What does this show?",
+    "options": {
+      "A": "Rotenone inhibits complex II directly and succinate displaces it",
+      "B": "Rotenone inhibits ATP synthase, and succinate bypasses the synthase",
+      "C": "Rotenone blocks complex I, and succinate feeds electrons in at complex II",
+      "D": "Rotenone blocks complex IV, and succinate repairs the oxidase"
+    },
+    "correct": "C",
+    "explanation": "Rotenone inhibits the quinone-binding site of complex I, so NADH cannot be oxidized and oxygen consumption collapses. Succinate is oxidized by complex II, which donates electrons to ubiquinone downstream of the block, so respiration resumes. The restored rate is slightly lower because succinate yields FADH2, which pumps fewer protons than NADH.",
+    "memorize": [
+      "Rotenone blocks complex I; succinate enters at complex II and bypasses it",
+      "Complex II contributes FADH2, so it yields less ATP than NADH"
+    ],
+    "fm": {
+      "formula": "electron entry point determines the proton gradient and ATP yield",
+      "variables": "NADH enters at complex I and FADH2 at complex II; each NADH pumps 10 protons and each FADH2 pumps 6",
+      "values": "10 protons per NADH, 6 per FADH2",
+      "substitution": "10 - 6 = 4 fewer protons, so 2 fewer ATP",
+      "why": "Bypassing complex I skips four protons of pumping, which lowers the ATP yield per pair of electrons",
+      "no_calc": "Succinate skips complex I, so fewer ATP per oxygen consumed"
+    },
+    "correct_rationale_plain": "Rotenone blocks complex I, and succinate supplies electrons at complex II, which feeds ubiquinone downstream of the block.",
+    "wrong": {
+      "A": "Rotenone is a complex I inhibitor, and succinate does not displace it from complex I",
+      "B": "Oligomycin, not rotenone, inhibits ATP synthase",
+      "D": "Cyanide blocks complex IV; rotenone has no effect there"
+    },
+    "sc": "Complex I blocked plus complex II substrate equals respiration returns.",
+    "mn": "Rotenone shuts gate one; succinate uses gate two.",
+    "tb": {
+      "caption": "Table 1. Oxygen consumption of isolated mitochondria",
+      "markdown": "| Condition | O2 consumption |\n|---|---|\n| Glutamate plus malate | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus dinitrophenol | 46 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_066",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "At which complex does antimycin A act?",
+    "options": {
+      "A": "Complex III, blocking electron transfer from cytochrome b to cytochrome c1",
+      "B": "Complex I, blocking NADH oxidation",
+      "C": "Complex II, blocking succinate oxidation",
+      "D": "Complex IV, blocking oxygen reduction"
+    },
+    "correct": "A",
+    "explanation": "Antimycin A binds the Qi site of cytochrome bc1 and prevents the Q cycle from passing electrons to cytochrome c1. Electrons cannot reach cytochrome c, so oxygen consumption falls almost to zero and no proton gradient is built. Succinate cannot rescue this block because complex II also delivers electrons through complex III.",
+    "memorize": [
+      "Antimycin A blocks complex III between cytochromes b and c1",
+      "Complex III is the only route from ubiquinol to cytochrome c"
+    ],
+    "fm": {
+      "formula": "NADH and FADH2 both reduce ubiquinone, which passes electrons through complex III",
+      "variables": "Complex III contains cytochrome b, the Rieske protein and cytochrome c1",
+      "values": "oxygen consumption falls from 42 to 3",
+      "substitution": "3/42 is about 0.07, a 93 percent drop",
+      "why": "Blocking the only exit from the quinone pool stops both NADH and FADH2 oxidation, so oxygen consumption collapses",
+      "no_calc": "Respiration near zero despite substrate means a shared downstream block"
+    },
+    "correct_rationale_plain": "Antimycin A blocks the Q cycle in complex III, cutting the shared path from both complex I and complex II to cytochrome c.",
+    "wrong": {
+      "B": "Rotenone blocks complex I, and succinate would restore respiration past it",
+      "C": "Complex II is blocked by malonate, and antimycin A does not affect it",
+      "D": "Complex IV is blocked by cyanide and carbon monoxide"
+    },
+    "sc": "Antimycin equals complex III equals no route to cytochrome c.",
+    "mn": "Antimycin stops the b-to-c1 handoff.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_067",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "Cyanide is toxic because it binds which target?",
+    "options": {
+      "A": "The adenine nucleotide translocase",
+      "B": "Cytochrome c in the intermembrane space",
+      "C": "ATP synthase subunit c",
+      "D": "Ferric heme a3 of cytochrome c oxidase, blocking oxygen reduction"
+    },
+    "correct": "D",
+    "explanation": "Cyanide binds the ferric heme a3 of cytochrome c oxidase, the complex that reduces oxygen to water. With complex IV blocked, the entire chain backs up, the proton gradient collapses, and cells cannot make ATP aerobically. Oxygen consumption falls to 2, matching the table.",
+    "memorize": [
+      "Cyanide, azide and carbon monoxide inhibit cytochrome c oxidase",
+      "Complex IV reduces oxygen to water and pumps two protons"
+    ],
+    "fm": {
+      "formula": "2 cytochrome c reduced + 0.5 O2 + 2 H+ goes to 2 cytochrome c oxidized + H2O",
+      "variables": "Cytochrome c oxidase contains heme a, heme a3 and copper centers",
+      "values": "oxygen consumption falls from 42 to 2",
+      "substitution": "2/42 is about 0.05",
+      "why": "If the terminal oxidase cannot reduce oxygen, no electron acceptor remains and the chain stops",
+      "no_calc": "Respiration at 5 percent of control points to the terminal oxidase"
+    },
+    "correct_rationale_plain": "Cyanide binds ferric heme a3 in complex IV, so oxygen cannot be reduced and the chain halts.",
+    "wrong": {
+      "A": "The adenine nucleotide translocase is inhibited by atractyloside, not cyanide",
+      "B": "Cytochrome c is a mobile carrier and is not the cyanide target",
+      "C": "Oligomycin binds ATP synthase, not cyanide"
+    },
+    "sc": "Cyanide equals complex IV equals no oxygen reduction.",
+    "mn": "Cyanide: cytochrome c oxidase, cyanide chokes it.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_068",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "Oligomycin lowers oxygen consumption to 9 without blocking any electron carrier. What is its mechanism?",
+    "options": {
+      "A": "It strips the proton gradient by carrying protons across the membrane",
+      "B": "It blocks the proton channel of ATP synthase, so the gradient builds and back-pressure slows the chain",
+      "C": "It blocks complex I quinone binding",
+      "D": "It inhibits the malate-aspartate shuttle"
+    },
+    "correct": "B",
+    "explanation": "Oligomycin binds the F0 subunit of ATP synthase and stops proton flow through the enzyme. Protons continue to be pumped, but the gradient cannot be discharged, so the proton-motive force rises until it opposes further pumping. Respiration slows even though every electron carrier remains functional.",
+    "memorize": [
+      "Oligomycin blocks ATP synthase F0 and slows respiration through back-pressure",
+      "Uncouplers release that back-pressure and raise respiration"
+    ],
+    "fm": {
+      "formula": "proton-motive force = chemical gradient plus membrane potential",
+      "variables": "Pumping builds the gradient; ATP synthase discharges it; oligomycin blocks the discharge",
+      "values": "oxygen consumption falls from 42 to 9",
+      "substitution": "9/42 is about 0.21, a 79 percent drop",
+      "why": "A large gradient increases the energy needed to pump each proton, so the chain slows to a new steady state",
+      "no_calc": "Respiration falls despite intact carriers, the signature of back-pressure"
+    },
+    "correct_rationale_plain": "Oligomycin blocks proton flow through ATP synthase, the gradient backs up, and electron transport slows.",
+    "wrong": {
+      "A": "That describes an uncoupler such as dinitrophenol, which raises rather than lowers respiration",
+      "C": "Complex I inhibition is rotenone, and succinate would bypass it",
+      "D": "Shuttle inhibition would lower NADH supply, but oligomycin acts inside the synthase"
+    },
+    "sc": "Oligomycin equals synthase block equals gradient back-pressure.",
+    "mn": "Oligomycin plugs the turbine.",
+    "tb": {
+      "caption": "Table 1. Oxygen consumption of isolated mitochondria",
+      "markdown": "| Condition | O2 consumption |\n|---|---|\n| Glutamate plus malate | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus dinitrophenol | 46 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_069",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "2,4-Dinitrophenol raises oxygen consumption to 46 but ATP synthesis falls. What explains both effects?",
+    "options": {
+      "A": "It activates ATP synthase directly, so more ATP is made per oxygen",
+      "B": "It blocks complex IV and cells compensate by using more oxygen",
+      "C": "It carries protons across the inner membrane, dissipating the gradient that ATP synthase needs",
+      "D": "It increases the proton-pumping efficiency of complex I"
+    },
+    "correct": "C",
+    "explanation": "Dinitrophenol is a lipid-soluble weak acid that shuttles protons across the inner membrane, short-circuiting the gradient. The chain runs faster because back-pressure is relieved, but the energy is released as heat instead of ATP. This is why uncouplers cause hyperthermia and weight loss despite high oxygen consumption.",
+    "memorize": [
+      "Uncouplers carry protons across the membrane and separate oxidation from phosphorylation",
+      "Uncoupling raises oxygen consumption and lowers ATP output"
+    ],
+    "fm": {
+      "formula": "ATP synthesis requires proton flow through ATP synthase, not through the lipid bilayer",
+      "variables": "The proton-motive force has a chemical and an electrical component; uncouplers collapse both",
+      "values": "oxygen consumption 42 to 46, ATP synthesis near zero",
+      "substitution": "46/42 is about 1.1, a 10 percent rise in respiration",
+      "why": "If protons return through the bilayer instead of the synthase, the gradient cannot do work and energy becomes heat",
+      "no_calc": "Faster respiration with less ATP means the gradient is leaking"
+    },
+    "correct_rationale_plain": "Dinitrophenol shuttles protons across the membrane, so the gradient is wasted as heat and ATP synthesis drops even as oxygen consumption rises.",
+    "wrong": {
+      "A": "ATP synthase is not activated, and ATP production falls",
+      "B": "Complex IV is not blocked, and cyanide shows what a complex IV block looks like",
+      "D": "Efficiency falls, not rises; the same electrons pump protons that then leak back"
+    },
+    "sc": "Uncoupler equals protons leak equals heat, not ATP.",
+    "mn": "DNP punches a hole in the dam.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_070",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "How many ATP are produced per oxygen atom reduced when electrons enter from NADH?",
+    "options": {
+      "A": "2.5",
+      "B": "1.5",
+      "C": "1.0",
+      "D": "4.0"
+    },
+    "correct": "A",
+    "explanation": "NADH donates electrons at complex I, and the chain pumps 10 protons per NADH oxidized. ATP synthase uses about four protons per ATP once the phosphate and proton transport costs are included, giving a P/O ratio of 2.5. FADH2 enters at complex II, pumps only six protons, and gives 1.5.",
+    "memorize": [
+      "P/O ratio: 2.5 for NADH, 1.5 for FADH2",
+      "Ten protons pumped per NADH and six per FADH2"
+    ],
+    "fm": {
+      "formula": "P/O = protons pumped per electron pair / protons per ATP",
+      "variables": "NADH pumps 10 protons; about 4 protons are needed per ATP synthesized",
+      "values": "10 protons, 4 protons per ATP",
+      "substitution": "10/4 = 2.5",
+      "why": "The proton count sets how many turns of ATP synthase the gradient can support",
+      "no_calc": "Ten over four is two and a half"
+    },
+    "correct_rationale_plain": "NADH pumps 10 protons, and at about 4 protons per ATP the yield is 2.5 ATP per oxygen atom.",
+    "wrong": {
+      "B": "1.5 is the FADH2 value, where only six protons are pumped",
+      "C": "1.0 would require most of the gradient to be wasted",
+      "D": "4.0 is the number of protons per ATP, not the ATP yield per oxygen"
+    },
+    "sc": "NADH equals 10 protons equals 2.5 ATP.",
+    "mn": "Two and a half for NADH, one and a half for FADH2.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_071",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "Why does succinate oxidation yield less ATP per oxygen atom than NADH oxidation?",
+    "options": {
+      "A": "Succinate produces fewer electrons per molecule",
+      "B": "Succinate enters at complex II, so complex I proton pumping is bypassed",
+      "C": "Succinate is oxidized in the cytosol rather than the matrix",
+      "D": "Succinate uncouples the membrane"
+    },
+    "correct": "B",
+    "explanation": "Complex II transfers electrons from FADH2 to ubiquinone but does not pump protons, so the electrons skip the four protons normally pumped at complex I. Only complexes III and IV contribute, giving six protons and a P/O of 1.5. The electron count is the same; the entry point differs.",
+    "memorize": [
+      "Complex II does not pump protons",
+      "FADH2 bypasses complex I and yields 1.5 ATP per oxygen atom"
+    ],
+    "fm": {
+      "formula": "P/O = protons pumped / 4",
+      "variables": "NADH route pumps 10 protons; FADH2 route pumps 6",
+      "values": "6 protons for FADH2",
+      "substitution": "6/4 = 1.5",
+      "why": "Only complexes III and IV pump when electrons enter at complex II, so the gradient is smaller per electron pair",
+      "no_calc": "Six over four is one and a half"
+    },
+    "correct_rationale_plain": "Succinate feeds complex II, skipping complex I proton pumping, so fewer protons are available and the yield is 1.5 instead of 2.5.",
+    "wrong": {
+      "A": "Succinate oxidation transfers two electrons, the same as NADH",
+      "C": "Succinate is oxidized on the matrix side by complex II",
+      "D": "Succinate does not uncouple; the lower yield reflects a shorter proton-pumping route"
+    },
+    "sc": "Entry at complex II skips four pumped protons.",
+    "mn": "Complex II is a doorway, not a pump.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_072",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "How many protons are pumped across the inner membrane per NADH oxidized by the electron transport chain?",
+    "options": {
+      "A": "2",
+      "B": "4",
+      "C": "6",
+      "D": "10"
+    },
+    "correct": "D",
+    "explanation": "Complex I pumps four protons, complex III pumps four through the Q cycle, and complex IV pumps two, for a total of ten per NADH. Complex II pumps none, which is why FADH2 yields six. The resulting gradient drives ATP synthase, whose c-ring determines how many protons are needed per ATP.",
+    "memorize": [
+      "Proton pumping: complex I four, complex III four, complex IV two",
+      "Complex II pumps no protons"
+    ],
+    "fm": {
+      "formula": "total protons = 4 (complex I) + 4 (complex III) + 2 (complex IV)",
+      "variables": "Each complex contributes a fixed number of protons per electron pair",
+      "values": "4, 4 and 2",
+      "substitution": "4 + 4 + 2 = 10",
+      "why": "Each pumping complex uses the energy of the electron transfer to move a defined number of protons against the gradient",
+      "no_calc": "Add the three pumps: ten"
+    },
+    "correct_rationale_plain": "Four protons at complex I, four at complex III and two at complex IV add up to ten per NADH.",
+    "wrong": {
+      "A": "Two is only complex IV, the terminal pump",
+      "B": "Four is the contribution of complex I alone, or of complex III alone",
+      "C": "Six is the FADH2 route, which skips complex I"
+    },
+    "sc": "4 plus 4 plus 2 equals 10; FADH2 skips the first 4.",
+    "mn": "Ten for NADH, six for FADH2.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_073",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "ATP synthase converts the proton gradient into ATP. Which statement about the enzyme is correct?",
+    "options": {
+      "A": "The F1 portion spans the membrane and forms the proton channel",
+      "B": "It pumps protons using ATP hydrolysis during normal oxidative phosphorylation",
+      "C": "Proton flow through the F0 channel rotates the c-ring and drives ATP release from F1",
+      "D": "It requires a sodium gradient rather than a proton gradient"
+    },
+    "correct": "C",
+    "explanation": "F0 is the membrane-embedded rotor and channel, and F1 carries the catalytic beta subunits. Protons flowing down their gradient turn the c-ring and the gamma shaft, which forces conformational changes that bind ADP and phosphate, form ATP and release it. The enzyme can hydrolyze ATP to pump protons in reverse, but not during normal synthesis.",
+    "memorize": [
+      "F0 is the proton channel and rotor; F1 contains the catalytic sites",
+      "Proton flow drives rotation and ATP release; ATP hydrolysis can reverse it"
+    ],
+    "fm": {
+      "formula": "ADP + Pi + n H+ (outside) goes to ATP + H2O + n H+ (inside)",
+      "variables": "n is set by the number of c subunits in the rotor, about 8 in mammalian mitochondria",
+      "values": "about 4 protons per ATP including transport costs",
+      "substitution": "not needed; the coupling is rotational",
+      "why": "Rotation couples proton translocation to sequential changes in nucleotide affinity at the beta subunits",
+      "no_calc": "Protons in, rotation, ATP out"
+    },
+    "correct_rationale_plain": "Protons passing through F0 rotate the c-ring and gamma shaft, and that rotation drives ATP synthesis and release at F1.",
+    "wrong": {
+      "A": "F1 sits on the matrix side; F0 is the membrane-spanning proton channel",
+      "B": "The synthase makes ATP under oxidative conditions; reverse hydrolysis happens only when the gradient collapses",
+      "D": "The mitochondrial gradient is a proton gradient, not a sodium gradient"
+    },
+    "sc": "F0 spins, F1 makes ATP.",
+    "mn": "Flow spins the rotor; the rotor stamps ATP.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_074",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "Which citric acid cycle enzyme is the main regulated step, and what activates it?",
+    "options": {
+      "A": "Isocitrate dehydrogenase, activated by ADP",
+      "B": "Fumarase, activated by ATP",
+      "C": "Citrate synthase, activated by NADH",
+      "D": "Malate dehydrogenase, activated by citrate"
+    },
+    "correct": "A",
+    "explanation": "Isocitrate dehydrogenase is allosterically activated by ADP and inhibited by ATP and NADH, so the cycle speeds up when energy charge falls. It is also activated by calcium in muscle during contraction. Citrate synthase is inhibited, not activated, by NADH and succinyl-CoA.",
+    "memorize": [
+      "Isocitrate dehydrogenase: activated by ADP and calcium, inhibited by ATP and NADH",
+      "Alpha-ketoglutarate dehydrogenase is inhibited by succinyl-CoA and NADH"
+    ],
+    "fm": {
+      "formula": "cycle flux rises when ADP/ATP and NAD+/NADH ratios rise",
+      "variables": "Isocitrate dehydrogenase senses ADP, ATP, NADH and calcium",
+      "values": "not needed; regulation is allosteric",
+      "substitution": "not needed",
+      "why": "ADP signals low energy charge, so activating the enzyme increases NADH production for the chain",
+      "no_calc": "ADP means low energy, so the cycle should speed up"
+    },
+    "correct_rationale_plain": "Isocitrate dehydrogenase is activated by ADP and inhibited by ATP and NADH, making it the cycle's main control point.",
+    "wrong": {
+      "B": "Fumarase is not a regulated step and is not activated by ATP",
+      "C": "Citrate synthase is inhibited by NADH and succinyl-CoA rather than activated",
+      "D": "Malate dehydrogenase is not the main control point and is not activated by citrate"
+    },
+    "sc": "Low energy means high ADP, which activates isocitrate dehydrogenase.",
+    "mn": "ADP pushes the cycle; ATP and NADH put on the brakes.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_075",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "Which citric acid cycle reaction produces a high-energy phosphate bond directly?",
+    "options": {
+      "A": "Citrate synthase",
+      "B": "Succinyl-CoA synthetase, converting succinyl-CoA to succinate and GTP",
+      "C": "Aconitase",
+      "D": "Complex II oxidation of succinate"
+    },
+    "correct": "B",
+    "explanation": "Succinyl-CoA synthetase couples cleavage of the thioester to phosphorylation of GDP or ADP, making GTP or ATP by substrate-level phosphorylation. The other cycle steps make NADH or FADH2, which yield ATP only through oxidative phosphorylation. The GTP can be converted to ATP by nucleoside diphosphate kinase.",
+    "memorize": [
+      "Succinyl-CoA synthetase is the only substrate-level phosphorylation in the citric acid cycle",
+      "Succinyl-CoA to succinate yields GTP, readily converted to ATP"
+    ],
+    "fm": {
+      "formula": "succinyl-CoA + GDP + Pi goes to succinate + GTP + CoA",
+      "variables": "The thioester energy is conserved in the phosphoanhydride bond of GTP",
+      "values": "one GTP per turn, two per glucose",
+      "substitution": "2 turns x 1 GTP = 2 GTP",
+      "why": "Thioester hydrolysis is coupled to nucleotide phosphorylation without a membrane gradient",
+      "no_calc": "One per turn, two turns per glucose"
+    },
+    "correct_rationale_plain": "Succinyl-CoA synthetase makes GTP directly from succinyl-CoA, the cycle's only substrate-level phosphorylation.",
+    "wrong": {
+      "A": "Citrate synthase makes citrate and releases CoA, with no nucleotide phosphorylation",
+      "C": "Aconitase isomerizes citrate to isocitrate without making a high-energy phosphate",
+      "D": "Complex II transfers electrons to ubiquinone and makes no ATP directly"
+    },
+    "sc": "Thioester cleavage plus GDP equals GTP.",
+    "mn": "Succinyl-CoA: the cycle's own ATP mint.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_076",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "Alpha-ketoglutarate dehydrogenase requires the same cofactors as pyruvate dehydrogenase. Which set is correct?",
+    "options": {
+      "A": "Biotin, ascorbate and vitamin K",
+      "B": "Only thiamine pyrophosphate",
+      "C": "Tetrahydrofolate and cobalamin",
+      "D": "Thiamine pyrophosphate, lipoic acid, coenzyme A, FAD and NAD+"
+    },
+    "correct": "D",
+    "explanation": "Both enzymes are alpha-keto acid dehydrogenase complexes with three catalytic subunits: a thiamine-dependent decarboxylase, a lipoate-using transacetylase, and an FAD-containing dihydrolipoyl dehydrogenase that reduces NAD+. The same five cofactors are therefore required, and both produce NADH and a thioester.",
+    "memorize": [
+      "Alpha-keto acid dehydrogenases need TPP, lipoate, CoA, FAD and NAD+",
+      "Thiamine deficiency impairs pyruvate dehydrogenase and alpha-ketoglutarate dehydrogenase"
+    ],
+    "fm": {
+      "formula": "alpha-ketoglutarate + CoA + NAD+ goes to succinyl-CoA + CO2 + NADH",
+      "variables": "TPP decarboxylates, lipoate transfers acyl groups, CoA accepts the acyl group, FAD and NAD+ carry electrons",
+      "values": "five cofactors, one NADH and one CO2 per reaction",
+      "substitution": "1 NADH per alpha-ketoglutarate",
+      "why": "The chemistry mirrors pyruvate dehydrogenase, so the cofactor requirements are identical",
+      "no_calc": "Same complex, same five cofactors"
+    },
+    "correct_rationale_plain": "Alpha-ketoglutarate dehydrogenase uses TPP, lipoic acid, CoA, FAD and NAD+, just like pyruvate dehydrogenase.",
+    "wrong": {
+      "A": "Biotin, ascorbate and vitamin K belong to other carboxylases and electron carriers",
+      "B": "TPP alone cannot transfer the acyl group or regenerate the enzyme",
+      "C": "Tetrahydrofolate and cobalamin handle one-carbon transfers, not alpha-keto acid oxidation"
+    },
+    "sc": "Two alpha-keto dehydrogenases, one cofactor list.",
+    "mn": "TPP, lipoate, CoA, FAD, NAD: the five-pack.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_077",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "Fluoroacetate is converted in cells to fluorocitrate, which inhibits aconitase. Which intermediate accumulates?",
+    "options": {
+      "A": "Isocitrate",
+      "B": "Alpha-ketoglutarate",
+      "C": "Citrate",
+      "D": "Succinate"
+    },
+    "correct": "C",
+    "explanation": "Aconitase converts citrate to isocitrate, so blocking it causes citrate to pile up behind the block. Fluorocitrate is a suicide inhibitor formed when fluoroacetate is activated to fluoroacetyl-CoA and condensed with oxaloacetate. The resulting citrate accumulation also inhibits phosphofructokinase-1, slowing glycolysis.",
+    "memorize": [
+      "Fluoroacetate becomes fluorocitrate and blocks aconitase",
+      "Aconitase converts citrate to isocitrate"
+    ],
+    "fm": {
+      "formula": "citrate goes to isocitrate via aconitase",
+      "variables": "Aconitase contains an iron-sulfur cluster that fluorocitrate targets",
+      "values": "not needed; the substrate of the blocked step accumulates",
+      "substitution": "not needed",
+      "why": "Inhibition raises the concentration of the substrate that cannot be converted, which is citrate here",
+      "no_calc": "Whatever builds up is the substrate just before the block"
+    },
+    "correct_rationale_plain": "Aconitase is blocked, so its substrate citrate accumulates.",
+    "wrong": {
+      "A": "Isocitrate is the product of aconitase and therefore falls",
+      "B": "Alpha-ketoglutarate is downstream of isocitrate dehydrogenase",
+      "D": "Succinate is far downstream and does not accumulate at the aconitase step"
+    },
+    "sc": "Fluorocitrate blocks aconitase; citrate backs up.",
+    "mn": "Fluoroacetate freezes citrate as citrate.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_078",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "Why is oxygen consumption high when oligomycin and dinitrophenol are both present?",
+    "options": {
+      "A": "The uncoupler restores proton leak, so the gradient no longer limits electron transport even though ATP synthase is blocked",
+      "B": "Oligomycin is displaced from ATP synthase by dinitrophenol",
+      "C": "Dinitrophenol activates ATP synthase directly",
+      "D": "Oligomycin becomes an electron carrier in the presence of dinitrophenol"
+    },
+    "correct": "A",
+    "explanation": "Oligomycin blocks the synthase, which would normally build up the gradient and slow the chain. Dinitrophenol provides an alternative proton path, so the gradient is discharged and electron transport runs at maximal uncoupled rate. ATP synthesis remains blocked because protons bypass the synthase entirely.",
+    "memorize": [
+      "Uncoupler plus synthase inhibitor equals fast respiration, no ATP",
+      "Back-pressure from the gradient is what slows respiration when the synthase is blocked"
+    ],
+    "fm": {
+      "formula": "respiration rate depends on the proton-motive force opposing pumping",
+      "variables": "Oligomycin blocks the synthase; dinitrophenol increases membrane proton conductance",
+      "values": "9 with oligomycin alone, 44 with both",
+      "substitution": "44/9 is about 4.9-fold faster",
+      "why": "A leaky membrane keeps the gradient low, so proton pumping is not opposed and the chain runs near maximal rate",
+      "no_calc": "Fast oxygen use with no ATP means the gradient is leaking"
+    },
+    "correct_rationale_plain": "Dinitrophenol lets protons leak back, relieving the back-pressure that oligomycin created, so oxygen consumption stays high while ATP synthesis stays blocked.",
+    "wrong": {
+      "B": "Dinitrophenol does not bind or displace oligomycin; it acts on the membrane",
+      "C": "The synthase remains inhibited, which is why ATP is not made",
+      "D": "Dinitrophenol is a proton carrier, not an electron carrier"
+    },
+    "sc": "Oligomycin builds pressure; uncoupler releases it.",
+    "mn": "Plug the turbine, open the spillway: same flow, no power.",
+    "tb": {
+      "caption": "Table 1. Oxygen consumption of isolated mitochondria",
+      "markdown": "| Condition | O2 consumption |\n|---|---|\n| Glutamate plus malate | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus dinitrophenol | 46 |\n| Plus oligomycin, then dinitrophenol | 44 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_079",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "Succinate restores respiration after rotenone but not after antimycin A. What is the best explanation?",
+    "options": {
+      "A": "Succinate reduces complex III directly, bypassing antimycin A",
+      "B": "Succinate donates electrons at complex II, which is upstream of the antimycin A block but downstream of complex I",
+      "C": "Antimycin A also inhibits complex II",
+      "D": "Succinate neutralizes antimycin A chemically"
+    },
+    "correct": "B",
+    "explanation": "Complex II feeds electrons into the ubiquinone pool, which is downstream of complex I and upstream of complex III. Rotenone blocks complex I, so succinate can still supply the quinone pool and respiration resumes. Antimycin A blocks complex III, which every electron from both complexes must pass, so no substrate can rescue it.",
+    "memorize": [
+      "Complex II enters the quinone pool between complex I and complex III",
+      "A block at complex III stops both NADH and FADH2 oxidation"
+    ],
+    "fm": {
+      "formula": "electron route: NADH to complex I to Q to complex III to cytochrome c to complex IV",
+      "variables": "Succinate reduces complex II, which reduces Q; antimycin A blocks complex III",
+      "values": "38 with succinate after rotenone, 3 with antimycin A",
+      "substitution": "38 - 3 = 35",
+      "why": "Rescue is possible only if the alternate substrate enters downstream of the block and upstream of the remaining chain",
+      "no_calc": "Succinate enters before complex III, so only the complex III block is fatal"
+    },
+    "correct_rationale_plain": "Succinate feeds the quinone pool after complex I but before complex III, so it bypasses rotenone and cannot bypass antimycin A.",
+    "wrong": {
+      "A": "Succinate does not reduce complex III; it reduces complex II",
+      "C": "Antimycin A acts on complex III, and succinate oxidation at complex II is unaffected",
+      "D": "No chemical neutralization occurs; the difference is pathway position"
+    },
+    "sc": "Rescue works only if the substrate enters downstream of the block.",
+    "mn": "Succinate slips in at gate two, not past gate three.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_080",
+    "passage_text": "Mitochondria were isolated from rat liver and supplied with glutamate plus malate as NADH-generating substrates. Oxygen consumption was measured with a Clark electrode at 25 °C in the presence of ADP. Each inhibitor or uncoupler was added at a saturating concentration, and succinate was added where noted. Table 1 gives oxygen consumption in nmol of O2 per minute per mg of protein.",
+    "table_data": "| Condition | Oxygen consumption |\n|---|---|\n| Glutamate plus malate, ADP present | 42 |\n| Plus rotenone | 4 |\n| Plus rotenone, then succinate | 38 |\n| Plus antimycin A | 3 |\n| Plus cyanide | 2 |\n| Plus oligomycin | 9 |\n| Plus 2,4-dinitrophenol | 46 |\n| Plus oligomycin, then 2,4-dinitrophenol | 44 |",
+    "stem": "Malonate slows succinate oxidation in a pattern that is reversed by raising succinate. Which statement is correct?",
+    "options": {
+      "A": "Malonate is an uncompetitive inhibitor of complex II",
+      "B": "Malonate lowers Vmax of complex II without changing Km",
+      "C": "Malonate binds cytochrome c and blocks electron transfer",
+      "D": "Malonate is a competitive inhibitor of succinate dehydrogenase, so higher succinate restores flux"
+    },
+    "correct": "D",
+    "explanation": "Malonate is a dicarboxylate that resembles succinate and occupies the same binding site on complex II. Because it competes reversibly, raising succinate displaces it and restores oxidation, and the apparent Km for succinate rises while Vmax is unchanged. This is the same competitive pattern seen with any structural analog.",
+    "memorize": [
+      "Malonate is a competitive inhibitor of succinate dehydrogenase at complex II",
+      "Competitive inhibition is relieved by more substrate"
+    ],
+    "fm": {
+      "formula": "Km,app = Km(1 + [I]/Ki)",
+      "variables": "Malonate competes with succinate at the complex II active site",
+      "values": "inhibition reverses as succinate rises",
+      "substitution": "not needed; the direction is set by competition",
+      "why": "A competitive inhibitor raises the substrate concentration needed for half-maximal flux without lowering the maximal flux",
+      "no_calc": "Relief by more substrate means competition at the same site"
+    },
+    "correct_rationale_plain": "Malonate competes with succinate at complex II, so extra succinate outcompetes it and restores oxidation.",
+    "wrong": {
+      "A": "Uncompetitive inhibitors bind only the enzyme-substrate complex and are not relieved by more substrate",
+      "B": "A pure noncompetitive pattern lowers Vmax and leaves Km alone",
+      "C": "Malonate acts at complex II, not at cytochrome c"
+    },
+    "sc": "Analog plus relief by substrate equals competitive.",
+    "mn": "Malonate mimics succinate and takes its seat.",
+    "tb": "",
+    "source": "High-yield"
+  }
+]

@@ -1,0 +1,587 @@
+[
+  {
+    "id": "bp_113",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "What is the main driving force for glucose uptake in the presence of an inward sodium gradient?",
+    "options": {
+      "A": "ATP hydrolysis by the sodium-potassium ATPase inside the vesicle",
+      "B": "Osmosis, because glucose attracts water",
+      "C": "Facilitated diffusion through GLUT1 down the glucose concentration gradient",
+      "D": "The sodium electrochemical gradient, which couples downhill sodium entry to uphill glucose entry"
+    },
+    "correct": "D",
+    "explanation": "SGLT1 is a sodium-glucose symporter that uses the inward sodium gradient to move glucose against its own gradient. The vesicles lack ATP, so the gradient itself is the energy source. Removing sodium drops uptake from 420 to 45, which shows the dependence on the coupling ion.",
+    "memorize": [
+      "SGLT performs secondary active transport using the sodium gradient",
+      "Removing the coupling ion collapses secondary active uptake"
+    ],
+    "fm": {
+      "formula": "delta G for symport = RT ln([glucose]in/[glucose]out) + nF(delta psi - 61 log([Na]out/[Na]in))",
+      "variables": "n is the number of sodium ions per glucose; the sodium gradient supplies the free energy",
+      "values": "uptake 420 with sodium and 45 without",
+      "substitution": "420/45 is about 9.3, a 9-fold sodium dependence",
+      "why": "Coupling to a favorable sodium gradient makes the overall transport process exergonic even when glucose moves uphill",
+      "no_calc": "No sodium means almost no uptake, so sodium is the driver"
+    },
+    "correct_rationale_plain": "The inward sodium gradient powers SGLT1, which carries glucose into the cell along with sodium.",
+    "wrong": {
+      "A": "The vesicles have no ATP, and ouabain does not change uptake, so the ATPase is not the driver",
+      "B": "Osmosis moves water, not glucose against its gradient",
+      "C": "GLUT-mediated facilitated diffusion would not require sodium and would not be blocked by phlorizin"
+    },
+    "sc": "Sodium gradient in, glucose in: secondary active transport.",
+    "mn": "Sodium pays the fare for glucose.",
+    "tb": {
+      "caption": "Table 1. Glucose uptake into brush-border vesicles",
+      "markdown": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| No sodium | 0.1 | 45 |\n| No sodium | 10 | 85 |\n| Sodium plus phlorizin | 0.1 | 12 |\n| Sodium plus cytochalasin B | 0.1 | 410 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_114",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "Phlorizin lowers uptake to 12, while cytochalasin B has almost no effect. What does this show about the transporter?",
+    "options": {
+      "A": "The transporter is a GLUT family facilitative carrier",
+      "B": "Glucose enters by simple diffusion",
+      "C": "The transporter is the sodium-potassium ATPase",
+      "D": "The transporter is a sodium-coupled SGLT family member"
+    },
+    "correct": "D",
+    "explanation": "Phlorizin is a competitive inhibitor of sodium-glucose cotransporters, and it nearly abolishes uptake. Cytochalasin B inhibits facilitative GLUT transporters, and it leaves uptake almost unchanged at 410. The brush-border transporter is therefore SGLT1, consistent with the sodium dependence in the table.",
+    "memorize": [
+      "Phlorizin inhibits SGLT; cytochalasin B inhibits GLUT",
+      "Brush-border glucose uptake is sodium-coupled"
+    ],
+    "fm": {
+      "formula": "inhibitor sensitivity identifies the transporter family",
+      "variables": "Phlorizin binds the sodium-glucose symporter; cytochalasin B binds facilitative GLUT carriers",
+      "values": "12 with phlorizin, 410 with cytochalasin B",
+      "substitution": "420 - 12 = 408 inhibited by phlorizin; 420 - 410 = 10 by cytochalasin B",
+      "why": "A selective inhibitor that removes most transport places the flux through the inhibited protein",
+      "no_calc": "Huge phlorizin effect, tiny cytochalasin effect: SGLT"
+    },
+    "correct_rationale_plain": "Phlorizin blocks the flux and cytochalasin B does not, so the carrier is a sodium-glucose cotransporter.",
+    "wrong": {
+      "A": "A GLUT carrier would be blocked by cytochalasin B and unaffected by phlorizin",
+      "B": "Simple diffusion would not show saturation or inhibitor sensitivity",
+      "C": "The ATPase is not a glucose transporter and there is no ATP in these vesicles"
+    },
+    "sc": "Phlorizin equals SGLT; cytochalasin B equals GLUT.",
+    "mn": "Phlorizin phlattens SGLT.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_115",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "Uptake rises only from 420 to 520 when glucose is raised a hundredfold. What does that indicate?",
+    "options": {
+      "A": "The transporter is already near saturation at 0.1 mM",
+      "B": "The transporter has an extremely high Km for glucose",
+      "C": "Glucose is being metabolized inside the vesicles",
+      "D": "The sodium gradient collapsed at high glucose"
+    },
+    "correct": "A",
+    "explanation": "A small rise in flux despite a hundredfold increase in substrate means the carrier is close to its maximal rate, so 0.1 mM is already near or above the Km. Saturation is a hallmark of protein-mediated transport rather than simple diffusion. A high Km would instead produce a large rise in flux across this range.",
+    "memorize": [
+      "Saturation means protein-mediated transport, not diffusion",
+      "Flux plateaus when substrate exceeds the transporter's Km"
+    ],
+    "fm": {
+      "formula": "v = Vmax[S]/(Km + [S])",
+      "variables": "v is uptake, Vmax the maximal uptake, Km the half-saturation concentration",
+      "values": "420 at 0.1 mM and 520 at 10 mM",
+      "substitution": "520/420 is about 1.24, so the increase is only 24 percent",
+      "why": "When [S] is far above Km, the fraction [S]/(Km + [S]) approaches 1 and flux becomes nearly constant",
+      "no_calc": "A hundredfold more substrate with barely more uptake means saturation"
+    },
+    "correct_rationale_plain": "Flux barely changes with a huge substrate increase, so the carrier is already near Vmax at 0.1 mM.",
+    "wrong": {
+      "B": "A high Km would produce a steep rise in uptake as substrate increases",
+      "C": "Metabolism would lower measured intracellular glucose rather than flatten uptake",
+      "D": "The sodium gradient is set by the experiment and is not consumed by raising glucose"
+    },
+    "sc": "Flat flux at high substrate means saturated carrier.",
+    "mn": "All seats taken, more passengers wait.",
+    "tb": {
+      "caption": "Table 1. Glucose uptake into brush-border vesicles",
+      "markdown": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| No sodium | 0.1 | 45 |\n| No sodium | 10 | 85 |\n| Sodium plus phlorizin | 0.1 | 12 |\n| Sodium plus cytochalasin B | 0.1 | 410 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_116",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "In intact enterocytes, what maintains the sodium gradient that drives glucose uptake?",
+    "options": {
+      "A": "The sodium-glucose cotransporter itself",
+      "B": "GLUT2 on the apical membrane",
+      "C": "The sodium-potassium ATPase on the basolateral membrane, using ATP",
+      "D": "The sodium channel in the apical membrane"
+    },
+    "correct": "C",
+    "explanation": "The sodium-potassium ATPase pumps three sodium ions out and two potassium ions in per ATP, keeping intracellular sodium low. That low intracellular sodium creates the inward gradient that SGLT1 uses. In the vesicle experiment the pump is absent, so the gradient is supplied artificially and runs down over time.",
+    "memorize": [
+      "Na/K ATPase: 3 Na out, 2 K in, one ATP",
+      "Secondary active transport depends on the primary active gradient set by the ATPase"
+    ],
+    "fm": {
+      "formula": "3 Na+ out + 2 K+ in + ATP goes to 3 Na+ out + 2 K+ in + ADP + Pi",
+      "variables": "The pump is electrogenic because it exports one net positive charge per cycle",
+      "values": "one ATP per cycle, three sodium exported",
+      "substitution": "3 - 2 = 1 net charge exported",
+      "why": "Exporting sodium keeps its intracellular concentration low, storing energy in the gradient for secondary transporters",
+      "no_calc": "Three out and two in means one net positive charge leaves"
+    },
+    "correct_rationale_plain": "The basolateral sodium-potassium ATPase uses ATP to keep intracellular sodium low, maintaining the inward gradient.",
+    "wrong": {
+      "A": "The cotransporter consumes the gradient rather than maintaining it",
+      "B": "GLUT2 is a facilitative carrier and moves glucose, not sodium",
+      "D": "Apical sodium channels let sodium in, which would dissipate the gradient"
+    },
+    "sc": "Primary pump sets the gradient; secondary carrier spends it.",
+    "mn": "The ATPase pays; SGLT spends.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_117",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "Galactose is added at high concentration and glucose uptake falls. What mechanism best explains this?",
+    "options": {
+      "A": "Galactose is a competitive inhibitor at the glucose binding site of the cotransporter",
+      "B": "Galactose destroys the sodium gradient",
+      "C": "Galactose blocks the sodium-potassium ATPase",
+      "D": "Galactose increases membrane fluidity"
+    },
+    "correct": "A",
+    "explanation": "Glucose and galactose are both substrates of SGLT1, so they compete for the same binding site. Saturating galactose reduces glucose occupancy and lowers glucose flux without changing the sodium gradient. This is competitive inhibition at the transporter, and it explains why galactose is absorbed by the same pathway.",
+    "memorize": [
+      "SGLT1 transports glucose and galactose by the same site",
+      "Competition at a transporter raises the apparent Km of the labeled substrate"
+    ],
+    "fm": {
+      "formula": "v = Vmax[S]/(Km(1 + [I]/Ki) + [S])",
+      "variables": "I is galactose, S is glucose, and Ki is the galactose affinity at the shared site",
+      "values": "not needed; the pattern is competitive",
+      "substitution": "not needed",
+      "why": "Two substrates sharing one site cannot bind simultaneously, so each raises the other's apparent Km",
+      "no_calc": "More galactose displaces glucose, so glucose uptake falls"
+    },
+    "correct_rationale_plain": "Galactose competes with glucose for the same cotransporter site, lowering glucose uptake.",
+    "wrong": {
+      "B": "Galactose is transported, not a gradient destroyer",
+      "C": "These vesicles have no ATPase, and galactose does not target it",
+      "D": "Membrane fluidity is not the mechanism of a rapid, saturable inhibition"
+    },
+    "sc": "Shared substrate site equals competition.",
+    "mn": "Same door, two sugars.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_118",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "Glucose-galactose malabsorption results from loss-of-function mutations in SGLT1. Which finding would be expected?",
+    "options": {
+      "A": "Hyperglycemia after a glucose meal",
+      "B": "Improved absorption when sodium intake is reduced",
+      "C": "Severe watery diarrhea after ingesting glucose or galactose, with glucose remaining in the stool",
+      "D": "Normal glucose absorption but impaired renal reabsorption only"
+    },
+    "correct": "C",
+    "explanation": "Without SGLT1, glucose and galactose are not absorbed in the small intestine, so they remain in the lumen and hold water osmotically, producing osmotic diarrhea. Blood glucose rises little after a glucose meal, and reducing sodium does not help because the cotransporter is absent. Renal reabsorption uses SGLT2, a different transporter.",
+    "memorize": [
+      "Unabsorbed solute in the lumen causes osmotic diarrhea",
+      "SGLT1 handles intestinal glucose and galactose uptake"
+    ],
+    "fm": {
+      "formula": "osmotic water flow follows the solute gradient in the lumen",
+      "variables": "Unabsorbed glucose and galactose remain osmotically active in the intestinal lumen",
+      "values": "not needed; the mechanism is osmotic",
+      "substitution": "not needed",
+      "why": "Solute that cannot cross the epithelium retains water in the lumen, producing diarrhea",
+      "no_calc": "Sugar stays in the gut, water follows, diarrhea results"
+    },
+    "correct_rationale_plain": "Glucose and galactose stay in the lumen and pull water with them, causing osmotic diarrhea.",
+    "wrong": {
+      "A": "Absorption is impaired, so blood glucose rises less than normal",
+      "B": "The mutant transporter cannot use sodium even when sodium is abundant",
+      "D": "Intestinal uptake is defective; renal reabsorption uses SGLT2, which is a separate gene"
+    },
+    "sc": "No SGLT1 equals sugar in lumen equals osmotic diarrhea.",
+    "mn": "Sugar cannot enter, water will not leave.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_119",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "After glucose enters the enterocyte, how does it leave across the basolateral membrane?",
+    "options": {
+      "A": "By SGLT1 in reverse",
+      "B": "By the sodium-potassium ATPase",
+      "C": "By facilitated diffusion through GLUT2 down its concentration gradient",
+      "D": "By primary active transport using ATP"
+    },
+    "correct": "C",
+    "explanation": "Glucose accumulates inside the enterocyte, so it leaves across the basolateral membrane through GLUT2 by facilitated diffusion. No energy is required because the concentration gradient favors exit. This step is why glucose absorption overall is transcellular and vectorial, with active entry and passive exit.",
+    "memorize": [
+      "Apical entry is secondary active through SGLT1",
+      "Basolateral exit is facilitated diffusion through GLUT2"
+    ],
+    "fm": {
+      "formula": "facilitated diffusion moves solute down its concentration gradient",
+      "variables": "Intracellular glucose exceeds plasma glucose, so GLUT2 equilibrates the two compartments",
+      "values": "not needed; the gradient sets the direction",
+      "substitution": "not needed",
+      "why": "GLUT carriers alternate conformations and do not couple to ions or ATP, so net flux follows the gradient",
+      "no_calc": "High inside, low outside means exit by facilitated diffusion"
+    },
+    "correct_rationale_plain": "Glucose is concentrated inside the cell and leaves through GLUT2 by facilitated diffusion.",
+    "wrong": {
+      "A": "SGLT1 sits on the apical membrane and would move glucose inward",
+      "B": "The ATPase transports sodium and potassium, not glucose",
+      "D": "Exit is downhill, so no ATP-driven pump is needed"
+    },
+    "sc": "Active in, passive out.",
+    "mn": "SGLT loads, GLUT unloads.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_120",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "In the no-sodium condition, uptake still reaches 45 and rises to 85 at 10 mM. What explains this residual uptake?",
+    "options": {
+      "A": "SGLT1 still works without sodium",
+      "B": "Phlorizin-insensitive active transport",
+      "C": "Simple diffusion through the lipid bilayer alone",
+      "D": "GLUT-mediated facilitated diffusion down the glucose gradient"
+    },
+    "correct": "D",
+    "explanation": "Brush-border membranes also contain facilitative GLUT carriers that move glucose down its concentration gradient without ions. Removing sodium leaves only this passive component, which is much smaller than the cotransport flux. It still saturates because it is protein-mediated.",
+    "memorize": [
+      "GLUT carriers do not require sodium and are not blocked by phlorizin",
+      "Residual uptake without sodium is the facilitative component"
+    ],
+    "fm": {
+      "formula": "total uptake = cotransport component + facilitated diffusion component",
+      "variables": "The sodium-dependent component is blocked by phlorizin; the remainder is facilitative",
+      "values": "420 total with sodium, 45 without sodium",
+      "substitution": "420 - 45 = 375 sodium-dependent",
+      "why": "Two parallel transport routes sum in the same membrane, so removing the driver of one leaves the other",
+      "no_calc": "Small uptake without sodium, insensitive to phlorizin, is GLUT"
+    },
+    "correct_rationale_plain": "Facilitative GLUT carriers still move glucose down its gradient when sodium is absent.",
+    "wrong": {
+      "A": "SGLT1 requires sodium; without it the cotransporter cannot cycle",
+      "B": "The residual flux is not active and follows the glucose gradient",
+      "C": "Glucose is polar and crosses bilayers poorly without a carrier"
+    },
+    "sc": "Subtract the sodium-dependent flux to get the GLUT component.",
+    "mn": "No sodium, no SGLT, but GLUT still leaks.",
+    "tb": {
+      "caption": "Table 1. Glucose uptake into brush-border vesicles",
+      "markdown": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| No sodium | 0.1 | 45 |\n| No sodium | 10 | 85 |\n| Sodium plus phlorizin | 0.1 | 12 |\n| Sodium plus cytochalasin B | 0.1 | 410 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_121",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "A resting neuron has 140 mM potassium inside and 5 mM outside. What is the potassium equilibrium potential at 37 °C?",
+    "options": {
+      "A": "About -88 mV",
+      "B": "About -61 mV",
+      "C": "About +88 mV, with the inside positive relative to outside",
+      "D": "About 0 mV"
+    },
+    "correct": "A",
+    "explanation": "The Nernst equation gives E equals 61 mV times the log of outside over inside for a monovalent cation at 37 °C. The ratio is 5/140, or 0.036, whose log is about -1.45. Multiplying gives about -88 mV, close to the typical resting membrane potential because the membrane is most permeable to potassium.",
+    "memorize": [
+      "Nernst at 37 °C: E = 61 log(out/in) for a monovalent ion",
+      "Potassium equilibrium potential is near -90 mV"
+    ],
+    "fm": {
+      "formula": "E = 61 log([ion]out/[ion]in)",
+      "variables": "E is the equilibrium potential in mV, and the concentrations are in the same units",
+      "values": "potassium 5 mM outside, 140 mM inside",
+      "substitution": "5/140 = 0.0357, and log(0.0357) = -1.45",
+      "why": "The Nernst equation sets the potential at which the electrical force balances the chemical gradient for that ion",
+      "no_calc": "Inside is much higher than outside, so E is strongly negative"
+    },
+    "correct_rationale_plain": "The log of 5/140 is about -1.45, and 61 times that is about -88 mV.",
+    "wrong": {
+      "B": "-61 mV would come from a tenfold gradient, not a 28-fold one",
+      "C": "+88 mV reverses the concentration ratio",
+      "D": "0 mV would require equal concentrations inside and outside"
+    },
+    "sc": "61 log(out/in): out is small, so the answer is negative.",
+    "mn": "Potassium wants out, so the inside is negative.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_122",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "Ouabain is added to a suspension of intact enterocytes. What is the immediate effect on glucose absorption?",
+    "options": {
+      "A": "It rises because sodium accumulates inside",
+      "B": "It is unchanged because SGLT1 does not use ATP",
+      "C": "It stops instantly because SGLT1 is inhibited directly",
+      "D": "It falls over time as the sodium gradient dissipates"
+    },
+    "correct": "D",
+    "explanation": "Ouabain inhibits the sodium-potassium ATPase, so sodium slowly accumulates inside and the inward gradient weakens. SGLT1 depends on that gradient, so glucose uptake declines as the gradient runs down. The effect is not instantaneous because the existing gradient takes time to dissipate, and ouabain does not bind SGLT1.",
+    "memorize": [
+      "Ouabain inhibits the Na/K ATPase, not SGLT1",
+      "Secondary active transport fails when the primary gradient collapses"
+    ],
+    "fm": {
+      "formula": "sodium gradient energy = RT ln([Na]out/[Na]in) + F(delta psi)",
+      "variables": "The gradient shrinks as intracellular sodium rises after pump inhibition",
+      "values": "not needed; the direction follows from gradient loss",
+      "substitution": "not needed",
+      "why": "Without the pump, sodium leaks in and the stored electrochemical energy declines",
+      "no_calc": "No pump means the gradient fades, so glucose uptake fades"
+    },
+    "correct_rationale_plain": "Blocking the pump lets sodium build up inside, so the driving gradient weakens and glucose uptake falls.",
+    "wrong": {
+      "A": "Sodium accumulation reduces the inward gradient and therefore reduces uptake",
+      "B": "SGLT1 does not hydrolyze ATP, but it still depends on the gradient the ATPase maintains",
+      "C": "Ouabain does not bind SGLT1, so the effect develops as the gradient decays"
+    },
+    "sc": "Ouabain kills the gradient, not the cotransporter.",
+    "mn": "Stop the pump, starve the symporter.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_123",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "Which transport process does NOT require a protein carrier?",
+    "options": {
+      "A": "Facilitated diffusion of glucose through GLUT2",
+      "B": "Sodium-glucose cotransport through SGLT1",
+      "C": "Simple diffusion of oxygen across a membrane",
+      "D": "Primary active transport by the sodium-potassium ATPase"
+    },
+    "correct": "C",
+    "explanation": "Oxygen is small and nonpolar, so it crosses the lipid bilayer by simple diffusion without a protein. The other three processes all require membrane proteins: a carrier, a cotransporter and a pump. Simple diffusion is not saturable and shows no inhibitor sensitivity.",
+    "memorize": [
+      "Small nonpolar molecules diffuse through bilayers without carriers",
+      "Carrier-mediated transport is saturable and inhibitable"
+    ],
+    "fm": {
+      "formula": "diffusion rate is proportional to the concentration gradient and membrane permeability",
+      "variables": "Permeability depends on lipid solubility and size for simple diffusion",
+      "values": "not needed; the comparison is qualitative",
+      "substitution": "not needed",
+      "why": "Nonpolar gases dissolve in the bilayer and cross without a binding site",
+      "no_calc": "No protein means no saturation and no competitive inhibitor"
+    },
+    "correct_rationale_plain": "Oxygen crosses the bilayer by simple diffusion, needing no transport protein.",
+    "wrong": {
+      "A": "GLUT2 is a protein carrier even though it uses no energy",
+      "B": "SGLT1 is a protein symporter",
+      "D": "The ATPase is a protein pump"
+    },
+    "sc": "Oxygen equals lipid diffusion; sugars and ions need proteins.",
+    "mn": "Gases glide through; sugars need a door.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_124",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "A cell is placed in a hypertonic solution. What happens to its volume, and through which membrane property?",
+    "options": {
+      "A": "It swells because sodium enters",
+      "B": "It shrinks because water leaves osmotically through aquaporins and the lipid bilayer",
+      "C": "It stays the same because the membrane is impermeable to water",
+      "D": "It swells because glucose enters by cotransport"
+    },
+    "correct": "B",
+    "explanation": "A hypertonic solution has a higher solute concentration than the cytosol, so water moves out down its osmotic gradient. Aquaporins accelerate water flow, but water also crosses the lipid bilayer directly. Loss of water shrinks the cell and concentrates intracellular solutes.",
+    "memorize": [
+      "Water moves toward higher solute concentration",
+      "Aquaporins speed water flow but are not required for osmosis"
+    ],
+    "fm": {
+      "formula": "osmotic pressure = iMRT",
+      "variables": "i is the number of particles per solute, M is molarity, R the gas constant and T the absolute temperature",
+      "values": "not needed; the direction follows from tonicity",
+      "substitution": "not needed",
+      "why": "Water moves to equalize water chemical potential, which is lower in the compartment with more dissolved particles",
+      "no_calc": "Hypertonic outside means water leaves and the cell shrinks"
+    },
+    "correct_rationale_plain": "A hypertonic bath draws water out of the cell, which shrinks.",
+    "wrong": {
+      "A": "Sodium entry would follow its gradient, but hypertonicity acts on water movement",
+      "C": "Water crosses membranes readily, especially through aquaporins",
+      "D": "Glucose uptake is not the cause of the volume change here"
+    },
+    "sc": "Hypertonic equals water out equals shrink.",
+    "mn": "Salt outside, water follows.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_125",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "The sodium-glucose cotransporter moves two sodium ions for each glucose. What does that ratio imply?",
+    "options": {
+      "A": "The transport is electroneutral",
+      "B": "Each cycle moves a net positive charge into the cell, which is electrogenic",
+      "C": "Glucose carries a negative charge into the cell",
+      "D": "The transporter must hydrolyze ATP"
+    },
+    "correct": "B",
+    "explanation": "Two sodium ions carry two positive charges inward while glucose is uncharged, so each cycle moves net positive charge across the membrane. That makes SGLT1 electrogenic and means the membrane potential contributes to the driving force. The transporter itself does not hydrolyze ATP.",
+    "memorize": [
+      "SGLT1 couples two sodium ions to one glucose",
+      "Net charge movement makes a transporter electrogenic"
+    ],
+    "fm": {
+      "formula": "net charge per cycle = 2(+1) + 0 = +2",
+      "variables": "Sodium carries one positive charge each and glucose is neutral",
+      "values": "two sodium per glucose",
+      "substitution": "2 x 1 = 2",
+      "why": "An electrogenic carrier is sensitive to membrane potential in addition to the chemical gradients",
+      "no_calc": "Two cations in, no charge out: net positive"
+    },
+    "correct_rationale_plain": "Two sodium ions bring two positive charges in with a neutral glucose, so the cycle is electrogenic.",
+    "wrong": {
+      "A": "Electroneutral transport requires equal charge movement in both directions",
+      "C": "Glucose is uncharged at physiological pH",
+      "D": "SGLT1 is a secondary active transporter and does not hydrolyze ATP directly"
+    },
+    "sc": "Count charges: two sodium in equals electrogenic.",
+    "mn": "Two pluses and a sugar: the current flows.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_126",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "Which experiment would test whether the vesicles' uptake is truly uphill rather than equilibration?",
+    "options": {
+      "A": "Measure uptake at a single 10-second time point",
+      "B": "Measure uptake over time and show that intravesicular glucose exceeds the external concentration at the peak",
+      "C": "Add more glucose and measure the initial rate",
+      "D": "Measure uptake at 4 °C instead of 37 °C"
+    },
+    "correct": "B",
+    "explanation": "Active transport is proven by a transient overshoot in which internal glucose rises above the external concentration, driven by the sodium gradient. At equilibrium, facilitated diffusion would only equalize the two sides. A single time point or a temperature change cannot show the direction of the gradient.",
+    "memorize": [
+      "Uphill transport shows an overshoot above the external concentration",
+      "Equilibration never exceeds the external concentration"
+    ],
+    "fm": {
+      "formula": "accumulation ratio = [glucose]in/[glucose]out at the overshoot",
+      "variables": "A ratio above 1 indicates active accumulation against the gradient",
+      "values": "not needed; the criterion is the ratio",
+      "substitution": "not needed",
+      "why": "Only energy-coupled transport can build a gradient that exceeds the source compartment",
+      "no_calc": "Ratio above one means uphill, ratio of one means equilibration"
+    },
+    "correct_rationale_plain": "Showing internal glucose rises above external glucose demonstrates active accumulation rather than passive equilibration.",
+    "wrong": {
+      "A": "A single point cannot show the direction of the gradient",
+      "C": "More glucose changes the rate but not whether the final ratio exceeds one",
+      "D": "Lower temperature slows transport and does not establish the direction"
+    },
+    "sc": "Overshoot equals active transport.",
+    "mn": "If inside beats outside, it was pumped.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_127",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "SGLT2 inhibitors lower blood glucose by blocking renal reabsorption. What is the direct consequence in the proximal tubule?",
+    "options": {
+      "A": "Glucose remains in the tubular fluid and is excreted in urine",
+      "B": "Glucose is reabsorbed faster by GLUT2",
+      "C": "Sodium reabsorption increases",
+      "D": "Water reabsorption increases"
+    },
+    "correct": "A",
+    "explanation": "SGLT2 reabsorbs most filtered glucose in the early proximal tubule. Inhibiting it leaves glucose in the tubular fluid, where it cannot be recovered downstream and appears in urine. The osmotic load of excreted glucose also increases urine volume, which is why these drugs cause mild diuresis.",
+    "memorize": [
+      "SGLT2 reabsorbs most filtered glucose in the proximal tubule",
+      "Blocked reabsorption means glycosuria and osmotic diuresis"
+    ],
+    "fm": {
+      "formula": "renal glucose excretion = filtered load - reabsorbed amount",
+      "variables": "Filtered load equals glomerular filtration rate times plasma glucose",
+      "values": "not needed; the direction follows from blocked reabsorption",
+      "substitution": "not needed",
+      "why": "Once the transporter is inhibited, glucose that is not reabsorbed remains in the lumen and is excreted",
+      "no_calc": "No reabsorption means glucose leaves in urine"
+    },
+    "correct_rationale_plain": "Inhibiting SGLT2 prevents glucose reabsorption, so it is excreted in the urine.",
+    "wrong": {
+      "B": "GLUT2 mediates exit from the cell and cannot recover glucose from the lumen",
+      "C": "Sodium reabsorption falls because sodium-glucose cotransport is blocked",
+      "D": "Water reabsorption falls as the osmotic load of glucose rises"
+    },
+    "sc": "SGLT2 blocked equals glycosuria.",
+    "mn": "Spill sugar, lose water.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_128",
+    "passage_text": "Brush-border membrane vesicles were prepared from rabbit small intestine and incubated with radiolabeled glucose for 10 seconds at 37 °C. Uptake was measured with an inward sodium gradient, without sodium, and with transport inhibitors. Table 1 reports uptake in pmol per minute per mg of protein. The vesicles have no ATP-regenerating system, so the sodium gradient is the only energy source available.",
+    "table_data": "| Condition | Glucose (mM) | Uptake |\n|---|---|---|\n| Sodium gradient | 0.1 | 420 |\n| Sodium gradient | 10 | 520 |\n| Choline replaced sodium | 0.1 | 45 |\n| Choline replaced sodium | 10 | 85 |\n| Sodium gradient plus phlorizin | 0.1 | 12 |\n| Sodium gradient plus cytochalasin B | 0.1 | 410 |",
+    "stem": "Why does replacing sodium with choline reduce uptake rather than abolish it completely?",
+    "options": {
+      "A": "Choline is a substrate for SGLT1",
+      "B": "A sodium-independent facilitative pathway remains, and the vesicles retain some trapped sodium",
+      "C": "SGLT1 can use any monovalent cation",
+      "D": "Glucose diffuses freely through the membrane"
+    },
+    "correct": "B",
+    "explanation": "GLUT carriers in the membrane continue to move glucose down its gradient without sodium, and some sodium may remain trapped inside the vesicles. Together these give a small residual flux. SGLT1 itself is specific for sodium, and free diffusion of glucose through the bilayer is negligible.",
+    "memorize": [
+      "The sodium-independent component is facilitative transport",
+      "Residual activity can also come from incomplete ion replacement"
+    ],
+    "fm": {
+      "formula": "measured uptake = sodium-dependent flux + sodium-independent flux",
+      "variables": "The sodium-independent flux is mediated by GLUT carriers",
+      "values": "45 without sodium versus 420 with sodium",
+      "substitution": "45/420 is about 0.11, so roughly 11 percent remains",
+      "why": "Parallel pathways add, so blocking one leaves the others active",
+      "no_calc": "About a tenth of uptake survives, which fits a passive carrier"
+    },
+    "correct_rationale_plain": "Facilitative GLUT carriers still work without sodium, so a small passive component remains.",
+    "wrong": {
+      "A": "Choline is not transported by SGLT1 and does not substitute for sodium",
+      "C": "SGLT1 is selective for sodium",
+      "D": "Glucose is too polar to cross the bilayer at a meaningful rate"
+    },
+    "sc": "Two routes add; removing one leaves the other.",
+    "mn": "Kill the pump, the leak remains.",
+    "tb": "",
+    "source": "High-yield"
+  }
+]

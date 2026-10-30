@@ -1,0 +1,584 @@
+[
+  {
+    "id": "bp_049",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "Which metabolite pattern directly reflects the blocked step in this patient?",
+    "options": {
+      "A": "Phosphoenolpyruvate is high and pyruvate is low, because the step converting one to the other is impaired",
+      "B": "Glucose-6-phosphate is high and lactate is low, because hexokinase is impaired",
+      "C": "Lactate is low because lactate dehydrogenase is absent",
+      "D": "ATP is high because glycolysis is accelerated"
+    },
+    "correct": "A",
+    "explanation": "Pyruvate kinase converts phosphoenolpyruvate to pyruvate while phosphorylating ADP, so a partial deficiency backs up phosphoenolpyruvate and starves the pyruvate pool. Table 1 shows phosphoenolpyruvate rising from 3 to 14 while pyruvate falls from 12 to 2. Lactate falls as a downstream consequence, not because lactate dehydrogenase is missing.",
+    "memorize": [
+      "Pyruvate kinase: phosphoenolpyruvate to pyruvate, generating ATP",
+      "A block backs up the substrate of the blocked step and depletes downstream products"
+    ],
+    "fm": {
+      "formula": "phosphoenolpyruvate + ADP goes to pyruvate + ATP",
+      "variables": "Pyruvate kinase is the enzyme; phosphoenolpyruvate is substrate and pyruvate the product",
+      "values": "phosphoenolpyruvate 3 to 14 nmol/mg, pyruvate 12 to 2 nmol/mg",
+      "substitution": "14/3 is about 4.7-fold higher phosphoenolpyruvate; 12 to 2 is a 6-fold fall",
+      "why": "Enzyme blockade raises the substrate and lowers the product of that specific reaction, which identifies the lesion",
+      "no_calc": "Substrate up, product down: the block sits between them"
+    },
+    "correct_rationale_plain": "The substrate of pyruvate kinase accumulates while its product falls, pinpointing the blocked conversion.",
+    "wrong": {
+      "B": "Glucose-6-phosphate is slightly low, not high, and hexokinase blockade would raise glucose rather than lower lactate alone",
+      "C": "Lactate dehydrogenase is present; lactate falls because pyruvate is scarce",
+      "D": "ATP is low at 640, not high, so glycolysis is not accelerated"
+    },
+    "sc": "Substrate piles up, product runs out.",
+    "mn": "Block a step: behind it floods, ahead of it dries.",
+    "tb": {
+      "caption": "Table 1. Glycolytic intermediates in red cells",
+      "markdown": "| Metabolite | Control | Patient |\n|---|---|---|\n| G6P | 38 | 30 |\n| PEP | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-BPG | 4200 | 7800 |\n| ATP | 1200 | 640 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_050",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "How many net ATP molecules does one glucose molecule yield in mature red cells, which lack mitochondria?",
+    "options": {
+      "A": "2",
+      "B": "4",
+      "C": "30",
+      "D": "32"
+    },
+    "correct": "A",
+    "explanation": "Red cells rely on anaerobic glycolysis because they have no mitochondria. Hexokinase and phosphofructokinase-1 consume two ATP, and the phosphoglycerate kinase and pyruvate kinase steps produce four, for a net of two. The NADH made at the glyceraldehyde-3-phosphate dehydrogenase step is reoxidized by lactate dehydrogenase, so no further ATP follows.",
+    "memorize": [
+      "Anaerobic glycolysis nets 2 ATP per glucose",
+      "Red cells lack mitochondria, so pyruvate becomes lactate"
+    ],
+    "fm": {
+      "formula": "net ATP = substrate-level ATP produced - ATP invested",
+      "variables": "Two ATP are invested at hexokinase and phosphofructokinase-1; four are produced, two at phosphoglycerate kinase and two at pyruvate kinase",
+      "values": "4 produced, 2 invested",
+      "substitution": "4 - 2 = 2",
+      "why": "Without mitochondria, the two NADH made in the cytosol cannot feed the electron transport chain, so only substrate-level phosphorylation contributes",
+      "no_calc": "Four made minus two spent is two net"
+    },
+    "correct_rationale_plain": "Four ATP are produced and two are spent, so the anaerobic net yield is 2 ATP per glucose.",
+    "wrong": {
+      "B": "Four is the gross production before subtracting the two ATP invested",
+      "C": "30 is the older aerobic estimate using different phosphate-to-oxygen ratios, and red cells have no mitochondria",
+      "D": "32 is the full aerobic yield, which requires oxidative phosphorylation"
+    },
+    "sc": "Anaerobic: gross 4 minus 2 invested equals 2.",
+    "mn": "Red cells pay two, earn four, keep two.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_051",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "Why is 2,3-bisphosphoglycerate elevated in this patient, and what is its effect on hemoglobin?",
+    "options": {
+      "A": "It rises because ATP is high, and it tightens oxygen binding",
+      "B": "It rises because pyruvate accumulates, and it has no effect on hemoglobin",
+      "C": "It rises because glycolytic intermediates back up and are diverted into the bisphosphoglycerate shunt, shifting the oxygen curve right",
+      "D": "It falls because the block prevents its synthesis, shifting the curve left"
+    },
+    "correct": "C",
+    "explanation": "When glycolysis stalls at pyruvate kinase, 1,3-bisphosphoglycerate and its upstream intermediates accumulate and more is diverted to 2,3-bisphosphoglycerate by bisphosphoglycerate mutase. The extra 2,3-bisphosphoglycerate binds deoxygenated hemoglobin, stabilizes the T state, and shifts the oxygen curve right. That improves oxygen unloading even though the cell makes less ATP.",
+    "memorize": [
+      "2,3-BPG is made from 1,3-bisphosphoglycerate by bisphosphoglycerate mutase",
+      "2,3-BPG stabilizes T-state hemoglobin and right-shifts the oxygen curve"
+    ],
+    "fm": {
+      "formula": "1,3-bisphosphoglycerate goes to 2,3-BPG, then to 3-phosphoglycerate",
+      "variables": "Bisphosphoglycerate mutase makes 2,3-BPG; 2,3-BPG phosphatase removes it",
+      "values": "2,3-BPG rises from 4200 to 7800 nmol/mg",
+      "substitution": "7800/4200 is about 1.9-fold higher",
+      "why": "Substrate backup upstream of the block feeds the shunt, so the alternate product accumulates",
+      "no_calc": "Nearly double the control value, so the shunt is running harder"
+    },
+    "correct_rationale_plain": "Upstream intermediates accumulate and feed the shunt, raising 2,3-BPG, which right-shifts hemoglobin and aids oxygen release.",
+    "wrong": {
+      "A": "ATP is low in this patient, and 2,3-BPG loosens rather than tightens oxygen binding",
+      "B": "Pyruvate is low, and 2,3-BPG is a potent allosteric regulator of hemoglobin",
+      "D": "The block is downstream of the shunt, so 2,3-BPG rises, not falls"
+    },
+    "sc": "Block after the shunt feeds the shunt.",
+    "mn": "2,3-BPG: made upstream, parks on deoxyhemoglobin.",
+    "tb": {
+      "caption": "Table 1. Glycolytic intermediates in red cells",
+      "markdown": "| Metabolite | Control | Patient |\n|---|---|---|\n| G6P | 38 | 30 |\n| PEP | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-BPG | 4200 | 7800 |\n| ATP | 1200 | 640 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_052",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "Why does pyruvate kinase deficiency cause hemolysis?",
+    "options": {
+      "A": "Hemoglobin oxidizes to methemoglobin because NADPH is low",
+      "B": "Lactate accumulates and acidifies the cell",
+      "C": "Iron overload damages the red cell membrane",
+      "D": "ATP falls, so the sodium-potassium pump cannot maintain cell volume and the cell ruptures"
+    },
+    "correct": "D",
+    "explanation": "Red cells have no mitochondria and depend entirely on glycolysis for ATP. When ATP falls, the sodium-potassium ATPase slows, sodium enters, water follows, and the cell swells and lyses. The low ATP also impairs membrane remodeling, which is why splenic macrophages remove these cells.",
+    "memorize": [
+      "Red-cell ATP powers the sodium-potassium ATPase",
+      "ATP depletion causes sodium and water influx, cell swelling and hemolysis"
+    ],
+    "fm": {
+      "formula": "pump rate depends on ATP availability",
+      "variables": "The sodium-potassium ATPase exports three sodium ions and imports two potassium ions per ATP",
+      "values": "ATP 1200 control versus 640 patient",
+      "substitution": "640/1200 is about 0.53, so ATP is roughly halved",
+      "why": "Without enough ATP the pump cannot keep up with passive sodium leak, so osmotic water follows sodium into the cell",
+      "no_calc": "Half the ATP means less pump activity and a swollen cell"
+    },
+    "correct_rationale_plain": "Falling ATP stalls the sodium-potassium pump, sodium and water enter, and the cell lyses.",
+    "wrong": {
+      "A": "NADPH comes from the pentose phosphate pathway, and this patient's defect is in glycolysis",
+      "B": "Lactate is low, not high, in this patient",
+      "C": "Iron overload is a transfusion complication, not the mechanism of hemolysis here"
+    },
+    "sc": "Red cell ATP equals pump equals volume control.",
+    "mn": "No ATP, no pump, no shape.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_053",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "Which glycolytic intermediate is the direct precursor of 2,3-bisphosphoglycerate?",
+    "options": {
+      "A": "Glucose-6-phosphate",
+      "B": "Fructose-1,6-bisphosphate",
+      "C": "1,3-Bisphosphoglycerate",
+      "D": "Phosphoenolpyruvate"
+    },
+    "correct": "C",
+    "explanation": "Bisphosphoglycerate mutase converts 1,3-bisphosphoglycerate to 2,3-bisphosphoglycerate, which is then hydrolyzed to 3-phosphoglycerate. The shunt bypasses the phosphoglycerate kinase ATP-generating step, which is why 2,3-BPG production costs the cell one ATP. Its purpose is to tune hemoglobin oxygen affinity.",
+    "memorize": [
+      "1,3-BPG to 2,3-BPG by bisphosphoglycerate mutase",
+      "The 2,3-BPG shunt bypasses one ATP-generating step"
+    ],
+    "fm": {
+      "formula": "1,3-bisphosphoglycerate goes to 2,3-bisphosphoglycerate goes to 3-phosphoglycerate",
+      "variables": "Mutase adds the phosphate at carbon 2; phosphatase removes it",
+      "values": "not needed; the pathway order identifies the precursor",
+      "substitution": "not needed",
+      "why": "The shunt branches immediately after the oxidation step that produces 1,3-bisphosphoglycerate",
+      "no_calc": "The name tells you: it is made from the 1,3-bisphospho compound"
+    },
+    "correct_rationale_plain": "1,3-Bisphosphoglycerate is the branch point that the mutase converts into 2,3-bisphosphoglycerate.",
+    "wrong": {
+      "A": "Glucose-6-phosphate enters glycolysis and the pentose phosphate pathway, not the 2,3-BPG shunt",
+      "B": "Fructose-1,6-bisphosphate is split by aldolase upstream of the shunt",
+      "D": "Phosphoenolpyruvate is downstream of the shunt and is the substrate of pyruvate kinase"
+    },
+    "sc": "Shunt branches at 1,3-BPG.",
+    "mn": "One-three makes two-three.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_054",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "Sodium fluoride is added to a red-cell lysate. Which intermediate should accumulate?",
+    "options": {
+      "A": "Glucose-6-phosphate",
+      "B": "2-Phosphoglycerate",
+      "C": "Phosphoenolpyruvate",
+      "D": "Pyruvate"
+    },
+    "correct": "B",
+    "explanation": "Fluoride inhibits enolase, which converts 2-phosphoglycerate to phosphoenolpyruvate. The substrate of the blocked step therefore accumulates while phosphoenolpyruvate and pyruvate fall. This is why fluoride tubes are used to preserve blood glucose, since glycolysis stops and glucose is not consumed.",
+    "memorize": [
+      "Fluoride inhibits enolase",
+      "Fluoride tubes preserve glucose by stopping glycolysis"
+    ],
+    "fm": {
+      "formula": "2-phosphoglycerate goes to phosphoenolpyruvate plus water",
+      "variables": "Enolase catalyzes the dehydration step; fluoride binds the enzyme's magnesium site",
+      "values": "not needed; the substrate of the blocked enzyme accumulates",
+      "substitution": "not needed",
+      "why": "Inhibiting an enzyme raises its substrate and lowers its product, so the intermediate just before enolase builds up",
+      "no_calc": "Fluoride blocks the step into phosphoenolpyruvate, so the previous intermediate rises"
+    },
+    "correct_rationale_plain": "Enolase is blocked, so its substrate 2-phosphoglycerate accumulates.",
+    "wrong": {
+      "A": "Glucose-6-phosphate is far upstream and would rise only if hexose phosphate isomerase or later steps were blocked",
+      "C": "Phosphoenolpyruvate is the product of enolase, so it falls",
+      "D": "Pyruvate is downstream of the block and falls"
+    },
+    "sc": "Inhibitor makes the substrate before the step pile up.",
+    "mn": "Fluoride freezes enolase; 2-PG stacks up.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_055",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "Which two glycolytic enzymes perform substrate-level phosphorylation?",
+    "options": {
+      "A": "Hexokinase and phosphofructokinase-1",
+      "B": "Aldolase and enolase",
+      "C": "Glyceraldehyde-3-phosphate dehydrogenase and lactate dehydrogenase",
+      "D": "Phosphoglycerate kinase and pyruvate kinase"
+    },
+    "correct": "D",
+    "explanation": "Phosphoglycerate kinase transfers a phosphate from 1,3-bisphosphoglycerate to ADP, and pyruvate kinase transfers one from phosphoenolpyruvate to ADP. Both make ATP without oxygen or a proton gradient. Hexokinase and phosphofructokinase-1 do the opposite and consume ATP.",
+    "memorize": [
+      "Glycolytic substrate-level phosphorylation: phosphoglycerate kinase and pyruvate kinase",
+      "Hexokinase and phosphofructokinase-1 consume ATP"
+    ],
+    "fm": {
+      "formula": "ADP + phosphorylated intermediate goes to ATP + dephosphorylated product",
+      "variables": "The phosphate donor is 1,3-bisphosphoglycerate for phosphoglycerate kinase and phosphoenolpyruvate for pyruvate kinase",
+      "values": "two ATP per glucose from each enzyme, four total",
+      "substitution": "2 + 2 = 4",
+      "why": "A high-energy phosphate is transferred directly to ADP, which does not require the electron transport chain",
+      "no_calc": "Two ATP-producing steps times two trioses equals four ATP"
+    },
+    "correct_rationale_plain": "Phosphoglycerate kinase and pyruvate kinase each transfer a high-energy phosphate to ADP, making ATP directly.",
+    "wrong": {
+      "A": "These are the two ATP-investing kinases of the preparatory phase",
+      "B": "Aldolase splits a six-carbon sugar and enolase dehydrates a three-carbon intermediate; neither phosphorylates ADP",
+      "C": "These dehydrogenases transfer electrons to NAD+, not phosphate to ADP"
+    },
+    "sc": "ATP-making kinases: phosphoglycerate kinase and pyruvate kinase.",
+    "mn": "PGK and PK pay; HK and PFK charge.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_056",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "Arsenate is added to a red-cell lysate at a concentration that replaces phosphate in the glyceraldehyde-3-phosphate dehydrogenase reaction. What is the net ATP yield from glucose?",
+    "options": {
+      "A": "2 ATP",
+      "B": "4 ATP",
+      "C": "32 ATP",
+      "D": "0 ATP"
+    },
+    "correct": "D",
+    "explanation": "Arsenate forms 1-arseno-3-phosphoglycerate, which hydrolyzes spontaneously without generating ATP at phosphoglycerate kinase. The two ATP invested at hexokinase and phosphofructokinase-1 are still spent, and the two normally made at pyruvate kinase remain, so the net is 4 minus 2 minus 2, or zero. This is the classic arsenate uncoupling of substrate-level phosphorylation.",
+    "memorize": [
+      "Arsenate uncouples glyceraldehyde-3-phosphate dehydrogenase from ATP production",
+      "Net ATP with arsenate is zero, not two"
+    ],
+    "fm": {
+      "formula": "net ATP = ATP made - ATP invested",
+      "variables": "Pyruvate kinase still makes two ATP; phosphoglycerate kinase makes none because the arsenate intermediate hydrolyzes",
+      "values": "2 made, 2 invested",
+      "substitution": "2 - 2 = 0",
+      "why": "The energy of the acyl phosphate is lost to spontaneous hydrolysis, so it cannot phosphorylate ADP",
+      "no_calc": "Two spent and only two earned downstream leaves nothing"
+    },
+    "correct_rationale_plain": "Arsenate bypasses the phosphoglycerate kinase ATP step, so the two ATP invested are never recovered and the net is zero.",
+    "wrong": {
+      "A": "Two is the normal net yield, which requires an intact phosphoglycerate kinase step",
+      "B": "Four is gross production, and arsenate removes two of those four",
+      "C": "32 is the aerobic yield and requires mitochondria, which red cells lack"
+    },
+    "sc": "Arsenate steals one ATP-making step: net zero.",
+    "mn": "Arsenate: arsenate, not phosphate, so the payoff evaporates.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_057",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "A liver cell is shifted from aerobic to anaerobic conditions. Which change in glycolysis is expected?",
+    "options": {
+      "A": "Lactate production rises and pyruvate is diverted from the mitochondrion",
+      "B": "Pyruvate dehydrogenase flux rises",
+      "C": "ATP yield per glucose rises to 32",
+      "D": "Phosphofructokinase-1 is inhibited by rising ATP"
+    },
+    "correct": "A",
+    "explanation": "Without oxygen, mitochondrial oxidation slows and cytosolic NADH cannot be reoxidized by the electron transport chain. Lactate dehydrogenase converts pyruvate to lactate to regenerate NAD+, keeping glycolysis running. ATP yield per glucose falls sharply, and AMP rises, which activates rather than inhibits phosphofructokinase-1.",
+    "memorize": [
+      "Anaerobic glycolysis regenerates NAD+ by making lactate",
+      "Lactate fermentation yields 2 ATP per glucose, not 32"
+    ],
+    "fm": {
+      "formula": "pyruvate + NADH + H+ goes to lactate + NAD+",
+      "variables": "Lactate dehydrogenase consumes NADH and regenerates NAD+ for glyceraldehyde-3-phosphate dehydrogenase",
+      "values": "two NADH per glucose must be reoxidized to keep glycolysis going",
+      "substitution": "2 pyruvate + 2 NADH gives 2 lactate + 2 NAD+",
+      "why": "Glycolysis needs a continuous NAD+ supply, and without oxygen only the lactate reaction can provide it",
+      "no_calc": "Each glucose needs two NAD+ regenerated, so two lactate are made"
+    },
+    "correct_rationale_plain": "Lack of oxygen forces pyruvate to lactate, regenerating NAD+ so glycolysis can continue.",
+    "wrong": {
+      "B": "Pyruvate dehydrogenase needs NAD+, which is scarce when the chain cannot reoxidize it",
+      "C": "32 ATP requires oxidative phosphorylation, which is unavailable",
+      "D": "AMP and ADP rise and activate phosphofructokinase-1; ATP falls"
+    },
+    "sc": "No oxygen means lactate and 2 ATP.",
+    "mn": "Lactate buys back NAD+.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_058",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "Which enzyme sets the rate of glycolysis in liver and is the main site of its regulation?",
+    "options": {
+      "A": "Hexokinase",
+      "B": "Pyruvate kinase",
+      "C": "Phosphofructokinase-1",
+      "D": "Lactate dehydrogenase"
+    },
+    "correct": "C",
+    "explanation": "Phosphofructokinase-1 catalyzes the committed and most regulated step of glycolysis, converting fructose-6-phosphate to fructose-1,6-bisphosphate. It is activated by AMP and fructose-2,6-bisphosphate and inhibited by ATP and citrate. Hexokinase is regulated too, but in liver glucokinase handles glucose phosphorylation and the pathway's flux control sits at phosphofructokinase-1.",
+    "memorize": [
+      "Phosphofructokinase-1 is the committed, rate-limiting step of glycolysis",
+      "PFK-1: activated by AMP and F2,6BP, inhibited by ATP and citrate"
+    ],
+    "fm": {
+      "formula": "fructose-6-phosphate + ATP goes to fructose-1,6-bisphosphate + ADP",
+      "variables": "PFK-1 is the enzyme; ATP is both substrate and allosteric inhibitor",
+      "values": "not needed; regulation defines the step",
+      "substitution": "not needed",
+      "why": "The step is the first committed reaction after glucose entry, so regulating it controls flux without wasting intermediates",
+      "no_calc": "Look for the step that commits the sugar to glycolysis"
+    },
+    "correct_rationale_plain": "PFK-1 makes fructose-1,6-bisphosphate, the committed step, and is controlled by ATP, AMP, citrate and F2,6BP.",
+    "wrong": {
+      "A": "Hexokinase sets entry of glucose into the cell but is not the main flux-controlling step in liver",
+      "B": "Pyruvate kinase is regulated but catalyzes a later, noncommitted step",
+      "D": "Lactate dehydrogenase regenerates NAD+ and is not rate-limiting"
+    },
+    "sc": "Rate-limiting equals PFK-1.",
+    "mn": "PFK-1: the gate that commits glucose.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_059",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "How does a high ATP/AMP ratio affect phosphofructokinase-1?",
+    "options": {
+      "A": "It activates the enzyme by increasing its affinity for fructose-6-phosphate",
+      "B": "It inhibits the enzyme by lowering its affinity for fructose-6-phosphate",
+      "C": "It has no effect because ATP is a substrate, not a regulator",
+      "D": "It converts the enzyme into a covalent phosphorylated form"
+    },
+    "correct": "B",
+    "explanation": "ATP binds an allosteric site distinct from the active site and shifts phosphofructokinase-1 toward the T state, raising the Km for fructose-6-phosphate. AMP reverses this by binding the R state, which is why the ATP/AMP ratio signals energy status. The inhibition is a classic feedback control, not a covalent modification.",
+    "memorize": [
+      "ATP is an allosteric inhibitor of PFK-1 and raises Km for fructose-6-phosphate",
+      "AMP is an allosteric activator and reverses ATP inhibition"
+    ],
+    "fm": {
+      "formula": "v = Vmax[S]/(Km,app + [S]), with Km,app rising as ATP binds",
+      "variables": "S is fructose-6-phosphate; ATP binds an allosteric inhibitory site",
+      "values": "high ATP raises Km,app; AMP lowers it",
+      "substitution": "not needed; the effect is a Km shift, not a Vmax change",
+      "why": "A greater Km at the same substrate concentration lowers fractional saturation of the enzyme, slowing flux",
+      "no_calc": "More ATP means a higher Km for F6P, so velocity falls"
+    },
+    "correct_rationale_plain": "ATP binds an allosteric site and lowers PFK-1 affinity for fructose-6-phosphate, slowing glycolysis when energy is plentiful.",
+    "wrong": {
+      "A": "Activation is produced by AMP and fructose-2,6-bisphosphate, not by high ATP",
+      "C": "ATP serves as both substrate and allosteric inhibitor at a separate site",
+      "D": "Covalent regulation of PFK-1 is not the mechanism here; the change is allosteric and immediate"
+    },
+    "sc": "High ATP equals low PFK-1 affinity.",
+    "mn": "ATP fills the tank and closes the pump.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_060",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "Fructose-2,6-bisphosphate is raised in hepatocytes. What happens to glycolysis?",
+    "options": {
+      "A": "It accelerates because fructose-2,6-bisphosphate activates phosphofructokinase-1 and opposes ATP inhibition",
+      "B": "It slows because fructose-2,6-bisphosphate inhibits phosphofructokinase-1",
+      "C": "It is unchanged because fructose-2,6-bisphosphate is only a glycolytic intermediate",
+      "D": "It accelerates because fructose-2,6-bisphosphate is a substrate for aldolase"
+    },
+    "correct": "A",
+    "explanation": "Fructose-2,6-bisphosphate is not an intermediate but a signal made by phosphofructokinase-2. It binds phosphofructokinase-1 and increases its affinity for fructose-6-phosphate, overriding ATP inhibition. High fructose-2,6-bisphosphate therefore favors glycolysis, which is why insulin raises it and glucagon lowers it.",
+    "memorize": [
+      "F2,6BP activates PFK-1 and is made by PFK-2",
+      "Insulin raises F2,6BP; glucagon lowers it"
+    ],
+    "fm": {
+      "formula": "F6P + ATP goes to fructose-1,6-bisphosphate, activated by F2,6BP",
+      "variables": "F2,6BP is an allosteric activator, not a substrate; PFK-2 makes it and fructose-2,6-bisphosphatase destroys it",
+      "values": "activation lowers the Km for F6P",
+      "substitution": "not needed; the effect is on Km,app",
+      "why": "Lowering Km,app at a fixed fructose-6-phosphate concentration raises enzyme saturation and flux",
+      "no_calc": "Activator means lower Km and higher flux"
+    },
+    "correct_rationale_plain": "F2,6BP activates PFK-1, so glycolysis speeds up even when ATP is present.",
+    "wrong": {
+      "B": "F2,6BP activates rather than inhibits PFK-1",
+      "C": "F2,6BP is a regulatory molecule, not a glycolytic intermediate, and it does change flux",
+      "D": "Aldolase acts on fructose-1,6-bisphosphate, not the 2,6 isomer"
+    },
+    "sc": "F2,6BP is the gas pedal for PFK-1.",
+    "mn": "Two-six says go; glucagon says no.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_061",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "Glucagon acts on the liver during fasting. What is its effect on glycolysis?",
+    "options": {
+      "A": "It raises fructose-2,6-bisphosphate and accelerates glycolysis",
+      "B": "It activates pyruvate kinase by dephosphorylation",
+      "C": "It has no effect on liver glycolysis because glucagon acts only on muscle",
+      "D": "It lowers fructose-2,6-bisphosphate and inhibits glycolysis while favoring gluconeogenesis"
+    },
+    "correct": "D",
+    "explanation": "Glucagon raises cAMP and activates protein kinase A, which phosphorylates the bifunctional enzyme PFK-2/FBPase-2. The phosphatase activity then dominates, fructose-2,6-bisphosphate falls, and phosphofructokinase-1 loses its activator, so glycolysis slows. The same signal inactivates pyruvate kinase by phosphorylation, shunting carbon toward glucose production.",
+    "memorize": [
+      "Glucagon raises cAMP, lowers F2,6BP, and inhibits glycolysis",
+      "Insulin does the opposite: raises F2,6BP and activates glycolysis"
+    ],
+    "fm": {
+      "formula": "glucagon raises cAMP, which activates protein kinase A",
+      "variables": "PKA phosphorylates PFK-2/FBPase-2, increasing phosphatase activity and lowering F2,6BP",
+      "values": "falling F2,6BP raises the Km of PFK-1 for F6P",
+      "substitution": "not needed; the direction is set by the phosphatase activity",
+      "why": "Removing the activator lowers PFK-1 saturation at any given fructose-6-phosphate concentration, reducing flux",
+      "no_calc": "Less F2,6BP means less glycolysis"
+    },
+    "correct_rationale_plain": "Glucagon lowers F2,6BP through PKA, so PFK-1 slows and the liver makes glucose instead of burning it.",
+    "wrong": {
+      "A": "That is the insulin response, not glucagon",
+      "B": "Glucagon promotes phosphorylation of pyruvate kinase, which inhibits it",
+      "C": "Glucagon acts on liver and has little effect on muscle glycolysis"
+    },
+    "sc": "Glucagon equals low F2,6BP equals glycolysis off.",
+    "mn": "Glucagon: glucose gone, glycolysis off.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_062",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "What is the main function of the pentose phosphate pathway in red cells?",
+    "options": {
+      "A": "Generating ATP for the sodium-potassium pump",
+      "B": "Producing NADPH to maintain reduced glutathione and protect hemoglobin from oxidation",
+      "C": "Producing lactate to regenerate NAD+",
+      "D": "Synthesizing 2,3-bisphosphoglycerate"
+    },
+    "correct": "B",
+    "explanation": "The oxidative phase of the pentose phosphate pathway reduces NADP+ to NADPH, which keeps glutathione reduced through glutathione reductase. Reduced glutathione detoxifies peroxides and protects hemoglobin and membrane lipids from oxidative damage. The pathway makes no ATP, and glucose-6-phosphate dehydrogenase is its rate-limiting enzyme.",
+    "memorize": [
+      "Pentose phosphate pathway makes NADPH and ribose-5-phosphate, not ATP",
+      "G6PD deficiency causes oxidative hemolysis"
+    ],
+    "fm": {
+      "formula": "glucose-6-phosphate + 2 NADP+ goes to ribulose-5-phosphate + 2 NADPH + CO2",
+      "variables": "Glucose-6-phosphate dehydrogenase is rate-limiting; NADPH is the reducing output",
+      "values": "two NADPH per oxidized glucose-6-phosphate",
+      "substitution": "2 NADPH per G6P",
+      "why": "NADPH donates electrons to glutathione reductase, replenishing the reduced glutathione pool",
+      "no_calc": "Count NADPH, not ATP: two per glucose-6-phosphate"
+    },
+    "correct_rationale_plain": "The pathway supplies NADPH, which regenerates reduced glutathione and prevents oxidative damage in red cells.",
+    "wrong": {
+      "A": "The pathway produces no ATP; red cells get ATP from glycolysis",
+      "C": "Lactate is made by lactate dehydrogenase in glycolysis",
+      "D": "2,3-BPG comes from the glycolytic shunt at 1,3-bisphosphoglycerate"
+    },
+    "sc": "PPP equals NADPH equals glutathione.",
+    "mn": "PPP: pentoses, protection, no power.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_063",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "Using 2.5 ATP per NADH, 1.5 ATP per FADH2, and the malate-aspartate shuttle, what is the total ATP yield from complete oxidation of one glucose?",
+    "options": {
+      "A": "30",
+      "B": "28",
+      "C": "32",
+      "D": "36"
+    },
+    "correct": "C",
+    "explanation": "Glycolysis gives 4 substrate-level ATP and 2 cytosolic NADH; pyruvate dehydrogenase gives 2 NADH; the two turns of the citric acid cycle give 6 NADH, 2 FADH2 and 2 GTP. That is 10 NADH, 2 FADH2 and 4 ATP equivalents. Using 2.5 and 1.5 ATP per reduced carrier gives 25 plus 3 plus 4, or 32.",
+    "memorize": [
+      "Full glucose oxidation: 10 NADH, 2 FADH2, 4 ATP equivalents",
+      "2.5 ATP per NADH and 1.5 per FADH2 give a total of 32"
+    ],
+    "fm": {
+      "formula": "total ATP = 2.5(NADH) + 1.5(FADH2) + substrate-level ATP",
+      "variables": "NADH count includes 2 cytosolic, 2 from pyruvate dehydrogenase and 6 from the citric acid cycle; FADH2 comes only from succinate dehydrogenase",
+      "values": "10 NADH, 2 FADH2, 4 ATP equivalents",
+      "substitution": "10 x 2.5 = 25, 2 x 1.5 = 3, and 25 + 3 + 4 = 32",
+      "why": "Each carrier feeds a defined number of protons into the gradient, and the ATP synthase converts that gradient into a fixed ATP yield",
+      "no_calc": "Ten NADH give 25, two FADH2 give 3, and four direct ATP make 32"
+    },
+    "correct_rationale_plain": "Ten NADH give 25 ATP, two FADH2 give 3, and four substrate-level ATP bring the total to 32.",
+    "wrong": {
+      "A": "30 uses a glycerol-3-phosphate shuttle, which delivers cytosolic NADH as FADH2 and loses two ATP",
+      "B": "28 double-counts the shuttle penalty and drops one citric acid cycle turn",
+      "D": "36 comes from the older 3 and 2 ATP per carrier convention"
+    },
+    "sc": "Count carriers first, then multiply by 2.5 and 1.5.",
+    "mn": "Ten and two and four: 25 plus 3 plus 4.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_064",
+    "passage_text": "Red cells from a healthy donor and from a patient with pyruvate kinase deficiency were incubated with 5 mM glucose for 30 minutes, then quenched and assayed for glycolytic intermediates. Table 1 reports concentrations in nmol per mg of hemoglobin. The patient has chronic hemolytic anemia with reticulocytosis, and his red cells show a high 2,3-bisphosphoglycerate level. Pyruvate kinase catalyzes the last ATP-generating step of glycolysis.",
+    "table_data": "| Metabolite | Control red cells | Patient red cells |\n|---|---|---|\n| Glucose-6-phosphate | 38 | 30 |\n| Phosphoenolpyruvate | 3 | 14 |\n| Pyruvate | 12 | 2 |\n| Lactate | 1800 | 620 |\n| 2,3-Bisphosphoglycerate | 4200 | 7800 |\n| ATP | 1200 | 640 |",
+    "stem": "Why does one glycosyl unit from glycogen yield one more net ATP than free glucose during anaerobic glycolysis?",
+    "options": {
+      "A": "The hexokinase step is bypassed, so no ATP is spent to phosphorylate the sugar",
+      "B": "Glycogen phosphorylase makes two ATP directly",
+      "C": "Glycogenysis produces NADPH instead of NADH",
+      "D": "Glycogen bypasses pyruvate kinase"
+    },
+    "correct": "A",
+    "explanation": "Glycogen phosphorylase releases glucose-1-phosphate, which is converted to glucose-6-phosphate without using ATP. Free glucose must be phosphorylated by hexokinase at a cost of one ATP, so the glycogen-derived unit nets three ATP instead of two. The rest of glycolysis is unchanged.",
+    "memorize": [
+      "Glycogen phosphorylase releases glucose-1-phosphate, skipping hexokinase",
+      "Anaerobic glycogen yield: 3 ATP per glycosyl unit versus 2 for glucose"
+    ],
+    "fm": {
+      "formula": "net ATP = 4 produced - ATP invested",
+      "variables": "Glucose invests 1 ATP at hexokinase; glucose-1-phosphate from glycogen does not",
+      "values": "4 produced, 1 invested for glycogen; 4 produced, 2 invested for glucose",
+      "substitution": "4 - 1 = 3, and 2 + 1 = 3",
+      "why": "Phosphorolysis already yields a phosphorylated sugar, so the cell avoids the hexokinase investment",
+      "no_calc": "Skip one ATP payment and the net rises by one"
+    },
+    "correct_rationale_plain": "Glycogen gives glucose-1-phosphate, so hexokinase is skipped and the net gain is one ATP higher.",
+    "wrong": {
+      "B": "Glycogen phosphorylase uses inorganic phosphate and makes glucose-1-phosphate, not ATP",
+      "C": "Glycogenolysis yields glucose-6-phosphate, and NADPH comes from the pentose phosphate pathway",
+      "D": "Pyruvate kinase is still required to make the last two ATP"
+    },
+    "sc": "Skip hexokinase, save one ATP.",
+    "mn": "Glycogen arrives pre-paid.",
+    "tb": "",
+    "source": "High-yield"
+  }
+]

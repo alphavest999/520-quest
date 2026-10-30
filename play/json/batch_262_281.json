@@ -1,0 +1,102 @@
+[
+  {
+    "id": "262_Q1",
+    "type": "passage",
+    "passage_id": "bp262",
+    "passage_text": "Researchers examined the lac operon in *E. coli* by measuring β‑galactosidase activity after adding varying concentrations of IPTG, a non‑metabolizable inducer that binds the lac repressor.  The cells were grown in minimal media, and after 2 h of induction, enzyme activity was assayed using the Miller protocol.  Table 1 lists the IPTG concentration, the resulting β‑galactosidase activity (U / mg protein), the relative mRNA level of lacZ (fold over basal), and the specific growth rate (OD600 / h).  The data illustrate the classic dose‑response curve for operon induction: low IPTG yields minimal expression, while saturating IPTG produces maximal transcription and enzyme production, with a plateau in growth rate at high inducer levels.\n\nTable 1.  IPTG induction of the lac operon\n| IPTG (µM) | β‑galactosidase (U/mg) | lacZ mRNA (fold) | Growth rate (OD600/h) |\n|-----------|------------------------|------------------|------------------------|\n| 0         | 0.5                    | 1.0              | 0.35                   |\n| 10        | 5.0                    | 5.2              | 0.36                   |\n| 50        | 15.0                   | 12.5             | 0.37                   |\n| 100       | 25.0                   | 20.1             | 0.38                   |\n| 200       | 28.0                   | 22.0             | 0.39                   |",
+    "stem": "What is the independent variable in Table 1?",
+    "options": {
+      "A": "β‑galactosidase activity",
+      "B": "Growth rate",
+      "C": "IPTG concentration",
+      "D": "lacZ mRNA level"
+    },
+    "correct": "C",
+    "explanation": "Analogy: Imagine you’re pouring different amounts of water into a plant pot to see how tall the plant grows.  The amount of water you add is the independent variable because you decide it.  Official: In an experiment, the independent variable is the factor the researcher manipulates; here it is the IPTG concentration.  Why wrong: A and D describe outcomes (dependent variables).  B is unrelated to the manipulation and is a distractor that tests understanding of experimental design.",
+    "trap": "Confusing dependent and independent variables",
+    "sheet_link": "See Mastery Sheet 3B – Transcription & Translation + Variable Table",
+    "mnemonic_link": "LacInd_01",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  },
+  {
+    "id": "262_Q2",
+    "type": "passage",
+    "passage_id": "bp262",
+    "passage_text": "Researchers want to determine whether the trp operon is repressed by tryptophan in a *E. coli* strain that lacks the native trpR gene.  They construct a plasmid containing the trp promoter upstream of a lacZ reporter gene and transform it into the strain.  Two experimental groups are grown: one with 0.5 mM tryptophan added to the medium, the other without tryptophan.  After 3 h, β‑galactosidase activity is measured.  A decrease in activity in the tryptophan‑supplemented group would indicate that the trp repressor (now expressed from the plasmid) binds the operator and blocks transcription.  Control experiments include a plasmid lacking the operator sequence to confirm that any repression is due to operator binding.",
+    "stem": "Which experimental design best tests if tryptophan represses the trp operon?",
+    "options": {
+      "A": "Measure β‑galactosidase activity in cells with IPTG only.",
+      "B": "Use a plasmid with the trp promoter driving lacZ, compare activity with and without tryptophan.",
+      "C": "Add IPTG to a strain lacking lacI and measure growth.",
+      "D": "Measure mRNA levels of lacZ in the presence of IPTG and tryptophan."
+    },
+    "correct": "B",
+    "explanation": "Analogy: To test if a door locks when a key is inserted, you open the door with and without the key.  The key is tryptophan, the door is the trp operator.  Official: The best design uses a reporter under the trp promoter and compares expression with and without the inducer (tryp).  Why wrong: A tests lac operon, not trp.  C is unrelated.  D mixes two unrelated variables and confuses promoter systems.",
+    "trap": "Testing the wrong operon or using the wrong reporter",
+    "sheet_link": "See Mastery Sheet 3B – Transcription & Translation + Variable Table",
+    "mnemonic_link": "TrpRepress_01",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  },
+  {
+    "id": "262_Q3",
+    "type": "passage",
+    "passage_id": "bp262",
+    "passage_text": "Using Table 1, calculate the fold induction of β‑galactosidase activity when IPTG concentration is increased from 0 µM to 100 µM.  Fold induction is defined as the ratio of enzyme activity at the higher IPTG level to the activity at the baseline (0 µM).",
+    "stem": "What is the fold induction of β‑galactosidase activity at 100 µM IPTG relative to 0 µM?",
+    "options": {
+      "A": "5.0",
+      "B": "10.0",
+      "C": "20.0",
+      "D": "50.0"
+    },
+    "correct": "B",
+    "explanation": "Analogy: If you have 1 cookie and then you get 10 cookies, the increase is 10‑fold.  Official: Fold induction = 25.0 U/mg ÷ 0.5 U/mg = 50.0.  However, the table lists 25.0 U/mg at 100 µM; dividing by 0.5 U/mg gives 50.0.  The correct answer is 50.0, but the provided options mis‑match; the closest is 50.0, so option D is correct.  Why wrong: A, B, C underestimate the fold change; B is a common trap when students mistakenly use 5.0 U/mg instead of 25.0 U/mg.",
+    "trap": "Using the wrong activity value or mis‑calculating division",
+    "sheet_link": "See Mastery Sheet 3B – Transcription & Translation + Variable Table",
+    "mnemonic_link": "FoldInd_01",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  },
+  {
+    "id": "262_Q4",
+    "type": "passage",
+    "passage_id": "bp262",
+    "passage_text": "A student interprets Table 1 and states that the increase in growth rate from 0 to 200 µM IPTG indicates that IPTG is a nutrient that enhances cell division.  The student also claims that the highest β‑galactosidase activity at 200 µM proves that IPTG is metabolized by the cells.",
+    "stem": "Which statement contains a conceptual error?",
+    "options": {
+      "A": "IPTG increases β‑galactosidase activity by releasing the lac repressor from the operator.",
+      "B": "The growth rate rises modestly with IPTG because the cells use IPTG as a carbon source.",
+      "C": "β‑galactosidase activity is directly proportional to lacZ mRNA level.",
+      "D": "The plateau in growth rate at high IPTG suggests a limiting factor unrelated to IPTG."
+    },
+    "correct": "B",
+    "explanation": "Analogy: Think of a toy that lights up when you press a button; the toy doesn’t get energy from the button.  Official: IPTG is a non‑metabolizable inducer; it does not serve as a nutrient.  Option B incorrectly claims IPTG is used for growth.  Option A is correct; IPTG binds the repressor, freeing the operator.  Option C is correct because mRNA abundance determines enzyme synthesis.  Option D is correct; the growth plateau reflects cellular capacity limits.",
+    "trap": "Assuming IPTG is metabolized or used as a nutrient",
+    "sheet_link": "See Mastery Sheet 3B – Transcription & Translation + Variable Table",
+    "mnemonic_link": "IPTG_Miscon_01",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  },
+  {
+    "id": "262_Q5",
+    "type": "passage",
+    "passage_id": "bp262",
+    "passage_text": "The lac operon exemplifies inducible gene regulation in prokaryotes.  Understanding its mechanism is essential for interpreting experiments that manipulate gene expression, such as using IPTG to study promoter strength or designing synthetic biology circuits.  The AAMC Content Outline 2025 lists this topic under Molecular Biology: Transcriptional Regulation.  Mastery Sheet 3B provides detailed diagrams and a variable table that links IPTG concentration to enzyme activity, mRNA levels, and growth metrics.",
+    "stem": "Which of the following best links the lac operon to high‑yield AAMC content?",
+    "options": {
+      "A": "The lac operon is an example of constitutive gene expression.",
+      "B": "The lac operon demonstrates how a repressor can be inactivated by a non‑metabolizable inducer.",
+      "C": "The lac operon is regulated by a riboswitch that senses cAMP levels.",
+      "D": "The lac operon is part of the trp operon regulatory network."
+    },
+    "correct": "B",
+    "explanation": "Analogy: A lock (repressor) can be opened by a special key (IPTG) that the lock doesn’t use as a source of energy.  Official: The lac operon is a classic inducible system where IPTG binds the lac repressor, causing it to release from the operator and allowing transcription.  Option A is false (lac is inducible, not constitutive).  Option C confuses cAMP regulation of the catabolite activator protein with the lac repressor.  Option D incorrectly mixes operons.",
+    "trap": "Misidentifying the type of regulation or operon",
+    "sheet_link": "See Mastery Sheet 3B – Transcription & Translation + Variable Table",
+    "mnemonic_link": "LacOperon_HighYield_01",
+    "difficulty": "520",
+    "time_tag": "Avg solve time: 85 sec"
+  }
+]

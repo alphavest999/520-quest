@@ -1,0 +1,587 @@
+[
+  {
+    "id": "bp_017",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "At an oxygen pressure of 20 mmHg, which protein is closest to full saturation?",
+    "options": {
+      "A": "Hemoglobin at pH 7.4, at 0.52",
+      "B": "Hemoglobin at pH 7.2, at 0.34",
+      "C": "Hemoglobin with BPG, at 0.30",
+      "D": "Myoglobin, at 0.91"
+    },
+    "correct": "D",
+    "explanation": "Table 1 shows myoglobin at 0.91 saturation at 20 mmHg, while the hemoglobin samples sit between 0.30 and 0.52. Myoglobin has a much lower P50, so it is nearly saturated at oxygen pressures where hemoglobin is still unloading. This is the basis for myoglobin acting as an oxygen store in muscle.",
+    "memorize": [
+      "Myoglobin P50 about 2-3 mmHg; hemoglobin P50 about 26 mmHg",
+      "Low P50 means high affinity, so saturation is reached at lower pO2"
+    ],
+    "fm": {
+      "formula": "Y = pO2/(P50 + pO2) for a noncooperative binding site",
+      "variables": "Y is fractional saturation, pO2 is oxygen partial pressure, P50 is the pressure at half saturation",
+      "values": "myoglobin P50 about 2.8 mmHg at pO2 20 mmHg",
+      "substitution": "20/(2.8 + 20) = 0.88, near the tabulated 0.91",
+      "why": "A low P50 means the binding site holds oxygen tightly, so most sites are filled at low pressure",
+      "no_calc": "Lower P50 always means higher saturation at the same pO2"
+    },
+    "correct_rationale_plain": "Myoglobin reaches 0.91 saturation at 20 mmHg, far above the hemoglobin samples at the same pressure.",
+    "wrong": {
+      "A": "0.52 is only about half saturated, which is hemoglobin's cooperative response near its P50",
+      "B": "0.34 is below half saturation because lowered pH shifts the curve right",
+      "C": "0.30 is the lowest value in the row, since BPG further reduces affinity"
+    },
+    "sc": "Read across the 20 mmHg row and take the largest value.",
+    "mn": "Myoglobin hugs oxygen; hemoglobin hands it over.",
+    "tb": {
+      "caption": "Table 1. Oxygen saturation of myoglobin and hemoglobin",
+      "markdown": "| pO2 (mmHg) | Myoglobin | Hb pH 7.4 | Hb pH 7.2 | Hb + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_018",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "Which change in Table 1 represents a right shift of the hemoglobin oxygen curve, and what does it mean physiologically?",
+    "options": {
+      "A": "pH 7.4 to pH 7.2, meaning lower oxygen affinity and easier unloading in tissues",
+      "B": "pH 7.2 to pH 7.4, meaning lower affinity and easier unloading",
+      "C": "Adding BPG at pH 7.4, meaning higher affinity and tighter oxygen retention",
+      "D": "Myoglobin versus hemoglobin, meaning hemoglobin has the higher affinity"
+    },
+    "correct": "A",
+    "explanation": "Lowering pH from 7.4 to 7.2 lowers saturation at every oxygen pressure above the steep region, which is a right shift and a higher P50. A right-shifted curve means hemoglobin holds oxygen less tightly and releases more of it at a given tissue pO2. The same logic applies to BPG, which also right-shifts the curve.",
+    "memorize": [
+      "Right shift equals higher P50 equals lower affinity equals more oxygen delivered",
+      "Acid, CO2, BPG and heat all right-shift hemoglobin"
+    ],
+    "fm": {
+      "formula": "Y = pO2^n/(P50^n + pO2^n)",
+      "variables": "Y is saturation, n is the Hill coefficient near 2.8, and P50 is the half-saturation pressure",
+      "values": "at 26 mmHg, Y falls from 0.60 at pH 7.4 to 0.44 at pH 7.2",
+      "substitution": "0.60 - 0.44 = 0.16",
+      "why": "A higher P50 raises the oxygen pressure needed for any given saturation, so the whole curve moves right",
+      "no_calc": "Compare the same pO2 row: lower saturation means right shift"
+    },
+    "correct_rationale_plain": "Falling from pH 7.4 to 7.2 lowers saturation at each pO2, a right shift that favors oxygen release.",
+    "wrong": {
+      "B": "Raising pH to 7.4 raises saturation, which is a left shift and higher affinity",
+      "C": "BPG lowers saturation, so it lowers affinity rather than raising it",
+      "D": "Myoglobin has the higher affinity; its curve sits far left of hemoglobin"
+    },
+    "sc": "Right shift: at the same pO2, saturation is lower.",
+    "mn": "Acid and BPG push oxygen out: right shift.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_019",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "How many percentage points of saturation does hemoglobin at pH 7.4 gain when oxygen pressure rises from 26 mmHg to 40 mmHg?",
+    "options": {
+      "A": "8",
+      "B": "18",
+      "C": "28",
+      "D": "52"
+    },
+    "correct": "B",
+    "explanation": "At 26 mmHg saturation is 0.60 and at 40 mmHg it is 0.78, a difference of 0.18, or 18 percentage points. The gain is steepest around the P50 because that is where cooperativity makes hemoglobin most sensitive to small changes in oxygen pressure. Reading the row values and subtracting gives the answer directly.",
+    "memorize": [
+      "Steepest part of the hemoglobin curve is around P50",
+      "Fractional saturation times 100 gives percent saturation"
+    ],
+    "fm": {
+      "formula": "change in saturation = Y2 - Y1",
+      "variables": "Y1 and Y2 are fractional saturations at the two oxygen pressures",
+      "values": "Y1 = 0.60 at 26 mmHg, Y2 = 0.78 at 40 mmHg",
+      "substitution": "0.78 - 0.60 = 0.18",
+      "why": "The table already reports fractional saturation, so a simple difference gives the change; no binding equation is needed",
+      "no_calc": "0.18 is 18 percent, so pick 18 from the choices"
+    },
+    "correct_rationale_plain": "0.78 minus 0.60 is 0.18, which is 18 percentage points.",
+    "wrong": {
+      "A": "8 points would be 0.08, the change between 60 and 100 mmHg at pH 7.2",
+      "C": "28 points confuses the pO2 values with the saturation values",
+      "D": "52 is the saturation at 20 mmHg, not a difference"
+    },
+    "sc": "Subtract the two table entries, then move the decimal two places.",
+    "mn": "Saturation is a fraction; the difference is the percent.",
+    "tb": {
+      "caption": "Table 1. Oxygen saturation of myoglobin and hemoglobin",
+      "markdown": "| pO2 (mmHg) | Myoglobin | Hb pH 7.4 | Hb pH 7.2 | Hb + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_020",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "Which structural event produces the right shift seen when pH falls from 7.4 to 7.2?",
+    "options": {
+      "A": "Protonation of the beta-chain histidine at position 146 stabilizes the T state through a salt bridge",
+      "B": "Protonation of the heme iron converts it to Fe3+ and blocks oxygen binding",
+      "C": "Protons bind the alpha chains and dissociate the heme groups",
+      "D": "Lower pH increases BPG synthesis inside the red cell within seconds"
+    },
+    "correct": "A",
+    "explanation": "The Bohr effect works through protonation of the C-terminal histidine (His146) of the beta chains, which forms a salt bridge with Asp94 and locks hemoglobin in the low-affinity T state. More T state means a higher P50 and easier oxygen release in acidic tissue. Heme iron stays ferrous, and BPG changes over hours, not seconds.",
+    "memorize": [
+      "Bohr effect: H+ binds His146 of beta chains, stabilizing T state",
+      "T state is low affinity; R state is high affinity"
+    ],
+    "fm": {
+      "formula": "T state is favored by proton binding; R state binds oxygen",
+      "variables": "His146 is the beta-chain C-terminal residue; Asp94 forms the salt bridge in the T state",
+      "values": "pH 7.4 to 7.2 increases proton concentration about 1.6-fold",
+      "substitution": "10^0.2 = 1.58",
+      "why": "A lower pH shifts the allosteric equilibrium toward T, and each T-state tetramer has a lower oxygen affinity",
+      "no_calc": "0.2 pH units is a small but real increase in protons, enough to titrate His146 near its pKa of about 7"
+    },
+    "correct_rationale_plain": "Extra protons protonate His146, the resulting salt bridge holds the T state, and affinity falls.",
+    "wrong": {
+      "B": "Ferric heme is methemoglobin and does not explain the rapid, reversible Bohr shift",
+      "C": "Heme does not dissociate from globin at pH 7.2; the change is allosteric",
+      "D": "BPG adaptation takes hours to days, and the pH 7.2 sample had no added BPG yet still shifted"
+    },
+    "sc": "Acid protonates His146, locks T state.",
+    "mn": "His146: the hand that holds hemoglobin back.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_021",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "What is the effect of adding 5 mM BPG at pH 7.4, and where does BPG bind?",
+    "options": {
+      "A": "It raises affinity by binding the heme iron directly",
+      "B": "It lowers affinity by binding the central cavity of the T-state tetramer",
+      "C": "It lowers affinity by covalently phosphorylating the beta chains",
+      "D": "It has no effect, because BPG cannot enter the red cell"
+    },
+    "correct": "B",
+    "explanation": "BPG is a polyanion that binds the positively charged central cavity formed by the two beta chains in the T state, adding salt bridges that stabilize T and lower oxygen affinity. Table 1 shows saturation dropping at every pO2 when BPG is added, which is a right shift. The interaction is noncovalent, and BPG is produced inside red cells from glycolysis.",
+    "memorize": [
+      "2,3-BPG binds the central cavity of T-state hemoglobin and lowers affinity",
+      "High altitude raises BPG, shifting the curve right and improving unloading"
+    ],
+    "fm": {
+      "formula": "BPG stabilizes T, so P50 rises",
+      "variables": "BPG is 2,3-bisphosphoglycerate, a five-carbon polyanion; the binding site is the beta-chain central cavity",
+      "values": "at 26 mmHg, saturation falls from 0.60 to 0.40",
+      "substitution": "0.60 - 0.40 = 0.20",
+      "why": "Extra salt bridges with the T state lower the free energy of T and shift the allosteric equilibrium away from oxygen binding",
+      "no_calc": "Lower saturation at the same pO2 is all you need to see the right shift"
+    },
+    "correct_rationale_plain": "BPG binds the beta-chain cavity of the T state, stabilizing it and reducing oxygen affinity.",
+    "wrong": {
+      "A": "BPG does not touch the heme; its negative charges interact with positively charged residues in the central cavity",
+      "C": "BPG is not a kinase and forms no covalent bond with globin",
+      "D": "BPG is made in red cells and is the normal regulator of hemoglobin affinity, so it certainly enters and acts there"
+    },
+    "sc": "BPG equals right shift; binds the beta cavity, not heme.",
+    "mn": "BPG blocks pickup, boosts delivery.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_022",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "Fetal hemoglobin (HbF) has gamma chains instead of beta chains. How does that change its oxygen curve relative to adult hemoglobin?",
+    "options": {
+      "A": "It shifts right, because gamma chains bind BPG more tightly",
+      "B": "It becomes identical to myoglobin, because both lack cooperativity",
+      "C": "It shifts left, because gamma chains bind BPG poorly and retain higher affinity",
+      "D": "It shifts right, because gamma chains cannot bind oxygen"
+    },
+    "correct": "C",
+    "explanation": "The gamma chain lacks the positive residues that hold BPG in the central cavity, so HbF binds less BPG and stays in the R state more often. The result is a left-shifted curve with a lower P50, which lets the fetus pull oxygen from maternal blood across the placenta. HbF is still tetrameric and cooperative.",
+    "memorize": [
+      "HbF has alpha-2 gamma-2 chains and binds BPG poorly",
+      "Poor BPG binding means higher affinity and a left-shifted curve"
+    ],
+    "fm": {
+      "formula": "less BPG binding gives lower P50",
+      "variables": "HbF is alpha2-gamma2; BPG binds beta chains, which HbF lacks",
+      "values": "adult P50 about 26 mmHg; fetal P50 about 20 mmHg",
+      "substitution": "compare P50 values directly, 26 minus 20 = 6 mmHg lower",
+      "why": "Without BPG stabilization of the T state, the R state dominates and oxygen binds more tightly",
+      "no_calc": "Less BPG means more left shift, so fetal P50 is lower than adult P50"
+    },
+    "correct_rationale_plain": "HbF binds less BPG, holds the R state more, and therefore has a lower P50 and a left-shifted curve.",
+    "wrong": {
+      "A": "Stronger BPG binding would lower affinity, but gamma chains bind BPG more weakly, not more tightly",
+      "B": "HbF is a tetramer and remains cooperative; only myoglobin is a noncooperative monomer",
+      "D": "HbF binds oxygen well; that is exactly why the fetus can extract it from maternal blood"
+    },
+    "sc": "Fetal equals poor BPG binding equals left shift equals higher affinity.",
+    "mn": "Fetus grabs oxygen: gamma chains, less BPG.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_023",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "A patient breathes carbon monoxide and has 50 percent of heme sites occupied by CO. Arterial oxygen saturation reads normally, yet tissues become hypoxic. What explains this?",
+    "options": {
+      "A": "CO binds heme with higher affinity than oxygen and shifts the remaining sites to the R state, so oxygen is held rather than released",
+      "B": "CO destroys the heme groups, so no oxygen can bind anywhere",
+      "C": "CO binds BPG and prevents it from stabilizing the T state",
+      "D": "CO converts hemoglobin into myoglobin"
+    },
+    "correct": "A",
+    "explanation": "CO binds ferrous heme with roughly 200-fold higher affinity than oxygen, occupying sites irreversibly on the relevant timescale. Occupancy at one site in a tetramer also locks the remaining subunits in the high-affinity R state, so the oxygen that does bind is not released at tissue pO2. Arterial saturation can look near normal while delivery collapses.",
+    "memorize": [
+      "CO has about 200 times the heme affinity of oxygen",
+      "CO poisoning left-shifts the remaining sites, so unloading fails"
+    ],
+    "fm": {
+      "formula": "fractional occupancy depends on relative affinity times partial pressure",
+      "variables": "Affinity of CO for ferrous heme is about 200 times that of oxygen",
+      "values": "CO partial pressure of 0.1 percent of an atmosphere is enough to occupy a large fraction of sites",
+      "substitution": "0.001 x 200 = 0.2, an effective occupancy pressure of 20 percent",
+      "why": "Site occupancy is proportional to affinity times partial pressure, so a tiny CO pressure competes with a normal oxygen pressure",
+      "no_calc": "200-fold affinity means a trace of CO outcompetes a large amount of oxygen"
+    },
+    "correct_rationale_plain": "CO occupies heme tightly and leaves the other subunits in the high-affinity state, blocking oxygen delivery.",
+    "wrong": {
+      "B": "CO binds reversibly and does not destroy heme; the iron stays ferrous",
+      "C": "CO acts at the heme iron, not at the BPG site",
+      "D": "Globin identity does not change; only ligand occupancy changes"
+    },
+    "sc": "CO equals tight binding plus left shift equals hypoxia with normal saturation.",
+    "mn": "CO takes the seat and locks the door.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_024",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "The sigmoid shape of the hemoglobin curve, but not the myoglobin curve, is best explained by which property?",
+    "options": {
+      "A": "Hemoglobin has a higher molecular weight than myoglobin",
+      "B": "Hemoglobin binds oxygen cooperatively, so binding at one site raises affinity at the others",
+      "C": "Hemoglobin contains iron while myoglobin does not",
+      "D": "Hemoglobin binds oxygen covalently"
+    },
+    "correct": "B",
+    "explanation": "Hemoglobin is a tetramer that shifts from the low-affinity T state to the high-affinity R state as oxygen binds, so successive binding events are easier. That positive cooperativity produces the sigmoid curve and a Hill coefficient near 2.8. Myoglobin is a monomer with independent sites, so its curve is hyperbolic with a Hill coefficient of 1.",
+    "memorize": [
+      "Hemoglobin Hill coefficient about 2.8; myoglobin 1",
+      "Sigmoid curve means cooperativity, not a different ligand"
+    ],
+    "fm": {
+      "formula": "Y = pO2^n/(P50^n + pO2^n)",
+      "variables": "n is the Hill coefficient; n greater than 1 indicates positive cooperativity",
+      "values": "hemoglobin n about 2.8; myoglobin n = 1",
+      "substitution": "n = 2.8 for hemoglobin, so the exponent is nearly 3",
+      "why": "The Hill equation raises pO2 to the power n, and only cooperative binding gives n above 1 and a sigmoid shape",
+      "no_calc": "Sigmoid equals n above 1; hyperbola equals n of 1"
+    },
+    "correct_rationale_plain": "Hemoglobin's subunits communicate, so each bound oxygen makes the next bind more easily, giving a sigmoid curve.",
+    "wrong": {
+      "A": "Size does not create cooperativity; a larger protein with independent sites would still be hyperbolic",
+      "C": "Both proteins contain ferrous heme iron",
+      "D": "Oxygen binding to heme is reversible coordination, not a covalent bond, in either protein"
+    },
+    "sc": "Sigmoid means cooperative; monomer means hyperbolic.",
+    "mn": "Four subunits talk; one subunit just binds.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_025",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "A patient with methemoglobinemia has oxidized heme iron. What is the direct consequence for oxygen transport?",
+    "options": {
+      "A": "Ferric heme binds oxygen more tightly, causing a left shift",
+      "B": "Ferric heme binds carbon dioxide instead of oxygen",
+      "C": "Ferric heme makes hemoglobin monomeric and noncooperative",
+      "D": "Ferric heme cannot bind oxygen, so effective oxygen-carrying capacity falls"
+    },
+    "correct": "D",
+    "explanation": "Only ferrous iron (Fe2+) coordinates oxygen reversibly. Oxidation to Fe3+ produces methemoglobin, which cannot bind oxygen, so the functional hemoglobin concentration drops. The remaining ferrous subunits also shift toward the R state, but the primary defect is loss of binding sites.",
+    "memorize": [
+      "Ferrous Fe2+ binds oxygen; ferric Fe3+ does not",
+      "Methemoglobinemia: oxidized heme, cyanosis, chocolate-colored blood"
+    ],
+    "fm": {
+      "formula": "oxygen capacity is proportional to ferrous heme concentration",
+      "variables": "Each hemoglobin tetramer has four heme groups; only Fe2+ binds oxygen",
+      "values": "50 percent methemoglobin leaves about two functional sites per tetramer",
+      "substitution": "4 x 0.50 = 2 functional sites",
+      "why": "Oxygen binds by coordination to the ferrous iron, so any oxidized subunit is removed from the carrying pool",
+      "no_calc": "Count unoxidized subunits; each carries one oxygen"
+    },
+    "correct_rationale_plain": "Fe3+ cannot coordinate oxygen, so oxidized subunits stop carrying oxygen and capacity falls.",
+    "wrong": {
+      "A": "Ferric heme does not bind oxygen at all, tightly or otherwise",
+      "B": "CO2 travels on amino groups, not on the heme iron",
+      "C": "The tetramer stays assembled; oxidation does not dissociate subunits"
+    },
+    "sc": "Fe2+ carries oxygen, Fe3+ does not.",
+    "mn": "Three minus is dead; two plus is the carrier.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_026",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "By approximately what percentage does P50 rise when pH falls from 7.4 to 7.2, given P50 values of 26 mmHg and 36 mmHg?",
+    "options": {
+      "A": "10 percent",
+      "B": "28 percent",
+      "C": "38 percent",
+      "D": "72 percent"
+    },
+    "correct": "C",
+    "explanation": "The increase is 36 minus 26, or 10 mmHg, taken as a fraction of the starting value of 26. That is 10/26, about 0.38, or 38 percent. Percent change always divides by the original value, not by the final value.",
+    "memorize": [
+      "Percent change = (new - old)/old times 100",
+      "Right shift raises P50, so the percent change is positive"
+    ],
+    "fm": {
+      "formula": "percent change = (new - old)/old x 100",
+      "variables": "old is P50 at pH 7.4, new is P50 at pH 7.2",
+      "values": "old = 26 mmHg, new = 36 mmHg",
+      "substitution": "36 - 26 = 10, and 10/26 = 0.38, which is 38 percent",
+      "why": "P50 is the half-saturation pressure, so comparing the two values as a ratio expresses the affinity change on a relative scale",
+      "no_calc": "10 over 26 is a bit less than 10 over 25, which is 40 percent, so 38 percent fits"
+    },
+    "correct_rationale_plain": "P50 rises by 10 mmHg from a baseline of 26, which is about 38 percent.",
+    "wrong": {
+      "A": "10 percent treats the absolute rise of 10 as if it were already a percentage",
+      "B": "28 percent divides the 10 mmHg rise by the new value of 36",
+      "D": "72 percent comes from dividing 26 by 36, which inverts the comparison"
+    },
+    "sc": "Change over original: 10/26, just under 40 percent.",
+    "mn": "Percent change: divide by where you started.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_027",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "Why does hemoglobin at pH 7.4 reach only 0.975 saturation at 100 mmHg rather than 1.00?",
+    "options": {
+      "A": "A small fraction of tetramers remains in the low-affinity T state even at high oxygen pressure",
+      "B": "One of the four sites is permanently unable to bind oxygen",
+      "C": "BPG is present and blocks the fourth site completely",
+      "D": "Oxygen solubility in water limits saturation to 0.975"
+    },
+    "correct": "A",
+    "explanation": "The T and R states are in a dynamic equilibrium, and even at high pO2 a small population stays in T with low occupancy. The measured 0.975 therefore reflects an allosteric equilibrium, not a dead subunit. At very high oxygen pressure the curve approaches 1.00 asymptotically.",
+    "memorize": [
+      "Allosteric proteins approach full saturation asymptotically, not abruptly",
+      "T and R states coexist; ligand shifts the equilibrium rather than switching it"
+    ],
+    "fm": {
+      "formula": "Y = pO2^n/(P50^n + pO2^n)",
+      "variables": "n about 2.8, P50 26 mmHg, pO2 100 mmHg",
+      "values": "pO2/P50 = 3.85",
+      "substitution": "3.85^2.8 is about 43, so Y is about 43/44, or 0.977",
+      "why": "The Hill equation predicts an asymptote below 1 at finite pO2 because the T-state population never vanishes",
+      "no_calc": "At 100 mmHg the ratio is under 4, and the curve only flattens near 1"
+    },
+    "correct_rationale_plain": "A residual T-state population keeps a small fraction of sites empty even at high oxygen pressure.",
+    "wrong": {
+      "B": "All four sites are chemically identical and competent; occupancy differs only statistically",
+      "C": "BPG binds the central cavity between tetramers, not a specific oxygen site, and this sample had no added BPG",
+      "D": "Saturation measures heme occupancy, not oxygen dissolved in water, so solubility is irrelevant"
+    },
+    "sc": "High pO2 means nearly, not exactly, saturated.",
+    "mn": "The curve kisses 100 percent but never quite lands.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_028",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "Which experiment would best test whether increased BPG explains the higher P50 of red cells after a week at high altitude?",
+    "options": {
+      "A": "Measure resting heart rate at sea level and at altitude",
+      "B": "Dialyze red-cell lysates to remove BPG, measure P50, then add BPG back and measure again",
+      "C": "Measure arterial oxygen saturation with a pulse oximeter",
+      "D": "Count red blood cells before and after the week"
+    },
+    "correct": "B",
+    "explanation": "Removing BPG and then restoring it isolates BPG as the variable while everything else in the lysate stays constant. A rise in P50 after readdition, and a fall after dialysis, would show that BPG is sufficient to shift the curve. Pulse oximetry and cell counts measure different things and cannot separate BPG from pH or CO2 changes.",
+    "memorize": [
+      "Isolate a regulator by removing it and adding it back",
+      "P50 is the readout for hemoglobin affinity"
+    ],
+    "fm": {
+      "formula": "P50 is measured from a saturation versus pO2 curve",
+      "variables": "The independent variable is BPG concentration; the dependent variable is P50",
+      "values": "dialyzed lysate versus lysate with BPG restored",
+      "substitution": "compare P50 before and after BPG addition",
+      "why": "Dialysis removes small anions including BPG but leaves hemoglobin intact, so any P50 change is attributable to the removed solute",
+      "no_calc": "A fall in P50 after dialysis and a rise after readdition confirms the mechanism"
+    },
+    "correct_rationale_plain": "Removing and then restoring BPG in the same lysate isolates its effect on P50.",
+    "wrong": {
+      "A": "Heart rate reflects whole-body compensation, not the molecular cause of the affinity change",
+      "C": "Pulse oximetry estimates saturation, but it cannot show why the curve moved",
+      "D": "Cell count changes oxygen capacity, not the affinity of the hemoglobin inside the cells"
+    },
+    "sc": "Remove, measure, restore, measure.",
+    "mn": "Take BPG out, put BPG back, watch P50.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_029",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "Carbon dioxide is carried from tissues to lungs largely as bicarbonate. Which enzyme and which hemoglobin property support this transport?",
+    "options": {
+      "A": "Carbonic anhydrase converts bicarbonate to CO2, and oxygenated hemoglobin binds protons more tightly",
+      "B": "Carboxypeptidase converts CO2 to bicarbonate, and myoglobin buffers the protons",
+      "C": "Carbonic anhydrase converts CO2 to bicarbonate, and deoxygenated hemoglobin buffers the released protons better",
+      "D": "Catalase converts CO2 to bicarbonate, and methemoglobin buffers the protons"
+    },
+    "correct": "C",
+    "explanation": "Carbonic anhydrase in red cells hydrates CO2 to carbonic acid, which dissociates to bicarbonate and a proton. Deoxygenated hemoglobin (T state) has a higher affinity for protons, so it absorbs them and pulls the reaction forward. This linkage is the Haldane effect, complementing the Bohr effect.",
+    "memorize": [
+      "Carbonic anhydrase: CO2 + H2O to H2CO3 to HCO3- + H+",
+      "Haldane effect: deoxygenated hemoglobin carries more CO2 and buffers more protons"
+    ],
+    "fm": {
+      "formula": "CO2 + H2O is in equilibrium with H2CO3, which dissociates to HCO3- + H+",
+      "variables": "Carbonic anhydrase accelerates the hydration step; hemoglobin buffers the proton",
+      "values": "about 70 percent of blood CO2 travels as bicarbonate",
+      "substitution": "not needed for the direction of the shift",
+      "why": "Removing protons by hemoglobin binding shifts the hydration equilibrium toward bicarbonate, increasing CO2 carriage",
+      "no_calc": "Deoxygenated hemoglobin takes up protons, so bicarbonate formation is favored in tissues"
+    },
+    "correct_rationale_plain": "Carbonic anhydrase makes bicarbonate and protons, and deoxygenated hemoglobin absorbs the protons so the reaction keeps going.",
+    "wrong": {
+      "A": "The enzyme runs the hydration direction in tissues, and oxygenated hemoglobin binds protons more weakly, not more tightly",
+      "B": "Carboxypeptidase cleaves peptide bonds and has no role in CO2 transport",
+      "D": "Catalase breaks down hydrogen peroxide, and methemoglobin is an oxidized form, not the normal carrier"
+    },
+    "sc": "CO2 to bicarbonate needs carbonic anhydrase plus a proton sink: deoxygenated hemoglobin.",
+    "mn": "Haldane: hemoglobin lets oxygen go and picks protons up.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_030",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "Sickle hemoglobin (HbS) differs from normal hemoglobin by a single glutamate-to-valine change in beta-globin. Why does deoxygenation trigger polymerization?",
+    "options": {
+      "A": "The valine creates a hydrophobic patch that inserts into a complementary pocket on a neighboring deoxygenated tetramer",
+      "B": "The mutation removes a positive charge and prevents BPG binding",
+      "C": "The mutation prevents heme synthesis, leaving empty globin chains",
+      "D": "The mutation makes hemoglobin a monomer that cannot bind oxygen"
+    },
+    "correct": "A",
+    "explanation": "Glutamate at beta-6 is surface-exposed and charged; valine is hydrophobic. In the T state the mutant surface patch of one tetramer fits a pocket on another, and the polymers grow into fibers that deform the red cell. Oxygenated HbS does not polymerize because the R state does not expose the complementary pocket.",
+    "memorize": [
+      "HbS: beta-6 glutamate to valine, hydrophobic patch on the surface",
+      "Deoxygenated T state polymerizes; oxygenated R state does not"
+    ],
+    "fm": {
+      "formula": "polymerization depends on the fraction of tetramers in the T state",
+      "variables": "T-state fraction rises as oxygen saturation falls",
+      "values": "sickling is greatest below about 0.5 saturation",
+      "substitution": "not needed; the trend follows the oxygen curve",
+      "why": "Only the T state presents the valine patch in the geometry needed for fiber formation",
+      "no_calc": "Lower oxygen means more T state and more polymer"
+    },
+    "correct_rationale_plain": "Valine makes a sticky hydrophobic spot that only deoxygenated tetramers can insert into another tetramer, so fibers form when oxygen is low.",
+    "wrong": {
+      "B": "The change removes a negative charge, not a positive one, and its effect is hydrophobic sticking rather than BPG loss",
+      "C": "Heme synthesis is unaffected; the defect is in the globin surface",
+      "D": "HbS remains a tetramer and still binds oxygen; the problem is polymerization in the T state"
+    },
+    "sc": "Hydrophobic valine plus deoxygenation equals fiber.",
+    "mn": "Valine is sticky; oxygen keeps it covered.",
+    "tb": "",
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_031",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "Which comparison in Table 1 shows that a single tetramer can be regulated by a solute other than oxygen?",
+    "options": {
+      "A": "Myoglobin versus hemoglobin at 20 mmHg",
+      "B": "Hemoglobin at 10 mmHg versus 100 mmHg",
+      "C": "Myoglobin at 10 mmHg versus 100 mmHg",
+      "D": "Hemoglobin at pH 7.4 with and without BPG at 40 mmHg"
+    },
+    "correct": "D",
+    "explanation": "At the same pH and pO2, adding BPG lowers saturation from 0.78 to 0.62. Because oxygen pressure and pH are held constant, the change must come from the added solute acting allosterically. The other comparisons change either the protein identity or the oxygen pressure itself.",
+    "memorize": [
+      "Allosteric regulators change affinity at constant ligand pressure",
+      "BPG is an allosteric regulator of hemoglobin"
+    ],
+    "fm": {
+      "formula": "hold pH and pO2 constant, vary one solute",
+      "variables": "Independent variable BPG concentration; dependent variable fractional saturation",
+      "values": "0.78 without BPG, 0.62 with BPG at 40 mmHg",
+      "substitution": "0.78 - 0.62 = 0.16",
+      "why": "A controlled comparison requires the ligand pressure to be identical, so any saturation difference is due to the added solute",
+      "no_calc": "Same row, two columns, different values: the solute matters"
+    },
+    "correct_rationale_plain": "Adding BPG at fixed pH and pO2 lowers saturation, proving a non-oxygen solute can change affinity.",
+    "wrong": {
+      "A": "Myoglobin and hemoglobin are different proteins, so the comparison cannot isolate a solute effect",
+      "B": "Changing pO2 changes the ligand itself, which is the normal binding curve",
+      "C": "Myoglobin has no allosteric site, so its curve changes only with oxygen pressure"
+    },
+    "sc": "Look for same row, same protein, one added solute.",
+    "mn": "Same row, one change: that is the control.",
+    "tb": {
+      "caption": "Table 1. Oxygen saturation of myoglobin and hemoglobin",
+      "markdown": "| pO2 (mmHg) | Myoglobin | Hb pH 7.4 | Hb pH 7.2 | Hb + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |"
+    },
+    "source": "High-yield"
+  },
+  {
+    "id": "bp_032",
+    "passage_text": "Purified human hemoglobin and sperm whale myoglobin were equilibrated with gas mixtures at 37 °C in 0.1 M phosphate. Fractional oxygen saturation was measured at each oxygen partial pressure. One set of hemoglobin samples was buffered at pH 7.4 and a second set at pH 7.2, and a third set at pH 7.4 contained 5 mM 2,3-bisphosphoglycerate (BPG). Table 1 lists the saturation values; P50 is the oxygen pressure giving half saturation.",
+    "table_data": "| pO2 (mmHg) | Myoglobin | Hemoglobin, pH 7.4 | Hemoglobin, pH 7.2 | Hemoglobin, pH 7.4 + BPG |\n|---|---|---|---|---|\n| 10 | 0.76 | 0.26 | 0.14 | 0.12 |\n| 20 | 0.91 | 0.52 | 0.34 | 0.30 |\n| 26 | 0.94 | 0.60 | 0.44 | 0.40 |\n| 40 | 0.97 | 0.78 | 0.66 | 0.62 |\n| 60 | 0.985 | 0.90 | 0.82 | 0.79 |\n| 100 | 0.995 | 0.975 | 0.93 | 0.91 |",
+    "stem": "Myoglobin released from damaged muscle appears in plasma. Which property makes it a poor oxygen transporter compared with hemoglobin?",
+    "options": {
+      "A": "It binds oxygen too weakly to load in the lungs",
+      "B": "It binds oxygen so tightly that it does not release it at tissue oxygen pressures",
+      "C": "It cannot bind oxygen at all outside muscle",
+      "D": "It carries only carbon dioxide"
+    },
+    "correct": "B",
+    "explanation": "Myoglobin has a P50 near 2-3 mmHg, so it is nearly saturated even at the low oxygen pressures found in exercising muscle and gives up little oxygen there. A transporter needs a P50 in the range of tissue and lung pressures so it can load in the lung and unload in tissue. Myoglobin behaves like a storage protein, not a shuttle.",
+    "memorize": [
+      "Transport requires a P50 between tissue and lung oxygen pressures",
+      "High affinity means good storage but poor delivery"
+    ],
+    "fm": {
+      "formula": "delivery = saturation at lung pO2 minus saturation at tissue pO2",
+      "variables": "Lung pO2 about 100 mmHg, tissue pO2 about 20 to 40 mmHg",
+      "values": "myoglobin 0.995 to 0.91 across that range; hemoglobin 0.975 to 0.52",
+      "substitution": "0.975 - 0.52 = 0.455 for hemoglobin; 0.995 - 0.91 = 0.085 for myoglobin",
+      "why": "The useful delivered fraction is the difference between loading and unloading saturation, not the loading value alone",
+      "no_calc": "Bigger drop across the table means better delivery, and hemoglobin's drop is much larger"
+    },
+    "correct_rationale_plain": "Myoglobin holds oxygen so tightly that it releases only a small fraction between lung and tissue pressures.",
+    "wrong": {
+      "A": "Myoglobin binds oxygen very tightly, so it loads easily even at low pressure",
+      "C": "It binds oxygen normally; its heme is ferrous and functional",
+      "D": "Myoglobin does not transport carbon dioxide in any meaningful amount"
+    },
+    "sc": "Need a big saturation drop from lung to tissue; myoglobin has a tiny one.",
+    "mn": "Storage hugs, transport hands over.",
+    "tb": "",
+    "source": "High-yield"
+  }
+]
