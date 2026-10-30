@@ -71,7 +71,7 @@
       const label = c.full ? "Full-length " + num(c.id) : "Mini " + num(c.id) + " · " + SEC[c.sections[0].s].name;
       return `<div class="panel xcard"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3 style="margin:0">${esc(label)}</h3>${open ? "" : '<span class="tag sec">Plans</span>'}</div>
         <p class="small muted" style="margin:4px 0 8px">${c.n} questions · ${c.sections.length === 1 ? t : "4 sections · " + t + " testing time"}${b ? " · best " + b : ""}</p>
-        <div class="row"><button class="btn primary small" data-xstart="${c.id}">${run ? "Resume" : open ? "Start" : "Unlock"}</button>${run ? `<button class="btn ghost small" data-xdrop="${c.id}">Discard attempt</button>` : ""}</div></div>`;
+        <div class="row"><button class="btn primary small" data-xstart="${c.id}">${run ? "Resume" : open ? "Start" : "Unlock"}</button>${run ? `<button class="btn ghost small" data-xdrop="${c.id}">Restart</button>` : ""}</div></div>`;
     };
     if (!cat.length) { root().innerHTML = `<h2 class="title">Timed exams</h2><p class="sub">Exam content is still loading or could not be loaded. If the files are sealed, the content key is missing. Reload, or check that bank/FL.json and bank/MN.json are reachable.</p><button class="btn" onclick="CAT_RESET&&CAT_RESET();renderExam()">Retry</button>`; return; }
     const fl = cat.filter(c => c.full), mn = cat.filter(c => !c.full);
@@ -92,7 +92,7 @@
     root().innerHTML = `<div class="xwrap"><span class="eyebrow">${esc(e.id)} · Section ${e.si + 1} of ${e.secs.length}</span><h2 class="title">${SEC[s.s].name}</h2>
       <div class="panel"><p style="margin:0"><b>${n} questions</b> · <b>${SEC[s.s].min} minutes</b></p>
       <ul class="small" style="margin:10px 0 0;padding-left:18px"><li>The timer starts when you press Begin and counts down.</li><li>Pause stops the clock and hides the questions.</li><li>Flag questions to revisit, strike out options, and use the navigator to jump around.</li><li>No answers are shown until the exam is finished. When you end a section you cannot return to it.</li></ul></div>
-      <div class="row" style="margin-top:14px"><button class="btn primary" data-xbegin>Begin section</button><button class="btn ghost" data-xexit>Exit</button></div></div>`;
+      <div class="row" style="margin-top:14px"><button class="btn primary" data-xbegin>Begin section</button><button class="btn ghost" data-xexit>Back to Exams</button></div></div>`;
   }
   function begin() {
     const e = X(), s = secOf(); e.phase = "run"; e.paused = false; s.t0 = Date.now(); save();
@@ -239,7 +239,7 @@
       if (X() && X().phase !== "done" && !confirm("Start " + id + "? Your unfinished " + X().id + " attempt will be discarded.")) return;
       newExam(id); return introView();
     }
-    if ((b = g("[data-xdrop]"))) { if (confirm("Discard your unfinished attempt?")) { S.exam = null; save(); hub(); } return; }
+    if ((b = g("[data-xdrop]"))) { if (confirm("Restart " + b.dataset.xdrop + "? Your unfinished attempt will be discarded.")) { newExam(b.dataset.xdrop); introView(); } return; }
     if (g("[data-xbegin]")) return begin();
     if (g("[data-xexit]")) { const e = X(); if (e && e.phase === "run" && !e.paused) { const s = secOf(); s.rem = left(s); s.t0 = null; e.paused = true; } save(); stopTick(); return hub(); }
     if (g("[data-xhub]")) { return hub(); }
@@ -269,6 +269,7 @@
   const css = document.createElement("style");
   css.textContent = `
 .examing .hud, .examing .tabs { display: none; }
+.examing .app { grid-template-rows: 1fr; }
 .tabs.six { grid-template-columns: repeat(6, 1fr); }
 .xh { font: 700 15px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--volt); margin: 18px 0 10px; }
 .xgrid { display: grid; gap: 10px; }
