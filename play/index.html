@@ -142,7 +142,7 @@ button { cursor: pointer; }
 .btn.ghost { background: #fff; color: #1e3a8a; border-color: #1e3a8a; }
 .btn.small { padding: 7px 10px; font-size: 13px; }
 .btn:disabled { opacity: .45; cursor: default; }
-.explain .fm { font-family: "STIX Two Math", "Cambria Math", "Times New Roman", var(--body), serif; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #f8fafc; color: #0f172a; } .explain .fm p { margin: 4px 0; } .explain .mem { margin: 4px 0 8px; padding-left: 20px; } .explain .eli { background: #fdf2f8; border-radius: 10px; padding: 8px 12px; }
+.explain .fm { font-family: "STIX Two Math", "Cambria Math", "Times New Roman", var(--body), serif; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #f8fafc; color: #0f172a; } .explain .fm p { margin: 4px 0; } .explain .fm .kx { color: #0f172a; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; margin: 4px 0; overflow-x: auto; font-size: 1.05em; } .explain .fm .kx.done .katex-display { margin: 0; } .explain .fm .kx:not(.done) { font-family: "STIX Two Math", "Cambria Math", serif; } .explain .mem { margin: 4px 0 8px; padding-left: 20px; } .explain .eli { background: #fdf2f8; border-radius: 10px; padding: 8px 12px; }
 .backq { background: #f472b6; color: #fff; border: 0; padding: 8px 16px; border-radius: 8px; font: 700 14px/1.2 var(--body); cursor: pointer; margin-right: 10px; } .backq.bottom { position: fixed; left: 12px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 60; box-shadow: 0 4px 14px rgba(244,114,182,.5); }
 .nowbadge { background: #fdf2f8; color: #be185d; border: 1px solid #f472b6; border-radius: 99px; padding: 1px 8px; margin-left: 6px; font: 700 11px/1.4 var(--body); white-space: nowrap; }
 .verdict { font: 700 18px/1.2 var(--display); letter-spacing: .03em; }
@@ -1949,6 +1949,51 @@ function figHTML(g) {
   if (!g || typeof g.f !== "string" || !/^[\w-]+(\/[\w.-]+)*\.(svg|png|jpe?g|webp)$/i.test(g.f) || g.f.includes("..")) return "";
   return `<figure class="exfig"><img src="fig/${esc(g.f)}" alt="${esc(g.alt || "")}" loading="lazy">${g.cap || g.credit ? `<figcaption>${g.cap ? esc(g.cap) : ""}${g.credit ? ` <span class="credit">${esc(g.credit)}</span>` : ""}</figcaption>` : ""}</figure>`;
 }
+// Turn the math part of an explanation formula ("A1 x v1 = A2 x v2, where ...") into LaTeX for KaTeX.
+function splitFormula(f) {
+  const m = f.match(/^(.*?)(?:,\s*|\s+)where\s+(.*)$/is);
+  return m ? { math: m[1].trim(), defs: m[2].trim() } : { math: f.trim(), defs: "" };
+}
+function texify(s) {
+  let t = s;
+  t = t.replace(/½/g, "\\frac{1}{2}").replace(/[−–]/g, "-").replace(/×/g, " \\times ").replace(/·/g, " \\cdot ").replace(/\u2260/g, " \\neq ").replace(/≈/g, " \\approx ").replace(/∝/g, " \\propto ").replace(/→/g, " \\to ").replace(/≤/g, " \\le ").replace(/≥/g, " \\ge ");
+  t = t.replace(/Δ/g, "\\Delta ").replace(/[µμ]/g, "\\mu ").replace(/π/g, "\\pi ").replace(/η/g, "\\eta ").replace(/ρ/g, "\\rho ").replace(/λ/g, "\\lambda ").replace(/τ/g, "\\tau ").replace(/θ/g, "\\theta ").replace(/ω/g, "\\omega ").replace(/Σ/g, "\\Sigma ");
+  t = t.replace(/√\s*\(([^)]*)\)/g, "\\sqrt{$1}").replace(/√(\w+)/g, "\\sqrt{$1}");
+  const sub = { "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4", "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9" }, sup = { "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁺": "+", "⁻": "-" };
+  t = t.replace(/([A-Za-z\)\]])([₀-₉]+)/g, (m, a, b) => a + "_{" + [...b].map(c => sub[c]).join("") + "}");
+  t = t.replace(/([A-Za-z0-9\)\]])([⁰¹²³⁴⁺⁻]+)/g, (m, a, b) => a + "^{" + [...b].map(c => sup[c]).join("") + "}");
+  t = t.replace(/\b([A-Za-z]+)(\d+)\b/g, "$1_{$2}");   // A1 -> A_{1}, O2 -> O_{2}
+  t = t.replace(/\^(\d+|\w)/g, "^{$1}");
+  t = t.replace(/([\w}\)\]])\s+x\s+(?=[\w(\\\[])/g, "$1 \\times ");          // "L x W" -> L \times W
+  t = t.replace(/\*/g, " \\cdot ");
+  t = t.replace(/([A-Za-z])_([A-Za-z]+)/g, "$1_{\\mathrm{$2}}");
+  t = t.replace(/%/g, "\\%").replace(/#/g, "\\#").replace(/&/g, "\\&").replace(/_(?!\{)/g, "\\_");
+  // multi-letter names (Vmax, Km, pKa, log, ratio ...) upright; keep single letters as math italics
+  t = t.replace(/(?<![\\A-Za-z])([A-Za-z]{2,})(?![A-Za-z]*\})/g, (m) => /^(log|ln|sin|cos|tan|exp|min|max)$/.test(m) ? "\\" + m : "\\mathrm{" + m + "}");
+  t = t.replace(/\\mathrm\{(times|cdot|Delta|mu|pi|eta|rho|lambda|tau|theta|omega|Sigma|sqrt|neq|approx|propto|to|le|ge)\}/g, "\\$1");
+  t = t.replace(/\\sqrt\(([^()]*)\)/g, "\\sqrt{$1}").replace(/\\mathrm\{(mu|sigma|alpha|beta|gamma|delta)\}/g, "\\$1");
+  return t;
+}
+
+// Prose-like "formulas" (several plain English words) stay as normal text; real formulas go to KaTeX.
+function texFormula(math) {
+  const words = (math.match(/\b[a-z]{3,}\b/g) || []).filter(w => !/^(log|sin|cos|tan|ln|min|max|sqrt|pka|vmax|kcat|mol|app)$/.test(w));
+  return words.length >= 2 ? "" : texify(math);
+}
+
+// KaTeX (vendored in vendor/katex, loaded the first time a formula is shown).
+let katexReady = null;
+function loadKatex() {
+  if (window.katex) return Promise.resolve();
+  return katexReady || (katexReady = new Promise((res, rej) => {
+    const l = document.createElement("link"); l.rel = "stylesheet"; l.href = "vendor/katex/katex.min.css"; document.head.appendChild(l);
+    const sc = document.createElement("script"); sc.src = "vendor/katex/katex.min.js"; sc.onload = res; sc.onerror = () => { katexReady = null; rej(); }; document.head.appendChild(sc);
+  }));
+}
+function renderKx(root) {
+  const els = $$(".kx[data-tex]", root).filter(n => n.dataset.tex); if (!els.length) return;
+  loadKatex().then(() => els.forEach(n => { try { n.innerHTML = katex.renderToString(n.dataset.tex, { throwOnError: true, strict: "ignore", displayMode: true }); n.classList.add("done"); } catch (e) { /* keep the plain-text formula */ } })).catch(() => {});
+}
 const GRAPHS = { bernoulli: "gen/bernoulli.svg", mm: "gen/mm-inhibition.svg", lb: "gen/lb-inhibition.svg", hb: "gen/hb-curves.svg" };
 const GRAPH_ALT = { bernoulli: "Continuity and Bernoulli: narrow section, faster flow, lower pressure", mm: "Michaelis–Menten curves with each type of inhibitor", lb: "Lineweaver–Burk lines with each type of inhibitor", hb: "Hemoglobin and myoglobin oxygen-binding curves" };
 function richExplainHTML(q, i, x) {
@@ -1963,7 +2008,7 @@ function richExplainHTML(q, i, x) {
     arr(x.fig).concat(GRAPHS[x.graph] ? [{ f: GRAPHS[x.graph], alt: GRAPH_ALT[x.graph], cap: GRAPH_ALT[x.graph] }] : []).map(figHTML).join("") +
     (others.length ? `<details class="exmore"><summary>Why the other choices are wrong</summary>${others.map(j => `<p><b>${L[j]}. ${e(q.o[j][0])}</b><br>${e(x.ox[j])}</p>`).join("")}</details>` : "") +
     (x.concept ? `<h5>The concept${x.concept.t ? `: ${e(x.concept.t)}` : ""}</h5>${arr(x.concept.p).map(p => `<p>${e(p)}</p>`).join("")}` : "") +
-    (fm.length ? `<h5>Formula, variables, substitution</h5>${fm.map(f => `<div class="fm"><p><b>Formula:</b> ${e(f.f)}</p>${f.v ? `<p><b>Variables:</b> ${e(f.v)}</p>` : ""}${f.s ? `<p><b>Substitution:</b> ${e(f.s)}</p>` : ""}${f.why ? `<p class="muted small"><b>Why this formula:</b> ${e(f.why)}</p>` : ""}${f.nc ? `<p class="muted small"><b>No calculator needed:</b> ${e(f.nc)}</p>` : ""}</div>`).join("")}` : "") +
+    (fm.length ? `<h5>Formula, variables, substitution</h5>${fm.map(f => `<div class="fm">${(sp => `<p><b>Formula:</b></p><div class="kx" data-tex="${e(texFormula(sp.math))}">${e(sp.math)}</div>${sp.defs ? `<p><b>Where:</b> ${e(sp.defs)}</p>` : ""}`)(splitFormula(f.f))}${f.v ? `<p><b>Variables:</b> ${e(f.v)}</p>` : ""}${f.s ? `<p><b>Substitution:</b> ${e(f.s)}</p>` : ""}${f.why ? `<p class="muted small"><b>Why this formula:</b> ${e(f.why)}</p>` : ""}${f.nc ? `<p class="muted small"><b>No calculator needed:</b> ${e(f.nc)}</p>` : ""}</div>`).join("")}` : "") +
     (fx.length ? `<h5>Formula</h5>${fx.map(f => `<div class="fx"><code>${e(f.f)}</code>${f.w ? `<span>${e(f.w)}</span>` : ""}</div>`).join("")}` : "") +
     (steps.length ? `<h5>Worked solution</h5><ol class="steps">${steps.map(t => `<li>${e(t)}</li>`).join("")}</ol>` : "") +
     (x.tb ? `<h5>Table</h5>${tableHTML(x.tb)}` : "") +
@@ -1978,8 +2023,8 @@ function upgradeExplain(rv, q, i, ok) {
   exEntry(q).then(x => {
     if (!x || !rv.isConnected) return;
     const box = $(".explain", rv);
-    if (box) { box.classList.add("rich"); box.innerHTML = richExplainHTML(q, i, x); return; }
-    if (ok) { const d = document.createElement("details"); d.className = "exmore explain rich"; d.innerHTML = `<summary>Show Deep Dive: plain words, memorize list, formulas</summary>${richExplainHTML(q, i, x)}`; const gb = document.createElement("button"); gb.className = "btn small ghost"; gb.textContent = "Did you guess? Show the full explanation"; gb.addEventListener("click", () => { d.open = true; gb.remove(); d.scrollIntoView({ block: "nearest" }); }); rv.insertBefore(gb, $(".row", rv) || null); const row = $(".row", rv); if (row) rv.insertBefore(d, row); else rv.appendChild(d); }
+    if (box) { box.classList.add("rich"); box.innerHTML = richExplainHTML(q, i, x); renderKx(box); return; }
+    if (ok) { const d = document.createElement("details"); d.className = "exmore explain rich"; d.innerHTML = `<summary>Show Deep Dive: plain words, memorize list, formulas</summary>${richExplainHTML(q, i, x)}`; renderKx(d); const gb = document.createElement("button"); gb.className = "btn small ghost"; gb.textContent = "Did you guess? Show the full explanation"; gb.addEventListener("click", () => { d.open = true; gb.remove(); d.scrollIntoView({ block: "nearest" }); }); rv.insertBefore(gb, $(".row", rv) || null); const row = $(".row", rv); if (row) rv.insertBefore(d, row); else rv.appendChild(d); }
   });
 }
 /* ---------- Anki queue: save missed questions, export them as a deck after a session ---------- */

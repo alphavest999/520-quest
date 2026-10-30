@@ -1,27 +1,386 @@
 {
  "_note": "Concept groups used when building redirect.json. If a retired question mentions any term in a group, surviving questions that mention a term from the same group get a score boost.",
- "histidine": ["histidine","imidazole","henderson","hasselbalch","isoelectric","net charge"],
- "gav-limp-fw": ["nonpolar","hydrophobic side chain","glycine","alanine","valine","leucine","isoleucine","methionine","proline","phenylalanine","tryptophan"],
- "stc-nqy": ["polar uncharged","serine","threonine","cysteine","asparagine","glutamine","tyrosine"],
- "acidic-aa": ["aspartate","glutamate","acidic side chain"],
- "basic-aa": ["lysine","arginine","basic side chain"],
- "competitive": ["competitive inhibitor","apparent km","competitive inhibition"],
- "noncompetitive": ["noncompetitive"],
- "uncompetitive": ["uncompetitive","parallel"],
- "lineweaver": ["lineweaver","double-reciprocal","x-intercept","y-intercept","1/v"],
- "michaelis": ["michaelis","vmax","kcat"],
- "myelin": ["myelin","multiple sclerosis","demyelinat","saltatory","oligodendrocyte","schwann"],
- "nernst": ["nernst","equilibrium potential","resting potential","hyperkalemia"],
- "action-potential": ["action potential","refractory","voltage-gated","threshold"],
- "synapse": ["synapse","neurotransmitter","acetylcholine","gaba"],
- "hardy-weinberg": ["hardy","allele frequenc","carrier frequenc"],
- "bernoulli": ["bernoulli","continuity","venturi","stenosis"],
- "poiseuille": ["poiseuille","viscosity","hematocrit"],
- "kinematics": ["free fall","projectile","acceleration","velocity"],
- "gravity": ["gravitational","orbit"],
- "hemoglobin": ["hemoglobin","myoglobin","p50","bohr","2,3-bpg"],
- "sds-page": ["sds-page","gel filtration","western blot","electrophoresis"],
- "nuclear-decay": ["beta decay","alpha decay","half-life","nuclide","positron"],
- "study-design": ["randomized","placebo","control group","confound"],
- "main-idea": ["main idea","central claim","primary purpose","thesis"]
+ "histidine": [
+  "histidine",
+  "imidazole",
+  "henderson",
+  "hasselbalch",
+  "isoelectric",
+  "net charge"
+ ],
+ "gav-limp-fw": [
+  "nonpolar",
+  "hydrophobic side chain",
+  "glycine",
+  "alanine",
+  "valine",
+  "leucine",
+  "isoleucine",
+  "methionine",
+  "proline",
+  "phenylalanine",
+  "tryptophan"
+ ],
+ "stc-nqy": [
+  "polar uncharged",
+  "serine",
+  "threonine",
+  "cysteine",
+  "asparagine",
+  "glutamine",
+  "tyrosine"
+ ],
+ "acidic-aa": [
+  "aspartate",
+  "glutamate",
+  "acidic side chain"
+ ],
+ "basic-aa": [
+  "lysine",
+  "arginine",
+  "basic side chain"
+ ],
+ "competitive": [
+  "competitive inhibitor",
+  "apparent km",
+  "competitive inhibition"
+ ],
+ "noncompetitive": [
+  "noncompetitive"
+ ],
+ "uncompetitive": [
+  "uncompetitive",
+  "parallel"
+ ],
+ "lineweaver": [
+  "lineweaver",
+  "double-reciprocal",
+  "x-intercept",
+  "y-intercept",
+  "1/v"
+ ],
+ "michaelis": [
+  "michaelis",
+  "vmax",
+  "kcat"
+ ],
+ "myelin": [
+  "myelin",
+  "multiple sclerosis",
+  "demyelinat",
+  "saltatory",
+  "oligodendrocyte",
+  "schwann"
+ ],
+ "nernst": [
+  "nernst",
+  "equilibrium potential",
+  "resting potential",
+  "hyperkalemia"
+ ],
+ "action-potential": [
+  "action potential",
+  "refractory",
+  "voltage-gated",
+  "threshold"
+ ],
+ "synapse": [
+  "synapse",
+  "neurotransmitter",
+  "acetylcholine",
+  "gaba"
+ ],
+ "hardy-weinberg": [
+  "hardy",
+  "allele frequenc",
+  "carrier frequenc"
+ ],
+ "bernoulli": [
+  "bernoulli",
+  "continuity",
+  "venturi",
+  "stenosis"
+ ],
+ "poiseuille": [
+  "poiseuille",
+  "viscosity",
+  "hematocrit"
+ ],
+ "kinematics": [
+  "free fall",
+  "projectile",
+  "acceleration",
+  "velocity"
+ ],
+ "gravity": [
+  "gravitational",
+  "orbit"
+ ],
+ "hemoglobin": [
+  "hemoglobin",
+  "myoglobin",
+  "p50",
+  "bohr",
+  "2,3-bpg"
+ ],
+ "sds-page": [
+  "sds-page",
+  "gel filtration",
+  "western blot",
+  "electrophoresis"
+ ],
+ "nuclear-decay": [
+  "beta decay",
+  "alpha decay",
+  "half-life",
+  "nuclide",
+  "positron"
+ ],
+ "study-design": [
+  "randomized",
+  "placebo",
+  "control group",
+  "confound"
+ ],
+ "main-idea": [
+  "main idea",
+  "central claim",
+  "primary purpose",
+  "thesis"
+ ],
+ "membrane-transport": [
+  "diffusion",
+  "osmosis",
+  "active transport",
+  "channel",
+  "atpase"
+ ],
+ "cell-signaling": [
+  "receptor",
+  "second messenger",
+  "g protein",
+  "kinase",
+  "ligand"
+ ],
+ "cell-cycle": [
+  "cell cycle",
+  "mitosis",
+  "checkpoint",
+  "cyclin",
+  "anaphase"
+ ],
+ "apoptosis-cancer": [
+  "apoptosis",
+  "oncogene",
+  "tumor",
+  "p53"
+ ],
+ "development": [
+  "differentiation",
+  "stem cell",
+  "embryo",
+  "gastrulation"
+ ],
+ "viruses": [
+  "virus",
+  "retrovirus",
+  "capsid",
+  "lytic",
+  "lysogenic"
+ ],
+ "bacteria": [
+  "bacteria",
+  "plasmid",
+  "conjugation",
+  "operon"
+ ],
+ "circuits": [
+  "resistor",
+  "series",
+  "parallel",
+  "ohm",
+  "capacitor"
+ ],
+ "electrochem": [
+  "galvanic",
+  "electrolytic",
+  "anode",
+  "cathode",
+  "cell potential"
+ ],
+ "optics": [
+  "lens",
+  "mirror",
+  "refraction",
+  "focal",
+  "snell"
+ ],
+ "sound": [
+  "doppler",
+  "decibel",
+  "frequency",
+  "resonance"
+ ],
+ "beer-lambert": [
+  "absorbance",
+  "beer",
+  "extinction",
+  "cuvette"
+ ],
+ "colligative": [
+  "colligative",
+  "molality",
+  "boiling point",
+  "freezing point",
+  "raoult"
+ ],
+ "buffers": [
+  "buffer",
+  "henderson",
+  "titration",
+  "half-equivalence"
+ ],
+ "thermo": [
+  "enthalpy",
+  "entropy",
+  "gibbs",
+  "spontaneous",
+  "hess"
+ ],
+ "kinetics": [
+  "rate law",
+  "activation energy",
+  "catalyst",
+  "rate constant"
+ ],
+ "equilibrium": [
+  "le chatelier",
+  "keq",
+  "reaction quotient"
+ ],
+ "carbonyl": [
+  "carbonyl",
+  "aldehyde",
+  "ketone",
+  "aldol",
+  "grignard"
+ ],
+ "sn1-sn2": [
+  "sn1",
+  "sn2",
+  "nucleophile",
+  "leaving group",
+  "elimination"
+ ],
+ "sugars": [
+  "glucose",
+  "anomer",
+  "glycosidic",
+  "carbohydrate"
+ ],
+ "vision": [
+  "retina",
+  "rod",
+  "cone",
+  "fovea"
+ ],
+ "hearing": [
+  "cochlea",
+  "hair cell",
+  "auditory",
+  "vestibular"
+ ],
+ "signal-detection": [
+  "signal detection",
+  "weber",
+  "threshold",
+  "attention"
+ ],
+ "conditioning": [
+  "classical conditioning",
+  "operant",
+  "reinforcement",
+  "extinction",
+  "blocking"
+ ],
+ "memory": [
+  "working memory",
+  "encoding",
+  "retrieval",
+  "schema"
+ ],
+ "stress-emotion": [
+  "amygdala",
+  "james-lange",
+  "cannon-bard",
+  "appraisal",
+  "stress"
+ ],
+ "personality-dev": [
+  "erikson",
+  "freud",
+  "kohlberg",
+  "attachment",
+  "piaget"
+ ],
+ "conformity": [
+  "asch",
+  "milgram",
+  "obedience",
+  "groupthink",
+  "polarization"
+ ],
+ "persuasion": [
+  "elaboration likelihood",
+  "central route",
+  "cognitive dissonance",
+  "attitude"
+ ],
+ "attribution": [
+  "fundamental attribution",
+  "actor-observer",
+  "self-serving",
+  "just-world"
+ ],
+ "prejudice": [
+  "stereotype",
+  "prejudice",
+  "implicit",
+  "in-group",
+  "ethnocentrism"
+ ],
+ "self-concept": [
+  "self-efficacy",
+  "locus of control",
+  "self-esteem",
+  "learned helplessness"
+ ],
+ "social-theory": [
+  "functionalism",
+  "conflict theory",
+  "symbolic interaction",
+  "durkheim",
+  "weber",
+  "mcdonaldization"
+ ],
+ "deviance": [
+  "anomie",
+  "strain theory",
+  "labeling",
+  "differential association"
+ ],
+ "demography": [
+  "demographic transition",
+  "birth rate",
+  "fertility",
+  "mortality",
+  "age structure"
+ ],
+ "inequality": [
+  "cultural capital",
+  "social mobility",
+  "fundamental cause",
+  "stratification",
+  "meritocracy"
+ ]
 }
