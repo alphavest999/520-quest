@@ -143,6 +143,7 @@ button { cursor: pointer; }
 .btn.small { padding: 7px 10px; font-size: 13px; }
 .btn:disabled { opacity: .45; cursor: default; }
 .explain .fm { border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #f8fafc; color: #0f172a; } .explain .fm p { margin: 4px 0; } .explain .mem { margin: 4px 0 8px; padding-left: 20px; } .explain .eli { background: #fdf2f8; border-radius: 10px; padding: 8px 12px; }
+.backq { background: #f472b6; color: #fff; border: 0; padding: 8px 16px; border-radius: 8px; font: 700 14px/1.2 var(--body); cursor: pointer; margin-right: 10px; } .backq.bottom { position: fixed; left: 12px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 60; box-shadow: 0 4px 14px rgba(244,114,182,.5); }
 .verdict { font: 700 18px/1.2 var(--display); letter-spacing: .03em; }
 .verdict.ok { color: var(--good); }
 .verdict.no { color: var(--bad); }
@@ -2412,6 +2413,10 @@ function openSheet(id, ret) {
   const v = $("#sheetView"), mark = `520quest.com · ${S.pro ? "Subscriber" : "Preview"} copy · ${new Date().toISOString().slice(0, 10)}`;
   v.innerHTML = `<div class="sv-top"><h2>${esc(meta.id)}: ${esc(meta.title)}</h2><button class="svclose" data-svclose aria-label="Close sheet"><span aria-hidden="true">✕</span> Close</button></div><div class="sv-body"><div class="sv-doc"><p class="muted">Loading…</p></div></div>`;
   v.hidden = false; v.dataset.id = id; document.body.style.overflow = "hidden";
+  if (ret && ret.fromQ) {
+    const bq = `<button class="backq" data-backq="${esc(ret.fromQ)}">Back to Question</button>`;
+    $(".sv-top", v).insertAdjacentHTML("afterbegin", bq); v.insertAdjacentHTML("beforeend", bq.replace('class="backq"', 'class="backq bottom"'));
+  }
   (meta.free ? fetch("sheets/" + encodeURIComponent(id) + ".json").then(r => { if (!r.ok) throw 0; return r.json(); }) : openSealed(id)).then(d => {
     if (v.hidden) return;
     const doc = $(".sv-doc", v); doc.innerHTML = d.html + `<div class="sv-wm" style="background-image:${wmImage(mark)}"></div>`;
@@ -2427,8 +2432,20 @@ function openSheet(id, ret) {
   }).catch(() => { $(".sv-doc", v).innerHTML = adminNoKey() ? `<p>Admin is on, but this sheet is encrypted and the content key is missing. Add <code>content_key</code> to play/admin-private.json.</p>` : `<p>This sheet couldn't load. Check your connection and try again.</p>`; });
 }
 function closeSheet() { const v = $("#sheetView"); v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; }
+// Sheets still point at some questions that were retired from the bank; open a question from the same category instead of a dead link.
+const catOfId = id => (String(id).match(/^x(\w+?)_\d+$/) || String(id).match(/^d_(\w+?)_\d+$/) || [])[1] || null;
+function fallbackQ(id) {
+  const cat = catOfId(id); if (!cat) return null;
+  const pool = QUESTIONS.filter(q => q.c === cat).sort((a, b) => (a.id < b.id ? -1 : 1));
+  return pool.length ? pool[(parseInt(String(id).match(/(\d+)$/)[1], 10) || 0) % pool.length] : null;
+}
 $("#sheetView").addEventListener("click", async e => {
   if (e.target.closest("[data-svclose]")) return closeSheet();
+  const bq = e.target.closest("[data-backq]");
+  if (bq) { // back to the question card the sheet was opened from; the feed is untouched so the answer and explanation are still showing
+    closeSheet(); const c = feed.querySelector(`[data-id="${CSS.escape(bq.dataset.backq)}"]`) || feed.querySelector(`[data-pid="${CSS.escape(bq.dataset.backq.replace(/_\d+$/, ""))}"]`);
+    if (c) c.scrollIntoView({ block: "start" }); return;
+  }
   const q = e.target.closest("[data-q]"); if (!q) return;
   if (!PASSAGES.some(p => p.id === q.dataset.q) && !anyQ(q.dataset.q)) await bankReady.catch(() => {}); // extra questions and passages may still be loading
   const sb = $(".sv-body"), top = sb ? sb.scrollTop : 0, same = $$(`.sv-doc .qref[data-q="${CSS.escape(q.dataset.q)}"]`);
@@ -2438,7 +2455,8 @@ $("#sheetView").addEventListener("click", async e => {
     if (!(S.pro || psg.qs.some(x => S.stats[x.id]) || !overFree())) { closeSheet(); return showPro(); }
     closeSheet(); go("scroll"); const c = passageCard(psg); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill(); return;
   }
-  const item = anyQ(q.dataset.q); if (!item) return toast("That question is still loading. Try again in a moment.");
+  const item = anyQ(q.dataset.q) || fallbackQ(q.dataset.q);
+  if (!item) { const cat = catOfId(q.dataset.q), fp = PASSAGES.find(p => p.c === cat && p.s !== "CARS"); if (fp) { closeSheet(); go("scroll"); const c = passageCard(fp); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill(); return; } return toast("That question is still loading. Try again in a moment."); }
   if (!canOpen(item)) { closeSheet(); return showPro(); }
   closeSheet(); go("scroll"); sessionSeen.add(item.id);
   const c = questionCard(item, false); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill();
@@ -2475,7 +2493,12 @@ document.addEventListener("click", e => {
   if (e.target.closest("[data-pro2]")) return setTimeout(showPro, 50);
   const sq = e.target.closest("[data-startq]"); if (sq) { const n = sq.closest(".card").nextElementSibling; if (n) scrollToEl(n); return; }
   if (e.target.closest("[data-gocourse]")) { $("#sheetHost").innerHTML = ""; return go("course"); }
-  const sb = e.target.closest("[data-sheet]"); if (sb && !e.target.closest("#sheetView")) return openSheet(sb.dataset.sheet);
+  const sb = e.target.closest("[data-sheet]");
+  if (sb && !e.target.closest("#sheetView")) {
+    const card = sb.closest("[data-id], [data-pid]"), qid = card && (card.dataset.id || card.dataset.pid);
+    if (qid) { try { localStorage.setItem("quest520.lastQbankId", qid); } catch (x) {} }
+    return openSheet(sb.dataset.sheet, qid ? { id: sb.dataset.sheet, q: qid, n: 0, dy: 90, top: 0, fromQ: qid } : undefined);
+  }
 });
 let MN = null, mnView = { s: "home" };
 const MN_CATS = ["Chem/Phys", "Bio/Biochem", "Psych/Soc", "CARS"];
