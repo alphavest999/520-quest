@@ -78,8 +78,11 @@
     root().innerHTML = `<h2 class="title">Timed exams</h2><p class="sub">Sit a section under real timing: countdown, pause, flag, end-of-section review and a scaled score estimate. Full-lengths run Chem/Phys, CARS, Bio/Biochem, Psych/Soc with breaks. Mini exams are one section.</p>
       ${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> Mini 1 is free. Plans unlock all 10 full-lengths and the other 9 minis.</p><button class="btn small pro" data-pro>See plans</button></div>`}
       <h3 class="xh">Full-length exams</h3><div class="xgrid">${fl.map(card).join("")}</div>
-      <h3 class="xh">Mini exams</h3><div class="xgrid">${mn.map(card).join("")}</div>
+      <h3 class="xh" id="mini-exams">Mini exams</h3><div class="xgrid">${mn.map(card).join("")}</div>
       <p class="small muted" style="margin-top:14px">Scaled scores are estimates: the AAMC does not publish conversion tables, so each section maps percent correct to 118-132 on a typical curve.</p>`;
+    const a = window.EXAM_ANCHOR; window.EXAM_ANCHOR = "";
+    const t = a && root().querySelector("#" + a);
+    if (t) requestAnimationFrame(() => t.scrollIntoView({ behavior: "smooth", block: "start" })); else root().scrollTop = 0;
   }
 
   /* ---------- sections ---------- */
