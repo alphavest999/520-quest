@@ -1879,7 +1879,9 @@ function questionCard(q, rev, tgt) {
   q = shuf(q);
   const el = document.createElement("article"); el.className = "card q"; el.dataset.id = q.id;
   const cat = CAT[q.c];
-  el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[q.s].name}</span><span class="tag">${q.c}${cat.hy ? " ★" : ""}</span>${rev ? '<span class="tag rev">Revenge</span>' : ""}${tgt ? '<span class="tag target" title="The adaptive engine picked this from one of your weakest areas">Weak area</span>' : ""}${diffDots(q.d)}</div>
+  const pass = q.pid && (PASSAGES.find(x=>x.id===q.pid) || EXAM.passages.find(x=>x.id===q.pid) || null);
+  const passageExpand = pass ? `<details class="passage-expand" style="margin:8px 0;background:var(--bg-soft);padding:8px 10px;border-radius:8px"><summary style="cursor:pointer">📄 Show passage: ${esc(pass.title)}</summary><div class="passage" style="margin-top:8px">${pass.text.map(t=>`<p>${esc(t)}</p>`).join("")}</div>${(pass.tbl ? [].concat(pass.tbl) : []).map(t=>tableHTML(t)).join("")}${graphHTML(pass.graph)}</details>` : "";
+  el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[q.s].name}</span><span class="tag">${q.c}${cat.hy ? " ★" : ""}</span>${rev ? '<span class="tag rev">Revenge</span>' : ""}${tgt ? '<span class="tag target" title="The adaptive engine picked this from one of your weakest areas">Weak area</span>' : ""}${diffDots(q.d)}</div>${passageExpand}
     <h2 class="stem">${q.q}</h2><div class="opts">${optsHTML(q)}</div>
     <div class="row tools"><button class="btn small ghost" data-hint ${S.hints ? "" : "disabled"}>Hint (${S.hints})</button><span class="muted small">${esc(cat.title)}</span></div>
     <div class="reveal stack" hidden></div>${SWIPE}`;
@@ -2019,12 +2021,35 @@ function richExplainHTML(q, i, x) {
 }
 // Upgrade a revealed explanation in place once its category file arrives.
 function upgradeExplain(rv, q, i, ok) {
+  const ensureGuessBtn = (detailsEl) => {
+    if (!ok) return;
+    if (rv.querySelector('[data-guessbtn]')) return;
+    const gb = document.createElement("button"); gb.className = "btn small ghost"; gb.dataset.guessbtn="1"; gb.textContent = "Did you guess? Show the full explanation";
+    gb.addEventListener("click", () => { detailsEl.open = true; gb.remove(); detailsEl.scrollIntoView({ block: "nearest" }); });
+    rv.insertBefore(gb, $(".row", rv) || null);
+  };
   exEntry(q).then(x => {
-    if (!x || !rv.isConnected) return;
+    if (!rv.isConnected) return;
+    if (!x) {
+      if (ok && !rv.querySelector('details.exmore')) {
+        const d = document.createElement("details"); d.className = "exmore explain rich"; d.innerHTML = `<summary>Show Deep Dive</summary><p class="muted">Full explanation loading...</p>`;
+        const row = $(".row", rv); if (row) rv.insertBefore(d, row); else rv.appendChild(d);
+        ensureGuessBtn(d);
+      }
+      return;
+    }
     const box = $(".explain", rv);
-    if (box) { box.classList.add("rich"); box.innerHTML = richExplainHTML(q, i, x); renderKx(box); return; }
-    if (ok) { const d = document.createElement("details"); d.className = "exmore explain rich"; d.innerHTML = `<summary>Show Deep Dive: plain words, memorize list, formulas</summary>${richExplainHTML(q, i, x)}`; renderKx(d); const gb = document.createElement("button"); gb.className = "btn small ghost"; gb.textContent = "Did you guess? Show the full explanation"; gb.addEventListener("click", () => { d.open = true; gb.remove(); d.scrollIntoView({ block: "nearest" }); }); rv.insertBefore(gb, $(".row", rv) || null); const row = $(".row", rv); if (row) rv.insertBefore(d, row); else rv.appendChild(d); }
+    if (box) { box.classList.add("rich"); box.innerHTML = richExplainHTML(q, i, x); renderKx(box);
+      if (ok && !rv.querySelector('details.exmore.rich')) {
+        const d = document.createElement("details"); d.className = "exmore explain rich"; d.innerHTML = `<summary>Show Deep Dive: plain words, memorize list, formulas</summary>${richExplainHTML(q, i, x)}`; renderKx(d);
+        const row = $(".row", rv); if (row) rv.insertBefore(d, row); else rv.appendChild(d);
+        ensureGuessBtn(d);
+      }
+      return;
+    }
+    if (ok) { const d = document.createElement("details"); d.className = "exmore explain rich"; d.innerHTML = `<summary>Show Deep Dive: plain words, memorize list, formulas</summary>${richExplainHTML(q, i, x)}`; renderKx(d); ensureGuessBtn(d); const row = $(".row", rv); if (row) rv.insertBefore(d, row); else rv.appendChild(d); }
   });
+  if (ok && !rv.querySelector && false) {}
 }
 /* ---------- Anki queue: save missed questions, export them as a deck after a session ---------- */
 const inAnki = id => S.anki.includes(id);
