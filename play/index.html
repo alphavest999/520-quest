@@ -1827,7 +1827,7 @@ function nextCard() {
   const nextP = cars[passI % cars.length], pFits = fits(nextP);
   if (sec === "CARS") { if (!pFits) { if (gateShown) return null; gateShown = true; return gateCard(); } passI++; return passageCard(nextP); }
   if (S.kind === "passage") {
-    let sp = nextSciPassage(sec); if (!sp) { PASSAGES.forEach(p => sessionSeen.delete(p.id)); sp = nextSciPassage(sec); }
+    let sp = nextSciPassage(sec); if (!sp) { return null; }
     if (sp && fits(sp)) return passageCard(sp);
     if (sec === "ALL" && pFits) { passI++; return passageCard(nextP); }
     if (gateShown) return null; gateShown = true; return gateCard();
@@ -1839,19 +1839,30 @@ function nextCard() {
   if (!S.focus && cardN % 5 === 0) return (cardN / 5) % 2 ? factCard() : trapCard();
   const pick = pickQuestion();
   if (!pick) {   // nothing stand-alone in this drill: serve its passages instead
-    let sp = nextSciPassage(sec); if (!sp) { PASSAGES.forEach(p => sessionSeen.delete(p.id)); sp = nextSciPassage(sec); }
+    let sp = nextSciPassage(sec); if (!sp) { return null; }
     return sp && fits(sp) ? passageCard(sp) : null;
   }
   const [q, rev, tgt] = pick; sessionSeen.add(q.id);
   if (!canOpen(q)) { if (gateShown) return null; gateShown = true; return gateCard(); }
   return questionCard(q, rev, tgt);
 }
-// Science passages: an unanswered one from the current section or sheet, shown once per session.
+// Science passages: UNIQUE forever - never repeat until bank exhausted
 function nextSciPassage(sec) {
-  const ok = p => p.s !== "CARS" && !sessionSeen.has(p.id) && (S.focus ? p.c === S.focus : sec === "ALL" || p.s === sec) && (!S.sub || stOf(p) === S.sub);
-  const list = PASSAGES.filter(ok), p = list.find(p => !p.qs.some(q => S.stats[q.id])) || list[0];
-  if (p) sessionSeen.add(p.id);
-  return p;
+  const ok = p => {
+    if (p.s === "CARS") return false;
+    if (sessionSeen.has(p.id)) return false;
+    if (S.focus ? p.c !== S.focus : sec !== "ALL" && p.s !== sec) return false;
+    if (S.sub && stOf(p) !== S.sub) return false;
+    if (p.qs.every(q => S.stats[q.id])) return false;
+    return true;
+  };
+  const list = PASSAGES.filter(ok);
+  if (!list.length) return null;
+  const unanswered = list.filter(p => !p.qs.some(q => S.stats[q.id]));
+  const pool = unanswered.length ? unanswered : list;
+  const chosen = pool[Math.floor(Math.random()*pool.length)];
+  if (chosen) sessionSeen.add(chosen.id);
+  return chosen;
 }
 function fill(n = 3) { for (let i = 0; i < n; i++) { const c = nextCard(); if (!c) break; feed.appendChild(c); io.observe(c); } watchEnd(); }
 function resetFeed() { feed.innerHTML = ""; cardN = 0; gateShown = false; reviewEnded = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
