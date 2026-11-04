@@ -16,6 +16,15 @@ const ev = (name: string, attrs: Record<string, unknown> = {}, meta: Record<stri
 });
 const cfg = parseConfig(ENV);
 
+test("product ids map to plans when no variant ids are set", async () => {
+  const pc = parseConfig({ LS_PRODUCT_MONTHLY: "71", LS_PRODUCT_SIXMONTH: "72", LS_PRODUCT_YEARLY: "73", LS_MODE: "test" });
+  for (const [product, plan] of [[71, "monthly"], [72, "sixmonth"], [73, "yearly"]] as const) {
+    const d = await decide(ev("subscription_created", { product_id: product, variant_id: 999 }), pc);
+    assert.equal(d.kind, "apply"); assert.equal((d as any).plan, plan);
+  }
+  assert.equal((await decide(ev("subscription_created", { product_id: 70, variant_id: 999 }), pc)).kind, "ignore");
+});
+
 test("signature: valid, wrong secret, tampered body, junk", async () => {
   const raw = JSON.stringify(ev("subscription_created"));
   assert.equal(await verifySignature(raw, sign(raw), SECRET), true);

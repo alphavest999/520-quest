@@ -18,7 +18,7 @@ export async function handleRequest(
   try { body = JSON.parse(raw); } catch { return json(400, { ok: false, error: "bad json" }); }
 
   const cfg = parseConfig(env);
-  if (!Object.keys(cfg.variants).length) return json(500, { ok: false, error: "no LS_VARIANT_* set" });
+  if (!Object.keys(cfg.variants).length && !Object.keys(cfg.products).length) return json(500, { ok: false, error: "no LS_PRODUCT_* or LS_VARIANT_* set" });
   const d = await decide(body, cfg);
   if (d.kind === "ignore") return json(200, { ok: true, ignored: d.reason }); // 2xx so Lemon Squeezy does not retry
 

@@ -14,14 +14,15 @@ Handled events: `subscription_created`, `_updated`, `_resumed`, `_unpaused`, `_c
 ## One-time setup (test mode)
 
 1. **Database:** run `supabase/002_payments.sql` in the Supabase SQL Editor.
-2. **Lemon Squeezy:** turn on **Test mode** (top of the dashboard). Create three subscription products (Monthly $14.99, 6 Months $44.99, Yearly $59.99). For each, note the **variant id** (Product > Variants) and copy the **checkout link** (Share).
-3. **Deploy the function** (Supabase CLI, linked to the project):
+2. **Lemon Squeezy:** turn on **Test mode** (top of the dashboard). Create three subscription products (Monthly $14.99, 6 Months $44.99, Yearly $59.99). For each, note the **product id** (Products list, the product's ⋯ menu) and copy the **checkout link** (Share).
+3. **Deploy the function.** Without the CLI: Supabase > Edge Functions > Deploy a new function > Via Editor, name it `lemon-webhook`, paste all of `single-file.ts` (built by `node bundle.mjs`), deploy, then turn **Verify JWT** off in the function's settings and add the secrets below under Edge Functions > Secrets. With the CLI:
    ```
    supabase functions deploy lemon-webhook --no-verify-jwt
    supabase secrets set LS_WEBHOOK_SECRET=<a long random string you choose> \
-     LS_VARIANT_MONTHLY=<id> LS_VARIANT_SIXMONTH=<id> LS_VARIANT_YEARLY=<id> LS_MODE=test
+     LS_PRODUCT_MONTHLY=<id> LS_PRODUCT_SIXMONTH=<id> LS_PRODUCT_YEARLY=<id> LS_MODE=test
    ```
-   `--no-verify-jwt` is required: Lemon Squeezy has no Supabase login, and the signature check is what protects the endpoint. `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are provided automatically.
+   `LS_VARIANT_MONTHLY` / `_SIXMONTH` / `_YEARLY` work too, if you prefer variant ids. If an id is wrong, the delivery's response in Lemon Squeezy's webhook log says `unknown product <id>`, which tells you the right one.
+   Turning JWT verification off is required: Lemon Squeezy has no Supabase login, and the signature check is what protects the endpoint. `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are provided automatically.
 4. **Webhook:** Lemon Squeezy > Settings > Webhooks > add `https://<project-ref>.supabase.co/functions/v1/lemon-webhook`, signing secret = the same `LS_WEBHOOK_SECRET`, and tick the seven subscription events above.
 5. **App:** in `play/index.html` paste the three test-mode checkout links into `testUrl` of `CONFIG.plans`. They are used only on `localhost` (or after opening the app once with `?paytest=1`), so real visitors never see them.
 
@@ -36,7 +37,7 @@ Then check `select email, plan, plan_since from profiles` and `select * from pay
 ## Going live
 
 1. Create the same three products in live mode, put their checkout links in `url` of `CONFIG.plans` and in `config.js`.
-2. Add a second webhook in live mode (same URL, same signing secret: you choose the secret yourself) and update the three `LS_VARIANT_*` ids to the live variants, which differ from the test ones.
+2. Add a second webhook in live mode (same URL, same signing secret: you choose the secret yourself) and update the three `LS_PRODUCT_*` ids to the live products, which differ from the test ones.
 3. `supabase secrets set LS_MODE=live`. In `live` mode test events are ignored; in `test` mode live events are ignored; `both` accepts either.
 
 ## Run the tests locally
