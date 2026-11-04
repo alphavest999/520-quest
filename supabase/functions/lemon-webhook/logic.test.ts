@@ -16,6 +16,15 @@ const ev = (name: string, attrs: Record<string, unknown> = {}, meta: Record<stri
 });
 const cfg = parseConfig(ENV);
 
+test("product ids map to plans when no variant ids are set", async () => {
+  const pc = parseConfig({ LS_PRODUCT_MONTHLY: "71", LS_PRODUCT_SIXMONTH: "72", LS_PRODUCT_YEARLY: "73", LS_MODE: "test" });
+  for (const [product, plan] of [[71, "monthly"], [72, "sixmonth"], [73, "yearly"]] as const) {
+    const d = await decide(ev("subscription_created", { product_id: product, variant_id: 999 }), pc);
+    assert.equal(d.kind, "apply"); assert.equal((d as any).plan, plan);
+  }
+  assert.equal((await decide(ev("subscription_created", { product_id: 70, variant_id: 999 }), pc)).kind, "ignore");
+});
+
 test("signature: valid, wrong secret, tampered body, junk", async () => {
   const raw = JSON.stringify(ev("subscription_created"));
   assert.equal(await verifySignature(raw, sign(raw), SECRET), true);
@@ -100,4 +109,14 @@ test("handler: a database failure returns 500 so Lemon Squeezy retries; missing 
   const req = () => new Request("https://f/", { method: "POST", body: raw, headers: { "x-signature": sign(raw) } });
   assert.equal((await handleRequest(req(), ENV, failing)).status, 500);
   assert.equal((await handleRequest(req(), { ...ENV, LS_WEBHOOK_SECRET: undefined }, failing)).status, 500);
+});
+
+test("handler: new-style secret key from SUPABASE_SECRET_KEYS goes in apikey only", async () => {
+  const calls: any[] = [];
+  const f = (async (url: string, init: any) => { calls.push(init); return new Response('"applied"'); }) as unknown as typeof fetch;
+  const raw = JSON.stringify(ev("subscription_created"));
+  const env = { ...ENV, SUPABASE_SERVICE_ROLE_KEY: undefined, SUPABASE_SECRET_KEYS: '{"default":"sb_secret_abc"}' };
+  const r = await handleRequest(new Request("https://f/", { method: "POST", body: raw, headers: { "x-signature": sign(raw) } }), env, f);
+  assert.equal(r.status, 200);
+  assert.equal(calls[0].headers.apikey, "sb_secret_abc"); assert.equal(calls[0].headers.authorization, undefined);
 });

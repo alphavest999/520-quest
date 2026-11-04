@@ -3,6 +3,15 @@ import { decide, parseConfig, verifySignature } from "./logic.ts";
 const json = (status: number, body: unknown) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } });
 
+// Projects on the new API keys get SUPABASE_SECRET_KEYS (JSON: name -> key); older ones get SUPABASE_SERVICE_ROLE_KEY.
+export function serviceKey(env: Record<string, string | undefined>): string | undefined {
+  if (env.SUPABASE_SERVICE_ROLE_KEY) return env.SUPABASE_SERVICE_ROLE_KEY;
+  try {
+    const all = JSON.parse(env.SUPABASE_SECRET_KEYS || "{}");
+    return all.default || Object.values(all).find((v) => typeof v === "string") as string | undefined;
+  } catch { return undefined; }
+}
+
 // Takes the environment and fetch as arguments so it can be tested without Deno.
 export async function handleRequest(
   req: Request, env: Record<string, string | undefined>, fetchFn: typeof fetch,
@@ -18,15 +27,18 @@ export async function handleRequest(
   try { body = JSON.parse(raw); } catch { return json(400, { ok: false, error: "bad json" }); }
 
   const cfg = parseConfig(env);
-  if (!Object.keys(cfg.variants).length) return json(500, { ok: false, error: "no LS_VARIANT_* set" });
+  if (!Object.keys(cfg.variants).length && !Object.keys(cfg.products).length) return json(500, { ok: false, error: "no LS_PRODUCT_* or LS_VARIANT_* set" });
   const d = await decide(body, cfg);
   if (d.kind === "ignore") return json(200, { ok: true, ignored: d.reason }); // 2xx so Lemon Squeezy does not retry
 
-  const url = env.SUPABASE_URL, key = env.SUPABASE_SERVICE_ROLE_KEY;
+  const url = env.SUPABASE_URL, key = serviceKey(env);
   if (!url || !key) return json(500, { ok: false, error: "Supabase env missing" });
+  // New-style sb_secret_ keys go in apikey only; legacy service_role JWTs also go in Authorization.
+  const headers: Record<string, string> = { apikey: key, "content-type": "application/json" };
+  if (!key.startsWith("sb_")) headers.authorization = `Bearer ${key}`;
   const r = await fetchFn(`${url}/rest/v1/rpc/apply_payment`, {
     method: "POST",
-    headers: { apikey: key, authorization: `Bearer ${key}`, "content-type": "application/json" },
+    headers,
     body: JSON.stringify({
       p_event_key: d.eventKey, p_event_name: d.eventName, p_user: d.userId, p_email: d.email, p_plan: d.plan,
       p_event_time: d.eventTime, p_subscription: d.subscriptionId, p_test: d.test,

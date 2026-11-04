@@ -2,7 +2,7 @@
 
 export type Plan = "free" | "monthly" | "sixmonth" | "yearly";
 export type Mode = "test" | "live" | "both";
-export interface Config { variants: Record<string, Plan>; mode: Mode }
+export interface Config { variants: Record<string, Plan>; products: Record<string, Plan>; mode: Mode }
 export interface Applied {
   kind: "apply"; plan: Plan; userId: string | null; email: string | null;
   subscriptionId: string | null; eventTime: string; eventKey: string; eventName: string; test: boolean;
@@ -19,13 +19,17 @@ const HANDLED = new Set([
 ]);
 
 export function parseConfig(env: Record<string, string | undefined>): Config {
-  const variants: Record<string, Plan> = {};
-  const add = (id: string | undefined, plan: Plan) => { if (id && id.trim()) variants[id.trim()] = plan; };
-  add(env.LS_VARIANT_MONTHLY, "monthly");
-  add(env.LS_VARIANT_SIXMONTH, "sixmonth");
-  add(env.LS_VARIANT_YEARLY, "yearly");
+  // Plans are matched by variant id or, more simply, by product id (one product per plan). Either works.
+  const variants: Record<string, Plan> = {}, products: Record<string, Plan> = {};
+  const add = (to: Record<string, Plan>, id: string | undefined, plan: Plan) => { if (id && id.trim()) to[id.trim()] = plan; };
+  add(variants, env.LS_VARIANT_MONTHLY, "monthly");
+  add(variants, env.LS_VARIANT_SIXMONTH, "sixmonth");
+  add(variants, env.LS_VARIANT_YEARLY, "yearly");
+  add(products, env.LS_PRODUCT_MONTHLY, "monthly");
+  add(products, env.LS_PRODUCT_SIXMONTH, "sixmonth");
+  add(products, env.LS_PRODUCT_YEARLY, "yearly");
   const m = (env.LS_MODE || "live").toLowerCase();
-  return { variants, mode: m === "test" || m === "both" ? (m as Mode) : "live" };
+  return { variants, products, mode: m === "test" || m === "both" ? (m as Mode) : "live" };
 }
 
 function hexToBytes(hex: string): Uint8Array | null {
@@ -60,8 +64,8 @@ export async function decide(body: any, cfg: Config, now: number = Date.now()): 
   const attrs = body?.data?.attributes;
   const id = body?.data?.id;
   if (!attrs || id == null) return { kind: "ignore", reason: "no subscription data" };
-  const planOfVariant = cfg.variants[String(attrs.variant_id)];
-  if (!planOfVariant) return { kind: "ignore", reason: `unknown variant ${attrs.variant_id}` };
+  const planOfVariant = cfg.variants[String(attrs.variant_id)] || cfg.products[String(attrs.product_id)];
+  if (!planOfVariant) return { kind: "ignore", reason: `unknown product ${attrs.product_id} / variant ${attrs.variant_id}` };
   const updated: string | undefined = attrs.updated_at;
   if (!updated || Number.isNaN(Date.parse(updated))) return { kind: "ignore", reason: "no updated_at" };
 
