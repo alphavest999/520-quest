@@ -36,6 +36,10 @@ begin
 end $$;
 drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created after insert on auth.users for each row execute function public.handle_new_user();
+-- Accounts made before this setup ran have no profile yet: add one for each.
+insert into public.profiles (id, email, name)
+select u.id, u.email, 'Player' || lpad((floor(random() * 10000))::int::text, 4, '0') from auth.users u
+on conflict (id) do nothing;
 
 create or replace function public.is_paid(uid uuid default auth.uid()) returns boolean
 language sql stable security definer set search_path = public as $$
