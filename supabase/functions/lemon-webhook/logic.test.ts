@@ -110,3 +110,13 @@ test("handler: a database failure returns 500 so Lemon Squeezy retries; missing 
   assert.equal((await handleRequest(req(), ENV, failing)).status, 500);
   assert.equal((await handleRequest(req(), { ...ENV, LS_WEBHOOK_SECRET: undefined }, failing)).status, 500);
 });
+
+test("handler: new-style secret key from SUPABASE_SECRET_KEYS goes in apikey only", async () => {
+  const calls: any[] = [];
+  const f = (async (url: string, init: any) => { calls.push(init); return new Response('"applied"'); }) as unknown as typeof fetch;
+  const raw = JSON.stringify(ev("subscription_created"));
+  const env = { ...ENV, SUPABASE_SERVICE_ROLE_KEY: undefined, SUPABASE_SECRET_KEYS: '{"default":"sb_secret_abc"}' };
+  const r = await handleRequest(new Request("https://f/", { method: "POST", body: raw, headers: { "x-signature": sign(raw) } }), env, f);
+  assert.equal(r.status, 200);
+  assert.equal(calls[0].headers.apikey, "sb_secret_abc"); assert.equal(calls[0].headers.authorization, undefined);
+});
