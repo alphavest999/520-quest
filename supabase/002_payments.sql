@@ -98,3 +98,5 @@ begin
 end $$;
 drop trigger if exists claim_pending_plan on public.profiles;
 create trigger claim_pending_plan after insert on public.profiles for each row execute function public.claim_pending_plan();
+
+select '520 Quest payments setup complete' as result;
