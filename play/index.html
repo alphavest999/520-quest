@@ -18,16 +18,18 @@
 .musicrow { padding: 10px 12px; border-radius: 12px; background: linear-gradient(135deg, #f472b6, #93c5fd); color: #1e3a8a; font-weight: 800; }
 .musicrow select { background: #fff; color: #1e3a8a; border-radius: 8px; border: 2px solid #1e3a8a; font-weight: 700; }
 .panel, .card { box-shadow: 0 1px 2px rgba(15,23,42,.06); }
+/* FIX Bug6: light purple conspicuous */
 .crsbtn { width: 100%; min-height: 64px; border-radius: 16px; padding: 12px 14px; font: 800 17px/1.25 var(--body); text-align: center; cursor: pointer; display: grid; gap: 4px; justify-items: center; }
 .crsbtn small { font: 600 12px var(--body); opacity: .9; }
-.crs-sheets { background: #fbcfe8; border: 2px solid #f472b6; color: #1e3a8a; }
-.crs-check { background: #93c5fd; border: 2px solid #1e3a8a; color: #1e3a8a; }
-.crs-vault { background: #1e3a8a; border: 4px solid #f472b6; color: #fff; }
-.crs-mini { background: #f472b6; border: 2px solid #1e3a8a; color: #fff; }
-.crs-fl { background: #93c5fd; border: 2px solid #f472b6; color: #1e3a8a; }
+.crs-sheets { background: #e9d5ff; border: 2px solid #a855f7; color: #1e3a8a; }
+.crs-check { background: #ede9fe; border: 2px solid #8b5cf6; color: #1e3a8a; }
+.crs-check-old { background: #93c5fd; border: 2px solid #1e3a8a; color: #1e3a8a; }
+.crs-vault { background: #e9d5ff; border: 2px solid #a855f7; color: #1e3a8a; }
+.crs-mini { background: #ddd6fe; border: 2px solid #7c3aed; color: #1e3a8a; }
+.crs-fl { background: #ede9fe; border: 2px solid #8b5cf6; color: #1e3a8a; }
 .btn.pinkback { background: #f472b6; color: #fff; border-color: #f472b6; font-weight: 800; }
 .xcard .btn.primary { background: #1e3a8a; color: #fff; border: 2px solid #f472b6; }
-.xcard { background: #fff; border: 2px solid #f472b6; border-left: 4px solid #1e3a8a; color: #0f172a; }
+.xcard { background: #f5f3ff; border: 2px solid #f472b6; border-left: 4px solid #1e3a8a; color: #0f172a; }
 .formula, .sv-doc pre, .sv-doc code.f, .sv-doc .formula { background: #f8fafc; border: 1px solid #e2e8f0; color: #0f172a; font-family: "STIX Two Math", Inter, serif; overflow: visible; }
 </style>
 </head>
@@ -142,7 +144,8 @@ button { cursor: pointer; }
 .btn.ghost { background: #fff; color: #1e3a8a; border-color: #1e3a8a; }
 .btn.small { padding: 7px 10px; font-size: 13px; }
 .btn:disabled { opacity: .45; cursor: default; }
-.explain .fm { font-family: "STIX Two Math", "Cambria Math", "Times New Roman", var(--body), serif; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #f8fafc; color: #0f172a; } .explain .fm p { margin: 4px 0; } .explain .fm .kx { color: #0f172a; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; margin: 4px 0; overflow-x: auto; font-size: 1.05em; } .explain .fm .kx.done .katex-display { margin: 0; } .explain .fm .kx:not(.done) { font-family: "STIX Two Math", "Cambria Math", serif; } .explain .mem { margin: 4px 0 8px; padding-left: 20px; } .explain .plainbox { background: #fdf2f8; border-radius: 10px; padding: 8px 12px; }
+/* FIX Bug11: formula spacing */
+.explain .fm { word-spacing: 0.1em; font-family: "STIX Two Math", "Cambria Math", "Times New Roman", var(--body), serif; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #f8fafc; color: #0f172a; } .explain .fm p { margin: 4px 0; } .explain .fm .kx { color: #0f172a; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; margin: 4px 0; overflow-x: auto; font-size: 1.05em; } .explain .fm .kx.done .katex-display { margin: 0; } .explain .fm .kx:not(.done) { font-family: "STIX Two Math", "Cambria Math", serif; } .explain .mem { margin: 4px 0 8px; padding-left: 20px; } .explain .plainbox { background: #fdf2f8; border-radius: 10px; padding: 8px 12px; }
 .backq { background: #f472b6; color: #fff; border: 0; padding: 8px 16px; border-radius: 8px; font: 700 14px/1.2 var(--body); cursor: pointer; margin-right: 10px; } .backq.bottom { position: fixed; left: 12px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 60; box-shadow: 0 4px 14px rgba(244,114,182,.5); }
 .nowbadge { background: #fdf2f8; color: #be185d; border: 1px solid #f472b6; border-radius: 99px; padding: 1px 8px; margin-left: 6px; font: 700 11px/1.4 var(--body); white-space: nowrap; }
 .verdict { font: 700 18px/1.2 var(--display); letter-spacing: .03em; }
@@ -152,6 +155,7 @@ button { cursor: pointer; }
 .explain h4 { margin: 0; font: 700 15px/1.3 var(--display); letter-spacing: .02em; color: var(--good); }
 .explain h4.miss { color: var(--bad); margin-top: 6px; }
 .explain p { margin: 0; font-size: 15px; line-height: 1.5; }
+/* FIX Bug5: delta visible */
 /* Mastery Sheets viewer */
 .sheets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin-top: 10px; }
 .shbtn { text-align: left; border: 1px solid var(--line); background: var(--ink); color: var(--text); border-radius: 12px; padding: 10px; font: 600 13px/1.3 var(--body); display: grid; gap: 4px; cursor: pointer; }
@@ -185,6 +189,7 @@ button { cursor: pointer; }
 .sv-doc .flow { overflow-x: auto; margin: 12px 0; padding: 6px; border-radius: 12px; background: var(--panel); }
 .sv-doc .flow svg { display: block; max-width: 100%; height: auto; }
 .sv-doc .flow.light { background: #fff; }
+.sv-doc, .sheet, .flow { font-family: 'STIX Two Math','Cambria Math','Times New Roman',serif; } .sv-doc .math { font-family: 'STIX Two Math','Cambria Math',serif; }
 .sv-doc .flow .nb { fill: var(--ink); stroke: var(--line); stroke-width: 1.5; }
 .sv-doc .flow .nt { fill: var(--text); font: 600 14px var(--body); text-anchor: middle; }
 .sv-doc .flow .el { fill: var(--muted); font: 12px var(--body); text-anchor: middle; paint-order: stroke; stroke: var(--panel); stroke-width: 4px; }
@@ -274,7 +279,8 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 .tabs { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); background: var(--ink); padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px)); }
 .tab { background: none; border: 0; display: grid; justify-items: center; gap: 3px; padding: 6px 0; color: var(--muted); font: 600 11px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; border-radius: 10px; }
 .tab svg { width: 22px; height: 22px; }
-.tab[aria-selected="true"] { color: var(--volt); }
+/* FIX Bug9: solid blue active tab */
+.tab[aria-selected="true"] { background: #1e3a8a; color: #fff; border-color: #1e3a8a; } .tab-old-selected { color: var(--volt); }
 
 /* Panels in Boss / Map / Me */
 h2.title { font: 700 26px/1.1 var(--display); letter-spacing: .02em; margin: 4px 0 4px; text-wrap: balance; }
@@ -1529,7 +1535,10 @@ function celebrateLevel(n) {
     s => $("[data-sharelevel]", s).addEventListener("click", share));
 }
 function gateBoss() { const n = S.lv.pending; return { id: "GK" + n, name: "Gatekeeper of Level " + n, sec: "ALL", face: "L" + n, col: "var(--volt)", blurb: "Beat it to reach Level " + n, gate: n }; }
-document.addEventListener("click", e => { if (e.target.closest("[data-gate]")) { $("#sheetHost").innerHTML = ""; go("boss"); if (S.lv.pending) startBoss(gateBoss()); } });
+/* FIX Bug10: click sound on all buttons */
+document.addEventListener("click", e => {
+  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
+  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); } if (e.target.closest("[data-gate]")) { $("#sheetHost").innerHTML = ""; go("boss"); if (S.lv.pending) startBoss(gateBoss()); } });
 function levelBarHTML() {
   const n = S.lv.block.length, acc = liveAcc();
   return `<div class="lvbar"><div class="bar"><i style="width:${n / EVAL_N * 100}%"></i></div><small><span>${n} of ${EVAL_N} to next evaluation</span><span>${acc === null ? "No answers yet" : "Live accuracy " + acc + "%"}</span></small></div>`;
@@ -1599,7 +1608,10 @@ function installCard() {
     <div class="row"><button class="btn" data-install>Install app</button></div>${SWIPE}`;
   return el;
 }
-document.addEventListener("click", e => { if (e.target.closest("[data-install]")) installApp(); });
+/* FIX Bug10: click sound on all buttons */
+document.addEventListener("click", e => {
+  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
+  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); } if (e.target.closest("[data-install]")) installApp(); });
 function toast(html, ms = 2600) {
   const t = document.createElement("div"); t.className = "toast"; t.innerHTML = html;
   $("#toasts").appendChild(t); setTimeout(() => t.remove(), ms);
@@ -1721,7 +1733,10 @@ function renderHUD() {
   $("#hudPro").hidden = !!S.pro;
   $("#hudInstall").hidden = installed();
 }
-document.addEventListener("click", e => { if (e.target.closest("#hudPro, .promo [data-pro], .probanner [data-pro]")) showPro(); });
+/* FIX Bug10: click sound on all buttons */
+document.addEventListener("click", e => {
+  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
+  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); } if (e.target.closest("#hudPro, .promo [data-pro], .probanner [data-pro]")) showPro(); });
 
 /* ---------- feed engine ---------- */
 const feed = $("#feed");
@@ -2096,7 +2111,10 @@ function exportAnki() {
   if (!$("#view-me").hidden) renderMe();
 }
 const ankiRow = () => S.anki.length ? `<div class="explain" style="border-left-color:var(--cool)"><p><b>${S.anki.length}</b> card${S.anki.length === 1 ? "" : "s"} in your Anki queue.</p><div class="row"><button class="btn small primary" data-exportanki>Export to Anki</button></div></div>` : "";
-document.addEventListener("click", e => { if (e.target.closest("[data-exportanki]")) exportAnki(); });
+/* FIX Bug10: click sound on all buttons */
+document.addEventListener("click", e => {
+  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
+  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); } if (e.target.closest("[data-exportanki]")) exportAnki(); });
 function dnaHTML(secs) {
   const slow = secs > 95;
   return `<div class="dna"><p><b>Error DNA:</b> why did you miss it?${slow ? " You took " + Math.round(secs) + " s, so Time is pre-selected." : ""}</p>
@@ -2150,6 +2168,33 @@ const graphHTML = g => {
   if (g.y_label) o += `<text transform="translate(14 ${(T + H - B) / 2}) rotate(-90)" font-size="12" text-anchor="middle" fill="#111">${esc(g.y_label)}</text>`;
   return `<figure class="pgraph" style="margin:0">${g.title ? `<div class="gcap">${esc(g.title)}</div>` : ""}<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(g.title || "Graph")}">${o}</svg></figure>`;
 };
+
+/* FIX Bug4: single question mode - only one Q, Return button */
+function showSingleQuestionFromSheet(qid, returnLabel){
+  const q = BANK.find(x=>x.id===qid) || EXAM.qs.find(x=>x.id===qid);
+  if(!q){ toast("Question not found"); return; }
+  singleQMode = true;
+  go("scroll");
+  feed.innerHTML = "";
+  const el = questionCard(q);
+  // Remove swipe hints, add Return button
+  const retBtn = document.createElement("div");
+  retBtn.className = "panel";
+  retBtn.innerHTML = `<button class="btn primary" data-return-sheet>← Return to the Mastery Sheets</button>`;
+  retBtn.querySelector("button").addEventListener("click", ()=>{ 
+    singleQMode = false; 
+    if(singleQReturn) { go("course"); singleQReturn=null; }
+    else { go("course"); }
+    feed.innerHTML=""; resetFeed(); 
+  });
+  feed.appendChild(retBtn);
+  feed.appendChild(el);
+  feed.scrollTop = 0;
+  singleQReturn = returnLabel || "sheets";
+}
+// Patch existing sheet question click to use single mode
+
+let singleQMode=false, singleQReturn=null;
 function passageCard(p) {
   p = Object.assign({}, p, { qs: p.qs.map(shuf) });
   const el = document.createElement("article"); el.className = "card"; el._made = Date.now(); el.dataset.pid = p.id;
@@ -2291,7 +2336,22 @@ function exitApp() {
 /* ---------- Done for the Day: land on Me with today's summary; same-day return opens Me ---------- */
 function doneDay() {
   S.today.doneDay = true; S.today.bonusAt = 0; S.review = null; S.resume = null; extraRound = false; save();
-  go("me"); $("#view-me").scrollTop = 0;
+  go("me"); 
+  setTimeout(()=>{
+    const perf = document.querySelector("#view-me .panel h3") || $("#goalPanel");
+    if(perf) $("#view-me").scrollTop = perf.offsetTop ? perf.offsetTop - 10 : 200;
+    else $("#view-me").scrollTop = 0;
+    // New 4-option popup
+    const miss = S.today.missed.filter(id=>anyQ(id)).length;
+    beep("level");
+    sheet(`<div class="eyebrow">Done for the Day 🎉</div><h2>What would you like to do?</h2>
+      <div class="stack">
+        <button class="btn primary" data-close data-gorev>Review questions (${miss})</button>
+        <button class="btn" data-close data-goperf>Review my Performance</button>
+        <button class="btn" data-close>Stay in Me Page</button>
+        <button class="btn ghost" data-close data-exitapp>Exit</button>
+      </div>`);
+  }, 300);
 }
 function todaySummaryHTML() {
   const t = S.today; if (!t.doneDay) return "";
@@ -2319,12 +2379,23 @@ function startExtra() {
 (function () {
   const me = $("#view-me"); let y0 = null;
   const atEnd = () => me.scrollTop + me.clientHeight >= me.scrollHeight - 4;
-  const lock = () => S.today.doneDay && !extraRound;
+  // FIX Bug1: Never auto-popup Do 10 more from scroll. Show Exit/Stay instead, and only when done.
+  function exitPrompt() {
+    if (morePromptOpen || $("#sheetHost .scrim")) return;
+    morePromptOpen = true;
+    beep("click");
+    sheet(`<div class="eyebrow">End of Me</div><h2>What next?</h2>
+      <div class="row"><button class="btn primary" data-close data-exitapp>Exit</button><button class="btn" data-close>Stay in Me</button></div>`);
+    const host = $("#sheetHost"), obs = new MutationObserver(() => { if (!host.innerHTML) { morePromptOpen = false; obs.disconnect(); } }); obs.observe(host, { childList: true });
+  }
   me.addEventListener("touchstart", e => { y0 = atEnd() ? e.touches[0].clientY : null; }, { passive: true });
-  me.addEventListener("touchend", e => { if (y0 !== null && lock() && y0 - e.changedTouches[0].clientY > 60) morePrompt(); y0 = null; }, { passive: true });
-  me.addEventListener("wheel", e => { if (e.deltaY > 30 && atEnd() && lock()) morePrompt(); }, { passive: true });
+  me.addEventListener("touchend", e => { if (y0 !== null && atEnd() && y0 - e.changedTouches[0].clientY > 60) exitPrompt(); y0 = null; }, { passive: true });
+  me.addEventListener("wheel", e => { if (e.deltaY > 30 && atEnd()) exitPrompt(); }, { passive: true });
 })();
+/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
+  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
+  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); }
   const t = e.target;
   if (t.closest("[data-review]")) return startReview();
   if (t.closest("[data-doneday]")) { $("#sheetHost").innerHTML = ""; return doneDay(); }
@@ -2338,19 +2409,27 @@ document.addEventListener("click", e => {
 // Shown on the first open of a day when the previous day's goal was met.
 function welcomeBack() {
   const t = todayKey();
-  if (S.welcome === t || S.today.doneDay) return;
-  const show = S.total > 0 && S.prevDone; S.welcome = t; save();
+  const params = new URLSearchParams(location.search);
+  const fromLanding = params.get('from')==='landing' || document.referrer.includes('520quest.com') || !S.total;
+  if (S.welcome === t || S.today.doneDay) {
+    // Allow landing param to force once per day anyway
+    if(!fromLanding) return;
+    if(S.welcome===t) return;
+  }
+  const show = true; // FIX Bug13: always show first time daily, even for new users from landing
+  S.welcome = t; save();
   if (!show) return;
   const L = S.lv.level;
   sheet(`<div class="lvbig"><div class="eyebrow">Welcome back</div><div class="badge-lv ${L === 5 ? "t5" : ""}">${L === 5 ? "GM" : "L" + L}</div><strong>Level ${L}: ${esc(tierName(L))}</strong></div>
     ${levelBarHTML()}
     <p class="small muted" style="margin:0;text-align:center">Today's goal: <b style="color:var(--text)">${S.goal} questions</b> · ${streakAlive()}-day streak · ${revCount()} in Revenge Queue${S.lv.pending ? ` · <b style="color:var(--volt)">Gatekeeper of Level ${S.lv.pending} is ready</b>` : ""}</p>
-    <button class="btn primary" data-welstart style="font-size:18px;padding:16px">Start today's quest</button>
+    <button class="btn primary" data-welstart data-cont style="font-size:18px;padding:16px">Start today's quest</button>
     <button class="btn adjgoal" data-welgoal>Adjust goals for the day</button>
     ${CONFIG.flags.MASTERY_SHEETS_CONSPICUOUS ? goldBtnHTML() : ""}`,
     s => s.addEventListener("click", e => {
-      if (e.target.closest("[data-welstart]")) { $("#sheetHost").innerHTML = ""; go("scroll"); }
+      if (e.target.closest("[data-welstart data-cont]")) { $("#sheetHost").innerHTML = ""; go("scroll"); }
       if (e.target.closest("[data-welgoal]")) { $("#sheetHost").innerHTML = ""; showGoals(); }
+      if (e.target.closest("[data-welsheets]")) { $("#sheetHost").innerHTML = ""; go("course"); }
     }));
 }
 // Me tab, scrolled to the daily goal picker.
@@ -2359,7 +2438,12 @@ function showGoals() {
   const g = $("#goalPanel"); if (!g) return;
   $("#view-me").scrollTop = g.offsetTop - 12; g.classList.remove("flash"); void g.offsetWidth; g.classList.add("flash");
 }
-function setGoal(n) { S.goal = n; S.today.goalShown = S.today.answered >= S.goal; S.today.next = S.today.goalShown ? S.today.answered + ROUND : 0; S.today.rs = { a: S.today.answered, c: S.today.correct }; save(); renderHUD(); }
+function clickSound(){ try{ beep('click'); }catch(e){} }
+function setGoal(n) { 
+  clickSound(); 
+  S.goal = n; S.today.goalShown = S.today.answered >= S.goal; S.today.next = S.today.goalShown ? S.today.answered + ROUND : 0; S.today.rs = { a: S.today.answered, c: S.today.correct }; save(); renderHUD(); 
+  setTimeout(()=>{ $("#sheetHost").innerHTML=""; go("scroll"); resetFeed(); }, 250);
+}
 
 function share() {
   const txt = `Level ${S.lv.level} (${tierName(S.lv.level)}) and a ${streakAlive()}-day streak in 520 Quest. MCAT game${CONFIG.appUrl ? ": " + CONFIG.appUrl : ""}`;
@@ -2519,7 +2603,10 @@ function showBackPill() {
   b.innerHTML = `<span aria-hidden="true">←</span> Back to Mastery Sheet ${esc(sheetReturn.id)}`;
   document.body.appendChild(b); document.body.classList.add("has-back");
 }
-document.addEventListener("click", e => { if (e.target.closest("[data-backsheet]") && sheetReturn) { const r = sheetReturn; sheetReturn = null; openSheet(r.id, r); } });
+/* FIX Bug10: click sound on all buttons */
+document.addEventListener("click", e => {
+  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
+  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); } if (e.target.closest("[data-backsheet]") && sheetReturn) { const r = sheetReturn; sheetReturn = null; openSheet(r.id, r); } });
 function openSheet(id, ret) {
   dropBackPill();
   const meta = (SHEETS || []).find(x => x.id === id); if (!meta) return;
@@ -2572,7 +2659,7 @@ $("#sheetView").addEventListener("click", async e => {
   const psg = PASSAGES.find(p => p.id === tid);
   if (psg) {
     if (!(S.pro || psg.qs.some(x => S.stats[x.id]) || !overFree())) { closeSheet(); return showPro(); }
-    closeSheet(); go("scroll"); const c = passageCard(psg); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill(); return;
+    closeSheet(); go("scroll"); singleQMode=false; const c = passageCard(psg); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill(); return;
   }
   const item = anyQ(tid) || fallbackQ(want);
   if (!item) { const cat = catOfId(q.dataset.q), fp = PASSAGES.find(p => p.c === cat && p.s !== "CARS"); if (fp) { closeSheet(); go("scroll"); const c = passageCard(fp); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill(); return; } return toast("That question is still loading. Try again in a moment."); }
@@ -2598,7 +2685,10 @@ function mnLinkHTML(q) {
   const p = q.pid && PASSAGES.find(x => x.id === q.pid), ids = [].concat(q.mn || (p && p.mn) || []);
   return ids.map(id => { const m = MN && MN.find(x => String(x.id) === String(id)); return m ? `<button class="mnlink" data-mnlink="${esc(m.id)}">🧠 <span>Mnemonic Vault #${esc(m.id)}: <b>${esc(m.concept)}</b>${m.locked && !S.pro ? " 🔒" : ""}</span></button>` : ""; }).join("");
 }
+/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
+  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
+  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); }
   const b = e.target.closest("[data-mnlink]"), m = b && MN && MN.find(x => String(x.id) === b.dataset.mnlink); if (!m) return;
   if (m.locked && adminNoKey()) return lockedSheet("Content key missing", "Admin is on, but mnemonics are encrypted. Add content_key to play/admin-private.json.");
   if (m.locked) return lockedSheet(`${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 5,904 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
@@ -2608,7 +2698,10 @@ function lockedSheet(title, line) {
   sheet(`<div class="eyebrow">Locked</div><h3>${title}</h3><p><b>${line}</b></p><p class="muted small">Monthly ${esc(CONFIG.plans[0].price)}, 6 Months ${esc(CONFIG.plans[1].price)} or Yearly ${esc(CONFIG.plans[2].price)}. Every plan unlocks everything.${S.pro ? " Already subscribed? Sign in on the Me tab." : ""}</p>
     <div class="row"><button class="btn pro" data-close data-pro2>See plans</button><button class="btn ghost" data-close>Not now</button></div>`);
 }
+/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
+  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
+  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); }
   if (e.target.closest("[data-pro2]")) return setTimeout(showPro, 50);
   const sq = e.target.closest("[data-startq]"); if (sq) { const n = sq.closest(".card").nextElementSibling; if (n) scrollToEl(n); return; }
   if (e.target.closest("[data-gocourse]")) { $("#sheetHost").innerHTML = ""; return go("course"); }
@@ -2770,7 +2863,7 @@ function proPanel(title, pitch, real, teaser) {
 const SAMPLE_FL = [{ label: "FL 1", score: 506 }, { label: "FL 2", score: 510 }, { label: "FL 3", score: 513 }, { label: "FL 4", score: 517 }, { label: "FL 5", score: 521 }];
 /* ---------- analytics: performance assessment, accuracy and pace by section, trends ---------- */
 function analyticsHTML() {
-  if (S.total < 5) return `<div class="panel"><h3>Performance</h3><p class="small muted">Answer 5 questions and your performance report starts here: accuracy and pace by section, your weakest areas, and 14-day trends.</p></div>`;
+  if (S.total < 5) return `<div class="panel"><h3>Performance</h3><p class="small" style="color:var(--volt);font-weight:700;margin:0 0 6px">See MAP for full Breakdown of AAMC Syllabus</p><p class="small muted">Answer 5 questions and your performance report starts here: accuracy and pace by section, your weakest areas, and 14-day trends.</p></div>`;
   const secs = ["CP", "CARS", "BB", "PS"].map(sec => {
     const cs = CATS.filter(c => c[2] === sec).map(c => S.cat[c[0]] || {}), a = cs.reduce((x, c) => x + (c.a || 0), 0), cc = cs.reduce((x, c) => x + (c.c || 0), 0), t = cs.reduce((x, c) => x + (c.t || 0), 0);
     return { sec, a, acc: a ? Math.round(cc / a * 100) : null, avg: a && t ? Math.round(t / a) : null };
@@ -2789,7 +2882,7 @@ function analyticsHTML() {
   const days = 14, ks = Array.from({ length: days }, (_, i) => todayKey(Date.now() - (days - 1 - i) * DAY));
   const W = 320, H = 90, bw = (W - 20) / days;
   const accBars = ks.map((k, i) => { const t = S.tlog[k]; if (!t || !t.n) return ""; const v = t.c / t.n, h = Math.max(3, v * (H - 24)); return `<rect x="${10 + i * bw + 2}" y="${H - 16 - h}" width="${bw - 4}" height="${h}" rx="3" fill="${v >= .76 ? "var(--good)" : v >= .61 ? "var(--volt)" : "var(--bad)"}"><title>${k}: ${Math.round(v * 100)}% of ${t.n}</title></rect>`; }).join("");
-  return `<div class="panel"><h3>Performance</h3><div class="assess">${lines.map(l => `<p>${l}</p>`).join("")}</div>
+  return `<div class="panel"><h3>Performance</h3><p class="small" style="color:var(--volt);font-weight:700;margin:0 0 8px">See MAP for full Breakdown of AAMC Syllabus</p><div class="assess">${lines.map(l => `<p>${l}</p>`).join("")}</div>
     <div class="stack" style="gap:6px">${secs.map(r => `<div class="secrow"><span>${SECTIONS[r.sec].name}</span><span class="meter"><i style="width:${r.acc || 0}%;background:${r.acc === null ? "var(--line)" : r.acc >= 76 ? "var(--good)" : r.acc >= 61 ? "var(--volt)" : "var(--bad)"}"></i></span><b>${r.acc === null ? "–" : r.acc + "%"}</b><span class="muted">${r.avg ? r.avg + " s" : ""}</span></div>`).join("")}</div>
     <p class="small muted" style="margin-top:4px">Accuracy by day, last 14 days</p>
     <svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Daily accuracy, last 14 days">${accBars}<line x1="10" x2="${W - 10}" y1="${H - 16}" y2="${H - 16}" stroke="var(--line)"/><text x="10" y="${H - 3}" font-size="10" fill="var(--muted)">${new Date(ks[0] + "T12:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })}</text><text x="${W - 10}" y="${H - 3}" font-size="10" text-anchor="end" fill="var(--muted)">Today</text></svg>
@@ -2807,7 +2900,7 @@ function renderMe() {
     <div class="panel">${levelBarHTML()}<div class="row" style="margin-top:10px"><button class="btn pinkback" data-meqbank>← Back to Qbank</button></div></div>
     <div class="panel" id="goalPanel"><h3>Adjust goals for the day</h3><p class="small muted" style="margin:0 0 8px">How many questions do you want to do each day?</p><div class="row">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n ? "primary" : ""}" data-setgoal="${n}">${n} questions</button>`).join("")}</div></div>
     ${analyticsHTML()}
-    <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
+    <div class="panel" style="background:#f5f3ff;border:2px solid #a855f7"><p class="small" style="margin:0">Contact: <b>support@520-quest.com</b></p></div><div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
     <div class="panel"><h3>Error DNA</h3>${donut(dnaCounts)}</div>
     ${proPanel("Score estimate", "See your estimated score for each section, based on your recent answers.",
@@ -2908,7 +3001,10 @@ document.addEventListener("keydown", e => {
 });
 
 document.addEventListener("pointerdown", () => syncMusic(), { once: true });
+/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
+  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
+  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); }
   const b = e.target.closest("[data-musictoggle]"); if (!b) return;
   S.music = S.sound && S.music !== "off" ? "off" : "boss"; if (S.music !== "off") S.sound = true; save(); syncMusic(true);
   b.textContent = S.music !== "off" ? "♪ Music on" : "♪ Music off";

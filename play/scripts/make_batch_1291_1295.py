@@ -1,0 +1,96 @@
+#!/usr/bin/env python3
+"""Hand-authored Phase 2 batch 7: bp1291, bp1294, bp1295 (15 questions), single-line."""
+import json
+import os
+
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+OUT = os.path.join(ROOT, "json", "phase2", "batch_1291_1295.json")
+
+E = {
+ "bp1291_0": {"ox": [
+  "Correct. The reduction column reads 12.4 / 8.1 mmHg for Hypotensol and 4.2 / 2.3 mmHg for placebo, so the systolic fall is 12.4 mmHg against 4.2 mmHg, a difference of 8.2 mmHg.",
+  "Incorrect. The placebo row reads a mean systolic reduction of 4.2 mmHg, well below the 12.4 mmHg with Hypotensol.",
+  "Incorrect. The reductions differ: 12.4 mmHg with Hypotensol and 4.2 mmHg with placebo.",
+  "Incorrect. The table reports both mean reductions, so the comparison can be made directly: 12.4 versus 4.2 mmHg."]},
+ "bp1291_1": {"ox": [
+  "Correct. The passage describes random assignment to Hypotensol or matching placebo with double blinding, which controls expectation and the placebo response together.",
+  "Incorrect. In an open-label design participants know whether they received the drug, so the passage's double-blind protection against expectation is lost.",
+  "Incorrect. A crossover changes the order of treatments, but without blinding it still leaves the placebo response uncontrolled; the passage uses a parallel design.",
+  "Incorrect. An observational study assigns no treatment and gives no placebo, so it cannot reproduce the passage's placebo-controlled comparison."]},
+ "bp1291_2": {"ox": [
+  "Incorrect. 12.4 / 140.0 × 100 = 8.9%, which divides by the week-8 SBP instead of the 152.4 mmHg baseline.",
+  "Correct. The Hypotensol group falls 12.4 mmHg from a baseline of 152.4 mmHg, so 12.4 / 152.4 × 100 = 8.1%.",
+  "Incorrect. No table pair gives 10.3%: 12.4 / 152.4 = 8.1% and 12.4 / 140.0 = 8.9% are the two percentages available.",
+  "Incorrect. 12.4 is the reduction in mmHg, not a percentage of the baseline."]},
+ "bp1291_3": {"ox": [
+  "Incorrect. This is supported: systolic fell 12.4 mmHg with Hypotensol against 4.2 mmHg with placebo.",
+  "Correct. Hypotensol lowered diastolic pressure by 8.1 mmHg and placebo by 2.3 mmHg, so the placebo did not reduce diastolic pressure more.",
+  "Incorrect. This is supported: both groups fall in both measures (12.4 and 4.2 mmHg systolic, 8.1 and 2.3 mmHg diastolic).",
+  "Incorrect. This is supported: the passage states the between-group differences had p < 0.01."]},
+ "bp1291_4": {"ox": [
+  "Incorrect. 4.2 mmHg is the placebo group's own reduction, which is the amount being removed, not the excess.",
+  "Correct. Hypotensol lowers systolic pressure by 12.4 mmHg and placebo by 4.2 mmHg, so the reduction beyond placebo is 12.4 - 4.2 = 8.2 mmHg.",
+  "Incorrect. 12.4 mmHg is the unadjusted Hypotensol reduction and still contains the 4.2 mmHg placebo response.",
+  "Incorrect. 16.6 mmHg is 12.4 + 4.2, adding the two reductions instead of subtracting the placebo fall."]},
+ "bp1294_0": {"ox": [
+  "Incorrect. For reaction C the ratio Q/Keq is 0.000545 / 0.0545 = 0.01, which is far from 1 despite being the smallest Q in the table.",
+  "Correct. Reaction B has Q 0.965 against Keq 1.93, a ratio of 0.5, the closest to 1 of the three (reactions A and C both sit at 0.01).",
+  "Incorrect. One reaction is within a factor of two of equilibrium: Q/Keq = 0.5 for reaction B.",
+  "Incorrect. For reaction A the ratio is 6.52 / 652 = 0.01, two orders of magnitude from equilibrium."]},
+ "bp1294_1": {"ox": [
+  "Incorrect. More enzyme speeds the approach to the table's Keq but does not show the endpoint was reached, and it leaves Keq unchanged.",
+  "Correct. Reaching the same products-to-reactants ratio from both the reactant and product sides shows the ratio is path-independent, which is what the table's Keq assumes.",
+  "Incorrect. Lowering the temperature changes the table's Keq itself rather than demonstrating that equilibrium was reached.",
+  "Incorrect. A single product measurement at one time point cannot show that the ratio has stopped changing toward the table's Keq value."]},
+ "bp1294_2": {"ox": [
+  "Incorrect. -0.7 kJ/mol comes from using a base-10 logarithm instead of the natural log: 2.577 × 0.286 = 0.74, which is the wrong logarithm.",
+  "Incorrect. +1.7 kJ/mol reverses the sign; with Keq above 1 the standard free-energy change must be negative.",
+  "Correct. The passage gives ln 1.93 = 0.657 and R × T = 8.314 × 310 / 1000 = 2.577 kJ/mol, so ΔG°′ = -(2.577 × 0.657) = -1.69, about -1.7 kJ/mol.",
+  "Incorrect. -3.9 kJ/mol would need a natural log near 1.51; the passage gives ln 1.93 = 0.657, which gives -1.7 kJ/mol."]},
+ "bp1294_3": {"ox": [
+  "Incorrect. This is true: with a small enough Q the RT ln Q term can outweigh a positive ΔG°′ and drive the reaction forward, as the table's Q values show.",
+  "Incorrect. This is true: ΔG°′ is tied to the table's Keq, while the rate depends on activation energy and catalysis.",
+  "Correct. A negative ΔG°′ states the direction of change, not the speed; the table's Keq says nothing about how fast equilibrium is reached, which depends on activation energy.",
+  "Incorrect. This is true: actual ΔG = ΔG°′ + RT ln Q, so the table's Q is part of the value."]},
+ "bp1294_4": {"ox": [
+  "Incorrect. Enzymes lower activation energy and speed the reaction, but they leave ΔG°′ unchanged; adding more enzyme cannot make an unfavourable step in the table favourable.",
+  "Correct. Coupling to a strongly exergonic step such as ATP hydrolysis (about -30.5 kJ/mol) makes the overall ΔG negative, which is how cells drive unfavourable reactions.",
+  "Incorrect. Removing the catalyst slows the reaction and does not change ΔG°′ or the table's Keq.",
+  "Incorrect. Raising the temperature shifts Keq only slightly and does not set it to 1; the table's Keq values are fixed by the reactions."]},
+ "bp1295_0": {"ox": [
+  "Correct. The Change Systolic column reads -20 mmHg for the treatment group against -3 mmHg for placebo, so the treatment group's absolute reduction is larger.",
+  "Incorrect. The placebo group falls from 148 to 145 mmHg, a 3 mmHg reduction, far smaller than the 20 mmHg with Hypotensol.",
+  "Incorrect. The reductions differ: 20 mmHg (treatment) and 3 mmHg (placebo).",
+  "Incorrect. Both groups fall: systolic from 150 to 130 mmHg with treatment and 148 to 145 mmHg with placebo."]},
+ "bp1295_1": {"ox": [
+  "Correct. The passage describes random assignment to Hypotensol or identical placebo tablets with double blinding, which is a randomized, double-blind, placebo-controlled trial.",
+  "Incorrect. An observational cohort follows patients without assigning treatment; the passage assigns participants to Hypotensol or placebo.",
+  "Incorrect. A case-control study groups people by an outcome already present; here participants were assigned treatment before the 4-week BP readings.",
+  "Incorrect. A cross-sectional survey measures one time point; the passage measures BP at baseline and after 4 weeks."]},
+ "bp1295_2": {"ox": [
+  "Correct. Systolic pressure falls 20 mmHg from a baseline of 150 mmHg, so 20 / 150 × 100 = 13.3%.",
+  "Incorrect. 10% of the 150 mmHg baseline is 15 mmHg, and the systolic fall is 20 mmHg; 10 mmHg is the diastolic fall, not a percentage.",
+  "Incorrect. 20% is the raw 20 mmHg reduction with a percent sign attached; 20 mmHg of 150 mmHg is 13.3%.",
+  "Incorrect. 5% of 150 mmHg is 7.5 mmHg; neither group's systolic fall is that small."]},
+ "bp1295_3": {"ox": [
+  "Incorrect. This is supported: the Change Systolic column reads -20 mmHg for the treatment group.",
+  "Correct. Placebo diastolic pressure falls from 92 to 90 mmHg, a 2 mmHg reduction, so \"no effect on diastolic BP\" is not supported by the data.",
+  "Incorrect. This is supported: diastolic falls by 10 mmHg with treatment and 2 mmHg with placebo.",
+  "Incorrect. This is supported: the passage states the trial was double-blind."]},
+ "bp1295_4": {"ox": [
+  "Incorrect. No first-line antihypertensive was tested, so the 4-week placebo comparison cannot support replacing current therapy.",
+  "Correct. Over 4 weeks, systolic fell 20 mmHg with Hypotensol against 3 mmHg with placebo, and diastolic fell 10 mmHg against 2 mmHg, so both pressures fell more than with placebo.",
+  "Incorrect. BP fell clearly with Hypotensol (20 and 10 mmHg), well beyond the placebo changes of 3 and 2 mmHg.",
+  "Incorrect. Placebo changes (-3 and -2 mmHg) are much smaller than the treatment changes (-20 and -10 mmHg)."]},
+}
+
+
+def main():
+    os.makedirs(os.path.dirname(OUT), exist_ok=True)
+    with open(OUT, "w", encoding="utf-8") as f:
+        f.write(json.dumps(E, ensure_ascii=False, separators=(",", ":")))
+    print("wrote", OUT, len(E), "entries")
+
+
+if __name__ == "__main__":
+    main()

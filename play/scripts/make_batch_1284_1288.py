@@ -1,0 +1,96 @@
+#!/usr/bin/env python3
+"""Hand-authored Phase 2 batch 6: bp1284, bp1286, bp1288 (15 questions), single-line."""
+import json
+import os
+
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+OUT = os.path.join(ROOT, "json", "phase2", "batch_1284_1288.json")
+
+E = {
+ "bp1284_0": {"ox": [
+  "Incorrect. The 40-50 row falls from 140 to 135 mmHg, a 5 mmHg reduction, the smallest of the three.",
+  "Incorrect. The 51-60 row falls from 145 to 133 mmHg, a 12 mmHg reduction, less than the oldest group's.",
+  "Correct. The 61-70 row falls from 150 to 135 mmHg, a 15 mmHg reduction, which is the largest of the three (5, 12 and 15 mmHg).",
+  "Incorrect. The reductions differ: 5 mmHg (40-50), 12 mmHg (51-60) and 15 mmHg (61-70)."]},
+ "bp1284_1": {"ox": [
+  "Incorrect. A randomized controlled trial needs random assignment and a control arm; the passage states the study was a single-group pre-post design with no control arm.",
+  "Correct. The passage describes one group receiving the drug with SBP measured before and after 12 weeks and no control arm, which is a single-group before-and-after study.",
+  "Incorrect. A case-control study selects people by whether an outcome already occurred; the passage measures SBP at baseline and again at 12 weeks in everyone who received the drug.",
+  "Incorrect. A cross-sectional study measures a single time point; the passage measures SBP at baseline and at 12 weeks."]},
+ "bp1284_2": {"ox": [
+  "Incorrect. 5% of the 150 mmHg baseline is 7.5 mmHg; this is the 40-50 group's reduction, not the 61-70 group's.",
+  "Correct. The 61-70 group falls from 150 to 135 mmHg, a 15 mmHg drop, and 15 / 150 × 100 = 10%.",
+  "Incorrect. 15% is the absolute 15 mmHg reduction with a percent sign attached; 15 mmHg of a 150 mmHg baseline is 10%.",
+  "Incorrect. 20% would be a 30 mmHg fall on the 150 mmHg baseline; the table shows a 15 mmHg fall."]},
+ "bp1284_3": {"ox": [
+  "Correct. The passage states there was no control arm, so time, regression to the mean or expectation could account for the falls rather than the drug.",
+  "Incorrect. The passage states readings used a calibrated oscillometric cuff, which reduces measurement error; that is a strength, not a limit on causal inference.",
+  "Incorrect. The passage states the same trained technician took every reading, which reduces observer-to-observer variability and strengthens the measurements.",
+  "Incorrect. The passage's three age strata (40-50, 51-60, 61-70) describe subgroups; splitting the sample does not weaken the causal conclusion."]},
+ "bp1284_4": {"ox": [
+  "Incorrect. No other antihypertensive was compared and there was no control arm, so the passage cannot support replacing existing treatment.",
+  "Incorrect. The younger groups also fell, by 5 mmHg (40-50) and 12 mmHg (51-60), so the drug was not ineffective under 60.",
+  "Correct. Mean SBP fell in all three groups (5, 12 and 15 mmHg, most in the 61-70 group), but without a control arm the drug's causal effect is not established.",
+  "Incorrect. SBP fell in every group (140 to 135, 145 to 133, 150 to 135 mmHg), so the drug did not raise it."]},
+ "bp1286_0": {"ox": [
+  "Correct. The reductions are 158 - 132 = 26 mmHg for Drug A, 156 - 140 = 16 mmHg for Drug B and 157 - 149 = 8 mmHg for placebo, so Drug A is largest.",
+  "Incorrect. Drug B falls from 156 to 140 mmHg, a 16 mmHg reduction, which is smaller than Drug A's 26 mmHg.",
+  "Incorrect. Placebo falls from 157 to 149 mmHg, an 8 mmHg reduction, the smallest of the three.",
+  "Incorrect. The reductions differ: 26 mmHg (Drug A), 16 mmHg (Drug B) and 8 mmHg (placebo)."]},
+ "bp1286_1": {"ox": [
+  "Correct. The passage states participants were randomly assigned to Drug A, Drug B or placebo, and random assignment spreads known and unknown confounders across the groups.",
+  "Incorrect. Measuring baseline SBP (158, 156 and 157 mmHg) records the starting point but does not balance confounders between groups.",
+  "Incorrect. A 4-week treatment period is the same for every group; a shared duration does not control confounding.",
+  "Incorrect. Reporting the means in the table summarizes the outcome; it does not prevent a confounder from differing between groups."]},
+ "bp1286_2": {"ox": [
+  "Correct. Drug A falls from 158 to 132 mmHg, a 26 mmHg drop, and 26 / 158 × 100 = 16.5%.",
+  "Incorrect. 26 / 132 × 100 = 19.7%, which divides by the 4-week value instead of the 158 mmHg baseline.",
+  "Incorrect. No table pair gives 25.8%: 26 / 158 = 16.5% and 26 / 132 = 19.7% are the two percentages available.",
+  "Incorrect. 32.4% would need a 26 mmHg drop on a baseline near 80 mmHg; Drug A's baseline is 158 mmHg."]},
+ "bp1286_3": {"ox": [
+  "Incorrect. This is supported: Drug A's 26 mmHg reduction is the largest in the table.",
+  "Correct. Drug B falls 16 mmHg (156 to 140) against Drug A's 26 mmHg (158 to 132), so Drug B was not more effective than Drug A.",
+  "Incorrect. This is supported: all three groups fall, by 26, 16 and 8 mmHg.",
+  "Incorrect. This is supported: Drug A's 26 mmHg reduction exceeds placebo's 8 mmHg (157 to 149)."]},
+ "bp1286_4": {"ox": [
+  "Correct. The passage names a short follow-up and lack of participant blinding as limitations, and a longer double-blind trial addresses both while testing sustained efficacy and safety.",
+  "Incorrect. The passage's stated limitations are a 4-week follow-up and no participant blinding, and comparing Drug A with another drug fixes neither.",
+  "Incorrect. A larger sample in the same 4-week unblinded design leaves both stated limitations in place.",
+  "Incorrect. The passage calls the findings short-term and unblinded, so they do not justify switching patients immediately."]},
+ "bp1288_0": {"ox": [
+  "Incorrect. The placebo row reads 145.2 mmHg, the highest mean SBP in the table, not the lowest.",
+  "Incorrect. The low-dose row reads 138.7 mmHg, above the medium- and high-dose means.",
+  "Incorrect. The medium-dose row reads 133.4 mmHg, which is above the high-dose mean of 128.9 mmHg.",
+  "Correct. The Mean SBP column reads 145.2 (placebo), 138.7 (low), 133.4 (medium) and 128.9 mmHg (high), so the high-dose group has the lowest mean at 8 weeks."]},
+ "bp1288_1": {"ox": [
+  "Incorrect. A cross-sectional study measures groups at one time point; the passage assigned doses and measured SBP after 8 weeks.",
+  "Incorrect. A case-control study groups people by an outcome that already occurred; the passage assigns participants to doses first and reads SBP at 8 weeks.",
+  "Correct. The passage states that 40 adults were randomly assigned to four groups, which is the defining feature of a randomized controlled trial.",
+  "Incorrect. A cohort study follows people without random assignment; the passage randomly assigns participants to placebo or one of three doses."]},
+ "bp1288_2": {"ox": [
+  "Correct. Placebo reads 145.2 mmHg and high dose 128.9 mmHg, so the absolute difference is 145.2 - 128.9 = 16.3 mmHg.",
+  "Incorrect. 18.5 mmHg would need a placebo mean of 147.4 or a high-dose mean of 110.4 mmHg; the table has 145.2 and 128.9.",
+  "Incorrect. 20.0 mmHg would need means of 148.9 and 128.9, and the placebo mean is 145.2 mmHg.",
+  "Incorrect. 22.1 mmHg would need a placebo mean near 151.0 mmHg; the placebo row reads 145.2 mmHg."]},
+ "bp1288_3": {"ox": [
+  "Incorrect. Randomizing participants is the step that spreads confounders across groups, so it reduces bias rather than creating it.",
+  "Incorrect. Blinding outcome assessors limits expectation effects in the SBP readings; the passage's bias risk is a varying exposure such as dietary sodium across the 10-person groups.",
+  "Correct. Baseline dietary sodium can shift blood pressure independently of CardioRelief, so if it differs across the 10-person groups it biases the comparison.",
+  "Incorrect. A standardized exercise program applied to all four groups is a controlled variable, whereas the passage leaves dietary sodium free to differ."]},
+ "bp1288_4": {"ox": [
+  "Incorrect. With 40 participants and no comparison drug, the passage provides preliminary data, not definitive superiority over all existing drugs.",
+  "Correct. Mean SBP falls 145.2, 138.7, 133.4 and 128.9 mmHg across placebo and the three doses, a graded pattern that can inform dose selection for a phase III trial.",
+  "Incorrect. The small sample is a reason for further study, not a reason to stop; the passage calls these preliminary data.",
+  "Incorrect. The table has no baseline column, so it cannot show that placebo had no effect on blood pressure."]},
+}
+
+
+def main():
+    os.makedirs(os.path.dirname(OUT), exist_ok=True)
+    with open(OUT, "w", encoding="utf-8") as f:
+        f.write(json.dumps(E, ensure_ascii=False, separators=(",", ":")))
+    print("wrote", OUT, len(E), "entries")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+"""Hand-authored Phase 2 batch 13: bp1321, bp1323, bp1325 (15 questions), single-line."""
+import json
+import os
+
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+OUT = os.path.join(ROOT, "json", "phase2", "batch_1321_1325.json")
+
+E = {
+ "bp1321_0": {"ox": [
+  "Incorrect. 0.91 is protein A's fraction bound at 200 nM in Table 1, one row above the concentration asked about.",
+  "Incorrect. 0.33 is the value in protein B's column at 100 nM, not protein A's value at that concentration.",
+  "Correct. Table 1's 100 nM row reads 0.83 for protein A, and 100 / (20 + 100) = 0.83 with the half-saturation value of 20 nM.",
+  "Incorrect. 0.71 is protein A's fraction bound at 50 nM in Table 1, a lower concentration than the 100 nM asked about."]},
+ "bp1321_1": {"ox": [
+  "Incorrect. Cooperativity would appear as a sigmoidal curve, and the passage states each binding curve was hyperbolic with no evidence of it.",
+  "Incorrect. At 1 nM protein the ligand is nowhere near saturating; the passage holds protein low for a different reason than saturation.",
+  "Correct. The passage states protein was held far below either Kd so that bound ligand is negligible and free ligand approximately equals total added, keeping the hyperbola undistorted.",
+  "Incorrect. Kd is a property of the binding interaction, not a concentration set equal to protein; the passage keeps protein at 1 nM against half-saturation values of 20 and 200 nM."]},
+ "bp1321_2": {"ox": [
+  "Incorrect. 40 nM is 2 × 20 nM, which gives 40 / (20 + 40) = 0.67 occupancy, not the 0.80 sought.",
+  "Correct. For 0.80 occupancy, L / (20 + L) = 0.80 gives L = 4 × 20 = 80 nM, which falls between Table 1's 0.71 at 50 nM and 0.83 at 100 nM.",
+  "Incorrect. 160 nM is 8 × 20 nM and gives 160 / (20 + 160) = 0.89, above the 0.80 target.",
+  "Incorrect. 20 nM is the half-saturation concentration itself, where Table 1 shows 0.50 for protein A rather than 0.80."]},
+ "bp1321_3": {"ox": [
+  "Incorrect. This is accurate: the passage states each curve was hyperbolic with no evidence of cooperativity, which is the noncooperative case.",
+  "Incorrect. This is accurate: Table 1 reaches 0.50 at 20 nM for protein A but only at 200 nM for protein B, so A binds the tighter.",
+  "Correct. Kd is a dissociation constant, so a lower value means tighter binding and higher affinity; Table 1's 20 nM half-saturation for A against 200 nM for B reverses the statement.",
+  "Incorrect. This is accurate: the 20 nM row reads 0.50 for protein A and the 200 nM row reads 0.50 for protein B, so Kd is the half-saturation concentration."]},
+ "bp1321_4": {"ox": [
+  "Incorrect. A Michaelis-Menten saturation curve is hyperbolic, the same shape as the curves for proteins A and B in Table 1.",
+  "Correct. Hemoglobin binds oxygen cooperatively, giving a sigmoidal curve with a Hill coefficient above 1, unlike the hyperbolic curves for proteins A and B in Table 1.",
+  "Incorrect. A single ligand site on a monomeric protein gives a hyperbolic curve, matching the shape of both columns in Table 1.",
+  "Incorrect. Myoglobin binds oxygen hyperbolically, like proteins A and B in Table 1, rather than with a sigmoidal curve."]},
+ "bp1323_0": {"ox": [
+  "Incorrect. 75% is the fraction degraded, since Table 1 lists 25% remaining at 90 min, so 75% is what has been lost rather than retained.",
+  "Incorrect. 12.5% is the 135 min row of Table 1, one time point later than the 90 min asked about.",
+  "Incorrect. 50% is the 45 min row of Table 1, the first half-life, not the 90 min value.",
+  "Correct. Table 1's 90 min row reads 25%, which is two 45 min half-lives: 100% → 50% → 25%."]},
+ "bp1323_1": {"ox": [
+  "Incorrect. Cycloheximide inhibits translation elongation, so it lowers rather than raises new protein synthesis; Table 1 starts at 100% at 0 min.",
+  "Correct. The passage states cycloheximide blocks translation elongation, so the fall from 100% at 0 min to 12.5% at 135 min tracks the pre-existing pool alone.",
+  "Incorrect. The passage describes an inhibitor of translation elongation, and Table 1's decline is the existing protein being lost, not degradation being accelerated.",
+  "Incorrect. Detection comes from the antibody against IκBα described in the passage, not from cycloheximide, which only halts new synthesis."]},
+ "bp1323_2": {"ox": [
+  "Correct. 180 min is four 45 min half-lives, so 100 × (1/2)^4 = 6.25%, continuing the 100 → 50 → 25 → 12.5 sequence in Table 1.",
+  "Incorrect. 93.75% is the complement of 6.25%, the fraction lost rather than the fraction remaining.",
+  "Incorrect. 12.5% is the 135 min row of Table 1, three half-lives, not the 180 min point.",
+  "Incorrect. 3.125% would be five half-lives (225 min), one more half-life than the 180 min asked about."]},
+ "bp1323_3": {"ox": [
+  "Incorrect. This is correct for first-order decay: Table 1 halves every 45 min from 100%, whatever the starting amount.",
+  "Incorrect. This is correct: each 45 min step removes half of what is present (100 → 50 → 25 → 12.5), the proportional loss first-order kinetics requires.",
+  "Correct. First-order half-life is ln 2 / k and does not depend on starting concentration, so a larger starting amount leaves the 45 min half-life unchanged.",
+  "Incorrect. This is correct: t½ = ln 2 / k defines the first-order half-life, fixed at 45 min by Table 1's halving times."]},
+ "bp1323_4": {"ox": [
+  "Correct. The passage tests whether proteasome inhibition would stabilise IκBα, which places its turnover on the proteasome route, the pathway its 45 min half-life in Table 1 fits.",
+  "Incorrect. Lysosomal degradation is not what the passage tests; it asks whether proteasome inhibition would stabilise the protein, and no lysosomal or ribosome data appear.",
+  "Incorrect. Glycosylation in the Golgi is not measured, and Table 1 shows IκBα being lost from 100% to 12.5% rather than protected.",
+  "Incorrect. Secretion is not measured; the protein declines inside the cells across Table 1's four time points rather than being exported."]},
+ "bp1325_0": {"ox": [
+  "Correct. Every row of Table 1 gives the same ratio: 20/40, 33.3/66.7, 50/100, 66.7/133.3, 80/160 and 88.9/177.8 all equal 0.5.",
+  "Incorrect. At the lowest [S] of 6.2 µM the inhibited velocity is 20 against 40 µmol/min for control, so it is lower, not higher.",
+  "Incorrect. The ratio does not fall: it is 0.5 at 6.2 µM and still 0.5 at 200 µM, so inhibition is not overcome at high [S].",
+  "Incorrect. The ratio stays at 0.5 rather than rising; a rising ratio would mean the compound loses potency at high [S], which Table 1 does not show."]},
+ "bp1325_1": {"ox": [
+  "Incorrect. Potency falling as [S] rises is the competitive signature, so this experiment would support competition, the opposite of the constant 0.5 ratio in Table 1.",
+  "Correct. At 200 µM the control velocity is 177.8 against 88.9 µmol/min with compound, so saturating [S] never restores the control plateau.",
+  "Incorrect. A Km rising with compound concentration is competitive inhibition, the pattern that the flat control and inhibited columns of Table 1 are meant to rule out.",
+  "Incorrect. A structural match to glucose would argue for competition, and the passage states the compound bears no resemblance to glucose."]},
+ "bp1325_2": {"ox": [
+  "Incorrect. 198 µmol/min is essentially the uninhibited Vmax of 200, but the inhibited column reaches only 88.9 at 200 µM.",
+  "Incorrect. 400 µmol/min doubles the uninhibited Vmax, whereas the compound lowers velocities at every [S] in Table 1.",
+  "Incorrect. 66.7 µmol/min is the inhibited velocity at 50 µM, a single point rather than the plateau.",
+  "Correct. The inhibited-to-control ratio is 0.5 at every [S], so Vmax,app = 200 / 2 = 100 µmol/min, approached by 88.9 at 200 µM and still rising."]},
+ "bp1325_3": {"ox": [
+  "Correct. Pure noncompetitive inhibition leaves Km unchanged, which is why the ratio is a constant 0.5 in Table 1; it binds away from the active site, so it does not compete with substrate.",
+  "Incorrect. This is true: the inhibited plateau is half the control plateau (88.9 against 177.8 µmol/min at 200 µM), so apparent Vmax falls.",
+  "Incorrect. This is true: a compound binding both free enzyme and enzyme-substrate complex gives the constant 0.5 ratio seen at every [S] in Table 1.",
+  "Incorrect. This is true: pure noncompetitive inhibition gives double-reciprocal lines that cross on the x-axis at -1/Km."]},
+ "bp1325_4": {"ox": [
+  "Incorrect. Irreversible transition-state mimicry acts at the active site and would not give the constant 0.5 ratio across every [S] in Table 1.",
+  "Correct. The passage places the compound by docking in a hydrophobic pocket far from the catalytic residues, and binding at a distinct site that lowers capacity reproduces the halved plateau.",
+  "Incorrect. Competition by a structural analog would raise apparent Km and be overcome at high [S]; the compound resembles no glucose and the ratio stays 0.5.",
+  "Incorrect. Activation would raise velocities, but every row of Table 1 shows the inhibited velocity at half the control value."]},
+}
+
+if __name__ == "__main__":
+    json.dump(E, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    print("wrote %s: %d entries" % (OUT, len(E)))
+    assert len(E) == 15, len(E)
+    for k, v in E.items():
+        assert len(v["ox"]) == 4, k

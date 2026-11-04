@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+"""Phase 2 batch 15: bp1329 (table repair + explanations), bp1330, bp1331.
+
+bp1329's Table 1 was stored as column vectors inside one row ("[10, 20, 30]" ...),
+so it could not be read row by row; it is rebuilt as three dose rows with a
+digit-preservation audit against the original cells.
+"""
+import json
+import os
+import re
+
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+BP = os.path.join(ROOT, "bank", "BP.json")
+REC = os.path.join(ROOT, "json", "phase2", "repairs_pending.json")
+OUT = os.path.join(ROOT, "json", "phase2", "batch_1329_1331.json")
+
+AFTER = [{
+    "h": ["Dose (mg)", "Mean SBP reduction (mmHg)", "SD (mmHg)", "Sample size"],
+    "r": [["10", "7.8", "2.9", "60"],
+          ["20", "10.2", "3.1", "50"],
+          ["30", "12.4", "3.3", "40"]],
+    "cap": "Table 1. Mean systolic blood pressure reduction by dose",
+}]
+
+
+def nums(obj):
+    return sorted(re.findall(r"\d+(?:\.\d+)?", json.dumps(obj, ensure_ascii=False)))
+
+
+def repair_bp1329():
+    data = json.load(open(BP, encoding="utf-8"))
+    by = {p["id"]: p for p in data["passages"]}
+    p = by["bp1329"]
+    before = p["tbl"]
+    if before == AFTER:
+        print("bp1329 table already rebuilt; no new record")
+        return
+    # digit-preservation audit: the rebuild may regroup cells but must not add,
+    # drop or alter a single number in the header or rows (the caption is a label,
+    # not a data cell, so its "Table 1" number is excluded)
+    body = [AFTER[0]["h"], AFTER[0]["r"]]
+    assert nums(before) == nums(body), (nums(before), nums(body))
+    p["tbl"] = AFTER
+    rec = json.load(open(REC, encoding="utf-8")) if os.path.exists(REC) else {}
+    rec.setdefault("bp1329", []).append({
+        "field": "tbl",
+        "why": ("table was stored as column vectors inside a single row "
+                "(\"[10, 20, 30]\" / \"[7.8, 10.2, 12.4]\" / ...), so no dose could be "
+                "read as a row; rebuilt as three dose rows, every number preserved"),
+        "before": before,
+        "after": AFTER,
+    })
+    with open(BP, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
+    json.dump(rec, open(REC, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print("bp1329 table rebuilt; digits preserved:", nums(body))
+
+
+E = {
+ "bp1329_0": {"ox": [
+  "Incorrect. 8.5 mmHg matches no cell in Table 1; the three mean reductions are 7.8, 10.2 and 12.4 mmHg by ascending dose.",
+  "Correct. The 20 mg row of Table 1 reads a mean SBP reduction of 10.2 mmHg with SD 3.1 in the 50 participants assigned to that dose.",
+  "Incorrect. 12.4 mmHg is the 30 mg row, the highest dose rather than the 20 mg dose the question asks about.",
+  "Incorrect. 15.1 mmHg exceeds every reduction in Table 1, where the largest mean reduction is 12.4 mmHg at 30 mg."]},
+ "bp1329_1": {"ox": [
+  "Correct. The passage describes a placebo-controlled trial, and Table 1's control arm of 30 participants received an inert placebo rather than any Hypertensol dose.",
+  "Incorrect. The 10 mg arm with 60 participants is an active treatment group in Table 1, not the control group.",
+  "Incorrect. A no-treatment arm would not be placebo-controlled; the passage assigns its 30-participant control group to an inert placebo.",
+  "Incorrect. The 30 mg arm with 40 participants is the highest active dose in Table 1, not the control group."]},
+ "bp1329_2": {"ox": [
+  "Correct. Weighting each mean by its group size gives (7.8 x 60 + 10.2 x 50 + 12.4 x 40)/150 = (468 + 510 + 496)/150 = 1474/150 = 9.8 mmHg.",
+  "Incorrect. 10.2 mmHg is the 20 mg row value, and the unweighted mean of the three dose means is (7.8 + 10.2 + 12.4)/3 = 10.1; neither uses the 60/50/40 sample sizes.",
+  "Incorrect. 11.0 mmHg does not reproduce from Table 1: the size-weighted mean is 1474/150 = 9.8 mmHg, and no weighting of the 7.8/10.2/12.4 cells reaches 11.0.",
+  "Incorrect. 8.5 mmHg sits between the 10 mg mean of 7.8 and the 20 mg mean of 10.2 but matches no cell and no weighted combination of the three rows."]},
+ "bp1329_3": {"ox": [
+  "Incorrect. This is a potential confounder: age is reported only as an enrolment criterion, so had it differed across the 60/50/40 arms it could shift the reductions in Table 1.",
+  "Incorrect. This is a potential confounder: a device or cuff applied differently across arms would shift the reductions in Table 1 independently of the drug.",
+  "Incorrect. This is a potential confounder: expectancy effects differ between an inert placebo and active doses, which is why the 30-participant placebo arm exists.",
+  "Correct. Sample size (60, 50, 40) is a design parameter that sets the precision of each mean, not a variable that can be unevenly distributed across arms and distort the comparison."]},
+ "bp1329_4": {"ox": [
+  "Correct. The means rise with dose, 7.8 mmHg at 10 mg, 10.2 at 20 mg and 12.4 at 30 mg, the dose-dependent pattern the investigators set out to test.",
+  "Incorrect. Table 1 shows a 4.6 mmHg rise from 10 mg to 30 mg, so claiming no dose-response relationship contradicts the data.",
+  "Incorrect. Table 1 lists only mean reduction, SD and sample size by dose; nothing in it compares efficacy with safety dose by dose, so no optimum can be read off.",
+  "Incorrect. The passage states adverse events were mild and comparable across groups, so more events at 30 mg is not supported by the reported data."]},
+ "bp1330_0": {"ox": [
+  "Incorrect. 3 mmHg is the placebo row of Table 1, the comparator rather than the treated group.",
+  "Correct. The CardioX row of Table 1 reads a mean SBP reduction of 12 mmHg with SD 4 in the 100 participants, the same figure the passage states.",
+  "Incorrect. 145 mmHg is the baseline mean shared by both groups, a starting pressure rather than a reduction.",
+  "Incorrect. 8 mmHg is the baseline SD given in the passage, not a reduction; the SD of the CardioX reduction is 4."]},
+ "bp1330_1": {"ox": [
+  "Incorrect. The passage's 12-week follow-up period says nothing about whether the two groups were comparable before treatment began.",
+  "Correct. Random assignment of 100 participants to CardioX and 100 to placebo balances known and unknown confounders, which is what lets the 12 versus 3 mmHg difference be credited to the drug.",
+  "Incorrect. Both arms started at 145 mmHg, so the baseline value is shared and cannot explain a difference between the groups.",
+  "Incorrect. Adverse-event reporting addresses safety; the passage says those events were comparable, which bears on tolerability rather than on attributing the pressure fall."]},
+ "bp1330_2": {"ox": [
+  "Correct. 150 - 12 = 138 mmHg, applying the CardioX mean reduction of 12 mmHg from Table 1 to the stated baseline of 150 mmHg.",
+  "Incorrect. 150 mmHg is the untreated baseline; leaving it unchanged ignores the 12 mmHg fall shown in the CardioX row.",
+  "Incorrect. 162 mmHg adds 12 rather than subtracting it, which would mean the drug raised blood pressure.",
+  "Incorrect. 145 mmHg is the study's baseline mean, not what a 150 mmHg patient reads after 12 weeks of CardioX."]},
+ "bp1330_3": {"ox": [
+  "Incorrect. The passage states baseline mean SBP was 145 mmHg with SD 8 in both groups, so the arms were balanced at the start.",
+  "Correct. Twelve weeks of follow-up cannot capture long-term efficacy or rare adverse events, and the passage reports only that events over that window were comparable.",
+  "Incorrect. Two hundred participants split 100/100 is not too large; a larger sample tightens the estimate of the 12 versus 3 mmHg difference rather than limiting the study.",
+  "Incorrect. The passage describes a parallel randomized trial with separate CardioX and placebo arms, not a crossover."]},
+ "bp1330_4": {"ox": [
+  "Incorrect. No first-line comparison was made: the trial tested CardioX only against placebo, in stage-1 hypertension, for 12 weeks.",
+  "Correct. 12 - 3 = 9 mmHg more than placebo at 12 weeks in stage-1 hypertension with comparable adverse events, while long-term outcomes and comparison with existing drugs went untested.",
+  "Incorrect. CardioX lowered SBP by 12 mmHg against 3 mmHg for placebo, so the placebo fall does not make the drug ineffective.",
+  "Incorrect. The trial enrolled stage-1 hypertension with a mean baseline of 145 mmHg; no subgroup above 160 mmHg was studied in Table 1."]},
+ "bp1331_0": {"ox": [
+  "Incorrect. 200 gives 12.5 umol O2 g-1 FW h-1, the lowest rate in Table 1.",
+  "Incorrect. 400 gives 24.8, well below the 36.0 and 36.5 reached at the two highest intensities.",
+  "Incorrect. 600 gives 35.2, close to the plateau but still below the 36.5 measured at 1000.",
+  "Correct. The last row of Table 1 reads 36.5 umol O2 g-1 FW h-1 at 1000, the highest rate, though only 0.5 above the 800 value of 36.0."]},
+ "bp1331_1": {"ox": [
+  "Incorrect. Holding temperature at 25 C while varying light repeats the original design; temperature is the variable to change here, not light.",
+  "Correct. Fixing light at the 600 saturation point and CO2 at 400 ppm while varying temperature from 10 to 40 C isolates temperature, as Table 1 varied only light intensity.",
+  "Incorrect. Varying CO2 while holding temperature and light constant tests CO2 dependence and leaves temperature untested.",
+  "Incorrect. Chlorophyll fluorescence across intensities varies light again; it does not measure the O2 rate at different temperatures."]},
+ "bp1331_2": {"ox": [
+  "Incorrect. 49.6% divides 12.3 by the 400 value (12.3/24.8 = 49.6%), making the ending rate the denominator.",
+  "Incorrect. 59.2% does not reproduce from the 200 and 400 rows: 12.3 over 12.5 is 98.4%, and 12.3 over 24.8 is 49.6%.",
+  "Incorrect. 78.4% likewise matches no pair of Table 1 cells for this step; the increase is 12.3 on a starting rate of 12.5.",
+  "Correct. (24.8 - 12.5)/12.5 = 12.3/12.5 = 98.4%, the rise from the 200 row to the 400 row as a share of the starting rate."]},
+ "bp1331_3": {"ox": [
+  "Incorrect. This is a finding, not a misconception: Table 1 shows 35.2, 36.0 and 36.5 at 600, 800 and 1000, a plateau.",
+  "Correct. Table 1 climbs from 12.5 to 35.2 by 600 but then adds only 1.3 units up to 1000, so light past saturation does not keep raising the rate.",
+  "Incorrect. This is a finding: the plateau from 600 onward is what limitation by electron transport capacity predicts.",
+  "Incorrect. This is a finding: the light reactions supply ATP and NADPH for the Calvin cycle, which is why O2 evolution follows light at low intensity."]},
+ "bp1331_4": {"ox": [
+  "Correct. The maximum in Table 1 is 36.5 at 1000, and 35.2/36.5 = 96.4%, the plateau level already reached by 600.",
+  "Incorrect. 97.8% is 35.2/36.0, treating the 800 value as the maximum even though the 1000 value of 36.5 is higher.",
+  "Incorrect. 67.9% is 24.8/36.5, the 400 row against the maximum, a lower light intensity than the one asked about.",
+  "Incorrect. 34.2% is 12.5/36.5, the 200 row of Table 1 taken against the maximum rate instead of the 600 row."]},
+}
+
+
+def main():
+    repair_bp1329()
+    os.makedirs(os.path.dirname(OUT), exist_ok=True)
+    with open(OUT, "w", encoding="utf-8") as f:
+        f.write(json.dumps(E, ensure_ascii=False, separators=(",", ":")))
+    print("wrote", OUT, len(E), "entries")
+
+
+if __name__ == "__main__":
+    main()
