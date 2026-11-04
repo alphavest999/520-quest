@@ -1372,9 +1372,9 @@ const CONFIG = {
   // Plans: paste each plan's Lemon Squeezy checkout link once the store is live. Empty links show "Opening soon".
   // testUrl is the Lemon Squeezy TEST-mode link for the same plan. It is used only on localhost, or on any host after opening ?paytest=1 once (?paytest=0 turns it off), so real visitors never see it.
   plans: [
-    { id: "monthly", name: "Monthly", price: "$14.99", per: "/ month", url: "https://unprocrastinate.lemonsqueezy.com/checkout/buy/418a3162-491d-4002-ae18-df768e2777d6", testUrl: "" },
-    { id: "sixmonth", name: "6 Months", price: "$44.99", per: "/ 6 months", url: "https://unprocrastinate.lemonsqueezy.com/checkout/buy/518dafa1-3146-4c9b-b0e1-7465da7f1a6b", testUrl: "" },
-    { id: "yearly", name: "Yearly", price: "$59.99", per: "/ year", url: "https://unprocrastinate.lemonsqueezy.com/checkout/buy/df8329cc-9292-4690-8d63-990d85db4391", testUrl: "", best: true }
+    { id: "monthly", name: "Monthly", price: "$14.99", per: "/ month", url: "", testUrl: "https://unprocrastinate.lemonsqueezy.com/checkout/buy/418a3162-491d-4002-ae18-df768e2777d6" },
+    { id: "sixmonth", name: "6 Months", price: "$44.99", per: "/ 6 months", url: "", testUrl: "https://unprocrastinate.lemonsqueezy.com/checkout/buy/518dafa1-3146-4c9b-b0e1-7465da7f1a6b" },
+    { id: "yearly", name: "Yearly", price: "$59.99", per: "/ year", url: "", testUrl: "https://unprocrastinate.lemonsqueezy.com/checkout/buy/df8329cc-9292-4690-8d63-990d85db4391", best: true }
   ],
   fromPrice: "$14.99/month",
   freeQuestions: 100,      // free players can open this many different questions in total

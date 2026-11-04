@@ -2,11 +2,7 @@
 window.SITE = {
   // Lemon Squeezy checkout links (Product > Share > Checkout link), e.g. "https://520quest.lemonsqueezy.com/buy/xxxx".
   // While a link is empty, its button shows "Opening soon".
-  plans: {
-    monthly: "https://unprocrastinate.lemonsqueezy.com/checkout/buy/418a3162-491d-4002-ae18-df768e2777d6",
-    sixmonth: "https://unprocrastinate.lemonsqueezy.com/checkout/buy/518dafa1-3146-4c9b-b0e1-7465da7f1a6b",
-    yearly: "https://unprocrastinate.lemonsqueezy.com/checkout/buy/df8329cc-9292-4690-8d63-990d85db4391"
-  }
+  plans: { monthly: "", sixmonth: "", yearly: "" }
 };
 /* ============================================================================================= */
 // Checkout opens as a pop-up: dark, pink Pay button, no extra product text.
