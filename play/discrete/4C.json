@@ -406,7 +406,7 @@
    "D": "50 W"
   },
   "correct": "A",
-  "explanation": "Correct: A) P = I^2 R = (2)^2 x 5 = 20 W. Why the others are wrong: B) 10 W uses P = IR, which has the wrong units and form. C) 2.5 W comes from dividing R by I^2 or similar, a wrong formula. D) 50 W uses I x R^2, which is not a power relation.",
+  "explanation": "Correct: A) P = I² R = (2)² x 5 = 20 W. Why the others are wrong: B) 10 W uses P = IR, which has the wrong units and form. C) 2.5 W comes from dividing R by I² or similar, a wrong formula. D) 50 W uses I x R², which is not a power relation.",
   "trap": "Using P = IR or forgetting to square the current.",
   "topic": "Electrical power",
   "mastery_sheet_id": "4C",
@@ -490,13 +490,13 @@
   "type": "discrete",
   "stem": "A 10 microfarad capacitor is charged to 10 V. The energy stored is:",
   "options": {
-   "A": "1 x 10^-3 J",
-   "B": "1 x 10^-4 J",
-   "C": "5 x 10^-3 J",
-   "D": "5 x 10^-4 J"
+   "A": "1 x 10⁻³ J",
+   "B": "1 x 10⁻⁴ J",
+   "C": "5 x 10⁻³ J",
+   "D": "5 x 10⁻⁴ J"
   },
   "correct": "D",
-  "explanation": "Correct: D) U = 1/2 C V^2 = 0.5 x 10^-5 F x 100 V^2 = 5 x 10^-4 J. Why the others are wrong: A) 1 x 10^-3 J omits the factor of one half (CV^2). B) 1 x 10^-4 J is a power-of-ten error and omits the half. C) 5 x 10^-3 J has the right coefficient but is off by a factor of 10.",
+  "explanation": "Correct: D) U = 1/2 C V² = 0.5 x 10⁻⁵ F x 100 V² = 5 x 10⁻⁴ J. Why the others are wrong: A) 1 x 10⁻³ J omits the factor of one half (CV²). B) 1 x 10⁻⁴ J is a power-of-ten error and omits the half. C) 5 x 10⁻³ J has the right coefficient but is off by a factor of 10.",
   "trap": "Dropping the one half or using CV.",
   "topic": "Energy stored in a capacitor",
   "mastery_sheet_id": "4C",
@@ -559,7 +559,7 @@
    "D": "1/4"
   },
   "correct": "B",
-  "explanation": "Correct: B) R = rho L / A with A proportional to r^2; L doubles and A quadruples, so R is multiplied by 2/4 = 1/2. Why the others are wrong: A) 2 accounts for the length but ignores the larger area. C) 4 would require both changes to raise resistance, but a wider wire lowers it. D) 1/4 accounts for the quadrupled area but ignores the doubled length.",
+  "explanation": "Correct: B) R = rho L / A with A proportional to r²; L doubles and A quadruples, so R is multiplied by 2/4 = 1/2. Why the others are wrong: A) 2 accounts for the length but ignores the larger area. C) 4 would require both changes to raise resistance, but a wider wire lowers it. D) 1/4 accounts for the quadrupled area but ignores the doubled length.",
   "trap": "Treating area as proportional to radius, not radius squared.",
   "topic": "Resistivity",
   "mastery_sheet_id": "4C",
@@ -605,7 +605,7 @@
    "D": "2 ms"
   },
   "correct": "D",
-  "explanation": "Correct: D) tau = RC = 1000 ohm x 2 x 10^-6 F = 2 x 10^-3 s = 2 ms. Why the others are wrong: A) 0.5 ms inverts the product, using 1/(RC)-like scaling rather than RC. B) 2 s mishandles the micro prefix, treating microfarads as farads times 10^-3. C) 2 microseconds ignores the kilo prefix on the resistance.",
+  "explanation": "Correct: D) tau = RC = 1000 ohm x 2 x 10⁻⁶ F = 2 x 10⁻³ s = 2 ms. Why the others are wrong: A) 0.5 ms inverts the product, using 1/(RC)-like scaling rather than RC. B) 2 s mishandles the micro prefix, treating microfarads as farads times 10⁻³. C) 2 microseconds ignores the kilo prefix on the resistance.",
   "trap": "Making prefix conversion errors with kilo and micro when computing the RC product.",
   "topic": "RC time constant",
   "mastery_sheet_id": "4C",
@@ -790,8 +790,8 @@
    "D": "the 10 ohm resistor carries less current"
   },
   "correct": "B",
-  "explanation": "Correct: B) In parallel each resistor has the same voltage, so P = V^2/R is larger for the smaller resistor: 40 W for 10 ohms versus 20 W for 20 ohms. Why the others are wrong: A) the larger resistance gives less power at equal voltage. C) equal power would need equal resistance. D) the 10 ohm resistor carries more current (2 A versus 1 A).",
-  "trap": "Using P = I^2 R in a parallel arrangement.",
+  "explanation": "Correct: B) In parallel each resistor has the same voltage, so P = V²/R is larger for the smaller resistor: 40 W for 10 ohms versus 20 W for 20 ohms. Why the others are wrong: A) the larger resistance gives less power at equal voltage. C) equal power would need equal resistance. D) the 10 ohm resistor carries more current (2 A versus 1 A).",
+  "trap": "Using P = I² R in a parallel arrangement.",
   "topic": "Power in parallel resistors",
   "mastery_sheet_id": "4C",
   "difficulty": "518",
@@ -807,13 +807,13 @@
   "type": "discrete",
   "stem": "The plates of a capacitor are 1 cm apart and connected to a 100 V battery. The uniform electric field between the plates is:",
   "options": {
-   "A": "10^2 V/m",
-   "B": "10^6 V/m",
-   "C": "10^4 V/m",
-   "D": "10^-2 V/m"
+   "A": "10² V/m",
+   "B": "10⁶ V/m",
+   "C": "10⁴ V/m",
+   "D": "10⁻² V/m"
   },
   "correct": "C",
-  "explanation": "Correct: C) E = V/d = 100 V / 0.01 m = 10^4 V/m, after converting 1 cm to 0.01 m. Why the others are wrong: A) 10^2 V/m treats the 1 cm as 1 m. B) 10^6 V/m multiplies by an extra factor of 100 from the wrong conversion. D) 10^-2 V/m inverts the ratio.",
+  "explanation": "Correct: C) E = V/d = 100 V / 0.01 m = 10⁴ V/m, after converting 1 cm to 0.01 m. Why the others are wrong: A) 10² V/m treats the 1 cm as 1 m. B) 10⁶ V/m multiplies by an extra factor of 100 from the wrong conversion. D) 10⁻² V/m inverts the ratio.",
   "trap": "Forgetting to convert centimeters to meters.",
   "topic": "Capacitor electric field",
   "mastery_sheet_id": "4C",

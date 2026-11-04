@@ -151,7 +151,7 @@
   },
   {
    "passage_id": "Mini05_CP_P2",
-   "passage_text": "Diagnostic ultrasound transducers emit short pulses of sound that travel through soft tissue at about 1540 m/s, reflect from boundaries, and return to the transducer. As the pulse travels, the tissue absorbs and scatters sound, and the intensity level falls in proportion to distance and to frequency. A change in intensity level in decibels (dB) is ΔL = 10 log(I2/I1), so a loss of 10 dB corresponds to a factor of 10 in intensity. A sonographer examining the liver compares five transducer frequencies. Table 1 lists the wavelength of each pulse in tissue and the attenuation of the sound in liver, in dB per cm of one-way travel. Figure 1 plots attenuation against frequency. The instrument can display an echo only if the total loss on the round trip, to the reflector and back, does not exceed a preset limit. Shorter wavelengths allow the instrument to distinguish reflectors that lie closer together along the beam.",
+   "passage_text": "Diagnostic ultrasound transducers emit short pulses of sound that travel through soft tissue at about 1540 m/s, reflect from boundaries, and return to the transducer. As the pulse travels, the tissue absorbs and scatters sound, and the intensity level falls in proportion to distance and to frequency. A change in intensity level in decibels (dB) is ΔL = 10 log(I₂/I₁), so a loss of 10 dB corresponds to a factor of 10 in intensity. A sonographer examining the liver compares five transducer frequencies. Table 1 lists the wavelength of each pulse in tissue and the attenuation of the sound in liver, in dB per cm of one-way travel. Figure 1 plots attenuation against frequency. The instrument can display an echo only if the total loss on the round trip, to the reflector and back, does not exceed a preset limit. Shorter wavelengths allow the instrument to distinguish reflectors that lie closer together along the beam.",
    "table_data": "| Frequency (MHz) | Wavelength in tissue (mm) | Attenuation (dB/cm) |\n|---|---|---|\n| 2.0 | 0.77 | 1.4 |\n| 3.5 | 0.44 | 2.45 |\n| 5.0 | 0.31 | 3.5 |\n| 7.5 | 0.21 | 5.25 |\n| 10.0 | 0.15 | 7.0 |",
    "graph": {
     "type": "line",
@@ -281,7 +281,7 @@
       "D": "1.6 × 10⁻³"
      },
      "correct": "D",
-     "explanation": "Correct: D) I2/I1 = 10^(−28/10) = 10^(−2.8) ≈ 1.6 × 10⁻³. Why the others are wrong: A) This is the ratio for 14 dB, the one-way loss, not the round-trip loss. B) This treats the decibel value as the exponent of 10 without dividing by 10. C) This takes 28 dB as 2.8 and treats it as a coefficient rather than an exponent.",
+     "explanation": "Correct: D) I₂/I₁ = 10^(−28/10) = 10^(−2.8) ≈ 1.6 × 10⁻³. Why the others are wrong: A) This is the ratio for 14 dB, the one-way loss, not the round-trip loss. B) This treats the decibel value as the exponent of 10 without dividing by 10. C) This takes 28 dB as 2.8 and treats it as a coefficient rather than an exponent.",
      "trap": "Forgetting that decibels are one tenth of a base-10 logarithm of the ratio.",
      "topic": "Decibel scale",
      "mastery_sheet_id": "4D",
@@ -297,7 +297,7 @@
   },
   {
    "passage_id": "Mini05_CP_P3",
-   "passage_text": "Cesium-137 decays with a half-life of about 30 years. The decay is a beta emission that produces barium-137 in an excited state (¹³⁷ᵐBa), which relaxes to the ground state by emitting a 662 keV gamma ray. A student places a sealed ¹³⁷Cs source at a fixed distance from a Geiger-Müller detector and inserts lead sheets of increasing total thickness between them. At each thickness the detector counts for several minutes, and the background rate is subtracted. For a narrow beam of gamma rays, the transmitted rate follows I = I0e^(−μx), where x is the thickness of absorber and μ is the linear attenuation coefficient. The half-value layer (HVL) is the thickness that reduces the rate by half. Table 1 gives the net count rate and the natural logarithm of that rate. Figure 1 shows the net rate as a function of lead thickness. The lead sheets were of uniform composition and the geometry was not altered between runs.",
+   "passage_text": "Cesium-137 decays with a half-life of about 30 years. The decay is a beta emission that produces barium-137 in an excited state (¹³⁷ᵐBa), which relaxes to the ground state by emitting a 662 keV gamma ray. A student places a sealed ¹³⁷Cs source at a fixed distance from a Geiger-Müller detector and inserts lead sheets of increasing total thickness between them. At each thickness the detector counts for several minutes, and the background rate is subtracted. For a narrow beam of gamma rays, the transmitted rate follows I = I₀e^(−μx), where x is the thickness of absorber and μ is the linear attenuation coefficient. The half-value layer (HVL) is the thickness that reduces the rate by half. Table 1 gives the net count rate and the natural logarithm of that rate. Figure 1 shows the net rate as a function of lead thickness. The lead sheets were of uniform composition and the geometry was not altered between runs.",
    "table_data": "| Lead thickness (mm) | Net count rate (counts/min) | ln(rate) |\n|---|---|---|\n| 0 | 8000 | 8.99 |\n| 6.0 | 4000 | 8.29 |\n| 12.0 | 2000 | 7.60 |\n| 18.0 | 1000 | 6.91 |\n| 24.0 | 500 | 6.21 |",
    "graph": {
     "type": "line",
@@ -365,7 +365,7 @@
       "D": "4.2 mm⁻¹"
      },
      "correct": "C",
-     "explanation": "Correct: C) Because I/I0 = ½ at x = 6.0 mm, μ = ln 2 / HVL = 0.693 / 6.0 mm ≈ 0.12 mm⁻¹. The slope of ln(rate) versus x is −0.115 mm⁻¹ for the same reason. Why the others are wrong: A) This takes the reciprocal, HVL/ln 2, which is a length (the mean free path), not an attenuation coefficient. B) This is 1/HVL and leaves out the ln 2 factor from the exponential decay. D) This multiplies the HVL by ln 2, which gives neither μ nor the mean free path.",
+     "explanation": "Correct: C) Because I/I₀ = ½ at x = 6.0 mm, μ = ln 2 / HVL = 0.693 / 6.0 mm ≈ 0.12 mm⁻¹. The slope of ln(rate) versus x is −0.115 mm⁻¹ for the same reason. Why the others are wrong: A) This takes the reciprocal, HVL/ln 2, which is a length (the mean free path), not an attenuation coefficient. B) This is 1/HVL and leaves out the ln 2 factor from the exponential decay. D) This multiplies the HVL by ln 2, which gives neither μ nor the mean free path.",
      "trap": "Using 1/HVL for the attenuation coefficient and forgetting ln 2.",
      "topic": "Attenuation coefficient",
      "mastery_sheet_id": "4E",
@@ -684,7 +684,7 @@
       "D": "1.3"
      },
      "correct": "C",
-     "explanation": "Correct: C) In neutral water [H₃O⁺] = √Kw. The ratio is √(5.1 × 10⁻¹³ / 1.0 × 10⁻¹⁴) = √51 ≈ 7.1 (pH 6.14 vs 7.00 differ by 0.86, and 10^0.86 ≈ 7.2). Why the others are wrong: A) This is the ratio of the Kw values, which is the ratio of products of two concentrations, not of one. B) This is the inverse of the correct factor, which would indicate a decrease. D) This is the difference between the pH values of the two solutions, not the ratio of concentrations.",
+     "explanation": "Correct: C) In neutral water [H₃O⁺] = √Kw. The ratio is √(5.1 × 10⁻¹³ / 1.0 × 10⁻¹⁴) = √51 ≈ 7.1 (pH 6.14 vs 7.00 differ by 0.86, and 10⁰.86 ≈ 7.2). Why the others are wrong: A) This is the ratio of the Kw values, which is the ratio of products of two concentrations, not of one. B) This is the inverse of the correct factor, which would indicate a decrease. D) This is the difference between the pH values of the two solutions, not the ratio of concentrations.",
      "trap": "Using the ratio of Kw values for the ratio of H₃O⁺ concentrations.",
      "topic": "Ion concentrations",
      "mastery_sheet_id": "5A",
@@ -1074,7 +1074,7 @@
       "D": "58"
      },
      "correct": "A",
-     "explanation": "Correct: A) Ka ratio = 10^(4.20 − 3.44) = 10^0.76 ≈ 5.8. Why the others are wrong: B) This is the difference in pKa values, not the ratio of Ka values. C) This is the inverse of the correct ratio, showing the p-nitro acid as weaker. D) This is 10^1.76, adding 1 to the exponent by an arithmetic slip.",
+     "explanation": "Correct: A) Ka ratio = 10^(4.20 − 3.44) = 10⁰.76 ≈ 5.8. Why the others are wrong: B) This is the difference in pKa values, not the ratio of Ka values. C) This is the inverse of the correct ratio, showing the p-nitro acid as weaker. D) This is 10¹.76, adding 1 to the exponent by an arithmetic slip.",
      "trap": "Reporting the pKa difference as a ratio.",
      "topic": "pKa and Ka",
      "mastery_sheet_id": "5D",

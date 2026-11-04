@@ -67,7 +67,7 @@
       "D": "0.1, the 8.8-point mean difference divided by the average variance (about 61)"
      },
      "correct": "B",
-     "explanation": "Correct: B) Pooled SD = sqrt((8.1^2 + 7.5^2)/2) = sqrt(60.9) = 7.8; d = 8.8/7.8 = 1.1. Why the others are wrong: A) Dividing by the sum of the SDs (15.6) overstates the denominator; d uses a pooled SD, not a sum. C) The raw difference is not standardized, so it is not an effect size in SD units. D) Dividing by variance rather than SD gives units of 1/POMS point and a value that is far too small.",
+     "explanation": "Correct: B) Pooled SD = sqrt((8.1² + 7.5²)/2) = sqrt(60.9) = 7.8; d = 8.8/7.8 = 1.1. Why the others are wrong: A) Dividing by the sum of the SDs (15.6) overstates the denominator; d uses a pooled SD, not a sum. C) The raw difference is not standardized, so it is not an effect size in SD units. D) Dividing by variance rather than SD gives units of 1/POMS point and a value that is far too small.",
      "trap": "Reporting the raw mean difference (8.8) as the effect size, or dividing by a sum or variance instead of the pooled SD.",
      "topic": "Sleep deprivation and mood effect size",
      "mastery_sheet_id": "6C",
@@ -194,7 +194,7 @@
       "D": "3.8%, because the coefficient is divided by 10 to give a percentage"
      },
      "correct": "B",
-     "explanation": "Correct: B) Variance explained is r squared: .38 x .38 = .144, or about 14%. Why the others are wrong: A) The proportion of variance is r^2, not r. C) 1 - r (.62) has no meaning as variance explained; unexplained variance would be 1 - r^2. D) Dividing r by ten is not a valid transformation.",
+     "explanation": "Correct: B) Variance explained is r squared: .38 x .38 = .144, or about 14%. Why the others are wrong: A) The proportion of variance is r², not r. C) 1 - r (.62) has no meaning as variance explained; unexplained variance would be 1 - r². D) Dividing r by ten is not a valid transformation.",
      "trap": "Reading the correlation coefficient as the percentage of variance explained.",
      "topic": "Interpreting a correlation",
      "mastery_sheet_id": "7A",
@@ -1511,7 +1511,7 @@
     "D": "100%, because with 20 tests at least one must be significant"
    },
    "correct": "B",
-   "explanation": "Correct: B) P(at least one) = 1 - 0.95^20 = 1 - 0.36 = 0.64. Why the others are wrong: A) 5% is the chance for a single test; across 20 tests the chances accumulate. C) 0.95^20 = 0.36 is the chance that none is significant, not that at least one is. D) The probability is high but not certain.",
+   "explanation": "Correct: B) P(at least one) = 1 - 0.95²0 = 1 - 0.36 = 0.64. Why the others are wrong: A) 5% is the chance for a single test; across 20 tests the chances accumulate. C) 0.95²0 = 0.36 is the chance that none is significant, not that at least one is. D) The probability is high but not certain.",
    "trap": "Using the per-test error rate as the family-wise error rate.",
    "topic": "Multiple comparisons",
    "mastery_sheet_id": "SIRS",

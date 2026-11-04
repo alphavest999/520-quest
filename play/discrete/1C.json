@@ -71,7 +71,7 @@
    "D": "64"
   },
   "correct": "B",
-  "explanation": "Correct: B) Each of the 3 homologous pairs orients independently, so 2^3 = 8 combinations. Why the others are wrong: A) 3 is the haploid number of chromosomes, not the number of combinations. C) 6 is the diploid number, not the number of combinations. D) 64 is 2^6, wrongly using the diploid number as the exponent.",
+  "explanation": "Correct: B) Each of the 3 homologous pairs orients independently, so 2³ = 8 combinations. Why the others are wrong: A) 3 is the haploid number of chromosomes, not the number of combinations. C) 6 is the diploid number, not the number of combinations. D) 64 is 2^6, wrongly using the diploid number as the exponent.",
   "trap": "Using 2n rather than the number of homolog pairs (n) in the exponent.",
   "topic": "Independent assortment",
   "mastery_sheet_id": "1C",
@@ -94,7 +94,7 @@
    "D": "1/16"
   },
   "correct": "C",
-  "explanation": "Correct: C) Multiply independent probabilities: aa = 1/4, B_ = 3/4, cc = 1/4, so 3/64. Why the others are wrong: A) 1/64 is the probability of aabbcc, treating B_ as 1/4. B) 9/64 is (3/4)^2 x 1/4, treating two loci as dominant-phenotype classes instead of only B_. D) 1/16 equals 4/64 and does not equal the product 1/4 x 3/4 x 1/4.",
+  "explanation": "Correct: C) Multiply independent probabilities: aa = 1/4, B_ = 3/4, cc = 1/4, so 3/64. Why the others are wrong: A) 1/64 is the probability of aabbcc, treating B_ as 1/4. B) 9/64 is (3/4)² x 1/4, treating two loci as dominant-phenotype classes instead of only B_. D) 1/16 equals 4/64 and does not equal the product 1/4 x 3/4 x 1/4.",
   "trap": "Treating the dominant phenotype class (B_) as 1/4 instead of 3/4.",
   "topic": "Mendelian probability",
   "mastery_sheet_id": "1C",
@@ -117,7 +117,7 @@
    "D": "1 in 10,000"
   },
   "correct": "A",
-  "explanation": "Correct: A) q^2 = 0.0001, so q = 0.01 and p is about 0.99; carriers = 2pq = about 0.0198, roughly 1 in 50. Why the others are wrong: B) 1 in 100 is the allele frequency q, not the carrier frequency. C) 1 in 5,000 would be q^2/2 and does not follow from the Hardy-Weinberg equation. D) 1 in 10,000 is q^2, the affected frequency, not the carrier frequency.",
+  "explanation": "Correct: A) q² = 0.0001, so q = 0.01 and p is about 0.99; carriers = 2pq = about 0.0198, roughly 1 in 50. Why the others are wrong: B) 1 in 100 is the allele frequency q, not the carrier frequency. C) 1 in 5,000 would be q²/2 and does not follow from the Hardy-Weinberg equation. D) 1 in 10,000 is q², the affected frequency, not the carrier frequency.",
   "trap": "Reporting q (allele frequency) instead of 2pq (heterozygote frequency).",
   "topic": "Hardy-Weinberg",
   "mastery_sheet_id": "1C",
@@ -143,7 +143,7 @@
    "D": "There is no migration into or out of the population"
   },
   "correct": "B",
-  "explanation": "Correct: B) Non-random (assortative) mating shifts genotype frequencies away from p^2, 2pq, q^2 even if allele frequencies stay the same. Why the others are wrong: A) A very large population is a required condition for equilibrium, not a violation. C) No net mutation is a required condition for equilibrium, not a violation. D) No migration is a required condition for equilibrium, not a violation.",
+  "explanation": "Correct: B) Non-random (assortative) mating shifts genotype frequencies away from p², 2pq, q² even if allele frequencies stay the same. Why the others are wrong: A) A very large population is a required condition for equilibrium, not a violation. C) No net mutation is a required condition for equilibrium, not a violation. D) No migration is a required condition for equilibrium, not a violation.",
   "trap": "Mistaking the required conditions for the violations.",
   "topic": "Hardy-Weinberg assumptions",
   "mastery_sheet_id": "1C",
@@ -633,8 +633,8 @@
    "D": "300"
   },
   "correct": "B",
-  "explanation": "Correct: B) q^2 = 45/500 = 0.09, so q = 0.3, p = 0.7, and 2pq = 0.42; 0.42 x 500 = 210. Why the others are wrong: A) 90 is double the number of recessive homozygotes (2 x 45), not the carrier count. C) 105 does not follow from the allele frequencies (it would be 0.21 x 500). D) 300 (0.6 x 500) does not correspond to p, q, or 2pq for these frequencies.",
-  "trap": "Using q^2 or q instead of 2pq to count heterozygotes.",
+  "explanation": "Correct: B) q² = 45/500 = 0.09, so q = 0.3, p = 0.7, and 2pq = 0.42; 0.42 x 500 = 210. Why the others are wrong: A) 90 is double the number of recessive homozygotes (2 x 45), not the carrier count. C) 105 does not follow from the allele frequencies (it would be 0.21 x 500). D) 300 (0.6 x 500) does not correspond to p, q, or 2pq for these frequencies.",
+  "trap": "Using q² or q instead of 2pq to count heterozygotes.",
   "topic": "Hardy-Weinberg calculation",
   "mastery_sheet_id": "1C",
   "difficulty": "527",
@@ -804,7 +804,7 @@
    "D": "27/64"
   },
   "correct": "D",
-  "explanation": "Correct: D) Each child is unaffected with probability 3/4, so (3/4)^3 = 27/64. Why the others are wrong: A) 9/16 is (3/4)^2, the answer for two children. B) 3/4 is the probability for a single child. C) 1/64 is the probability that all three are affected.",
+  "explanation": "Correct: D) Each child is unaffected with probability 3/4, so (3/4)³ = 27/64. Why the others are wrong: A) 9/16 is (3/4)², the answer for two children. B) 3/4 is the probability for a single child. C) 1/64 is the probability that all three are affected.",
   "trap": "Using the single-child probability or the wrong number of children.",
   "topic": "Probability",
   "mastery_sheet_id": "1C",

@@ -329,7 +329,7 @@
       "D": "0.84"
      },
      "correct": "D",
-     "explanation": "Correct: D) Chi-square = (352-360)^2/360 + (118-120)^2/120 + (170-160)^2/160 = 0.178 + 0.033 + 0.625, which is about 0.84, below 5.99. Why the others are wrong: A) This is half the correct value; dividing by degrees of freedom is not part of the statistic. B) This is off by a factor of 10. C) This is double the correct value, as if the deviations were counted twice.",
+     "explanation": "Correct: D) Chi-square = (352-360)²/360 + (118-120)²/120 + (170-160)²/160 = 0.178 + 0.033 + 0.625, which is about 0.84, below 5.99. Why the others are wrong: A) This is half the correct value; dividing by degrees of freedom is not part of the statistic. B) This is off by a factor of 10. C) This is double the correct value, as if the deviations were counted twice.",
      "trap": "Dividing by the observed instead of the expected values, or forgetting to square the deviations.",
      "topic": "Chi-square",
      "mastery_sheet_id": "1C",
@@ -388,7 +388,7 @@
   {
    "passage_id": "FL03_BB_P4",
    "passage_text": "Glucose-6-phosphate dehydrogenase (G6PD) catalyzes the first, rate-limiting step of the oxidative phase of the pentose phosphate pathway. Mature erythrocytes lack mitochondria and depend on this pathway for NADPH, which glutathione reductase uses to regenerate reduced glutathione (GSH) from its oxidized form (GSSG). GSH is needed to detoxify hydrogen peroxide.\n\nResearchers incubated red blood cells from healthy volunteers and from volunteers with a partial G6PD deficiency with or without an oxidant drug that generates hydrogen peroxide. They measured NADPH production rate, the GSH/GSSG ratio, and the percentage of cells lysed (hemolysis) after 4 hours. Results are in Table 1.\n\nCells from both groups maintained similar glycolytic flux and ATP levels. Deficient cells had normal levels of glutathione reductase and total glutathione. Heinz bodies (precipitates of oxidized hemoglobin) formed only in cells with a low GSH/GSSG ratio. The oxidant did not change the number of cells in any sample at the start of the incubation, and hemolysis was determined by release of hemoglobin into the medium.",
-   "table_data": "| Group | Oxidant | NADPH production (nmol/min per 10^9 cells) | GSH/GSSG ratio | Hemolysis (%) |\n|---|---|---|---|---|\n| Normal | No | 100 | 400 | 1 |\n| Normal | Yes | 100 | 150 | 2 |\n| G6PD deficient | No | 10 | 200 | 2 |\n| G6PD deficient | Yes | 10 | 10 | 45 |",
+   "table_data": "| Group | Oxidant | NADPH production (nmol/min per 10⁹ cells) | GSH/GSSG ratio | Hemolysis (%) |\n|---|---|---|---|---|\n| Normal | No | 100 | 400 | 1 |\n| Normal | Yes | 100 | 150 | 2 |\n| G6PD deficient | No | 10 | 200 | 2 |\n| G6PD deficient | Yes | 10 | 10 | 45 |",
    "graph": null,
    "questions": [
     {
@@ -573,13 +573,13 @@
   },
   {
    "passage_id": "FL03_BB_P6",
-   "passage_text": "A bacteriophage infects E. coli and produces progeny by the lytic cycle. In a one-step growth experiment, phage were mixed with bacteria at a low ratio so that nearly all infected cells were infected by one phage. After a short adsorption period, unadsorbed phage were neutralized with antiserum and the culture was diluted, so that the initial concentration of infected cells was 2 x 10^6 per mL and free phage was essentially zero.\n\nAt intervals, two samples were taken. One sample was plated directly to measure free phage. The other was treated with chloroform, which lyses cells and releases intracellular mature phage, and then plated to measure total infectious phage (free plus intracellular). Results are in Figure 1, with phage titer given in units of 10^6 plaque-forming units (PFU) per mL.\n\nA second phage strain, which carries a mutation in a gene encoding a lysis protein, was tested in the same way. Its chloroform-treated titer rose as shown for the wild-type phage, but its free phage titer remained near zero.",
+   "passage_text": "A bacteriophage infects E. coli and produces progeny by the lytic cycle. In a one-step growth experiment, phage were mixed with bacteria at a low ratio so that nearly all infected cells were infected by one phage. After a short adsorption period, unadsorbed phage were neutralized with antiserum and the culture was diluted, so that the initial concentration of infected cells was 2 x 10⁶ per mL and free phage was essentially zero.\n\nAt intervals, two samples were taken. One sample was plated directly to measure free phage. The other was treated with chloroform, which lyses cells and releases intracellular mature phage, and then plated to measure total infectious phage (free plus intracellular). Results are in Figure 1, with phage titer given in units of 10⁶ plaque-forming units (PFU) per mL.\n\nA second phage strain, which carries a mutation in a gene encoding a lysis protein, was tested in the same way. Its chloroform-treated titer rose as shown for the wild-type phage, but its free phage titer remained near zero.",
    "table_data": "",
    "graph": {
     "type": "line",
     "title": "Figure 1. One-step growth curve",
     "x_label": "Time after infection (min)",
-    "y_label": "Titer (10^6 PFU/mL)",
+    "y_label": "Titer (10⁶ PFU/mL)",
     "series": [
      {
       "name": "Free phage",
@@ -694,7 +694,7 @@
       "D": "2"
      },
      "correct": "A",
-     "explanation": "Correct: A) The plateau is 100 x 10^6 PFU/mL from 2 x 10^6 infected cells per mL, so 100/2 = 50 phage per cell. Why the others are wrong: B) This inverts the ratio. C) This ignores the number of infected cells, using the plateau titer alone. D) This is the initial infected cell concentration, not the burst.",
+     "explanation": "Correct: A) The plateau is 100 x 10⁶ PFU/mL from 2 x 10⁶ infected cells per mL, so 100/2 = 50 phage per cell. Why the others are wrong: B) This inverts the ratio. C) This ignores the number of infected cells, using the plateau titer alone. D) This is the initial infected cell concentration, not the burst.",
      "trap": "Reading the plateau value as the burst size without dividing by the number of infected cells.",
      "topic": "Burst size",
      "mastery_sheet_id": "2B",
@@ -716,7 +716,7 @@
       "D": "most phage are destroyed by the host's immune system."
      },
      "correct": "C",
-     "explanation": "Correct: C) Before assembly, the parental particles have released their nucleic acid and progeny have not yet formed, so there is little infectivity even inside intact cells. Why the others are wrong: A) The infected centers were already established at 2 x 10^6 per mL. B) Infection subsequently proceeds normally, so the genome remains. D) Bacteria lack an adaptive immune system of this type, and the antiserum acted only on free phage.",
+     "explanation": "Correct: C) Before assembly, the parental particles have released their nucleic acid and progeny have not yet formed, so there is little infectivity even inside intact cells. Why the others are wrong: A) The infected centers were already established at 2 x 10⁶ per mL. B) Infection subsequently proceeds normally, so the genome remains. D) Bacteria lack an adaptive immune system of this type, and the antiserum acted only on free phage.",
      "trap": "Interpreting the loss of infectivity as loss of the virus, when it reflects the intracellular stage in which no complete virions exist.",
      "topic": "Viral replication cycle",
      "mastery_sheet_id": "2B",

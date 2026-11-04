@@ -1245,7 +1245,7 @@
   },
   {
    "id": "FL10_BB_D4",
-   "stem": "A researcher begins a PCR with 1,000 copies of a target sequence and assumes 100% efficiency in every cycle. What is the minimum number of cycles needed to exceed 1 x 10^6 copies?",
+   "stem": "A researcher begins a PCR with 1,000 copies of a target sequence and assumes 100% efficiency in every cycle. What is the minimum number of cycles needed to exceed 1 x 10⁶ copies?",
    "options": {
     "A": "20",
     "B": "30",
@@ -1253,8 +1253,8 @@
     "D": "7"
    },
    "correct": "C",
-   "explanation": "Correct: C) Copies double each cycle, so 1,000 x 2^n > 10^6 requires 2^n > 1,000, which is first met at n = 10 (1,024). Why the others are wrong: A) 20 cycles would give 1,000 x 2^20, about 10^9 copies. B) 30 cycles would amplify beyond 10^12 copies. D) 7 cycles give 1,000 x 128 = 128,000 copies, which is too few.",
-   "trap": "Dividing 10^6 by 1,000 and then by 2 (or using ln or log10 values) instead of finding n for which 2^n exceeds 1,000.",
+   "explanation": "Correct: C) Copies double each cycle, so 1,000 x 2^n > 10⁶ requires 2^n > 1,000, which is first met at n = 10 (1,024). Why the others are wrong: A) 20 cycles would give 1,000 x 2²0, about 10⁹ copies. B) 30 cycles would amplify beyond 10¹² copies. D) 7 cycles give 1,000 x 128 = 128,000 copies, which is too few.",
+   "trap": "Dividing 10⁶ by 1,000 and then by 2 (or using ln or log10 values) instead of finding n for which 2^n exceeds 1,000.",
    "topic": "PCR amplification",
    "mastery_sheet_id": "1B",
    "skill": "calculation",

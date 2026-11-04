@@ -87,13 +87,13 @@
   "type": "discrete",
   "stem": "Doubling the concentration of A quadruples the initial rate of a reaction, while changing [B] has no effect. The rate law is:",
   "options": {
-   "A": "rate = k[A]^2",
+   "A": "rate = k[A]²",
    "B": "rate = k[A]",
    "C": "rate = k[A][B]",
    "D": "rate = k[A]^4"
   },
   "correct": "A",
-  "explanation": "Correct: A) Rate scales as 2^n = 4, so n = 2 in A, and no dependence on B means zero order in B, giving rate = k[A]^2. Why the others are wrong: B) First order in A would only double the rate. C) Including [B] contradicts the observation that B has no effect. D) The exponent 4 confuses the rate factor with the order; 2^4 would give a 16-fold change.",
+  "explanation": "Correct: A) Rate scales as 2^n = 4, so n = 2 in A, and no dependence on B means zero order in B, giving rate = k[A]². Why the others are wrong: B) First order in A would only double the rate. C) Including [B] contradicts the observation that B has no effect. D) The exponent 4 confuses the rate factor with the order; 2^4 would give a 16-fold change.",
   "trap": "Reporting the rate factor (4) as the order instead of the exponent that gives it.",
   "topic": "Determining reaction order",
   "mastery_sheet_id": "5E",
@@ -116,7 +116,7 @@
    "D": "6.25%"
   },
   "correct": "B",
-  "explanation": "Correct: B) 90 min is three half-lives (90/30), so the fraction left is (1/2)^3 = 1/8 = 12.5%. Why the others are wrong: A) 25% is the amount left after only two half-lives (60 min). C) 33% has no basis in first-order decay and would imply a linear loss. D) 6.25% is the amount left after four half-lives (120 min).",
+  "explanation": "Correct: B) 90 min is three half-lives (90/30), so the fraction left is (1/2)³ = 1/8 = 12.5%. Why the others are wrong: A) 25% is the amount left after only two half-lives (60 min). C) 33% has no basis in first-order decay and would imply a linear loss. D) 6.25% is the amount left after four half-lives (120 min).",
   "trap": "Miscounting half-lives or treating decay as linear.",
   "topic": "First-order half-life",
   "mastery_sheet_id": "5E",
@@ -240,7 +240,7 @@
   "type": "discrete",
   "stem": "A mechanism has a slow first step A + B → C and a fast second step C + B → D. What is the rate law?",
   "options": {
-   "A": "rate = k[A][B]^2",
+   "A": "rate = k[A][B]²",
    "B": "rate = k[C][B]",
    "C": "rate = k[D]",
    "D": "rate = k[A][B]"
@@ -385,7 +385,7 @@
    "D": "M^-2 s^-1"
   },
   "correct": "C",
-  "explanation": "Correct: C) Rate (M/s) = k[M]^2 requires k to have units of M^-1 s^-1. Why the others are wrong: A) s^-1 is the unit for a first-order constant. B) M s^-1 is the unit for zero order. D) M^-2 s^-1 is the unit for third order.",
+  "explanation": "Correct: C) Rate (M/s) = k[M]² requires k to have units of M^-1 s^-1. Why the others are wrong: A) s^-1 is the unit for a first-order constant. B) M s^-1 is the unit for zero order. D) M^-2 s^-1 is the unit for third order.",
   "trap": "Memorizing units without deriving from rate = k[conc]^n.",
   "topic": "Rate constant units",
   "mastery_sheet_id": "5E",

@@ -54,15 +54,15 @@
  {
   "id": "d_4D_3",
   "type": "discrete",
-  "stem": "The speed of light in a transparent medium with n = 1.5 is approximately (c = 3.0 x 10^8 m/s):",
+  "stem": "The speed of light in a transparent medium with n = 1.5 is approximately (c = 3.0 x 10⁸ m/s):",
   "options": {
-   "A": "4.5 x 10^8 m/s",
-   "B": "2.0 x 10^8 m/s",
-   "C": "1.5 x 10^8 m/s",
-   "D": "3.0 x 10^8 m/s"
+   "A": "4.5 x 10⁸ m/s",
+   "B": "2.0 x 10⁸ m/s",
+   "C": "1.5 x 10⁸ m/s",
+   "D": "3.0 x 10⁸ m/s"
   },
   "correct": "B",
-  "explanation": "Correct: B) v = c/n = 3.0 x 10^8 / 1.5 = 2.0 x 10^8 m/s. Why the others are wrong: A) 4.5 x 10^8 multiplies by n, which would make light faster than c. C) 1.5 x 10^8 divides c by 2 rather than by n. D) 3.0 x 10^8 is the vacuum speed, but light slows in a medium.",
+  "explanation": "Correct: B) v = c/n = 3.0 x 10⁸ / 1.5 = 2.0 x 10⁸ m/s. Why the others are wrong: A) 4.5 x 10⁸ multiplies by n, which would make light faster than c. C) 1.5 x 10⁸ divides c by 2 rather than by n. D) 3.0 x 10⁸ is the vacuum speed, but light slows in a medium.",
   "trap": "Multiplying by n rather than dividing.",
   "topic": "Speed of light in a medium",
   "mastery_sheet_id": "4D",
@@ -208,16 +208,16 @@
  {
   "id": "d_4D_10",
   "type": "discrete",
-  "stem": "Unpolarized light of intensity I0 passes through a single ideal polarizer. The transmitted intensity is:",
+  "stem": "Unpolarized light of intensity I₀ passes through a single ideal polarizer. The transmitted intensity is:",
   "options": {
-   "A": "I0",
-   "B": "I0/2",
-   "C": "I0/4",
+   "A": "I₀",
+   "B": "I₀/2",
+   "C": "I₀/4",
    "D": "0"
   },
   "correct": "B",
-  "explanation": "Correct: B) An ideal polarizer transmits half of unpolarized light, the component along its axis, so I = I0/2. Why the others are wrong: A) I0 would require no loss, but half the light is blocked. C) I0/4 arises after a second polarizer at 45 degrees, not with one. D) zero would require crossed polarizers, not a single one.",
-  "trap": "Applying Malus's law cos^2 to unpolarized light.",
+  "explanation": "Correct: B) An ideal polarizer transmits half of unpolarized light, the component along its axis, so I = I₀/2. Why the others are wrong: A) I₀ would require no loss, but half the light is blocked. C) I₀/4 arises after a second polarizer at 45 degrees, not with one. D) zero would require crossed polarizers, not a single one.",
+  "trap": "Applying Malus's law cos² to unpolarized light.",
   "topic": "Polarization",
   "mastery_sheet_id": "4D",
   "difficulty": "518",
@@ -273,7 +273,7 @@
    "D": "100 dB"
   },
   "correct": "C",
-  "explanation": "Correct: C) Delta beta = 10 log(I2/I1) = 10 log(1000) = 30 dB. Why the others are wrong: A) 3 dB is log(1000) without the factor of 10. B) 1000 dB treats the intensity ratio itself as decibels. D) 100 dB misuses the logarithm and does not follow from 10 log(1000).",
+  "explanation": "Correct: C) Delta beta = 10 log(I₂/I₁) = 10 log(1000) = 30 dB. Why the others are wrong: A) 3 dB is log(1000) without the factor of 10. B) 1000 dB treats the intensity ratio itself as decibels. D) 100 dB misuses the logarithm and does not follow from 10 log(1000).",
   "trap": "Forgetting the factor of 10 in the decibel formula.",
   "topic": "Decibel scale",
   "mastery_sheet_id": "4D",
@@ -299,7 +299,7 @@
    "D": "-10 dB"
   },
   "correct": "A",
-  "explanation": "Correct: A) Intensity varies as 1/r^2, so doubling the distance cuts intensity to 1/4, and 10 log(1/4) = about -6 dB. Why the others are wrong: B) -3 dB corresponds to halving the intensity. C) -12 dB corresponds to a factor of 16 reduction. D) -10 dB corresponds to a factor of 10 reduction.",
+  "explanation": "Correct: A) Intensity varies as 1/r², so doubling the distance cuts intensity to 1/4, and 10 log(1/4) = about -6 dB. Why the others are wrong: B) -3 dB corresponds to halving the intensity. C) -12 dB corresponds to a factor of 16 reduction. D) -10 dB corresponds to a factor of 10 reduction.",
   "trap": "Believing intensity halves when distance doubles.",
   "topic": "Inverse-square law for sound",
   "mastery_sheet_id": "4D",

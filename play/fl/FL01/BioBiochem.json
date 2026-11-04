@@ -289,8 +289,8 @@
       "D": "0.20"
      },
      "correct": "B",
-     "explanation": "Correct: B) q^2 = 4/10,000 = 0.0004, so q = 0.02. Why the others are wrong: A) 0.0004 is q^2, the frequency of affected individuals C) 0.04 is the value for Region B D) 0.20 would give q^2 = 0.04",
-     "trap": "Reporting q^2 as the allele frequency without taking the square root.",
+     "explanation": "Correct: B) q² = 4/10,000 = 0.0004, so q = 0.02. Why the others are wrong: A) 0.0004 is q², the frequency of affected individuals C) 0.04 is the value for Region B D) 0.20 would give q² = 0.04",
+     "trap": "Reporting q² as the allele frequency without taking the square root.",
      "topic": "Hardy-Weinberg allele frequency",
      "mastery_sheet_id": "1C",
      "skill": "calculation",
@@ -314,7 +314,7 @@
       "D": "16%"
      },
      "correct": "C",
-     "explanation": "Correct: C) q^2 = 16/10,000 = 0.0016, so q = 0.04 and p = 0.96. Carriers = 2pq = 2(0.96)(0.04) = 0.0768, about 7.7%. Why the others are wrong: A) 0.16% is the affected frequency B) 4% is q, ignoring the factor of 2p D) 16% would result from doubling q incorrectly twice",
+     "explanation": "Correct: C) q² = 16/10,000 = 0.0016, so q = 0.04 and p = 0.96. Carriers = 2pq = 2(0.96)(0.04) = 0.0768, about 7.7%. Why the others are wrong: A) 0.16% is the affected frequency B) 4% is q, ignoring the factor of 2p D) 16% would result from doubling q incorrectly twice",
      "trap": "Using q or 2q as the carrier frequency instead of 2pq.",
      "topic": "Carrier frequency",
      "mastery_sheet_id": "1C",
@@ -355,7 +355,7 @@
      "id": "FL01_BB_P3_Q4",
      "stem": "Which factor would most likely cause the observed frequency of affected individuals in Region B to exceed the Hardy-Weinberg expectation based on its allele frequency?",
      "options": {
-      "A": "Random mating among all individuals, so genotype frequencies match p^2, 2pq, and q^2 expectations",
+      "A": "Random mating among all individuals, so genotype frequencies match p², 2pq, and q² expectations",
       "B": "Mating among relatives, raising homozygosity without changing allele frequency",
       "C": "A very large population size, which minimizes random changes in allele frequency by drift",
       "D": "Absence of mutation and migration, so no new alleles enter or leave the gene pool"
@@ -633,12 +633,12 @@
   {
    "passage_id": "FL01_BB_P6",
    "passage_text": "A clinical laboratory found that a drug-resistant bacterial strain could pass resistance to a susceptible strain. Researchers hypothesized that resistance was encoded on a plasmid that is transferred between cells. A donor strain carrying the resistance plasmid was mixed with a susceptible recipient strain and incubated for 1 hour. Mixtures were then plated on medium containing the antibiotic and a nutrient supplement that allowed only recipients to grow, and the number of resistant recipient colonies (transconjugants) per donor cell was calculated.\n\nFour conditions were tested. In condition 1, donor and recipient cells were mixed. In condition 2, the mixture was incubated with DNase I, which degrades DNA outside cells. In condition 3, donor and recipient were separated by a filter with 0.2 µm pores in a U-shaped tube, allowing the medium, but not cells, to pass; bacteriophage particles (about 0.05 µm) can pass through the filter. In condition 4, the donor carried a mutation that prevents production of a pilus. Results are shown in Table 1 and Figure 1.",
-   "table_data": "| Condition | Transconjugants per donor |\n|---|---|\n| 1. Mixed | 1.2 x 10^-3 |\n| 2. Mixed + DNase I | 1.1 x 10^-3 |\n| 3. Separated by filter | < 10^-9 |\n| 4. Pilus-deficient donor | < 10^-9 |",
+   "table_data": "| Condition | Transconjugants per donor |\n|---|---|\n| 1. Mixed | 1.2 x 10⁻³ |\n| 2. Mixed + DNase I | 1.1 x 10⁻³ |\n| 3. Separated by filter | < 10⁻⁹ |\n| 4. Pilus-deficient donor | < 10⁻⁹ |",
    "graph": {
     "type": "bar",
     "title": "Figure 1. Transfer frequency by condition",
     "x_label": "Condition (1 = mixed, 2 = mixed + DNase I, 3 = filter-separated, 4 = pilus-deficient donor)",
-    "y_label": "Transconjugants per donor (x 10^-3)",
+    "y_label": "Transconjugants per donor (x 10⁻³)",
     "series": [
      {
       "name": "Transfer frequency",
@@ -674,7 +674,7 @@
       "D": "Transfer does not require free DNA in the medium, which argues against transformation"
      },
      "correct": "D",
-     "explanation": "Correct: D) DNase would have destroyed extracellular DNA; transfer remained at 1.1 x 10^-3, so naked DNA uptake is not the mechanism. Why the others are wrong: A) transfer persisted without a decrease, not needing DNase I B) phage involvement is addressed by the filter condition C) a growth defect would lower colony counts, which did not occur",
+     "explanation": "Correct: D) DNase would have destroyed extracellular DNA; transfer remained at 1.1 x 10⁻³, so naked DNA uptake is not the mechanism. Why the others are wrong: A) transfer persisted without a decrease, not needing DNase I B) phage involvement is addressed by the filter condition C) a growth defect would lower colony counts, which did not occur",
      "trap": "Taking an unchanged result as meaningless instead of as evidence that excludes a mechanism.",
      "topic": "Bacterial gene transfer",
      "mastery_sheet_id": "2B",
@@ -720,15 +720,15 @@
     },
     {
      "id": "FL01_BB_P6_Q4",
-     "stem": "If 5 x 10^7 donor cells were used in condition 1, about how many transconjugants would be expected?",
+     "stem": "If 5 x 10⁷ donor cells were used in condition 1, about how many transconjugants would be expected?",
      "options": {
-      "A": "6 x 10^3",
-      "B": "6 x 10^4",
-      "C": "4 x 10^10",
-      "D": "2 x 10^-11"
+      "A": "6 x 10³",
+      "B": "6 x 10⁴",
+      "C": "4 x 10¹⁰",
+      "D": "2 x 10⁻¹¹"
      },
      "correct": "B",
-     "explanation": "Correct: B) (1.2 x 10^-3 per donor)(5 x 10^7 donors) = 6 x 10^4. Why the others are wrong: A) this is off by a factor of ten C) this results from dividing 5 x 10^7 by the frequency D) this results from dividing the frequency by the number of donors (1.2 x 10^-3 / 5 x 10^7 = 2 x 10^-11)",
+     "explanation": "Correct: B) (1.2 x 10⁻³ per donor)(5 x 10⁷ donors) = 6 x 10⁴. Why the others are wrong: A) this is off by a factor of ten C) this results from dividing 5 x 10⁷ by the frequency D) this results from dividing the frequency by the number of donors (1.2 x 10⁻³ / 5 x 10⁷ = 2 x 10⁻¹¹)",
      "trap": "Dividing instead of multiplying when converting a per-donor frequency to a total count.",
      "topic": "Frequency calculation",
      "mastery_sheet_id": "2B",

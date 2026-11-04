@@ -301,7 +301,7 @@
     "ox": [
       "Correct: 32768 is not produced by any cell or row comparison in the table, which reads 50 (Product Yield 10, Cycles 30); 55 (Product Yield 80, Cycles 30); 60 (Product Yield 300, Cycles 30); 65 (Product Yield 120, Cycles 30).",
       "Incorrect: 3.4\u00d710\u00b9\u2070 is not produced by any cell or row comparison in the table, which reads 50 (Product Yield 10, Cycles 30); 55 (Product Yield 80, Cycles 30); 60 (Product Yield 300, Cycles 30); 65 (Product Yield 120, Cycles 30).",
-      "Incorrect: Table 1 lists 30 cycles, so ideal fold amplification is 2^30 = 1,073,741,824.",
+      "Incorrect: Table 1 lists 30 cycles, so ideal fold amplification is 2³0 = 1,073,741,824.",
       "Incorrect: 1.1\u00d710\u2079 is not produced by any cell or row comparison in the table, which reads 50 (Product Yield 10, Cycles 30); 55 (Product Yield 80, Cycles 30); 60 (Product Yield 300, Cycles 30); 65 (Product Yield 120, Cycles 30)."
     ],
     "x": "32768 is not produced by any cell or row comparison in the table, which reads 50 (Product Yield 10, Cycles 30); 55 (Product Yield 80, Cycles 30); 60 (Product Yield 300, Cycles 30); 65 (Product Yield 120, Cycles 30).",
@@ -1455,8 +1455,8 @@
     "id": "bp889_2",
     "ox": [
       "Correct: 0.29% would require a pH about 2.5 units below the pKa.",
-      "Incorrect: 2.9%. pH minus pKa = 9.0 - 10.53 = -1.53, so [base]/[acid] = 10^-1.53 = 0.0295 and the deprotonated fraction is 0.0295/1.0295 = 2.9%.",
-      "Incorrect: PH minus pKa = 9.0 - 10.53 = -1.53, so [base]/[acid] = 10^-1.53 = 0.0295 and the deprotonated fraction is 0.0295/1.0295 = 2.9%.",
+      "Incorrect: 2.9%. pH minus pKa = 9.0 - 10.53 = -1.53, so [base]/[acid] = 10⁻¹.53 = 0.0295 and the deprotonated fraction is 0.0295/1.0295 = 2.9%.",
+      "Incorrect: PH minus pKa = 9.0 - 10.53 = -1.53, so [base]/[acid] = 10⁻¹.53 = 0.0295 and the deprotonated fraction is 0.0295/1.0295 = 2.9%.",
       "Incorrect: 50 is not produced by any cell or row comparison in the table, which reads Glycine (pKa1 2.34, pKa2 9.6, pKa side -); Alanine (pKa1 2.34, pKa2 9.69, pKa side -); Lysine (pKa1 2.18, pKa2 8.95, pKa side 10.53); Glutamic Acid (pKa1 2.19, pKa2 9.67, pKa side 4.25)."
     ],
     "x": "0.29% would require a pH about 2.5 units below the pKa.",
@@ -1918,7 +1918,7 @@
     "ox": [
       "Correct: 5 is not produced by any cell or row comparison in the table, which reads ['Recovery Time (min)', '\u0394CK (U/L)', '\u0394CRP (mg/L)'] (Group A 12.4, Group B 14.7, Group C 18.3).",
       "Incorrect: 9.8 is closest to the ['Recovery Time (min)', '\u0394CK (U/L)', '\u0394CRP (mg/L)'] entry in the Group A column (12.4), not the value asked for.",
-      "Incorrect: Familywise error = 1 - (1 - 0.05)^3 = 1 - 0.857 = 14.3%. This inflation of type I error is why ANOVA with post hoc correction is used for three or more groups. Row by row: ['Recovery Time (min)', '\u0394CK (U/L)', '\u0394CRP (mg/L)'] (Group A 12.4, Group B 14.7, Group C 18.3).",
+      "Incorrect: Familywise error = 1 - (1 - 0.05)³ = 1 - 0.857 = 14.3%. This inflation of type I error is why ANOVA with post hoc correction is used for three or more groups. Row by row: ['Recovery Time (min)', '\u0394CK (U/L)', '\u0394CRP (mg/L)'] (Group A 12.4, Group B 14.7, Group C 18.3).",
       "Incorrect: 95 is not produced by any cell or row comparison in the table, which reads ['Recovery Time (min)', '\u0394CK (U/L)', '\u0394CRP (mg/L)'] (Group A 12.4, Group B 14.7, Group C 18.3)."
     ],
     "x": "5 is not produced by any cell or row comparison in the table, which reads ['Recovery Time (min)', '\u0394CK (U/L)', '\u0394CRP (mg/L)'] (Group A 12.4, Group B 14.7, Group C 18.3).",
@@ -3272,7 +3272,7 @@
       "Correct: 0.3 is not produced by any cell or row comparison in the table, which reads Control (Mean Reaction Time 520, Standard Deviation 45); 5-minute training (Mean Reaction Time 485, Standard Deviation 50); 10-minute training (Mean Reaction Time 460, Standard Deviation 48); 15-minute training (Mean Reaction Time 445, Standard Deviation 47).",
       "Incorrect: 0.55 is not produced by any cell or row comparison in the table, which reads Control (Mean Reaction Time 520, Standard Deviation 45); 5-minute training (Mean Reaction Time 485, Standard Deviation 50); 10-minute training (Mean Reaction Time 460, Standard Deviation 48); 15-minute training (Mean Reaction Time 445, Standard Deviation 47).",
       "Incorrect: 0.9 is not produced by any cell or row comparison in the table, which reads Control (Mean Reaction Time 520, Standard Deviation 45); 5-minute training (Mean Reaction Time 485, Standard Deviation 50); 10-minute training (Mean Reaction Time 460, Standard Deviation 48); 15-minute training (Mean Reaction Time 445, Standard Deviation 47).",
-      "Incorrect: Cohen's d = (M1 - M2)/SDpooled. SDpooled = sqrt[(45^2 + 49^2)/2] = 47.0 ms. Difference = 520 - 430 = 90 ms. d = 90/47.0 = 1.91, about 1.9 (a very large effect)."
+      "Incorrect: Cohen's d = (M1 - M2)/SDpooled. SDpooled = sqrt[(45² + 49²)/2] = 47.0 ms. Difference = 520 - 430 = 90 ms. d = 90/47.0 = 1.91, about 1.9 (a very large effect)."
     ],
     "x": "0.3 is not produced by any cell or row comparison in the table, which reads Control (Mean Reaction Time 520, Standard Deviation 45); 5-minute training (Mean Reaction Time 485, Standard Deviation 50); 10-minute training (Mean Reaction Time 460, Standard Deviation 48); 15-minute training (Mean Reaction Time 445, Standard Deviation 47).",
     "a": 0
@@ -5216,12 +5216,12 @@
   {
     "id": "bp1041_4",
     "ox": [
-      "Correct: SE of the difference = sqrt(5.1^2/100 + 4.7^2/100) = 0.69; 9.2 +/- 1.96 x 0.69 = 7.8 to 10.6 mmHg, which excludes 0 and fits p < 0.001.",
+      "Correct: SE of the difference = sqrt(5.1²/100 + 4.7²/100) = 0.69; 9.2 +/- 1.96 x 0.69 = 7.8 to 10.6 mmHg, which excludes 0 and fits p < 0.001.",
       "Incorrect: 8.2 is not produced by any cell or row comparison in the table, which reads ['Group', 'n', 'Mean SBP (mmHg)', 'SD of reduction'] (rows 100).",
       "Incorrect: -0.4 is not produced by any cell or row comparison in the table, which reads ['Group', 'n', 'Mean SBP (mmHg)', 'SD of reduction'] (rows 100).",
       "Incorrect: 3.2 is not produced by any cell or row comparison in the table, which reads ['Group', 'n', 'Mean SBP (mmHg)', 'SD of reduction'] (rows 100)."
     ],
-    "x": "SE of the difference = sqrt(5.1^2/100 + 4.7^2/100) = 0.69; 9.2 +/- 1.96 x 0.69 = 7.8 to 10.6 mmHg, which excludes 0 and fits p < 0.001.",
+    "x": "SE of the difference = sqrt(5.1²/100 + 4.7²/100) = 0.69; 9.2 +/- 1.96 x 0.69 = 7.8 to 10.6 mmHg, which excludes 0 and fits p < 0.001.",
     "a": 0
   },
   {
@@ -6591,12 +6591,12 @@
   {
     "id": "bp1066_4",
     "ox": [
-      "Correct: Pooled SD = sqrt((35^2 + 25^2)/2) = 30.4 ms; d = (420 - 350)/30.4 = 2.30.",
+      "Correct: Pooled SD = sqrt((35² + 25²)/2) = 30.4 ms; d = (420 - 350)/30.4 = 2.30.",
       "Incorrect: 2.00 divides by the placebo SD (35) alone.",
       "Incorrect: 2.80 divides by the 200 mg SD (25) alone.",
       "Incorrect: 1.15 is not produced by any cell or row comparison in the table, which reads Placebo (0 mg) (Mean RT 420, SD 35); Low dose (50 mg) (Mean RT 395, SD 30); Moderate dose (100 mg) (Mean RT 375, SD 28); High dose (200 mg) (Mean RT 350, SD 25)."
     ],
-    "x": "Pooled SD = sqrt((35^2 + 25^2)/2) = 30.4 ms; d = (420 - 350)/30.4 = 2.30.",
+    "x": "Pooled SD = sqrt((35² + 25²)/2) = 30.4 ms; d = (420 - 350)/30.4 = 2.30.",
     "a": 0
   },
   {
@@ -6899,12 +6899,12 @@
   {
     "id": "bp1072_2",
     "ox": [
-      "Correct: Pooled SD = sqrt((4.3^2 + 3.5^2)/2) = 3.92 (equal n). Difference in means = 80.9 - 71.0 = 9.9. Cohen's d = 9.9/3.92 = 2.53.",
+      "Correct: Pooled SD = sqrt((4.3² + 3.5²)/2) = 3.92 (equal n). Difference in means = 80.9 - 71.0 = 9.9. Cohen's d = 9.9/3.92 = 2.53.",
       "Incorrect: 1.78 is not produced by any cell or row comparison in the table, which reads Training (Baseline Mean 68.4, Baseline SD 5.2, Post-Intervention Mean 80.9, Post-Intervention SD 4.3, n 40); Active Control (Baseline Mean 69.1, Baseline SD 5, Post-Intervention Mean 73.8, Post-Intervention SD 3.9, n 40); Wait-List Control (Baseline Mean 68.9, Baseline SD 5.1, Post-Intervention Mean 71, Post-Intervention SD 3.5, n 40).",
       "Incorrect: 0.78 is Active Control row: 3.9 / 5 = 0.78, a ratio rather than the requested value.",
       "Incorrect: 1.28 is not produced by any cell or row comparison in the table, which reads Training (Baseline Mean 68.4, Baseline SD 5.2, Post-Intervention Mean 80.9, Post-Intervention SD 4.3, n 40); Active Control (Baseline Mean 69.1, Baseline SD 5, Post-Intervention Mean 73.8, Post-Intervention SD 3.9, n 40); Wait-List Control (Baseline Mean 68.9, Baseline SD 5.1, Post-Intervention Mean 71, Post-Intervention SD 3.5, n 40)."
     ],
-    "x": "Pooled SD = sqrt((4.3^2 + 3.5^2)/2) = 3.92 (equal n). Difference in means = 80.9 - 71.0 = 9.9. Cohen's d = 9.9/3.92 = 2.53.",
+    "x": "Pooled SD = sqrt((4.3² + 3.5²)/2) = 3.92 (equal n). Difference in means = 80.9 - 71.0 = 9.9. Cohen's d = 9.9/3.92 = 2.53.",
     "a": 0
   },
   {
@@ -8287,7 +8287,7 @@
     "ox": [
       "Correct: 2.4 is A row: 30 / 12.4 = 2.419, a ratio rather than the requested value.",
       "Incorrect: 3.5 is not produced by any cell or row comparison in the table, which reads A (Mean Reduction 12.4, SD 1.2, N 30); B (Mean Reduction 15.6, SD 1.5, N 30); C (Mean Reduction 9.8, SD 0.9, N 30).",
-      "Incorrect: Pooled SD = sqrt((1.5^2 + 0.9^2)/2) = 1.24. d = (15.6 - 9.8)/1.24 = 4.7.",
+      "Incorrect: Pooled SD = sqrt((1.5² + 0.9²)/2) = 1.24. d = (15.6 - 9.8)/1.24 = 4.7.",
       "Incorrect: 5.8 is C minus B in the Mean Reduction (units) column = 5.8, a difference rather than the quantity asked for."
     ],
     "x": "2.4 is A row: 30 / 12.4 = 2.419, a ratio rather than the requested value.",
@@ -9650,7 +9650,7 @@
     "id": "bp1122_2",
     "ox": [
       "Correct: 0.12 is not a value the passage reports; it gives Researchers investigated the effect of varying doses of a novel cognitive enhancer on reaction time in healthy adults.",
-      "Incorrect: With equal n, pooled SD = sqrt((0.12^2 + 0.15^2)/2) = sqrt(0.01845) = 0.136 s, about 0.14 s.",
+      "Incorrect: With equal n, pooled SD = sqrt((0.12² + 0.15²)/2) = sqrt(0.01845) = 0.136 s, about 0.14 s.",
       "Incorrect: 0.15 is not a value the passage reports; it gives Researchers investigated the effect of varying doses of a novel cognitive enhancer on reaction time in healthy adults.",
       "Incorrect: 0.27 is not a value the passage reports; it gives Researchers investigated the effect of varying doses of a novel cognitive enhancer on reaction time in healthy adults."
     ],
@@ -10254,12 +10254,12 @@
   {
     "id": "bp1133_2",
     "ox": [
-      "Correct: Difference in mean change = -15 - (-5) = -10 mg/dL. SE = sqrt(5^2/30 + 4^2/30) = sqrt(41/30) = 1.17. 95% CI = -10 +/- 1.96 x 1.17 = -12.3 to -7.7 mg/dL.",
+      "Correct: Difference in mean change = -15 - (-5) = -10 mg/dL. SE = sqrt(5²/30 + 4²/30) = sqrt(41/30) = 1.17. 95% CI = -10 +/- 1.96 x 1.17 = -12.3 to -7.7 mg/dL.",
       "Incorrect: -11 is not a value the passage reports; it gives Researchers studied the effect of a novel dietary supplement on the lipid profile of adults with borderline.",
       "Incorrect: -10.5 is not a value the passage reports; it gives Researchers studied the effect of a novel dietary supplement on the lipid profile of adults with borderline.",
       "Incorrect: -13 is not a value the passage reports; it gives Researchers studied the effect of a novel dietary supplement on the lipid profile of adults with borderline."
     ],
-    "x": "Difference in mean change = -15 - (-5) = -10 mg/dL. SE = sqrt(5^2/30 + 4^2/30) = sqrt(41/30) = 1.17. 95% CI = -10 +/- 1.96 x 1.17 = -12.3 to -7.7 mg/dL.",
+    "x": "Difference in mean change = -15 - (-5) = -10 mg/dL. SE = sqrt(5²/30 + 4²/30) = sqrt(41/30) = 1.17. 95% CI = -10 +/- 1.96 x 1.17 = -12.3 to -7.7 mg/dL.",
     "a": 0
   },
   {
@@ -10980,12 +10980,12 @@
   {
     "id": "bp1146_3",
     "ox": [
-      "Correct: [H+] = 10^-pH, so the ratio is 10^(7.8 - 6.5) = 10^1.3, about 20-fold higher at pH 6.5.",
-      "Incorrect: [H+] = 10^-pH, so the ratio is 10^(7.8 - 6.5) = 10^1.3, about 20-fold higher at pH 6.5.",
+      "Correct: [H+] = 10^-pH, so the ratio is 10^(7.8 - 6.5) = 10¹.3, about 20-fold higher at pH 6.5.",
+      "Incorrect: [H+] = 10^-pH, so the ratio is 10^(7.8 - 6.5) = 10¹.3, about 20-fold higher at pH 6.5.",
       "Incorrect: 13 comes from multiplying 10 by 1.3 rather than raising 10 to the 1.3 power.",
       "Incorrect: 1.2 is closest to the Nutrient Concentration (g L-1) entry in the Experimental column (1), not the value asked for."
     ],
-    "x": "[H+] = 10^-pH, so the ratio is 10^(7.8 - 6.5) = 10^1.3, about 20-fold higher at pH 6.5.",
+    "x": "[H+] = 10^-pH, so the ratio is 10^(7.8 - 6.5) = 10¹.3, about 20-fold higher at pH 6.5.",
     "a": 0
   },
   {
@@ -11071,7 +11071,7 @@
       "Correct: The passage says \"These findings suggest that the drug\u2019s cytostatic activity increases with concentration, with proliferation falling to 5 % of control at 80 \u00b5M\", which does not support drug concentration.",
       "Incorrect: Every well was seeded at the same density, so seeding density cannot explain differences in proliferation.",
       "Incorrect: The passage says \"After 48 hours, cell proliferation was quantified by a crystal violet assay, and results were expressed as a percentage of the vehicle control\", which does not support proliferation rate relative to control.",
-      "Incorrect: The passage says \"Cells were seeded at a density of 1 \u00d7 10^5 cells per well and treated with vehicle (0 \u00b5M) or the drug at concentrations of 5, 10, 20, 40, and 80 \u00b5M\", which does not support whether the well received vehicle or drug."
+      "Incorrect: The passage says \"Cells were seeded at a density of 1 \u00d7 10⁵ cells per well and treated with vehicle (0 \u00b5M) or the drug at concentrations of 5, 10, 20, 40, and 80 \u00b5M\", which does not support whether the well received vehicle or drug."
     ],
     "x": "The passage says \"These findings suggest that the drug\u2019s cytostatic activity increases with concentration, with proliferation falling to 5 % of control at 80 \u00b5M\", which does not support drug concentration.",
     "a": 0
@@ -11091,7 +11091,7 @@
     "id": "bp1148_3",
     "ox": [
       "Correct: The passage states \"The data revealed a clear dose-dependent inhibition of proliferation: 5 \u00b5M reduced growth to 85 % of control, 10 \u00b5M to 70 %, 20 \u00b5M to 45 %, 40 \u00b5M to.\", which supports this statement; the question asks for the statement that is not supported.",
-      "Incorrect: This statement is supported by the passage: \"Cells were seeded at a density of 1 \u00d7 10^5 cells per well and treated with vehicle (0 \u00b5M) or the drug at concentrations of 5, 10, 20, 40, and 80 \u00b5M\"; the question asks for the statement that is not supported.",
+      "Incorrect: This statement is supported by the passage: \"Cells were seeded at a density of 1 \u00d7 10⁵ cells per well and treated with vehicle (0 \u00b5M) or the drug at concentrations of 5, 10, 20, 40, and 80 \u00b5M\"; the question asks for the statement that is not supported.",
       "Incorrect: The passage gives no information on reversibility; cells were measured only after 48 h of exposure.",
       "Incorrect: 5 is not produced by any cell or row comparison in the table, which reads ['Concentration (\u00b5M)', 'Proliferation rate (% of control)'] (rows 0)."
     ],
@@ -11268,7 +11268,7 @@
     "ox": [
       "Correct: 0.5 is not produced by any cell or row comparison in the table, which reads A (Sample Size 30, Mean Response Time 12.5, SD 2.3); B (Sample Size 30, Mean Response Time 10.8, SD 1.9); C (Sample Size 30, Mean Response Time 13.2, SD 2.1); D (Sample Size 30, Mean Response Time 11.5, SD 2).",
       "Incorrect: 0.8 is not produced by any cell or row comparison in the table, which reads A (Sample Size 30, Mean Response Time 12.5, SD 2.3); B (Sample Size 30, Mean Response Time 10.8, SD 1.9); C (Sample Size 30, Mean Response Time 13.2, SD 2.1); D (Sample Size 30, Mean Response Time 11.5, SD 2).",
-      "Incorrect: Pooled SD = sqrt[(1.9^2 + 2.1^2)/2] = 2.0 s. d = (13.2 - 10.8)/2.0 = 1.2, a large effect.",
+      "Incorrect: Pooled SD = sqrt[(1.9² + 2.1²)/2] = 2.0 s. d = (13.2 - 10.8)/2.0 = 1.2, a large effect.",
       "Incorrect: 2.4 is C minus B in the Mean Response Time (s) column = 2.4, a difference rather than the quantity asked for."
     ],
     "x": "0.5 is not produced by any cell or row comparison in the table, which reads A (Sample Size 30, Mean Response Time 12.5, SD 2.3); B (Sample Size 30, Mean Response Time 10.8, SD 1.9); C (Sample Size 30, Mean Response Time 13.2, SD 2.1); D (Sample Size 30, Mean Response Time 11.5, SD 2).",
@@ -12313,7 +12313,7 @@
     "ox": [
       "Correct: 0.6 is far too small because the gap of 2.6 points exceeds one pooled SD.",
       "Incorrect: 1.2 also underestimates the ratio of 2.6 to 1.55.",
-      "Incorrect: The mean difference is 6.9 - 4.3 = 2.6 points; pooled SD = sqrt((1.6^2 + 1.5^2)/2) = 1.55; d = 2.6/1.55 = 1.68, about 1.7.",
+      "Incorrect: The mean difference is 6.9 - 4.3 = 2.6 points; pooled SD = sqrt((1.6² + 1.5²)/2) = 1.55; d = 2.6/1.55 = 1.68, about 1.7.",
       "Incorrect: 0.6 is far too small because the gap of 2.6 points exceeds one pooled SD."
     ],
     "x": "0.6 is far too small because the gap of 2.6 points exceeds one pooled SD.",
@@ -12784,12 +12784,12 @@
   {
     "id": "bp1179_2",
     "ox": [
-      "Correct: Mean difference = -1.2 - (-0.3) = -0.9. SE = sqrt(0.4^2/60 + 0.5^2/60) = 0.083. 95% CI = -0.9 +/- 1.96 x 0.083 = -1.06 to -0.74.",
+      "Correct: Mean difference = -1.2 - (-0.3) = -0.9. SE = sqrt(0.4²/60 + 0.5²/60) = 0.083. 95% CI = -0.9 +/- 1.96 x 0.083 = -1.06 to -0.74.",
       "Incorrect: -1.16 is the table's own entry for HOMA-IR change row, Supplement Group (Mean \u00b1 SD) = -1.2, not the value the question asks for.",
       "Incorrect: -1.4 is closest to the HOMA-IR change entry in the Supplement Group column (-1.2), not the value asked for.",
       "Incorrect: -1.2 is the table's own entry for HOMA-IR change row, Supplement Group (Mean \u00b1 SD) = -1.2, not the value the question asks for."
     ],
-    "x": "Mean difference = -1.2 - (-0.3) = -0.9. SE = sqrt(0.4^2/60 + 0.5^2/60) = 0.083. 95% CI = -0.9 +/- 1.96 x 0.083 = -1.06 to -0.74.",
+    "x": "Mean difference = -1.2 - (-0.3) = -0.9. SE = sqrt(0.4²/60 + 0.5²/60) = 0.083. 95% CI = -0.9 +/- 1.96 x 0.083 = -1.06 to -0.74.",
     "a": 0
   },
   {
@@ -13796,12 +13796,12 @@
   {
     "id": "bp1197_4",
     "ox": [
-      "Correct: The difference is 12.4 - 3.1 = 9.3 mmHg; pooled SD = sqrt((5.2^2 + 4.7^2)/2) = 4.96; d = 9.3/4.96 = 1.88.",
+      "Correct: The difference is 12.4 - 3.1 = 9.3 mmHg; pooled SD = sqrt((5.2² + 4.7²)/2) = 4.96; d = 9.3/4.96 = 1.88.",
       "Incorrect: 0.94 divides by the sum of the two SDs (9.9).",
       "Incorrect: 0.38 divides by the pooled variance (24.6) instead of the SD.",
       "Incorrect: 2.38 uses the Hypotensol reduction (12.4) instead of the between-group difference."
     ],
-    "x": "The difference is 12.4 - 3.1 = 9.3 mmHg; pooled SD = sqrt((5.2^2 + 4.7^2)/2) = 4.96; d = 9.3/4.96 = 1.88.",
+    "x": "The difference is 12.4 - 3.1 = 9.3 mmHg; pooled SD = sqrt((5.2² + 4.7²)/2) = 4.96; d = 9.3/4.96 = 1.88.",
     "a": 0
   },
   {
@@ -15040,7 +15040,7 @@
     "id": "bp1220_2",
     "ox": [
       "Correct: 0.50 divides 4 bpm by the sum of the SDs (8).",
-      "Incorrect: Pooled SD = sqrt((5^2 + 3^2)/2) = 4.12; d = (72 - 68)/4.12 = 0.97.",
+      "Incorrect: Pooled SD = sqrt((5² + 3²)/2) = 4.12; d = (72 - 68)/4.12 = 0.97.",
       "Incorrect: 0.80 divides by the placebo SD (5) only.",
       "Incorrect: 1.33 divides by the high-dose SD (3) only."
     ],
@@ -15688,12 +15688,12 @@
   {
     "id": "bp1232_1",
     "ox": [
-      "Correct: The passage says \"Twenty-four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1\u00d710^9 CFU L\", which does not support treatment versus control.",
+      "Correct: The passage says \"Twenty-four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1\u00d710⁹ CFU L\", which does not support treatment versus control.",
       "Incorrect: Treatment and Placebo mice both received gavage, so they differ only in the probiotic (6.5 versus 7.1, a 0.6 difference).",
-      "Incorrect: The passage says \"Twenty-four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1\u00d710^9 CFU L\", which does not support placebo versus control.",
+      "Incorrect: The passage says \"Twenty-four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1\u00d710⁹ CFU L\", which does not support placebo versus control.",
       "Incorrect: 1 is not produced by any cell or row comparison in the table, which reads Control (Sample Size 8, Mean Fecal pH 7.2, Std Dev 0.15); Placebo (Sample Size 8, Mean Fecal pH 7.1, Std Dev 0.12); Treatment (Sample Size 8, Mean Fecal pH 6.5, Std Dev 0.1)."
     ],
-    "x": "The passage says \"Twenty-four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1\u00d710^9 CFU L\", which does not support treatment versus control.",
+    "x": "The passage says \"Twenty-four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1\u00d710⁹ CFU L\", which does not support treatment versus control.",
     "a": 0
   },
   {
@@ -15712,7 +15712,7 @@
     "ox": [
       "Correct: This statement is supported by the passage: \"fermentum X, on the gut microbiome composition and fecal pH levels in a controlled mouse model\"; the question asks for the statement that is not supported.",
       "Incorrect: The Treatment group\u2019s mean pH (6.5) is lower than the Control group\u2019s (7.2), so option B is false. All other statements are supported by the data.",
-      "Incorrect: No statement in the passage supports the vehicle alone had a minor effect on ph; the passage establishes \"Twenty-four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1\u00d710^9 CFU L\", which is what makes the probiotic group had a higher mean ph than the control group the answer.",
+      "Incorrect: No statement in the passage supports the vehicle alone had a minor effect on ph; the passage establishes \"Twenty-four male C57BL/6 mice were randomly assigned to three groups: Control (no probiotic), Placebo (vehicle only), and Treatment (daily oral gavage of 1\u00d710⁹ CFU L\", which is what makes the probiotic group had a higher mean ph than the control group the answer.",
       "Incorrect: This statement is supported by the passage: \"No adverse effects were observed\"; the question asks for the statement that is not supported."
     ],
     "x": "This statement is supported by the passage: \"fermentum X, on the gut microbiome composition and fecal pH levels in a controlled mouse model\"; the question asks for the statement that is not supported.",
@@ -16009,7 +16009,7 @@
     "ox": [
       "Correct: 5 is the table's own entry for Control row, Mean_Cell_Count = 5, not the value the question asks for.",
       "Incorrect: 6.5 is the table's own entry for Low Dose (5 \u00b5M) row, Mean_Cell_Count = 6.5, not the value the question asks for.",
-      "Incorrect: The table lists the mean cell count for the high\u2011dose (20 \u00b5M) condition as 8.2 \u00d7 10^4 cells.",
+      "Incorrect: The table lists the mean cell count for the high\u2011dose (20 \u00b5M) condition as 8.2 \u00d7 10⁴ cells.",
       "Incorrect: 9 is closest to the High Dose (20 \u00b5M) entry in the Mean_Cell_Count column (8.2), not the value asked for."
     ],
     "x": "5 is the table's own entry for Control row, Mean_Cell_Count = 5, not the value the question asks for.",
@@ -16020,7 +16020,7 @@
     "ox": [
       "Correct: No statement in the passage supports positive control (cells treated with a known proliferative agent); the passage establishes \"Cells were cultured in 96-well plates and exposed to one of three concentrations of X-101: 0 \u00b5M (control), 5 \u00b5M (low dose), or 20 \u00b5M (high dose)\", which is what makes negative control (cells receiving 0 \u00b5m x-101) the answer.",
       "Incorrect: The 0 \u00b5M X-101 group receives no compound and provides the baseline proliferation against which the doses are compared, which is a negative control.",
-      "Incorrect: The passage says \"The mean cell count (\u00d710^4 cells) and standard deviation (SD) for each condition are presented below\", which does not support internal standard (cells labeled with a fluorescent marker).",
+      "Incorrect: The passage says \"The mean cell count (\u00d710⁴ cells) and standard deviation (SD) for each condition are presented below\", which does not support internal standard (cells labeled with a fluorescent marker).",
       "Incorrect: No statement in the passage supports reference gene (for qpcr validation); the passage establishes \"Cells were cultured in 96-well plates and exposed to one of three concentrations of X-101: 0 \u00b5M (control), 5 \u00b5M (low dose), or 20 \u00b5M (high dose)\", which is what makes negative control (cells receiving 0 \u00b5m x-101) the answer."
     ],
     "x": "No statement in the passage supports positive control (cells treated with a known proliferative agent); the passage establishes \"Cells were cultured in 96-well plates and exposed to one of three concentrations of X-101: 0 \u00b5M (control), 5 \u00b5M (low dose), or 20 \u00b5M (high dose)\", which is what makes negative control (cells receiving 0 \u00b5m x-101) the answer.",
@@ -16041,9 +16041,9 @@
     "id": "bp1239_3",
     "ox": [
       "Correct: Mean count rises by 1.5 for the first 5 \u00b5M (0.30 per \u00b5M) but only 1.7 for the next 15 \u00b5M (0.11 per \u00b5M), so the response is not linear in dose.",
-      "Incorrect: This statement is supported by the passage: \"The mean cell count (\u00d710^4 cells) and standard deviation (SD) for each condition are presented below\"; the question asks for the statement that is not supported.",
-      "Incorrect: This statement is supported by the passage: \"The mean cell count (\u00d710^4 cells) and standard deviation (SD) for each condition are presented below\"; the question asks for the statement that is not supported.",
-      "Incorrect: This statement is supported by the passage: \"The mean cell count (\u00d710^4 cells) and standard deviation (SD) for each condition are presented below\"; the question asks for the statement that is not supported."
+      "Incorrect: This statement is supported by the passage: \"The mean cell count (\u00d710⁴ cells) and standard deviation (SD) for each condition are presented below\"; the question asks for the statement that is not supported.",
+      "Incorrect: This statement is supported by the passage: \"The mean cell count (\u00d710⁴ cells) and standard deviation (SD) for each condition are presented below\"; the question asks for the statement that is not supported.",
+      "Incorrect: This statement is supported by the passage: \"The mean cell count (\u00d710⁴ cells) and standard deviation (SD) for each condition are presented below\"; the question asks for the statement that is not supported."
     ],
     "x": "Mean count rises by 1.5 for the first 5 \u00b5M (0.30 per \u00b5M) but only 1.7 for the next 15 \u00b5M (0.11 per \u00b5M), so the response is not linear in dose.",
     "a": 0
@@ -16988,7 +16988,7 @@
     "ox": [
       "Correct: 0.7 would need a pooled SD near 10.",
       "Incorrect: 0.7 would need a pooled SD near 10.",
-      "Incorrect: Pooled SD = sqrt((5.1^2 + 4.8^2)/2) = 4.95; d = 6.8/4.95 = 1.37, about 1.4.",
+      "Incorrect: Pooled SD = sqrt((5.1² + 4.8²)/2) = 4.95; d = 6.8/4.95 = 1.37, about 1.4.",
       "Incorrect: 1.0 would need a pooled SD near 6.8."
     ],
     "x": "0.7 would need a pooled SD near 10.",
@@ -17703,7 +17703,7 @@
     "ox": [
       "Correct: 0.1 is not produced by any cell or row comparison in the table, which reads Training (Time Point Baseline, Mean 58.4); Training (Time Point Post-intervention, Mean 68.9); Control (Time Point Baseline, Mean 57.9); Control (Time Point Post-intervention, Mean 59.2).",
       "Incorrect: 0.5 is Control minus Training in the Mean (SD) column = 0.5, a difference rather than the quantity asked for.",
-      "Incorrect: Difference = 68.9 - 59.2 = 9.7. Pooled SD = sqrt[(9.7^2 + 10.0^2)/2] = 9.85. d = 9.7/9.85 = 0.98, a large effect.",
+      "Incorrect: Difference = 68.9 - 59.2 = 9.7. Pooled SD = sqrt[(9.7² + 10.0²)/2] = 9.85. d = 9.7/9.85 = 0.98, a large effect.",
       "Incorrect: 1.5 is not produced by any cell or row comparison in the table, which reads Training (Time Point Baseline, Mean 58.4); Training (Time Point Post-intervention, Mean 68.9); Control (Time Point Baseline, Mean 57.9); Control (Time Point Post-intervention, Mean 59.2)."
     ],
     "x": "0.1 is not produced by any cell or row comparison in the table, which reads Training (Time Point Baseline, Mean 58.4); Training (Time Point Post-intervention, Mean 68.9); Control (Time Point Baseline, Mean 57.9); Control (Time Point Post-intervention, Mean 59.2).",
@@ -19659,12 +19659,12 @@
   {
     "id": "bp1311_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
       "Incorrect: 1000 is not produced by any cell or row comparison in the table, which reads 4.5 (Histidine side chains protonated 99); 5.5 (Histidine side chains protonated 90.9); 6.5 (Histidine side chains protonated 50); 7.5 (Histidine side chains protonated 9.1).",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
     "a": 0
   },
   {
@@ -21003,7 +21003,7 @@
     "ox": [
       "Correct: 0.8 is not produced by any cell or row comparison in the table, which reads CardioX 10 mg (N 40, Mean SBP change -8, SD 5); CardioX 20 mg (N 40, Mean SBP change -12, SD 4); Placebo (N 40, Mean SBP change -2, SD 6).",
       "Incorrect: 1.7 divides by the placebo SD (6) alone.",
-      "Incorrect: Pooled SD = sqrt[(4^2 + 6^2)/2] = sqrt(26) = 5.10 mmHg; the difference is 10 mmHg, so d = 10/5.10 = 1.96, about 2.0.",
+      "Incorrect: Pooled SD = sqrt[(4² + 6²)/2] = sqrt(26) = 5.10 mmHg; the difference is 10 mmHg, so d = 10/5.10 = 1.96, about 2.0.",
       "Incorrect: 2.5 divides by the 20 mg SD (4) alone."
     ],
     "x": "0.8 is not produced by any cell or row comparison in the table, which reads CardioX 10 mg (N 40, Mean SBP change -8, SD 5); CardioX 20 mg (N 40, Mean SBP change -12, SD 4); Placebo (N 40, Mean SBP change -2, SD 6).",
@@ -21443,7 +21443,7 @@
     "ox": [
       "Correct: 0.4 is not produced by any cell or row comparison in the table, which reads Placebo (Mean RT 350, SD 25); Low Dose (5 mg) (Mean RT 335, SD 20); Medium Dose (10 mg) (Mean RT 320, SD 22); High Dose (20 mg) (Mean RT 310, SD 30).",
       "Incorrect: 0.9 is not produced by any cell or row comparison in the table, which reads Placebo (Mean RT 350, SD 25); Low Dose (5 mg) (Mean RT 335, SD 20); Medium Dose (10 mg) (Mean RT 320, SD 22); High Dose (20 mg) (Mean RT 310, SD 30).",
-      "Incorrect: Pooled SD = sqrt[(25^2 + 30^2)/2] = 27.6 ms. d = 40/27.6 = 1.45, a large effect.",
+      "Incorrect: Pooled SD = sqrt[(25² + 30²)/2] = 27.6 ms. d = 40/27.6 = 1.45, a large effect.",
       "Incorrect: 2.5 is not produced by any cell or row comparison in the table, which reads Placebo (Mean RT 350, SD 25); Low Dose (5 mg) (Mean RT 335, SD 20); Medium Dose (10 mg) (Mean RT 320, SD 22); High Dose (20 mg) (Mean RT 310, SD 30)."
     ],
     "x": "0.4 is not produced by any cell or row comparison in the table, which reads Placebo (Mean RT 350, SD 25); Low Dose (5 mg) (Mean RT 335, SD 20); Medium Dose (10 mg) (Mean RT 320, SD 22); High Dose (20 mg) (Mean RT 310, SD 30).",
@@ -21860,9 +21860,9 @@
     "id": "bp1351_2",
     "ox": [
       "Correct: 100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10."
     ],
     "x": "100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
     "a": 0
@@ -22761,12 +22761,12 @@
   {
     "id": "bp1367_4",
     "ox": [
-      "Correct: Pooled SD = sqrt((2.1^2 + 2.5^2)/2) = 2.31; d = (2.8 - 1.2)/2.31 = 0.69.",
+      "Correct: Pooled SD = sqrt((2.1² + 2.5²)/2) = 2.31; d = (2.8 - 1.2)/2.31 = 0.69.",
       "Incorrect: 0.76 divides by only Supplement B's SD (2.1).",
       "Incorrect: 0.64 divides by only Supplement C's SD (2.5).",
       "Incorrect: 1.6 is C minus B in the Mean Improvement in 5-km Time (min) column = 1.6, a difference rather than the quantity asked for."
     ],
-    "x": "Pooled SD = sqrt((2.1^2 + 2.5^2)/2) = 2.31; d = (2.8 - 1.2)/2.31 = 0.69.",
+    "x": "Pooled SD = sqrt((2.1² + 2.5²)/2) = 2.31; d = (2.8 - 1.2)/2.31 = 0.69.",
     "a": 0
   },
   {
@@ -23894,12 +23894,12 @@
   {
     "id": "bp1388_2",
     "ox": [
-      "Correct: Mean difference = 12 - 3 = 9 mmHg. SE = sqrt(5^2/60 + 4^2/60) = 0.83. 95% CI = 9 +/- 1.96 x 0.83 = 9 +/- 1.6, i.e. 7.4 to 10.6 mmHg; as reductions, -10.6 to -7.4 mmHg.",
+      "Correct: Mean difference = 12 - 3 = 9 mmHg. SE = sqrt(5²/60 + 4²/60) = 0.83. 95% CI = 9 +/- 1.96 x 0.83 = 9 +/- 1.6, i.e. 7.4 to 10.6 mmHg; as reductions, -10.6 to -7.4 mmHg.",
       "Incorrect: -15 is Placebo row: 60 / 4 = 15, a ratio rather than the requested value.",
       "Incorrect: -8 is not produced by any cell or row comparison in the table, which reads Hypertensol (Mean baseline SBP 130, Mean SBP at 30 min 118, Mean reduction 12, SD of reduction 5, n 60); Placebo (Mean baseline SBP 124, Mean SBP at 30 min 121, Mean reduction 3, SD of reduction 4, n 60).",
       "Incorrect: -12 is Hypertensol row: Mean SBP at 30 min (mmHg) 118 minus Mean baseline SBP (mmHg) 130 = 12, a difference rather than the quantity asked for."
     ],
-    "x": "Mean difference = 12 - 3 = 9 mmHg. SE = sqrt(5^2/60 + 4^2/60) = 0.83. 95% CI = 9 +/- 1.96 x 0.83 = 9 +/- 1.6, i.e. 7.4 to 10.6 mmHg; as reductions, -10.6 to -7.4 mmHg.",
+    "x": "Mean difference = 12 - 3 = 9 mmHg. SE = sqrt(5²/60 + 4²/60) = 0.83. 95% CI = 9 +/- 1.96 x 0.83 = 9 +/- 1.6, i.e. 7.4 to 10.6 mmHg; as reductions, -10.6 to -7.4 mmHg.",
     "a": 0
   },
   {
@@ -25236,12 +25236,12 @@
   {
     "id": "bp1412_4",
     "ox": [
-      "Correct: Pooled SD = sqrt((30^2 + 20^2)/2) = 25.5 ms; d = 45 / 25.5 = 1.77.",
+      "Correct: Pooled SD = sqrt((30² + 20²)/2) = 25.5 ms; d = 45 / 25.5 = 1.77.",
       "Incorrect: 1.50 divides by the placebo SD (30) alone.",
       "Incorrect: 2.25 divides by the moderate-dose SD (20) alone.",
       "Incorrect: 0.90 divides by the sum of the SDs (50) instead of the pooled SD."
     ],
-    "x": "Pooled SD = sqrt((30^2 + 20^2)/2) = 25.5 ms; d = 45 / 25.5 = 1.77.",
+    "x": "Pooled SD = sqrt((30² + 20²)/2) = 25.5 ms; d = 45 / 25.5 = 1.77.",
     "a": 0
   },
   {
@@ -25819,12 +25819,12 @@
   {
     "id": "bp1423_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
       "Incorrect: 1000 is not produced by any cell or row comparison in the table, which reads 5 (Histidine side chains protonated 99); 6 (Histidine side chains protonated 90.9); 7 (Histidine side chains protonated 50); 8 (Histidine side chains protonated 9.1).",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
     "a": 0
   },
   {
@@ -26347,12 +26347,12 @@
   {
     "id": "bp1433_0",
     "ox": [
-      "Correct: Supplement SBP fell 132.4 \u2212 125.1 = 7.3 mmHg; placebo fell 131.8 \u2212 129.3 = 2.5 mmHg, a 4.8 mmHg difference. Row by row: Baseline DBP (mmHg),84.6 \u00b1 5.7,85.1 \u00b1 5.9 (); Week 12 SBP (mmHg),125.1 \u00b1 9.8,129.3 \u00b1 10.5 (); Week 12 DBP (mmHg),80.2 \u00b1 5.4,83.7 \u00b1 5.8 (); HR (bpm),72.3 \u00b1 8.1,71.9 \u00b1 8.3 (); BMI (kg/m^2),27.5 \u00b1 2.3,27.7 \u00b1 2.4 ().",
+      "Correct: Supplement SBP fell 132.4 \u2212 125.1 = 7.3 mmHg; placebo fell 131.8 \u2212 129.3 = 2.5 mmHg, a 4.8 mmHg difference. Row by row: Baseline DBP (mmHg),84.6 \u00b1 5.7,85.1 \u00b1 5.9 (); Week 12 SBP (mmHg),125.1 \u00b1 9.8,129.3 \u00b1 10.5 (); Week 12 DBP (mmHg),80.2 \u00b1 5.4,83.7 \u00b1 5.8 (); HR (bpm),72.3 \u00b1 8.1,71.9 \u00b1 8.3 (); BMI (kg/m²),27.5 \u00b1 2.3,27.7 \u00b1 2.4 ().",
       "Incorrect: No statement in the passage supports both groups showed similar reductions in sbp, indicating no effect of the supplement; the passage establishes \"A randomized, double-blind, placebo-controlled trial enrolled 120 participants who were randomly assigned to either the supplement group (n = 60) or the placebo group (n = 60)\", which is what makes the supplement group had a larger mean reduction in sbp than the placebo group the answer.",
       "Incorrect: The passage says \"A randomized, double-blind, placebo-controlled trial enrolled 120 participants who were randomly assigned to either the supplement group (n = 60) or the placebo group (n = 60)\", which does not support the placebo group had a greater reduction in sbp than the supplement group.",
       "Incorrect: No statement in the passage supports the supplement group\u2019s sbp increased relative to baseline; the passage establishes \"A randomized, double-blind, placebo-controlled trial enrolled 120 participants who were randomly assigned to either the supplement group (n = 60) or the placebo group (n = 60)\", which is what makes the supplement group had a larger mean reduction in sbp than the placebo group the answer."
     ],
-    "x": "Supplement SBP fell 132.4 \u2212 125.1 = 7.3 mmHg; placebo fell 131.8 \u2212 129.3 = 2.5 mmHg, a 4.8 mmHg difference. Row by row: Baseline DBP (mmHg),84.6 \u00b1 5.7,85.1 \u00b1 5.9 (); Week 12 SBP (mmHg),125.1 \u00b1 9.8,129.3 \u00b1 10.5 (); Week 12 DBP (mmHg),80.2 \u00b1 5.4,83.7 \u00b1 5.8 (); HR (bpm),72.3 \u00b1 8.1,71.9 \u00b1 8.3 (); BMI (kg/m^2),27.5 \u00b1 2.3,27.7 \u00b1 2.4 ().",
+    "x": "Supplement SBP fell 132.4 \u2212 125.1 = 7.3 mmHg; placebo fell 131.8 \u2212 129.3 = 2.5 mmHg, a 4.8 mmHg difference. Row by row: Baseline DBP (mmHg),84.6 \u00b1 5.7,85.1 \u00b1 5.9 (); Week 12 SBP (mmHg),125.1 \u00b1 9.8,129.3 \u00b1 10.5 (); Week 12 DBP (mmHg),80.2 \u00b1 5.4,83.7 \u00b1 5.8 (); HR (bpm),72.3 \u00b1 8.1,71.9 \u00b1 8.3 (); BMI (kg/m²),27.5 \u00b1 2.3,27.7 \u00b1 2.4 ().",
     "a": 0
   },
   {
@@ -28019,12 +28019,12 @@
   {
     "id": "bp1463_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
       "Incorrect: 100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
     "a": 0
   },
   {
@@ -28459,12 +28459,12 @@
   {
     "id": "bp1471_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
       "Incorrect: 100 is the table's own entry for 4.5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
     "a": 0
   },
   {
@@ -28756,12 +28756,12 @@
   {
     "id": "bp1476_4",
     "ox": [
-      "Correct: Pooled SD = sqrt((45^2 + 48^2)/2) = 46.5 ms; d = 70 / 46.5 = 1.5.",
+      "Correct: Pooled SD = sqrt((45² + 48²)/2) = 46.5 ms; d = 70 / 46.5 = 1.5.",
       "Incorrect: 0.75 is not produced by any cell or row comparison in the table, which reads Control (Mean Response Time 620, Standard Deviation 45); Enhancer A (Mean Response Time 580, Standard Deviation 50); Enhancer B (Mean Response Time 550, Standard Deviation 48); Enhancer C (Mean Response Time 590, Standard Deviation 47).",
       "Incorrect: 3.0 is twice the correct value, as if the SD were halved.",
       "Incorrect: 1 is Enhancer C minus Enhancer B in the Standard Deviation (ms) column = 1, a difference rather than the quantity asked for."
     ],
-    "x": "Pooled SD = sqrt((45^2 + 48^2)/2) = 46.5 ms; d = 70 / 46.5 = 1.5.",
+    "x": "Pooled SD = sqrt((45² + 48²)/2) = 46.5 ms; d = 70 / 46.5 = 1.5.",
     "a": 0
   },
   {
@@ -28899,12 +28899,12 @@
   {
     "id": "bp1479_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
       "Incorrect: 100 is the table's own entry for 4 row, Histidine side chains protonated (%) = 99, not the value the question asks for."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
     "a": 0
   },
   {
@@ -29450,7 +29450,7 @@
     "id": "bp1489_2",
     "ox": [
       "Correct: 18.9 is closest to the 50 mg entry in the SD_ms column (18), not the value asked for.",
-      "Incorrect: With equal n, pooled SD = sqrt((18^2 + 20^2 + 25^2)/3) = sqrt(449.7) = 21.2 ms.",
+      "Incorrect: With equal n, pooled SD = sqrt((18² + 20² + 25²)/3) = sqrt(449.7) = 21.2 ms.",
       "Incorrect: 22.3 is closest to the 100 mg entry in the SD_ms column (20), not the value asked for.",
       "Incorrect: 25 is the table's own entry for 150 mg row, SD_ms = 25, not the value the question asks for."
     ],
@@ -31286,12 +31286,12 @@
   {
     "id": "bp1532_4",
     "ox": [
-      "Correct: Pooled SD = sqrt((7.2^2 + 6.8^2)/2) = 7.00; d = (85.4 - 78.9)/7.00 = 0.93.",
+      "Correct: Pooled SD = sqrt((7.2² + 6.8²)/2) = 7.00; d = (85.4 - 78.9)/7.00 = 0.93.",
       "Incorrect: 0.46 divides by the sum of the SDs (14.0).",
       "Incorrect: 0.13 divides by the pooled variance (49.0) instead of the SD.",
       "Incorrect: 6.5 is B minus A in the Mean Response column = 6.5, a difference rather than the quantity asked for."
     ],
-    "x": "Pooled SD = sqrt((7.2^2 + 6.8^2)/2) = 7.00; d = (85.4 - 78.9)/7.00 = 0.93.",
+    "x": "Pooled SD = sqrt((7.2² + 6.8²)/2) = 7.00; d = (85.4 - 78.9)/7.00 = 0.93.",
     "a": 0
   },
   {
@@ -34806,23 +34806,23 @@
   {
     "id": "bp1662_4",
     "ox": [
-      "Correct: Difference = 122.3 - 134.9 = -12.6 mmHg; SE = sqrt(8.7^2/100 + 9.1^2/100) = 1.26; 95% CI = -12.6 +/- 1.96 x 1.26, about -15.1 to -10.1.",
+      "Correct: Difference = 122.3 - 134.9 = -12.6 mmHg; SE = sqrt(8.7²/100 + 9.1²/100) = 1.26; 95% CI = -12.6 +/- 1.96 x 1.26, about -15.1 to -10.1.",
       "Incorrect: -13.9 to -11.3 uses only 1 SE as the margin.",
       "Incorrect: -14.3 to -10.9 uses only the Hypto-X group's SE (0.87).",
       "Incorrect: -21.6 to -3.6 uses an SD (about 9) as the margin instead of an SE."
     ],
-    "x": "Difference = 122.3 - 134.9 = -12.6 mmHg; SE = sqrt(8.7^2/100 + 9.1^2/100) = 1.26; 95% CI = -12.6 +/- 1.96 x 1.26, about -15.1 to -10.1.",
+    "x": "Difference = 122.3 - 134.9 = -12.6 mmHg; SE = sqrt(8.7²/100 + 9.1²/100) = 1.26; 95% CI = -12.6 +/- 1.96 x 1.26, about -15.1 to -10.1.",
     "a": 0
   },
   {
     "id": "bp1664_0",
     "ox": [
-      "Correct: That at 24 hours and 8 mg/L the bacterial count is 5\u00d710^2 CFU/mL.",
+      "Correct: That at 24 hours and 8 mg/L the bacterial count is 5\u00d710² CFU/mL.",
       "Incorrect: 50000 is not produced by any cell or row comparison in the table, which reads 0 (Count at 0 h 1\u00d710\u2076, Count at 24 h 1\u00d710\u2079, Count at 48 h 1\u00d710\u2079); 2 (Count at 0 h 1\u00d710\u2076, Count at 24 h 4\u00d710\u2075, Count at 48 h 1\u00d710\u2075); 4 (Count at 0 h 1\u00d710\u2076, Count at 24 h 3\u00d710\u2075, Count at 48 h 10000); 8 (Count at 0 h 1\u00d710\u2076, Count at 24 h 500, Count at 48 h 100).",
       "Incorrect: 5000 is not produced by any cell or row comparison in the table, which reads 0 (Count at 0 h 1\u00d710\u2076, Count at 24 h 1\u00d710\u2079, Count at 48 h 1\u00d710\u2079); 2 (Count at 0 h 1\u00d710\u2076, Count at 24 h 4\u00d710\u2075, Count at 48 h 1\u00d710\u2075); 4 (Count at 0 h 1\u00d710\u2076, Count at 24 h 3\u00d710\u2075, Count at 48 h 10000); 8 (Count at 0 h 1\u00d710\u2076, Count at 24 h 500, Count at 48 h 100).",
       "Incorrect: 5\u00d710\u2075 is closest to the 2 entry in the Count at 24 h column (4\u00d710\u2075), not the value asked for."
     ],
-    "x": "That at 24 hours and 8 mg/L the bacterial count is 5\u00d710^2 CFU/mL.",
+    "x": "That at 24 hours and 8 mg/L the bacterial count is 5\u00d710² CFU/mL.",
     "a": 0
   },
   {
@@ -34839,19 +34839,19 @@
   {
     "id": "bp1664_2",
     "ox": [
-      "Correct: Initial count = 1\u00d710^6 CFU/mL; count at 24 h = 5\u00d710^2 CFU/mL. 1\u00d710^6 \u00f7 5\u00d710^2 = 2000.",
+      "Correct: Initial count = 1\u00d710⁶ CFU/mL; count at 24 h = 5\u00d710² CFU/mL. 1\u00d710⁶ \u00f7 5\u00d710² = 2000.",
       "Incorrect: 200 is not produced by any cell or row comparison in the table, which reads 0 (Count at 0 h 1\u00d710\u2076, Count at 24 h 1\u00d710\u2079, Count at 48 h 1\u00d710\u2079); 2 (Count at 0 h 1\u00d710\u2076, Count at 24 h 4\u00d710\u2075, Count at 48 h 1\u00d710\u2075); 4 (Count at 0 h 1\u00d710\u2076, Count at 24 h 3\u00d710\u2075, Count at 48 h 10000); 8 (Count at 0 h 1\u00d710\u2076, Count at 24 h 500, Count at 48 h 100).",
       "Incorrect: 20 is not produced by any cell or row comparison in the table, which reads 0 (Count at 0 h 1\u00d710\u2076, Count at 24 h 1\u00d710\u2079, Count at 48 h 1\u00d710\u2079); 2 (Count at 0 h 1\u00d710\u2076, Count at 24 h 4\u00d710\u2075, Count at 48 h 1\u00d710\u2075); 4 (Count at 0 h 1\u00d710\u2076, Count at 24 h 3\u00d710\u2075, Count at 48 h 10000); 8 (Count at 0 h 1\u00d710\u2076, Count at 24 h 500, Count at 48 h 100).",
       "Incorrect: 2 is not produced by any cell or row comparison in the table, which reads 0 (Count at 0 h 1\u00d710\u2076, Count at 24 h 1\u00d710\u2079, Count at 48 h 1\u00d710\u2079); 2 (Count at 0 h 1\u00d710\u2076, Count at 24 h 4\u00d710\u2075, Count at 48 h 1\u00d710\u2075); 4 (Count at 0 h 1\u00d710\u2076, Count at 24 h 3\u00d710\u2075, Count at 48 h 10000); 8 (Count at 0 h 1\u00d710\u2076, Count at 24 h 500, Count at 48 h 100)."
     ],
-    "x": "Initial count = 1\u00d710^6 CFU/mL; count at 24 h = 5\u00d710^2 CFU/mL. 1\u00d710^6 \u00f7 5\u00d710^2 = 2000.",
+    "x": "Initial count = 1\u00d710⁶ CFU/mL; count at 24 h = 5\u00d710² CFU/mL. 1\u00d710⁶ \u00f7 5\u00d710² = 2000.",
     "a": 0
   },
   {
     "id": "bp1664_3",
     "ox": [
       "Correct: -123 is not produced by any cell or row comparison in the table, which reads 0 (Count at 0 h 1\u00d710\u2076, Count at 24 h 1\u00d710\u2079, Count at 48 h 1\u00d710\u2079); 2 (Count at 0 h 1\u00d710\u2076, Count at 24 h 4\u00d710\u2075, Count at 48 h 1\u00d710\u2075); 4 (Count at 0 h 1\u00d710\u2076, Count at 24 h 3\u00d710\u2075, Count at 48 h 10000); 8 (Count at 0 h 1\u00d710\u2076, Count at 24 h 500, Count at 48 h 100).",
-      "Incorrect: At 2 mg/L counts fell only from 1\u00d710^6 to 1\u00d710^5 CFU/mL after 48 hours, a 1 log10 reduction, not >3 log10.",
+      "Incorrect: At 2 mg/L counts fell only from 1\u00d710⁶ to 1\u00d710⁵ CFU/mL after 48 hours, a 1 log10 reduction, not >3 log10.",
       "Incorrect: 8 is not produced by any cell or row comparison in the table, which reads 0 (Count at 0 h 1\u00d710\u2076, Count at 24 h 1\u00d710\u2079, Count at 48 h 1\u00d710\u2079); 2 (Count at 0 h 1\u00d710\u2076, Count at 24 h 4\u00d710\u2075, Count at 48 h 1\u00d710\u2075); 4 (Count at 0 h 1\u00d710\u2076, Count at 24 h 3\u00d710\u2075, Count at 48 h 10000); 8 (Count at 0 h 1\u00d710\u2076, Count at 24 h 500, Count at 48 h 100).",
       "Incorrect: This statement is supported by the passage: \"However, the study did not assess the potential for resistance development or the pharmacokinetic/pharmacodynamic (PK/PD) profile of the drug in vivo\"; the question asks for the statement that is not supported."
     ],
@@ -36017,7 +36017,7 @@
     "id": "bp1701_4",
     "ox": [
       "Correct: 0.8 divides the difference by the high-dose mean (16/20).",
-      "Incorrect: Pooled SD = sqrt[(6^2 + 3^2)/2] = sqrt(22.5) = 4.74 mmHg; d = 16/4.74 = 3.37, about 3.4.",
+      "Incorrect: Pooled SD = sqrt[(6² + 3²)/2] = sqrt(22.5) = 4.74 mmHg; d = 16/4.74 = 3.37, about 3.4.",
       "Incorrect: 2.7 divides by the high-dose SD alone (16/6).",
       "Incorrect: 5.3 divides by the placebo SD alone (16/3)."
     ],
@@ -36753,12 +36753,12 @@
   {
     "id": "bp1728_1",
     "ox": [
-      "Correct: The passage says \"The experiment involved 24 wells of a 96-well microplate, each inoculated with 1\u00d710^5 CFU/mL of bacteria and treated with peptide concentrations of 0, 5, 10, 20, 40, and 80 \u00b5g/mL\", which does not support wells with no bacteria.",
+      "Correct: The passage says \"The experiment involved 24 wells of a 96-well microplate, each inoculated with 1\u00d710⁵ CFU/mL of bacteria and treated with peptide concentrations of 0, 5, 10, 20, 40, and 80 \u00b5g/mL\", which does not support wells with no bacteria.",
       "Incorrect: The 0 \u00b5g/mL wells contain bacteria without peptide and give the OD600 (0.95) against which inhibition is calculated.",
-      "Incorrect: The passage says \"The experiment involved 24 wells of a 96-well microplate, each inoculated with 1\u00d710^5 CFU/mL of bacteria and treated with peptide concentrations of 0, 5, 10, 20, 40, and 80 \u00b5g/mL\", which does not support wells with bacteria and ciprofloxacin.",
+      "Incorrect: The passage says \"The experiment involved 24 wells of a 96-well microplate, each inoculated with 1\u00d710⁵ CFU/mL of bacteria and treated with peptide concentrations of 0, 5, 10, 20, 40, and 80 \u00b5g/mL\", which does not support wells with bacteria and ciprofloxacin.",
       "Incorrect: The 80 \u00b5g/mL wells are a treated condition, not a baseline."
     ],
-    "x": "The passage says \"The experiment involved 24 wells of a 96-well microplate, each inoculated with 1\u00d710^5 CFU/mL of bacteria and treated with peptide concentrations of 0, 5, 10, 20, 40, and 80 \u00b5g/mL\", which does not support wells with no bacteria.",
+    "x": "The passage says \"The experiment involved 24 wells of a 96-well microplate, each inoculated with 1\u00d710⁵ CFU/mL of bacteria and treated with peptide concentrations of 0, 5, 10, 20, 40, and 80 \u00b5g/mL\", which does not support wells with no bacteria.",
     "a": 0
   },
   {
@@ -37173,7 +37173,7 @@
     "ox": [
       "Correct: 0.85 divides by the 80-mg mean reduction (11.6/13.7).",
       "Incorrect: 2.3 divides by the 80-mg SD alone (11.6/5.1).",
-      "Incorrect: Pooled SD = sqrt[(5.1^2 + 3.5^2)/2] = 4.37 mmHg; the difference is 13.7 - 2.1 = 11.6 mmHg, so d = 11.6/4.37 = 2.65, about 2.7.",
+      "Incorrect: Pooled SD = sqrt[(5.1² + 3.5²)/2] = 4.37 mmHg; the difference is 13.7 - 2.1 = 11.6 mmHg, so d = 11.6/4.37 = 2.65, about 2.7.",
       "Incorrect: 3.3 divides by the placebo SD alone (11.6/3.5)."
     ],
     "x": "0.85 divides by the 80-mg mean reduction (11.6/13.7).",
@@ -37644,12 +37644,12 @@
   {
     "id": "bp1754_2",
     "ox": [
-      "Correct: With equal n, pooled SD = sqrt[(0.05^2 + 0.06^2)/2] = sqrt(0.00305) = 0.055.",
+      "Correct: With equal n, pooled SD = sqrt[(0.05² + 0.06²)/2] = sqrt(0.00305) = 0.055.",
       "Incorrect: 0.057 is the table's own entry for Group B row, SD (s) = 0.06, not the value the question asks for.",
       "Incorrect: 0.059 is the table's own entry for Group B row, SD (s) = 0.06, not the value the question asks for.",
       "Incorrect: 0.061 is the table's own entry for Group B row, SD (s) = 0.06, not the value the question asks for."
     ],
-    "x": "With equal n, pooled SD = sqrt[(0.05^2 + 0.06^2)/2] = sqrt(0.00305) = 0.055.",
+    "x": "With equal n, pooled SD = sqrt[(0.05² + 0.06²)/2] = sqrt(0.00305) = 0.055.",
     "a": 0
   },
   {
@@ -38106,12 +38106,12 @@
   {
     "id": "bp1762_4",
     "ox": [
-      "Correct: Pooled SD = sqrt((0.5^2 + 0.4^2)/2) = 0.45; d = (1.2 - 0.3) / 0.45 = 2.0.",
+      "Correct: Pooled SD = sqrt((0.5² + 0.4²)/2) = 0.45; d = (1.2 - 0.3) / 0.45 = 2.0.",
       "Incorrect: 1.8 divides by the supplement SD (0.5) alone.",
       "Incorrect: 2.25 divides by the placebo SD (0.4) alone.",
       "Incorrect: 0.9 is 45-60 years row: sd 0.6 minus mean_homa_ir_reduction 1.5 = 0.9, a difference rather than the quantity asked for."
     ],
-    "x": "Pooled SD = sqrt((0.5^2 + 0.4^2)/2) = 0.45; d = (1.2 - 0.3) / 0.45 = 2.0.",
+    "x": "Pooled SD = sqrt((0.5² + 0.4²)/2) = 0.45; d = (1.2 - 0.3) / 0.45 = 2.0.",
     "a": 0
   },
   {
@@ -38524,12 +38524,12 @@
   {
     "id": "bp1791_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
       "Incorrect: 100 is the table's own entry for 4 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
     "a": 0
   },
   {
@@ -38964,12 +38964,12 @@
   {
     "id": "bp1799_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
       "Incorrect: 100 is the table's own entry for 4.5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
     "a": 0
   },
   {
@@ -39404,12 +39404,12 @@
   {
     "id": "bp1807_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
       "Incorrect: 100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
     "a": 0
   },
   {
@@ -39844,12 +39844,12 @@
   {
     "id": "bp1815_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
       "Incorrect: 100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
     "a": 0
   },
   {
@@ -40284,12 +40284,12 @@
   {
     "id": "bp1823_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
       "Incorrect: 100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
     "a": 0
   },
   {
@@ -40725,9 +40725,9 @@
     "id": "bp1831_2",
     "ox": [
       "Correct: 100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10."
     ],
     "x": "100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
     "a": 0
@@ -41164,12 +41164,12 @@
   {
     "id": "bp1839_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
       "Incorrect: 100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
     "a": 0
   },
   {
@@ -41604,12 +41604,12 @@
   {
     "id": "bp1847_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
       "Incorrect: 100 is the table's own entry for 4.5 row, Histidine side chains protonated (%) = 99, not the value the question asks for."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
     "a": 0
   },
   {
@@ -42045,9 +42045,9 @@
     "id": "bp1855_2",
     "ox": [
       "Correct: 100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10."
     ],
     "x": "100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
     "a": 0
@@ -42484,12 +42484,12 @@
   {
     "id": "bp1863_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
       "Incorrect: 1000 is not produced by any cell or row comparison in the table, which reads 4 (Histidine side chains protonated 99); 5 (Histidine side chains protonated 90.9); 6 (Histidine side chains protonated 50); 7 (Histidine side chains protonated 9.1)."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
     "a": 0
   },
   {
@@ -42924,12 +42924,12 @@
   {
     "id": "bp1871_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
       "Incorrect: 1000 is not produced by any cell or row comparison in the table, which reads 4.5 (Histidine side chains protonated 99); 5.5 (Histidine side chains protonated 90.9); 6.5 (Histidine side chains protonated 50); 7.5 (Histidine side chains protonated 9.1).",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
     "a": 0
   },
   {
@@ -43364,12 +43364,12 @@
   {
     "id": "bp1879_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
       "Incorrect: 1000 is not produced by any cell or row comparison in the table, which reads 5 (Histidine side chains protonated 99); 6 (Histidine side chains protonated 90.9); 7 (Histidine side chains protonated 50); 8 (Histidine side chains protonated 9.1)."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
     "a": 0
   },
   {
@@ -43805,9 +43805,9 @@
     "id": "bp1887_2",
     "ox": [
       "Correct: 100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10."
     ],
     "x": "100 is the table's own entry for 5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
     "a": 0
@@ -44244,12 +44244,12 @@
   {
     "id": "bp1895_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
       "Incorrect: 1000 is not produced by any cell or row comparison in the table, which reads 5 (Histidine side chains protonated 99); 6 (Histidine side chains protonated 90.9); 7 (Histidine side chains protonated 50); 8 (Histidine side chains protonated 9.1).",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
     "a": 0
   },
   {
@@ -44684,12 +44684,12 @@
   {
     "id": "bp1903_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
       "Incorrect: 100 is the table's own entry for 4.5 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
     "a": 0
   },
   {
@@ -45124,12 +45124,12 @@
   {
     "id": "bp1911_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
       "Incorrect: 1000 is not produced by any cell or row comparison in the table, which reads 4 (Histidine side chains protonated 99); 5 (Histidine side chains protonated 90.9); 6 (Histidine side chains protonated 50); 7 (Histidine side chains protonated 9.1).",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10^2 = 100.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22122 and [HA]/[A\u207b] = 10² = 100.",
     "a": 0
   },
   {
@@ -45564,12 +45564,12 @@
   {
     "id": "bp1919_2",
     "ox": [
-      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+      "Correct: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
       "Incorrect: 100 is the table's own entry for 4 row, Histidine side chains protonated (%) = 99, not the value the question asks for.",
-      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10."
+      "Incorrect: PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10."
     ],
-    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10^1 = 10.",
+    "x": "PH = pKa + log([A\u207b]/[HA]), so log([A\u207b]/[HA]) = \u22121 and [HA]/[A\u207b] = 10¹ = 10.",
     "a": 0
   },
   {
@@ -54077,7 +54077,7 @@
     "id": "x5C_079",
     "ox": [
       "Incorrect: Assumes size is linear with distance, not log(size).",
-      "Correct: 6 cm is halfway in log scale, 10^2.5 \u2248 316 bp.",
+      "Correct: 6 cm is halfway in log scale, 10².5 \u2248 316 bp.",
       "Incorrect: Underestimates; the log midpoint of 100 and 1000 is about 316.",
       "Incorrect: Places the fragment too close to the 1000 bp marker."
     ],
@@ -54089,7 +54089,7 @@
       "750 bp"
     ],
     "a": 1,
-    "x": "6 cm is halfway in log scale, 10^2.5 \u2248 316 bp."
+    "x": "6 cm is halfway in log scale, 10².5 \u2248 316 bp."
   },
   {
     "id": "x5C_081",
@@ -62934,10 +62934,10 @@
     "ox": [
       "Incorrect: 10 m/s is only the horizontal component and ignores vertical gain.",
       "Incorrect: 20 m/s is only the vertical component and ignores the horizontal.",
-      "Correct: Horizontal speed stays 10 m/s while vertical speed is gt = 20 m/s, so speed = sqrt(10^2 + 20^2) = sqrt(500), about 22 m/s.",
+      "Correct: Horizontal speed stays 10 m/s while vertical speed is gt = 20 m/s, so speed = sqrt(10² + 20²) = sqrt(500), about 22 m/s.",
       "Incorrect: 30 m/s adds the perpendicular components arithmetically instead of vectorially."
     ],
-    "q": "Use g = 10 m/s^2 where needed. A ball is thrown horizontally at 10 m/s from a cliff. Ignoring air resistance, what is its speed after 2.0 s?",
+    "q": "Use g = 10 m/s² where needed. A ball is thrown horizontally at 10 m/s from a cliff. Ignoring air resistance, what is its speed after 2.0 s?",
     "o": [
       "10 m/s",
       "20 m/s",
@@ -62945,7 +62945,7 @@
       "30 m/s"
     ],
     "a": 2,
-    "x": "Horizontal speed stays 10 m/s while vertical speed is gt = 20 m/s, so speed = sqrt(10^2 + 20^2) = sqrt(500), about 22 m/s."
+    "x": "Horizontal speed stays 10 m/s while vertical speed is gt = 20 m/s, so speed = sqrt(10² + 20²) = sqrt(500), about 22 m/s."
   },
   {
     "id": "d_4A_18",
@@ -62973,7 +62973,7 @@
       "Correct: A movable pulley halves the force (40 N) while doubling the rope pulled (4 m), so work stays 160 J.",
       "Incorrect: 160 N and 1 m reverses the force and distance trade."
     ],
-    "q": "Use g = 10 m/s^2 where needed. A movable pulley is used to lift an 80 N load 2 m (ideal, no friction). Which values are correct?",
+    "q": "Use g = 10 m/s² where needed. A movable pulley is used to lift an 80 N load 2 m (ideal, no friction). Which values are correct?",
     "o": [
       "80 N force and 2 m of rope",
       "40 N force and 2 m of rope",
@@ -62987,9 +62987,9 @@
     "id": "d_4A_30",
     "ox": [
       "Incorrect: The 30 degree ball does not outrange the 60 degree ball since ranges are equal.",
-      "Correct: Range is proportional to sin(2 theta), equal for complementary angles 30 and 60, while height scales with sin^2(theta), so the 60 degree ball rises higher.",
+      "Correct: Range is proportional to sin(2 theta), equal for complementary angles 30 and 60, while height scales with sin²(theta), so the 60 degree ball rises higher.",
       "Incorrect: The ranges are equal, not greater for 60 degrees, and heights differ.",
-      "Incorrect: Ranges are equal but heights are not equal, since height depends on sin^2."
+      "Incorrect: Ranges are equal but heights are not equal, since height depends on sin²."
     ],
     "q": "Two balls are launched on level ground at the same speed, one at 30 degrees and one at 60 degrees. Ignoring air resistance, which statement is correct?",
     "o": [
@@ -62999,17 +62999,17 @@
       "They have equal ranges and equal heights"
     ],
     "a": 1,
-    "x": "Range is proportional to sin(2 theta), equal for complementary angles 30 and 60, while height scales with sin^2(theta), so the 60 degree ball rises higher."
+    "x": "Range is proportional to sin(2 theta), equal for complementary angles 30 and 60, while height scales with sin²(theta), so the 60 degree ball rises higher."
   },
   {
     "id": "d_4A_31",
     "ox": [
       "Incorrect: 5 m/s does not follow from the equation and underestimates the speed.",
-      "Incorrect: 100 m/s is v^2; the square root was not taken.",
-      "Correct: Friction supplies centripetal force: mu m g = m v^2/r, so v = sqrt(mu g r) = sqrt(0.5 x 10 x 20) = 10 m/s.",
+      "Incorrect: 100 m/s is v²; the square root was not taken.",
+      "Correct: Friction supplies centripetal force: mu m g = m v²/r, so v = sqrt(mu g r) = sqrt(0.5 x 10 x 20) = 10 m/s.",
       "Incorrect: 14 m/s is sqrt(200), from dropping the 0.5 factor."
     ],
-    "q": "Use g = 10 m/s^2 where needed. A car travels around a flat circular curve of radius 20 m. If the coefficient of static friction is 0.5, what is the maximum speed without slipping?",
+    "q": "Use g = 10 m/s² where needed. A car travels around a flat circular curve of radius 20 m. If the coefficient of static friction is 0.5, what is the maximum speed without slipping?",
     "o": [
       "5 m/s",
       "100 m/s",
@@ -63017,7 +63017,7 @@
       "14 m/s"
     ],
     "a": 2,
-    "x": "Friction supplies centripetal force: mu m g = m v^2/r, so v = sqrt(mu g r) = sqrt(0.5 x 10 x 20) = 10 m/s."
+    "x": "Friction supplies centripetal force: mu m g = m v²/r, so v = sqrt(mu g r) = sqrt(0.5 x 10 x 20) = 10 m/s."
   },
   {
     "id": "d_4A_32",
@@ -63492,18 +63492,18 @@
     "ox": [
       "Incorrect: neutron-to-proton conversion is beta decay and does not explain the mass deficit.",
       "Incorrect: nucleons are conserved; none are destroyed.",
-      "Correct: The mass defect is the mass equivalent (E = mc^2) of the binding energy released when the nucleus formed, so the nucleus weighs less than its separated nucleons.",
+      "Correct: The mass defect is the mass equivalent (E = mc²) of the binding energy released when the nucleus formed, so the nucleus weighs less than its separated nucleons.",
       "Incorrect: electron shielding is an atomic effect and irrelevant to nuclear mass."
     ],
     "q": "The mass of a stable nucleus is slightly less than the sum of the masses of its separate nucleons because:",
     "o": [
       "neutrons convert into protons",
       "some nucleons are destroyed",
-      "energy is released on formation, corresponding to binding energy via E = mc^2",
+      "energy is released on formation, corresponding to binding energy via E = mc²",
       "electrons shield the nucleus"
     ],
     "a": 2,
-    "x": "The mass defect is the mass equivalent (E = mc^2) of the binding energy released when the nucleus formed, so the nucleus weighs less than its separated nucleons."
+    "x": "The mass defect is the mass equivalent (E = mc²) of the binding energy released when the nucleus formed, so the nucleus weighs less than its separated nucleons."
   },
   {
     "id": "d_4E_12",
@@ -63785,7 +63785,7 @@
     ],
     "q": "A mechanism has a slow first step A + B \u2192 C and a fast second step C + B \u2192 D. What is the rate law?",
     "o": [
-      "rate = k[A][B]^2",
+      "rate = k[A][B]²",
       "rate = k[C][B]",
       "rate = k[D]",
       "rate = k[A][B]"
