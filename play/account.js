@@ -147,6 +147,7 @@ async function loadKey() {
 async function useKey(k) {
   try { ACCT.key = await crypto.subtle.importKey("raw", b64bytes(k), "AES-GCM", false, ["decrypt"]); } catch (e) { ACCT.key = null; return; }
   unsealMnemonics(); refreshViews();
+  if (typeof window.onContentKey === "function") window.onContentKey(); // paid passages + full explanations
 }
 async function unseal(box) {
   const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64bytes(box.iv) }, ACCT.key, b64bytes(box.ct));
@@ -161,6 +162,7 @@ function unsealMnemonics() {
   }).catch(() => {});
 }
 window.acctHasKey = () => !!ACCT.key;
+window.acctUnseal = box => unseal(box);
 // After a checkout succeeds, the webhook sets the plan a moment later: check the profile every 3 s for up to 90 s.
 let planWatch = null;
 window.acctWatchPlan = () => {
