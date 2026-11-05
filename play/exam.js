@@ -13,7 +13,9 @@
 
   /* ---------- catalog from the loaded bank ---------- */
   let CAT_X = null;
-  window.CAT_RESET = () => { CAT_X = null; };
+  window.CAT_RESET = () => { CAT_X = null; Object.keys(ITEMS).forEach(k => delete ITEMS[k]); };
+  // Paid exams are sealed; bank/exams.json lists their sections so they show (locked) before the content key unlocks them.
+  let STUB = {}; fetch("bank/exams.json").then(r => r.json()).then(d => { STUB = d || {}; CAT_X = null; const r = root(); if (r && !r.hidden && !S.exam) hub(); }).catch(() => {});
   // Mini exams are fixed 32-question cuts of the Mini bank (about 24 passage + 8 discrete; CARS minis are all passage): json/mini_exams.json lists the question ids.
   let CUT = null;
   const SECQ = { CP: 59, CARS: 53, BB: 59, PS: 59 };
@@ -23,10 +25,12 @@
     if (!CUT) return [];
     const ids = new Set();
     EXAM.passages.forEach(p => { const m = p.id.match(/^((?:FL|Mini)\d+)_/); if (m) ids.add(m[1]); });
+    Object.keys(STUB).forEach(id => ids.add(id));
     const list = [...ids].sort((a, b) => (a[0] === b[0] ? num(a) - num(b) : a[0] === "F" ? -1 : 1)).map(id => {
-      const secs = [...new Set(EXAM.passages.filter(p => p.id.startsWith(id + "_")).map(p => p.s))];
+      let secs = [...new Set(EXAM.passages.filter(p => p.id.startsWith(id + "_")).map(p => p.s))];
+      const stub = !secs.length && STUB[id]; if (stub) secs = Object.keys(stub);
       const order = id.startsWith("FL") ? FL_ORDER.filter(s => secs.includes(s)) : secs;
-      const sections = order.map(s => { const it = items(id, s); return { s, n: it.length, min: id.startsWith("Mini") && CUT[id] ? Math.round(SEC[s].min * it.length / SECQ[s]) : SEC[s].min }; });
+      const sections = order.map(s => { const it = stub ? { length: stub[s] } : items(id, s); return { s, n: it.length, min: id.startsWith("Mini") && CUT[id] ? Math.round(SEC[s].min * it.length / SECQ[s]) : SEC[s].min }; });
       return { id, full: id.startsWith("FL"), sections, n: sections.reduce((a, s) => a + s.n, 0) };
     });
     return list.length ? (CAT_X = list) : list;
@@ -230,7 +234,7 @@
     if (e.phase === "done") return resultsView();
     if (e.phase === "run") { const s = secOf(); if (!e.paused) { s.rem = left(s); s.t0 = null; e.paused = true; save(); } return pauseView(); }
   }
-  function ready(fn) { (typeof bankReady !== "undefined" ? bankReady : Promise.resolve()).then(fn, fn); }
+  function ready(fn) { (typeof bankReady !== "undefined" ? bankReady : Promise.resolve()).then(() => typeof loadSealedBank === "function" ? loadSealedBank() : 0).then(fn, fn); }
   function open() {
     ready(() => {
       if (X() && X().phase !== "done") { /* active attempt: show hub so the user can resume or discard */ }
@@ -242,6 +246,7 @@
     let b;
     if ((b = g("[data-xstart]"))) {
       const id = b.dataset.xstart; if (!canTake(id)) return showPro();
+      if (!EXAM.passages.some(p => p.id.startsWith(id + "_"))) return toast("This exam is still unlocking. Give it a few seconds and try again.");
       if (X() && X().id === id && X().phase !== "done") return resumeExam();
       if (X() && X().phase !== "done" && !confirm("Start " + id + "? Your unfinished " + X().id + " attempt will be discarded.")) return;
       newExam(id); return introView();

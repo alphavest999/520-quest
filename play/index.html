@@ -1493,7 +1493,7 @@ function loadSealedBank() {
   if (sealedLoad) return sealedLoad;
   if (!keyReady()) return Promise.resolve();
   return sealedLoad = bankReady.then(() => Promise.all(((BANKIX && BANKIX.sealed) || []).map(f => fetch("bank/" + f).then(r => r.json()).then(acctUnseal).then(addBank))))
-    .then(() => { sealedDone = true; renderFilters(); if (!$("#view-map").hidden) renderMap(); })
+    .then(() => { sealedDone = true; renderFilters(); if (!$("#view-map").hidden) renderMap(); if (window.CAT_RESET) { CAT_RESET(); if (!S.exam && window.renderExam && !$("#view-exam").hidden) renderExam(); } })
     .catch(() => { sealedLoad = null; });
 }
 window.onContentKey = () => { Object.keys(EX).forEach(k => delete EX[k]); loadSealedBank(); };
