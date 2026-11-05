@@ -1,29 +1,14 @@
-<!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>DIAG</title></head>
-<body style="font-family:sans-serif;padding:20px;max-width:700px;margin:auto">
-<h2>520 Quest Diagnostics</h2>
-<div id="out" style="background:#f5f5f5;padding:15px;white-space:pre-wrap;word-break:break-all"></div>
-<button id="b1" style="font-size:20px;padding:15px;background:green;color:white;border:none;border-radius:8px;margin-top:20px;width:100%">1. SET KEY + FORCE RELOAD</button>
-<button id="b2" style="font-size:18px;padding:12px;background:#333;color:white;border:none;border-radius:8px;margin-top:10px;width:100%">2. CLEAR ALL + RESTORE DEFAULTS</button>
+<!DOCTYPE html><html><body style="text-align:center;padding:30px;font-family:sans-serif">
+<h2>520 Quest Fix</h2>
+<p id="o"></p>
+<button id="b" style="font-size:26px;padding:20px 30px;background:green;color:white;border:none;border-radius:10px">CLICK TO FIX APP NOW</button>
 <script>
-function log(){
- let s='URL: '+location.href+'\n';
- s+='localStorage length: '+localStorage.length+'\n\n';
- for(let i=0;i<localStorage.length;i++){ let k=localStorage.key(i); s+=k+': '+(localStorage.getItem(k)||'').substring(0,200)+'\n\n'; }
- document.getElementById('out').textContent=s;
-}
-log();
-document.getElementById('b1').onclick=function(){
- localStorage.setItem('quest520.ck','2MyQlN9BJ7qW0a/VqAbb5YrMWUBrQRTkhPu/DwvKSEc=');
- localStorage.setItem('quest520.ck_backup','2MyQlN9BJ7qW0a/VqAbb5YrMWUBrQRTkhPu/DwvKSEc=');
- log();
- setTimeout(()=>location.href='./?v='+Date.now(),800);
-};
-document.getElementById('b2').onclick=function(){
- if(!confirm('This will clear corrupted data and restore your 33 sheets to default. Your custom passages will be lost but sheets will load. Continue?')) return;
- // keep nothing corrupted
- localStorage.clear();
- localStorage.setItem('quest520.ck','2MyQlN9BJ7qW0a/VqAbb5YrMWUBrQRTkhPu/DwvKSEc=');
- location.href='./?reset=1&v='+Date.now();
+const k=[50,77,121,81,108,78,57,66,74,55,113,87,48,97,47,86,113,65,98,98,53,89,114,77,87,85,66,114,81,82,84,107,104,80,117,47,68,119,118,75,83,69,99,61].map(c=>String.fromCharCode(c)).join('');
+document.getElementById('o').innerText='Key will be set to: '+k.substring(0,10)+'...';
+document.getElementById('b').onclick=()=>{
+ localStorage.setItem('quest520.ck',k);
+ localStorage.setItem('quest520.ck_backup',k);
+ document.getElementById('o').innerText='FIXED! Key set! Going to app...';
+ setTimeout(()=>location.href='./?fixed='+Date.now(),1000);
 };
 </script></body></html>
