@@ -1,4 +1,4 @@
-/* 520 Quest accounts: email-code sign-in, progress sync, device limits, paid content and 1v1 duels.
+/* 520 Quest accounts: email-code sign-in, progress sync, device limits, and paid content.
    Runs after the main app script and shares its globals (S, save, sheet, toast, go, ...).
    The server is Supabase; see supabase/001_core.sql for the tables and functions. */
 const SB_URL = CONFIG.supabaseUrl, SB_KEY = CONFIG.supabaseKey;
@@ -236,12 +236,12 @@ function deviceLimitSheet() {
 /* ---------- Me tab panel ---------- */
 window.acctPanelHTML = () => {
   if (ACCT.state === "off") return "";
-  if (ACCT.state === "out") return `<div class="panel"><h3>Account</h3><p class="small">Sign in to save your progress, use 520 Quest on up to 3 devices and play 1v1 duels.</p><div class="row"><button class="btn primary small" data-acin>Sign in with email</button></div></div>`;
+  if (ACCT.state === "out") return `<div class="panel"><h3>Account</h3><p class="small">Sign in to save your progress, use 520 Quest on up to 3 devices and keep your progress in sync.</p><div class="row"><button class="btn primary small" data-acin>Sign in with email</button></div></div>`;
   const p = ACCT.profile || {}, email = (ACCT.user && ACCT.user.email) || "";
   return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Account</h3><span class="tag sec">${esc(planName(p))}</span></div>
-    <p class="small" style="overflow-wrap:anywhere">${esc(email)}${p.name ? ` · duel name <b>${esc(p.name)}</b>` : ""}</p>
+    <p class="small" style="overflow-wrap:anywhere">${esc(email)}</p>
     ${ACCT.state === "blocked" ? `<p class="small" style="color:var(--bad)">This device isn't syncing: your account is already on ${ACCT.limit} device${ACCT.limit === 1 ? "" : "s"}.</p>` : `<p class="small muted">${ACCT.synced ? "Progress saved to your account " + new Date(ACCT.synced).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) + "." : "Progress saves to your account after each question."}${fullAccess() ? " All Mastery Sheets and mnemonics are unlocked." : ""}</p>`}
-    <div class="row"><button class="btn small" data-acdevices>Manage devices</button><button class="btn small" data-acname>Change duel name</button><button class="btn small ghost" data-acout>Sign out</button></div></div>${isAdmin() ? adminPanelHTML() : ""}`;
+    <div class="row"><button class="btn small" data-acdevices>Manage devices</button><button class="btn small ghost" data-acout>Sign out</button></div></div>${isAdmin() ? adminPanelHTML() : ""}`;
 };
 /* ---------- owner admin tools (only for an account with is_admin) ---------- */
 function adminPanelHTML() {
@@ -269,20 +269,8 @@ document.addEventListener("click", async e => {
   if (t.closest("[data-acin]")) return signIn();
   if (t.closest("[data-acout]")) return signOut();
   if (t.closest("[data-acdevices]")) return devicesSheet();
-  if (t.closest("[data-acname]")) {
-    sheet(`<div class="eyebrow">Duels</div><h2>Your duel name</h2><p class="muted">Opponents see this name. Keep it friendly; no email addresses.</p><label class="field" for="acNm">Name<input type="text" id="acNm" maxlength="20" value="${esc((ACCT.profile || {}).name || "")}"></label><div class="row"><button class="btn primary" data-acnmsave>Save</button><button class="btn ghost" data-close>Cancel</button></div>`, s => {
-      $("[data-acnmsave]", s).addEventListener("click", async () => {
-        const nm = $("#acNm", s).value.replace(/[<>@]/g, "").trim().slice(0, 20);
-        if (nm.length < 2) return toast("Use at least 2 characters.");
-        const r = await ACCT.sb.from("profiles").update({ name: nm }).eq("id", ACCT.user.id);
-        if (r.error) return toast("Couldn't save. Try again.");
-        ACCT.profile.name = nm; $("#sheetHost").innerHTML = ""; refreshViews();
-      });
-    });
-  }
 });
 
-/* ---------- duel links: 520quest.com/duel/1234 lands on /play/#duel=1234 ---------- */
 /* ---------- start ---------- */
 (function initAccount() {
   if (ACCT.state === "off") return;

@@ -380,6 +380,24 @@ a { color: var(--volt); }
 #view-results { display: grid; align-content: start; }
 .bye { min-height: 100%; display: grid; place-content: center; justify-items: center; text-align: center; gap: 12px; padding: 24px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* Polish 2026-11-05: calm colors on the Course page, shaded (not white) buttons, green Back buttons. */
+.crs-sheets { background: #dbeafe; border: 2px solid #60a5fa; color: #1e3a8a; }
+.crs-check  { background: #fee2e2; border: 2px solid #f87171; color: #7f1d1d; }
+.crs-vault  { background: #ffedd5; border: 2px solid #fb923c; color: #7c2d12; }
+.crs-mini   { background: #dcfce7; border: 2px solid #4ade80; color: #14532d; }
+.crs-fl     { background: #fce7f3; border: 2px solid #f472b6; color: #831843; }
+.shbtn, .mn-cat, .mn-item, .cat:not(:disabled), .chipbtn, .btn.ghost {
+  background: #eef2f7; border: 1px solid #cbd5e1; box-shadow: 0 1px 0 #cbd5e1; }
+.shbtn:hover, .mn-cat:hover, .mn-item:hover, .cat:not(:disabled):hover, .chipbtn:hover, .btn.ghost:hover { background: #e2e8f0; }
+.btn.ghost { color: #1e3a8a; }
+.chipbtn[aria-pressed="true"] { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); }
+.catgroup { gap: 6px; }
+.cat { border-radius: 12px; padding: 9px 10px; }
+.cat:not(:disabled) { cursor: pointer; }
+.cat:last-child { border-bottom: 1px solid #cbd5e1; }
+.xcard { background: #eef2f7; border: 1px solid #cbd5e1; border-left: 4px solid #1e3a8a; }
+.btn.pinkback, .backq { background: #16a34a; border-color: #16a34a; color: #fff; }
 </style>
 
 <div class="app" id="app">
@@ -1390,11 +1408,11 @@ const CONFIG = {
     2026: { volt: "#1e3a8a", "volt-ink": "#ffffff", ink: "#ffffff", panel: "#ffffff", "panel-2": "#f1f5f9", line: "#e2e8f0", cool: "#2dd4bf" },
     2027: { volt: "#38bdf8", "volt-ink": "#03131c", ink: "#0b0f14", panel: "#141b23", "panel-2": "#1e2833", line: "#2c3a47", cool: "#a78bfa" }
   },
-  supportEmail: "info@unprocrastinatehub.com",
+  supportEmail: "support@520-quest.com",
   supportUrl: "https://520quest.com/support/",
   appUrl: "https://520quest.com/", // your public link, used in Share text
-  flags: { MASTERY_SHEETS_CONSPICUOUS: true, MNEMONICS_ENABLED: true, DUEL_ENABLED: true },
-  // Supabase project for accounts, sync, devices, paid content and duels. The publishable key is safe to ship.
+  flags: { MASTERY_SHEETS_CONSPICUOUS: true, MNEMONICS_ENABLED: true },
+  // Supabase project for accounts, sync, devices, and paid content. The publishable key is safe to ship.
   supabaseUrl: "https://cbiwsrzmqipkminixulv.supabase.co",
   supabaseKey: "sb_publishable_mZUgXs_0Pdxo3U8flAifYw_QxOO_D5o",
 };
@@ -1535,10 +1553,8 @@ function celebrateLevel(n) {
     s => $("[data-sharelevel]", s).addEventListener("click", share));
 }
 function gateBoss() { const n = S.lv.pending; return { id: "GK" + n, name: "Gatekeeper of Level " + n, sec: "ALL", face: "L" + n, col: "var(--volt)", blurb: "Beat it to reach Level " + n, gate: n }; }
-/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
-  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
-  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); } if (e.target.closest("[data-gate]")) { $("#sheetHost").innerHTML = ""; go("boss"); if (S.lv.pending) startBoss(gateBoss()); } });
+  if (e.target.closest("[data-gate]")) { $("#sheetHost").innerHTML = ""; go("boss"); if (S.lv.pending) startBoss(gateBoss()); } });
 function levelBarHTML() {
   const n = S.lv.block.length, acc = liveAcc();
   return `<div class="lvbar"><div class="bar"><i style="width:${n / EVAL_N * 100}%"></i></div><small><span>${n} of ${EVAL_N} to next evaluation</span><span>${acc === null ? "No answers yet" : "Live accuracy " + acc + "%"}</span></small></div>`;
@@ -1554,10 +1570,37 @@ function syncMusic(user) {
 }
 /* ---------- sound + fx ---------- */
 let AC = null;
-function beep(type) {
+// Soft, short "tick" on every button press. Plays on pointerdown so it lands the instant the finger touches,
+// and only once per press (earlier builds stacked several beeps per click from duplicate listeners).
+let tickBuf = null;
+function audio() {
+  AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+  if (AC.state === "suspended") AC.resume();
+  return AC;
+}
+function softClick() {
   if (!S.sound) return;
   try {
-    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    const ac = audio();
+    if (!tickBuf) {
+      const n = Math.floor(ac.sampleRate * 0.012); tickBuf = ac.createBuffer(1, n, ac.sampleRate);
+      const d = tickBuf.getChannelData(0); for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 4);
+    }
+    const src = ac.createBufferSource(), f = ac.createBiquadFilter(), g = ac.createGain();
+    src.buffer = tickBuf; f.type = "bandpass"; f.frequency.value = 3200; f.Q.value = 0.9; g.gain.value = 0.05;
+    src.connect(f).connect(g).connect(ac.destination); src.start();
+  } catch (e) {}
+}
+document.addEventListener("pointerdown", e => {
+  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
+  if (!btn) return;
+  softClick();
+  btn.classList.add("clicked-blue"); setTimeout(() => btn.classList.remove("clicked-blue"), 300);
+}, { passive: true });
+function beep(type) {
+  if (!S.sound || type === "click") return;
+  try {
+    audio();
     const notes = { good: [660, 990], bad: [220, 160], level: [523, 659, 784, 1047], chest: [880, 1320, 1760] }[type] || [440];
     notes.forEach((f, i) => {
       const o = AC.createOscillator(), g = AC.createGain();
@@ -1608,10 +1651,8 @@ function installCard() {
     <div class="row"><button class="btn" data-install>Install app</button></div>${SWIPE}`;
   return el;
 }
-/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
-  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
-  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); } if (e.target.closest("[data-install]")) installApp(); });
+  if (e.target.closest("[data-install]")) installApp(); });
 function toast(html, ms = 2600) {
   const t = document.createElement("div"); t.className = "toast"; t.innerHTML = html;
   $("#toasts").appendChild(t); setTimeout(() => t.remove(), ms);
@@ -1733,10 +1774,8 @@ function renderHUD() {
   $("#hudPro").hidden = !!S.pro;
   $("#hudInstall").hidden = installed();
 }
-/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
-  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
-  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); } if (e.target.closest("#hudPro, .promo [data-pro], .probanner [data-pro]")) showPro(); });
+  if (e.target.closest("#hudPro, .promo [data-pro], .probanner [data-pro]")) showPro(); });
 
 /* ---------- feed engine ---------- */
 const feed = $("#feed");
@@ -2111,10 +2150,8 @@ function exportAnki() {
   if (!$("#view-me").hidden) renderMe();
 }
 const ankiRow = () => S.anki.length ? `<div class="explain" style="border-left-color:var(--cool)"><p><b>${S.anki.length}</b> card${S.anki.length === 1 ? "" : "s"} in your Anki queue.</p><div class="row"><button class="btn small primary" data-exportanki>Export to Anki</button></div></div>` : "";
-/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
-  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
-  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); } if (e.target.closest("[data-exportanki]")) exportAnki(); });
+  if (e.target.closest("[data-exportanki]")) exportAnki(); });
 function dnaHTML(secs) {
   const slow = secs > 95;
   return `<div class="dna"><p><b>Error DNA:</b> why did you miss it?${slow ? " You took " + Math.round(secs) + " s, so Time is pre-selected." : ""}</p>
@@ -2231,7 +2268,7 @@ function promoCard() {
   const left = Math.max(0, CONFIG.freeQuestions - seenCount());
   const el = document.createElement("article"); el.className = "card promo";
   el.innerHTML = `<div class="eyebrow" style="color:#f472b6">520 Quest plans</div><p class="bigtext">${left} of ${CONFIG.freeQuestions} free questions left.</p>
-    <p class="muted" style="margin:0">Every plan unlocks all 5,904 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles and duels, the score estimate and Anki export.</p>
+    <p class="muted" style="margin:0">Every plan unlocks all 5,904 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles, the score estimate and Anki export.</p>
     <div class="row"><button class="btn pro" data-pro>See plans, from ${esc(CONFIG.fromPrice)}</button></div>${SWIPE}`;
   return el;
 }
@@ -2392,10 +2429,7 @@ function startExtra() {
   me.addEventListener("touchend", e => { if (y0 !== null && atEnd() && y0 - e.changedTouches[0].clientY > 60) exitPrompt(); y0 = null; }, { passive: true });
   me.addEventListener("wheel", e => { if (e.deltaY > 30 && atEnd()) exitPrompt(); }, { passive: true });
 })();
-/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
-  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
-  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); }
   const t = e.target;
   if (t.closest("[data-review]")) return startReview();
   if (t.closest("[data-doneday]")) { $("#sheetHost").innerHTML = ""; return doneDay(); }
@@ -2409,27 +2443,25 @@ document.addEventListener("click", e => {
 // Shown on the first open of a day when the previous day's goal was met.
 function welcomeBack() {
   const t = todayKey();
-  const params = new URLSearchParams(location.search);
-  const fromLanding = params.get('from')==='landing' || document.referrer.includes('520quest.com') || !S.total;
-  if (S.welcome === t || S.today.doneDay) {
-    // Allow landing param to force once per day anyway
-    if(!fromLanding) return;
-    if(S.welcome===t) return;
-  }
-  const show = true; // FIX Bug13: always show first time daily, even for new users from landing
+  // Coming in from the landing page's Play button: greet with "Welcome" every time.
+  // Otherwise: "Welcome back" once, on the first open of each day (not after Done for the Day).
+  const ref = document.referrer || "";
+  const fromLanding = new URLSearchParams(location.search).get("from") === "landing" || (/^https?:\/\/(www\.)?520quest\.com\/?(index\.html)?([?#].*)?$/.test(ref));
+  if (fromLanding) history.replaceState(null, "", location.pathname + location.hash);
+  else if (S.welcome === t || S.today.doneDay) return;
+  const first = fromLanding || !S.total;
   S.welcome = t; save();
-  if (!show) return;
   const L = S.lv.level;
-  sheet(`<div class="lvbig"><div class="eyebrow">Welcome back</div><div class="badge-lv ${L === 5 ? "t5" : ""}">${L === 5 ? "GM" : "L" + L}</div><strong>Level ${L}: ${esc(tierName(L))}</strong></div>
+  sheet(`<div class="lvbig"><div class="eyebrow">${first ? "Welcome" : "Welcome back"}</div><div class="badge-lv ${L === 5 ? "t5" : ""}">${L === 5 ? "GM" : "L" + L}</div><strong>Level ${L}: ${esc(tierName(L))}</strong></div>
     ${levelBarHTML()}
     <p class="small muted" style="margin:0;text-align:center">Today's goal: <b style="color:var(--text)">${S.goal} questions</b> · ${streakAlive()}-day streak · ${revCount()} in Revenge Queue${S.lv.pending ? ` · <b style="color:var(--volt)">Gatekeeper of Level ${S.lv.pending} is ready</b>` : ""}</p>
-    <button class="btn primary" data-welstart data-cont style="font-size:18px;padding:16px">Start today's quest</button>
+    <button class="btn primary" data-welstart style="font-size:18px;padding:16px">Start today's quest</button>
     <button class="btn adjgoal" data-welgoal>Adjust goals for the day</button>
     ${CONFIG.flags.MASTERY_SHEETS_CONSPICUOUS ? goldBtnHTML() : ""}`,
     s => s.addEventListener("click", e => {
-      if (e.target.closest("[data-welstart data-cont]")) { $("#sheetHost").innerHTML = ""; go("scroll"); }
-      if (e.target.closest("[data-welgoal]")) { $("#sheetHost").innerHTML = ""; showGoals(); }
-      if (e.target.closest("[data-welsheets]")) { $("#sheetHost").innerHTML = ""; go("course"); }
+      if (e.target.closest("[data-welstart]")) { $("#sheetHost").innerHTML = ""; go("scroll"); }
+      else if (e.target.closest("[data-welgoal]")) { $("#sheetHost").innerHTML = ""; showGoals(); }
+      else if (e.target.closest("[data-welsheets]")) { $("#sheetHost").innerHTML = ""; go("course"); }
     }));
 }
 // Me tab, scrolled to the daily goal picker.
@@ -2465,7 +2497,7 @@ function showPro() {
   if (S.pro) { toast("<b>Your plan is active.</b> Everything is unlocked."); return; }
   const open = anyPlanLink();
   sheet(`<div class="eyebrow">520 Quest plans</div><h2>Unlock everything</h2>
-    <p class="muted" style="margin:0">Every plan includes all 5,904 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles and duels, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
+    <p class="muted" style="margin:0">Every plan includes all 5,904 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
     <div class="stack" style="gap:8px">${CONFIG.plans.map(p => `<div class="panel row" style="justify-content:space-between;flex-wrap:nowrap;gap:10px${p.best ? ";border-color:var(--volt)" : ""}"><div><b>${esc(p.name)}</b>${p.best ? ' <span class="tag sec">Best value</span>' : ""}<div class="small muted">${esc(p.price)} ${esc(p.per)}</div></div>${planLink(p) ? `<a class="btn pro small lemonsqueezy-button" href="${esc(planUrl(planLink(p)))}" target="_blank" rel="noopener">Choose</a>` : `<button class="btn small" disabled>Opening soon</button>`}</div>`).join("")}</div>
     <p class="small muted" style="margin:0">${open ? "Plans renew automatically and can be cancelled anytime. After you subscribe, sign in with the same email in the Me tab." + (PAY_TEST && CONFIG.plans.some(p => p.testUrl) ? " <b>Test mode:</b> pay with card 4242 4242 4242 4242, any future date and any CVC. Nothing is charged." : "") : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions, 5 Mastery Sheets and 1 mnemonic."}</p>
     <div class="row"><button class="btn ghost" data-close>Not now</button></div>`);
@@ -2499,8 +2531,7 @@ function renderBossLobby() {
       <p class="small muted">${S.lv.pending ? `Your last evaluation qualifies you for Level ${S.lv.qual}. Beat the Gatekeeper to move up one level.` : `Every ${EVAL_N} questions your weighted accuracy is checked. Qualify for a higher level and a Gatekeeper boss appears here.`}</p>
       <div class="ladder">${TIERS.slice().reverse().map(t => `<div class="${t.n === S.lv.level ? "on" : ""}"><b>${t.n === 5 ? "GM" : "L" + t.n}</b><span>${esc(t.name)}</span><span>${t.n === 5 ? "86–100%" : t.n === 1 ? "0–40%" : t.min + "–" + (TIERS[t.n].min - 1) + "%"}</span></div>`).join("")}</div></div>
 
-    <div class="bosses" style="margin-top:14px">${BOSSES.map(b => `<button class="boss ${S.bossWins[b.id] ? "done" : ""}" data-boss="${b.id}"><span class="face" style="background:${b.col}">${b.face}</span><strong>${esc(b.name)}</strong><small>${esc(b.blurb)}${S.bossWins[b.id] ? " · Defeated" : ""}</small></button>`).join("")}</div>
-    ${window.duelPanelHTML ? `<div style="margin-top:14px">${duelPanelHTML()}</div>` : ""}`;
+    <div class="bosses" style="margin-top:14px">${BOSSES.map(b => `<button class="boss ${S.bossWins[b.id] ? "done" : ""}" data-boss="${b.id}"><span class="face" style="background:${b.col}">${b.face}</span><strong>${esc(b.name)}</strong><small>${esc(b.blurb)}${S.bossWins[b.id] ? " · Defeated" : ""}</small></button>`).join("")}</div>`;
 }
 $("#view-boss").addEventListener("click", e => {
   const b = e.target.closest("[data-boss]"); if (b) return startBoss(BOSSES.find(x => x.id === b.dataset.boss));
@@ -2603,10 +2634,8 @@ function showBackPill() {
   b.innerHTML = `<span aria-hidden="true">←</span> Back to Mastery Sheet ${esc(sheetReturn.id)}`;
   document.body.appendChild(b); document.body.classList.add("has-back");
 }
-/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
-  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
-  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); } if (e.target.closest("[data-backsheet]") && sheetReturn) { const r = sheetReturn; sheetReturn = null; openSheet(r.id, r); } });
+  if (e.target.closest("[data-backsheet]") && sheetReturn) { const r = sheetReturn; sheetReturn = null; openSheet(r.id, r); } });
 function openSheet(id, ret) {
   dropBackPill();
   const meta = (SHEETS || []).find(x => x.id === id); if (!meta) return;
@@ -2685,10 +2714,7 @@ function mnLinkHTML(q) {
   const p = q.pid && PASSAGES.find(x => x.id === q.pid), ids = [].concat(q.mn || (p && p.mn) || []);
   return ids.map(id => { const m = MN && MN.find(x => String(x.id) === String(id)); return m ? `<button class="mnlink" data-mnlink="${esc(m.id)}">🧠 <span>Mnemonic Vault #${esc(m.id)}: <b>${esc(m.concept)}</b>${m.locked && !S.pro ? " 🔒" : ""}</span></button>` : ""; }).join("");
 }
-/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
-  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
-  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); }
   const b = e.target.closest("[data-mnlink]"), m = b && MN && MN.find(x => String(x.id) === b.dataset.mnlink); if (!m) return;
   if (m.locked && adminNoKey()) return lockedSheet("Content key missing", "Admin is on, but mnemonics are encrypted. Add content_key to play/admin-private.json.");
   if (m.locked) return lockedSheet(`${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 5,904 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
@@ -2698,10 +2724,7 @@ function lockedSheet(title, line) {
   sheet(`<div class="eyebrow">Locked</div><h3>${title}</h3><p><b>${line}</b></p><p class="muted small">Monthly ${esc(CONFIG.plans[0].price)}, 6 Months ${esc(CONFIG.plans[1].price)} or Yearly ${esc(CONFIG.plans[2].price)}. Every plan unlocks everything.${S.pro ? " Already subscribed? Sign in on the Me tab." : ""}</p>
     <div class="row"><button class="btn pro" data-close data-pro2>See plans</button><button class="btn ghost" data-close>Not now</button></div>`);
 }
-/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
-  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
-  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); }
   if (e.target.closest("[data-pro2]")) return setTimeout(showPro, 50);
   const sq = e.target.closest("[data-startq]"); if (sq) { const n = sq.closest(".card").nextElementSibling; if (n) scrollToEl(n); return; }
   if (e.target.closest("[data-gocourse]")) { $("#sheetHost").innerHTML = ""; return go("course"); }
@@ -2900,7 +2923,7 @@ function renderMe() {
     <div class="panel">${levelBarHTML()}<div class="row" style="margin-top:10px"><button class="btn pinkback" data-meqbank>← Back to Qbank</button></div></div>
     <div class="panel" id="goalPanel"><h3>Adjust goals for the day</h3><p class="small muted" style="margin:0 0 8px">How many questions do you want to do each day?</p><div class="row">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n ? "primary" : ""}" data-setgoal="${n}">${n} questions</button>`).join("")}</div></div>
     ${analyticsHTML()}
-    <div class="panel" style="background:#f5f3ff;border:2px solid #a855f7"><p class="small" style="margin:0">Contact: <b>support@520-quest.com</b></p></div><div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
+    <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
     <div class="panel"><h3>Error DNA</h3>${donut(dnaCounts)}</div>
     ${proPanel("Score estimate", "See your estimated score for each section, based on your recent answers.",
@@ -3001,10 +3024,7 @@ document.addEventListener("keydown", e => {
 });
 
 document.addEventListener("pointerdown", () => syncMusic(), { once: true });
-/* FIX Bug10: click sound on all buttons */
 document.addEventListener("click", e => {
-  const btn = e.target.closest("button, .tab, .btn, [data-tab], [data-crs]");
-  if(btn){ try{ beep('click'); }catch(x){} btn.classList.add('clicked-blue'); setTimeout(()=>btn.classList.remove('clicked-blue'), 300); }
   const b = e.target.closest("[data-musictoggle]"); if (!b) return;
   S.music = S.sound && S.music !== "off" ? "off" : "boss"; if (S.music !== "off") S.sound = true; save(); syncMusic(true);
   b.textContent = S.music !== "off" ? "♪ Music on" : "♪ Music off";
