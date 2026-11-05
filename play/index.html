@@ -148,7 +148,6 @@ button { cursor: pointer; }
 /* FIX Bug11: formula spacing */
 .explain .fm { word-spacing: 0.1em; font-family: "STIX Two Math", "Cambria Math", "Times New Roman", var(--body), serif; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #f8fafc; color: #0f172a; } .explain .fm p { margin: 4px 0; } .explain .fm .kx { color: #0f172a; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; margin: 4px 0; overflow-x: auto; font-size: 1.05em; } .explain .fm .kx.done .katex-display { margin: 0; } .explain .fm .kx:not(.done) { font-family: "STIX Two Math", "Cambria Math", serif; } .explain .mem { margin: 4px 0 8px; padding-left: 20px; } .explain .plainbox { background: #fdf2f8; border-radius: 10px; padding: 8px 12px; }
 .backq { background: #f472b6; color: #fff; border: 0; padding: 8px 16px; border-radius: 8px; font: 700 14px/1.2 var(--body); cursor: pointer; margin-right: 10px; } .backq.bottom { position: fixed; left: 12px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 60; box-shadow: 0 4px 14px rgba(244,114,182,.5); }
-.nowbadge { background: #fdf2f8; color: #be185d; border: 1px solid #f472b6; border-radius: 99px; padding: 1px 8px; margin-left: 6px; font: 700 11px/1.4 var(--body); white-space: nowrap; }
 .verdict { font: 700 18px/1.2 var(--display); letter-spacing: .03em; }
 .verdict.ok { color: var(--good); }
 .verdict.no { color: var(--bad); }
@@ -250,6 +249,20 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 @keyframes bob { 50% { transform: translateY(-5px); } }
 .passage { font-size: 15.5px; line-height: 1.65; display: grid; gap: 10px; }
 .passage p { margin: 0; }
+.sheetlink .maplbl { display: block; margin-top: 2px; font-weight: 400; opacity: .8; }
+.pbtn { justify-self: start; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 6px 14px; border: 1px solid var(--light-blue); border-radius: 99px; background: var(--light-blue-soft); color: var(--navy); font: 700 13.5px/1.1 var(--body); cursor: pointer; }
+.pbtn:hover { background: var(--light-blue); }
+.sheet.pview { max-width: 760px; width: 100%; justify-self: center; max-height: 90%; }
+.pview-top { display: flex; align-items: flex-start; gap: 10px; justify-content: space-between; position: sticky; top: -20px; background: var(--panel); padding: 4px 0 8px; z-index: 1; }
+.pview-top h2 { font-size: 19px !important; }
+@media (min-width: 760px) { .scrim:has(.pview) { align-items: center; } .sheet.pview { border-radius: 22px; } }
+#qSolo { position: fixed; inset: 0; z-index: 55; background: var(--bg); display: flex; flex-direction: column; }
+#qSolo[hidden] { display: none; }
+#qSolo .solo-top { padding: calc(10px + env(safe-area-inset-top, 0px)) 14px 10px; border-bottom: 1px solid var(--line); background: var(--panel); }
+#qSolo .solo-body { flex: 1; overflow-y: auto; padding: 14px; }
+#qSolo .solo-body > .card { max-width: 760px; margin: 0 auto; min-height: 0; height: auto; }
+#qSolo .card.q [data-next], #qSolo .sheetlink, #qSolo .qjump { display: none; }
+.exlock { border: 1px dashed var(--line); border-radius: 12px; padding: 10px 12px; background: var(--bg-soft); font-size: 14px; }
 .pq { display: grid; gap: 10px; padding-top: 14px; border-top: 1px solid var(--line); }
 .qhead { font: 700 13px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--volt); padding: 12px 0 0; border-top: 2px solid var(--volt); }
 .card { position: relative; }
@@ -1448,8 +1461,9 @@ function addBank(b) {
 function pruneStats() {
   if (QUESTIONS.length + PASSAGES.length < 200) return;
   let n = 0;
-  Object.keys(S.stats).forEach(id => { if (!anyQ(id)) { delete S.stats[id]; n++; } });
-  Object.keys(S.revenge).forEach(id => { if (!anyQ(id)) { delete S.revenge[id]; n++; } });
+  const gone = id => !anyQ(id) && !(sealedPending() && /^(bp|xp)\d+_\d+$/.test(id)); // sealed passages load later for paid users
+  Object.keys(S.stats).forEach(id => { if (gone(id)) { delete S.stats[id]; n++; } });
+  Object.keys(S.revenge).forEach(id => { if (gone(id)) { delete S.revenge[id]; n++; } });
   if (n) save();
 }
 let bankLoaded = false;
@@ -1470,9 +1484,23 @@ function subCounts(code) {
   PASSAGES.forEach(p => { if (p.s === "CARS") p.qs.forEach(q => { if (q.c === code) add(q); }); else if (p.c === code) { const o = out.find(y => y.id === stOf(p)); if (o) o.n += p.qs.length; } });
   return out.filter(o => o.n);
 }
+let BANKIX = null, sealedLoad = null, sealedDone = false;
+const sealedPending = () => !sealedDone;
+const keyReady = () => !!(window.acctHasKey && acctHasKey()) && typeof window.acctUnseal === "function";
+// Paid passages (bank/*.enc.json) are sealed with the same content key as the Mastery Sheets; they load once a plan's key arrives.
+function loadSealedBank() {
+  if (sealedDone) return Promise.resolve();
+  if (sealedLoad) return sealedLoad;
+  if (!keyReady()) return Promise.resolve();
+  return sealedLoad = bankReady.then(() => Promise.all(((BANKIX && BANKIX.sealed) || []).map(f => fetch("bank/" + f).then(r => r.json()).then(acctUnseal).then(addBank))))
+    .then(() => { sealedDone = true; renderFilters(); if (!$("#view-map").hidden) renderMap(); })
+    .catch(() => { sealedLoad = null; });
+}
+window.onContentKey = () => { Object.keys(EX).forEach(k => delete EX[k]); loadSealedBank(); };
 const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.json())
-  .then(ix => Promise.all(ix.files.map(f => fetch("bank/" + f).then(r => r.json()).then(addBank).catch(() => {}))))
+  .then(ix => (BANKIX = ix, Promise.all(ix.files.map(f => fetch("bank/" + f).then(r => r.json()).then(addBank).catch(() => {})))))
   .then(() => {
+    if (!(BANKIX && BANKIX.sealed && BANKIX.sealed.length)) sealedDone = true;
     bankLoaded = true; renderFilters();
     pruneStats();
     passI = Math.floor(Math.random() * PASSAGES.length); if (!$("#view-map").hidden) renderMap();
@@ -1879,16 +1907,18 @@ function nextCard() {
   let cars = PASSAGES.filter(p => p.s === "CARS");
   const carsFit = q => q.c === S.focus && (!S.sub || stOf(q) === S.sub);
   if (S.focus && sec === "CARS") cars = cars.filter(p => p.qs.some(carsFit)).map(p => Object.assign({}, p, { qs: p.qs.filter(carsFit) }));
-  if (!cars.length) return null;
-  const nextP = cars[passI % cars.length], pFits = fits(nextP);
-  if (sec === "CARS") { if (!pFits) { if (gateShown) return null; gateShown = true; return gateCard(); } passI++; return passageCard(nextP); }
+  cars = freshPassages(cars);
+  const nextP = cars.length ? cars[Math.floor(Math.random() * cars.length)] : null, pFits = !!nextP && fits(nextP);
+  const useP = p => { sessionSeen.add(p.id); return passageCard(p); };
+  if (sec === "CARS") { if (!nextP) return null; if (!pFits) { if (gateShown) return null; gateShown = true; return gateCard(); } return useP(nextP); }
   if (S.kind === "passage") {
-    let sp = nextSciPassage(sec); if (!sp) { return null; }
+    let sp = nextSciPassage(sec);
     if (sp && fits(sp)) return passageCard(sp);
-    if (sec === "ALL" && pFits) { passI++; return passageCard(nextP); }
+    if (sec === "ALL" && pFits) return useP(nextP);
+    if (!sp) return null;
     if (gateShown) return null; gateShown = true; return gateCard();
   }
-  if (S.kind !== "discrete" && !S.focus && sec === "ALL" && cardN % 9 === 0 && pFits) { passI++; return passageCard(nextP); }
+  if (S.kind !== "discrete" && !S.focus && sec === "ALL" && cardN % 9 === 0 && pFits) return useP(nextP);
   if (S.kind !== "discrete" && cardN % 3 === 0) { const sp = nextSciPassage(sec); if (sp && fits(sp)) return passageCard(sp); }
   if (cardN === 4 && !installed()) return installCard();
   if (!S.pro && cardN % 12 === 0) return promoCard();
@@ -1902,20 +1932,24 @@ function nextCard() {
   if (!canOpen(q)) { if (gateShown) return null; gateShown = true; return gateCard(); }
   return questionCard(q, rev, tgt);
 }
-// Science passages: UNIQUE forever - never repeat until bank exhausted
+// Passages never repeat for a user until they have answered every question in the Qbank.
+// (Missed passage questions still come back one at a time in Revenge, with a Show passage button.)
+const qbankSize = () => QUESTIONS.length + PASSAGES.reduce((n, p) => n + p.qs.length, 0);
+const answeredAll = () => seenCount() >= qbankSize();
+function freshPassages(list) {
+  list = list.filter(p => !sessionSeen.has(p.id));
+  const fresh = list.filter(p => !p.qs.some(q => S.stats[q.id]));
+  return fresh.length || !answeredAll() ? fresh : list;
+}
 function nextSciPassage(sec) {
   const ok = p => {
     if (p.s === "CARS") return false;
-    if (sessionSeen.has(p.id)) return false;
     if (S.focus ? p.c !== S.focus : sec !== "ALL" && p.s !== sec) return false;
     if (S.sub && stOf(p) !== S.sub) return false;
-    if (p.qs.every(q => S.stats[q.id])) return false;
     return true;
   };
-  const list = PASSAGES.filter(ok);
-  if (!list.length) return null;
-  const unanswered = list.filter(p => !p.qs.some(q => S.stats[q.id]));
-  const pool = unanswered.length ? unanswered : list;
+  const pool = freshPassages(PASSAGES.filter(ok));
+  if (!pool.length) return null;
   const chosen = pool[Math.floor(Math.random()*pool.length)];
   if (chosen) sessionSeen.add(chosen.id);
   return chosen;
@@ -1947,7 +1981,7 @@ function questionCard(q, rev, tgt) {
   const el = document.createElement("article"); el.className = "card q"; el.dataset.id = q.id;
   const cat = CAT[q.c];
   const pass = q.pid && (PASSAGES.find(x=>x.id===q.pid) || EXAM.passages.find(x=>x.id===q.pid) || null);
-  const passageExpand = pass ? `<details class="passage-expand" style="margin:8px 0;background:var(--bg-soft);padding:8px 10px;border-radius:8px"><summary style="cursor:pointer">📄 Show passage: ${esc(pass.title)}</summary><div class="passage" style="margin-top:8px">${pass.text.map(t=>`<p>${esc(t)}</p>`).join("")}</div>${(pass.tbl ? [].concat(pass.tbl) : []).map(t=>tableHTML(t)).join("")}${graphHTML(pass.graph)}</details>` : "";
+  const passageExpand = pass ? passBtnHTML(pass) : "";
   el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[q.s].name}</span><span class="tag">${q.c}${cat.hy ? " ★" : ""}</span>${rev ? '<span class="tag rev">Revenge</span>' : ""}${tgt ? '<span class="tag target" title="The adaptive engine picked this from one of your weakest areas">Weak area</span>' : ""}${diffDots(q.d)}</div>${passageExpand}
     <h2 class="stem">${q.q}</h2><div class="opts">${optsHTML(q)}</div>
     <div class="row tools"><button class="btn small ghost" data-hint ${S.hints ? "" : "disabled"}>Hint (${S.hints})</button><span class="muted small">${esc(cat.title)}</span></div>
@@ -2003,13 +2037,22 @@ function explainHTML(q, i) {
 /* ---------- Rich explanations: bank/ex/<CAT>.json, fetched the first time a category's explanation opens ---------- */
 const EX = {};
 const exCat = q => q.s === "CARS" ? "CARS" : q.c;
+// bank/ex/index.json lists the free categories (plain files) and, for sealed ones, which question ids have a full explanation.
+let EXIX = null;
+const exIxReady = fetch("bank/ex/index.json").then(r => r.json()).then(d => { EXIX = d; }).catch(() => { EXIX = { free: [], sealed: {} }; });
 function loadEx(cat) {
   if (!cat || !/^[\w-]+$/.test(cat)) return Promise.resolve({});
-  return EX[cat] || (EX[cat] = fetch("bank/ex/" + cat + ".json").then(r => r.ok ? r.json() : {}).catch(() => { delete EX[cat]; return {}; }));
+  return EX[cat] || (EX[cat] = exIxReady.then(() => {
+    const ids = EXIX && EXIX.sealed && EXIX.sealed[cat];
+    if (!ids) return fetch("bank/ex/" + cat + ".json").then(r => r.ok ? r.json() : {});
+    if (!keyReady()) { delete EX[cat]; return { __locked: ids }; }   // not cached: a plan's key may arrive later
+    return fetch("bank/ex/" + cat + ".enc.json").then(r => r.json()).then(acctUnseal);
+  }).catch(() => { delete EX[cat]; return {}; }));
 }
 // ox follows the bank's choice order; q.ord maps each shuffled position back to it.
 function exEntry(q) {
   return (q.ex ? Promise.resolve({ [q.id]: q.ex }) : loadEx(exCat(q))).then(m => {
+    if (m && m.__locked) return m.__locked.includes(q.id) ? "locked" : null;
     const x = m && m[q.id]; if (!x || !Array.isArray(x.ox) || x.ox.length !== q.o.length) return null;
     return Object.assign({}, x, { ox: q.o.map((_, j) => x.ox[q.ord ? q.ord[j] : j]) });
   });
@@ -2086,37 +2129,26 @@ function richExplainHTML(q, i, x) {
     (x.trap ? `<p class="trapline"><b>The trap:</b> ${e(x.trap)}</p>` : "") +
     (refs.length ? `<h5>Learn more</h5><ul class="refs">${refs.map(r => `<li><a href="${e(r.u)}" target="_blank" rel="noopener">${e(r.t || r.u)}</a></li>`).join("")}</ul>` : "");
 }
-// Upgrade a revealed explanation in place once its category file arrives.
+// Upgrade a revealed explanation once its category file arrives.
+// Wrong answer: the full (rich) explanation replaces the short one. Right answer: the short one stays, and
+// "Did you guess? Show the full explanation" expands the rich one. Free users see a plans note for sealed explanations.
 function upgradeExplain(rv, q, i, ok) {
-  const ensureGuessBtn = (detailsEl) => {
-    if (!ok) return;
-    if (rv.querySelector('[data-guessbtn]')) return;
-    const gb = document.createElement("button"); gb.className = "btn small ghost"; gb.dataset.guessbtn="1"; gb.textContent = "Did you guess? Show the full explanation";
-    gb.addEventListener("click", () => { detailsEl.open = true; gb.remove(); detailsEl.scrollIntoView({ block: "nearest" }); });
-    rv.insertBefore(gb, $(".row", rv) || null);
-  };
   exEntry(q).then(x => {
-    if (!rv.isConnected) return;
-    if (!x) {
-      if (ok && !rv.querySelector('details.exmore')) {
-        const d = document.createElement("details"); d.className = "exmore explain rich"; d.innerHTML = `<summary>Show Deep Dive</summary><p class="muted">Full explanation loading...</p>`;
-        const row = $(".row", rv); if (row) rv.insertBefore(d, row); else rv.appendChild(d);
-        ensureGuessBtn(d);
-      }
-      return;
+    if (!rv.isConnected || !x) return;
+    const row = $(".row", rv), put = el => row ? row.parentNode.insertBefore(el, row) : rv.appendChild(el);
+    if (x === "locked") {
+      const d = document.createElement("div"); d.className = "exlock";
+      d.innerHTML = `🔒 <b>Full explanation</b>: every choice explained, the concept, formulas and figures. Included in every plan. <button class="linkbtn" data-pro2>See plans</button>`;
+      return put(d);
     }
     const box = $(".explain", rv);
-    if (box) { box.classList.add("rich"); box.innerHTML = richExplainHTML(q, i, x); renderKx(box);
-      if (ok && !rv.querySelector('details.exmore.rich')) {
-        const d = document.createElement("details"); d.className = "exmore explain rich"; d.innerHTML = `<summary>Show Deep Dive: plain words, memorize list, formulas</summary>${richExplainHTML(q, i, x)}`; renderKx(d);
-        const row = $(".row", rv); if (row) rv.insertBefore(d, row); else rv.appendChild(d);
-        ensureGuessBtn(d);
-      }
-      return;
-    }
-    if (ok) { const d = document.createElement("details"); d.className = "exmore explain rich"; d.innerHTML = `<summary>Show Deep Dive: plain words, memorize list, formulas</summary>${richExplainHTML(q, i, x)}`; renderKx(d); ensureGuessBtn(d); const row = $(".row", rv); if (row) rv.insertBefore(d, row); else rv.appendChild(d); }
+    if (!ok && box) { box.classList.add("rich"); box.innerHTML = richExplainHTML(q, i, x); renderKx(box); return; }
+    if (!ok) return;
+    const full = document.createElement("div"); full.className = "explain rich"; full.hidden = true; full.innerHTML = richExplainHTML(q, i, x);
+    const gb = document.createElement("button"); gb.className = "btn small ghost"; gb.dataset.guessbtn = "1"; gb.textContent = "Did you guess? Show the full explanation";
+    gb.addEventListener("click", () => { full.hidden = !full.hidden; gb.textContent = full.hidden ? "Did you guess? Show the full explanation" : "Hide the full explanation"; if (!full.hidden) { renderKx(full); full.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" }); } });
+    put(gb); put(full);
   });
-  if (ok && !rv.querySelector && false) {}
 }
 /* ---------- Anki queue: save missed questions, export them as a deck after a session ---------- */
 const inAnki = id => S.anki.includes(id);
@@ -2208,32 +2240,23 @@ const graphHTML = g => {
   return `<figure class="pgraph" style="margin:0">${g.title ? `<div class="gcap">${esc(g.title)}</div>` : ""}<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(g.title || "Graph")}">${o}</svg></figure>`;
 };
 
-/* FIX Bug4: single question mode - only one Q, Return button */
-function showSingleQuestionFromSheet(qid, returnLabel){
-  const q = BANK.find(x=>x.id===qid) || EXAM.qs.find(x=>x.id===qid);
-  if(!q){ toast("Question not found"); return; }
-  singleQMode = true;
-  go("scroll");
-  feed.innerHTML = "";
-  const el = questionCard(q);
-  // Remove swipe hints, add Return button
-  const retBtn = document.createElement("div");
-  retBtn.className = "panel";
-  retBtn.innerHTML = `<button class="btn primary" data-return-sheet>← Return to the Mastery Sheets</button>`;
-  retBtn.querySelector("button").addEventListener("click", ()=>{ 
-    singleQMode = false; 
-    if(singleQReturn) { go("course"); singleQReturn=null; }
-    else { go("course"); }
-    feed.innerHTML=""; resetFeed(); 
-  });
-  feed.appendChild(retBtn);
-  feed.appendChild(el);
-  feed.scrollTop = 0;
-  singleQReturn = returnLabel || "sheets";
+/* A question opened from a Mastery Sheet link shows on its own: no feed above or below it, and one way out. */
+function openSolo(card, ret) {
+  closeSheet(); sheetReturn = null; dropBackPill();
+  let v = $("#qSolo"); if (!v) { v = document.createElement("div"); v.id = "qSolo"; document.body.appendChild(v); }
+  v.innerHTML = `<div class="solo-top"><button class="btn primary" data-solo-back><span aria-hidden="true">←</span> Return to Mastery Sheets</button></div><div class="solo-body"></div>`;
+  $$(".swipe", card).forEach(x => x.remove()); card._shown = card._made = Date.now();
+  $(".solo-body", v).appendChild(card); v.hidden = false; document.body.style.overflow = "hidden";
+  $("[data-solo-back]", v).addEventListener("click", () => { v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; openSheet(ret.id, ret); });
 }
-// Patch existing sheet question click to use single mode
-
-let singleQMode=false, singleQReturn=null;
+// "Show passage" opens the passage in a pop-up over the question, so nobody has to scroll back up to it.
+const passBtnHTML = p => `<button class="pbtn" data-showp="${esc(p.id)}"><span aria-hidden="true">📄</span> Show passage</button>`;
+function showPassage(id) {
+  const p = PASSAGES.find(x => x.id === id) || EXAM.passages.find(x => x.id === id); if (!p) return;
+  sheet(`<div class="pview-top"><h2>${esc(p.title)}</h2><button class="btn small" data-close>Close</button></div><div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}<div class="row"><button class="btn primary" data-close>Back to the question</button></div>`,
+    el => el.classList.add("pview"));
+}
+document.addEventListener("click", e => { const b = e.target.closest("[data-showp]"); if (b) showPassage(b.dataset.showp); });
 function passageCard(p) {
   p = Object.assign({}, p, { qs: p.qs.map(shuf) });
   const el = document.createElement("article"); el.className = "card"; el._made = Date.now(); el.dataset.pid = p.id;
@@ -2241,7 +2264,7 @@ function passageCard(p) {
   el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[p.s].name}</span>${sci ? `<span class="tag">${esc(p.c)}${CAT[p.c] && CAT[p.c].hy ? " ★" : ""}</span>` : ""}<span class="tag">Passage + ${n} questions</span><button class="btn small primary qjump" data-jump style="margin-left:auto">Jump to questions ↓</button></div>
     <h2 class="stem">${esc(p.title)}</h2><p class="muted small" style="margin:0">Read the passage, then answer the ${n} questions below it.</p><div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}
     <div class="qhead" data-qhead>Questions 1–${n}</div>` +
-    p.qs.map((q, i) => `<div class="pq" data-q="${i}"><div class="card-top"><span class="tag sec">Q${i + 1} of ${n}</span><span class="tag">${QKIND[q.k || q.c] || ""}</span>${diffDots(q.d)}${q.t ? `<span class="muted small" style="margin-left:auto">Avg solve time: ${+q.t} sec</span>` : ""}</div><h3>${q.q}</h3>${tableHTML(q.vt, "vt")}<div class="opts">${optsHTML(q)}</div><div class="reveal stack" hidden></div></div>`).join("") + SWIPE;
+    p.qs.map((q, i) => `<div class="pq" data-q="${i}"><div class="card-top"><span class="tag sec">Q${i + 1} of ${n}</span><span class="tag">${QKIND[q.k || q.c] || ""}</span>${diffDots(q.d)}${q.t ? `<span class="muted small" style="margin-left:auto">Avg solve time: ${+q.t} sec</span>` : ""}</div>${passBtnHTML(p)}<h3>${q.q}</h3>${tableHTML(q.vt, "vt")}<div class="opts">${optsHTML(q)}</div><div class="reveal stack" hidden></div></div>`).join("") + SWIPE;
   p.qs.forEach((q, i) => wireQuestion($(`[data-q="${i}"]`, el), q, el));
   $("[data-jump]", el).addEventListener("click", () => scrollToEl($("[data-qhead]", el)));
   return el;
@@ -2706,13 +2729,11 @@ function openSheet(id, ret) {
     if (v.hidden) return;
     const doc = $(".sv-doc", v); doc.innerHTML = d.html + `<div class="sv-wm" style="background-image:${wmImage(mark)}"></div>`;
     $$("[data-wm]", doc).forEach(x => x.textContent = mark);
-    // Some sheets (sealed ones included) still say "5,180 Qbank": add a note instead of editing sealed content.
-    const tw = document.createTreeWalker(doc, NodeFilter.SHOW_TEXT), hits = []; while (tw.nextNode()) if (/5,180/.test(tw.currentNode.nodeValue)) hits.push(tw.currentNode);
-    hits.forEach(n => { const i = n.nodeValue.indexOf("5,180") + 5, rest = n.splitText(i), b = document.createElement("span"); b.className = "nowbadge"; b.textContent = "Now 5,904 Qbank"; rest.parentNode.insertBefore(b, rest); });
     if (ret) {
       // Put the tapped link back where it was on screen (re-applied once layout settles).
       const body = $(".sv-body", v), links = $$(`.qref[data-q="${CSS.escape(ret.q)}"]`, doc);
-      const link = links[ret.n] || links[0];
+      const ch = !links.length && ret.concept ? $$("h4", doc).find(h => h.textContent.startsWith(`Concept ${ret.concept}:`)) : null;
+      const link = links[ret.n] || links[0] || ch;
       const place = () => { body.scrollTop = link ? link.offsetTop - ret.dy : ret.top; };
       place(); requestAnimationFrame(place); setTimeout(place, 250);
       if (link) { link.classList.add("flash"); setTimeout(() => link.classList.remove("flash"), 2100); }
@@ -2735,7 +2756,8 @@ $("#sheetView").addEventListener("click", async e => {
     if (c) c.scrollIntoView({ block: "start" }); return;
   }
   const q = e.target.closest("[data-q]"); if (!q) return;
-  if (!PASSAGES.some(p => p.id === q.dataset.q) && !anyQ(q.dataset.q)) await bankReady.catch(() => {}); // extra questions and passages may still be loading
+  if (!PASSAGES.some(p => p.id === q.dataset.q) && !anyQ(q.dataset.q)) { await bankReady.catch(() => {}); await loadSealedBank(); } // extra questions and passages may still be loading
+  if (/^(bp|xp)\d+/.test(q.dataset.q) && !PASSAGES.some(p => p.id === q.dataset.q.replace(/_\d+$/, "")) && !anyQ(q.dataset.q) && !sealedDone) { closeSheet(); return showPro(); } // a paid passage
   const sb = $(".sv-body"), top = sb ? sb.scrollTop : 0, same = $$(`.sv-doc .qref[data-q="${CSS.escape(q.dataset.q)}"]`);
   const ret = { id: $("#sheetView").dataset.id, top, q: q.dataset.q, n: same.indexOf(q), dy: q.offsetTop - top };
   // A question retired from the bank: follow bank/redirect.json to the closest surviving question or passage in the same category.
@@ -2743,13 +2765,12 @@ $("#sheetView").addEventListener("click", async e => {
   const psg = PASSAGES.find(p => p.id === tid);
   if (psg) {
     if (!(S.pro || psg.qs.some(x => S.stats[x.id]) || !overFree())) { closeSheet(); return showPro(); }
-    closeSheet(); go("scroll"); singleQMode=false; const c = passageCard(psg); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill(); return;
+    return openSolo(passageCard(psg), ret);
   }
   const item = anyQ(tid) || fallbackQ(want);
-  if (!item) { const cat = catOfId(q.dataset.q), fp = PASSAGES.find(p => p.c === cat && p.s !== "CARS"); if (fp) { closeSheet(); go("scroll"); const c = passageCard(fp); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill(); return; } return toast("That question is still loading. Try again in a moment."); }
+  if (!item) { const cat = catOfId(q.dataset.q), fp = PASSAGES.find(p => p.c === cat && p.s !== "CARS"); if (fp) return openSolo(passageCard(fp), ret); return toast("That question is still loading. Try again in a moment."); }
   if (!canOpen(item)) { closeSheet(); return showPro(); }
-  closeSheet(); go("scroll"); sessionSeen.add(item.id);
-  const c = questionCard(item, false); feed.prepend(c); io.observe(c); feed.scrollTop = 0; sheetReturn = ret; showBackPill();
+  sessionSeen.add(item.id); openSolo(questionCard(item, false), ret);
 });
 $("#sheetView").addEventListener("contextmenu", e => e.preventDefault());
 $("#sheetView").addEventListener("copy", e => e.preventDefault());
@@ -2761,9 +2782,23 @@ function goldBtnHTML() {
   const n = SHEETS && SHEETS.length ? SHEETS.filter(x => !["CARS", "SIRS"].includes(x.id)).length : 31;
   return `<button class="goldbtn" data-gocourse>📚 ${n} MCAT Mastery Sheets · Full content review<small>${S.pro ? "" : "🔒 "}Included in every plan</small></button>`;
 }
+// bank/concepts.json: the Mastery Sheet concept each question practises (from the sheets' own links, else matched by topic).
+let CONC = null;
+fetch("bank/concepts.json").then(r => r.json()).then(d => { CONC = d; }).catch(() => {});
+function conceptOf(q) {
+  const k = CONC && CONC.q && (CONC.q[q.id] || (q.pid && CONC.q[q.pid])); if (!k) return null;
+  const [sh, n] = k.split("|"); return { sh, n: +n, t: (CONC.titles[sh] || [])[+n] || "" };
+}
+// The Map (syllabus) subsection a question belongs to.
+function mapLabel(q) {
+  const x = q.pid ? (PASSAGES.find(p => p.id === q.pid) || q) : q, st = x && stOf(x);
+  const r = st && (SUBT[x.c] || []).find(y => y.id === st); return r ? `${x.c} › ${r.label}` : "";
+}
 function sheetLinkHTML(q) {
-  const id = sheetFor(q), meta = id && SHEETS && SHEETS.find(x => x.id === id);
-  return meta ? `<button class="sheetlink" data-sheet="${esc(meta.id)}">📚 <span>Related: <b>Mastery Sheet ${esc(meta.id)}</b> · ${esc(meta.title)}${sheetOpen(meta) ? "" : " 🔒"}</span></button>` : "";
+  const c = conceptOf(q), id = c ? c.sh : sheetFor(q), meta = id && SHEETS && SHEETS.find(x => x.id === id);
+  if (!meta) return "";
+  const ml = mapLabel(q);
+  return `<button class="sheetlink" data-sheet="${esc(meta.id)}" data-q="${esc(q.id)}"${c ? ` data-concept="${c.n}"` : ""}>📚 <span>Related: <b>Mastery Sheet ${esc(meta.id)}</b> · ${c && c.t ? `Concept ${c.n}: ${esc(c.t)}` : esc(meta.title)}${sheetOpen(meta) ? "" : " 🔒"}${ml ? `<small class="maplbl">Map: ${esc(ml)}</small>` : ""}</span></button>`;
 }
 function mnLinkHTML(q) {
   const p = q.pid && PASSAGES.find(x => x.id === q.pid), ids = [].concat(q.mn || (p && p.mn) || []);
@@ -2787,7 +2822,8 @@ document.addEventListener("click", e => {
   if (sb && !e.target.closest("#sheetView")) {
     const card = sb.closest("[data-id], [data-pid]"), qid = card && (card.dataset.id || card.dataset.pid);
     if (qid) { try { localStorage.setItem("quest520.lastQbankId", qid); } catch (x) {} }
-    return openSheet(sb.dataset.sheet, qid ? { id: sb.dataset.sheet, q: qid, n: 0, dy: 90, top: 0, fromQ: qid } : undefined);
+    const lq = sb.dataset.q || qid;
+    return openSheet(sb.dataset.sheet, lq ? { id: sb.dataset.sheet, q: lq, n: 0, dy: 90, top: 0, fromQ: qid || lq, concept: +sb.dataset.concept || 0 } : undefined);
   }
 });
 let MN = null, mnView = { s: "home" };
