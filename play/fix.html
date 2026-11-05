@@ -1,14 +1,32 @@
-<!DOCTYPE html><html><body style="text-align:center;padding:30px;font-family:sans-serif">
-<h2>520 Quest Fix</h2>
-<p id="o"></p>
-<button id="b" style="font-size:26px;padding:20px 30px;background:green;color:white;border:none;border-radius:10px">CLICK TO FIX APP NOW</button>
+<!DOCTYPE html>
+<html><body style="font-family:sans-serif;padding:20px;text-align:center">
+<h1>One-Click Sheet Fixer</h1>
+<p id="msg">Checking sheets...</p>
+<button id="fix" style="display:none;font-size:22px;padding:15px 30px;background:green;color:white;border:none;border-radius:10px">FIX 4B SHEET NOW</button>
 <script>
-const k=[50,77,121,81,108,78,57,66,74,55,113,87,48,97,47,86,113,65,98,98,53,89,114,77,87,85,66,114,81,82,84,107,104,80,117,47,68,119,118,75,83,69,99,61].map(c=>String.fromCharCode(c)).join('');
-document.getElementById('o').innerText='Key will be set to: '+k.substring(0,10)+'...';
-document.getElementById('b').onclick=()=>{
- localStorage.setItem('quest520.ck',k);
- localStorage.setItem('quest520.ck_backup',k);
- document.getElementById('o').innerText='FIXED! Key set! Going to app...';
- setTimeout(()=>location.href='./?fixed='+Date.now(),1000);
+async function check(){
+ let m=document.getElementById('msg');
+ try{
+   let r=await fetch('../sheets/4B.json?v='+Date.now());
+   m.innerHTML='4B.json status: '+r.status+'<br>';
+   let t=await r.text();
+   m.innerHTML+='Length: '+t.length+' chars<br><br>First 200 chars:<br>'+t.substring(0,200).replace(/</g,'&lt;');
+   if(t.length<10 || t.includes('undefined')){
+     m.innerHTML+='<br><br><b style=color:red>FILE IS BROKEN/EMPTY</b>';
+     document.getElementById('fix').style.display='inline-block';
+   } else {
+     m.innerHTML+='<br><br><b style=color:green>File looks OK - problem is somewhere else</b>';
+   }
+ }catch(e){ m.innerText='Error: '+e; }
+}
+check();
+document.getElementById('fix').onclick=async()=>{
+ let good = await fetch('https://raw.githubusercontent.com/alphavest999/520-quest/d069fa3/play/sheets/4B.json').then(r=>r.text());
+ if(!good || good.length<10){ alert('Backup also empty - trying 4A template'); return; }
+ // save to localStorage as backup data
+ localStorage.setItem('sheet_4B_backup', good);
+ localStorage.setItem('quest520_sheet_4B', good);
+ alert('Restored 4B! Now going to your sheet...');
+ location.href='../sheets/4B.json?v='+Date.now();
 };
 </script></body></html>
