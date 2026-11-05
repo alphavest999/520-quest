@@ -1470,13 +1470,15 @@ function pruneStats() {
 let bankLoaded = false;
 // Sub-topic tags and retired-question redirects live in bank/subtopics.json and bank/redirect.json.
 const SUBT = {}; let REDIR = {};
-fetch("bank/subtopics.json").then(r => r.json()).then(d => { Object.keys(d).filter(k => k[0] !== "_").forEach(k => SUBT[k] = d[k].map(x => Object.assign({}, x, { rx: new RegExp(x.re, "i") }))); if (!$("#view-map").hidden) renderMap(); }).catch(() => {});
+// bank/submap.json gives a Map subsection to every question the subtopic patterns miss, so each one is reachable from the Map.
+let SUBMAP = {};
+Promise.all([fetch("bank/subtopics.json").then(r => r.json()), fetch("bank/submap.json").then(r => r.json()).catch(() => ({}))]).then(([d, m]) => { SUBMAP = m || {}; Object.keys(d).filter(k => k[0] !== "_").forEach(k => SUBT[k] = d[k].map(x => Object.assign({}, x, { rx: new RegExp(x.re, "i") }))); if (!$("#view-map").hidden) renderMap(); }).catch(() => {});
 fetch("bank/redirect.json").then(r => r.json()).then(d => { REDIR = d; }).catch(() => {});
 function stOf(x) {
   if (x._st !== undefined) return x._st;
   const rules = SUBT[x.c]; if (!rules) return undefined;   // rules not loaded yet or none for this category: do not cache
   const t = x.qs ? x.title + " " + x.text.join(" ").slice(0, 700) + " " + x.qs.map(q => q.q).join(" ") : x.q + " " + x.o.map(o => o[0]).join(" ");
-  const hit = rules.find(r => r.rx.test(t)); return (x._st = hit ? hit.id : null);
+  const hit = rules.find(r => r.rx.test(t)); return (x._st = hit ? hit.id : SUBMAP[x.id] || null);
 }
 function subCounts(code) {
   const rules = SUBT[code] || [], out = rules.map(r => ({ id: r.id, label: r.label, n: 0 }));
@@ -1916,7 +1918,7 @@ function nextCard() {
     let sp = nextSciPassage(sec);
     if (sp && fits(sp)) return passageCard(sp);
     if (sec === "ALL" && pFits) return useP(nextP);
-    if (!sp) return null;
+    if (!sp) { if (S.focus && !drillEndShown) { drillEndShown = true; return drillEndCard(); } return null; }
     if (gateShown) return null; gateShown = true; return gateCard();
   }
   if (S.kind !== "discrete" && !S.focus && sec === "ALL" && cardN % 9 === 0 && pFits) return useP(nextP);
@@ -1926,8 +1928,10 @@ function nextCard() {
   if (!S.focus && cardN % 5 === 0) return (cardN / 5) % 2 ? factCard() : trapCard();
   const pick = pickQuestion();
   if (!pick) {   // nothing stand-alone in this drill: serve its passages instead
-    let sp = nextSciPassage(sec); if (!sp) { return null; }
-    return sp && fits(sp) ? passageCard(sp) : null;
+    let sp = nextSciPassage(sec);
+    if (sp && fits(sp)) return passageCard(sp);
+    if (S.focus && !drillEndShown) { drillEndShown = true; return drillEndCard(); }
+    return null;
   }
   const [q, rev, tgt] = pick; sessionSeen.add(q.id);
   if (!canOpen(q)) { if (gateShown) return null; gateShown = true; return gateCard(); }
@@ -1956,7 +1960,21 @@ function nextSciPassage(sec) {
   return chosen;
 }
 function fill(n = 3) { for (let i = 0; i < n; i++) { const c = nextCard(); if (!c) break; feed.appendChild(c); io.observe(c); } watchEnd(); }
-function resetFeed() { feed.innerHTML = ""; cardN = 0; gateShown = false; reviewEnded = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
+// A Map drill that has run out of questions says so, instead of leaving an empty feed.
+let drillEndShown = false;
+function drillEndCard() {
+  const el = document.createElement("article"); el.className = "card";
+  const lbl = S.sub ? ((SUBT[S.focus] || []).find(x => x.id === S.sub) || {}).label || S.sub : "";
+  el.innerHTML = `<div class="eyebrow">Drill complete</div><p class="bigtext">You've seen every question in ${esc(S.focus)}${lbl ? " · " + esc(lbl) : ""} this session.</p>
+    <div class="row">${S.sub ? `<button class="btn primary" data-dall>Drill all of ${esc(S.focus)}</button>` : ""}<button class="btn" data-dmap>Back to Map</button><button class="btn ghost" data-dmix>Mixed questions</button></div>`;
+  el.addEventListener("click", e => {
+    if (e.target.closest("[data-dall]")) { S.sub = null; save(); resetFeed(); }
+    else if (e.target.closest("[data-dmap]")) go("map");
+    else if (e.target.closest("[data-dmix]")) { S.focus = null; S.sub = null; save(); resetFeed(); }
+  });
+  return el;
+}
+function resetFeed() { feed.innerHTML = ""; cardN = 0; gateShown = false; drillEndShown = false; reviewEnded = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
 
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
@@ -2689,7 +2707,7 @@ function renderMap() {
 }
 function mapDrill(code, sub) {
   $("#sheetHost").innerHTML = "";
-  S.focus = code; S.sub = sub || null; S.mapSub = null; S.review = null; save(); go("scroll"); resetFeed();
+  S.focus = code; S.sub = sub || null; S.kind = null; S.mapSub = null; S.review = null; save(); go("scroll"); resetFeed();
   toast(`Drilling <b>${esc(code)}</b>${sub ? " · " + esc(((SUBT[code] || []).find(x => x.id === sub) || {}).label || sub) : ""}. Clear the chip to go back to the mix.`);
 }
 // A category with subsections opens them in a pop-up; tapping one starts the drill right away.
