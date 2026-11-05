@@ -27,6 +27,7 @@
 .crs-vault { background: #e9d5ff; border: 2px solid #a855f7; color: #1e3a8a; }
 .crs-mini { background: #ddd6fe; border: 2px solid #7c3aed; color: #1e3a8a; }
 .crs-fl { background: #ede9fe; border: 2px solid #8b5cf6; color: #1e3a8a; }
+.btn.exitred { background: #dc2626; color: #fff; border-color: #dc2626; font-weight: 800; }
 .btn.pinkback { background: #f472b6; color: #fff; border-color: #f472b6; font-weight: 800; }
 .xcard .btn.primary { background: #1e3a8a; color: #fff; border: 2px solid #f472b6; }
 .xcard { background: #f5f3ff; border: 2px solid #f472b6; border-left: 4px solid #1e3a8a; color: #0f172a; }
@@ -1684,6 +1685,7 @@ function record(q, correct, secs) {
   if (S.review && S.review.ids.includes(q.id) && !S.review.done.includes(q.id)) {
     S.review.done.push(q.id); if (correct) S.review.right++; else S.review.wrong++;
     const rd = document.getElementById("revDone"); if (rd) rd.textContent = reviewDoneText();
+    if (S.review.done.length >= S.review.ids.length) { S.today.reviewed = true; setTimeout(reviewPrompt, 900); }
   }
   levelTick(q, correct);
   const rec = S.recent[q.s]; rec.push([correct ? 1 : 0, q.d]); if (rec.length > 60) rec.shift();
@@ -1710,10 +1712,10 @@ function record(q, correct, secs) {
   if (!S.review && !B && S.today.answered >= (S.today.next || S.goal)) {
     const t = S.today, round = { a: t.answered - (t.rs ? t.rs.a : 0), c: t.correct - (t.rs ? t.rs.c : 0) };
     const first = !t.goalShown;
-    t.goalShown = true; t.next = t.answered + ROUND; t.rs = { a: t.answered, c: t.correct };
-    if (first) { goalHit(); setTimeout(showResults, 900); }
-    else if (t.bonusAt && t.answered >= t.bonusAt) { t.bonusAt = 0; addXP(50); setTimeout(() => { toast(`Bonus round done: <b>+50 XP</b>. ${round.c} of ${round.a} right.`, 3200); doneDay(); }, 900); }
-    else setTimeout(() => showRound(round), 900);
+    t.goalShown = true; t.next = t.answered + ROUND; t.rs = { a: t.answered, c: t.correct }; extraRound = false;
+    if (first) goalHit();
+    else if (t.bonusAt && t.answered >= t.bonusAt) { t.bonusAt = 0; addXP(50); }
+    setTimeout(() => showRound(round, first), 900);
   }
   checkBadges(); save(); renderHUD();
   return { gain: Math.round(gain), crit };
@@ -2253,12 +2255,22 @@ function sheet(html, onMount) {
   onMount && onMount($(".sheet", host));
 }
 const ROUND = 10;
-function showRound(r) {
+// Shown every time the day's goal (and then each extra round of 10) is reached, until the user picks Done for the day.
+function showRound(r, first) {
   const acc = S.today.answered ? Math.round(S.today.correct / S.today.answered * 100) : 0;
+  if (first) confetti(); beep("level");
+  sheet(`<div class="eyebrow">${first ? "Daily goal complete" : "Round complete"}</div><h2>${r.c} of ${r.a} right${first ? " today" : " this round"}.</h2>
+    <p class="muted">${S.today.answered} questions today at ${acc}% accuracy. Streak: <b style="color:var(--heat)">${streakAlive()} day${streakAlive() === 1 ? "" : "s"}</b>.</p>
+    <div class="row"><button class="btn primary" data-close data-more10>Do ${ROUND} more questions</button><button class="btn" data-close data-doneday>Done for the day</button></div>`);
+}
+// After finishing a review: same two choices. Done for the day then skips "Review my answers".
+function reviewPrompt() {
+  if ($("#sheetHost .scrim")) return;
+  const R = S.review || { right: 0, wrong: 0 };
   beep("level");
-  sheet(`<div class="eyebrow">Round complete</div><h2>${r.c} of ${r.a} right this round.</h2>
-    <p class="muted">${S.today.answered} questions today at ${acc}% accuracy. Keep going while you're sharp, or stop here and come back tomorrow.</p>${ankiRow()}
-    <div class="row"><button class="btn primary" data-close>Another ${ROUND}</button><button class="btn" data-close data-doneday>Done for the Day</button></div>`);
+  sheet(`<div class="eyebrow">Review complete</div><h2>${R.right} mastered, ${R.wrong} still in your Revenge Queue.</h2>
+    <p class="muted">Anything you missed again comes back on a 1, 3 and 7 day schedule.</p>
+    <div class="row"><button class="btn primary" data-close data-more10>Do ${ROUND} more questions</button><button class="btn" data-close data-doneday>Done for the day</button></div>`);
 }
 function showDone() {
   const acc = S.today.answered ? Math.round(S.today.correct / S.today.answered * 100) : 0;
@@ -2306,8 +2318,8 @@ function showResults() {
     <div class="subacts"><button class="linkbtn" data-more10>Not tired? Play another ${ROUND}</button><button class="linkbtn" data-share>Share my streak</button></div>
   </div>`;
 }
-function startReview() {
-  const ids = S.today.missed.filter(id => anyQ(id));
+function startReview(only) {
+  const ids = (Array.isArray(only) ? only : S.today.missed).filter(id => anyQ(id));
   if (!ids.length) return toast("No mistakes to review today.");
   S.review = { ids, done: [], queued: [], right: 0, wrong: 0 }; save();
   go("scroll"); resetFeed();
@@ -2321,16 +2333,17 @@ function reviewDoneCard() {
   const el = document.createElement("article"); el.className = "card gate";
   el.innerHTML = `<div class="eyebrow">Revenge Queue complete</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
     <p class="muted" style="margin:0">Anything you missed again comes back in your Revenge Queue on a 1, 3 and 7 day schedule.</p>
-    <div class="row"><button class="btn primary" data-doneday style="flex:1">Done for the Day</button></div>`;
+    <div class="row"><button class="btn primary" data-more10 style="flex:1">Do ${ROUND} more questions</button><button class="btn" data-doneday style="flex:1">Done for the day</button></div>`;
   return el;
 }
 function exitApp() {
-  S.review = null; S.resume = null; save();
+  S.review = null; S.resume = null; S.exitedOn = todayKey(); save();
+  $("#sheetHost").innerHTML = "";
   try { window.close(); } catch (e) {}
   // Browsers only let a page close itself in some cases, so fall back to a goodbye screen.
   setTimeout(() => {
     go("results");
-    $("#view-results").innerHTML = `<div class="bye"><div class="lvbig"><div class="badge-lv ${S.lv.level === 5 ? "t5" : ""}">${S.lv.level === 5 ? "GM" : "L" + S.lv.level}</div></div><h2 class="title">See you tomorrow.</h2><p class="muted" style="margin:0">Your progress is saved. You can close 520 Quest now.</p><button class="linkbtn" data-back>Back to the app</button></div>`;
+    $("#view-results").innerHTML = `<div class="bye"><div class="lvbig"><div class="badge-lv ${S.lv.level === 5 ? "t5" : ""}">${S.lv.level === 5 ? "GM" : "L" + S.lv.level}</div></div><h2 class="title">See you tomorrow.</h2><p class="muted" style="margin:0">Your progress is saved. You can close 520 Quest now.</p><button class="linkbtn" data-byeme>Back to the app</button></div>`;
   }, 150);
 }
 /* ---------- Done for the Day: land on Me with today's summary; same-day return opens Me ---------- */
@@ -2346,12 +2359,18 @@ function doneDay() {
     beep("level");
     sheet(`<div class="eyebrow">Done for the Day 🎉</div><h2>What would you like to do?</h2>
       <div class="stack">
-        <button class="btn primary" data-close data-gorev>Review questions (${miss})</button>
-        <button class="btn" data-close data-goperf>Review my Performance</button>
-        <button class="btn" data-close>Stay in Me Page</button>
-        <button class="btn ghost" data-close data-exitapp>Exit</button>
+        ${S.today.reviewed ? "" : `<button class="btn primary" data-close data-review ${miss ? "" : "disabled"}>${miss ? `Review my answers (${miss} missed)` : "Review my answers (no misses today)"}</button>`}
+        <button class="btn" data-close data-goperf>Review my performance</button>
+        <button class="btn" data-close>Stay in Me page / Browse</button>
+        <button class="btn exitred" data-close data-exit>Exit</button>
       </div>`);
   }, 300);
+}
+// Me page, scrolled to today's performance with "Adjust goals for the day" right below it.
+function showPerf() {
+  $("#sheetHost").innerHTML = ""; go("me");
+  $("#view-me").scrollTop = 0;
+  const g = $("#goalPanel"); if (g) { g.classList.remove("flash"); void g.offsetWidth; g.classList.add("flash"); }
 }
 function todaySummaryHTML() {
   const t = S.today; if (!t.doneDay) return "";
@@ -2368,11 +2387,11 @@ function morePrompt(fromMe = true) {
   if (morePromptOpen || $("#sheetHost .scrim")) return;
   morePromptOpen = true;
   sheet(`<div class="eyebrow">Done for the Day 🎉</div><h2>Want to do another ${ROUND} for +50 XP?</h2>
-    <div class="row"><button class="btn primary" data-more10 data-close>Do ${ROUND} more questions</button>${fromMe ? `<button class="btn" data-close>Stay in Me</button>` : `<button class="btn" data-close data-doneday>Done for the day</button>`}</div>`);
+    <div class="row"><button class="btn primary" data-more10 data-close>Do ${ROUND} more questions</button><button class="btn" data-close data-doneday>Done for the day</button></div>`);
   const host = $("#sheetHost"), obs = new MutationObserver(() => { if (!host.innerHTML) { morePromptOpen = false; obs.disconnect(); } }); obs.observe(host, { childList: true });
 }
 function startExtra() {
-  const t = S.today; extraRound = true; t.goalShown = true; t.next = t.answered + ROUND; t.bonusAt = t.next; t.rs = { a: t.answered, c: t.correct }; save();
+  const t = S.today; extraRound = true; S.review = null; t.goalShown = true; t.next = t.answered + ROUND; t.bonusAt = t.next; t.rs = { a: t.answered, c: t.correct }; save();
   go("scroll"); resetFeed(); renderHUD();
 }
 // After Done for the Day, trying to keep scrolling (swipe up past the end of Me, or opening Scroll or Boss) asks first.
@@ -2385,7 +2404,7 @@ function startExtra() {
     morePromptOpen = true;
     beep("click");
     sheet(`<div class="eyebrow">End of Me</div><h2>What next?</h2>
-      <div class="row"><button class="btn primary" data-close data-exitapp>Exit</button><button class="btn" data-close>Stay in Me</button></div>`);
+      <div class="row"><button class="btn exitred" data-close data-exit>Exit</button><button class="btn" data-close>Stay in Me</button></div>`);
     const host = $("#sheetHost"), obs = new MutationObserver(() => { if (!host.innerHTML) { morePromptOpen = false; obs.disconnect(); } }); obs.observe(host, { childList: true });
   }
   me.addEventListener("touchstart", e => { y0 = atEnd() ? e.touches[0].clientY : null; }, { passive: true });
@@ -2400,6 +2419,9 @@ document.addEventListener("click", e => {
   if (t.closest("[data-review]")) return startReview();
   if (t.closest("[data-doneday]")) { $("#sheetHost").innerHTML = ""; return doneDay(); }
   if (t.closest("[data-exit]")) return exitApp();
+  if (t.closest("[data-goperf]") || t.closest("[data-byeme]")) return showPerf();
+  if (t.closest("[data-bossrev]")) { const ids = (lastBoss && lastBoss.miss) || []; return ids.length ? startReview(ids) : toast("No misses in that battle."); }
+  if (t.closest("[data-bossmore]")) { $("#sheetHost").innerHTML = ""; return (S.today.doneDay || S.today.answered >= S.goal) ? startExtra() : go("scroll"); }
   if (t.closest("[data-more10]")) { $("#sheetHost").innerHTML = ""; return startExtra(); }
   if (t.closest("[data-back]")) { go("scroll"); resetFeed(); return; }
   if (t.closest("#view-results [data-share]")) return share();
@@ -2445,6 +2467,20 @@ function setGoal(n) {
   setTimeout(()=>{ $("#sheetHost").innerHTML=""; go("scroll"); resetFeed(); }, 250);
 }
 
+// Custom goal: pick a number, then which questions (mixed or one section).
+function customGoal() {
+  sheet(`<div class="eyebrow">Custom goal</div><h2>How many questions today?</h2>
+    <input id="cgN" type="number" inputmode="numeric" min="1" max="300" value="${S.goal}" aria-label="Number of questions" style="font-size:20px;padding:12px;border-radius:12px;border:2px solid var(--line);width:100%;box-sizing:border-box">
+    <p class="small muted" style="margin:6px 0 0">Then pick which questions:</p>
+    <div class="stack">${[["ALL", "All / mixed questions"], ["BB", "Bio/Biochem questions"], ["CP", "Chem/Phys questions"], ["PS", "Psych/Soc questions"], ["CARS", "CARS questions"]].map(([k, n]) => `<button class="btn ${k === "ALL" ? "primary" : ""}" data-cgsec="${k}">${n}</button>`).join("")}</div>`,
+    s => s.addEventListener("click", e => {
+      const b = e.target.closest("[data-cgsec]"); if (!b) return;
+      const n = Math.round(+$("#cgN", s).value);
+      if (!(n >= 1 && n <= 300)) return toast("Pick a number from 1 to 300.");
+      S.goalCustom = true; S.filter = b.dataset.cgsec; S.focus = null; S.sub = null; S.review = null;
+      setGoal(n); toast(`Today: <b>${n} ${b.dataset.cgsec === "ALL" ? "mixed" : esc(SECTIONS[b.dataset.cgsec].name)} questions</b>.`);
+    }));
+}
 function share() {
   const txt = `Level ${S.lv.level} (${tierName(S.lv.level)}) and a ${streakAlive()}-day streak in 520 Quest. MCAT game${CONFIG.appUrl ? ": " + CONFIG.appUrl : ""}`;
   const done = () => toast("Copied. Paste it into your story or group chat.");
@@ -2517,7 +2553,7 @@ function startBoss(boss) {
   let left = CONFIG.freeQuestions - seenCount(); // free players: questions they've seen, plus new ones up to the free limit
   const allowed = S.pro ? pool : pool.filter(q => S.stats[q.id] || left-- > 0);
   if (allowed.length < 10 && !S.pro) { if (!boss.gate) S.today.bosses--; save(); return showPro(); }
-  B = { boss, qs: allowed.slice(0, 10), i: 0, hp: 70, hearts: 4, xp: 0, right: 0 };
+  B = { boss, qs: allowed.slice(0, 10), i: 0, hp: 70, hearts: 4, xp: 0, right: 0, miss: [] };
   syncMusic(); bossTurn();
 }
 function bossTurn() {
@@ -2542,7 +2578,7 @@ function bossTurn() {
     $$(".hearts i").forEach((h, k) => h.classList.toggle("lost", k >= B.hearts));
     const rv = $(".reveal", card); rv.hidden = false;
     rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${i < 0 ? "Time's up" : ok ? "Hit! −" + (10 + (secs < 45 ? 2 : 0)) + " HP" : "Ouch. Answer: " + "ABCD"[q.a]}</div>${q.note ? `<div class="note">${q.note}</div>` : ""}<div class="row"><button class="btn primary" id="bnext">${B.hp <= 0 || B.hearts <= 0 || B.i >= 9 ? "See result" : "Next question"}</button></div>`;
-    if (!ok) { S.errors.push({ id: q.id, s: q.s, type: i < 0 || secs > 95 ? "Time" : "Trap", date: todayKey() }); save(); }
+    if (!ok) { B.miss.push(q.id); S.errors.push({ id: q.id, s: q.s, type: i < 0 || secs > 95 ? "Time" : "Trap", date: todayKey() }); save(); }
     $("#bnext").addEventListener("click", () => { B.i++; bossTurn(); });
   };
   box.addEventListener("click", e => { const b = e.target.closest(".opt"); if (b) finish(+b.dataset.i); });
@@ -2553,6 +2589,7 @@ function bossTurn() {
     if (left <= 0) finish(-1);
   }, 250);
 }
+var lastBoss = null;
 function bossEnd() {
   clearInterval(B.tick);
   const won = B.hp <= 0, gate = B.boss.gate;
@@ -2563,7 +2600,14 @@ function bossEnd() {
     <div class="grid2"><div class="panel stat"><b>${B.right}/${B.i}</b><span>correct</span></div><div class="panel stat"><b>+${B.xp + (won ? 100 : 0)}</b><span>XP earned${won ? " incl. 100 victory bonus" : ""}</span></div></div>
     <p class="muted">${gate ? (won ? `You are now Level ${S.lv.level}, ${esc(tierName(S.lv.level))}.${S.lv.pending ? " Your accuracy qualifies you for more: the next Gatekeeper is ready." : ""}` : "The Gatekeeper holds. Clear your Revenge Queue and try again; your qualification doesn't expire.") : won ? "Your misses were added to the Revenge queue." : "Every miss is now in your Revenge queue. Clear those, then rematch."}</p>
     <div class="row"><button class="btn primary" data-lobby>Back to Bosses</button><button class="btn" data-doneday>Done for the day</button></div></div>`;
-  B = null; syncMusic();
+  lastBoss = { miss: B.miss.slice() }; B = null; syncMusic();
+  const nm = lastBoss.miss.length;
+  setTimeout(() => { if ($("#view-boss").hidden || $("#sheetHost .scrim")) return; sheet(`<div class="eyebrow">Boss challenge complete</div><h2>What next?</h2>
+    <div class="stack">
+      <button class="btn primary" data-close data-doneday>Done for the Day</button>
+      <button class="btn" data-close data-bossmore>Do more Qbank questions</button>
+      <button class="btn" data-close data-bossrev ${nm ? "" : "disabled"}>${nm ? `Review my answers (${nm} missed)` : "Review my answers (no misses)"}</button>
+    </div>`); }, gate && won ? 2600 : 700);
 }
 
 /* ---------- map ---------- */
@@ -2579,12 +2623,23 @@ function renderMap() {
     return `<button class="cat" ${drill ? (subs.length > 1 ? `data-subopen="${code}"` : `data-drill="${code}"`) : "disabled"}><code>${code}</code><span class="t">${esc(title)}${hy ? ' <span style="color:var(--volt)">★</span>' : ""}<small>${c.a ? Math.round(m * 100) + "% of " + c.a : "Not tried yet"}</small></span><span class="meter"><i style="width:${c.a ? Math.max(6, m * 100) : 0}%;background:${col}"></i></span></button>`;
   }).join("")}</div></div>`).join("")}</div>`;
 }
+function mapDrill(code, sub) {
+  $("#sheetHost").innerHTML = "";
+  S.focus = code; S.sub = sub || null; S.mapSub = null; S.review = null; save(); go("scroll"); resetFeed();
+  toast(`Drilling <b>${esc(code)}</b>${sub ? " · " + esc(((SUBT[code] || []).find(x => x.id === sub) || {}).label || sub) : ""}. Clear the chip to go back to the mix.`);
+}
+// A category with subsections opens them in a pop-up; tapping one starts the drill right away.
+function mapSubSheet(code) {
+  sheet(`<div class="eyebrow">${esc(code)}</div><h2>${esc(CAT[code].title)}</h2><p class="small muted" style="margin:0">Tap a subsection to start drilling its questions.</p>
+    <div class="stack"><button class="btn primary" data-mdrill="${esc(code)}">All of ${esc(code)}</button>${subCounts(code).map(o => `<button class="btn" data-mdrill="${esc(code)}" data-msub="${esc(o.id)}">${esc(o.label)} · ${o.n}</button>`).join("")}</div>`,
+    s => s.addEventListener("click", e => { const b = e.target.closest("[data-mdrill]"); if (b) mapDrill(b.dataset.mdrill, b.dataset.msub); }));
+}
 $("#view-map").addEventListener("click", e => {
   if (e.target.closest("[data-gocourse]")) return go("course");
   if (e.target.closest("[data-subclose]")) { S.mapSub = null; return renderMap(); }
-  const so = e.target.closest("[data-subopen]"); if (so) { S.mapSub = so.dataset.subopen; renderMap(); $("#view-map").scrollTop = 0; return; }
+  const so = e.target.closest("[data-subopen]"); if (so) return mapSubSheet(so.dataset.subopen);
   const b = e.target.closest("[data-drill]"); if (!b) return;
-  S.focus = b.dataset.drill; S.sub = b.dataset.sub || null; S.mapSub = null; save(); go("scroll"); resetFeed(); toast(`Drilling <b>${S.focus}</b>${S.sub ? " · " + esc(((SUBT[S.focus] || []).find(x => x.id === S.sub) || {}).label || S.sub) : ""}. Clear the chip to go back to the mix.`);
+  mapDrill(b.dataset.drill, b.dataset.sub);
 });
 
 /* ---------- Mastery Sheets: view-only, watermarked. Free preview sheets ship with the site; the rest wait for paid plans. ---------- */
@@ -2898,7 +2953,7 @@ function renderMe() {
   $("#view-me").innerHTML = `${todaySummaryHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Subscriber" : ""}</p>
   <div class="stack">
     <div class="panel">${levelBarHTML()}<div class="row" style="margin-top:10px"><button class="btn pinkback" data-meqbank>← Back to Qbank</button></div></div>
-    <div class="panel" id="goalPanel"><h3>Adjust goals for the day</h3><p class="small muted" style="margin:0 0 8px">How many questions do you want to do each day?</p><div class="row">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n ? "primary" : ""}" data-setgoal="${n}">${n} questions</button>`).join("")}</div></div>
+    <div class="panel" id="goalPanel"><h3>Adjust goals for the day</h3><p class="small muted" style="margin:0 0 8px">How many questions do you want to do each day?</p><div class="row">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n && !S.goalCustom ? "primary" : ""}" data-setgoal="${n}">${n} questions</button>`).join("")}<button class="btn small ${S.goalCustom ? "primary" : ""}" data-customgoal>${S.goalCustom ? `Custom: ${S.goal}` : "Custom"}</button></div></div>
     ${analyticsHTML()}
     <div class="panel" style="background:#f5f3ff;border:2px solid #a855f7"><p class="small" style="margin:0">Contact: <b>support@520-quest.com</b></p></div><div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
@@ -2936,7 +2991,8 @@ $("#view-me").addEventListener("click", e => {
   const t = e.target;
   if (t.closest("[data-cancelsub]")) { location.href = "mailto:" + CONFIG.supportEmail + "?subject=" + encodeURIComponent("Cancel my 520 Quest subscription"); return; }
   if (t.closest("[data-meqbank]")) { go("scroll"); return; }
-  const sg = t.closest("[data-setgoal]"); if (sg) { setGoal(+sg.dataset.setgoal); const y = $("#view-me").scrollTop; renderMe(); $("#view-me").scrollTop = y; return toast(`Daily goal: <b>${S.goal} questions</b>.`); }
+  if (t.closest("[data-customgoal]")) return customGoal();
+  const sg = t.closest("[data-setgoal]"); if (sg) { S.goalCustom = false; setGoal(+sg.dataset.setgoal); const y = $("#view-me").scrollTop; renderMe(); $("#view-me").scrollTop = y; return toast(`Daily goal: <b>${S.goal} questions</b>.`); }
   if (t.closest("[data-pro]")) return showPro();
   if (t.closest("[data-share]")) return share();
   if (t.closest("[data-addfl]")) {
@@ -2972,7 +3028,7 @@ function go(tab) {
   if (tab !== "scroll") { sheetReturn = null; dropBackPill(); }
   $$(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.tab === tab));
   ["scroll", "boss", "course", "map", "exam", "me", "results"].forEach(v => $("#view-" + v).hidden = v !== tab);
-  if (tab !== "results") { S.lastTab = tab; save(); }
+  if (tab !== "results") { S.lastTab = tab; S.lastTabDay = todayKey(); save(); }
   if (tab === "boss" && !B) renderBossLobby();
   if (tab === "map") renderMap();
   if (tab === "course") renderCourse();
@@ -3013,7 +3069,11 @@ document.addEventListener("click", e => {
 function renderAll() { renderHUD(); resetFeed(); if (!$("#view-me").hidden) renderMe(); if (!$("#view-map").hidden) renderMap(); }
 renderAll();
 // Reopening: Course or Map reopen where you were; otherwise Me after Done for the Day, else Scroll at your last question.
-const startTab = ["course", "map"].includes(S.lastTab) ? S.lastTab : S.today.doneDay ? "me" : "scroll"; if (startTab !== "scroll") go(startTab);
+// Same day after Exit: Me at today's performance + goals. Same day without Exit: the tab you left. New day: Scroll + Welcome back.
+const sameDay = S.lastTabDay === todayKey(), exitedToday = S.exitedOn === todayKey();
+const startTab = exitedToday ? "me" : sameDay && ["course", "map", "boss", "exam", "me"].includes(S.lastTab) ? S.lastTab : sameDay && S.today.doneDay ? "me" : "scroll";
+S.exitedOn = null; save();
+if (exitedToday) showPerf(); else if (startTab !== "scroll") go(startTab);
 bankReady.finally(() => welcomeBack());
 /* Owner-only unlock: ?admin=<pass> is checked (as a SHA-256) against play/admin-private.json, which is git-ignored and never deployed. Without that file this does nothing. ?admin=off turns it off.
    Sealed sheets and mnemonics are AES-encrypted; a paid account fetches the key from the server. For the owner the same base64 key can go in admin-private.json as "content_key". */
