@@ -1493,7 +1493,7 @@ function loadSealedBank() {
   if (sealedLoad) return sealedLoad;
   if (!keyReady()) return Promise.resolve();
   return sealedLoad = bankReady.then(() => Promise.all(((BANKIX && BANKIX.sealed) || []).map(f => fetch("bank/" + f).then(r => r.json()).then(acctUnseal).then(addBank))))
-    .then(() => { sealedDone = true; renderFilters(); if (!$("#view-map").hidden) renderMap(); })
+    .then(() => { sealedDone = true; renderFilters(); if (!$("#view-map").hidden) renderMap(); if (window.CAT_RESET) { CAT_RESET(); if (!S.exam && window.renderExam && !$("#view-exam").hidden) renderExam(); } })
     .catch(() => { sealedLoad = null; });
 }
 window.onContentKey = () => { Object.keys(EX).forEach(k => delete EX[k]); loadSealedBank(); };
@@ -2129,12 +2129,21 @@ function richExplainHTML(q, i, x) {
     (x.trap ? `<p class="trapline"><b>The trap:</b> ${e(x.trap)}</p>` : "") +
     (refs.length ? `<h5>Learn more</h5><ul class="refs">${refs.map(r => `<li><a href="${e(r.u)}" target="_blank" rel="noopener">${e(r.t || r.u)}</a></li>`).join("")}</ul>` : "");
 }
+// Fallback "full explanation" for questions without a rich write-up: the solution plus the reasoning for every choice.
+function basicFullHTML(q) {
+  const L = "ABCD", e = esc, why = t => String(t || "").replace(/^(Correct|Incorrect|Wrong)[:.]?\s*/i, "").trim();
+  const others = q.o.map((_, j) => j).filter(j => j !== q.a && why(q.o[j][1]) && !/^not the best answer$/i.test(why(q.o[j][1])));
+  return `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4>${why(q.o[q.a][1]) && why(q.o[q.a][1]) !== q.x ? `<p>${e(why(q.o[q.a][1]))}</p>` : ""}${q.x ? `<p>${e(q.x)}</p>` : ""}` +
+    (others.length ? `<h5>Why the other choices are wrong</h5>${others.map(j => `<p><b>${L[j]}. ${e(q.o[j][0])}</b><br>${e(why(q.o[j][1]))}</p>`).join("")}` : "") +
+    (q.note ? `<p class="muted"><b>Takeaway:</b> ${e(q.note)}</p>` : "");
+}
 // Upgrade a revealed explanation once its category file arrives.
 // Wrong answer: the full (rich) explanation replaces the short one. Right answer: the short one stays, and
 // "Did you guess? Show the full explanation" expands the rich one. Free users see a plans note for sealed explanations.
 function upgradeExplain(rv, q, i, ok) {
   exEntry(q).then(x => {
-    if (!rv.isConnected || !x) return;
+    if (!rv.isConnected) return;
+    if (!x) { if (ok) x = { basic: true }; else return; }   // no full write-up for this question: the guess button still opens every choice's reasoning
     const row = $(".row", rv), put = el => row ? row.parentNode.insertBefore(el, row) : rv.appendChild(el);
     if (x === "locked") {
       const d = document.createElement("div"); d.className = "exlock";
@@ -2144,7 +2153,7 @@ function upgradeExplain(rv, q, i, ok) {
     const box = $(".explain", rv);
     if (!ok && box) { box.classList.add("rich"); box.innerHTML = richExplainHTML(q, i, x); renderKx(box); return; }
     if (!ok) return;
-    const full = document.createElement("div"); full.className = "explain rich"; full.hidden = true; full.innerHTML = richExplainHTML(q, i, x);
+    const full = document.createElement("div"); full.className = "explain rich"; full.hidden = true; full.innerHTML = x.basic ? basicFullHTML(q) : richExplainHTML(q, i, x);
     const gb = document.createElement("button"); gb.className = "btn small ghost"; gb.dataset.guessbtn = "1"; gb.textContent = "Did you guess? Show the full explanation";
     gb.addEventListener("click", () => { full.hidden = !full.hidden; gb.textContent = full.hidden ? "Did you guess? Show the full explanation" : "Hide the full explanation"; if (!full.hidden) { renderKx(full); full.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" }); } });
     put(gb); put(full);
