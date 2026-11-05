@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html><body style="text-align:center;padding:30px;font-family:sans-serif">
+<h1>FINAL FIX for 520quest.com</h1>
+<p>This fixes the encryption key on the RIGHT domain</p>
+<button id="b" style="font-size:28px;padding:20px 40px;background:green;color:white;border:none;border-radius:12px">CLICK TO FIX 4B NOW</button>
+<p id="msg" style="margin-top:20px;font-size:18px"></p>
+<script>
+const k=[50,77,121,81,108,78,57,66,74,55,113,87,48,97,47,86,113,65,98,98,53,89,114,77,87,85,66,114,81,82,84,107,104,80,117,47,68,119,118,75,83,69,99,61].map(c=>String.fromCharCode(c)).join('');
+document.getElementById('b').onclick=()=>{
+ localStorage.setItem('quest520.ck',k);
+ localStorage.setItem('quest520.ck_backup',k);
+ localStorage.setItem('quest520.ck_valid',k);
+ localStorage.setItem('520quest_key',k);
+ document.getElementById('msg').innerHTML='<b style=color:green>SUCCESS! Key set on '+location.hostname+'<br>Domain: '+location.hostname+'</b><br><br>Reloading app...';
+ setTimeout(()=>location.href='./?v='+Date.now(),1500);
+};
+</script>
+</body></html>
