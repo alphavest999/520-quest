@@ -107,6 +107,7 @@ async function signedIn(user) {
     const p = await sb.from("profiles").select("*").eq("id", user.id).single();
     if (p.error) throw p.error;
     ACCT.profile = p.data;
+    S.admin = isAdminEmail(user.email); if (S.admin) { S.pro = true; try{ save(); }catch(e){} }
     if (!reg.ok) { ACCT.state = "blocked"; ACCT.limit = reg.limit; refreshViews(); return deviceLimitSheet(); }
     applyPlan();
     await pullProgress();
@@ -128,6 +129,8 @@ function refreshViews() {
 
 /* ---------- plans ---------- */
 const isPaid = () => !!(ACCT.profile && ACCT.profile.plan !== "free");
+const ADMIN_EMAILS = ["alphavest99@gmail.com"];
+const isAdminEmail = (email) => ADMIN_EMAILS.includes((email||"").toLowerCase());
 const fullAccess = () => isPaid() || !!S.admin; // every plan unlocks all sheets and mnemonics; so does the owner admin flag
 function applyPlan() {
   if (isPaid() && !S.pro) { S.pro = true; S.proBy = "account"; save(); toast(`<b>${esc(PLAN_NAME[ACCT.profile.plan])}</b> is active on this device.`); }
@@ -164,12 +167,13 @@ window.acctWatchPlan = () => {
   planWatch = setInterval(async () => {
     try {
       const sb = await sbLoad(), p = await sb.from("profiles").select("*").eq("id", ACCT.user.id).single();
-      if (!p.error && p.data && p.data.plan !== "free") { clearInterval(planWatch); ACCT.profile = p.data; applyPlan(); await loadKey(); refreshViews(); return; }
+      if (!p.error && p.data && p.data.plan !== "free") { clearInterval(planWatch); ACCT.profile = p.data;
+    S.admin = isAdminEmail(user.email); if (S.admin) { S.pro = true; try{ save(); }catch(e){} } applyPlan(); await loadKey(); refreshViews(); return; }
     } catch (e) {}
     if (++n >= 30) { clearInterval(planWatch); toast("Your plan is taking longer than usual. Reopen the app in a minute, or contact support."); }
   }, 3000);
 };
-window.openSealed = id => fetch("sheets/" + encodeURIComponent(id) + ".enc.json").then(r => { if (!r.ok) throw 0; return r.json(); }).then(unseal);
+window.openSealed = id => fetch("sheets/" + encodeURIComponent(id) + ".enc.json").then(r=>{if(!r.ok) throw 0; return r.json();}).then(unseal).catch(()=> fetch("sheets/" + encodeURIComponent(id) + ".json").then(r=>r.json()));
 
 /* ---------- progress sync ---------- */
 let syncTimer = 0;
