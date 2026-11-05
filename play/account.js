@@ -128,12 +128,15 @@ function refreshViews() {
 }
 
 /* ---------- plans ---------- */
-const isPaid = () => !!(ACCT.profile && ACCT.profile.plan !== "free");
+// Owner admin: profiles.is_admin, set only from the Supabase dashboard (supabase/003_admin.sql). It unlocks everything a plan does.
+const isAdmin = () => !!(ACCT.profile && ACCT.profile.is_admin);
+const isPaid = () => !!(ACCT.profile && (ACCT.profile.plan !== "free" || ACCT.profile.is_admin));
+const planName = p => (p && p.is_admin ? "Admin" : PLAN_NAME[(p || {}).plan] || "Free");
 const ADMIN_EMAILS = ["alphavest99@gmail.com"];
 const isAdminEmail = (email) => ADMIN_EMAILS.includes((email||"").toLowerCase());
 const fullAccess = () => isPaid() || !!S.admin; // every plan unlocks all sheets and mnemonics; so does the owner admin flag
 function applyPlan() {
-  if (isPaid() && !S.pro) { S.pro = true; S.proBy = "account"; save(); toast(`<b>${esc(PLAN_NAME[ACCT.profile.plan])}</b> is active on this device.`); }
+  if (isPaid() && !S.pro) { S.pro = true; S.proBy = "account"; save(); toast(isAdmin() ? "<b>Admin access</b> is on: everything is unlocked." : `<b>${esc(PLAN_NAME[ACCT.profile.plan])}</b> is active on this device.`); }
   else if (!isPaid() && S.proBy === "account") { S.pro = false; delete S.proBy; save(); }
 }
 /* ---------- paid content: sealed sheets and mnemonics ---------- */
@@ -168,7 +171,7 @@ window.acctWatchPlan = () => {
     try {
       const sb = await sbLoad(), p = await sb.from("profiles").select("*").eq("id", ACCT.user.id).single();
       if (!p.error && p.data && p.data.plan !== "free") { clearInterval(planWatch); ACCT.profile = p.data;
-    S.admin = isAdminEmail(user.email); if (S.admin) { S.pro = true; try{ save(); }catch(e){} } applyPlan(); await loadKey(); refreshViews(); return; }
+    S.admin = isAdminEmail(ACCT.user.email); if (S.admin) { S.pro = true; try{ save(); }catch(e){} } applyPlan(); await loadKey(); refreshViews(); return; }
     } catch (e) {}
     if (++n >= 30) { clearInterval(planWatch); toast("Your plan is taking longer than usual. Reopen the app in a minute, or contact support."); }
   }, 3000);
@@ -210,7 +213,7 @@ async function devicesSheet() {
       const r = await ACCT.sb.from("devices").select("*").order("last_seen", { ascending: false });
       if (r.error) { note.textContent = "Couldn't load your devices. Check your connection."; return; }
       const lim = isPaid() ? 3 : 1, me = deviceId();
-      note.innerHTML = `Your ${esc(PLAN_NAME[(ACCT.profile || {}).plan] || "Free")} plan works on <b>${lim} device${lim === 1 ? "" : "s"}</b>. Devices unused for 90 days drop off on their own.${ACCT.state === "blocked" ? " Remove one to use 520 Quest here." : ""}`;
+      note.innerHTML = `Your ${esc(planName(ACCT.profile))} plan works on <b>${lim} device${lim === 1 ? "" : "s"}</b>. Devices unused for 90 days drop off on their own.${ACCT.state === "blocked" ? " Remove one to use 520 Quest here." : ""}`;
       list.innerHTML = r.data.map(d => `<div class="panel row" style="justify-content:space-between;flex-wrap:nowrap;gap:10px"><div style="min-width:0"><b>${esc(d.label || "Device")}</b>${d.device_id === me ? ' <span class="tag">This device</span>' : ""}<div class="small muted">Last used ${new Date(d.last_seen).toLocaleDateString()}</div></div><button class="btn small ghost" data-dvdel="${esc(d.id)}">Remove</button></div>`).join("") || `<p class="small muted">No devices yet.</p>`;
     };
     list.addEventListener("click", async e => {
@@ -235,11 +238,26 @@ window.acctPanelHTML = () => {
   if (ACCT.state === "off") return "";
   if (ACCT.state === "out") return `<div class="panel"><h3>Account</h3><p class="small">Sign in to save your progress, use 520 Quest on up to 3 devices and play 1v1 duels.</p><div class="row"><button class="btn primary small" data-acin>Sign in with email</button></div></div>`;
   const p = ACCT.profile || {}, email = (ACCT.user && ACCT.user.email) || "";
-  return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Account</h3><span class="tag sec">${esc(PLAN_NAME[p.plan] || "Free")}</span></div>
+  return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Account</h3><span class="tag sec">${esc(planName(p))}</span></div>
     <p class="small" style="overflow-wrap:anywhere">${esc(email)}${p.name ? ` · duel name <b>${esc(p.name)}</b>` : ""}</p>
     ${ACCT.state === "blocked" ? `<p class="small" style="color:var(--bad)">This device isn't syncing: your account is already on ${ACCT.limit} device${ACCT.limit === 1 ? "" : "s"}.</p>` : `<p class="small muted">${ACCT.synced ? "Progress saved to your account " + new Date(ACCT.synced).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) + "." : "Progress saves to your account after each question."}${fullAccess() ? " All Mastery Sheets and mnemonics are unlocked." : ""}</p>`}
-    <div class="row"><button class="btn small" data-acdevices>Manage devices</button><button class="btn small" data-acname>Change duel name</button><button class="btn small ghost" data-acout>Sign out</button></div></div>`;
+    <div class="row"><button class="btn small" data-acdevices>Manage devices</button><button class="btn small" data-acname>Change duel name</button><button class="btn small ghost" data-acout>Sign out</button></div></div>${isAdmin() ? adminPanelHTML() : ""}`;
 };
+/* ---------- owner admin tools (only for an account with is_admin) ---------- */
+function adminPanelHTML() {
+  const lv = S.lv.level;
+  return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Admin tools</h3><span class="tag sec">Owner</span></div>
+    <p class="small muted">Unlimited questions, bosses, full-lengths, minis, Mastery Sheets, mnemonics and Anki export are on. These buttons change this account's own level, to preview each tier.</p>
+    <p class="small">Jump to level</p><div class="row">${[1, 2, 3, 4, 5].map(n => `<button class="btn small${n === lv ? " primary" : ""}" data-adlevel="${n}">${n}. ${esc(tierName(n))}</button>`).join("")}</div>
+    <div class="row" style="margin-top:8px">${lv < 5 ? `<button class="btn small" data-adgate>Fight Gatekeeper ${lv + 1} now</button>` : ""}<button class="btn small" data-adbosses>Reset today's boss count</button></div></div>`;
+}
+document.addEventListener("click", e => {
+  if (!isAdmin()) return;
+  const lvBtn = e.target.closest("[data-adlevel]"), t = e.target;
+  if (lvBtn) { const n = +lvBtn.dataset.adlevel; S.lv.level = n; S.lv.qual = n; S.lv.pending = 0; save(); renderAll(); return toast(`Level set to ${n}: ${esc(tierName(n))}.`); }
+  if (t.closest("[data-adgate]")) { if (S.lv.level >= 5) return; S.lv.pending = S.lv.level + 1; save(); go("boss"); return startBoss(gateBoss()); }
+  if (t.closest("[data-adbosses]")) { S.today.bosses = 0; save(); refreshViews(); return toast("Today's boss count is reset."); }
+});
 async function signOut() {
   if (syncTimer) await pushProgress().catch(() => {});
   $("#sheetHost").innerHTML = "";
