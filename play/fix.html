@@ -1,1 +1,29 @@
-<!DOCTYPE html><html><body style="text-align:center;padding:50px"><h1>Click below</h1><button id="b" style="font-size:32px;padding:20px;background:green;color:white;border:none;border-radius:10px;cursor:pointer">FIX MY APP - CLICK HERE</button><script>document.getElementById('b').onclick=function(){localStorage.setItem('quest520.ck','2MyQlN9BJ7qW0a/VqAbb5YrMWUBrQRTkhPu/DwvKSEc=');location.href='./';};</script></body></html>
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>DIAG</title></head>
+<body style="font-family:sans-serif;padding:20px;max-width:700px;margin:auto">
+<h2>520 Quest Diagnostics</h2>
+<div id="out" style="background:#f5f5f5;padding:15px;white-space:pre-wrap;word-break:break-all"></div>
+<button id="b1" style="font-size:20px;padding:15px;background:green;color:white;border:none;border-radius:8px;margin-top:20px;width:100%">1. SET KEY + FORCE RELOAD</button>
+<button id="b2" style="font-size:18px;padding:12px;background:#333;color:white;border:none;border-radius:8px;margin-top:10px;width:100%">2. CLEAR ALL + RESTORE DEFAULTS</button>
+<script>
+function log(){
+ let s='URL: '+location.href+'\n';
+ s+='localStorage length: '+localStorage.length+'\n\n';
+ for(let i=0;i<localStorage.length;i++){ let k=localStorage.key(i); s+=k+': '+(localStorage.getItem(k)||'').substring(0,200)+'\n\n'; }
+ document.getElementById('out').textContent=s;
+}
+log();
+document.getElementById('b1').onclick=function(){
+ localStorage.setItem('quest520.ck','2MyQlN9BJ7qW0a/VqAbb5YrMWUBrQRTkhPu/DwvKSEc=');
+ localStorage.setItem('quest520.ck_backup','2MyQlN9BJ7qW0a/VqAbb5YrMWUBrQRTkhPu/DwvKSEc=');
+ log();
+ setTimeout(()=>location.href='./?v='+Date.now(),800);
+};
+document.getElementById('b2').onclick=function(){
+ if(!confirm('This will clear corrupted data and restore your 33 sheets to default. Your custom passages will be lost but sheets will load. Continue?')) return;
+ // keep nothing corrupted
+ localStorage.clear();
+ localStorage.setItem('quest520.ck','2MyQlN9BJ7qW0a/VqAbb5YrMWUBrQRTkhPu/DwvKSEc=');
+ location.href='./?reset=1&v='+Date.now();
+};
+</script></body></html>
