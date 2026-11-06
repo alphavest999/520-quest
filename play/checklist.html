@@ -136,7 +136,7 @@ figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
     let h = `<p class="hook">${md(c.hook)}</p>`;
     if (c.formulas.length) h += `<h4>Formulas to memorize</h4><ul class="ar fm">${c.formulas.map(f => `<li>${tex(f.tex, true)}${f.say ? `<span class="say">${md(f.say)}</span>` : ""}</li>`).join("")}</ul>`;
     if (c.vars.length) h += `<h4>What each symbol means</h4><div class="vars">${c.vars.map(v => `<div class="var"><span class="s">${tex(v.tex)}</span><span class="n"><b>${md(v.name)}</b>${v.unit ? `<span class="u">${esc(v.unit)}</span>` : ""}${v.eli5 ? ` · ${md(v.eli5)}` : ""}</span></div>`).join("")}</div>`;
-    h += `<div class="eli5"><h4>Explain it like I'm 5</h4><p>${md(c.eli5)}</p></div>`;
+    h += `<div class="eli5"><h4>Simple Breakdown</h4><p>${md(c.eli5)}</p></div>`;
     if (c.fig) h += `<figure><img loading="lazy" src="fig/chk/${esc(c.fig)}" alt="${esc(c.figcap.replace(/\$/g, ""))}"><figcaption>${md(c.figcap)}</figcaption></figure>`;
     h += `<h4>Must know</h4><ul class="ar">${c.points.map(li).join("")}</ul>`;
     if (c.traps.length) h += `<div class="trap"><h4>AAMC traps</h4><ul class="ar">${c.traps.map(li).join("")}</ul></div>`;
