@@ -2023,6 +2023,19 @@ function shuf(q) {
   const order = q.o.map((_, i) => i).sort(() => Math.random() - .5), r = s => relet(s, order);
   return Object.assign({}, q, { o: order.map(i => [q.o[i][0], r(q.o[i][1])].concat(q.o[i].slice(2))), a: order.indexOf(q.a), ord: order, x: r(q.x), note: r(q.note) });
 }
+// "I still don't get it": two easier questions on the same idea go in right after this card.
+function stuck(q, card, btn) {
+  const sub = stOf(q), seen = id => sessionSeen.has(id) || (S.stats[id] && S.stats[id].c);
+  const pool = QUESTIONS.filter(x => x.id !== q.id && x.c === q.c && (x.d || 2) <= (q.d || 2) && !seen(x.id) && canOpen(x));
+  const pick = pool.filter(x => sub !== undefined && stOf(x) === sub).concat(pool.filter(x => sub === undefined || stOf(x) !== sub))
+    .sort((a, b) => (a.d || 2) - (b.d || 2)).slice(0, 2);
+  btn.disabled = true;
+  if (!pick.length) { btn.textContent = "No easier ones left"; return toast("Open the Mastery Sheet link above for the full concept."); }
+  let at = card;
+  pick.forEach(x => { sessionSeen.add(x.id); const c = questionCard(x, false); at.after(c); io.observe(c); at = c; });
+  btn.textContent = pick.length === 1 ? "An easier one is next" : "Two easier ones are next";
+  toast("Try these next. The sheet link above walks through the idea.");
+}
 // "Something wrong with this question?" opens an email with the question id filled in.
 function reportLinkHTML(q) {
   const body = `Question ID: ${q.id}\nQuestion: ${String(q.q).replace(/<[^>]+>/g, "").slice(0, 160)}\n\nWhat's wrong:\n`;
@@ -2076,7 +2089,7 @@ function wireQuestion(scope, q, card) {
     const rv = $(".reveal", scope); rv.hidden = false;
     rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` + (confNote ? `<div class="note">${confNote}</div>` : "") +
       (ok ? (q.x ? `<div class="note">${esc(q.x)}</div>` : "") + (q.note ? `<div class="note">${esc(q.note)}</div>` : "") : explainHTML(q, i)) +
-      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next card</button>${ok ? "" : ankiBtn(q)}</div>`;
+      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next card</button>${ok ? "" : ankiBtn(q) + '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}</div>`;
     const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
     const nb = $("[data-next]", rv); if (sib) nb.textContent = "Next question";
     nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
@@ -2085,6 +2098,7 @@ function wireQuestion(scope, q, card) {
     const sl = sheetLinkHTML(q) + mnLinkHTML(q); if (sl) $(".row", rv).insertAdjacentHTML("beforebegin", sl);
     rv.insertAdjacentHTML("beforeend", reportLinkHTML(q));
     const ab = $("[data-addanki]", rv); if (ab) ab.addEventListener("click", () => addAnki(q, ab));
+    const sb = $("[data-stuck]", rv); if (sb) sb.addEventListener("click", () => stuck(q, card, sb));
     const h = $("[data-hint]", scope); if (h) h.disabled = true;
   });
   const hint = $("[data-hint]", scope);
