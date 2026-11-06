@@ -242,6 +242,12 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 .explain .trapline { border-left: 3px solid var(--bad); padding-left: 8px; }
 .btn.added { border-color: var(--good); color: var(--good); }
 .note { border-left: 3px solid var(--volt); padding: 4px 0 4px 10px; color: var(--text); font-size: 14.5px; }
+.conf { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin: 0 0 8px; font-size: 13px; color: var(--muted); }
+.conf button { font: 600 13px var(--body); padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; }
+.conf button[aria-pressed="true"] { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); }
+.conf.locked button { pointer-events: none; opacity: .7; }
+.wins { border-left: 3px solid var(--good); }
+.reportq { display: inline-block; margin-top: 6px; font-size: 12.5px; color: var(--muted); }
 .dna { display: grid; gap: 8px; padding: 12px; border-radius: 12px; background: var(--ink); border: 1px dashed var(--line); }
 .dna p { margin: 0; font-size: 14px; color: var(--muted); }
 .dna .row .btn[aria-pressed="true"] { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); }
@@ -1764,6 +1770,8 @@ function record(q, correct, secs) {
   S.total++; S.today.answered++;
   if (correct) { S.totalCorrect++; S.today.correct++; }
   const rv = S.revenge[q.id];
+  if (correct && rv) S.today.fixed = (S.today.fixed || 0) + 1;
+  if (correct && rv && rv.box >= 2) S.today.mastered = (S.today.mastered || 0) + 1;
   if (!correct) S.revenge[q.id] = { box: 0, due: Date.now() + 20 * 3600000 };
   else if (rv) {
     rv.box++;
@@ -2013,6 +2021,11 @@ function shuf(q) {
   const order = q.o.map((_, i) => i).sort(() => Math.random() - .5), r = s => relet(s, order);
   return Object.assign({}, q, { o: order.map(i => [q.o[i][0], r(q.o[i][1])].concat(q.o[i].slice(2))), a: order.indexOf(q.a), ord: order, x: r(q.x), note: r(q.note) });
 }
+// "Something wrong with this question?" opens an email with the question id filled in.
+function reportLinkHTML(q) {
+  const body = `Question ID: ${q.id}\nQuestion: ${String(q.q).replace(/<[^>]+>/g, "").slice(0, 160)}\n\nWhat's wrong:\n`;
+  return `<a class="linkbtn reportq" href="mailto:${esc(CONFIG.supportEmail)}?subject=${encodeURIComponent("Problem with question " + q.id)}&body=${encodeURIComponent(body)}">Something wrong with this question?</a>`;
+}
 function optsHTML(q) { return q.o.map((o, i) => `<button class="opt" data-i="${i}"><b>${"ABCD"[i]}</b><span>${o[0]}</span></button>`).join(""); }
 
 function questionCard(q, rev, tgt) {
@@ -2028,8 +2041,15 @@ function questionCard(q, rev, tgt) {
   wireQuestion(el, q, el);
   return el;
 }
+// "How sure?" is tapped before answering. A right answer marked Guessing comes back tomorrow; Think so comes back in 3 days.
+const CONF = [["sure", "Sure"], ["think", "Think so"], ["guess", "Guessing"]];
 function wireQuestion(scope, q, card) {
   const optsBox = $(".opts", scope);
+  optsBox.insertAdjacentHTML("beforebegin", `<div class="conf"><span>How sure?</span>${CONF.map(([k, l]) => `<button type="button" data-conf="${k}" aria-pressed="false">${l}</button>`).join("")}</div>`);
+  const confBox = optsBox.previousElementSibling;
+  confBox.addEventListener("click", e => { const b = e.target.closest("[data-conf]"); if (!b || optsBox.dataset.done) return;
+    const on = optsBox.dataset.conf !== b.dataset.conf; optsBox.dataset.conf = on ? b.dataset.conf : "";
+    $$("[data-conf]", confBox).forEach(x => x.setAttribute("aria-pressed", on && x === b)); });
   optsBox.addEventListener("click", e => {
     const b = e.target.closest(".opt"); if (!b || optsBox.dataset.done) return;
     optsBox.dataset.done = 1;
@@ -2040,22 +2060,28 @@ function wireQuestion(scope, q, card) {
       o.querySelector("span").insertAdjacentHTML("beforeend", `<small>${esc(q.o[j][1])}</small>`);
     });
     if (S.resume === q.id) S.resume = null;
+    const conf = optsBox.dataset.conf || ""; confBox.classList.add("locked");
     const { gain, crit } = record(q, ok, secs);
+    let confNote = "";
+    if (ok && conf === "guess") { S.revenge[q.id] = { box: 0, due: Date.now() + 20 * 3600000 }; confNote = "You got it right but were guessing, so it'll come back tomorrow."; }
+    else if (ok && conf === "think" && (!S.revenge[q.id] || S.revenge[q.id].box > 1)) { S.revenge[q.id] = { box: 1, due: Date.now() + 3 * DAY }; confNote = "Right, but you weren't sure, so it'll come back in 3 days."; }
+    if (confNote) save();
     beep(ok ? "good" : "bad"); if (!ok && !reduce) { card.classList.add("shake"); setTimeout(() => card.classList.remove("shake"), 400); }
     const f = document.createElement("div"); f.className = "float" + (crit ? " crit" : "");
     f.textContent = (crit ? crit + " " : "") + "+" + gain + " XP" + (ok && comboMult(S.combo) > 1 ? " ×" + comboMult(S.combo) : "");
     card.appendChild(f); setTimeout(() => f.remove(), 1400);
     if (ok && S.combo >= 3) { const c = document.createElement("div"); c.className = "combo"; c.textContent = S.combo + " COMBO"; card.appendChild(c); setTimeout(() => c.remove(), 1400); }
     const rv = $(".reveal", scope); rv.hidden = false;
-    rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` +
+    rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` + (confNote ? `<div class="note">${confNote}</div>` : "") +
       (ok ? (q.x ? `<div class="note">${esc(q.x)}</div>` : "") + (q.note ? `<div class="note">${esc(q.note)}</div>` : "") : explainHTML(q, i)) +
       (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next card</button>${ok ? "" : ankiBtn(q)}</div>`;
     const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
     const nb = $("[data-next]", rv); if (sib) nb.textContent = "Next question";
     nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
     if (!ok) wireDNA(rv, q, secs);
-    upgradeExplain(rv, q, i, ok);
+    upgradeExplain(rv, q, i, ok, conf);
     const sl = sheetLinkHTML(q) + mnLinkHTML(q); if (sl) $(".row", rv).insertAdjacentHTML("beforebegin", sl);
+    rv.insertAdjacentHTML("beforeend", reportLinkHTML(q));
     const ab = $("[data-addanki]", rv); if (ab) ab.addEventListener("click", () => addAnki(q, ab));
     const h = $("[data-hint]", scope); if (h) h.disabled = true;
   });
@@ -2152,8 +2178,9 @@ function richExplainHTML(q, i, x) {
   const others = q.o.map((_, j) => j).filter(j => j !== q.a && j !== i);
   const fx = arr(x.fx).filter(f => f && f.f), steps = arr(x.steps), refs = arr(x.ref).filter(r => r && /^https?:\/\//i.test(r.u || ""));
   const fm = arr(x.fm).filter(f => f && f.f), mem = arr(x.mem);
-  return `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4><p>${e(x.ox[q.a])}</p>` +
-    (x.plain ? `<p class="plainbox"><b>In plain words:</b> ${e(x.plain)}</p>` : "") +
+  const plain = x.plain ? `<p class="plainbox"><b>In plain words:</b> ${e(x.plain)}</p>` : "";
+  return (picked ? plain : "") + `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4><p>${e(x.ox[q.a])}</p>` +
+    (picked ? "" : plain) +
     (mem.length ? `<h5>High-yield</h5><ul class="mem">${mem.map(m => `<li>${e(m)}</li>`).join("")}</ul>` : "") +
     (picked ? `<h4 class="miss">Your answer: ${L[i]}. ${e(q.o[i][0])}</h4><p>${e(x.ox[i])}</p>` : "") +
     arr(x.fig).concat(GRAPHS[x.graph] ? [{ f: GRAPHS[x.graph], alt: GRAPH_ALT[x.graph], cap: GRAPH_ALT[x.graph] }] : []).map(figHTML).join("") +
@@ -2179,7 +2206,7 @@ function basicFullHTML(q) {
 // Upgrade a revealed explanation once its category file arrives.
 // Wrong answer: the full (rich) explanation replaces the short one. Right answer: the short one stays, and
 // "Did you guess? Show the full explanation" expands the rich one. Free users see a plans note for sealed explanations.
-function upgradeExplain(rv, q, i, ok) {
+function upgradeExplain(rv, q, i, ok, conf) {
   exEntry(q).then(x => {
     if (!rv.isConnected) return;
     if (!x) { if (ok) x = { basic: true }; else return; }   // no full write-up for this question: the guess button still opens every choice's reasoning
@@ -2196,6 +2223,7 @@ function upgradeExplain(rv, q, i, ok) {
     const gb = document.createElement("button"); gb.className = "btn small ghost"; gb.dataset.guessbtn = "1"; gb.textContent = "Did you guess? Show the full explanation";
     gb.addEventListener("click", () => { full.hidden = !full.hidden; gb.textContent = full.hidden ? "Did you guess? Show the full explanation" : "Hide the full explanation"; if (!full.hidden) { renderKx(full); full.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" }); } });
     put(gb); put(full);
+    if (conf === "guess" || conf === "think") gb.click();   // not sure: open the full write-up straight away
   });
 }
 /* ---------- Anki queue: save missed questions, export them as a deck after a session ---------- */
@@ -2234,10 +2262,11 @@ function exportAnki() {
 const ankiRow = () => S.anki.length ? `<div class="explain" style="border-left-color:var(--cool)"><p><b>${S.anki.length}</b> card${S.anki.length === 1 ? "" : "s"} in your Anki queue.</p><div class="row"><button class="btn small primary" data-exportanki>Export to Anki</button></div></div>` : "";
 document.addEventListener("click", e => {
   if (e.target.closest("[data-exportanki]")) exportAnki(); });
+const DNA_NAME = { Content: "didn't know it", Misread: "misread the question", Data: "misread the passage or graph", Trap: "fell for a trap", Time: "ran out of time" };
 function dnaHTML(secs) {
   const slow = secs > 95;
   return `<div class="dna"><p><b>Error DNA:</b> why did you miss it?${slow ? " You took " + Math.round(secs) + " s, so Time is pre-selected." : ""}</p>
-    <div class="row"><button class="btn small" data-dna="Content">Content: didn't know it</button><button class="btn small" data-dna="Trap">Trap: got tricked</button><button class="btn small" data-dna="Time" ${slow ? 'aria-pressed="true"' : ""}>Time: too slow</button></div></div>`;
+    <div class="row"><button class="btn small" data-dna="Content">Didn't know it</button><button class="btn small" data-dna="Misread">Misread the question</button><button class="btn small" data-dna="Data">Misread the passage or graph</button><button class="btn small" data-dna="Trap">Fell for a trap</button><button class="btn small" data-dna="Time" ${slow ? 'aria-pressed="true"' : ""}>Ran out of time</button></div></div>`;
 }
 function wireDNA(rv, q, secs) {
   const box = $(".dna", rv);
@@ -2247,7 +2276,7 @@ function wireDNA(rv, q, secs) {
     $$("[data-dna]", box).forEach(b => b.setAttribute("aria-pressed", b.dataset.dna === type));
     save();
   };
-  box.addEventListener("click", e => { const b = e.target.closest("[data-dna]"); if (b) { log(b.dataset.dna); toast(`Logged as <b>${b.dataset.dna}</b>. It comes back in your Revenge queue tomorrow.`); } });
+  box.addEventListener("click", e => { const b = e.target.closest("[data-dna]"); if (b) { log(b.dataset.dna); toast(`Logged as <b>${DNA_NAME[b.dataset.dna] || b.dataset.dna}</b>. It comes back in your Revenge queue tomorrow.`); } });
   if (secs > 95) log("Time");
 }
 
@@ -2347,7 +2376,10 @@ function promoCard() {
 }
 function gateCard() {
   const el = document.createElement("article"); el.className = "card gate";
+  const best = CATS.filter(c => (S.cat[c[0]] || {}).a >= 5).map(c => [c[0], S.cat[c[0]].c / S.cat[c[0]].a]).sort((a, b) => b[1] - a[1])[0];
+  const gained = `You got ${S.totalCorrect} right${S.retired ? ` and cleared ${S.retired} old mistake${S.retired === 1 ? "" : "s"} for good` : ""}.${best ? ` Your best category so far is ${esc(best[0])} at ${Math.round(best[1] * 100)}%.` : ""}`;
   el.innerHTML = `<div class="eyebrow">Free questions used</div><p class="bigtext">You've opened all ${CONFIG.freeQuestions} free questions. Nice work.</p>
+    <p style="margin:0">${gained}</p>
     <p class="muted" style="margin:0">Your misses still come back here for review. Pick a plan to unlock all 5,904 questions, all 33 Mastery Sheets and all 150 mnemonics.</p>
     <div class="row"><button class="btn pro" data-pro>See plans, from ${esc(CONFIG.fromPrice)}</button></div>`;
   $("[data-pro]", el).addEventListener("click", showPro);
@@ -2418,6 +2450,7 @@ function showResults() {
   confetti(); beep("level");
   $("#view-results").innerHTML = `<div class="stack">
     <div><div class="eyebrow">Daily mission complete</div><h2 class="title">Done for today.</h2><p class="sub">Streak: <b style="color:var(--heat)">${streakAlive()} day${streakAlive() === 1 ? "" : "s"}</b>. Short daily sessions beat long cramming days.</p></div>
+    ${winsHTML()}
     <div class="grid2"><div class="panel stat"><b>${acc}%</b><span>session accuracy (${t.correct} of ${t.answered})</span></div><div class="panel stat"><b>${revCount()}</b><span>in your Revenge Queue (${miss} from today)</span></div></div>
     <div class="panel"><div class="row" style="justify-content:space-between"><h3>Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h3>${S.lv.pending ? `<button class="btn small primary" data-gate>Gatekeeper ready</button>` : ""}</div>${levelBarHTML()}</div>
     <div class="panel"><h3>Time per question</h3><p class="small muted">Today: <b style="color:var(--text)">${nowAvg} s</b> average.${pace}</p>${timeTrendSVG()}</div>
@@ -2425,6 +2458,15 @@ function showResults() {
     ${ankiRow()}
     <div class="subacts"><button class="linkbtn" data-more10>Not tired? Play another ${ROUND}</button><button class="linkbtn" data-share>Share my streak</button></div>
   </div>`;
+}
+// Today's wins come before accuracy: fixed mistakes and mastered questions are progress even on a low-accuracy day.
+function winsHTML() {
+  const t = S.today, fx = t.fixed || 0, ms = t.mastered || 0, pl = (n, w) => n + " " + w + (n === 1 ? "" : "s");
+  const lines = [];
+  if (fx) lines.push(`You fixed <b>${pl(fx, "old mistake")}</b>.`);
+  if (ms) lines.push(`<b>${pl(ms, "question")}</b> left your Revenge Queue for good.`);
+  lines.push(`You got <b>${t.correct}</b> right today.`);
+  return `<div class="panel wins"><h3>Today's wins</h3>${lines.map(l => `<p class="small" style="margin:4px 0">${l}</p>`).join("")}</div>`;
 }
 // Misses from this session only: wrong answers since the last review today (earlier days stay in the spaced Revenge Queue).
 function sessionMisses() { const done = S.today.reviewedIds || []; return S.today.missed.filter(id => anyQ(id) && !done.includes(id)); }
@@ -3003,7 +3045,7 @@ function donut(counts) {
   let a = 0; const R = 46, C = 2 * Math.PI * R;
   const arcs = counts.map(([n, v, col]) => { const len = v / tot * C, s = `<circle r="${R}" cx="60" cy="60" fill="none" stroke="${col}" stroke-width="18" stroke-dasharray="${len} ${C - len}" stroke-dashoffset="${-a}"/>`; a += len; return s; }).join("");
   const top = counts.slice().sort((x, y) => y[1] - x[1])[0][0];
-  const tip = { Content: "Mostly content gaps. Drill the red rows on the Map, starting with starred categories.", Trap: "Mostly traps. You know the material; slow down on answer choices and review the Trap Alert cards.", Time: "Mostly time. Run boss battles to train the 95-second pace, and flag anything past 2 minutes." }[top];
+  const tip = { "Content gap": "Mostly content gaps. Open the Mastery Sheet linked under each miss, then drill the red rows on the Map, starting with starred categories.", "Misread question": "Mostly misreads. Before you look at the choices, say in a few words what the question is asking. Watch for NOT, EXCEPT and LEAST.", "Passage or graph": "Mostly passage and graph misreads. Read the axis labels and units first, and find the line in the passage that answers the question before you pick.", Trap: "Mostly traps. You know the material; slow down on answer choices and review the Trap Alert cards.", Time: "Mostly time. Run boss battles to train the 95-second pace, and flag anything past 2 minutes." }[top] || "";
   return `<div class="donut"><svg viewBox="0 0 120 120" width="120" height="120" style="transform:rotate(-90deg)" role="img" aria-label="Error breakdown">${arcs}</svg>
     <div class="legend">${counts.map(([n, v, col]) => `<div><span style="background:${col}"></span>${n}: <b>${v}</b> (${Math.round(v / tot * 100)}%)</div>`).join("")}</div></div><p class="small">${tip}</p>`;
 }
@@ -3055,7 +3097,7 @@ function renderMe() {
   const L = levelOf(S.xp), acc = S.total ? Math.round(S.totalCorrect / S.total * 100) : 0;
   const ests = ["CP", "CARS", "BB", "PS"].map(s => [s, estimate(s)]);
   const tot = ests.every(e => e[1]) ? ests.reduce((a, e) => a + e[1], 0) : null;
-  const dnaCounts = ["Content", "Trap", "Time"].map((t, i) => [t, S.errors.filter(e => e.type === t).length, ["var(--cool)", "var(--bad)", "var(--heat)"][i]]);
+  const dnaCounts = [["Content", "Content gap"], ["Misread", "Misread question"], ["Data", "Passage or graph"], ["Trap", "Trap"], ["Time", "Time"]].map(([t, n], i) => [n, S.errors.filter(e => e.type === t).length, ["var(--cool)", "var(--pink-light)", "var(--green)", "var(--bad)", "var(--heat)"][i]]);
   const revN = Object.keys(S.revenge).length, dueN = Object.values(S.revenge).filter(r => r.due <= Date.now()).length;
   const C = 2 * Math.PI * 31, pct = Math.min(1, S.today.answered / S.goal);
   $("#view-me").innerHTML = `${todaySummaryHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Subscriber" : ""}</p>
