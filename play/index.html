@@ -1755,7 +1755,7 @@ function record(q, correct, secs) {
   S.today.secs.push(Math.round(sec)); if (S.today.secs.length > 300) S.today.secs.shift();
   if (!correct && !S.today.missed.includes(q.id)) S.today.missed.push(q.id);
   if (S.review && S.review.ids.includes(q.id) && !S.review.done.includes(q.id)) {
-    S.review.done.push(q.id); if (correct) S.review.right++; else S.review.wrong++;
+    S.review.done.push(q.id); (S.today.reviewedIds = S.today.reviewedIds || []).push(q.id); if (correct) S.review.right++; else S.review.wrong++;
     const rd = document.getElementById("revDone"); if (rd) rd.textContent = reviewDoneText();
     if (S.review.done.length >= S.review.ids.length) { S.today.reviewed = true; setTimeout(reviewPrompt, 900); }
   }
@@ -1824,7 +1824,7 @@ function renderFilters() {
   $("#filters").innerHTML = FILTERS.map(([k, n]) => `<button class="chipbtn" data-f="${k}" aria-pressed="${S.filter === k && !S.focus}">${n}</button>`).join("") +
     `<button class="chipbtn" data-k="passage" aria-pressed="${S.kind === "passage"}" title="Passage-based questions">Passages${kindCount("passage")}</button><button class="chipbtn" data-k="discrete" aria-pressed="${S.kind === "discrete"}" title="Stand-alone questions">Discrete${kindCount("discrete")}</button>` +
     (S.focus ? `<button class="chipbtn focus" data-f="clear" aria-pressed="false">Drilling ${esc(S.focus)}${S.sub ? " · " + esc(((SUBT[S.focus] || []).find(x => x.id === S.sub) || {}).label || S.sub) : ""} ✕</button>` : "") +
-    (S.review ? `<button class="chipbtn focus" data-f="endreview" aria-pressed="false">Reviewing today's mistakes ✕</button>` : "");
+    (S.review ? `<button class="chipbtn focus" data-f="endreview" aria-pressed="false">Reviewing this session's mistakes ✕</button>` : "");
 }
 $("#filters").addEventListener("click", e => {
   const k = e.target.closest("[data-k]");
@@ -2421,8 +2421,10 @@ function showResults() {
     <div class="subacts"><button class="linkbtn" data-more10>Not tired? Play another ${ROUND}</button><button class="linkbtn" data-share>Share my streak</button></div>
   </div>`;
 }
+// Misses from this session only: wrong answers since the last review today (earlier days stay in the spaced Revenge Queue).
+function sessionMisses() { const done = S.today.reviewedIds || []; return S.today.missed.filter(id => anyQ(id) && !done.includes(id)); }
 function startReview(only) {
-  const ids = (Array.isArray(only) ? only : S.today.missed).filter(id => anyQ(id));
+  const ids = Array.isArray(only) ? only.filter(id => anyQ(id)) : sessionMisses();
   if (!ids.length) return toast("No mistakes to review today.");
   S.review = { ids, done: [], queued: [], right: 0, wrong: 0 }; save();
   go("scroll"); resetFeed();
@@ -2458,11 +2460,11 @@ function doneDay() {
     if(perf) $("#view-me").scrollTop = perf.offsetTop ? perf.offsetTop - 10 : 200;
     else $("#view-me").scrollTop = 0;
     // New 4-option popup
-    const miss = S.today.missed.filter(id=>anyQ(id)).length;
+    const miss = sessionMisses().length;
     beep("level");
     sheet(`<div class="eyebrow">Done for the Day 🎉</div><h2>What would you like to do?</h2>
       <div class="stack">
-        ${S.today.reviewed ? "" : `<button class="btn primary" data-close data-review ${miss ? "" : "disabled"}>${miss ? `Review my answers (${miss} missed)` : "Review my answers (no misses today)"}</button>`}
+        ${S.today.reviewed && !miss ? "" : `<button class="btn primary" data-close data-review ${miss ? "" : "disabled"}>${miss ? `Review my answers (${miss} missed)` : "Review my answers (no misses this session)"}</button>`}
         <button class="btn" data-close data-goperf>Review my performance</button>
         <button class="btn" data-close>Stay in Me page / Browse</button>
         <button class="btn exitred" data-close data-exit>Exit</button>
