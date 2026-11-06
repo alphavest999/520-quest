@@ -1989,9 +1989,24 @@ function watchEnd() { endObs.disconnect(); const k = feed.children; if (k.length
 const SWIPE = `<div class="swipe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 14l6-6 6 6"/></svg>Swipe up</div>`;
 const diffDots = d => `<span class="diff" title="Difficulty ${d} of 3">${[1, 2, 3].map(i => `<i class="${i <= d ? "on" : ""}"></i>`).join("")}</span>`;
 function scrollToEl(t) { feed.scrollTo({ top: feed.scrollTop + t.getBoundingClientRect().top - feed.getBoundingClientRect().top - 8, behavior: reduce ? "auto" : "smooth" }); }
+// Explanations name choices by their bank letter ("Correct: B)", "(options A or C)").
+// After shuffling, relet() rewrites those letters to where each choice now sits,
+// leaving names like "Drug A" or "(Group B)" alone.
+const LNAMED = /\b(?:drug|group|hepatitis|protocol|condition|treatment|enhancer|strain|compound|region|site|type|patient|participant|subject|vitamin|plan|arm|cohort|sample|population|school|clinic|hospital|gene|mutant|diet|regimen|species|zone|tissue|formula|model|phase|stage|level|panel|figure|fig\.?|table|experiment|trial|study|batch|lot|peak|band|lane|point|mouse|rat|plant|cell|line|isoform|variant|allele|class|grade|substance|solution|tube|well|series|set|block|period|session|week|day|enzyme|protein|receptor|channel|factor|fraction|peptide|antibody|ligand|inhibitor|agent|hormone|virus|serotype|test|task|version|form|list|item|scenario|method|approach|program|intervention|exercise|supplement|school|site|unit|ward|lake|field|population|community|neighborhood|city|country|state|province|statement|hypothesis|claim)\s*$/i;
+function relet(s, ord) {
+  if (!s || typeof s !== "string" || !ord || !/[A-D]/.test(s)) return s;
+  const P = L => { const j = ord.indexOf("ABCD".indexOf(L)); return j < 0 ? L : String.fromCharCode(0xE000 + j); };
+  const list = t => { const ps = t.match(/[A-D]/g).map(P).sort(); let k = 0; return t.replace(/[A-D]/g, () => ps[k++]); };
+  const LIST = "([A-D](?:(?:,\\s*|,?\\s+(?:or|and)\\s+)[A-D])*)";
+  return s
+    .replace(new RegExp("\\b([Oo]ptions?|[Cc]hoices?|[Aa]nswers?)(\\s+)" + LIST + "\\b", "g"), (m, w, sp, t) => w + sp + list(t))
+    .replace(new RegExp("\\(" + LIST + "\\)", "g"), (m, t, i, all) => LNAMED.test(all.slice(Math.max(0, i - 24), i)) ? m : "(" + list(t) + ")")
+    .replace(/(^|[^\w(°\uE000-\uE003])([A-D])\)/g, (m, p, L, i, all) => LNAMED.test(all.slice(Math.max(0, i - 24), i + p.length)) ? m : p + P(L) + ")")
+    .replace(/[\uE000-\uE003]/g, c => "ABCD"[c.charCodeAt(0) - 0xE000]);
+}
 function shuf(q) {
-  const order = q.o.map((_, i) => i).sort(() => Math.random() - .5);
-  return Object.assign({}, q, { o: order.map(i => q.o[i]), a: order.indexOf(q.a), ord: order });
+  const order = q.o.map((_, i) => i).sort(() => Math.random() - .5), r = s => relet(s, order);
+  return Object.assign({}, q, { o: order.map(i => [q.o[i][0], r(q.o[i][1])].concat(q.o[i].slice(2))), a: order.indexOf(q.a), ord: order, x: r(q.x), note: r(q.note) });
 }
 function optsHTML(q) { return q.o.map((o, i) => `<button class="opt" data-i="${i}"><b>${"ABCD"[i]}</b><span>${o[0]}</span></button>`).join(""); }
 
@@ -2073,7 +2088,7 @@ function exEntry(q) {
   return (q.ex ? Promise.resolve({ [q.id]: q.ex }) : loadEx(exCat(q))).then(m => {
     if (m && m.__locked) return m.__locked.includes(q.id) ? "locked" : null;
     const x = m && m[q.id]; if (!x || !Array.isArray(x.ox) || x.ox.length !== q.o.length) return null;
-    return Object.assign({}, x, { ox: q.o.map((_, j) => x.ox[q.ord ? q.ord[j] : j]) });
+    return Object.assign({}, x, { ox: q.o.map((_, j) => relet(x.ox[q.ord ? q.ord[j] : j], q.ord)), trap: relet(x.trap, q.ord) });
   });
 }
 function figHTML(g) {
