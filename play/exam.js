@@ -115,6 +115,7 @@
       const e = X(); if (!e || e.phase !== "run" || e.paused) return stopTick();
       const s = secOf(), r = left(s), el = document.getElementById("xTimer");
       if (el) { el.textContent = fmt(r); el.classList.toggle("warn", r <= 300); el.classList.toggle("hot", r <= 60); }
+      const pe = document.getElementById("xPace"); if (pe && n % 15 === 0) { const it = items(X().id, s.s); pe.textContent = paceText(s, it.length, Math.min(s.i, it.length - 1)); pe.classList.toggle("behind", /^Behind/.test(pe.textContent)); }
       if (++n % 5 === 0) persistTime();
       if (r <= 0) { toast("Time is up for this section."); endSection(true); }
     }, 1000);
@@ -122,23 +123,48 @@
 
   function qView(it, i, total, s) {
     const q = it.q, id = q.id, a = s.ans[id], st = s.str[id] || [], p = it.p;
-    const firstOfP = p && (i === 0 || items(X().id, s.s)[i - 1].p !== p);
-    const pass = p ? `<details class="xpass" ${firstOfP ? "open" : ""}><summary>Passage${p.title ? "" : ""} (tap to ${firstOfP ? "collapse" : "expand"})</summary>
-      <div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}</details>` : "";
+    const firstOfP = p && (i === 0 || items(X().id, s.s)[i - 1].p !== p), wide = isWide(), hl = (s.hl || {})[p && p.id] || {};
+    const pass = p ? `<details class="xpass" ${firstOfP || wide ? "open" : ""}><summary>Passage${wide ? "" : ` (tap to ${firstOfP ? "collapse" : "expand"})`}</summary>
+      <p class="small muted xhlhelp">Select words in the passage, then tap Highlight.</p>
+      <div class="passage" data-xpid="${esc(p.id)}">${p.text.map((t, k) => `<p data-k="${k}">${hl[k] || esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}</details>` : "";
     const opts = q.o.map((o, k) => `<div class="xopt ${a === k ? "sel" : ""} ${st.includes(k) ? "struck" : ""}"><button class="xpick" data-xpick="${k}"><b>${"ABCD"[k]}</b><span>${o[0]}</span></button><button class="xstrike" data-xstrike="${k}" aria-label="Strike out option ${"ABCD"[k]}" title="Strike out">✕</button></div>`).join("");
-    return `${pass}<div class="panel"><h3 class="xq">${q.q}</h3>${tableHTML(q.vt, "vt")}<div class="xopts">${opts}</div></div>`;
+    return `<div class="xsplit ${pass ? "has" : ""}">${pass}<div class="panel"><h3 class="xq">${q.q}</h3>${tableHTML(q.vt, "vt")}<div class="xopts">${opts}</div></div></div>`;
   }
   function runView() {
     const e = X(), s = secOf(), it = items(e.id, s.s), n = it.length, i = Math.min(s.i, n - 1), cur = it[i];
     const flagged = !!s.flag[cur.q.id], r = left(s);
     const ans = Object.keys(s.ans).length;
     root().innerHTML = `<div class="xbar"><div class="xtimer ${r <= 300 ? "warn" : ""} ${r <= 60 ? "hot" : ""}" id="xTimer" aria-live="off">${fmt(r)}</div>
-      <div class="xmeta"><b>${SEC[s.s].name}</b><span class="small muted">Q ${i + 1} of ${n} · ${ans} answered</span></div>
-      <div class="xbtns"><button class="btn small ghost" data-xflag aria-pressed="${flagged}" title="Flag for review">${flagged ? "⚑ Flagged" : "⚐ Flag"}</button><button class="btn small ghost" data-xnav>☰</button><button class="btn small ghost" data-xpause>❚❚ Pause</button></div></div>
+      <div class="xmeta"><b>${SEC[s.s].name}</b><span class="small muted">Q ${i + 1} of ${n} · ${ans} answered</span><span class="small xpace ${/^Behind/.test(paceText(s, n, i)) ? "behind" : ""}" id="xPace">${paceText(s, n, i)}</span></div>
+      <div class="xbtns">${cur.p ? `<button class="btn small ghost" data-xhl title="Highlight selected words">Highlight</button>${(s.hl || {})[cur.p.id] ? `<button class="btn small ghost" data-xhlclear title="Clear highlights in this passage">Clear</button>` : ""}` : ""}<button class="btn small ghost" data-xflag aria-pressed="${flagged}" title="Flag for review">${flagged ? "⚑ Flagged" : "⚐ Flag"}</button><button class="btn small ghost" data-xnav>☰</button><button class="btn small ghost" data-xpause>❚❚ Pause</button></div></div>
       <div class="xbody" id="xBody">${qView(cur, i, n, s)}</div>
       <div class="xfoot"><button class="btn" data-xprev ${i === 0 ? "disabled" : ""}>← Previous</button>${i === n - 1 ? `<button class="btn primary" data-xend>End section</button>` : `<button class="btn primary" data-xnext>Next →</button>`}</div>`;
     setExamingClass();
     root().scrollTop = 0;
+  }
+  // Pace: where you should be by now at an even pace (about 95 s per science question).
+  function paceText(s, n, i) {
+    const tot = (meta(X().id).sections.find(x => x.s === s.s) || {}).min * 60 || 1, used = tot - left(s);
+    const k = Math.min(n, Math.max(1, Math.floor(used / (tot / n)) + 1));
+    return i + 1 >= k ? `On pace (target Q${k})` : `Behind: aim for Q${k}`;
+  }
+  // Phones can drop the selection when a button is tapped, so remember the last one made inside a passage.
+  let lastRange = null;
+  document.addEventListener("selectionchange", () => { const sel = window.getSelection(), n = sel && sel.anchorNode;
+    if (sel && !sel.isCollapsed && n && (n.nodeType === 1 ? n : n.parentElement).closest(".passage")) lastRange = sel.getRangeAt(0).cloneRange(); });
+  const isWide = () => window.matchMedia && matchMedia("(min-width: 900px)").matches;
+  // Wrap the selected words in <mark> and keep the paragraph's HTML so highlights survive moving between questions.
+  function highlight(clear) {
+    const s = secOf(), p = items(X().id, s.s)[s.i].p; if (!p) return;
+    s.hl = s.hl || {};
+    if (clear) { delete s.hl[p.id]; save(); return runView(); }
+    const sel = window.getSelection(), r = sel && !sel.isCollapsed ? sel.getRangeAt(0) : lastRange; lastRange = null;
+    if (!r || r.collapsed) return toast("Select some words in the passage first.");
+    const para = r.commonAncestorContainer.nodeType === 1 ? r.commonAncestorContainer.closest("p[data-k]") : r.commonAncestorContainer.parentElement.closest("p[data-k]");
+    if (!para || !para.closest(".passage")) return toast("Highlight works inside one paragraph at a time.");
+    const m = document.createElement("mark"); m.appendChild(r.extractContents()); r.insertNode(m); sel && sel.removeAllRanges();
+    (s.hl[p.id] = s.hl[p.id] || {})[para.dataset.k] = para.innerHTML; save();
+    const y = root().scrollTop; runView(); root().scrollTop = y;
   }
   function goto(i) { const s = secOf(); s.i = i; save(); runView(); }
   function pauseView() {
@@ -265,6 +291,8 @@
     if (g("[data-xprev]")) return goto(Math.max(0, secOf().i - 1));
     if (g("[data-xnext]")) return goto(secOf().i + 1);
     if ((b = g("[data-xpick]"))) { const s = secOf(), q = items(X().id, s.s)[s.i].q, k = +b.dataset.xpick; if (s.ans[q.id] === k) delete s.ans[q.id]; else s.ans[q.id] = k; save(); return runView(); }
+    if (g("[data-xhl]")) return highlight();
+    if (g("[data-xhlclear]")) return highlight(true);
     if ((b = g("[data-xstrike]"))) { const s = secOf(), id = items(X().id, s.s)[s.i].q.id, k = +b.dataset.xstrike, a = s.str[id] = s.str[id] || []; const j = a.indexOf(k); if (j < 0) a.push(k); else a.splice(j, 1); save(); const y = root().scrollTop; runView(); root().scrollTop = y; return; }
     if (g("[data-xflag]")) { const s = secOf(), id = items(X().id, s.s)[s.i].q.id; if (s.flag[id]) delete s.flag[id]; else s.flag[id] = 1; save(); const y = root().scrollTop; runView(); root().scrollTop = y; return; }
     if (g("[data-xnav]")) return navView();
@@ -302,6 +330,15 @@
 .xpass { margin-bottom: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; }
 .xpass summary { font: 700 13px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--volt); cursor: pointer; padding: 4px 0; }
 .xpass[open] summary { margin-bottom: 8px; }
+.xpace { color: var(--good); } .xpace.behind { color: var(--heat); }
+.xpass mark { background: #fde68a; color: inherit; border-radius: 3px; padding: 0 1px; }
+.xhlhelp { margin: 0 0 6px; }
+@media (min-width: 900px) {
+  .examing .app { max-width: 1240px; }
+  .xsplit.has { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+  .xsplit.has .xpass { position: sticky; top: 70px; max-height: calc(100vh - 170px); overflow: auto; margin: 0; }
+  .xsplit.has .xpass summary { pointer-events: none; }
+}
 .xq { font-size: 17px; line-height: 1.45; margin: 0 0 12px; }
 .xopts { display: grid; gap: 8px; }
 .xopt { display: flex; gap: 6px; align-items: stretch; }
