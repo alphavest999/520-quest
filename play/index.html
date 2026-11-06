@@ -2112,7 +2112,7 @@ function wireQuestion(scope, q, card) {
     if (ok && S.combo >= 3) { const c = document.createElement("div"); c.className = "combo"; c.textContent = S.combo + " COMBO"; card.appendChild(c); setTimeout(() => c.remove(), 1400); }
     const rv = $(".reveal", scope); rv.hidden = false;
     rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` + (confNote ? `<div class="note">${confNote}</div>` : "") +
-      (ok ? (q.x ? `<div class="note">${esc(q.x)}</div>` : "") + (q.note ? `<div class="note">${esc(q.note)}</div>` : "") : explainHTML(q, i)) +
+      (ok ? (q.x ? `<div class="note">${esc(splitX(q.x).main || q.x)}</div>` : "") + (q.note ? `<div class="note">${esc(q.note)}</div>` : "") : explainHTML(q, i)) +
       (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next card</button>${ok ? "" : ankiBtn(q) + '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}</div>`;
     const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
     const nb = $("[data-next]", rv); if (sib) nb.textContent = "Next question";
@@ -2236,13 +2236,50 @@ function richExplainHTML(q, i, x) {
     (x.trap ? `<p class="trapline"><b>The trap:</b> ${e(x.trap)}</p>` : "") +
     (refs.length ? `<h5>Learn more</h5><ul class="refs">${refs.map(r => `<li><a href="${e(r.u)}" target="_blank" rel="noopener">${e(r.t || r.u)}</a></li>`).join("")}</ul>` : "");
 }
-// Fallback "full explanation" for questions without a rich write-up: the solution plus the reasoning for every choice.
-function basicFullHTML(q) {
-  const L = "ABCD", e = esc, why = t => String(t || "").replace(/^(Correct|Incorrect|Wrong)[:.]?\s*/i, "").trim();
-  const others = q.o.map((_, j) => j).filter(j => j !== q.a && why(q.o[j][1]) && !/^not the best answer$/i.test(why(q.o[j][1])));
-  return `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4>${why(q.o[q.a][1]) && why(q.o[q.a][1]) !== q.x ? `<p>${e(why(q.o[q.a][1]))}</p>` : ""}${q.x ? `<p>${e(q.x)}</p>` : ""}` +
-    (others.length ? `<h5>Why the other choices are wrong</h5>${others.map(j => `<p><b>${L[j]}. ${e(q.o[j][0])}</b><br>${e(why(q.o[j][1]))}</p>`).join("")}` : "") +
-    (q.note ? `<p class="muted"><b>Takeaway:</b> ${e(q.note)}</p>` : "");
+// Passage explanations are one block of text: "Correct: B) ... Why the others are wrong: A) ... C) ... Trap: ...".
+// splitX() pulls out the main reason, each other choice's reason (by its current letter) and the trap.
+function splitX(x) {
+  let s = String(x || "").trim(), trap = "", why = "", m;
+  if ((m = s.match(/^([\s\S]*?)\s*\bTrap:\s*([\s\S]*)$/i))) { s = m[1]; trap = m[2]; }
+  if ((m = s.match(/^([\s\S]*?)\s*Why the others are wrong:\s*([\s\S]*)$/i))) { s = m[1]; why = m[2]; }
+  s = s.replace(/^Correct[:.]?\s*/i, "").replace(/^[A-D]\)\s*/, "");
+  const per = {};
+  if (/^[A-D]\)/.test(why)) {
+    const bits = why.split(/(?:^|\s)([A-D])\)\s+/);
+    for (let k = 1; k < bits.length; k += 2) per[bits[k]] = bits[k + 1].trim().replace(/^./, c => c.toUpperCase());
+    why = "";
+  }
+  return { main: s.trim(), why: why.trim(), per, trap: trap.trim() };
+}
+// A tip for this kind of question, picked from the wording of the stem.
+function tipFor(q) {
+  const t = String(q.q || "").toLowerCase(), nums = q.o.filter(o => /^[\s\d.,×x^⁻⁰-⁹eE+\-−–~≈<>%/()]+(?:\s*\S{0,14})?$/.test(o[0]) && /\d/.test(o[0])).length >= 3;
+  if (/\b(not|except|least|incorrect|false|conceptual error)\b/.test(t)) return "In a NOT, EXCEPT or LEAST question, three choices are true. Mark each one true or false as you go and pick the one that doesn't fit.";
+  if (q.s === "CARS" || /\bauthor|main idea|primary purpose|passage suggests|tone\b/.test(t)) return "Answer from the passage, not from what you already believe. The right choice matches the author's actual claim and tone. Wrong ones usually go too far, flip the author's view, or use the passage's words to say something it never said.";
+  if (/independent variable|dependent variable|\bcontrol\b/.test(t)) return "Ask three things: what did the researchers set on purpose (independent), what did they measure (dependent), and what did they keep the same (controls)?";
+  if (nums || /calculat|how many|ratio|\bfactor\b|fold|what (?:velocity|concentration|value|percent)|estimate/.test(t)) return "Write the formula first, round the numbers, and keep the units with every step. Wrong choices are usually what you get from one slip, like the wrong baseline, a flipped ratio or a skipped step, so check yours against them.";
+  if (/design|best test|best allow|would the researchers|determine whether|to test/.test(t)) return "The best design changes one thing and keeps a proper control. Cross off any design that changes two things at once or has nothing to compare against.";
+  if (/table|graph|figure|trend|data|result/.test(t)) return "Find the exact row, column or curve the question points to before you read the choices, then check each choice against the real numbers.";
+  if (/conclusion|support|infer|hypothes|strengthen|weaken|assum|consistent/.test(t)) return "The right answer stays inside what the results show. Cross off choices that go further than the data, mix up cause and correlation, or bring in something the study never tested.";
+  if (/predict|most likely|would happen|expected|\bif\b/.test(t)) return "Follow the change one step at a time and say the result in your own words before you look at the choices.";
+  if (/^why\b|explain|mechanism|role|because/.test(t)) return "Look for the choice that gives the cause. A choice can be a true fact and still not answer the why.";
+  return "Answer it in your own words before you read the choices, then pick the one that matches. Wrong choices are often true facts that answer a different question.";
+}
+// Fallback "full explanation" for questions without a rich write-up: why the answer is right, why each other
+// choice is wrong (when the bank has it), the concept tested, the trap and a tip for this kind of question.
+function basicFullHTML(q, i = -1) {
+  const L = "ABCD", e = esc, X = splitX(q.x), picked = i >= 0 && i !== q.a;
+  const real = t => { t = String(t || "").replace(/^(Correct|Incorrect|Wrong)[:.]?\s*/i, "").trim(); return /^(not the best answer)?$/i.test(t) ? "" : t.replace(/^./, c => c.toUpperCase()); };
+  const reason = j => real(q.o[j][1]) || X.per[L[j]] || "";
+  const top = real(q.o[q.a][1]), c = typeof conceptOf === "function" ? conceptOf(q) : null;
+  const others = q.o.map((_, j) => j).filter(j => j !== q.a && j !== i && reason(j));
+  return `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4>${top && top !== X.main ? `<p>${e(top)}</p>` : ""}${X.main ? `<p>${e(X.main)}</p>` : ""}` +
+    (picked ? `<h4 class="miss">Your answer: ${L[i]}. ${e(q.o[i][0])}</h4>${reason(i) ? `<p>${e(reason(i))}</p>` : ""}` : "") +
+    (others.length ? `<h5>Why the other choices are wrong</h5>${others.map(j => `<p><b>${L[j]}. ${e(q.o[j][0])}</b><br>${e(reason(j))}</p>`).join("")}`
+      : X.why ? `<h5>Why the other choices are wrong</h5><p>${e(X.why)}</p>` : "") +
+    ((c && c.t) || q.note ? `<h5>Key concept</h5>${c && c.t ? `<p>${e(c.t)} <span class="muted small">(Mastery Sheet ${e(c.sh)}, Concept ${c.n})</span></p>` : ""}${q.note ? `<p>${e(q.note)}</p>` : ""}` : "") +
+    (X.trap ? `<p class="trapline"><b>The trap:</b> ${e(X.trap)}</p>` : "") +
+    `<h5>How to spot it next time</h5><p>${e(tipFor(q))}</p>`;
 }
 // Upgrade a revealed explanation once its category file arrives.
 // Wrong answer: the full (rich) explanation replaces the short one. Right answer: the short one stays, and
@@ -2250,7 +2287,7 @@ function basicFullHTML(q) {
 function upgradeExplain(rv, q, i, ok, conf) {
   exEntry(q).then(x => {
     if (!rv.isConnected) return;
-    if (!x) { if (ok) x = { basic: true }; else return; }   // no full write-up for this question: the guess button still opens every choice's reasoning
+    if (!x) x = { basic: true };   // no full write-up for this question: build one from the bank's own reasons
     const row = $(".row", rv), put = el => row ? row.parentNode.insertBefore(el, row) : rv.appendChild(el);
     if (x === "locked") {
       const d = document.createElement("div"); d.className = "exlock";
@@ -2258,7 +2295,7 @@ function upgradeExplain(rv, q, i, ok, conf) {
       return put(d);
     }
     const box = $(".explain", rv);
-    if (!ok && box) { box.classList.add("rich"); box.innerHTML = richExplainHTML(q, i, x); renderKx(box); return; }
+    if (!ok && box) { box.classList.add("rich"); box.innerHTML = x.basic ? basicFullHTML(q, i) : richExplainHTML(q, i, x); renderKx(box); return; }
     if (!ok) return;
     const full = document.createElement("div"); full.className = "explain rich"; full.hidden = true; full.innerHTML = x.basic ? basicFullHTML(q) : richExplainHTML(q, i, x);
     const gb = document.createElement("button"); gb.className = "btn small ghost"; gb.dataset.guessbtn = "1"; gb.textContent = "Did you guess? Show the full explanation";
