@@ -247,6 +247,9 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 .conf button[aria-pressed="true"] { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); }
 .conf.locked button { pointer-events: none; opacity: .7; }
 .wins { border-left: 3px solid var(--good); }
+.mainidea { display: grid; gap: 6px; margin: 12px 0 4px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 12px; }
+.mainidea textarea { width: 100%; font: inherit; font-size: 14px; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel-2); color: var(--text); resize: vertical; }
+.sv-recall { margin: 10px 0 18px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 12px; }
 .reportq { display: inline-block; margin-top: 6px; font-size: 12.5px; color: var(--muted); }
 .dna { display: grid; gap: 8px; padding: 12px; border-radius: 12px; background: var(--ink); border: 1px dashed var(--line); }
 .dna p { margin: 0; font-size: 14px; color: var(--muted); }
@@ -1524,7 +1527,7 @@ const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.js
 function fresh() {
   return { v: 1, xp: 0, combo: 0, bestCombo: 0, chest: 0, hints: 1, freezes: 1, pro: false, sound: true, music: "on", goal: 25,
     streak: { count: 0, last: null }, today: { date: todayKey(), answered: 0, correct: 0, bosses: 0, goalShown: false },
-    stats: {}, cat: {}, recent: { CP: [], CARS: [], BB: [], PS: [] }, revenge: {}, errors: [], facts: {}, traps: {},
+    stats: {}, cat: {}, recent: { CP: [], CARS: [], BB: [], PS: [] }, recentP: { CP: [], CARS: [], BB: [], PS: [] }, revenge: {}, errors: [], facts: {}, traps: {},
     fl: [], anki: [], badges: {}, bossWins: {}, retired: 0, total: 0, totalCorrect: 0, filter: "ALL", focus: null,
     lv: { level: 1, block: [], evals: [], qual: 1, pending: 0 }, tlog: {}, welcome: null, resume: null, lastTab: "scroll", review: null, fanfare: true };
 }
@@ -1767,6 +1770,8 @@ function record(q, correct, secs) {
   }
   levelTick(q, correct);
   const rec = S.recent[q.s]; rec.push([correct ? 1 : 0, q.d]); if (rec.length > 60) rec.shift();
+  // Passage questions feed the score estimate: they are what the real exam is made of.
+  if (q.pid) { const rp = (S.recentP = S.recentP || { CP: [], CARS: [], BB: [], PS: [] })[q.s]; if (rp) { rp.push([correct ? 1 : 0, q.d]); if (rp.length > 80) rp.shift(); } }
   S.total++; S.today.answered++;
   if (correct) { S.totalCorrect++; S.today.correct++; }
   const rv = S.revenge[q.id];
@@ -1905,7 +1910,7 @@ function resumeQ() {
 function nextCard() {
   if (S.review) {
     const R = S.review, id = R.ids.find(x => !R.done.includes(x) && !R.queued.includes(x));
-    if (id && anyQ(id)) { R.queued.push(id); return questionCard(anyQ(id), true); }
+    if (id && anyQ(id)) { R.queued.push(id); return questionCard(anyQ(id), R.kind !== "check"); }
     if (reviewEnded) return null; reviewEnded = true; return reviewDoneCard();
   }
   if (overFree()) { const q = freeReview(); if (q) { sessionSeen.add(q.id); cardN++; return questionCard(q, true); } if (gateShown) return null; gateShown = true; return gateCard(); }
@@ -2021,6 +2026,39 @@ function shuf(q) {
   const order = q.o.map((_, i) => i).sort(() => Math.random() - .5), r = s => relet(s, order);
   return Object.assign({}, q, { o: order.map(i => [q.o[i][0], r(q.o[i][1])].concat(q.o[i].slice(2))), a: order.indexOf(q.a), ord: order, x: r(q.x), note: r(q.note) });
 }
+// Daily reminder as a calendar file: a repeating event with an alert, so it works with the app closed and needs no server.
+function reminderICS(time) {
+  const [h, m] = (time || "19:00").split(":").map(n => +n || 0), d = new Date(); d.setHours(h, m, 0, 0);
+  const p = n => String(n).padStart(2, "0"), loc = x => `${x.getFullYear()}${p(x.getMonth() + 1)}${p(x.getDate())}T${p(x.getHours())}${p(x.getMinutes())}00`;
+  const end = new Date(d.getTime() + 20 * 60000), now = new Date();
+  const stamp = `${now.getUTCFullYear()}${p(now.getUTCMonth() + 1)}${p(now.getUTCDate())}T${p(now.getUTCHours())}${p(now.getUTCMinutes())}00Z`;
+  return ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//520 Quest//Daily reminder//EN", "BEGIN:VEVENT",
+    `UID:520quest-daily-${Date.now()}@520quest.com`, `DTSTAMP:${stamp}`, `DTSTART:${loc(d)}`, `DTEND:${loc(end)}`, "RRULE:FREQ=DAILY",
+    "SUMMARY:520 Quest: today's questions", `DESCRIPTION:Your questions for today are ready. https://520quest.com/play/`,
+    "BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:520 Quest: today's questions", "TRIGGER:PT0M", "END:VALARM",
+    "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+}
+document.addEventListener("click", e => {
+  if (!e.target.closest("[data-reminder]")) return;
+  const t = ($("#remTime") || {}).value || "19:00"; S.remTime = t; save();
+  const url = URL.createObjectURL(new Blob([reminderICS(t)], { type: "text/calendar" }));
+  const a = Object.assign(document.createElement("a"), { href: url, download: "520-quest-reminder.ics" });
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 4000);
+  toast("Open the downloaded file to add the reminder to your calendar.");
+});
+// "I still don't get it": two easier questions on the same idea go in right after this card.
+function stuck(q, card, btn) {
+  const sub = stOf(q), seen = id => sessionSeen.has(id) || (S.stats[id] && S.stats[id].c);
+  const pool = QUESTIONS.filter(x => x.id !== q.id && x.c === q.c && (x.d || 2) <= (q.d || 2) && !seen(x.id) && canOpen(x));
+  const pick = pool.filter(x => sub !== undefined && stOf(x) === sub).concat(pool.filter(x => sub === undefined || stOf(x) !== sub))
+    .sort((a, b) => (a.d || 2) - (b.d || 2)).slice(0, 2);
+  btn.disabled = true;
+  if (!pick.length) { btn.textContent = "No easier ones left"; return toast("Open the Mastery Sheet link above for the full concept."); }
+  let at = card;
+  pick.forEach(x => { sessionSeen.add(x.id); const c = questionCard(x, false); at.after(c); io.observe(c); at = c; });
+  btn.textContent = pick.length === 1 ? "An easier one is next" : "Two easier ones are next";
+  toast("Try these next. The sheet link above walks through the idea.");
+}
 // "Something wrong with this question?" opens an email with the question id filled in.
 function reportLinkHTML(q) {
   const body = `Question ID: ${q.id}\nQuestion: ${String(q.q).replace(/<[^>]+>/g, "").slice(0, 160)}\n\nWhat's wrong:\n`;
@@ -2074,7 +2112,7 @@ function wireQuestion(scope, q, card) {
     const rv = $(".reveal", scope); rv.hidden = false;
     rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` + (confNote ? `<div class="note">${confNote}</div>` : "") +
       (ok ? (q.x ? `<div class="note">${esc(q.x)}</div>` : "") + (q.note ? `<div class="note">${esc(q.note)}</div>` : "") : explainHTML(q, i)) +
-      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next card</button>${ok ? "" : ankiBtn(q)}</div>`;
+      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next card</button>${ok ? "" : ankiBtn(q) + '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}</div>`;
     const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
     const nb = $("[data-next]", rv); if (sib) nb.textContent = "Next question";
     nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
@@ -2083,6 +2121,7 @@ function wireQuestion(scope, q, card) {
     const sl = sheetLinkHTML(q) + mnLinkHTML(q); if (sl) $(".row", rv).insertAdjacentHTML("beforebegin", sl);
     rv.insertAdjacentHTML("beforeend", reportLinkHTML(q));
     const ab = $("[data-addanki]", rv); if (ab) ab.addEventListener("click", () => addAnki(q, ab));
+    const sb = $("[data-stuck]", rv); if (sb) sb.addEventListener("click", () => stuck(q, card, sb));
     const h = $("[data-hint]", scope); if (h) h.disabled = true;
   });
   const hint = $("[data-hint]", scope);
@@ -2340,11 +2379,30 @@ function passageCard(p) {
   const n = p.qs.length, sci = p.s !== "CARS";
   el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[p.s].name}</span>${sci ? `<span class="tag">${esc(p.c)}${CAT[p.c] && CAT[p.c].hy ? " ★" : ""}</span>` : ""}<span class="tag">Passage + ${n} questions</span><button class="btn small primary qjump" data-jump style="margin-left:auto">Jump to questions ↓</button></div>
     <h2 class="stem">${esc(p.title)}</h2><p class="muted small" style="margin:0">Read the passage, then answer the ${n} questions below it.</p><div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}
+    ${sci ? "" : `<div class="mainidea" data-mibox><label class="small"><b>Before the questions:</b> what's the author's main point, in one line?</label><textarea rows="2" data-mi placeholder="The author argues that…">${esc((S.mi || {})[p.id] || "")}</textarea><div class="row"><button class="btn small" data-misave>Lock it in</button></div></div>`}
     <div class="qhead" data-qhead>Questions 1–${n}</div>` +
     p.qs.map((q, i) => `<div class="pq" data-q="${i}"><div class="card-top"><span class="tag sec">Q${i + 1} of ${n}</span><span class="tag">${QKIND[q.k || q.c] || ""}</span>${diffDots(q.d)}${q.t ? `<span class="muted small" style="margin-left:auto">Avg solve time: ${+q.t} sec</span>` : ""}</div>${passBtnHTML(p)}<h3>${q.q}</h3>${tableHTML(q.vt, "vt")}<div class="opts">${optsHTML(q)}</div><div class="reveal stack" hidden></div></div>`).join("") + SWIPE;
   p.qs.forEach((q, i) => wireQuestion($(`[data-q="${i}"]`, el), q, el));
   $("[data-jump]", el).addEventListener("click", () => scrollToEl($("[data-qhead]", el)));
+  if (!sci) wireMainIdea(el, p);
   return el;
+}
+// The passage's own main-idea question (when it has one) gives the model line to compare against.
+const MI_RE = /main (idea|point|thesis|argument)|central (idea|thesis|argument|claim)|primary purpose|best (summarizes|expresses)/i;
+function wireMainIdea(el, p) {
+  const box = $("[data-mibox]", el); if (!box) return;
+  const lock = () => { const t = $("[data-mi]", box).value.trim(); if (!t) return toast("Write one line first. Rough is fine.");
+    (S.mi = S.mi || {})[p.id] = t; save(); box.innerHTML = `<p class="small" style="margin:0"><b>Your main idea:</b> ${esc(t)}</p>`; };
+  $("[data-misave]", box).addEventListener("click", lock);
+  el.addEventListener("click", e => {
+    if (!e.target.closest(".opt") || box.dataset.compared) return;
+    setTimeout(() => {
+      if (box.dataset.compared || $$(".opts", el).some(o => !o.dataset.done)) return;
+      box.dataset.compared = 1;
+      const mq = p.qs.find(q => MI_RE.test(q.q)), mine = (S.mi || {})[p.id];
+      box.insertAdjacentHTML("beforeend", `<div class="explain" style="margin-top:8px">${mine ? `<p><b>Your line:</b> ${esc(mine)}</p>` : ""}${mq ? `<p><b>The passage's main idea:</b> ${esc(mq.o[mq.a][0])}</p>` : ""}<p class="small muted" style="margin:0">A strong main idea names the author's view and attitude, not just the topic. If yours only named the topic, try adding what the author thinks about it.</p></div>`);
+    }, 60);
+  });
 }
 function factCard() {
   const i = factI++ % FACTS.length, [s, t] = FACTS[i];
@@ -2407,6 +2465,7 @@ function showRound(r, first) {
 function reviewPrompt() {
   if ($("#sheetHost .scrim")) return;
   const R = S.review || { right: 0, wrong: 0 };
+  if (R.kind === "check") return checkDone();
   beep("level");
   sheet(`<div class="eyebrow">Review complete</div><h2>${R.right} mastered, ${R.wrong} still in your Revenge Queue.</h2>
     <p class="muted">Anything you missed again comes back on a 1, 3 and 7 day schedule.</p>
@@ -2478,6 +2537,7 @@ function startReview(only) {
 }
 function reviewDoneText() {
   const R = S.review; if (!R) return "";
+  if (R.kind === "check") { const l = R.ids.length - R.done.length; return l ? `${l} question${l === 1 ? "" : "s"} left in your starting check.` : "Starting check done. Your results are on the Me page."; }
   const left = R.ids.length - R.done.length;
   return left ? `${left} question${left === 1 ? "" : "s"} above still to answer.` : `${R.right} question${R.right === 1 ? "" : "s"} mastered, ${R.wrong} still in queue. See you tomorrow.`;
 }
@@ -2524,6 +2584,98 @@ function showPerf() {
   $("#view-me").scrollTop = 0;
   const g = $("#goalPanel"); if (g) { g.classList.remove("flash"); void g.offsetWidth; g.classList.add("flash"); }
 }
+/* ---------- Your plan: test date + hours a week -> what to do today ---------- */
+const PLAN_HOURS = [5, 10, 15, 20, 30];
+const niceDate = k => new Date(k + "T12:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+// CARS accuracy by the AAMC's three question types (S.cat already tracks CF / CW / CB).
+function carsTypesHTML() {
+  const t = [["CF", "Comprehension"], ["CW", "Reasoning within"], ["CB", "Reasoning beyond"]].map(([k, n]) => { const c = S.cat[k] || { a: 0, c: 0 }; return [k, n, c.a, c.a ? Math.round(c.c / c.a * 100) : null]; });
+  if (!t.some(x => x[2])) return "";
+  const ok = t.filter(x => x[2] >= 5).sort((a, b) => a[3] - b[3]), w = ok[0];
+  const tip = !w ? "Answer a few more CARS passages to see which question type costs you most." :
+    { CF: "Comprehension misses usually mean the passage went by too fast. Write your one-line main idea before the questions, and go back to the exact line before you answer.",
+      CW: "Reasoning-within misses usually come from answers that are true but don't do what the question asks. Ask what the author would say, not what you think.",
+      CB: "Reasoning-beyond misses come from not carrying the author's logic to a new case. Name the author's principle first, then apply it to the new situation." }[w[0]];
+  return `<div class="panel"><h3>CARS by question type</h3><div class="grid2">${t.map(([k, n, a, p]) => `<div class="stat"><b>${p === null ? "–" : p + "%"}</b><span>${n} (${a})</span></div>`).join("")}</div><p class="small" style="margin:8px 0 0">${tip}</p></div>`;
+}
+function planDays() { if (!S.testDate) return null; return Math.ceil((new Date(S.testDate + "T12:00:00") - new Date()) / DAY); }
+// About half the study time goes to questions at roughly 2 minutes each including review; the rest to sheets, review and exams.
+function planGoal() { return Math.max(15, Math.min(60, Math.round((S.hoursWk || 10) * 60 / 7 / 2 / 2 / 5) * 5)); }
+function planSheet() {
+  const w = weakAreas("ALL", 1)[0]; if (w) return w;
+  const b = S.baseline && S.baseline.weak; if (b) return b;
+  return "1A";
+}
+function planPhase(d) {
+  if (d === null) return "";
+  if (d < 0) return "Your test date has passed. Set a new one if you're retaking.";
+  if (d <= 7) return "Final week: light review, one last half-length early in the week, then rest the day before.";
+  if (d <= 28) return "Final month: one full-length a week, and spend the next day reviewing every question you missed or guessed.";
+  if (d <= 56) return "Two months out: a full-length every two weeks, with daily questions and your weakest sheets in between.";
+  return "Building phase: daily questions plus one Mastery Sheet concept a day. Start full-lengths about two months out.";
+}
+function planLine() {
+  if (!S.testDate) return "";
+  const due = Object.values(S.revenge).filter(r => r.due <= Date.now()).length;
+  return `Today's plan: ${due ? due + " Revenge due, " : ""}${planGoal()} new questions, Mastery Sheet ${esc(planSheet())}`;
+}
+function planHTML() {
+  if (!S.testDate || S.planEdit) {
+    return `<div class="panel" id="planPanel"><h3>Your plan</h3><p class="small" style="margin:0 0 8px">Tell us when your MCAT is and how much time you have. We'll turn it into a short list for each day.</p>
+      <div class="row"><label class="small">Test date <input type="date" id="planDate" value="${esc(S.testDate || "")}"></label>
+      <label class="small">Hours a week <select id="planHours">${PLAN_HOURS.map(h => `<option value="${h}" ${(S.hoursWk || 10) === h ? "selected" : ""}>${h === 30 ? "30+" : h}</option>`).join("")}</select></label>
+      <button class="btn small primary" data-plansave>Save</button></div></div>`;
+  }
+  const d = planDays(), due = Object.values(S.revenge).filter(r => r.due <= Date.now()).length, g = planGoal(), sh = planSheet();
+  const meta = SHEETS && SHEETS.find(x => x.id === sh);
+  const base = S.baseline ? `<p class="small muted" style="margin:8px 0 0">Starting check (${esc(niceDate(S.baseline.date))}): <b>${S.baseline.acc}%</b>${S.baseline.by ? " · " + Object.entries(S.baseline.by).map(([k, v]) => `${esc(SECTIONS[k].name)} ${v}%`).join(", ") : ""}. Your overall accuracy now: <b>${S.total ? Math.round(S.totalCorrect / S.total * 100) : 0}%</b>.</p>`
+    : `<div class="row" style="margin-top:8px"><button class="btn small" data-startcheck>Take the 30-question starting check</button></div><p class="small muted" style="margin:4px 0 0">Mixed questions from all three science sections. It shows where you're starting and picks your first weak areas.</p>`;
+  return `<div class="panel" id="planPanel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Your plan</h3><button class="linkbtn small" data-planedit>Change</button></div>
+    <p class="small" style="margin:0 0 6px">${d >= 0 ? `<b>${d} day${d === 1 ? "" : "s"}</b> to test day (${esc(niceDate(S.testDate))}).` : ""} ${planPhase(d)}</p>
+    <ol class="small" style="margin:6px 0 0;padding-left:20px">
+      ${due ? `<li>Clear your <b>${due}</b> due Revenge question${due === 1 ? "" : "s"} first.</li>` : ""}
+      <li><b>${g}</b> new questions${S.goal === g ? "" : ` <button class="linkbtn" data-plangoal="${g}">Make this my daily goal</button>`}</li>
+      <li>One concept from <button class="linkbtn" data-sheet="${esc(sh)}">Mastery Sheet ${esc(sh)}${meta ? ": " + esc(meta.title) : ""}</button>, then its Check yourself questions.</li>
+    </ol>${base}</div>`;
+}
+// 30 questions, 10 per science section, spread across categories, medium difficulty, not seen before.
+function startCheck() {
+  const ids = [];
+  ["CP", "BB", "PS"].forEach(sec => {
+    const cats = CATS.filter(c => c[2] === sec).map(c => c[0]), by = {};
+    QUESTIONS.filter(q => q.s === sec && (q.d || 2) === 2 && !S.stats[q.id] && canOpen(q) && !isExamId(q.id)).forEach(q => (by[q.c] = by[q.c] || []).push(q.id));
+    let k = 0, guard = 0; const out = [];
+    while (out.length < 10 && guard++ < 400) { const c = cats[k++ % cats.length], l = by[c]; if (l && l.length) out.push(l.splice(Math.floor(Math.random() * l.length), 1)[0]); }
+    ids.push(...out);
+  });
+  if (!ids.length) return toast("No new questions left for a starting check.");
+  S.review = { kind: "check", ids: ids.sort(() => Math.random() - .5), done: [], queued: [], right: 0, wrong: 0, t0: Date.now() }; save();
+  go("scroll"); resetFeed(); toast("Starting check: 30 questions. No hints, just your best answer.");
+}
+function checkDone() {
+  const R = S.review; if (!R) return;
+  const by = {}, tally = {};
+  R.ids.forEach(id => { const q = anyQ(id), st = S.stats[id]; if (!q || !st) return; const t = tally[q.s] = tally[q.s] || [0, 0]; t[1]++; if (st.c) t[0]++;
+    const c = by[q.c] = by[q.c] || [0, 0]; c[1]++; if (st.c) c[0]++; });
+  const n = Object.values(tally).reduce((a, t) => a + t[1], 0), r = Object.values(tally).reduce((a, t) => a + t[0], 0);
+  const weak = Object.entries(by).sort((a, b) => a[1][0] / a[1][1] - b[1][0] / b[1][1])[0];
+  S.baseline = { date: todayKey(), acc: n ? Math.round(r / n * 100) : 0, by: Object.fromEntries(Object.entries(tally).map(([k, t]) => [k, Math.round(t[0] / t[1] * 100)])), weak: weak && weak[0] };
+  save(); beep("level");
+  sheet(`<div class="eyebrow">Starting check done</div><h2>${r} of ${n} right (${S.baseline.acc}%).</h2>
+    <p class="muted">This is your starting line, not a score. Your misses are already in your Revenge Queue, and your plan on the Me page now starts with ${esc(S.baseline.weak || "your weakest area")}.</p>
+    <div class="row"><button class="btn primary" data-close data-gome>See my plan</button><button class="btn" data-close data-more10>Do ${ROUND} more questions</button></div>`);
+}
+document.addEventListener("click", e => {
+  if (e.target.closest("[data-plansave]")) {
+    const d = ($("#planDate") || {}).value, h = +($("#planHours") || {}).value || 10;
+    if (!d) return toast("Pick your test date first.");
+    S.testDate = d; S.hoursWk = h; S.planEdit = false; save(); return renderMe();
+  }
+  if (e.target.closest("[data-planedit]")) { S.planEdit = true; return renderMe(); }
+  const pg = e.target.closest("[data-plangoal]"); if (pg) { S.goal = +pg.dataset.plangoal; S.goalSet = true; save(); renderHUD(); toast(`Daily goal set to ${S.goal}.`); return renderMe(); }
+  if (e.target.closest("[data-startcheck]")) return startCheck();
+  if (e.target.closest("[data-gome]")) { S.review = null; save(); go("me"); return renderMe(); }
+});
 function todaySummaryHTML() {
   const t = S.today; if (!t.doneDay) return "";
   const acc = t.answered ? Math.round(t.correct / t.answered * 100) : 0;
@@ -2591,6 +2743,7 @@ function welcomeBack() {
   sheet(`<div class="lvbig"><div class="eyebrow">${first ? "Welcome" : "Welcome back"}</div><div class="badge-lv ${L === 5 ? "t5" : ""}">${L === 5 ? "GM" : "L" + L}</div><strong>Level ${L}: ${esc(tierName(L))}</strong></div>
     ${levelBarHTML()}
     <p class="small muted" style="margin:0;text-align:center">Today's goal: <b style="color:var(--text)">${S.goal} questions</b> · ${streakAlive()}-day streak · ${revCount()} in Revenge Queue${S.lv.pending ? ` · <b style="color:var(--volt)">Gatekeeper of Level ${S.lv.pending} is ready</b>` : ""}</p>
+    ${S.testDate ? `<p class="small" style="margin:0;text-align:center">${planLine()}</p>` : ""}
     <button class="btn primary" data-welstart style="font-size:18px;padding:16px">Start today's quest</button>
     <button class="btn adjgoal" data-welgoal>Adjust goals for the day</button>
     ${CONFIG.flags.MASTERY_SHEETS_CONSPICUOUS ? goldBtnHTML() : ""}`,
@@ -2756,6 +2909,35 @@ function bossEnd() {
 }
 
 /* ---------- map ---------- */
+/* The AAMC builds each science section on four reasoning skills. Questions carry a skill tag (q.sk) when one was written;
+   otherwise it is read from the question type (k) or, failing that, from the wording. Approximate by design. */
+const SK_NAMES = { 1: "Knowing concepts", 2: "Solving problems", 3: "Research design", 4: "Reading data and statistics" };
+const SK_TIPS = {
+  1: "Concept misses: open the Mastery Sheet linked under each miss and do its Check yourself questions.",
+  2: "Problem-solving misses: write the formula and units before you plug in, and estimate the answer before you look at the choices.",
+  3: "Research-design misses: name the independent and dependent variables and the control before you read the choices.",
+  4: "Data misses: read the axis labels, units and legend first, and find the exact point the question asks about."
+};
+function skillOf(q) {
+  if (!q || q.s === "CARS") return null;
+  if (q.sk) return +q.sk;
+  if (q.k === "data") return 4; if (q.k === "design") return 3; if (q.k === "calc") return 2;
+  const stem = String(q.q).replace(/<[^>]+>/g, " ");
+  if (/\b(figure|table) \d|according to the (data|graph|table|figure|results)|(data|results|graph|table|figure) (shown|show|suggest|indicate|support)|correlation coefficient|statistically significant|p-value|\bp ?[<=] ?0?\.\d|standard deviation|scatterplot|error bars/i.test(stem)) return 4;
+  if (/control group|independent variable|dependent variable|confound|random(ly)? assign|random assignment|study design|experimental design|best (test|tests) (the|this) hypothesis|(change|modification) to the (study|experiment)|double-blind|single-blind|placebo group|operational(ly)? defin|external validity|internal validity/i.test(stem)) return 3;
+  const num = o => /^\s*[-−+]?(\d+(\.\d+)?|\.\d+)(\s|$|×|%|[a-zA-Zµ°/])/.test(String(o[0])) && !/[′']/.test(String(o[0]));
+  if (/\d/.test(stem) && q.o.filter(num).length >= 3) return 2;
+  return 1;
+}
+function skillsHTML() {
+  const t = { 1: [0, 0], 2: [0, 0], 3: [0, 0], 4: [0, 0] };
+  Object.entries(S.stats).forEach(([id, st]) => { const k = skillOf(anyQ(id)); if (k) { t[k][0] += st.c; t[k][1] += st.a; } });
+  if (!Object.values(t).some(x => x[1])) return "";
+  const w = Object.entries(t).filter(([, x]) => x[1] >= 8).sort((a, b) => a[1][0] / a[1][1] - b[1][0] / b[1][1])[0];
+  return `<div class="panel" style="margin-bottom:12px"><h3>Reasoning skills</h3><p class="small muted" style="margin:0 0 8px">The AAMC tests four skills in every science section. Tags are matched from each question's wording, so treat these as a guide.</p>
+    <div class="grid2">${Object.entries(t).map(([k, [c, a]]) => `<div class="stat"><b>${a ? Math.round(c / a * 100) + "%" : "–"}</b><span>${SK_NAMES[k]} (${a})</span></div>`).join("")}</div>
+    ${w ? `<p class="small" style="margin:8px 0 0"><b>Weakest: ${SK_NAMES[w[0]]}.</b> ${SK_TIPS[w[0]]}</p>` : `<p class="small muted" style="margin:8px 0 0">Answer a few more questions to see your weakest skill.</p>`}</div>`;
+}
 function renderMap() {
   const groups = ["CP", "CARS", "BB", "PS"];
   const open = S.mapSub && CAT[S.mapSub] ? S.mapSub : null, osub = open ? subCounts(open) : [];
@@ -2767,6 +2949,7 @@ function renderMap() {
     const subs = drill && SUBT[code] ? subCounts(code) : [];
     return `<button class="cat" ${drill ? (subs.length > 1 ? `data-subopen="${code}"` : `data-drill="${code}"`) : "disabled"}><code>${code}</code><span class="t">${esc(title)}${hy ? ' <span style="color:var(--volt)">★</span>' : ""}<small>${c.a ? Math.round(m * 100) + "% of " + c.a : "Not tried yet"}</small></span><span class="meter"><i style="width:${c.a ? Math.max(6, m * 100) : 0}%;background:${col}"></i></span></button>`;
   }).join("")}</div></div>`).join("")}</div>`;
+  const t = $("#view-map .title"); if (t && t.nextElementSibling) t.nextElementSibling.insertAdjacentHTML("afterend", skillsHTML());
 }
 function mapDrill(code, sub) {
   $("#sheetHost").innerHTML = "";
@@ -2805,6 +2988,21 @@ function showBackPill() {
 }
 document.addEventListener("click", e => {
   if (e.target.closest("[data-backsheet]") && sheetReturn) { const r = sheetReturn; sheetReturn = null; openSheet(r.id, r); } });
+// Recall check at the end of each sheet concept: up to three Qbank questions on that concept, answers hidden until they try.
+function addRecallChecks(doc, id) {
+  if (!CONC || !CONC.q) return;
+  const byN = {};
+  Object.entries(CONC.q).forEach(([qid, k]) => { const [sh, n] = k.split("|"); if (sh === id && QBYID[qid]) (byN[n] = byN[n] || []).push(qid); });
+  $$("h4", doc).forEach(h => {
+    const m = h.textContent.match(/^Concept (\d+):/); if (!m) return;
+    const ids = (byN[m[1]] || []).filter(q => canOpen(QBYID[q])).sort((a, b) => (S.stats[a] ? 1 : 0) - (S.stats[b] ? 1 : 0)).slice(0, 3);
+    if (!ids.length) return;
+    let end = h.nextElementSibling; while (end && !/^H[1-4]$/.test(end.tagName)) end = end.nextElementSibling;
+    const box = document.createElement("div"); box.className = "sv-recall";
+    box.innerHTML = `<button class="btn small primary" data-svquiz="${esc(ids.join(","))}">Check yourself: ${ids.length} question${ids.length === 1 ? "" : "s"} on Concept ${m[1]}</button>`;
+    h.parentNode.insertBefore(box, end);
+  });
+}
 function openSheet(id, ret) {
   dropBackPill();
   const meta = (SHEETS || []).find(x => x.id === id); if (!meta) return;
@@ -2820,6 +3018,7 @@ function openSheet(id, ret) {
     if (v.hidden) return;
     const doc = $(".sv-doc", v); doc.innerHTML = d.html + `<div class="sv-wm" style="background-image:${wmImage(mark)}"></div>`;
     $$("[data-wm]", doc).forEach(x => x.textContent = mark);
+    addRecallChecks(doc, id);
     if (ret) {
       // Put the tapped link back where it was on screen (re-applied once layout settles).
       const body = $(".sv-body", v), links = $$(`.qref[data-q="${CSS.escape(ret.q)}"]`, doc);
@@ -2841,6 +3040,10 @@ function fallbackQ(id) {
 }
 $("#sheetView").addEventListener("click", async e => {
   if (e.target.closest("[data-svclose]")) return closeSheet();
+  const sq = e.target.closest("[data-svquiz]"); if (sq) {
+    closeSheet();
+    go("scroll"); sq.dataset.svquiz.split(",").reverse().forEach(id => { const q = anyQ(id); if (!q) return; sessionSeen.add(q.id); const card = questionCard(q, false); feed.prepend(card); io.observe(card); }); feed.scrollTop = 0; return;
+  }
   const bq = e.target.closest("[data-backq]");
   if (bq) { // back to the question card the sheet was opened from; the feed is untouched so the answer and explanation are still showing
     closeSheet(); const c = feed.querySelector(`[data-id="${CSS.escape(bq.dataset.backq)}"]`) || feed.querySelector(`[data-pid="${CSS.escape(bq.dataset.backq.replace(/_\d+$/, ""))}"]`);
@@ -3035,10 +3238,18 @@ $("#view-course").addEventListener("keydown", e => { if (e.target.id === "mnSear
 $("#view-course").addEventListener("search", e => { if (e.target.id === "mnSearch" && e.target.value.trim()) { mnView = { s: "search", q: e.target.value.trim() }; renderCourse(); v0(); } }, true);
 
 /* ---------- me ---------- */
+/* Score estimate, kept honest: timed exams first (the last two section scores), otherwise passage questions only
+   (stand-alone feed questions run easier than the real exam). Shown as a range that tightens with more data. */
+const EST_MIN = 15;
+function passageN(sec) { return ((S.recentP || {})[sec] || []).length; }
 function estimate(sec) {
-  const r = S.recent[sec]; if (r.length < 15) return null;
-  let w = 0, s = 0; r.forEach(([c, d]) => { const k = d === 3 ? 1.5 : d === 1 ? .8 : 1; w += k; s += c * k; });
-  return Math.round(118 + 14 * Math.min(1, Math.max(0, (s / w - .3) / .65)));
+  const ex = (S.examHist || []).flatMap(h => (h.res || []).filter(r => r.sec === sec && r.n >= 10)).slice(-2);
+  if (ex.length) { const m = Math.round(ex.reduce((a, r) => a + r.scaled, 0) / ex.length), w = ex.length > 1 ? 1 : 2;
+    return { mid: m, lo: Math.max(118, m - w), hi: Math.min(132, m + w), src: "exam" }; }
+  const r = (S.recentP || {})[sec] || []; if (r.length < EST_MIN) return null;
+  let w = 0, sc = 0; r.forEach(([c, d]) => { const k = d === 3 ? 1.5 : d === 1 ? .8 : 1; w += k; sc += c * k; });
+  const m = Math.round(118 + 14 * Math.min(1, Math.max(0, (sc / w - .3) / .65))), h = Math.round(1 + 3 * Math.sqrt(EST_MIN / r.length));
+  return { mid: m, lo: Math.max(118, m - h), hi: Math.min(132, m + h), src: "passages" };
 }
 function donut(counts) {
   const tot = counts.reduce((a, b) => a + b[1], 0); if (!tot) return `<p class="muted small">Miss a question and tag why. Your breakdown shows up here.</p>`;
@@ -3096,22 +3307,23 @@ function analyticsHTML() {
 function renderMe() {
   const L = levelOf(S.xp), acc = S.total ? Math.round(S.totalCorrect / S.total * 100) : 0;
   const ests = ["CP", "CARS", "BB", "PS"].map(s => [s, estimate(s)]);
-  const tot = ests.every(e => e[1]) ? ests.reduce((a, e) => a + e[1], 0) : null;
+  const tot = ests.every(e => e[1]) ? { lo: ests.reduce((a, e) => a + e[1].lo, 0), hi: ests.reduce((a, e) => a + e[1].hi, 0) } : null;
   const dnaCounts = [["Content", "Content gap"], ["Misread", "Misread question"], ["Data", "Passage or graph"], ["Trap", "Trap"], ["Time", "Time"]].map(([t, n], i) => [n, S.errors.filter(e => e.type === t).length, ["var(--cool)", "var(--pink-light)", "var(--green)", "var(--bad)", "var(--heat)"][i]]);
   const revN = Object.keys(S.revenge).length, dueN = Object.values(S.revenge).filter(r => r.due <= Date.now()).length;
   const C = 2 * Math.PI * 31, pct = Math.min(1, S.today.answered / S.goal);
-  $("#view-me").innerHTML = `${todaySummaryHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Subscriber" : ""}</p>
+  $("#view-me").innerHTML = `${todaySummaryHTML()}${planHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Subscriber" : ""}</p>
   <div class="stack">
     <div class="panel">${levelBarHTML()}</div>
     ${analyticsHTML()}
     <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
     <div class="panel"><h3>Error DNA</h3>${donut(dnaCounts)}</div>
+    ${carsTypesHTML()}
     ${proPanel("Score estimate", "See your estimated score for each section, based on your recent answers.",
-      `<p class="small muted">A rough practice estimate from your last 60 answers per section. It is not an AAMC prediction; your full-lengths are the real test.</p>
-      <div class="grid2">${ests.map(([s, v]) => `<div class="stat"><b>${v || "–"}</b><span>${SECTIONS[s].name}${v ? "" : ": answer " + (15 - S.recent[s].length) + " more"}</span></div>`).join("")}</div>
-      <p><b style="font:700 22px var(--display);color:var(--volt)">${tot || "–"}</b> <span class="muted small">${tot ? "estimated total (472–528)" : "total appears once every section has 15 answers"}</span></p>`,
-      `<div class="grid2">${[["CP", 129], ["CARS", 128], ["BB", 131], ["PS", 130]].map(([s, v]) => `<div class="stat"><b>${v}</b><span>${SECTIONS[s].name}</span></div>`).join("")}</div><p><b style="font:700 22px var(--display);color:var(--volt)">518</b> <span class="muted small">estimated total</span></p>`)}
+      `<p class="small muted">Built from your timed exams when you have them, otherwise from passage questions only. Stand-alone questions run easier than the real exam, so they don't count here. It's a range, not an AAMC prediction, and it narrows as you do more.</p>
+      <div class="grid2">${ests.map(([s, v]) => `<div class="stat"><b>${v ? v.lo + "–" + v.hi : "–"}</b><span>${SECTIONS[s].name}${v ? (v.src === "exam" ? " · from exams" : " · from passages") : ": " + (EST_MIN - passageN(s)) + " more passage questions"}</span></div>`).join("")}</div>
+      <p><b style="font:700 22px var(--display);color:var(--volt)">${tot ? tot.lo + "–" + tot.hi : "–"}</b> <span class="muted small">${tot ? "estimated total (472–528)" : "total appears once every section has a range"}</span></p>`,
+      `<div class="grid2">${[["CP", 129], ["CARS", 128], ["BB", 131], ["PS", 130]].map(([s, v]) => `<div class="stat"><b>${v - 1}–${v + 1}</b><span>${SECTIONS[s].name}</span></div>`).join("")}</div><p><b style="font:700 22px var(--display);color:var(--volt)">514–522</b> <span class="muted small">estimated total</span></p>`)}
     ${proPanel("Full-length tracker", "Log every practice exam and watch your line climb toward the 520 mark.",
       `${flChart()}<div class="row"><input type="text" id="flLabel" placeholder="FL ${S.fl.length + 1}" style="width:90px"><input type="number" id="flScore" min="472" max="528" placeholder="Score" style="width:100px"><button class="btn" data-addfl>Add</button>${S.fl.length ? '<button class="btn ghost small" data-popfl>Remove last</button>' : ""}</div>`,
       flChart(SAMPLE_FL))}
@@ -3121,6 +3333,8 @@ function renderMe() {
       <div class="row"><button class="btn primary" data-exportanki ${S.anki.length ? "" : "disabled"}>Export to Anki</button><button class="btn small" data-ankiall>Add all my misses</button>${S.anki.length ? '<button class="btn small ghost" data-ankiclear>Clear queue</button>' : ""}</div></div>
     <div class="panel"><h3>Badges</h3><div class="badges">${BADGES.map(([id, ic, name]) => `<div class="badge ${S.badges[id] ? "got" : ""}"><i>${ic}</i>${esc(name)}</div>`).join("")}</div></div>
     <div class="panel" id="goalPanel"><h3>Adjust goals for the day</h3><p class="small muted" style="margin:0 0 8px">How many questions do you want to do each day?</p><div class="row">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n && !S.goalCustom ? "primary" : ""}" data-setgoal="${n}">${n} questions</button>`).join("")}<button class="btn small ${S.goalCustom ? "primary" : ""}" data-customgoal>Custom</button></div></div>
+    <div class="panel"><h3>Daily reminder</h3><p class="small muted" style="margin:0 0 8px">Pick a time and add a repeating reminder to your phone's calendar. It works even when the app is closed, and you can delete it from your calendar any time.</p>
+      <div class="row"><input type="time" id="remTime" value="${esc(S.remTime || "19:00")}" style="width:120px"><button class="btn small primary" data-reminder>Add to my calendar</button></div></div>
     <div class="panel"><h3>Settings</h3>
       <label class="row small" for="soundChk"><input type="checkbox" id="soundChk" ${S.sound ? "checked" : ""}> Sound and vibration</label>
       <label class="row small" for="fanChk"><input type="checkbox" id="fanChk" ${S.fanfare ? "checked" : ""}> Level-up fanfare</label>
