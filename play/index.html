@@ -2523,7 +2523,7 @@ document.addEventListener("click", e => {
   if (t.closest("[data-exit]")) return exitApp();
   if (t.closest("[data-goperf]") || t.closest("[data-byeme]")) return showPerf();
   if (t.closest("[data-bossrev]")) { const ids = (lastBoss && lastBoss.miss) || []; return ids.length ? startReview(ids) : toast("No misses in that battle."); }
-  if (t.closest("[data-bossmore]")) { $("#sheetHost").innerHTML = ""; return (S.today.doneDay || S.today.answered >= S.goal) ? startExtra() : go("scroll"); }
+  if (t.closest("[data-bossmore]")) { $("#sheetHost").innerHTML = ""; return showGoals(); }
   if (t.closest("[data-more10]")) { $("#sheetHost").innerHTML = ""; return startExtra(); }
   if (t.closest("[data-back]")) { go("scroll"); resetFeed(); return; }
   if (t.closest("#view-results [data-share]")) return share();
@@ -2549,7 +2549,7 @@ function welcomeBack() {
     <button class="btn adjgoal" data-welgoal>Adjust goals for the day</button>
     ${CONFIG.flags.MASTERY_SHEETS_CONSPICUOUS ? goldBtnHTML() : ""}`,
     s => s.addEventListener("click", e => {
-      if (e.target.closest("[data-welstart]")) { $("#sheetHost").innerHTML = ""; go("scroll"); }
+      if (e.target.closest("[data-welstart]")) { $("#sheetHost").innerHTML = ""; if (S.goalSet) go("scroll"); else customGoal(); }
       else if (e.target.closest("[data-welgoal]")) { $("#sheetHost").innerHTML = ""; showGoals(); }
       else if (e.target.closest("[data-welsheets]")) { $("#sheetHost").innerHTML = ""; go("course"); }
     }));
@@ -2563,7 +2563,7 @@ function showGoals() {
 function clickSound(){ try{ beep('click'); }catch(e){} }
 function setGoal(n) { 
   clickSound(); 
-  S.goal = n; S.today.goalShown = S.today.answered >= S.goal; S.today.next = S.today.goalShown ? S.today.answered + ROUND : 0; S.today.rs = { a: S.today.answered, c: S.today.correct }; save(); renderHUD(); 
+  S.goal = n; S.goalSet = true; S.today.goalShown = S.today.answered >= S.goal; S.today.next = S.today.goalShown ? S.today.answered + ROUND : 0; S.today.rs = { a: S.today.answered, c: S.today.correct }; save(); renderHUD(); 
   setTimeout(()=>{ $("#sheetHost").innerHTML=""; go("scroll"); resetFeed(); }, 250);
 }
 
@@ -2824,7 +2824,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#sheet
 /* ---------- Course tab: Mastery Sheets vault + Mnemonics Vault ---------- */
 const sheetFor = q => !q ? null : q.s === "CARS" || ["CF", "CW", "CB"].includes(q.c) ? "CARS" : q.c === "SK" ? "SIRS" : q.c;
 function goldBtnHTML() {
-  const n = SHEETS && SHEETS.length ? SHEETS.filter(x => !["CARS", "SIRS"].includes(x.id)).length : 31;
+  const n = SHEETS && SHEETS.length ? SHEETS.length : 33;
   return `<button class="goldbtn" data-gocourse>📚 ${n} MCAT Mastery Sheets · Full content review<small>${S.pro ? "" : "🔒 "}Included in every plan</small></button>`;
 }
 // bank/concepts.json: the Mastery Sheet concept each question practises (from the sheets' own links, else matched by topic).
@@ -3056,8 +3056,7 @@ function renderMe() {
   const C = 2 * Math.PI * 31, pct = Math.min(1, S.today.answered / S.goal);
   $("#view-me").innerHTML = `${todaySummaryHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Subscriber" : ""}</p>
   <div class="stack">
-    <div class="panel">${levelBarHTML()}<div class="row" style="margin-top:10px"><button class="btn pinkback" data-meqbank>← Back to Qbank</button></div></div>
-    <div class="panel" id="goalPanel"><h3>Adjust goals for the day</h3><p class="small muted" style="margin:0 0 8px">How many questions do you want to do each day?</p><div class="row">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n && !S.goalCustom ? "primary" : ""}" data-setgoal="${n}">${n} questions</button>`).join("")}<button class="btn small ${S.goalCustom ? "primary" : ""}" data-customgoal>${S.goalCustom ? `Custom: ${S.goal}` : "Custom"}</button></div></div>
+    <div class="panel">${levelBarHTML()}</div>
     ${analyticsHTML()}
     <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
@@ -3081,11 +3080,11 @@ function renderMe() {
       <label class="row small musicrow" for="musicSel">🎵 Music <select id="musicSel">${[["boss", "Boss battles only"], ["on", "Always on"], ["off", "Off"]].map(([v, n]) => `<option value="${v}" ${S.music === v ? "selected" : ""}>${n}</option>`).join("")}</select></label>
       <div class="row"><button class="btn small" data-share>Share my streak</button><button class="btn small" data-backup>Backup or move device</button><a class="btn small" href="../guide/" target="_blank" rel="noopener">How to use</a>${installed() ? "" : '<button class="btn small" data-install>Install app</button>'}${S.pro ? "" : '<button class="btn small pro" data-pro>See plans</button>'}</div><div id="backupOut"></div></div>
     ${window.acctPanelHTML ? acctPanelHTML() : ""}
+    <div class="panel" id="goalPanel"><h3>Adjust goals for the day</h3><p class="small muted" style="margin:0 0 8px">How many questions do you want to do each day?</p><div class="row">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n && !S.goalCustom ? "primary" : ""}" data-setgoal="${n}">${n} questions</button>`).join("")}<button class="btn small ${S.goalCustom ? "primary" : ""}" data-customgoal>Custom</button></div></div>
     ${CONFIG.resources.length ? `<div class="panel links"><h3>Resources</h3>${CONFIG.resources.map(r => `<p class="small"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a><br><span class="muted">${esc(r.note || "")}</span></p>`).join("")}</div>` : ""}
     <div class="panel"><h3>Help</h3>
       <p class="small">Questions about 520 Quest or your purchase? We reply within 24 to 48 hours.</p>
       <div class="row"><a class="btn small primary" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20support">Contact Support</a><a class="btn small" href="${esc(CONFIG.supportUrl)}" target="_blank" rel="noopener">FAQ</a><a class="btn small" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20feedback">Send feedback</a></div>
-      <p class="text-sm" style="font-size:13px;color:#6b7280;margin:8px 0 0">Contact support: ${esc(CONFIG.supportEmail)}</p>
       <p style="font-size:12px;color:#6b7280;margin:4px 0 0"><button class="linkbtn" data-cancelsub style="font-size:12px;color:#6b7280">Cancel subscription</button></p></div>
     <div class="panel"><h3>Privacy</h3><p class="small"><b>We help you get into medical school without selling your data.</b> Your progress stays on this device unless you sign in; then it's saved to your 520 Quest account so it follows you to your other devices. No ads, no trackers.</p></div>
     <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app.</p>
