@@ -2909,6 +2909,35 @@ function bossEnd() {
 }
 
 /* ---------- map ---------- */
+/* The AAMC builds each science section on four reasoning skills. Questions carry a skill tag (q.sk) when one was written;
+   otherwise it is read from the question type (k) or, failing that, from the wording. Approximate by design. */
+const SK_NAMES = { 1: "Knowing concepts", 2: "Solving problems", 3: "Research design", 4: "Reading data and statistics" };
+const SK_TIPS = {
+  1: "Concept misses: open the Mastery Sheet linked under each miss and do its Check yourself questions.",
+  2: "Problem-solving misses: write the formula and units before you plug in, and estimate the answer before you look at the choices.",
+  3: "Research-design misses: name the independent and dependent variables and the control before you read the choices.",
+  4: "Data misses: read the axis labels, units and legend first, and find the exact point the question asks about."
+};
+function skillOf(q) {
+  if (!q || q.s === "CARS") return null;
+  if (q.sk) return +q.sk;
+  if (q.k === "data") return 4; if (q.k === "design") return 3; if (q.k === "calc") return 2;
+  const stem = String(q.q).replace(/<[^>]+>/g, " ");
+  if (/\b(figure|table) \d|according to the (data|graph|table|figure|results)|(data|results|graph|table|figure) (shown|show|suggest|indicate|support)|correlation coefficient|statistically significant|p-value|\bp ?[<=] ?0?\.\d|standard deviation|scatterplot|error bars/i.test(stem)) return 4;
+  if (/control group|independent variable|dependent variable|confound|random(ly)? assign|random assignment|study design|experimental design|best (test|tests) (the|this) hypothesis|(change|modification) to the (study|experiment)|double-blind|single-blind|placebo group|operational(ly)? defin|external validity|internal validity/i.test(stem)) return 3;
+  const num = o => /^\s*[-−+]?(\d+(\.\d+)?|\.\d+)(\s|$|×|%|[a-zA-Zµ°/])/.test(String(o[0])) && !/[′']/.test(String(o[0]));
+  if (/\d/.test(stem) && q.o.filter(num).length >= 3) return 2;
+  return 1;
+}
+function skillsHTML() {
+  const t = { 1: [0, 0], 2: [0, 0], 3: [0, 0], 4: [0, 0] };
+  Object.entries(S.stats).forEach(([id, st]) => { const k = skillOf(anyQ(id)); if (k) { t[k][0] += st.c; t[k][1] += st.a; } });
+  if (!Object.values(t).some(x => x[1])) return "";
+  const w = Object.entries(t).filter(([, x]) => x[1] >= 8).sort((a, b) => a[1][0] / a[1][1] - b[1][0] / b[1][1])[0];
+  return `<div class="panel" style="margin-bottom:12px"><h3>Reasoning skills</h3><p class="small muted" style="margin:0 0 8px">The AAMC tests four skills in every science section. Tags are matched from each question's wording, so treat these as a guide.</p>
+    <div class="grid2">${Object.entries(t).map(([k, [c, a]]) => `<div class="stat"><b>${a ? Math.round(c / a * 100) + "%" : "–"}</b><span>${SK_NAMES[k]} (${a})</span></div>`).join("")}</div>
+    ${w ? `<p class="small" style="margin:8px 0 0"><b>Weakest: ${SK_NAMES[w[0]]}.</b> ${SK_TIPS[w[0]]}</p>` : `<p class="small muted" style="margin:8px 0 0">Answer a few more questions to see your weakest skill.</p>`}</div>`;
+}
 function renderMap() {
   const groups = ["CP", "CARS", "BB", "PS"];
   const open = S.mapSub && CAT[S.mapSub] ? S.mapSub : null, osub = open ? subCounts(open) : [];
@@ -2920,6 +2949,7 @@ function renderMap() {
     const subs = drill && SUBT[code] ? subCounts(code) : [];
     return `<button class="cat" ${drill ? (subs.length > 1 ? `data-subopen="${code}"` : `data-drill="${code}"`) : "disabled"}><code>${code}</code><span class="t">${esc(title)}${hy ? ' <span style="color:var(--volt)">★</span>' : ""}<small>${c.a ? Math.round(m * 100) + "% of " + c.a : "Not tried yet"}</small></span><span class="meter"><i style="width:${c.a ? Math.max(6, m * 100) : 0}%;background:${col}"></i></span></button>`;
   }).join("")}</div></div>`).join("")}</div>`;
+  const t = $("#view-map .title"); if (t && t.nextElementSibling) t.nextElementSibling.insertAdjacentHTML("afterend", skillsHTML());
 }
 function mapDrill(code, sub) {
   $("#sheetHost").innerHTML = "";
