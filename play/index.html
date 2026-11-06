@@ -2113,7 +2113,7 @@ function wireQuestion(scope, q, card) {
     const rv = $(".reveal", scope); rv.hidden = false;
     rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` + (confNote ? `<div class="note">${confNote}</div>` : "") +
       (ok ? (q.x ? `<div class="note">${esc(splitX(q.x).main || q.x)}</div>` : "") + (q.note ? `<div class="note">${esc(q.note)}</div>` : "") : explainHTML(q, i)) +
-      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next card</button>${ok ? "" : ankiBtn(q) + '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}</div>`;
+      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next question</button>${ok ? "" : ankiBtn(q) + '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}</div>`;
     const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
     const nb = $("[data-next]", rv); if (sib) nb.textContent = "Next question";
     nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
