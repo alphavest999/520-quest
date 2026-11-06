@@ -152,6 +152,7 @@ button { cursor: pointer; }
 .verdict.ok { color: var(--good); }
 .verdict.no { color: var(--bad); }
 .explain { display: grid; gap: 6px; padding: 14px; border-radius: 12px; background: var(--ink); border: 1px solid var(--line); border-left: 4px solid var(--good); }
+.explain[hidden], .exlock[hidden] { display: none; }
 .explain h4 { margin: 0; font: 700 15px/1.3 var(--display); letter-spacing: .02em; color: var(--good); }
 .explain h4.miss { color: var(--bad); margin-top: 6px; }
 .explain p { margin: 0; font-size: 15px; line-height: 1.5; }
@@ -1469,13 +1470,15 @@ function pruneStats() {
 let bankLoaded = false;
 // Sub-topic tags and retired-question redirects live in bank/subtopics.json and bank/redirect.json.
 const SUBT = {}; let REDIR = {};
-fetch("bank/subtopics.json").then(r => r.json()).then(d => { Object.keys(d).filter(k => k[0] !== "_").forEach(k => SUBT[k] = d[k].map(x => Object.assign({}, x, { rx: new RegExp(x.re, "i") }))); if (!$("#view-map").hidden) renderMap(); }).catch(() => {});
+// bank/submap.json gives a Map subsection to every question the subtopic patterns miss, so each one is reachable from the Map.
+let SUBMAP = {};
+Promise.all([fetch("bank/subtopics.json").then(r => r.json()), fetch("bank/submap.json").then(r => r.json()).catch(() => ({}))]).then(([d, m]) => { SUBMAP = m || {}; Object.keys(d).filter(k => k[0] !== "_").forEach(k => SUBT[k] = d[k].map(x => Object.assign({}, x, { rx: new RegExp(x.re, "i") }))); if (!$("#view-map").hidden) renderMap(); }).catch(() => {});
 fetch("bank/redirect.json").then(r => r.json()).then(d => { REDIR = d; }).catch(() => {});
 function stOf(x) {
   if (x._st !== undefined) return x._st;
   const rules = SUBT[x.c]; if (!rules) return undefined;   // rules not loaded yet or none for this category: do not cache
   const t = x.qs ? x.title + " " + x.text.join(" ").slice(0, 700) + " " + x.qs.map(q => q.q).join(" ") : x.q + " " + x.o.map(o => o[0]).join(" ");
-  const hit = rules.find(r => r.rx.test(t)); return (x._st = hit ? hit.id : null);
+  const hit = rules.find(r => r.rx.test(t)); return (x._st = hit ? hit.id : SUBMAP[x.id] || null);
 }
 function subCounts(code) {
   const rules = SUBT[code] || [], out = rules.map(r => ({ id: r.id, label: r.label, n: 0 }));
@@ -1493,7 +1496,7 @@ function loadSealedBank() {
   if (sealedLoad) return sealedLoad;
   if (!keyReady()) return Promise.resolve();
   return sealedLoad = bankReady.then(() => Promise.all(((BANKIX && BANKIX.sealed) || []).map(f => fetch("bank/" + f).then(r => r.json()).then(acctUnseal).then(addBank))))
-    .then(() => { sealedDone = true; renderFilters(); if (!$("#view-map").hidden) renderMap(); })
+    .then(() => { sealedDone = true; renderFilters(); if (!$("#view-map").hidden) renderMap(); if (window.CAT_RESET) { CAT_RESET(); if (!S.exam && window.renderExam && !$("#view-exam").hidden) renderExam(); } })
     .catch(() => { sealedLoad = null; });
 }
 window.onContentKey = () => { Object.keys(EX).forEach(k => delete EX[k]); loadSealedBank(); };
@@ -1915,7 +1918,7 @@ function nextCard() {
     let sp = nextSciPassage(sec);
     if (sp && fits(sp)) return passageCard(sp);
     if (sec === "ALL" && pFits) return useP(nextP);
-    if (!sp) return null;
+    if (!sp) { if (S.focus && !drillEndShown) { drillEndShown = true; return drillEndCard(); } return null; }
     if (gateShown) return null; gateShown = true; return gateCard();
   }
   if (S.kind !== "discrete" && !S.focus && sec === "ALL" && cardN % 9 === 0 && pFits) return useP(nextP);
@@ -1925,8 +1928,10 @@ function nextCard() {
   if (!S.focus && cardN % 5 === 0) return (cardN / 5) % 2 ? factCard() : trapCard();
   const pick = pickQuestion();
   if (!pick) {   // nothing stand-alone in this drill: serve its passages instead
-    let sp = nextSciPassage(sec); if (!sp) { return null; }
-    return sp && fits(sp) ? passageCard(sp) : null;
+    let sp = nextSciPassage(sec);
+    if (sp && fits(sp)) return passageCard(sp);
+    if (S.focus && !drillEndShown) { drillEndShown = true; return drillEndCard(); }
+    return null;
   }
   const [q, rev, tgt] = pick; sessionSeen.add(q.id);
   if (!canOpen(q)) { if (gateShown) return null; gateShown = true; return gateCard(); }
@@ -1955,7 +1960,21 @@ function nextSciPassage(sec) {
   return chosen;
 }
 function fill(n = 3) { for (let i = 0; i < n; i++) { const c = nextCard(); if (!c) break; feed.appendChild(c); io.observe(c); } watchEnd(); }
-function resetFeed() { feed.innerHTML = ""; cardN = 0; gateShown = false; reviewEnded = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
+// A Map drill that has run out of questions says so, instead of leaving an empty feed.
+let drillEndShown = false;
+function drillEndCard() {
+  const el = document.createElement("article"); el.className = "card";
+  const lbl = S.sub ? ((SUBT[S.focus] || []).find(x => x.id === S.sub) || {}).label || S.sub : "";
+  el.innerHTML = `<div class="eyebrow">Drill complete</div><p class="bigtext">You've seen every question in ${esc(S.focus)}${lbl ? " · " + esc(lbl) : ""} this session.</p>
+    <div class="row">${S.sub ? `<button class="btn primary" data-dall>Drill all of ${esc(S.focus)}</button>` : ""}<button class="btn" data-dmap>Back to Map</button><button class="btn ghost" data-dmix>Mixed questions</button></div>`;
+  el.addEventListener("click", e => {
+    if (e.target.closest("[data-dall]")) { S.sub = null; save(); resetFeed(); }
+    else if (e.target.closest("[data-dmap]")) go("map");
+    else if (e.target.closest("[data-dmix]")) { S.focus = null; S.sub = null; save(); resetFeed(); }
+  });
+  return el;
+}
+function resetFeed() { feed.innerHTML = ""; cardN = 0; gateShown = false; drillEndShown = false; reviewEnded = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
 
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
@@ -1970,9 +1989,24 @@ function watchEnd() { endObs.disconnect(); const k = feed.children; if (k.length
 const SWIPE = `<div class="swipe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 14l6-6 6 6"/></svg>Swipe up</div>`;
 const diffDots = d => `<span class="diff" title="Difficulty ${d} of 3">${[1, 2, 3].map(i => `<i class="${i <= d ? "on" : ""}"></i>`).join("")}</span>`;
 function scrollToEl(t) { feed.scrollTo({ top: feed.scrollTop + t.getBoundingClientRect().top - feed.getBoundingClientRect().top - 8, behavior: reduce ? "auto" : "smooth" }); }
+// Explanations name choices by their bank letter ("Correct: B)", "(options A or C)").
+// After shuffling, relet() rewrites those letters to where each choice now sits,
+// leaving names like "Drug A" or "(Group B)" alone.
+const LNAMED = /\b(?:drug|group|hepatitis|protocol|condition|treatment|enhancer|strain|compound|region|site|type|patient|participant|subject|vitamin|plan|arm|cohort|sample|population|school|clinic|hospital|gene|mutant|diet|regimen|species|zone|tissue|formula|model|phase|stage|level|panel|figure|fig\.?|table|experiment|trial|study|batch|lot|peak|band|lane|point|mouse|rat|plant|cell|line|isoform|variant|allele|class|grade|substance|solution|tube|well|series|set|block|period|session|week|day|enzyme|protein|receptor|channel|factor|fraction|peptide|antibody|ligand|inhibitor|agent|hormone|virus|serotype|test|task|version|form|list|item|scenario|method|approach|program|intervention|exercise|supplement|school|site|unit|ward|lake|field|population|community|neighborhood|city|country|state|province|statement|hypothesis|claim)\s*$/i;
+function relet(s, ord) {
+  if (!s || typeof s !== "string" || !ord || !/[A-D]/.test(s)) return s;
+  const P = L => { const j = ord.indexOf("ABCD".indexOf(L)); return j < 0 ? L : String.fromCharCode(0xE000 + j); };
+  const list = t => { const ps = t.match(/[A-D]/g).map(P).sort(); let k = 0; return t.replace(/[A-D]/g, () => ps[k++]); };
+  const LIST = "([A-D](?:(?:,\\s*|,?\\s+(?:or|and)\\s+)[A-D])*)";
+  return s
+    .replace(new RegExp("\\b([Oo]ptions?|[Cc]hoices?|[Aa]nswers?)(\\s+)" + LIST + "\\b", "g"), (m, w, sp, t) => w + sp + list(t))
+    .replace(new RegExp("\\(" + LIST + "\\)", "g"), (m, t, i, all) => LNAMED.test(all.slice(Math.max(0, i - 24), i)) ? m : "(" + list(t) + ")")
+    .replace(/(^|[^\w(°\uE000-\uE003])([A-D])\)/g, (m, p, L, i, all) => LNAMED.test(all.slice(Math.max(0, i - 24), i + p.length)) ? m : p + P(L) + ")")
+    .replace(/[\uE000-\uE003]/g, c => "ABCD"[c.charCodeAt(0) - 0xE000]);
+}
 function shuf(q) {
-  const order = q.o.map((_, i) => i).sort(() => Math.random() - .5);
-  return Object.assign({}, q, { o: order.map(i => q.o[i]), a: order.indexOf(q.a), ord: order });
+  const order = q.o.map((_, i) => i).sort(() => Math.random() - .5), r = s => relet(s, order);
+  return Object.assign({}, q, { o: order.map(i => [q.o[i][0], r(q.o[i][1])].concat(q.o[i].slice(2))), a: order.indexOf(q.a), ord: order, x: r(q.x), note: r(q.note) });
 }
 function optsHTML(q) { return q.o.map((o, i) => `<button class="opt" data-i="${i}"><b>${"ABCD"[i]}</b><span>${o[0]}</span></button>`).join(""); }
 
@@ -2054,7 +2088,7 @@ function exEntry(q) {
   return (q.ex ? Promise.resolve({ [q.id]: q.ex }) : loadEx(exCat(q))).then(m => {
     if (m && m.__locked) return m.__locked.includes(q.id) ? "locked" : null;
     const x = m && m[q.id]; if (!x || !Array.isArray(x.ox) || x.ox.length !== q.o.length) return null;
-    return Object.assign({}, x, { ox: q.o.map((_, j) => x.ox[q.ord ? q.ord[j] : j]) });
+    return Object.assign({}, x, { ox: q.o.map((_, j) => relet(x.ox[q.ord ? q.ord[j] : j], q.ord)), trap: relet(x.trap, q.ord) });
   });
 }
 function figHTML(g) {
@@ -2129,12 +2163,21 @@ function richExplainHTML(q, i, x) {
     (x.trap ? `<p class="trapline"><b>The trap:</b> ${e(x.trap)}</p>` : "") +
     (refs.length ? `<h5>Learn more</h5><ul class="refs">${refs.map(r => `<li><a href="${e(r.u)}" target="_blank" rel="noopener">${e(r.t || r.u)}</a></li>`).join("")}</ul>` : "");
 }
+// Fallback "full explanation" for questions without a rich write-up: the solution plus the reasoning for every choice.
+function basicFullHTML(q) {
+  const L = "ABCD", e = esc, why = t => String(t || "").replace(/^(Correct|Incorrect|Wrong)[:.]?\s*/i, "").trim();
+  const others = q.o.map((_, j) => j).filter(j => j !== q.a && why(q.o[j][1]) && !/^not the best answer$/i.test(why(q.o[j][1])));
+  return `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4>${why(q.o[q.a][1]) && why(q.o[q.a][1]) !== q.x ? `<p>${e(why(q.o[q.a][1]))}</p>` : ""}${q.x ? `<p>${e(q.x)}</p>` : ""}` +
+    (others.length ? `<h5>Why the other choices are wrong</h5>${others.map(j => `<p><b>${L[j]}. ${e(q.o[j][0])}</b><br>${e(why(q.o[j][1]))}</p>`).join("")}` : "") +
+    (q.note ? `<p class="muted"><b>Takeaway:</b> ${e(q.note)}</p>` : "");
+}
 // Upgrade a revealed explanation once its category file arrives.
 // Wrong answer: the full (rich) explanation replaces the short one. Right answer: the short one stays, and
 // "Did you guess? Show the full explanation" expands the rich one. Free users see a plans note for sealed explanations.
 function upgradeExplain(rv, q, i, ok) {
   exEntry(q).then(x => {
-    if (!rv.isConnected || !x) return;
+    if (!rv.isConnected) return;
+    if (!x) { if (ok) x = { basic: true }; else return; }   // no full write-up for this question: the guess button still opens every choice's reasoning
     const row = $(".row", rv), put = el => row ? row.parentNode.insertBefore(el, row) : rv.appendChild(el);
     if (x === "locked") {
       const d = document.createElement("div"); d.className = "exlock";
@@ -2144,7 +2187,7 @@ function upgradeExplain(rv, q, i, ok) {
     const box = $(".explain", rv);
     if (!ok && box) { box.classList.add("rich"); box.innerHTML = richExplainHTML(q, i, x); renderKx(box); return; }
     if (!ok) return;
-    const full = document.createElement("div"); full.className = "explain rich"; full.hidden = true; full.innerHTML = richExplainHTML(q, i, x);
+    const full = document.createElement("div"); full.className = "explain rich"; full.hidden = true; full.innerHTML = x.basic ? basicFullHTML(q) : richExplainHTML(q, i, x);
     const gb = document.createElement("button"); gb.className = "btn small ghost"; gb.dataset.guessbtn = "1"; gb.textContent = "Did you guess? Show the full explanation";
     gb.addEventListener("click", () => { full.hidden = !full.hidden; gb.textContent = full.hidden ? "Did you guess? Show the full explanation" : "Hide the full explanation"; if (!full.hidden) { renderKx(full); full.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" }); } });
     put(gb); put(full);
@@ -2681,7 +2724,7 @@ function renderMap() {
 }
 function mapDrill(code, sub) {
   $("#sheetHost").innerHTML = "";
-  S.focus = code; S.sub = sub || null; S.mapSub = null; S.review = null; save(); go("scroll"); resetFeed();
+  S.focus = code; S.sub = sub || null; S.kind = null; S.mapSub = null; S.review = null; save(); go("scroll"); resetFeed();
   toast(`Drilling <b>${esc(code)}</b>${sub ? " · " + esc(((SUBT[code] || []).find(x => x.id === sub) || {}).label || sub) : ""}. Clear the chip to go back to the mix.`);
 }
 // A category with subsections opens them in a pop-up; tapping one starts the drill right away.
