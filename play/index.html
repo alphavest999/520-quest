@@ -247,6 +247,8 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 .conf button[aria-pressed="true"] { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); }
 .conf.locked button { pointer-events: none; opacity: .7; }
 .wins { border-left: 3px solid var(--good); }
+.mainidea { display: grid; gap: 6px; margin: 12px 0 4px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 12px; }
+.mainidea textarea { width: 100%; font: inherit; font-size: 14px; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel-2); color: var(--text); resize: vertical; }
 .sv-recall { margin: 10px 0 18px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 12px; }
 .reportq { display: inline-block; margin-top: 6px; font-size: 12.5px; color: var(--muted); }
 .dna { display: grid; gap: 8px; padding: 12px; border-radius: 12px; background: var(--ink); border: 1px dashed var(--line); }
@@ -1908,7 +1910,7 @@ function resumeQ() {
 function nextCard() {
   if (S.review) {
     const R = S.review, id = R.ids.find(x => !R.done.includes(x) && !R.queued.includes(x));
-    if (id && anyQ(id)) { R.queued.push(id); return questionCard(anyQ(id), true); }
+    if (id && anyQ(id)) { R.queued.push(id); return questionCard(anyQ(id), R.kind !== "check"); }
     if (reviewEnded) return null; reviewEnded = true; return reviewDoneCard();
   }
   if (overFree()) { const q = freeReview(); if (q) { sessionSeen.add(q.id); cardN++; return questionCard(q, true); } if (gateShown) return null; gateShown = true; return gateCard(); }
@@ -2377,11 +2379,30 @@ function passageCard(p) {
   const n = p.qs.length, sci = p.s !== "CARS";
   el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[p.s].name}</span>${sci ? `<span class="tag">${esc(p.c)}${CAT[p.c] && CAT[p.c].hy ? " ★" : ""}</span>` : ""}<span class="tag">Passage + ${n} questions</span><button class="btn small primary qjump" data-jump style="margin-left:auto">Jump to questions ↓</button></div>
     <h2 class="stem">${esc(p.title)}</h2><p class="muted small" style="margin:0">Read the passage, then answer the ${n} questions below it.</p><div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}
+    ${sci ? "" : `<div class="mainidea" data-mibox><label class="small"><b>Before the questions:</b> what's the author's main point, in one line?</label><textarea rows="2" data-mi placeholder="The author argues that…">${esc((S.mi || {})[p.id] || "")}</textarea><div class="row"><button class="btn small" data-misave>Lock it in</button></div></div>`}
     <div class="qhead" data-qhead>Questions 1–${n}</div>` +
     p.qs.map((q, i) => `<div class="pq" data-q="${i}"><div class="card-top"><span class="tag sec">Q${i + 1} of ${n}</span><span class="tag">${QKIND[q.k || q.c] || ""}</span>${diffDots(q.d)}${q.t ? `<span class="muted small" style="margin-left:auto">Avg solve time: ${+q.t} sec</span>` : ""}</div>${passBtnHTML(p)}<h3>${q.q}</h3>${tableHTML(q.vt, "vt")}<div class="opts">${optsHTML(q)}</div><div class="reveal stack" hidden></div></div>`).join("") + SWIPE;
   p.qs.forEach((q, i) => wireQuestion($(`[data-q="${i}"]`, el), q, el));
   $("[data-jump]", el).addEventListener("click", () => scrollToEl($("[data-qhead]", el)));
+  if (!sci) wireMainIdea(el, p);
   return el;
+}
+// The passage's own main-idea question (when it has one) gives the model line to compare against.
+const MI_RE = /main (idea|point|thesis|argument)|central (idea|thesis|argument|claim)|primary purpose|best (summarizes|expresses)/i;
+function wireMainIdea(el, p) {
+  const box = $("[data-mibox]", el); if (!box) return;
+  const lock = () => { const t = $("[data-mi]", box).value.trim(); if (!t) return toast("Write one line first. Rough is fine.");
+    (S.mi = S.mi || {})[p.id] = t; save(); box.innerHTML = `<p class="small" style="margin:0"><b>Your main idea:</b> ${esc(t)}</p>`; };
+  $("[data-misave]", box).addEventListener("click", lock);
+  el.addEventListener("click", e => {
+    if (!e.target.closest(".opt") || box.dataset.compared) return;
+    setTimeout(() => {
+      if (box.dataset.compared || $$(".opts", el).some(o => !o.dataset.done)) return;
+      box.dataset.compared = 1;
+      const mq = p.qs.find(q => MI_RE.test(q.q)), mine = (S.mi || {})[p.id];
+      box.insertAdjacentHTML("beforeend", `<div class="explain" style="margin-top:8px">${mine ? `<p><b>Your line:</b> ${esc(mine)}</p>` : ""}${mq ? `<p><b>The passage's main idea:</b> ${esc(mq.o[mq.a][0])}</p>` : ""}<p class="small muted" style="margin:0">A strong main idea names the author's view and attitude, not just the topic. If yours only named the topic, try adding what the author thinks about it.</p></div>`);
+    }, 60);
+  });
 }
 function factCard() {
   const i = factI++ % FACTS.length, [s, t] = FACTS[i];
@@ -2444,6 +2465,7 @@ function showRound(r, first) {
 function reviewPrompt() {
   if ($("#sheetHost .scrim")) return;
   const R = S.review || { right: 0, wrong: 0 };
+  if (R.kind === "check") return checkDone();
   beep("level");
   sheet(`<div class="eyebrow">Review complete</div><h2>${R.right} mastered, ${R.wrong} still in your Revenge Queue.</h2>
     <p class="muted">Anything you missed again comes back on a 1, 3 and 7 day schedule.</p>
@@ -2515,6 +2537,7 @@ function startReview(only) {
 }
 function reviewDoneText() {
   const R = S.review; if (!R) return "";
+  if (R.kind === "check") { const l = R.ids.length - R.done.length; return l ? `${l} question${l === 1 ? "" : "s"} left in your starting check.` : "Starting check done. Your results are on the Me page."; }
   const left = R.ids.length - R.done.length;
   return left ? `${left} question${left === 1 ? "" : "s"} above still to answer.` : `${R.right} question${R.right === 1 ? "" : "s"} mastered, ${R.wrong} still in queue. See you tomorrow.`;
 }
@@ -2561,6 +2584,98 @@ function showPerf() {
   $("#view-me").scrollTop = 0;
   const g = $("#goalPanel"); if (g) { g.classList.remove("flash"); void g.offsetWidth; g.classList.add("flash"); }
 }
+/* ---------- Your plan: test date + hours a week -> what to do today ---------- */
+const PLAN_HOURS = [5, 10, 15, 20, 30];
+const niceDate = k => new Date(k + "T12:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+// CARS accuracy by the AAMC's three question types (S.cat already tracks CF / CW / CB).
+function carsTypesHTML() {
+  const t = [["CF", "Comprehension"], ["CW", "Reasoning within"], ["CB", "Reasoning beyond"]].map(([k, n]) => { const c = S.cat[k] || { a: 0, c: 0 }; return [k, n, c.a, c.a ? Math.round(c.c / c.a * 100) : null]; });
+  if (!t.some(x => x[2])) return "";
+  const ok = t.filter(x => x[2] >= 5).sort((a, b) => a[3] - b[3]), w = ok[0];
+  const tip = !w ? "Answer a few more CARS passages to see which question type costs you most." :
+    { CF: "Comprehension misses usually mean the passage went by too fast. Write your one-line main idea before the questions, and go back to the exact line before you answer.",
+      CW: "Reasoning-within misses usually come from answers that are true but don't do what the question asks. Ask what the author would say, not what you think.",
+      CB: "Reasoning-beyond misses come from not carrying the author's logic to a new case. Name the author's principle first, then apply it to the new situation." }[w[0]];
+  return `<div class="panel"><h3>CARS by question type</h3><div class="grid2">${t.map(([k, n, a, p]) => `<div class="stat"><b>${p === null ? "–" : p + "%"}</b><span>${n} (${a})</span></div>`).join("")}</div><p class="small" style="margin:8px 0 0">${tip}</p></div>`;
+}
+function planDays() { if (!S.testDate) return null; return Math.ceil((new Date(S.testDate + "T12:00:00") - new Date()) / DAY); }
+// About half the study time goes to questions at roughly 2 minutes each including review; the rest to sheets, review and exams.
+function planGoal() { return Math.max(15, Math.min(60, Math.round((S.hoursWk || 10) * 60 / 7 / 2 / 2 / 5) * 5)); }
+function planSheet() {
+  const w = weakAreas("ALL", 1)[0]; if (w) return w;
+  const b = S.baseline && S.baseline.weak; if (b) return b;
+  return "1A";
+}
+function planPhase(d) {
+  if (d === null) return "";
+  if (d < 0) return "Your test date has passed. Set a new one if you're retaking.";
+  if (d <= 7) return "Final week: light review, one last half-length early in the week, then rest the day before.";
+  if (d <= 28) return "Final month: one full-length a week, and spend the next day reviewing every question you missed or guessed.";
+  if (d <= 56) return "Two months out: a full-length every two weeks, with daily questions and your weakest sheets in between.";
+  return "Building phase: daily questions plus one Mastery Sheet concept a day. Start full-lengths about two months out.";
+}
+function planLine() {
+  if (!S.testDate) return "";
+  const due = Object.values(S.revenge).filter(r => r.due <= Date.now()).length;
+  return `Today's plan: ${due ? due + " Revenge due, " : ""}${planGoal()} new questions, Mastery Sheet ${esc(planSheet())}`;
+}
+function planHTML() {
+  if (!S.testDate || S.planEdit) {
+    return `<div class="panel" id="planPanel"><h3>Your plan</h3><p class="small" style="margin:0 0 8px">Tell us when your MCAT is and how much time you have. We'll turn it into a short list for each day.</p>
+      <div class="row"><label class="small">Test date <input type="date" id="planDate" value="${esc(S.testDate || "")}"></label>
+      <label class="small">Hours a week <select id="planHours">${PLAN_HOURS.map(h => `<option value="${h}" ${(S.hoursWk || 10) === h ? "selected" : ""}>${h === 30 ? "30+" : h}</option>`).join("")}</select></label>
+      <button class="btn small primary" data-plansave>Save</button></div></div>`;
+  }
+  const d = planDays(), due = Object.values(S.revenge).filter(r => r.due <= Date.now()).length, g = planGoal(), sh = planSheet();
+  const meta = SHEETS && SHEETS.find(x => x.id === sh);
+  const base = S.baseline ? `<p class="small muted" style="margin:8px 0 0">Starting check (${esc(niceDate(S.baseline.date))}): <b>${S.baseline.acc}%</b>${S.baseline.by ? " · " + Object.entries(S.baseline.by).map(([k, v]) => `${esc(SECTIONS[k].name)} ${v}%`).join(", ") : ""}. Your overall accuracy now: <b>${S.total ? Math.round(S.totalCorrect / S.total * 100) : 0}%</b>.</p>`
+    : `<div class="row" style="margin-top:8px"><button class="btn small" data-startcheck>Take the 30-question starting check</button></div><p class="small muted" style="margin:4px 0 0">Mixed questions from all three science sections. It shows where you're starting and picks your first weak areas.</p>`;
+  return `<div class="panel" id="planPanel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Your plan</h3><button class="linkbtn small" data-planedit>Change</button></div>
+    <p class="small" style="margin:0 0 6px">${d >= 0 ? `<b>${d} day${d === 1 ? "" : "s"}</b> to test day (${esc(niceDate(S.testDate))}).` : ""} ${planPhase(d)}</p>
+    <ol class="small" style="margin:6px 0 0;padding-left:20px">
+      ${due ? `<li>Clear your <b>${due}</b> due Revenge question${due === 1 ? "" : "s"} first.</li>` : ""}
+      <li><b>${g}</b> new questions${S.goal === g ? "" : ` <button class="linkbtn" data-plangoal="${g}">Make this my daily goal</button>`}</li>
+      <li>One concept from <button class="linkbtn" data-sheet="${esc(sh)}">Mastery Sheet ${esc(sh)}${meta ? ": " + esc(meta.title) : ""}</button>, then its Check yourself questions.</li>
+    </ol>${base}</div>`;
+}
+// 30 questions, 10 per science section, spread across categories, medium difficulty, not seen before.
+function startCheck() {
+  const ids = [];
+  ["CP", "BB", "PS"].forEach(sec => {
+    const cats = CATS.filter(c => c[2] === sec).map(c => c[0]), by = {};
+    QUESTIONS.filter(q => q.s === sec && (q.d || 2) === 2 && !S.stats[q.id] && canOpen(q) && !isExamId(q.id)).forEach(q => (by[q.c] = by[q.c] || []).push(q.id));
+    let k = 0, guard = 0; const out = [];
+    while (out.length < 10 && guard++ < 400) { const c = cats[k++ % cats.length], l = by[c]; if (l && l.length) out.push(l.splice(Math.floor(Math.random() * l.length), 1)[0]); }
+    ids.push(...out);
+  });
+  if (!ids.length) return toast("No new questions left for a starting check.");
+  S.review = { kind: "check", ids: ids.sort(() => Math.random() - .5), done: [], queued: [], right: 0, wrong: 0, t0: Date.now() }; save();
+  go("scroll"); resetFeed(); toast("Starting check: 30 questions. No hints, just your best answer.");
+}
+function checkDone() {
+  const R = S.review; if (!R) return;
+  const by = {}, tally = {};
+  R.ids.forEach(id => { const q = anyQ(id), st = S.stats[id]; if (!q || !st) return; const t = tally[q.s] = tally[q.s] || [0, 0]; t[1]++; if (st.c) t[0]++;
+    const c = by[q.c] = by[q.c] || [0, 0]; c[1]++; if (st.c) c[0]++; });
+  const n = Object.values(tally).reduce((a, t) => a + t[1], 0), r = Object.values(tally).reduce((a, t) => a + t[0], 0);
+  const weak = Object.entries(by).sort((a, b) => a[1][0] / a[1][1] - b[1][0] / b[1][1])[0];
+  S.baseline = { date: todayKey(), acc: n ? Math.round(r / n * 100) : 0, by: Object.fromEntries(Object.entries(tally).map(([k, t]) => [k, Math.round(t[0] / t[1] * 100)])), weak: weak && weak[0] };
+  save(); beep("level");
+  sheet(`<div class="eyebrow">Starting check done</div><h2>${r} of ${n} right (${S.baseline.acc}%).</h2>
+    <p class="muted">This is your starting line, not a score. Your misses are already in your Revenge Queue, and your plan on the Me page now starts with ${esc(S.baseline.weak || "your weakest area")}.</p>
+    <div class="row"><button class="btn primary" data-close data-gome>See my plan</button><button class="btn" data-close data-more10>Do ${ROUND} more questions</button></div>`);
+}
+document.addEventListener("click", e => {
+  if (e.target.closest("[data-plansave]")) {
+    const d = ($("#planDate") || {}).value, h = +($("#planHours") || {}).value || 10;
+    if (!d) return toast("Pick your test date first.");
+    S.testDate = d; S.hoursWk = h; S.planEdit = false; save(); return renderMe();
+  }
+  if (e.target.closest("[data-planedit]")) { S.planEdit = true; return renderMe(); }
+  const pg = e.target.closest("[data-plangoal]"); if (pg) { S.goal = +pg.dataset.plangoal; S.goalSet = true; save(); renderHUD(); toast(`Daily goal set to ${S.goal}.`); return renderMe(); }
+  if (e.target.closest("[data-startcheck]")) return startCheck();
+  if (e.target.closest("[data-gome]")) { S.review = null; save(); go("me"); return renderMe(); }
+});
 function todaySummaryHTML() {
   const t = S.today; if (!t.doneDay) return "";
   const acc = t.answered ? Math.round(t.correct / t.answered * 100) : 0;
@@ -2628,6 +2743,7 @@ function welcomeBack() {
   sheet(`<div class="lvbig"><div class="eyebrow">${first ? "Welcome" : "Welcome back"}</div><div class="badge-lv ${L === 5 ? "t5" : ""}">${L === 5 ? "GM" : "L" + L}</div><strong>Level ${L}: ${esc(tierName(L))}</strong></div>
     ${levelBarHTML()}
     <p class="small muted" style="margin:0;text-align:center">Today's goal: <b style="color:var(--text)">${S.goal} questions</b> · ${streakAlive()}-day streak · ${revCount()} in Revenge Queue${S.lv.pending ? ` · <b style="color:var(--volt)">Gatekeeper of Level ${S.lv.pending} is ready</b>` : ""}</p>
+    ${S.testDate ? `<p class="small" style="margin:0;text-align:center">${planLine()}</p>` : ""}
     <button class="btn primary" data-welstart style="font-size:18px;padding:16px">Start today's quest</button>
     <button class="btn adjgoal" data-welgoal>Adjust goals for the day</button>
     ${CONFIG.flags.MASTERY_SHEETS_CONSPICUOUS ? goldBtnHTML() : ""}`,
@@ -3165,13 +3281,14 @@ function renderMe() {
   const dnaCounts = [["Content", "Content gap"], ["Misread", "Misread question"], ["Data", "Passage or graph"], ["Trap", "Trap"], ["Time", "Time"]].map(([t, n], i) => [n, S.errors.filter(e => e.type === t).length, ["var(--cool)", "var(--pink-light)", "var(--green)", "var(--bad)", "var(--heat)"][i]]);
   const revN = Object.keys(S.revenge).length, dueN = Object.values(S.revenge).filter(r => r.due <= Date.now()).length;
   const C = 2 * Math.PI * 31, pct = Math.min(1, S.today.answered / S.goal);
-  $("#view-me").innerHTML = `${todaySummaryHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Subscriber" : ""}</p>
+  $("#view-me").innerHTML = `${todaySummaryHTML()}${planHTML()}<h2 class="title">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h2><p class="sub">${S.xp.toLocaleString()} XP (${esc(rankOf(L))}) · ${S.total} answered at ${acc}%${S.pro ? " · Subscriber" : ""}</p>
   <div class="stack">
     <div class="panel">${levelBarHTML()}</div>
     ${analyticsHTML()}
     <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
     <div class="panel"><h3>Error DNA</h3>${donut(dnaCounts)}</div>
+    ${carsTypesHTML()}
     ${proPanel("Score estimate", "See your estimated score for each section, based on your recent answers.",
       `<p class="small muted">Built from your timed exams when you have them, otherwise from passage questions only. Stand-alone questions run easier than the real exam, so they don't count here. It's a range, not an AAMC prediction, and it narrows as you do more.</p>
       <div class="grid2">${ests.map(([s, v]) => `<div class="stat"><b>${v ? v.lo + "–" + v.hi : "–"}</b><span>${SECTIONS[s].name}${v ? (v.src === "exam" ? " · from exams" : " · from passages") : ": " + (EST_MIN - passageN(s)) + " more passage questions"}</span></div>`).join("")}</div>
