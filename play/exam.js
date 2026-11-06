@@ -188,6 +188,10 @@
     e.total = e.secs.length === 4 ? total : e.res[0].scaled;
     S.examHist = S.examHist || []; S.examHist.push({ id: e.id, date: Date.now(), res: e.res, total: e.total });
     if (e.secs.length === 4) { S.fl = S.fl || []; S.fl.push({ label: e.id, score: total }); }
+    // Wrong answers join the Revenge Queue and come back in the daily questions from tomorrow (1, 3, 7 day schedule after that).
+    let added = 0; const due = Date.now() + 20 * 3600000;
+    e.secs.forEach(s => items(e.id, s.s).forEach(x => { const id = x.q.id, a = s.ans[id]; if (!id || a === undefined || a === x.q.a || S.revenge[id]) return; S.revenge[id] = { box: 0, due }; added++; }));
+    e.rvAdded = added;
     save(); setExamingClass(); resultsView();
   }
 
@@ -200,6 +204,7 @@
     const sheets = Object.entries(bySheet).sort((a, b) => a[1].r / a[1].n - b[1].r / b[1].n);
     root().innerHTML = `<div class="xwrap"><span class="eyebrow">${esc(e.id)} complete</span><h2 class="title">${full ? "Estimated score " + e.total : "Section score " + e.total}</h2>
       <p class="sub">${tot} of ${N} correct (${Math.round(tot / N * 100)}%)${full ? " · scale 472-528" : " · scale 118-132"}. This is an estimate; the AAMC does not publish conversion tables.</p>
+      ${e.rvAdded ? `<p class="small">${e.rvAdded} missed question${e.rvAdded === 1 ? "" : "s"} added to your Revenge Queue. ${e.rvAdded === 1 ? "It'll" : "They'll"} come back in your daily questions starting tomorrow.</p>` : ""}
       <div class="panel"><table class="xres"><thead><tr><th>Section</th><th>Correct</th><th>Scaled</th><th>Time</th></tr></thead><tbody>${e.res.map(r => `<tr><td>${SEC[r.sec].name}</td><td>${r.raw}/${r.n}</td><td><b>${r.scaled}</b></td><td>${fmt(r.used)}</td></tr>`).join("")}</tbody></table></div>
       <div class="panel"><h3>Weakest categories</h3><p class="small muted" style="margin-top:0">Lowest percent correct first.</p>${sheets.slice(0, 6).map(([c, b]) => `<div class="row" style="justify-content:space-between;flex-wrap:nowrap"><span>${esc(c)}</span><span class="small muted">${b.r}/${b.n}</span></div>`).join("")}</div>
       <div class="row"><button class="btn primary" data-xreview>Review answers</button><button class="btn ghost" data-xhub>Back to exams</button></div></div>`;
