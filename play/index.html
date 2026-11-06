@@ -2483,7 +2483,6 @@ function todaySummaryHTML() {
   return `<div class="panel" id="todaySum"><div class="eyebrow">Done for the Day 🎉</div><h3>Today's summary</h3>
     <div class="grid2"><div class="stat"><b>${acc}%</b><span>accuracy today (${t.correct} of ${t.answered})</span></div><div class="stat"><b>${revCount()}</b><span>in your Revenge Queue</span></div></div>
     <h4 style="margin:12px 0 4px">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h4>${levelBarHTML()}
-    <h4 style="margin:12px 0 4px">Time per question</h4><p class="small muted" style="margin:0">Today: <b style="color:var(--text)">${avgSecs(t.secs)} s</b> average.</p>${timeTrendSVG()}
     <p class="small muted" style="margin:8px 0 0">See you tomorrow. Want more today? <button class="linkbtn" data-more10>Do ${ROUND} more for +50 XP</button></p></div>`;
 }
 var extraRound = false, morePromptOpen = false; // var: renderHUD can run before this line
