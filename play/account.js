@@ -251,7 +251,8 @@ function adminPanelHTML() {
   return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Admin tools</h3><span class="tag sec">Owner</span></div>
     <p class="small muted">Unlimited questions, bosses, full-lengths, minis, Mastery Sheets, mnemonics and Anki export are on. These buttons change this account's own level, to preview each tier.</p>
     <p class="small">Jump to level</p><div class="row">${[1, 2, 3, 4, 5].map(n => `<button class="btn small${n === lv ? " primary" : ""}" data-adlevel="${n}">${n}. ${esc(tierName(n))}</button>`).join("")}</div>
-    <div class="row" style="margin-top:8px">${lv < 5 ? `<button class="btn small" data-adgate>Fight Gatekeeper ${lv + 1} now</button>` : ""}<button class="btn small" data-adbosses>Reset today's boss count</button></div></div>`;
+    <div class="row" style="margin-top:8px">${lv < 5 ? `<button class="btn small" data-adgate>Fight Gatekeeper ${lv + 1} now</button>` : ""}<button class="btn small" data-adbosses>Reset today's boss count</button></div>
+    <p class="small" style="margin-top:12px">Real percent correct per question, from students' first tries.</p><div class="row"><button class="btn small" data-adqstats>Question stats</button></div></div>`;
 }
 document.addEventListener("click", e => {
   if (!isAdmin()) return;
@@ -272,6 +273,70 @@ document.addEventListener("click", async e => {
   if (t.closest("[data-acout]")) return signOut();
   if (t.closest("[data-acdevices]")) return devicesSheet();
 });
+
+/* ---------- question stats: the real percent of students who get each question right ---------- */
+// Works signed in or not. Only a random device id, the question id, the option picked and right/wrong are sent
+// (supabase/004_question_stats.sql); the server counts only each device's first answer to a question.
+const QS_STORE = "quest520.qs", QR_STORE = "quest520.qr", QR_MIN = 30;
+let qsList = null, qsTimer = null, qsBusy = false, qsOff = false, QRATE = null;
+const qsSave = () => lsSet(QS_STORE, qsList.length ? JSON.stringify(qsList) : null);
+function logAnswer(id, k, ok) {
+  if (!SB_URL || !id || /^g_/.test(id)) return; // generated drill questions change every time, so they aren't tracked
+  if (!qsList) { try { qsList = JSON.parse(lsGet(QS_STORE) || "[]"); } catch (e) { qsList = []; } }
+  qsList.push({ q: String(id), k: k >= 0 && k <= 3 ? k : null, ok: !!ok });
+  if (qsList.length > 500) qsList.splice(0, qsList.length - 500);
+  qsSave(); clearTimeout(qsTimer);
+  if (qsList.length >= 10) flushAnswers(); else qsTimer = setTimeout(flushAnswers, 30000);
+}
+function flushAnswers(leaving) {
+  if (!qsList || !qsList.length || qsBusy || qsOff || !navigator.onLine) return;
+  const batch = qsList.slice(0, 50); qsBusy = true; clearTimeout(qsTimer);
+  fetch(SB_URL + "/rest/v1/rpc/record_answers", { method: "POST", keepalive: !!leaving, headers: { apikey: SB_KEY, "Content-Type": "application/json" }, body: JSON.stringify({ p_dev: deviceId(), p_items: batch }) })
+    .then(r => { qsBusy = false; if (r.status === 404) { qsOff = true; return; } if (!r.ok) return; qsList.splice(0, batch.length); qsSave(); if (qsList.length) flushAnswers(); })
+    .catch(() => { qsBusy = false; });
+}
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flushAnswers(true); });
+window.addEventListener("online", () => flushAnswers());
+// Percent correct for questions with 30+ answers, fetched at most twice a day.
+function loadRates() {
+  if (QRATE || !SB_URL) return;
+  let c = null; try { c = JSON.parse(lsGet(QR_STORE) || "null"); } catch (e) {}
+  QRATE = (c && c.d) || {};
+  if (c && Date.now() - c.t < 12 * 3600000) return;
+  fetch(SB_URL + "/rest/v1/rpc/question_rates", { method: "POST", headers: { apikey: SB_KEY, "Content-Type": "application/json" }, body: "{}" })
+    .then(r => r.ok ? r.json() : null).then(d => { if (d && typeof d === "object") { QRATE = d; lsSet(QR_STORE, JSON.stringify({ t: Date.now(), d })); } }).catch(() => {});
+}
+function rateHTML(id) {
+  loadRates();
+  const r = QRATE && QRATE[id]; if (!r || r[0] < QR_MIN) return "";
+  return `<p class="small muted qrate">${r[1]}% of 520 Quest students got this right (${r[0].toLocaleString()} first tries).</p>`;
+}
+setTimeout(loadRates, 3000);
+
+/* Admin: questions sorted by real percent correct, with the ones that look broken or too easy flagged. */
+function qstatsSheet() {
+  sheet(`<div class="eyebrow">Admin</div><h2>Question stats</h2><p class="small muted" id="qsMsg">Loading…</p><div id="qsBody"></div><div class="row"><button class="btn ghost" data-close>Close</button></div>`, async s => {
+    flushAnswers();
+    let rows;
+    try { rows = await rpc("question_stats_admin", { p_min: 1 }); } catch (e) { $("#qsMsg", s).textContent = /function|schema cache|404/i.test(errText(e)) ? "The stats table isn't set up yet. Run supabase/004_question_stats.sql in Supabase first." : "Couldn't load stats: " + errText(e); return; }
+    rows = rows || [];
+    const MIN = 20, ripe = rows.filter(r => r[1] >= MIN), pct = r => Math.round(r[2] / r[1] * 100);
+    const low = ripe.filter(r => pct(r) < 15), high = ripe.filter(r => pct(r) > 95);
+    const total = rows.reduce((a, r) => a + r[1], 0);
+    const line = r => {
+      const q = anyQ(r[0]), wrong = r[3].map((n, k) => [n, k]).filter(([, k]) => !q || k !== q.a).sort((a, b) => b[0] - a[0])[0];
+      const top = wrong && wrong[0] ? ` · most-picked${q ? " wrong" : ""}: ${"ABCD"[wrong[1]]} (${Math.round(wrong[0] / r[1] * 100)}%)` : "";
+      return `<div class="panel" style="padding:10px"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><b>${esc(r[0])}</b><span><b>${pct(r)}%</b> <span class="small muted">of ${r[1]}</span></span></div>
+        ${q ? `<p class="small" style="margin:4px 0 0">${esc(String(q.q).replace(/<[^>]+>/g, "").slice(0, 140))}</p><p class="small muted" style="margin:2px 0 0">Key: ${"ABCD"[q.a]}${top}</p>` : top ? `<p class="small muted" style="margin:4px 0 0">${top.slice(3)}</p>` : ""}</div>`;
+    };
+    const block = (title, note, list) => `<h3>${title} (${list.length})</h3><p class="small muted" style="margin-top:0">${note}</p>${list.slice(0, 40).map(line).join("") || '<p class="small muted">None yet.</p>'}`;
+    $("#qsMsg", s).textContent = `${rows.length.toLocaleString()} questions answered ${total.toLocaleString()} times (first tries only). Flags need ${MIN}+ answers; ${ripe.length.toLocaleString()} questions have that many.`;
+    $("#qsBody", s).innerHTML = block("Check the answer key", "Under 15% right. Often a wrong key, a typo or two right answers. A popular wrong choice is the usual clue.", low)
+      + block("Too easy", "Over 95% right. Fine for warm-ups, but they don't train a 520.", high)
+      + block("Hardest overall", "Lowest percent correct first.", ripe.filter(r => pct(r) >= 15 && pct(r) <= 95).slice(0, 20));
+  });
+}
+document.addEventListener("click", e => { if (e.target.closest("[data-adqstats]") && isAdmin()) qstatsSheet(); });
 
 /* ---------- start ---------- */
 (function initAccount() {

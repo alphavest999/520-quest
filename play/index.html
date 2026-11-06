@@ -2100,6 +2100,7 @@ function wireQuestion(scope, q, card) {
     if (S.resume === q.id) S.resume = null;
     const conf = optsBox.dataset.conf || ""; confBox.classList.add("locked");
     const { gain, crit } = record(q, ok, secs);
+    if (S.stats[q.id] && S.stats[q.id].a === 1 && typeof logAnswer === "function") logAnswer(q.id, q.ord ? q.ord[i] : i, ok);
     let confNote = "";
     if (ok && conf === "guess") { S.revenge[q.id] = { box: 0, due: Date.now() + 20 * 3600000 }; confNote = "You got it right but were guessing, so it'll come back tomorrow."; }
     else if (ok && conf === "think" && (!S.revenge[q.id] || S.revenge[q.id].box > 1)) { S.revenge[q.id] = { box: 1, due: Date.now() + 3 * DAY }; confNote = "Right, but you weren't sure, so it'll come back in 3 days."; }
@@ -2119,6 +2120,7 @@ function wireQuestion(scope, q, card) {
     if (!ok) wireDNA(rv, q, secs);
     upgradeExplain(rv, q, i, ok, conf);
     const sl = sheetLinkHTML(q) + mnLinkHTML(q); if (sl) $(".row", rv).insertAdjacentHTML("beforebegin", sl);
+    if (typeof rateHTML === "function") rv.insertAdjacentHTML("beforeend", rateHTML(q.id));
     rv.insertAdjacentHTML("beforeend", reportLinkHTML(q));
     const ab = $("[data-addanki]", rv); if (ab) ab.addEventListener("click", () => addAnki(q, ab));
     const sb = $("[data-stuck]", rv); if (sb) sb.addEventListener("click", () => stuck(q, card, sb));
@@ -2870,6 +2872,7 @@ function bossTurn() {
     const secs = (Date.now() - B.start) / 1000, ok = i === q.a;
     $$(".opt", box).forEach((o, j) => { o.disabled = true; if (j === q.a) o.classList.add("right"); else if (j === i) o.classList.add("wrong"); o.querySelector("span").insertAdjacentHTML("beforeend", `<small>${esc(q.o[j][1])}</small>`); });
     const r = record(q, ok, secs); B.xp += r.gain;
+    if (S.stats[q.id] && S.stats[q.id].a === 1 && typeof logAnswer === "function") logAnswer(q.id, i >= 0 && q.ord ? q.ord[i] : -1, ok);
     if (ok) { B.right++; const dmg = 10 + (secs < 45 ? 2 : 0); B.hp = Math.max(0, B.hp - dmg); beep("good"); }
     else { B.hearts--; beep("bad"); if (!reduce) { card.classList.add("shake"); } }
     $(".hp i").style.width = B.hp / 70 * 100 + "%";
