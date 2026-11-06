@@ -1524,7 +1524,7 @@ const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.js
 function fresh() {
   return { v: 1, xp: 0, combo: 0, bestCombo: 0, chest: 0, hints: 1, freezes: 1, pro: false, sound: true, music: "on", goal: 25,
     streak: { count: 0, last: null }, today: { date: todayKey(), answered: 0, correct: 0, bosses: 0, goalShown: false },
-    stats: {}, cat: {}, recent: { CP: [], CARS: [], BB: [], PS: [] }, revenge: {}, errors: [], facts: {}, traps: {},
+    stats: {}, cat: {}, recent: { CP: [], CARS: [], BB: [], PS: [] }, recentP: { CP: [], CARS: [], BB: [], PS: [] }, revenge: {}, errors: [], facts: {}, traps: {},
     fl: [], anki: [], badges: {}, bossWins: {}, retired: 0, total: 0, totalCorrect: 0, filter: "ALL", focus: null,
     lv: { level: 1, block: [], evals: [], qual: 1, pending: 0 }, tlog: {}, welcome: null, resume: null, lastTab: "scroll", review: null, fanfare: true };
 }
@@ -1767,6 +1767,8 @@ function record(q, correct, secs) {
   }
   levelTick(q, correct);
   const rec = S.recent[q.s]; rec.push([correct ? 1 : 0, q.d]); if (rec.length > 60) rec.shift();
+  // Passage questions feed the score estimate: they are what the real exam is made of.
+  if (q.pid) { const rp = (S.recentP = S.recentP || { CP: [], CARS: [], BB: [], PS: [] })[q.s]; if (rp) { rp.push([correct ? 1 : 0, q.d]); if (rp.length > 80) rp.shift(); } }
   S.total++; S.today.answered++;
   if (correct) { S.totalCorrect++; S.today.correct++; }
   const rv = S.revenge[q.id];
@@ -3035,10 +3037,18 @@ $("#view-course").addEventListener("keydown", e => { if (e.target.id === "mnSear
 $("#view-course").addEventListener("search", e => { if (e.target.id === "mnSearch" && e.target.value.trim()) { mnView = { s: "search", q: e.target.value.trim() }; renderCourse(); v0(); } }, true);
 
 /* ---------- me ---------- */
+/* Score estimate, kept honest: timed exams first (the last two section scores), otherwise passage questions only
+   (stand-alone feed questions run easier than the real exam). Shown as a range that tightens with more data. */
+const EST_MIN = 15;
+function passageN(sec) { return ((S.recentP || {})[sec] || []).length; }
 function estimate(sec) {
-  const r = S.recent[sec]; if (r.length < 15) return null;
-  let w = 0, s = 0; r.forEach(([c, d]) => { const k = d === 3 ? 1.5 : d === 1 ? .8 : 1; w += k; s += c * k; });
-  return Math.round(118 + 14 * Math.min(1, Math.max(0, (s / w - .3) / .65)));
+  const ex = (S.examHist || []).flatMap(h => (h.res || []).filter(r => r.sec === sec && r.n >= 10)).slice(-2);
+  if (ex.length) { const m = Math.round(ex.reduce((a, r) => a + r.scaled, 0) / ex.length), w = ex.length > 1 ? 1 : 2;
+    return { mid: m, lo: Math.max(118, m - w), hi: Math.min(132, m + w), src: "exam" }; }
+  const r = (S.recentP || {})[sec] || []; if (r.length < EST_MIN) return null;
+  let w = 0, sc = 0; r.forEach(([c, d]) => { const k = d === 3 ? 1.5 : d === 1 ? .8 : 1; w += k; sc += c * k; });
+  const m = Math.round(118 + 14 * Math.min(1, Math.max(0, (sc / w - .3) / .65))), h = Math.round(1 + 3 * Math.sqrt(EST_MIN / r.length));
+  return { mid: m, lo: Math.max(118, m - h), hi: Math.min(132, m + h), src: "passages" };
 }
 function donut(counts) {
   const tot = counts.reduce((a, b) => a + b[1], 0); if (!tot) return `<p class="muted small">Miss a question and tag why. Your breakdown shows up here.</p>`;
@@ -3096,7 +3106,7 @@ function analyticsHTML() {
 function renderMe() {
   const L = levelOf(S.xp), acc = S.total ? Math.round(S.totalCorrect / S.total * 100) : 0;
   const ests = ["CP", "CARS", "BB", "PS"].map(s => [s, estimate(s)]);
-  const tot = ests.every(e => e[1]) ? ests.reduce((a, e) => a + e[1], 0) : null;
+  const tot = ests.every(e => e[1]) ? { lo: ests.reduce((a, e) => a + e[1].lo, 0), hi: ests.reduce((a, e) => a + e[1].hi, 0) } : null;
   const dnaCounts = [["Content", "Content gap"], ["Misread", "Misread question"], ["Data", "Passage or graph"], ["Trap", "Trap"], ["Time", "Time"]].map(([t, n], i) => [n, S.errors.filter(e => e.type === t).length, ["var(--cool)", "var(--pink-light)", "var(--green)", "var(--bad)", "var(--heat)"][i]]);
   const revN = Object.keys(S.revenge).length, dueN = Object.values(S.revenge).filter(r => r.due <= Date.now()).length;
   const C = 2 * Math.PI * 31, pct = Math.min(1, S.today.answered / S.goal);
@@ -3108,10 +3118,10 @@ function renderMe() {
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
     <div class="panel"><h3>Error DNA</h3>${donut(dnaCounts)}</div>
     ${proPanel("Score estimate", "See your estimated score for each section, based on your recent answers.",
-      `<p class="small muted">A rough practice estimate from your last 60 answers per section. It is not an AAMC prediction; your full-lengths are the real test.</p>
-      <div class="grid2">${ests.map(([s, v]) => `<div class="stat"><b>${v || "–"}</b><span>${SECTIONS[s].name}${v ? "" : ": answer " + (15 - S.recent[s].length) + " more"}</span></div>`).join("")}</div>
-      <p><b style="font:700 22px var(--display);color:var(--volt)">${tot || "–"}</b> <span class="muted small">${tot ? "estimated total (472–528)" : "total appears once every section has 15 answers"}</span></p>`,
-      `<div class="grid2">${[["CP", 129], ["CARS", 128], ["BB", 131], ["PS", 130]].map(([s, v]) => `<div class="stat"><b>${v}</b><span>${SECTIONS[s].name}</span></div>`).join("")}</div><p><b style="font:700 22px var(--display);color:var(--volt)">518</b> <span class="muted small">estimated total</span></p>`)}
+      `<p class="small muted">Built from your timed exams when you have them, otherwise from passage questions only. Stand-alone questions run easier than the real exam, so they don't count here. It's a range, not an AAMC prediction, and it narrows as you do more.</p>
+      <div class="grid2">${ests.map(([s, v]) => `<div class="stat"><b>${v ? v.lo + "–" + v.hi : "–"}</b><span>${SECTIONS[s].name}${v ? (v.src === "exam" ? " · from exams" : " · from passages") : ": " + (EST_MIN - passageN(s)) + " more passage questions"}</span></div>`).join("")}</div>
+      <p><b style="font:700 22px var(--display);color:var(--volt)">${tot ? tot.lo + "–" + tot.hi : "–"}</b> <span class="muted small">${tot ? "estimated total (472–528)" : "total appears once every section has a range"}</span></p>`,
+      `<div class="grid2">${[["CP", 129], ["CARS", 128], ["BB", 131], ["PS", 130]].map(([s, v]) => `<div class="stat"><b>${v - 1}–${v + 1}</b><span>${SECTIONS[s].name}</span></div>`).join("")}</div><p><b style="font:700 22px var(--display);color:var(--volt)">514–522</b> <span class="muted small">estimated total</span></p>`)}
     ${proPanel("Full-length tracker", "Log every practice exam and watch your line climb toward the 520 mark.",
       `${flChart()}<div class="row"><input type="text" id="flLabel" placeholder="FL ${S.fl.length + 1}" style="width:90px"><input type="number" id="flScore" min="472" max="528" placeholder="Score" style="width:100px"><button class="btn" data-addfl>Add</button>${S.fl.length ? '<button class="btn ghost small" data-popfl>Remove last</button>' : ""}</div>`,
       flChart(SAMPLE_FL))}
