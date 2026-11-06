@@ -238,12 +238,12 @@ function deviceLimitSheet() {
 /* ---------- Me tab panel ---------- */
 window.acctPanelHTML = () => {
   if (ACCT.state === "off") return "";
-  if (ACCT.state === "out") return `<div class="panel"><h3>Account</h3><p class="small">Sign in to save your progress, use 520 Quest on up to 3 devices and keep your progress in sync.</p><div class="row"><button class="btn primary small" data-acin>Sign in with email</button></div></div>`;
+  if (ACCT.state === "out") return `<div class="panel"><h3>Account</h3><p class="small">Sign in to save your progress, use 520 Quest on up to 3 devices and keep your progress in sync.</p><div class="row"><button class="btn primary small" data-acin>Sign in with email</button><button class="btn small exitred" data-exit>Exit</button></div></div>`;
   const p = ACCT.profile || {}, email = (ACCT.user && ACCT.user.email) || "";
   return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Account</h3><span class="tag sec">${esc(planName(p))}</span></div>
     <p class="small" style="overflow-wrap:anywhere">${esc(email)}</p>
     ${ACCT.state === "blocked" ? `<p class="small" style="color:var(--bad)">This device isn't syncing: your account is already on ${ACCT.limit} device${ACCT.limit === 1 ? "" : "s"}.</p>` : `<p class="small muted">${ACCT.synced ? "Progress saved to your account " + new Date(ACCT.synced).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) + "." : "Progress saves to your account after each question."}${fullAccess() ? " All Mastery Sheets and mnemonics are unlocked." : ""}</p>`}
-    <div class="row"><button class="btn small" data-acdevices>Manage devices</button><button class="btn small ghost" data-acout>Sign out</button></div></div>${isAdmin() ? adminPanelHTML() : ""}`;
+    <div class="row"><button class="btn small" data-acdevices>Manage devices</button><button class="btn small ghost" data-acout>Sign out</button><button class="btn small exitred" data-exit>Exit without signing out</button></div></div>${isAdmin() ? adminPanelHTML() : ""}`;
 };
 /* ---------- owner admin tools (only for an account with is_admin) ---------- */
 function adminPanelHTML() {
