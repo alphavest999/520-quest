@@ -2079,7 +2079,7 @@ function questionCard(q, rev, tgt) {
   const passageExpand = pass ? passBtnHTML(pass) : "";
   el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[q.s].name}</span><span class="tag">${q.c}${cat.hy ? " ★" : ""}</span>${rev ? '<span class="tag rev">Revenge</span>' : ""}${tgt ? '<span class="tag target" title="The adaptive engine picked this from one of your weakest areas">Weak area</span>' : ""}${diffDots(q.d)}</div>${passageExpand}
     <h2 class="stem">${q.q}</h2><div class="opts">${optsHTML(q)}</div>
-    <div class="row tools"><button class="btn small ghost" data-hint ${S.hints ? "" : "disabled"}>Hint (${S.hints})</button><span class="muted small">${esc(cat.title)}</span></div>
+    <div class="row tools"><button class="btn small ghost" data-hint ${S.hints && !(S.review && S.review.kind === "check") ? "" : "disabled"}>Hint (${S.hints})</button><span class="muted small">${esc(cat.title)}</span></div>
     <div class="reveal stack" hidden></div>${SWIPE}`;
   wireQuestion(el, q, el);
   return el;
@@ -2561,7 +2561,8 @@ function showRound(r, first) {
 }
 // After finishing a review: same two choices. Done for the day then skips "Review my answers".
 function reviewPrompt() {
-  if ($("#sheetHost .scrim")) return;
+  // Another sheet (a chest, a level-up) is open: a diagnostic or quiz must still finish and save its results, so try again once it closes.
+  if ($("#sheetHost .scrim")) { const k = S.review && S.review.kind; if (k === "check" || k === "quiz") setTimeout(() => { if (S.review && S.review.kind === k) reviewPrompt(); }, 1500); return; }
   const R = S.review || { right: 0, wrong: 0 };
   if (R.kind === "check") return checkDone();
   if (R.kind === "quiz") return quizDone();
