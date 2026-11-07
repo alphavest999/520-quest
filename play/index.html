@@ -212,7 +212,7 @@ button { cursor: pointer; }
 body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); }
 .sv-doc .qref.flash { animation: qflash 2s ease-out; border-radius: 4px; }
 @keyframes qflash { 0%, 50% { background: rgba(244,114,182,.35); box-shadow: 0 0 0 4px rgba(244,114,182,.35); } 100% { background: none; box-shadow: none; } }
-#goalPanel.flash { animation: goalflash 1.6s ease-out; }
+#goalPanel.flash, #planPanel.flash { animation: goalflash 1.6s ease-out; }
 @keyframes goalflash { 0%, 40% { box-shadow: 0 0 0 3px var(--volt); } 100% { box-shadow: 0 0 0 0 transparent; } }
 .card.goldcard { display: grid; gap: 10px; align-content: center; }
 .sheetlink { display: flex; gap: 8px; align-items: center; width: 100%; text-align: left; margin-top: 6px; padding: 10px 12px; border-radius: 12px; border: 1px solid #f472b6; background: #fce7f3; color: var(--text); font: 600 14px/1.3 var(--body); cursor: pointer; }
@@ -3157,12 +3157,24 @@ function welcomeBack() {
     ${S.testDate ? `<p class="small" style="margin:0;text-align:center">${planLine()}</p>` : ""}
     <button class="btn primary" data-welstart style="font-size:18px;padding:16px">Start today's quest</button>
     <button class="btn adjgoal" data-welgoal>Adjust goals for the day</button>
-    ${CONFIG.flags.MASTERY_SHEETS_CONSPICUOUS ? goldBtnHTML() : ""}`,
+    ${planBtnHTML()}`,
     s => s.addEventListener("click", e => {
       if (e.target.closest("[data-welstart]")) { $("#sheetHost").innerHTML = ""; if (S.goalSet) go("scroll"); else customGoal(); }
       else if (e.target.closest("[data-welgoal]")) { $("#sheetHost").innerHTML = ""; showGoals(); }
-      else if (e.target.closest("[data-welsheets]")) { $("#sheetHost").innerHTML = ""; go("course"); }
+      else if (e.target.closest("[data-welplan]")) { $("#sheetHost").innerHTML = ""; showPlan(); }
     }));
+}
+// The plan counts as made once the timed diagnostic is done; until then the pop-up offers to create it.
+const planMade = () => !!(S.baseline && S.baseline.timed);
+function planBtnHTML() {
+  return planMade() ? `<button class="goldbtn" data-welplan>🧭 Go to Customized Action Plan<small>Your study loop for your weakest areas</small></button>`
+    : `<button class="goldbtn" data-welplan>🧭 Create customized Action plan<small>${S.testDate ? "Take" : "Set your test date, then take"} the 30-question timed diagnostic</small></button>`;
+}
+// Me tab, scrolled to Your plan.
+function showPlan() {
+  go("me");
+  const g = $("#planPanel"); if (!g) return;
+  $("#view-me").scrollTop = g.offsetTop - 12; g.classList.remove("flash"); void g.offsetWidth; g.classList.add("flash");
 }
 // Me tab, scrolled to the daily goal picker.
 function showGoals() {
