@@ -193,7 +193,11 @@ figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
     const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([rows.join("\n")], { type: "text/csv" })); a.download = "520_quest_checklist_anki.csv"; a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   });
+  // Your plan on the Me page links straight to cards: checklist.html#BBFL-05,BBFL-09 opens those cards and scrolls to the first.
+  const want = decodeURIComponent(location.hash.slice(1)).split(",").filter(c => D.cards.some(x => x.code === c));
+  want.forEach(c => open.add(c));
   render();
+  if (want.length) { const el = document.querySelector(`.card[data-code="${CSS.escape(want[0])}"]`); if (el) setTimeout(() => el.scrollIntoView({ block: "start" }), 50); }
   window.addEventListener("load", () => typeset(document));
 })();
 </script>

@@ -2901,10 +2901,83 @@ function planPhase(d) {
   if (d <= 56) return "Two months out: a full-length every two weeks, with daily questions and your weakest sheets in between.";
   return "Building phase: daily questions plus one Mastery Sheet concept a day. Start full-lengths about two months out.";
 }
+// Free players get 5 sheets; a locked one is named with a lock and never sent as the day's main step.
+const planSheetMeta = id => SHEETS && SHEETS.find(x => x.id === id);
+const planSheetOpen = id => { const m = planSheetMeta(id); return !!(m && sheetOpen(m)); };
 function planLine() {
   if (!S.testDate) return "";
-  const due = Object.values(S.revenge).filter(r => r.due <= Date.now()).length;
-  return `Today's plan: ${due ? due + " Revenge due, " : ""}${planGoal()} new questions, Mastery Sheet ${esc(planSheet())}`;
+  const due = Object.values(S.revenge).filter(r => r.due <= Date.now()).length, sh = planSheet();
+  return `Today's plan: ${due ? due + " Revenge due, " : ""}${planGoal()} new questions, ${planSheetOpen(sh) ? "Mastery Sheet " + esc(sh) : "drill " + esc(sh) + " on the Map"}`;
+}
+/* ---------- Your strategy: one study loop per weak category, built from the Map syllabus ----------
+   For each weak AAMC category: the Map's subsections to drill (weakest first), the Mastery Sheet,
+   the Memorization Checklist cards and the Mnemonics Vault entries for that category. */
+// Memorization Checklist cards by AAMC category. Codes match play/checklist-data.js; checklist.html#CODE opens a card.
+const CHK_AAMC = {
+  "1A": [["BBFL-04", "pI and amino acid charge"], ["BBFL-06", "The 20 amino acids"], ["BBFL-01", "Michaelis-Menten and Km"], ["BBFL-03", "Enzyme inhibitors"], ["BBFL-07", "Hemoglobin O₂ curve"], ["Lab-02", "Gel electrophoresis, SDS-PAGE"]],
+  "1B": [["BBFL-08", "DNA replication, central dogma"], ["Lab-01", "Southern, Northern, Western blots"], ["Lab-04", "PCR"]],
+  "1C": [["BBFL-05", "Hardy-Weinberg"], ["BBFL-09", "Mitosis vs meiosis"]],
+  "1D": [["BBFL-11", "Rate-limiting enzymes"]],
+  "2C": [["BBFL-09", "Mitosis vs meiosis"]],
+  "3B": [["BBFL-10", "Innate vs adaptive immunity"], ["BBFL-07", "Hemoglobin O₂ curve"]],
+  "4A": [["CPAS-01", "Kinematics"], ["CPAS-02", "Forces, work, energy, power"]],
+  "4B": [["CPAS-03", "Fluids"], ["CPAS-06", "Gas laws"]],
+  "4C": [["CPAS-04", "Electrostatics"], ["CPAS-12", "Circuits"], ["CPAS-13", "Capacitors"], ["CPAS-10", "Electrochemistry"]],
+  "4D": [["CPAS-05", "Optics"], ["CPAS-11", "Waves, sound, Doppler"], ["OChem-05", "IR and ¹H NMR"], ["Lab-05", "Beer-Lambert law"]],
+  "5A": [["CPAS-08", "pH, pKa and buffers"], ["CPAS-09", "Titrations"]],
+  "5B": [["OChem-04", "Stereochemistry"]],
+  "5C": [["Lab-03", "Chromatography"], ["Lab-02", "Gel electrophoresis, SDS-PAGE"]],
+  "5D": [["OChem-01", "Acidity (ARIO)"], ["OChem-02", "SN1 vs SN2"], ["OChem-03", "E1 vs E2"], ["OChem-06", "Carbonyls"]],
+  "5E": [["CPAS-07", "ΔG, ΔH, ΔS and heat"]]
+};
+function chkDone() { try { return new Set(JSON.parse(localStorage.getItem("520quest.checklist.v6")) || []); } catch (e) { return new Set(); } }
+const planPct = (c, a) => Math.round(c / a * 100);
+// Weak categories for the strategy: live weak areas first, then the diagnostic's list, up to 3.
+function planWeak() {
+  const out = weakAreas("ALL", 3), B = S.baseline;
+  ((B && (B.weakList || (B.weak ? [B.weak] : []))) || []).forEach(c => { if (out.length < 3 && CAT[c] && !out.includes(c) && mastery(c) < .75) out.push(c); });
+  return out;
+}
+// The Map's subsections for a category with this player's accuracy; weak tried ones first, then untried, then strong.
+function planSubs(code) {
+  const subs = subCounts(code); if (!subs.length) return [];
+  const t = {};
+  Object.entries(S.stats).forEach(([id, st]) => {
+    const q = anyQ(id); if (!q || !st.a) return;
+    const x = q.pid ? (PASSAGES.find(p => p.id === q.pid) || q) : q; if (x.c !== code && q.c !== code) return;
+    const k = stOf(x); if (!k) return; const v = t[k] = t[k] || [0, 0]; v[0] += st.c; v[1] += st.a;
+  });
+  const rank = o => { const v = t[o.id]; if (!v) return 1; const m = v[0] / v[1]; return m < .75 ? m - 1 : 2 + m; };
+  return subs.map(o => Object.assign({}, o, { got: t[o.id] })).sort((a, b) => rank(a) - rank(b)).slice(0, 3);
+}
+function stratHTML() {
+  const weak = planWeak(); if (!weak.length) return "";
+  const done = chkDone();
+  const blocks = weak.map(code => {
+    const c = S.cat[code] || { a: 0, c: 0 }, meta = planSheetMeta(code), open = planSheetOpen(code);
+    const cards = CHK_AAMC[code] || [], todo = cards.filter(([k]) => !done.has(k));
+    const mns = (MN || []).filter(m => m.linked_sheet_id === code).sort((a, b) => (a.locked ? 1 : 0) - (b.locked ? 1 : 0) || mnScore(b) - mnScore(a)).slice(0, 2);
+    const subs = planSubs(code);
+    const chkBtn = l => `<button class="linkbtn" data-planchk="${esc(l.map(x => x[0]).join(","))}">${l.map(x => esc(x[1])).join(" · ")}</button>`;
+    const steps = [];
+    // 1. Learn it: the sheet if it's open; a free player starts from the checklist and sees the sheet with a lock.
+    if (open) steps.push(`<b>Learn:</b> <button class="linkbtn" data-sheet="${esc(code)}">Mastery Sheet ${esc(code)}</button>, one concept at a time, and answer its Check yourself questions.`);
+    else if (meta) steps.push(`<b>Learn:</b> ${cards.length ? `start with the free Memorization Checklist: ${chkBtn((todo.length ? todo : cards).slice(0, 3))}. ` : "read the explanation on every question you miss in the drill below. "}<button class="linkbtn" data-sheet="${esc(code)}">Mastery Sheet ${esc(code)} 🔒</button> <span class="muted">comes with any plan.</span>`);
+    // 2. Memorize: checklist cards not yet ticked (named here only if Learn didn't already list them), plus the vault's mnemonics.
+    const mem = [];
+    if (cards.length && !todo.length) mem.push(`all ${cards.length} checklist card${cards.length === 1 ? " is" : "s are"} ticked; <button class="linkbtn" data-planchk="${esc(cards.map(x => x[0]).join(","))}">review ${cards.length === 1 ? "it" : "them"}</button> the night before a full-length`);
+    else if (cards.length && open) mem.push(`tick off ${chkBtn(todo.slice(0, 3))} on the Memorization Checklist once you can say ${todo.length === 1 ? "it" : "each one"} from memory`);
+    else if (cards.length) mem.push(`tick each checklist card off once you can say it from memory`);
+    if (mns.length) mem.push(`use ${mns.map(m => `<button class="linkbtn" data-mnlink="${esc(m.id)}">${esc(m.concept)}${m.locked ? " 🔒" : ""}</button>`).join(" · ")} from the Mnemonics Vault`);
+    if (mem.length) steps.push(`<b>Memorize:</b> ${mem.join("; ")}.`);
+    // 3. Drill: the Map syllabus subsections, weakest first.
+    steps.push(`<b>Drill on the Map:</b> ${subs.length ? subs.map(o => `<button class="linkbtn" data-plandrill="${esc(code)}" data-plansub="${esc(o.id)}">${esc(o.label)}</button> <span class="muted">(${o.got ? `${planPct(o.got[0], o.got[1])}% of ${o.got[1]}` : "not tried"})</span>`).join(" · ") : `<button class="linkbtn" data-plandrill="${esc(code)}">all of ${esc(code)}</button>`}. Misses go to Revenge Questions.`);
+    return `<li style="margin-bottom:8px"><b>${esc(code)}</b> ${esc(CAT[code].title)} <span class="muted">· ${c.a ? `${planPct(c.c, c.a)}% of ${c.a}` : "from your diagnostic"}</span>
+      <ol style="margin:4px 0 0;padding-left:18px">${steps.map(x => `<li>${x}</li>`).join("")}</ol></li>`;
+  });
+  return `<h4 style="margin:12px 0 4px">Your strategy for your weakest areas</h4>
+    <p class="small muted" style="margin:0 0 6px">Built from the Map's AAMC syllabus. Work one area at a time: learn it, memorize it, then drill its subsections until the Map shows green (75%+).</p>
+    <ul class="small" style="margin:0;padding-left:20px">${blocks.join("")}</ul>`;
 }
 function planHTML() {
   if (!S.testDate || S.planEdit) {
@@ -2921,8 +2994,9 @@ function planHTML() {
     <ol class="small" style="margin:6px 0 0;padding-left:20px">
       ${due ? `<li>Clear your <b>${due}</b> due Revenge question${due === 1 ? "" : "s"} first.</li>` : ""}
       <li><b>${g}</b> new questions${S.goal === g ? "" : ` <button class="linkbtn" data-plangoal="${g}">Make this my daily goal</button>`}</li>
-      <li>One concept from <button class="linkbtn" data-sheet="${esc(sh)}">Mastery Sheet ${esc(sh)}${meta ? ": " + esc(meta.title) : ""}</button>, then its Check yourself questions.</li>
-    </ol>${base}</div>`;
+      <li>${planSheetOpen(sh) ? `One concept from <button class="linkbtn" data-sheet="${esc(sh)}">Mastery Sheet ${esc(sh)}${meta ? ": " + esc(meta.title) : ""}</button>, then its Check yourself questions.`
+        : `<button class="linkbtn" data-plandrill="${esc(sh)}"${CAT[sh] ? ` title="${esc(CAT[sh].title)}"` : ""}>Drill ${esc(sh)} on the Map</button> and read every explanation you miss.${meta ? ` <span class="muted">(Mastery Sheet ${esc(sh)} 🔒 comes with any plan.)</span>` : ""}`}</li>
+    </ol>${stratHTML()}${base}</div>`;
 }
 // Timed diagnostic: 30 questions, 10 per science section, spread across categories, medium difficulty, not seen before.
 // Clock is the real exam's pace (QZ_PACE s a question). The results set the order of the plan.
@@ -2978,7 +3052,7 @@ function checkDone() {
   sheet(`<div class="eyebrow">${R.timeUp ? "Time's up. " : ""}Diagnostic done</div><h2>${r} of ${n} right (${S.baseline.acc}%).</h2>
     <p class="muted" style="margin-top:0">${order.map(([k, v]) => `${esc(SECTIONS[k].name)} <b>${v}%</b>`).join(" · ")}</p>
     <p class="muted">Time used ${mmss(used)}${pace ? `, about ${pace} s per question (exam pace is ${QZ_PACE} s)` : ""}.${unreached ? ` ${unreached} question${unreached === 1 ? "" : "s"} not reached, counted as wrong like on test day.` : ""}</p>
-    <p class="muted">This is your starting line, not a score. ${inRev ? `<b>${inRev}</b> question${inRev === 1 ? "" : "s"} you ${slow ? "missed, guessed on or answered too slowly" : "missed or guessed on"} ${inRev === 1 ? "is" : "are"} in your Revenge Questions. ` : ""}Your plan on the Me page now starts with ${order.length ? esc(SECTIONS[order[0][0]].name) : "your weakest section"}${S.baseline.weak ? `, Mastery Sheet ${esc(S.baseline.weak)} first` : ""}.</p>
+    <p class="muted">This is your starting line, not a score. ${inRev ? `<b>${inRev}</b> question${inRev === 1 ? "" : "s"} you ${slow ? "missed, guessed on or answered too slowly" : "missed or guessed on"} ${inRev === 1 ? "is" : "are"} in your Revenge Questions. ` : ""}Your plan on the Me page now starts with ${order.length ? esc(SECTIONS[order[0][0]].name) : "your weakest section"}${S.baseline.weak ? (planSheetOpen(S.baseline.weak) ? `, Mastery Sheet ${esc(S.baseline.weak)} first` : `, drilling ${esc(S.baseline.weak)} first`) : ""}, with a study loop for each weak area.</p>
     <div class="row"><button class="btn primary" data-close data-gome>See my plan</button><button class="btn" data-close data-more10>Do ${ROUND} more questions</button></div>`);
 }
 // What the diagnostic says to do, shown inside Your plan.
@@ -2987,10 +3061,8 @@ function diagHTML() {
   if (!B) return `<div class="row" style="margin-top:8px"><button class="btn small" data-startcheck>Take the 30-question timed diagnostic</button></div><p class="small muted" style="margin:4px 0 0">${Math.round(30 * QZ_PACE / 60)} minutes at real MCAT pace, 10 questions from each science section. It shows where you're starting and puts your plan in the right order.</p>`;
   const now = S.total ? Math.round(S.totalCorrect / S.total * 100) : 0;
   const order = B.by ? Object.entries(B.by).sort((a, b) => a[1] - b[1]) : [];
-  const todo = (B.weakList || (B.weak ? [B.weak] : [])).filter(c => CAT[c] && mastery(c) < .75).slice(0, 3);
   const tips = [];
   if (order.length > 1 && order[0][1] < order[order.length - 1][1]) tips.push(`Put most of your new questions into <b>${esc(SECTIONS[order[0][0]].name)}</b>, your lowest section on the diagnostic. <button class="linkbtn" data-plansec="${esc(order[0][0])}">Practice ${esc(SECTIONS[order[0][0]].name)}</button>`);
-  if (todo.length) tips.push(`Drill your weakest areas from the diagnostic: ${todo.map(c => `<button class="linkbtn" data-plandrill="${esc(c)}" title="${esc(CAT[c].title)}">${esc(c)}</button>`).join(" · ")} <span class="muted">(${todo.map(c => esc(CAT[c].title)).join("; ")})</span>`);
   if (B.pace > QZ_PACE) tips.push(`You averaged ${B.pace} s a question; exam pace is ${QZ_PACE} s. Take one timed custom quiz a week until you're under it. <button class="linkbtn" data-quizopen>Build a timed quiz</button>`);
   else if (B.unreached) tips.push(`You ran out of time with ${B.unreached} left. Move on after about ${QZ_PACE} s and flag the question instead of fighting it.`);
   return `<p class="small muted" style="margin:8px 0 0">${B.timed ? "Diagnostic" : "Starting check"} (${esc(niceDate(B.date))}): <b>${B.acc}%</b>${order.length ? " · " + order.map(([k, v]) => `${esc(SECTIONS[k].name)} ${v}%`).join(", ") : ""}${B.pace ? ` · ${B.pace} s a question` : ""}. Your overall accuracy now: <b>${now}%</b>.</p>`
@@ -3008,7 +3080,8 @@ document.addEventListener("click", e => {
   if (e.target.closest("[data-startcheck]")) return checkStart();
   if (e.target.closest("[data-checkgo]")) return startCheck();
   if (e.target.closest("[data-checkpro]")) return setTimeout(showPro, 50);
-  const pd = e.target.closest("[data-plandrill]"); if (pd) return mapDrill(pd.dataset.plandrill);
+  const pd = e.target.closest("[data-plandrill]"); if (pd) return mapDrill(pd.dataset.plandrill, pd.dataset.plansub);
+  const pc = e.target.closest("[data-planchk]"); if (pc) { location.href = "checklist.html#" + encodeURIComponent(pc.dataset.planchk); return; }
   const ps = e.target.closest("[data-plansec]"); if (ps) { S.filter = ps.dataset.plansec; S.kind = null; S.focus = null; S.sub = null; S.review = null; save(); go("scroll"); return resetFeed(); }
   if (e.target.closest("[data-gome]")) { S.review = null; save(); go("me"); return renderMe(); }
 });
@@ -3464,6 +3537,8 @@ const MN_MAP = { "GenChem/OChem": "Chem/Phys", "Physics": "Chem/Phys" };
 const mnCat = m => MN_MAP[m.category] || m.category;
 const mnKey = c => String(c || "").replace(/\s+/g, "");
 const mnReady = CONFIG.flags.MNEMONICS_ENABLED ? fetch("mnem/index.json").then(r => r.ok ? r.json() : null).then(d => { MN = d && Array.isArray(d.items) ? d.items : []; if (!$("#view-course").hidden) renderCourse(); }).catch(() => { MN = []; }) : Promise.resolve();
+// Your plan's strategy links sheets and mnemonics, which load after the first render of Me.
+Promise.all([mnReady, sheetsReady]).then(() => { if (!$("#view-me").hidden) renderMe(); });
 const mnVotes = id => (S.mnUp || {})[id] ? 1 : 0;
 const mnScore = m => (m.upvotes || 0) + mnVotes(m.id);
 function mnItemHTML(m) {
