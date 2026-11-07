@@ -2962,7 +2962,7 @@ function stratHTML() {
     const steps = [];
     // 1. Learn it: the sheet if it's open; a free player starts from the checklist and sees the sheet with a lock.
     if (open) steps.push(`<b>Learn:</b> <button class="linkbtn" data-sheet="${esc(code)}">Mastery Sheet ${esc(code)}</button>, one concept at a time, and answer its Check yourself questions.`);
-    else if (meta) steps.push(`<b>Learn:</b> ${cards.length ? `start with the free Memorization Checklist: ${chkBtn((todo.length ? todo : cards).slice(0, 3))}. ` : "read the explanation on every question you miss in the drill below. "}<button class="linkbtn" data-sheet="${esc(code)}">Mastery Sheet ${esc(code)} 🔒</button> <span class="muted">comes with any plan.</span>`);
+    else if (meta) steps.push(`<b>Learn:</b> ${cards.length ? `start with the free Memorization Checklist: ${chkBtn((todo.length ? todo : cards).slice(0, 3))}. ` : "on every question you miss in the drill below, read why each answer choice is right or wrong. "}<button class="linkbtn" data-sheet="${esc(code)}">Mastery Sheet ${esc(code)} 🔒</button> <span class="muted">comes with any plan.</span>`);
     // 2. Memorize: checklist cards not yet ticked (named here only if Learn didn't already list them), plus the vault's mnemonics.
     const mem = [];
     if (cards.length && !todo.length) mem.push(`all ${cards.length} checklist card${cards.length === 1 ? " is" : "s are"} ticked; <button class="linkbtn" data-planchk="${esc(cards.map(x => x[0]).join(","))}">review ${cards.length === 1 ? "it" : "them"}</button> the night before a full-length`);
@@ -2995,7 +2995,7 @@ function planHTML() {
       ${due ? `<li>Clear your <b>${due}</b> due Revenge question${due === 1 ? "" : "s"} first.</li>` : ""}
       <li><b>${g}</b> new questions${S.goal === g ? "" : ` <button class="linkbtn" data-plangoal="${g}">Make this my daily goal</button>`}</li>
       <li>${planSheetOpen(sh) ? `One concept from <button class="linkbtn" data-sheet="${esc(sh)}">Mastery Sheet ${esc(sh)}${meta ? ": " + esc(meta.title) : ""}</button>, then its Check yourself questions.`
-        : `<button class="linkbtn" data-plandrill="${esc(sh)}"${CAT[sh] ? ` title="${esc(CAT[sh].title)}"` : ""}>Drill ${esc(sh)} on the Map</button> and read every explanation you miss.${meta ? ` <span class="muted">(Mastery Sheet ${esc(sh)} 🔒 comes with any plan.)</span>` : ""}`}</li>
+        : `<button class="linkbtn" data-plandrill="${esc(sh)}"${CAT[sh] ? ` title="${esc(CAT[sh].title)}"` : ""}>Drill ${esc(sh)} on the Map</button> and, on each miss, read why each answer choice is right or wrong.${meta ? ` <span class="muted">(Mastery Sheet ${esc(sh)} 🔒 comes with any plan.)</span>` : ""}`}</li>
     </ol>${stratHTML()}${base}</div>`;
 }
 // Timed diagnostic: 30 questions, 10 per science section, spread across categories, medium difficulty, not seen before.
