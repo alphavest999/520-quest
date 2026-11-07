@@ -3778,7 +3778,7 @@ if (exitedToday) showPerf(); else if (startTab !== "scroll") go(startTab);
 bankReady.finally(() => welcomeBack());
 /* ---------- Terms of Use: everyone (free or paid) accepts before using the app ---------- */
 // Bump TERMS_V when terms.html or privacy.html change in a material way: everyone is asked to accept again.
-const TERMS_V = "2026-11-07";
+const TERMS_V = "2026-11-08";
 function termsGate() {
   if (S.terms && S.terms.v === TERMS_V) return;
   const again = !!(S.terms && S.terms.v);
@@ -3793,6 +3793,7 @@ function termsGate() {
       <li>Content is for test prep only, not medical advice.</li>
       <li>Your account is for you alone. Don't share it or copy our questions.</li>
       <li>Paid plans renew automatically until you cancel.</li>
+      <li>Disputes go to individual arbitration, not court, and you give up jury trials and class actions (you can opt out within 30 days).</li>
     </ul>
     <p class="small" style="margin:0">Read the full <a href="../terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="../privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
     <label class="small"><input type="checkbox" id="tgOk"> <span>I am at least 13 years old (with a parent or guardian's permission if I'm under 18), and I agree to the Terms of Use and Privacy Policy.</span></label>
