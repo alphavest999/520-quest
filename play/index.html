@@ -3060,7 +3060,9 @@ function checkDone() {
 // What the diagnostic says to do, shown inside Your plan.
 function diagHTML() {
   const B = S.baseline;
-  if (!B) return `<div class="row" style="margin-top:8px"><button class="btn small" data-startcheck>Take the 30-question timed diagnostic</button></div><p class="small muted" style="margin:4px 0 0">${Math.round(30 * QZ_PACE / 60)} minutes at real MCAT pace, 10 questions from each science section. It shows where you're starting and puts your plan in the right order.</p>`;
+  if (!B) { const per = checkPer(), n = per * 3; // free players: sized to the free questions left
+    if (per < 3) return `<p class="small muted" style="margin:8px 0 0">The timed diagnostic needs at least 9 new questions, and you have ${Math.max(0, CONFIG.freeQuestions - seenCount())} free left. <button class="linkbtn" data-checkpro>See plans</button> to take the full 30-question diagnostic.</p>`;
+    return `<div class="row" style="margin-top:8px"><button class="btn small" data-startcheck>Take the ${n}-question timed diagnostic</button></div><p class="small muted" style="margin:4px 0 0">${Math.round(n * QZ_PACE / 60)} minutes at real MCAT pace, ${per} questions from each science section. It shows where you're starting and puts your plan in the right order.</p>`; }
   const now = S.total ? Math.round(S.totalCorrect / S.total * 100) : 0;
   const order = B.by ? Object.entries(B.by).sort((a, b) => a[1] - b[1]) : [];
   const tips = [];
@@ -3168,7 +3170,7 @@ function welcomeBack() {
 const planMade = () => !!(S.baseline && S.baseline.timed);
 function planBtnHTML() {
   return planMade() ? `<button class="goldbtn" data-welplan>🧭 Go to Customized Action Plan<small>Your study loop for your weakest areas</small></button>`
-    : `<button class="goldbtn" data-welplan>🧭 Create customized Action plan<small>${S.testDate ? "Take" : "Set your test date, then take"} the 30-question timed diagnostic</small></button>`;
+    : `<button class="goldbtn" data-welplan>🧭 Create customized Action plan<small>${checkPer() < 3 ? (S.testDate ? "See your plan" : "Set your test date to see your plan") : `${S.testDate ? "Take" : "Set your test date, then take"} the ${checkPer() * 3}-question timed diagnostic`}</small></button>`;
 }
 // Me tab, scrolled to Your plan.
 function showPlan() {
