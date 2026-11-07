@@ -252,7 +252,7 @@ function adminPanelHTML() {
     <p class="small muted">Unlimited questions, bosses, full-lengths, minis, Mastery Sheets, mnemonics and Anki export are on. These buttons change this account's own level, to preview each tier.</p>
     <p class="small">Jump to level</p><div class="row">${[1, 2, 3, 4, 5].map(n => `<button class="btn small${n === lv ? " primary" : ""}" data-adlevel="${n}">${n}. ${esc(tierName(n))}</button>`).join("")}</div>
     <div class="row" style="margin-top:8px">${lv < 5 ? `<button class="btn small" data-adgate>Fight Gatekeeper ${lv + 1} now</button>` : ""}<button class="btn small" data-adbosses>Reset today's boss count</button></div>
-    <p class="small" style="margin-top:12px">Real percent correct per question, from students' first tries.</p><div class="row"><button class="btn small" data-adqstats>Question stats</button><button class="btn small" data-adqreports>Reported questions</button></div></div>`;
+    <p class="small" style="margin-top:12px">Real percent correct per question, from students' first tries.</p><div class="row"><button class="btn small" data-adqstats>Question stats</button><button class="btn small" data-adqreports>Reported questions</button><button class="btn small" data-admcat>Real MCAT results</button></div></div>`;
 }
 document.addEventListener("click", e => {
   if (!isAdmin()) return;
@@ -396,6 +396,73 @@ function reportsSheet() {
   });
 }
 document.addEventListener("click", e => { if (e.target.closest("[data-adqreports]") && isAdmin()) reportsSheet(); });
+
+/* ---------- real MCAT results: students report their real score (supabase/006_mcat_results.sql) ---------- */
+// The app saves what it estimated at that moment, so real scores can correct the estimate for everyone later.
+const CAL_STORE = "quest520.cal", CAL_MIN = 30;
+let CALIB = null;
+function loadCalib() {
+  if (CALIB || !SB_URL) return;
+  let c = null; try { c = JSON.parse(lsGet(CAL_STORE) || "null"); } catch (e) {}
+  CALIB = (c && c.d) || {};
+  if (c && Date.now() - c.t < 24 * 3600000) return;
+  fetch(SB_URL + "/rest/v1/rpc/score_calibration", { method: "POST", headers: { apikey: SB_KEY, "Content-Type": "application/json" }, body: "{}" })
+    .then(r => r.ok ? r.json() : null).then(d => { if (d && typeof d === "object") { CALIB = d; lsSet(CAL_STORE, JSON.stringify({ t: Date.now(), d })); } }).catch(() => {});
+}
+// Shift a section's passage-based estimate by the average real-minus-estimated gap, once 30+ students reported.
+function calibOff(sec) {
+  loadCalib();
+  const c = CALIB && CALIB[sec]; if (!c || c[0] < CAL_MIN) return 0;
+  return Math.max(-4, Math.min(4, Math.round(c[1])));
+}
+function realScorePanelHTML() {
+  const r = S.realScore;
+  return `<div class="panel"><div class="row" style="justify-content:space-between"><h3 style="margin:0">Took the real MCAT?</h3><button class="btn small" data-realscore>${r ? "Update my score" : "Share my score"}</button></div>
+    <p class="small muted" style="margin:6px 0 0">${r ? `You reported ${r.total}${r.month ? " (" + esc(r.month) + ")" : ""}. Thank you.` : "Tell us your real score. It makes the score range more accurate for every student. Only the numbers are sent, never your name or email."}</p></div>`;
+}
+function realScoreSheet() {
+  const r = S.realScore || {}, sec = (k, l) => `<label class="small" style="display:grid;gap:4px">${l}<input type="number" id="rs${k}" min="118" max="132" inputmode="numeric" value="${r[k] || ""}" placeholder="118-132"></label>`;
+  sheet(`<div class="eyebrow">Real MCAT score</div><h2>How did you do?</h2>
+    <label class="small" style="display:grid;gap:4px">Total score<input type="number" id="rsTotal" min="472" max="528" inputmode="numeric" value="${r.total || ""}" placeholder="472-528"></label>
+    <div class="grid2">${sec("CP", "Chem/Phys")}${sec("CARS", "CARS")}${sec("BB", "Bio/Biochem")}${sec("PS", "Psych/Soc")}</div>
+    <label class="small" style="display:grid;gap:4px">Month you tested<input type="month" id="rsMonth" value="${esc(r.month || "")}"></label>
+    <p class="small muted" style="margin:0">Section scores are optional but help the most.</p>
+    <div class="row"><button class="btn primary" data-rssend style="flex:1">Send</button><button class="btn" data-close style="flex:1">Cancel</button></div>`, s => {
+    $("[data-rssend]", s).addEventListener("click", () => {
+      const num = id => { const v = +$(id, s).value; return v ? Math.round(v) : null; };
+      const total = num("#rsTotal"); if (!total || total < 472 || total > 528) return toast("Enter a total between 472 and 528.");
+      const secs = {}; let bad = false;
+      ["CP", "CARS", "BB", "PS"].forEach(k => { const v = num("#rs" + k); if (v == null) return; if (v < 118 || v > 132) bad = true; else secs[k] = v; });
+      if (bad) return toast("Section scores run from 118 to 132.");
+      const month = $("#rsMonth", s).value || null, est = {};
+      ["CP", "CARS", "BB", "PS"].forEach(k => { const e = estimate(k); if (e) est[k] = e.raw || e.mid; }); // uncorrected, so the correction never feeds on itself
+      const exams = (S.examHist || []).length, answered = S.total || 0;
+      S.realScore = Object.assign({ total, month, at: Date.now() }, secs); save();
+      $("#sheetHost").innerHTML = ""; if (!$("#view-me").hidden) renderMe();
+      if (!SB_URL) return toast("Saved on this device.");
+      fetch(SB_URL + "/rest/v1/rpc/report_mcat", { method: "POST", headers: { apikey: SB_KEY, "Content-Type": "application/json" },
+        body: JSON.stringify({ p_dev: deviceId(), p_total: total, p_secs: secs, p_month: month, p_est: est, p_answered: answered, p_exams: exams }) })
+        .then(r => r.ok ? r.json() : Promise.reject(r.status)).then(ok => toast(ok ? "Thank you. Your score helps every student get a truer estimate." : "Saved on this device; the server didn't accept it."))
+        .catch(() => toast("Saved on this device. We couldn't reach the server, so it wasn't shared."));
+    });
+  });
+}
+document.addEventListener("click", e => { if (e.target.closest("[data-realscore]")) realScoreSheet(); });
+
+/* Admin: real scores next to what the app estimated. */
+function mcatAdminSheet() {
+  sheet(`<div class="eyebrow">Admin</div><h2>Real MCAT results</h2><p class="small muted" id="mrMsg">Loading…</p><div id="mrBody"></div><div class="row"><button class="btn ghost" data-close>Close</button></div>`, async s => {
+    let rows;
+    try { rows = await rpc("mcat_results_admin"); } catch (e) { $("#mrMsg", s).textContent = /function|schema cache|404/i.test(errText(e)) ? "Not set up yet. Run supabase/006_mcat_results.sql in Supabase first." : "Couldn't load: " + errText(e); return; }
+    rows = rows || [];
+    const secs = ["CP", "CARS", "BB", "PS"], idx = { CP: 1, CARS: 2, BB: 3, PS: 4 };
+    const gap = k => { const g = rows.filter(r => r[idx[k]] && r[6] && r[6][k]).map(r => r[idx[k]] - r[6][k]); return g.length ? `${k}: ${g.length} · avg gap ${(g.reduce((a, b) => a + b, 0) / g.length).toFixed(1)}` : `${k}: none yet`; };
+    $("#mrMsg", s).textContent = `${rows.length} result${rows.length === 1 ? "" : "s"}. Real minus estimated, per section: ${secs.map(gap).join(" · ")}. The app adjusts a section once ${CAL_MIN}+ students with 300+ answers report it.`;
+    $("#mrBody", s).innerHTML = rows.slice(0, 100).map(r => `<div class="panel" style="padding:10px"><b>${r[0]}</b> <span class="small muted">${esc(r[5] || "")} · ${r[7]} answered · ${r[8]} exams</span>
+      <p class="small" style="margin:4px 0 0">${secs.map(k => `${k} ${r[idx[k]] || "–"}${r[6] && r[6][k] ? " (est " + r[6][k] + ")" : ""}`).join(" · ")}</p></div>`).join("");
+  });
+}
+document.addEventListener("click", e => { if (e.target.closest("[data-admcat]") && isAdmin()) mcatAdminSheet(); });
 
 /* ---------- start ---------- */
 (function initAccount() {
