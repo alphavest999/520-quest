@@ -138,7 +138,7 @@ const ADMIN_EMAILS = ["alphavest99@gmail.com"];
 const isAdminEmail = (email) => ADMIN_EMAILS.includes((email||"").toLowerCase());
 const fullAccess = () => isPaid() || !!S.admin; // every plan unlocks all sheets and mnemonics; so does the owner admin flag
 function applyPlan() {
-  if (isPaid() && !S.pro) { S.pro = true; S.proBy = "account"; save(); document.querySelectorAll(".goldbtn small").forEach(x => { x.textContent = "Included in every plan"; }); toast(isAdmin() ? "<b>Admin access</b> is on: everything is unlocked." : `<b>${esc(PLAN_NAME[ACCT.profile.plan])}</b> is active on this device.`); }
+  if (isPaid() && !S.pro) { S.pro = true; S.proBy = "account"; save(); document.querySelectorAll(".goldbtn[data-gocourse] small").forEach(x => { x.textContent = "Included in every plan"; }); toast(isAdmin() ? "<b>Admin access</b> is on: everything is unlocked." : `<b>${esc(PLAN_NAME[ACCT.profile.plan])}</b> is active on this device.`); }
   else if (!isPaid() && S.proBy === "account") { S.pro = false; delete S.proBy; save(); }
 }
 /* ---------- paid content: sealed sheets and mnemonics ---------- */
