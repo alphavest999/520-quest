@@ -98,6 +98,7 @@ button { cursor: pointer; }
 .hudinst svg { width: 14px; height: 14px; }
 .hudinst[hidden] { display: none; }
 @media (max-width: 400px) { .hud { gap: 6px; padding-left: 10px; padding-right: 10px; } .hud .pill { padding: 6px 7px; } .hudinst { padding: 7px 8px; } .hudpro { padding: 8px 9px; } }
+@media (max-width: 430px) { .hudinst { font-size: 0; gap: 0; padding: 7px 8px; } } /* icon only, so the level and accuracy line stays readable */
 @keyframes proPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(244,114,182,.55); } 50% { box-shadow: 0 0 0 7px rgba(244,114,182,0); } }
 .card.promo { background: radial-gradient(circle at 85% 10%, rgba(244,114,182,.28), transparent 45%), linear-gradient(160deg, rgba(244,114,182,.30), var(--panel) 70%); border-color: #f472b6; }
 .card.promo .bigtext { margin: 0; }
@@ -1434,7 +1435,7 @@ const CONFIG = {
     2026: { volt: "#1e3a8a", "volt-ink": "#ffffff", ink: "#ffffff", panel: "#ffffff", "panel-2": "#f1f5f9", line: "#e2e8f0", cool: "#2dd4bf" },
     2027: { volt: "#38bdf8", "volt-ink": "#03131c", ink: "#0b0f14", panel: "#141b23", "panel-2": "#1e2833", line: "#2c3a47", cool: "#a78bfa" }
   },
-  supportEmail: "support@520-quest.com",
+  supportEmail: "info@unprocrastinatehub.com",
   supportUrl: "https://520quest.com/support/",
   appUrl: "https://520quest.com/", // your public link, used in Share text
   flags: { MASTERY_SHEETS_CONSPICUOUS: true, MNEMONICS_ENABLED: true },
@@ -2092,6 +2093,8 @@ function wireQuestion(scope, q, card) {
     $$("[data-conf]", confBox).forEach(x => x.setAttribute("aria-pressed", on && x === b)); });
   optsBox.addEventListener("click", e => {
     const b = e.target.closest(".opt"); if (!b || optsBox.dataset.done) return;
+    // Cards are built a few ahead, so one can still be on screen after the free limit is reached.
+    if (!isExamId(q.id) && !canOpen(q)) return showPro();
     optsBox.dataset.done = 1;
     const i = +b.dataset.i, ok = i === q.a, secs = ((Date.now() - (card._shown || card._made || Date.now())) / 1000);
     $$(".opt", optsBox).forEach((o, j) => {
@@ -3097,7 +3100,7 @@ const BOSSES = [
 ];
 let B = null;
 function renderBossLobby() {
-  const left = S.pro ? "Unlimited battles" : Math.max(0, CONFIG.freeDailyBosses - S.today.bosses) + " free battle left today";
+  const left = S.pro ? "Unlimited battles" : (n => n + " free battle" + (n === 1 ? "" : "s") + " left today")(Math.max(0, CONFIG.freeDailyBosses - S.today.bosses));
   $("#view-boss").innerHTML = `<div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h2 class="title">Boss battles</h2><button class="btn small ghost" data-musictoggle>${S.sound && S.music !== "off" ? "♪ Music on" : "♪ Music off"}</button></div><p class="sub">10 questions at exam pace, 95 seconds each. Deal 70 damage before you lose 4 hearts. ${esc(left)}.</p>
     ${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> Unlimited boss battles every day, plus your score estimate.</p><button class="btn small pro" data-pro>See plans</button></div>`}
     <div class="panel"><div class="row" style="justify-content:space-between"><h3>Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h3>${S.lv.pending ? `<button class="btn small primary" data-gate>Fight Gatekeeper ${S.lv.pending}</button>` : ""}</div>
@@ -3621,7 +3624,7 @@ function renderMe() {
     <div class="panel"><h3>Help</h3>
       <p class="small">Questions about 520 Quest or your purchase? We reply within 24 to 48 hours.</p>
       <div class="row"><a class="btn small primary" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20support">Contact Support</a><a class="btn small" href="${esc(CONFIG.supportUrl)}" target="_blank" rel="noopener">FAQ</a><a class="btn small" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20feedback">Send feedback</a></div>
-      <p style="font-size:12px;color:#6b7280;margin:4px 0 0"><button class="linkbtn" data-cancelsub style="font-size:12px;color:#6b7280">Cancel subscription</button></p></div>
+      ${S.proBy === "account" ? `<p style="font-size:12px;color:#6b7280;margin:4px 0 0"><button class="linkbtn" data-cancelsub style="font-size:12px;color:#6b7280">Cancel subscription</button></p>` : ""}</div>
     <div class="panel"><h3>Privacy</h3><p class="small"><b>We help you get into medical school without selling your data.</b> Your progress stays on this device unless you sign in; then it's saved to your 520 Quest account so it follows you to your other devices. No ads, no trackers.</p></div>
     <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app.</p>
   </div>`;
@@ -3652,7 +3655,7 @@ $("#view-me").addEventListener("click", e => {
   }
   if (t.closest("[data-copybk]")) return copy($("#bk").value, () => toast("Backup code copied."), $("#bk"));
   if (t.closest("[data-restore]")) {
-    try { const o = JSON.parse(decodeURIComponent(escape(atob($("#bk").value.trim())))); if (o.v !== 1) throw 0; S = Object.assign(fresh(), o); save(); renderAll(); toast("Progress restored."); }
+    try { const o = JSON.parse(decodeURIComponent(escape(atob($("#bk").value.trim())))); if (o.v !== 1) throw 0; ["pro", "proBy", "admin"].forEach(k => delete o[k]); S = Object.assign(fresh(), o); save(); renderAll(); toast("Progress restored."); }
     catch (err) { toast("That code isn't a valid 520 Quest backup. Paste the whole code and try again."); }
   }
 });
