@@ -98,8 +98,8 @@ button { cursor: pointer; }
 .hudinst svg { width: 14px; height: 14px; }
 .hudinst[hidden] { display: none; }
 @media (max-width: 400px) { .hud { gap: 6px; padding-left: 10px; padding-right: 10px; } .hud .pill { padding: 6px 7px; } .hudinst { padding: 7px 8px; } .hudpro { padding: 8px 9px; } }
-@media (max-width: 430px) { .hud .rank { display: none; } } /* "Pre-Med Rookie" only fit as "RO…" next to the pills; the LV badge already shows the level */
-@media (max-width: 360px) { .hudinst { font-size: 0; gap: 0; padding: 7px; } .hud .xpwrap { display: none; } } /* iPhone SE: PLANS was cut off; APP keeps its icon (aria-label says Install app) */
+@media (max-width: 430px) { .hudinst { font-size: 0; gap: 0; padding: 7px 8px; } } /* icon only, so the level and accuracy line stays readable */
+@media (max-width: 340px) { .hud .xpwrap { display: none; } } /* iPhone SE: no room for the accuracy line; the top bar ran 6 px past the screen edge */
 @keyframes proPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(244,114,182,.55); } 50% { box-shadow: 0 0 0 7px rgba(244,114,182,0); } }
 .card.promo { background: radial-gradient(circle at 85% 10%, rgba(244,114,182,.28), transparent 45%), linear-gradient(160deg, rgba(244,114,182,.30), var(--panel) 70%); border-color: #f472b6; }
 .card.promo .bigtext { margin: 0; }
@@ -250,7 +250,8 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 .conf.locked button { pointer-events: none; opacity: .7; }
 .wins { border-left: 3px solid var(--good); }
 .mainidea { display: grid; gap: 6px; margin: 12px 0 4px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 12px; }
-.mainidea textarea { width: 100%; font: inherit; font-size: 14px; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel-2); color: var(--text); resize: vertical; }
+.scicoach summary { cursor: pointer; } mark.scikey { background: color-mix(in srgb, var(--volt) 30%, transparent); color: inherit; border-radius: 3px; padding: 0 2px; }
+.mainidea textarea, .scicoach textarea { width: 100%; font: inherit; font-size: 14px; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel-2); color: var(--text); resize: vertical; }
 .sv-recall { margin: 10px 0 18px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 12px; }
 .reportq { display: inline-block; margin-top: 6px; font-size: 12.5px; color: var(--muted); }
 .dna { display: grid; gap: 8px; padding: 12px; border-radius: 12px; background: var(--ink); border: 1px dashed var(--line); }
@@ -373,6 +374,7 @@ a { color: var(--volt); }
 /* Sheet + toasts */
 .scrim { position: absolute; inset: 0; background: color-mix(in srgb, var(--ink) 70%, transparent); display: grid; align-items: end; z-index: 20; }
 .sheet { background: var(--panel); border: 1px solid var(--line); border-radius: 22px 22px 0 0; padding: 20px 16px calc(20px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 12px; max-height: 88%; overflow-y: auto; animation: up .25s ease-out; }
+#qzBox { min-width: 0; } #qzBox .qzsel { width: 100%; max-width: 100%; text-overflow: ellipsis; }
 @keyframes up { from { transform: translateY(30px); opacity: 0; } }
 .sheet h2 { margin: 0; font: 700 24px/1.15 var(--display); text-wrap: balance; }
 .toasts { position: absolute; left: 16px; right: 16px; bottom: calc(76px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 8px; z-index: 30; pointer-events: none; }
@@ -1530,7 +1532,7 @@ function fresh() {
   return { v: 1, xp: 0, combo: 0, bestCombo: 0, chest: 0, hints: 1, freezes: 1, pro: false, sound: true, music: "on", goal: 25,
     streak: { count: 0, last: null }, today: { date: todayKey(), answered: 0, correct: 0, bosses: 0, goalShown: false },
     stats: {}, cat: {}, recent: { CP: [], CARS: [], BB: [], PS: [] }, recentP: { CP: [], CARS: [], BB: [], PS: [] }, revenge: {}, errors: [], facts: {}, traps: {},
-    fl: [], anki: [], badges: {}, bossWins: {}, retired: 0, total: 0, totalCorrect: 0, filter: "ALL", focus: null,
+    fl: [], anki: [], notes: [], badges: {}, bossWins: {}, retired: 0, total: 0, totalCorrect: 0, filter: "ALL", focus: null,
     lv: { level: 1, block: [], evals: [], qual: 1, pending: 0 }, tlog: {}, welcome: null, resume: null, lastTab: "scroll", review: null, fanfare: true };
 }
 let S = fresh();
@@ -1839,7 +1841,7 @@ function renderFilters() {
   $("#filters").innerHTML = FILTERS.map(([k, n]) => `<button class="chipbtn" data-f="${k}" aria-pressed="${S.filter === k && !S.focus}">${n}</button>`).join("") +
     `<button class="chipbtn" data-k="passage" aria-pressed="${S.kind === "passage"}" title="Passage-based questions">Passages${kindCount("passage")}</button><button class="chipbtn" data-k="discrete" aria-pressed="${S.kind === "discrete"}" title="Stand-alone questions">Discrete${kindCount("discrete")}</button>` +
     (S.focus ? `<button class="chipbtn focus" data-f="clear" aria-pressed="false">Drilling ${esc(S.focus)}${S.sub ? " · " + esc(((SUBT[S.focus] || []).find(x => x.id === S.sub) || {}).label || S.sub) : ""} ✕</button>` : "") +
-    (S.review ? `<button class="chipbtn focus" data-f="endreview" aria-pressed="false">Reviewing this session's mistakes ✕</button>` : "");
+    (S.review ? `<button class="chipbtn focus" data-f="endreview" aria-pressed="false" id="revChip">${S.review.kind === "quiz" ? quizChipText() : "Reviewing this session's mistakes"} ✕</button>` : "");
 }
 $("#filters").addEventListener("click", e => {
   const k = e.target.closest("[data-k]");
@@ -1905,6 +1907,7 @@ function freeReview() {
   return id ? anyQ(id) : null;
 }
 let resumeOnce = true, reviewEnded = false, resumeLate = null;
+setTimeout(() => { if (S.review && S.review.kind === "quiz" && S.review.timed) quizTick(); }, 0);
 function resumeQ() {
   const q = S.resume && anyQ(S.resume), sec = S.focus ? CAT[S.focus].s : S.filter;
   return q && q.s !== "CARS" && !q.pid && (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus) && (!S.sub || stOf(q) === S.sub) ? q : null;
@@ -1912,7 +1915,7 @@ function resumeQ() {
 function nextCard() {
   if (S.review) {
     const R = S.review, id = R.ids.find(x => !R.done.includes(x) && !R.queued.includes(x));
-    if (id && anyQ(id)) { R.queued.push(id); return questionCard(anyQ(id), R.kind !== "check"); }
+    if (id && anyQ(id)) { R.queued.push(id); return questionCard(anyQ(id), R.kind === "check" ? false : R.kind === "quiz" ? !!S.revenge[id] : true); }
     if (reviewEnded) return null; reviewEnded = true; return reviewDoneCard();
   }
   if (overFree()) { const q = freeReview(); if (q) { sessionSeen.add(q.id); cardN++; return questionCard(q, true); } if (gateShown) return null; gateShown = true; return gateCard(); }
@@ -2063,8 +2066,7 @@ function stuck(q, card, btn) {
 }
 // "Something wrong with this question?" opens an email with the question id filled in.
 function reportLinkHTML(q) {
-  const body = `Question ID: ${q.id}\nQuestion: ${String(q.q).replace(/<[^>]+>/g, "").slice(0, 160)}\n\nWhat's wrong:\n`;
-  return `<a class="linkbtn reportq" href="mailto:${esc(CONFIG.supportEmail)}?subject=${encodeURIComponent("Problem with question " + q.id)}&body=${encodeURIComponent(body)}">Something wrong with this question?</a>`;
+  return `<button class="linkbtn reportq" data-qreport="${esc(q.id)}">Something wrong with this question?</button>`;
 }
 function optsHTML(q) { return q.o.map((o, i) => `<button class="opt" data-i="${i}"><b>${"ABCD"[i]}</b><span>${o[0]}</span></button>`).join(""); }
 
@@ -2092,6 +2094,8 @@ function wireQuestion(scope, q, card) {
     $$("[data-conf]", confBox).forEach(x => x.setAttribute("aria-pressed", on && x === b)); });
   optsBox.addEventListener("click", e => {
     const b = e.target.closest(".opt"); if (!b || optsBox.dataset.done) return;
+    // Cards are built a few ahead, so one can still be on screen after the free limit is reached.
+    if (!isExamId(q.id) && !canOpen(q)) return showPro();
     optsBox.dataset.done = 1;
     const i = +b.dataset.i, ok = i === q.a, secs = ((Date.now() - (card._shown || card._made || Date.now())) / 1000);
     $$(".opt", optsBox).forEach((o, j) => {
@@ -2115,7 +2119,7 @@ function wireQuestion(scope, q, card) {
     const rv = $(".reveal", scope); rv.hidden = false;
     rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` + (confNote ? `<div class="note">${confNote}</div>` : "") +
       (ok ? (q.x ? `<div class="note">${esc(splitX(q.x).main || q.x)}</div>` : "") + (q.note ? `<div class="note">${esc(q.note)}</div>` : "") : explainHTML(q, i)) +
-      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next question</button>${ok ? "" : ankiBtn(q) + '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}</div>`;
+      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next question</button>${ok ? "" : ankiBtn(q) + '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}${nbBtn(q)}</div>`;
     const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
     const nb = $("[data-next]", rv); if (sib) nb.textContent = "Next question";
     nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
@@ -2126,6 +2130,7 @@ function wireQuestion(scope, q, card) {
     rv.insertAdjacentHTML("beforeend", reportLinkHTML(q));
     const ab = $("[data-addanki]", rv); if (ab) ab.addEventListener("click", () => addAnki(q, ab));
     const sb = $("[data-stuck]", rv); if (sb) sb.addEventListener("click", () => stuck(q, card, sb));
+    const nbb = $("[data-nbadd]", rv); if (nbb) nbb.addEventListener("click", () => nbAdd(q, nbb));
     const h = $("[data-hint]", scope); if (h) h.disabled = true;
   });
   const hint = $("[data-hint]", scope);
@@ -2420,13 +2425,64 @@ function passageCard(p) {
   const n = p.qs.length, sci = p.s !== "CARS";
   el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[p.s].name}</span>${sci ? `<span class="tag">${esc(p.c)}${CAT[p.c] && CAT[p.c].hy ? " ★" : ""}</span>` : ""}<span class="tag">Passage + ${n} questions</span><button class="btn small primary qjump" data-jump style="margin-left:auto">Jump to questions ↓</button></div>
     <h2 class="stem">${esc(p.title)}</h2><p class="muted small" style="margin:0">Read the passage, then answer the ${n} questions below it.</p><div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}
-    ${sci ? "" : `<div class="mainidea" data-mibox><label class="small"><b>Before the questions:</b> what's the author's main point, in one line?</label><textarea rows="2" data-mi placeholder="The author argues that…">${esc((S.mi || {})[p.id] || "")}</textarea><div class="row"><button class="btn small" data-misave>Lock it in</button></div></div>`}
+    ${sci ? sciCoachHTML(p) : ""}${sci ? "" : `<div class="mainidea" data-mibox><label class="small"><b>Before the questions:</b> what's the author's main point, in one line?</label><textarea rows="2" data-mi placeholder="The author argues that…">${esc((S.mi || {})[p.id] || "")}</textarea><div class="row"><button class="btn small" data-misave>Lock it in</button></div></div>`}
     <div class="qhead" data-qhead>Questions 1–${n}</div>` +
     p.qs.map((q, i) => `<div class="pq" data-q="${i}"><div class="card-top"><span class="tag sec">Q${i + 1} of ${n}</span><span class="tag">${QKIND[q.k || q.c] || ""}</span>${diffDots(q.d)}${q.t ? `<span class="muted small" style="margin-left:auto">Avg solve time: ${+q.t} sec</span>` : ""}</div>${passBtnHTML(p)}<h3>${q.q}</h3>${tableHTML(q.vt, "vt")}<div class="opts">${optsHTML(q)}</div><div class="reveal stack" hidden></div></div>`).join("") + SWIPE;
   p.qs.forEach((q, i) => wireQuestion($(`[data-q="${i}"]`, el), q, el));
   $("[data-jump]", el).addEventListener("click", () => scrollToEl($("[data-qhead]", el)));
-  if (!sci) wireMainIdea(el, p);
+  if (!sci) wireMainIdea(el, p); else wireSciCoach(el, p);
   return el;
+}
+/* ---------- Science passage coach: how a 520 scorer reads it (automatic, works on every passage) ---------- */
+// Finds the sentences that carry the purpose, the setup and the result, and asks for a one-line summary first.
+const SCI_KEYS = [
+  ["goal", "Purpose", /\b(hypothes[ie]s|hypothesi[sz]ed|aim(ed)? to|sought to|set out to|investigat(e|ed|ing)|tested whether|to (test|determine|examine|measure|find out|compare)|asked whether|whether|purpose|[Rr]esearchers (compared|tested|asked|examined|measured|studied|used|surveyed|tracked|followed))\b/],
+  ["setup", "Setup", /\b(control (group|condition|mice|cells|samples)|controls?|randomi[sz]ed|randomly|placebo|wild[- ]type|knock(ed)?[- ]?out|were (treated|given|exposed|assigned|measured|incubated|recorded|compared|surveyed|grown|cultured|divided|tested|followed)|was (measured|recorded|surveyed|varied|held constant)|(Table|Figure) \d|participants|two groups|independent variable|dependent variable)\b/i],
+  ["result", "Result", /\b(found that|showed that|results? (showed|indicated|suggest)|significant(ly)?|increased|decreased|reduced|rose|fell|doubled|halved|higher|lower|greater|smaller|faster|slower|more than|less than|twice|no (significant )?difference|suggest(s|ed)? that|conclude[ds]?|whereas)\b/i]
+];
+const sentencesOf = t => String(t).match(/(?:[^.!?]|[.!?](?!\s|$))+(?:[.!?]+(?=\s|$)|$)/g) || [String(t)];  // '7.5' and 'e.g.x' stay inside a sentence
+function sciKeyLines(p) {
+  const out = {};
+  p.text.forEach((para, pi) => sentencesOf(para).forEach(sn => {
+    SCI_KEYS.forEach(([k, , re]) => { if (!out[k] && re.test(sn)) out[k] = { pi, t: sn.trim() }; });
+  }));
+  return out;
+}
+function sciCoachHTML(p) {
+  const data = p.tbl || p.graph;
+  const steps = [
+    "<b>First paragraph:</b> find the question the researchers asked. Everything else hangs on it.",
+    "<b>Setup:</b> name what they changed, what they measured, and what the control was.",
+    data ? "<b>Figure or table:</b> read the title, axes and units before any number. Note the one trend that matters." : "<b>Skim the details:</b> mechanism names and numbers are lookups. Come back for them when a question asks.",
+    "<b>Result:</b> say in your own words what they found and whether it supports the question they asked."
+  ];
+  return `<details class="mainidea scicoach" data-sci><summary class="small"><b>How a 520 scorer reads this passage</b></summary>
+    <ol class="small" style="margin:6px 0 4px;padding-left:18px">${steps.map(x => `<li style="margin:3px 0">${x}</li>`).join("")}</ol>
+    <label class="small"><b>Before the questions:</b> what did they test, and what did they find?</label>
+    <textarea rows="2" data-sciline placeholder="They tested whether… and found…">${esc((S.mi || {})[p.id] || "")}</textarea>
+    <div class="row"><button class="btn small" data-scisave>Lock it in</button><button class="btn small ghost" data-scikeys>Show the key lines</button></div></details>`;
+}
+function wireSciCoach(el, p) {
+  const box = $("[data-sci]", el); if (!box) return;
+  const keys = sciKeyLines(p);
+  $("[data-scisave]", box).addEventListener("click", () => {
+    const t = $("[data-sciline]", box).value.trim(); if (!t) return toast("Write one line first. Rough is fine.");
+    (S.mi = S.mi || {})[p.id] = t; save(); toast("Locked in. Compare it with the key lines once you've answered.");
+  });
+  $("[data-scikeys]", box).addEventListener("click", e => {
+    const b = e.currentTarget, paras = $$(".passage p", el), on = b.dataset.on !== "1";
+    b.dataset.on = on ? "1" : ""; b.textContent = on ? "Hide the key lines" : "Show the key lines";
+    paras.forEach((node, pi) => {
+      const text = p.text[pi]; if (text == null) return;
+      if (!on) { node.textContent = text; return; }
+      node.innerHTML = sentencesOf(text).map(sn => {
+        const hit = SCI_KEYS.find(([k]) => keys[k] && keys[k].pi === pi && keys[k].t === sn.trim());
+        return hit ? `<mark class="scikey" title="${hit[1]}">${esc(sn)}</mark>` : esc(sn);
+      }).join("");
+    });
+    if (on && !Object.keys(keys).length) toast("This passage has no clear signal words. Find the purpose and result yourself.");
+    else if (on) scrollToEl($(".passage", el));
+  });
 }
 // The passage's own main-idea question (when it has one) gives the model line to compare against.
 const MI_RE = /main (idea|point|thesis|argument)|central (idea|thesis|argument|claim)|primary purpose|best (summarizes|expresses)/i;
@@ -2507,6 +2563,7 @@ function reviewPrompt() {
   if ($("#sheetHost .scrim")) return;
   const R = S.review || { right: 0, wrong: 0 };
   if (R.kind === "check") return checkDone();
+  if (R.kind === "quiz") return quizDone();
   beep("level");
   sheet(`<div class="eyebrow">Review complete</div><h2>${R.right} mastered, ${R.wrong} still in your Revenge Queue.</h2>
     <p class="muted">Anything you missed again comes back on a 1, 3 and 7 day schedule.</p>
@@ -2576,15 +2633,193 @@ function startReview(only) {
   S.review = { ids, done: [], queued: [], right: 0, wrong: 0 }; save();
   go("scroll"); resetFeed();
 }
+/* ---------- You vs other students: per topic, on the same questions (uses the live percent-correct data) ---------- */
+// A question counts as right for you if you never missed it (the closest match to the server's first-try data).
+const PEER_MIN = 5;
+function peerRows() {
+  const R = typeof QRATE !== "undefined" && QRATE ? QRATE : null; if (!R) return [];
+  const by = {};
+  Object.keys(S.stats).forEach(id => {
+    const r = R[id], q = anyQ(id), st = S.stats[id]; if (!r || r[0] < 30 || !q || !CAT[q.c] || !st.a) return;
+    const b = by[q.c] = by[q.c] || { n: 0, me: 0, them: 0 }; b.n++; b.me += st.c === st.a ? 1 : 0; b.them += r[1] / 100;
+  });
+  return Object.entries(by).filter(([, b]) => b.n >= PEER_MIN)
+    .map(([c, b]) => ({ c, n: b.n, me: Math.round(b.me / b.n * 100), them: Math.round(b.them / b.n * 100) }))
+    .sort((a, b) => (a.me - a.them) - (b.me - b.them));
+}
+function peerHTML() {
+  const rows = peerRows();
+  const body = rows.length
+    ? `<p class="small muted" style="margin:4px 0 8px">Your accuracy vs other 520 Quest students on the exact questions you answered. Furthest behind first.</p>` +
+      rows.slice(0, 12).map(r => { const d = r.me - r.them, col = d >= 5 ? "var(--good)" : d <= -5 ? "var(--bad)" : "var(--muted)";
+        return `<div class="row" style="justify-content:space-between;flex-wrap:nowrap;margin:4px 0"><span class="small"><b>${esc(r.c)}</b> ${esc(CAT[r.c].title)}</span><span class="small" style="white-space:nowrap">You ${r.me}% · Others ${r.them}% <b style="color:${col}">${d > 0 ? "+" : ""}${d}</b></span></div>`; }).join("")
+    : `<p class="small muted" style="margin:4px 0 0">Shows up once you've answered ${PEER_MIN}+ questions in a topic that other students have answered 30+ times each.</p>`;
+  return `<div class="panel"><h3>You vs other students</h3>${body}</div>`;
+}
+/* ---------- Notebook: save a takeaway from any explanation; noted questions come back for review ---------- */
+const plainX = q => {
+  const t = document.createElement("div"), o = q.o && q.o[q.a];
+  t.innerHTML = q.x ? (splitX(q.x).main || q.x) : o ? `Answer: ${o[0]}. ${o[1] || ""}` : "";
+  return (t.textContent || "").trim();
+};
+const inNotes = id => (S.notes || []).some(n => n.q === id);
+const nbBtn = q => `<button class="btn small ghost ${inNotes(q.id) ? "added" : ""}" data-nbadd>${inNotes(q.id) ? "✓ In notebook" : "+ Notebook"}</button>`;
+function nbAdd(q, btn) {
+  const prev = (S.notes || []).find(n => n.q === q.id);
+  sheet(`<div class="eyebrow">Notebook · ${esc(q.c)}</div><h2>What do you want to remember?</h2>
+    <textarea id="nbText" rows="5" style="width:100%" maxlength="1200">${esc(prev ? prev.t : plainX(q))}</textarea>
+    <label class="small" style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="nbQuiz" ${prev && !prev.quiz ? "" : "checked"}> Quiz me on this question again (1, 3 and 7 days)</label>
+    <div class="row"><button class="btn primary" data-nbsave style="flex:1">Save</button>${prev ? `<button class="btn ghost" data-close data-nbdel="${esc(prev.id)}">Remove</button>` : ""}<button class="btn" data-close>Cancel</button></div>`, sh => {
+    $("[data-nbsave]", sh).addEventListener("click", () => {
+      const t = $("#nbText", sh).value.trim(); if (!t) return toast("Write a line to save first.");
+      const quiz = $("#nbQuiz", sh).checked;
+      S.notes = (S.notes || []).filter(n => n.q !== q.id);
+      S.notes.unshift({ id: "n" + Date.now().toString(36), q: q.id, c: q.c, t, quiz, at: Date.now() });
+      if (quiz && !S.revenge[q.id]) S.revenge[q.id] = { box: 0, due: Date.now() + 20 * 3600000 };
+      save(); $("#sheetHost").innerHTML = "";
+      if (btn) { btn.classList.add("added"); btn.textContent = "✓ In notebook"; }
+      toast(`Saved. <b>${S.notes.length}</b> note${S.notes.length === 1 ? "" : "s"} in your notebook (Me page).`);
+    });
+  });
+}
+function nbPanelHTML() {
+  const n = (S.notes || []).length;
+  return `<div class="panel"><div class="row" style="justify-content:space-between"><h3 style="margin:0">My notebook</h3><button class="btn small" data-nbopen ${n ? "" : "disabled"}>Open (${n})</button></div>
+    <p class="small muted" style="margin:6px 0 0">${n ? `${n} saved takeaway${n === 1 ? "" : "s"}. Practice the questions behind them any time.` : "Tap + Notebook under any explanation to save the line you want to remember."}</p></div>`;
+}
+function nbSheet() {
+  const notes = S.notes || [];
+  if (!notes.length) return toast("Your notebook is empty.");
+  const cats = [...new Set(notes.map(n => n.c))].sort();
+  sheet(`<div class="eyebrow">My notebook</div><h2>${notes.length} note${notes.length === 1 ? "" : "s"}</h2>
+    <div class="row"><button class="btn primary small" data-close data-nbpractice="${esc(notes.map(n => n.q).join(","))}">Practice all ${notes.length}</button></div>
+    ${cats.map(c => `<div><h3 style="margin:8px 0 4px;font:700 16px var(--display)">${esc(c)}${CAT[c] ? " · " + esc(CAT[c].title) : ""}</h3>${notes.filter(n => n.c === c).map(n => `<div class="note" style="margin:6px 0"><p style="margin:0 0 6px;white-space:pre-wrap">${esc(n.t)}</p><div class="row"><button class="btn small" data-close data-nbpractice="${esc(n.q)}">Practice</button><button class="btn small ghost" data-nbdel="${esc(n.id)}">Delete</button><span class="small muted">${new Date(n.at).toLocaleDateString()}</span></div></div>`).join("")}</div>`).join("")}`);
+}
+document.addEventListener("click", e => {
+  if (e.target.closest("[data-nbopen]")) return nbSheet();
+  const p = e.target.closest("[data-nbpractice]"); if (p) return startReview(p.dataset.nbpractice.split(","));
+  const d = e.target.closest("[data-nbdel]");
+  if (d) {
+    S.notes = (S.notes || []).filter(n => n.id !== d.dataset.nbdel); save(); toast("Note deleted.");
+    if (!$("#view-me").hidden) renderMe();
+    if ($("#sheetHost .scrim") && !d.hasAttribute("data-close")) { if (S.notes.length) nbSheet(); else $("#sheetHost").innerHTML = ""; }
+  }
+});
+/* ---------- Custom quiz builder: pick sections, topic, pool, difficulty, size and mode ---------- */
+const QZ_SECS = [["CP", "Chem/Phys"], ["CARS", "CARS"], ["BB", "Bio/Biochem"], ["PS", "Psych/Soc"]];
+const QZ_POOLS = [["unused", "Unused"], ["missed", "Missed before"], ["revenge", "In my Revenge Queue"], ["all", "All"]];
+const QZ_TYPES = [["both", "Both"], ["discrete", "Discrete"], ["passage", "Passage"]];
+const QZ_DIFF = [["0", "Any"], ["1", "Easier"], ["2", "Medium"], ["3", "Harder"]];
+const QZ_SIZES = [10, 20, 30, 59];
+const QZ_PACE = 95;   // seconds per question, the real exam's pace
+function quizOpts() { return S.quiz = Object.assign({ secs: ["CP", "BB", "PS"], cat: "", pool: "unused", type: "both", diff: "0", n: 20, timed: false }, S.quiz || {}); }
+function quizPool(o) {
+  const secs = o.secs.length ? o.secs : QZ_SECS.map(x => x[0]);
+  const list = [];
+  if (o.type !== "passage") list.push(...QUESTIONS);
+  if (o.type !== "discrete") PASSAGES.forEach(p => list.push(...p.qs));
+  return list.filter(q => {
+    if (!q || !CAT[q.c] || isExamId(q.id)) return false;
+    if (o.cat ? q.c !== o.cat : !secs.includes(q.s)) return false;
+    if (o.diff !== "0" && String(q.d || 2) !== o.diff) return false;
+    const st = S.stats[q.id];
+    if (o.pool === "unused" && st) return false;
+    if (o.pool === "missed" && !(st && st.c < st.a)) return false;
+    if (o.pool === "revenge" && !S.revenge[q.id]) return false;
+    return true;
+  });
+}
+// Free players: questions they have already seen are always fine; new ones only up to the free limit.
+function quizPick(o) {
+  let pool = quizPool(o).sort(() => Math.random() - .5);
+  if (!S.pro) {
+    let room = Math.max(0, CONFIG.freeQuestions - seenCount());
+    pool = pool.filter(q => S.stats[q.id] || (room-- > 0));
+  }
+  return pool.slice(0, o.n).map(q => q.id);
+}
+function quizSheetHTML() {
+  const o = quizOpts(), n = quizPool(o).length;
+  const chip = (attr, val, label, on) => `<button class="chipbtn" ${attr}="${esc(val)}" aria-pressed="${on}">${esc(label)}</button>`;
+  const cats = CATS.filter(c => o.secs.includes(c[2]));
+  return `<div class="eyebrow">Custom quiz</div><h2>Build your own quiz</h2>
+    <p class="small muted" style="margin:0 0 4px">Sections</p><div class="row">${QZ_SECS.map(([k, l]) => chip("data-qzsec", k, l, o.secs.includes(k))).join("")}</div>
+    <p class="small muted" style="margin:10px 0 4px">Topic</p><select id="qzCat" class="qzsel"><option value="">All topics in these sections</option>${cats.map(c => `<option value="${esc(c[0])}" ${o.cat === c[0] ? "selected" : ""}>${esc(c[0])} · ${esc(c[1])}</option>`).join("")}</select>
+    <p class="small muted" style="margin:10px 0 4px">Questions</p><div class="row">${QZ_POOLS.map(([k, l]) => chip("data-qzpool", k, l, o.pool === k)).join("")}</div>
+    <p class="small muted" style="margin:10px 0 4px">Type</p><div class="row">${QZ_TYPES.map(([k, l]) => chip("data-qztype", k, l, o.type === k)).join("")}</div>
+    <p class="small muted" style="margin:10px 0 4px">Difficulty</p><div class="row">${QZ_DIFF.map(([k, l]) => chip("data-qzdiff", k, l, o.diff === k)).join("")}</div>
+    <p class="small muted" style="margin:10px 0 4px">How many</p><div class="row">${QZ_SIZES.map(k => chip("data-qzn", k, k, o.n === k)).join("")}</div>
+    <p class="small muted" style="margin:10px 0 4px">Mode</p><div class="row">${chip("data-qzmode", "tutor", "Tutor: explanation after each", !o.timed)}${chip("data-qzmode", "timed", "Timed: 95 s per question", o.timed)}</div>
+    <p class="small" style="margin:12px 0 6px" id="qzCount">${bankLoaded ? `${n.toLocaleString("en-US")} question${n === 1 ? "" : "s"} match.` : "Loading the full Qbank…"}${!S.pro && o.pool !== "missed" && o.pool !== "revenge" ? ` Free plan: up to ${Math.max(0, CONFIG.freeQuestions - seenCount())} new questions left.` : ""}</p>
+    <div class="row"><button class="btn primary" data-qzstart ${n ? "" : "disabled"} style="flex:1">Start quiz</button><button class="btn" data-close style="flex:1">Cancel</button></div>`;
+}
+function quizSheet() {
+  sheet(`<div id="qzBox">${quizSheetHTML()}</div>`);
+  const box = $("#qzBox"); if (!box) return;
+  const redraw = () => { box.innerHTML = quizSheetHTML(); save(); };
+  box.addEventListener("change", e => { if (e.target.id === "qzCat") { quizOpts().cat = e.target.value; redraw(); } });
+  box.addEventListener("click", e => {
+    const o = quizOpts(), b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.qzsec) { const k = b.dataset.qzsec; o.secs = o.secs.includes(k) ? o.secs.filter(x => x !== k) : o.secs.concat(k); if (o.cat && CAT[o.cat] && !o.secs.includes(CAT[o.cat].s)) o.cat = ""; }
+    else if (b.dataset.qzpool) o.pool = b.dataset.qzpool;
+    else if (b.dataset.qztype) o.type = b.dataset.qztype;
+    else if (b.dataset.qzdiff) o.diff = b.dataset.qzdiff;
+    else if (b.dataset.qzn) o.n = +b.dataset.qzn;
+    else if (b.dataset.qzmode) o.timed = b.dataset.qzmode === "timed";
+    else if (b.hasAttribute("data-qzstart")) return startQuiz();
+    else return;
+    redraw();
+  });
+}
+function startQuiz() {
+  const o = quizOpts(), ids = quizPick(o);
+  if (!ids.length) return toast(S.pro ? "No questions match. Try fewer filters." : "No questions left on the free plan for these filters. Try Missed before.");
+  $("#sheetHost").innerHTML = "";
+  S.review = { kind: "quiz", ids, done: [], queued: [], right: 0, wrong: 0, t0: Date.now(), timed: o.timed, limit: o.timed ? ids.length * QZ_PACE : 0 };
+  S.focus = null; S.sub = null; save(); go("scroll"); resetFeed(); quizTick();
+  toast(`Custom quiz: ${ids.length} question${ids.length === 1 ? "" : "s"}${o.timed ? `, ${Math.round(ids.length * QZ_PACE / 60)} minutes on the clock` : ""}.`);
+}
+const mmss = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+function quizChipText() {
+  const R = S.review, pos = Math.min(R.ids.length, R.done.length + 1);
+  if (!R.timed) return `Custom quiz · ${pos} of ${R.ids.length}`;
+  const left = R.limit - (Date.now() - R.t0) / 1000;
+  return `Custom quiz · ${pos} of ${R.ids.length} · ${left > 0 ? mmss(left) + " left" : "time's up"}`;
+}
+let quizTimer = null;
+function quizTick() {
+  clearInterval(quizTimer);
+  quizTimer = setInterval(() => {
+    const R = S.review;
+    if (!R || R.kind !== "quiz" || !R.timed || R.done.length >= R.ids.length) return clearInterval(quizTimer);
+    const c = $("#revChip"); if (c) c.textContent = quizChipText() + " ✕";
+    if (!R.timeUp && (Date.now() - R.t0) / 1000 >= R.limit) { R.timeUp = true; save(); toast("Time's up. Finish the rest untimed, or tap the quiz chip to stop."); }
+  }, 1000);
+}
+function quizDone() {
+  const R = S.review; clearInterval(quizTimer);
+  const n = R.done.length, pct = n ? Math.round(R.right / n * 100) : 0, used = (Date.now() - R.t0) / 1000;
+  const misses = R.ids.filter(id => S.stats[id] && S.today.missed.includes(id));
+  beep("level");
+  sheet(`<div class="eyebrow">Custom quiz done</div><h2>${R.right} of ${n} right (${pct}%).</h2>
+    <p class="muted">Time used ${mmss(used)}, about ${n ? Math.round(used / n) : 0} s per question (exam pace is ${QZ_PACE} s). Your misses are in your Revenge Queue.</p>
+    <div class="row"><button class="btn primary" data-close data-quizopen>Build another quiz</button>${misses.length ? `<button class="btn" data-close data-qzmiss="${esc(misses.join(","))}">Retry my ${misses.length} miss${misses.length === 1 ? "" : "es"}</button>` : ""}<button class="btn ghost" data-close data-doneday>Done for the day</button></div>`);
+}
+document.addEventListener("click", e => {
+  if (e.target.closest("[data-quizopen]")) { setTimeout(quizSheet, 0); return; }
+  const m = e.target.closest("[data-qzmiss]"); if (m) startReview(m.dataset.qzmiss.split(","));
+});
 function reviewDoneText() {
   const R = S.review; if (!R) return "";
+  if (R.kind === "quiz") { const l = R.ids.length - R.done.length; return l ? `${l} question${l === 1 ? "" : "s"} left in your custom quiz.` : "Custom quiz done."; }
   if (R.kind === "check") { const l = R.ids.length - R.done.length; return l ? `${l} question${l === 1 ? "" : "s"} left in your starting check.` : "Starting check done. Your results are on the Me page."; }
   const left = R.ids.length - R.done.length;
   return left ? `${left} question${left === 1 ? "" : "s"} above still to answer.` : `${R.right} question${R.right === 1 ? "" : "s"} mastered, ${R.wrong} still in queue. See you tomorrow.`;
 }
 function reviewDoneCard() {
   const el = document.createElement("article"); el.className = "card gate";
-  el.innerHTML = `<div class="eyebrow">Revenge Queue complete</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
+  const kind = (S.review || {}).kind, title = kind === "quiz" ? "Custom quiz complete" : kind === "check" ? "Starting check complete" : "Revenge Queue complete";
+  el.innerHTML = `<div class="eyebrow">${title}</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
     <p class="muted" style="margin:0">Anything you missed again comes back in your Revenge Queue on a 1, 3 and 7 day schedule.</p>
     <div class="row"><button class="btn primary" data-more10 style="flex:1">Do ${ROUND} more questions</button><button class="btn" data-doneday style="flex:1">Done for the day</button></div>`;
   return el;
@@ -2867,7 +3102,7 @@ const BOSSES = [
 ];
 let B = null;
 function renderBossLobby() {
-  const left = S.pro ? "Unlimited battles" : Math.max(0, CONFIG.freeDailyBosses - S.today.bosses) + " free battle left today";
+  const left = S.pro ? "Unlimited battles" : (n => n + " free battle" + (n === 1 ? "" : "s") + " left today")(Math.max(0, CONFIG.freeDailyBosses - S.today.bosses));
   $("#view-boss").innerHTML = `<div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h2 class="title">Boss battles</h2><button class="btn small ghost" data-musictoggle>${S.sound && S.music !== "off" ? "♪ Music on" : "♪ Music off"}</button></div><p class="sub">10 questions at exam pace, 95 seconds each. Deal 70 damage before you lose 4 hearts. ${esc(left)}.</p>
     ${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> Unlimited boss battles every day, plus your score estimate.</p><button class="btn small pro" data-pro>See plans</button></div>`}
     <div class="panel"><div class="row" style="justify-content:space-between"><h3>Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h3>${S.lv.pending ? `<button class="btn small primary" data-gate>Fight Gatekeeper ${S.lv.pending}</button>` : ""}</div>
@@ -2984,7 +3219,7 @@ function renderMap() {
   const groups = ["CP", "CARS", "BB", "PS"];
   const open = S.mapSub && CAT[S.mapSub] ? S.mapSub : null, osub = open ? subCounts(open) : [];
   const subPanel = open ? `<div class="panel" style="margin-bottom:14px;border-color:#f472b6"><div class="row" style="justify-content:space-between"><h3 style="margin:0">${esc(open)} · ${esc(CAT[open].title)}</h3><button class="btn small ghost" data-subclose>Close</button></div><p class="small muted">Pick a concept to drill, or practice the whole category.</p><div class="row"><button class="chipbtn" data-drill="${esc(open)}">All ${esc(open)}</button>${osub.map(o => `<button class="chipbtn" data-drill="${esc(open)}" data-sub="${esc(o.id)}">${esc(o.label)} · ${o.n}</button>`).join("")}</div></div>` : "";
-  $("#view-map").innerHTML = subPanel + `<h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll (CARS skills open passages filtered to that question type).</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
+  $("#view-map").innerHTML = subPanel + `<div class="panel quizpanel" style="margin-bottom:14px"><div class="row" style="justify-content:space-between;align-items:center"><div><h3 style="margin:0">Build your own quiz</h3><p class="small muted" style="margin:4px 0 0">Pick sections, topics, unused or missed questions, difficulty, and timed or tutor mode.</p></div><button class="btn primary" data-quizopen>Build a quiz</button></div></div><h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll (CARS skills open passages filtered to that question type).</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
   <div class="stack">${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
     const c = S.cat[code] || { a: 0, c: 0 }, m = c.a ? c.c / c.a : 0, col = !c.a ? "var(--line)" : m >= .8 ? "var(--good)" : m >= .6 ? "var(--volt)" : "var(--bad)";
     const drill = s === "CARS" ? PASSAGES.some(p => p.s === "CARS" && p.qs.some(q => q.c === code)) : QUESTIONS.some(q => q.c === code);
@@ -3207,7 +3442,7 @@ function mnHomeHTML() {
   const top = MN.filter(m => !m.locked).sort((a, b) => mnScore(b) - mnScore(a)).slice(0, 5);
   return `<div class="panel"><h3>Mnemonics Vault <span class="muted small">${MN.length}</span></h3>
     <input class="mn-search" type="search" placeholder="Search mnemonics, e.g. Krebs" id="mnSearch" aria-label="Search mnemonics">
-    <div class="mn-cats" style="margin-top:10px">${MN_CATS.map(c => `<button class="mn-cat" data-mncat="${esc(c)}">${esc(c)}<small>${MN.filter(m => mnKey(mnCat(m)) === mnKey(c)).length} mnemonics</small></button>`).join("")}</div>
+    <div class="mn-cats" style="margin-top:10px">${MN_CATS.filter(c => MN.some(m => mnKey(mnCat(m)) === mnKey(c))).map(c => `<button class="mn-cat" data-mncat="${esc(c)}">${esc(c)}<small>${MN.filter(m => mnKey(mnCat(m)) === mnKey(c)).length} mnemonics</small></button>`).join("")}</div>
     <h4 style="margin:14px 0 6px">Featured</h4><div class="mn-list">${top.map(mnItemHTML).join("")}</div></div>`;
 }
 function renderMn(v) {
@@ -3290,8 +3525,9 @@ function estimate(sec) {
     return { mid: m, lo: Math.max(118, m - w), hi: Math.min(132, m + w), src: "exam" }; }
   const r = (S.recentP || {})[sec] || []; if (r.length < EST_MIN) return null;
   let w = 0, sc = 0; r.forEach(([c, d]) => { const k = d === 3 ? 1.5 : d === 1 ? .8 : 1; w += k; sc += c * k; });
-  const m = Math.round(118 + 14 * Math.min(1, Math.max(0, (sc / w - .3) / .65))), h = Math.round(1 + 3 * Math.sqrt(EST_MIN / r.length));
-  return { mid: m, lo: Math.max(118, m - h), hi: Math.min(132, m + h), src: "passages" };
+  const off = typeof calibOff === "function" ? calibOff(sec) : 0;
+  const m = Math.min(132, Math.max(118, Math.round(118 + 14 * Math.min(1, Math.max(0, (sc / w - .3) / .65)) + off))), h = Math.round(1 + 3 * Math.sqrt(EST_MIN / r.length));
+  return { mid: m, raw: Math.min(132, Math.max(118, m - off)), lo: Math.max(118, m - h), hi: Math.min(132, m + h), src: "passages", cal: !!off };
 }
 function donut(counts) {
   const tot = counts.reduce((a, b) => a + b[1], 0); if (!tot) return `<p class="muted small">Miss a question and tag why. Your breakdown shows up here.</p>`;
@@ -3359,6 +3595,9 @@ function renderMe() {
     ${analyticsHTML()}
     <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
+    ${peerHTML()}
+    ${nbPanelHTML()}
+    ${typeof realScorePanelHTML === "function" ? realScorePanelHTML() : ""}
     <div class="panel"><h3>Error DNA</h3>${donut(dnaCounts)}</div>
     ${carsTypesHTML()}
     ${proPanel("Score estimate", "See your estimated score for each section, based on your recent answers.",
@@ -3387,7 +3626,7 @@ function renderMe() {
     <div class="panel"><h3>Help</h3>
       <p class="small">Questions about 520 Quest or your purchase? We reply within 24 to 48 hours.</p>
       <div class="row"><a class="btn small primary" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20support">Contact Support</a><a class="btn small" href="${esc(CONFIG.supportUrl)}" target="_blank" rel="noopener">FAQ</a><a class="btn small" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20feedback">Send feedback</a></div>
-      <p style="font-size:12px;color:#6b7280;margin:4px 0 0"><button class="linkbtn" data-cancelsub style="font-size:12px;color:#6b7280">Cancel subscription</button></p></div>
+      ${S.proBy === "account" ? `<p style="font-size:12px;color:#6b7280;margin:4px 0 0"><button class="linkbtn" data-cancelsub style="font-size:12px;color:#6b7280">Cancel subscription</button></p>` : ""}</div>
     <div class="panel"><h3>Privacy</h3><p class="small"><b>We help you get into medical school without selling your data.</b> Your progress stays on this device unless you sign in; then it's saved to your 520 Quest account so it follows you to your other devices. No ads, no trackers.</p></div>
     <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app.</p>
   </div>`;
@@ -3418,7 +3657,7 @@ $("#view-me").addEventListener("click", e => {
   }
   if (t.closest("[data-copybk]")) return copy($("#bk").value, () => toast("Backup code copied."), $("#bk"));
   if (t.closest("[data-restore]")) {
-    try { const o = JSON.parse(decodeURIComponent(escape(atob($("#bk").value.trim())))); if (o.v !== 1) throw 0; S = Object.assign(fresh(), o); save(); renderAll(); toast("Progress restored."); }
+    try { const o = JSON.parse(decodeURIComponent(escape(atob($("#bk").value.trim())))); if (o.v !== 1) throw 0; ["pro", "proBy", "admin"].forEach(k => delete o[k]); S = Object.assign(fresh(), o); save(); renderAll(); toast("Progress restored."); }
     catch (err) { toast("That code isn't a valid 520 Quest backup. Paste the whole code and try again."); }
   }
 });
