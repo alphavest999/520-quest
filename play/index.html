@@ -3438,7 +3438,7 @@ function mnHomeHTML() {
   const top = MN.filter(m => !m.locked).sort((a, b) => mnScore(b) - mnScore(a)).slice(0, 5);
   return `<div class="panel"><h3>Mnemonics Vault <span class="muted small">${MN.length}</span></h3>
     <input class="mn-search" type="search" placeholder="Search mnemonics, e.g. Krebs" id="mnSearch" aria-label="Search mnemonics">
-    <div class="mn-cats" style="margin-top:10px">${MN_CATS.map(c => `<button class="mn-cat" data-mncat="${esc(c)}">${esc(c)}<small>${MN.filter(m => mnKey(mnCat(m)) === mnKey(c)).length} mnemonics</small></button>`).join("")}</div>
+    <div class="mn-cats" style="margin-top:10px">${MN_CATS.filter(c => MN.some(m => mnKey(mnCat(m)) === mnKey(c))).map(c => `<button class="mn-cat" data-mncat="${esc(c)}">${esc(c)}<small>${MN.filter(m => mnKey(mnCat(m)) === mnKey(c)).length} mnemonics</small></button>`).join("")}</div>
     <h4 style="margin:14px 0 6px">Featured</h4><div class="mn-list">${top.map(mnItemHTML).join("")}</div></div>`;
 }
 function renderMn(v) {
