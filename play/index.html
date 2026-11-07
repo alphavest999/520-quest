@@ -1434,7 +1434,7 @@ const CONFIG = {
     2026: { volt: "#1e3a8a", "volt-ink": "#ffffff", ink: "#ffffff", panel: "#ffffff", "panel-2": "#f1f5f9", line: "#e2e8f0", cool: "#2dd4bf" },
     2027: { volt: "#38bdf8", "volt-ink": "#03131c", ink: "#0b0f14", panel: "#141b23", "panel-2": "#1e2833", line: "#2c3a47", cool: "#a78bfa" }
   },
-  supportEmail: "support@520-quest.com",
+  supportEmail: "info@unprocrastinatehub.com",
   supportUrl: "https://520quest.com/support/",
   appUrl: "https://520quest.com/", // your public link, used in Share text
   flags: { MASTERY_SHEETS_CONSPICUOUS: true, MNEMONICS_ENABLED: true },
@@ -2814,7 +2814,8 @@ function reviewDoneText() {
 }
 function reviewDoneCard() {
   const el = document.createElement("article"); el.className = "card gate";
-  el.innerHTML = `<div class="eyebrow">Revenge Queue complete</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
+  const kind = (S.review || {}).kind, title = kind === "quiz" ? "Custom quiz complete" : kind === "check" ? "Starting check complete" : "Revenge Queue complete";
+  el.innerHTML = `<div class="eyebrow">${title}</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
     <p class="muted" style="margin:0">Anything you missed again comes back in your Revenge Queue on a 1, 3 and 7 day schedule.</p>
     <div class="row"><button class="btn primary" data-more10 style="flex:1">Do ${ROUND} more questions</button><button class="btn" data-doneday style="flex:1">Done for the day</button></div>`;
   return el;
