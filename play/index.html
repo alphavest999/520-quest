@@ -2086,7 +2086,7 @@ function questionCard(q, rev, tgt) {
   const passageExpand = pass ? passBtnHTML(pass) : "";
   el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[q.s].name}</span><span class="tag">${q.c}${cat.hy ? " ★" : ""}</span>${rev ? '<span class="tag rev">Revenge</span>' : ""}${tgt ? '<span class="tag target" title="The adaptive engine picked this from one of your weakest areas">Weak area</span>' : ""}${diffDots(q.d)}</div>${passageExpand}
     <h2 class="stem">${q.q}</h2><div class="opts">${optsHTML(q)}</div>
-    <div class="row tools"><button class="btn small ghost" data-hint ${S.hints ? "" : "disabled"}>Hint (${S.hints})</button><span class="muted small">${esc(cat.title)}</span></div>
+    <div class="row tools"><button class="btn small ghost" data-hint ${S.hints && !(S.review && S.review.kind === "check") ? "" : "disabled"}>Hint (${S.hints})</button><span class="muted small">${esc(cat.title)}</span></div>
     <div class="reveal stack" hidden></div>${SWIPE}`;
   wireQuestion(el, q, el);
   return el;
@@ -2568,7 +2568,8 @@ function showRound(r, first) {
 }
 // After finishing a review: same two choices. Done for the day then skips "Review my answers".
 function reviewPrompt() {
-  if ($("#sheetHost .scrim")) return;
+  // Another sheet (a chest, a level-up) is open: a diagnostic or quiz must still finish and save its results, so try again once it closes.
+  if ($("#sheetHost .scrim")) { const k = S.review && S.review.kind; if (k === "check" || k === "quiz") setTimeout(() => { if (S.review && S.review.kind === k) reviewPrompt(); }, 1500); return; }
   const R = S.review || { right: 0, wrong: 0 };
   if (R.kind === "check") return checkDone();
   if (R.kind === "quiz") return quizDone();
@@ -2925,13 +2926,15 @@ function planHTML() {
 }
 // Timed diagnostic: 30 questions, 10 per science section, spread across categories, medium difficulty, not seen before.
 // Clock is the real exam's pace (QZ_PACE s a question). The results set the order of the plan.
+// Free players: the diagnostic only uses questions they still have room for, so it never stops halfway at the free limit.
+const checkPer = () => S.pro ? 10 : Math.min(10, Math.floor(Math.max(0, CONFIG.freeQuestions - seenCount()) / 3));
 function startCheck() {
-  const ids = [];
+  const ids = [], per = checkPer();
   ["CP", "BB", "PS"].forEach(sec => {
     const cats = CATS.filter(c => c[2] === sec).map(c => c[0]), by = {};
     QUESTIONS.filter(q => q.s === sec && (q.d || 2) === 2 && !S.stats[q.id] && canOpen(q) && !isExamId(q.id)).forEach(q => (by[q.c] = by[q.c] || []).push(q.id));
     let k = 0, guard = 0; const out = [];
-    while (out.length < 10 && guard++ < 400) { const c = cats[k++ % cats.length], l = by[c]; if (l && l.length) out.push(l.splice(Math.floor(Math.random() * l.length), 1)[0]); }
+    while (out.length < per && guard++ < 400) { const c = cats[k++ % cats.length], l = by[c]; if (l && l.length) out.push(l.splice(Math.floor(Math.random() * l.length), 1)[0]); }
     ids.push(...out);
   });
   if (!ids.length) return toast("No new questions left for a diagnostic.");
@@ -2942,8 +2945,13 @@ function startCheck() {
   toast(`Timed diagnostic: ${ids.length} questions, ${Math.round(ids.length * QZ_PACE / 60)} minutes on the clock (real MCAT pace). No hints, just your best answer.`);
 }
 function checkStart() {
-  sheet(`<div class="eyebrow">Timed diagnostic</div><h2>30 questions, ${Math.round(30 * QZ_PACE / 60)} minutes.</h2>
-    <p class="muted">10 each from Chem/Phys, Bio/Biochem and Psych/Soc, at the real exam's pace of ${QZ_PACE} seconds a question. The clock runs even if you leave the app, and anything you haven't answered when it hits zero counts as not reached, like on test day. Your results set the order of your plan, and anything you miss, guess on or answer too slowly goes into your Revenge Questions.</p>
+  const per = checkPer(), n = per * 3, left = Math.max(0, CONFIG.freeQuestions - seenCount());
+  if (per < 3) return sheet(`<div class="eyebrow">Timed diagnostic</div><h2>Not enough free questions left.</h2>
+    <p class="muted">The diagnostic needs at least 9 new questions and you have ${left} free question${left === 1 ? "" : "s"} left. Any plan unlocks all 5,904 questions and a full 30-question diagnostic.</p>
+    <div class="row"><button class="btn primary" data-close data-checkpro>See plans</button><button class="btn ghost" data-close>Not now</button></div>`);
+  sheet(`<div class="eyebrow">Timed diagnostic</div><h2>${n} questions, ${Math.round(n * QZ_PACE / 60)} minutes.</h2>
+    ${S.pro ? "" : `<p class="small" style="margin:0"><b>Free plan:</b> this uses ${n} of your ${left} free questions${per < 10 ? ", so it's shorter than the full 30" : ""}.</p>`}
+    <p class="muted">${per} each from Chem/Phys, Bio/Biochem and Psych/Soc, at the real exam's pace of ${QZ_PACE} seconds a question. The clock runs even if you leave the app, and anything you haven't answered when it hits zero counts as not reached, like on test day. Your results set the order of your plan, and anything you miss, guess on or answer too slowly goes into your Revenge Questions.</p>
     <div class="row"><button class="btn primary" data-close data-checkgo>Start the clock</button><button class="btn ghost" data-close>Not now</button></div>`);
 }
 function checkDone() {
@@ -2999,6 +3007,7 @@ document.addEventListener("click", e => {
   const pg = e.target.closest("[data-plangoal]"); if (pg) { S.goal = +pg.dataset.plangoal; S.goalSet = true; save(); renderHUD(); toast(`Daily goal set to ${S.goal}.`); return renderMe(); }
   if (e.target.closest("[data-startcheck]")) return checkStart();
   if (e.target.closest("[data-checkgo]")) return startCheck();
+  if (e.target.closest("[data-checkpro]")) return setTimeout(showPro, 50);
   const pd = e.target.closest("[data-plandrill]"); if (pd) return mapDrill(pd.dataset.plandrill);
   const ps = e.target.closest("[data-plansec]"); if (ps) { S.filter = ps.dataset.plansec; S.kind = null; S.focus = null; S.sub = null; S.review = null; save(); go("scroll"); return resetFeed(); }
   if (e.target.closest("[data-gome]")) { S.review = null; save(); go("me"); return renderMe(); }
