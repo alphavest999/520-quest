@@ -1529,7 +1529,7 @@ function fresh() {
   return { v: 1, xp: 0, combo: 0, bestCombo: 0, chest: 0, hints: 1, freezes: 1, pro: false, sound: true, music: "on", goal: 25,
     streak: { count: 0, last: null }, today: { date: todayKey(), answered: 0, correct: 0, bosses: 0, goalShown: false },
     stats: {}, cat: {}, recent: { CP: [], CARS: [], BB: [], PS: [] }, recentP: { CP: [], CARS: [], BB: [], PS: [] }, revenge: {}, errors: [], facts: {}, traps: {},
-    fl: [], anki: [], badges: {}, bossWins: {}, retired: 0, total: 0, totalCorrect: 0, filter: "ALL", focus: null,
+    fl: [], anki: [], notes: [], badges: {}, bossWins: {}, retired: 0, total: 0, totalCorrect: 0, filter: "ALL", focus: null,
     lv: { level: 1, block: [], evals: [], qual: 1, pending: 0 }, tlog: {}, welcome: null, resume: null, lastTab: "scroll", review: null, fanfare: true };
 }
 let S = fresh();
@@ -2063,8 +2063,7 @@ function stuck(q, card, btn) {
 }
 // "Something wrong with this question?" opens an email with the question id filled in.
 function reportLinkHTML(q) {
-  const body = `Question ID: ${q.id}\nQuestion: ${String(q.q).replace(/<[^>]+>/g, "").slice(0, 160)}\n\nWhat's wrong:\n`;
-  return `<a class="linkbtn reportq" href="mailto:${esc(CONFIG.supportEmail)}?subject=${encodeURIComponent("Problem with question " + q.id)}&body=${encodeURIComponent(body)}">Something wrong with this question?</a>`;
+  return `<button class="linkbtn reportq" data-qreport="${esc(q.id)}">Something wrong with this question?</button>`;
 }
 function optsHTML(q) { return q.o.map((o, i) => `<button class="opt" data-i="${i}"><b>${"ABCD"[i]}</b><span>${o[0]}</span></button>`).join(""); }
 
@@ -2115,7 +2114,7 @@ function wireQuestion(scope, q, card) {
     const rv = $(".reveal", scope); rv.hidden = false;
     rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` + (confNote ? `<div class="note">${confNote}</div>` : "") +
       (ok ? (q.x ? `<div class="note">${esc(splitX(q.x).main || q.x)}</div>` : "") + (q.note ? `<div class="note">${esc(q.note)}</div>` : "") : explainHTML(q, i)) +
-      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next question</button>${ok ? "" : ankiBtn(q) + '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}</div>`;
+      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next question</button>${ok ? "" : ankiBtn(q) + '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}${nbBtn(q)}</div>`;
     const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
     const nb = $("[data-next]", rv); if (sib) nb.textContent = "Next question";
     nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
@@ -2126,6 +2125,7 @@ function wireQuestion(scope, q, card) {
     rv.insertAdjacentHTML("beforeend", reportLinkHTML(q));
     const ab = $("[data-addanki]", rv); if (ab) ab.addEventListener("click", () => addAnki(q, ab));
     const sb = $("[data-stuck]", rv); if (sb) sb.addEventListener("click", () => stuck(q, card, sb));
+    const nbb = $("[data-nbadd]", rv); if (nbb) nbb.addEventListener("click", () => nbAdd(q, nbb));
     const h = $("[data-hint]", scope); if (h) h.disabled = true;
   });
   const hint = $("[data-hint]", scope);
@@ -2577,6 +2577,55 @@ function startReview(only) {
   S.review = { ids, done: [], queued: [], right: 0, wrong: 0 }; save();
   go("scroll"); resetFeed();
 }
+/* ---------- Notebook: save a takeaway from any explanation; noted questions come back for review ---------- */
+const plainX = q => {
+  const t = document.createElement("div"), o = q.o && q.o[q.a];
+  t.innerHTML = q.x ? (splitX(q.x).main || q.x) : o ? `Answer: ${o[0]}. ${o[1] || ""}` : "";
+  return (t.textContent || "").trim();
+};
+const inNotes = id => (S.notes || []).some(n => n.q === id);
+const nbBtn = q => `<button class="btn small ghost ${inNotes(q.id) ? "added" : ""}" data-nbadd>${inNotes(q.id) ? "✓ In notebook" : "+ Notebook"}</button>`;
+function nbAdd(q, btn) {
+  const prev = (S.notes || []).find(n => n.q === q.id);
+  sheet(`<div class="eyebrow">Notebook · ${esc(q.c)}</div><h2>What do you want to remember?</h2>
+    <textarea id="nbText" rows="5" style="width:100%" maxlength="1200">${esc(prev ? prev.t : plainX(q))}</textarea>
+    <label class="small" style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="nbQuiz" ${prev && !prev.quiz ? "" : "checked"}> Quiz me on this question again (1, 3 and 7 days)</label>
+    <div class="row"><button class="btn primary" data-nbsave style="flex:1">Save</button>${prev ? `<button class="btn ghost" data-close data-nbdel="${esc(prev.id)}">Remove</button>` : ""}<button class="btn" data-close>Cancel</button></div>`, sh => {
+    $("[data-nbsave]", sh).addEventListener("click", () => {
+      const t = $("#nbText", sh).value.trim(); if (!t) return toast("Write a line to save first.");
+      const quiz = $("#nbQuiz", sh).checked;
+      S.notes = (S.notes || []).filter(n => n.q !== q.id);
+      S.notes.unshift({ id: "n" + Date.now().toString(36), q: q.id, c: q.c, t, quiz, at: Date.now() });
+      if (quiz && !S.revenge[q.id]) S.revenge[q.id] = { box: 0, due: Date.now() + 20 * 3600000 };
+      save(); $("#sheetHost").innerHTML = "";
+      if (btn) { btn.classList.add("added"); btn.textContent = "✓ In notebook"; }
+      toast(`Saved. <b>${S.notes.length}</b> note${S.notes.length === 1 ? "" : "s"} in your notebook (Me page).`);
+    });
+  });
+}
+function nbPanelHTML() {
+  const n = (S.notes || []).length;
+  return `<div class="panel"><div class="row" style="justify-content:space-between"><h3 style="margin:0">My notebook</h3><button class="btn small" data-nbopen ${n ? "" : "disabled"}>Open (${n})</button></div>
+    <p class="small muted" style="margin:6px 0 0">${n ? `${n} saved takeaway${n === 1 ? "" : "s"}. Practice the questions behind them any time.` : "Tap + Notebook under any explanation to save the line you want to remember."}</p></div>`;
+}
+function nbSheet() {
+  const notes = S.notes || [];
+  if (!notes.length) return toast("Your notebook is empty.");
+  const cats = [...new Set(notes.map(n => n.c))].sort();
+  sheet(`<div class="eyebrow">My notebook</div><h2>${notes.length} note${notes.length === 1 ? "" : "s"}</h2>
+    <div class="row"><button class="btn primary small" data-close data-nbpractice="${esc(notes.map(n => n.q).join(","))}">Practice all ${notes.length}</button></div>
+    ${cats.map(c => `<div><h3 style="margin:8px 0 4px;font:700 16px var(--display)">${esc(c)}${CAT[c] ? " · " + esc(CAT[c].title) : ""}</h3>${notes.filter(n => n.c === c).map(n => `<div class="note" style="margin:6px 0"><p style="margin:0 0 6px;white-space:pre-wrap">${esc(n.t)}</p><div class="row"><button class="btn small" data-close data-nbpractice="${esc(n.q)}">Practice</button><button class="btn small ghost" data-nbdel="${esc(n.id)}">Delete</button><span class="small muted">${new Date(n.at).toLocaleDateString()}</span></div></div>`).join("")}</div>`).join("")}`);
+}
+document.addEventListener("click", e => {
+  if (e.target.closest("[data-nbopen]")) return nbSheet();
+  const p = e.target.closest("[data-nbpractice]"); if (p) return startReview(p.dataset.nbpractice.split(","));
+  const d = e.target.closest("[data-nbdel]");
+  if (d) {
+    S.notes = (S.notes || []).filter(n => n.id !== d.dataset.nbdel); save(); toast("Note deleted.");
+    if (!$("#view-me").hidden) renderMe();
+    if ($("#sheetHost .scrim") && !d.hasAttribute("data-close")) { if (S.notes.length) nbSheet(); else $("#sheetHost").innerHTML = ""; }
+  }
+});
 /* ---------- Custom quiz builder: pick sections, topic, pool, difficulty, size and mode ---------- */
 const QZ_SECS = [["CP", "Chem/Phys"], ["CARS", "CARS"], ["BB", "Bio/Biochem"], ["PS", "Psych/Soc"]];
 const QZ_POOLS = [["unused", "Unused"], ["missed", "Missed before"], ["revenge", "In my Revenge Queue"], ["all", "All"]];
@@ -3465,6 +3514,7 @@ function renderMe() {
     ${analyticsHTML()}
     <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
+    ${nbPanelHTML()}
     <div class="panel"><h3>Error DNA</h3>${donut(dnaCounts)}</div>
     ${carsTypesHTML()}
     ${proPanel("Score estimate", "See your estimated score for each section, based on your recent answers.",

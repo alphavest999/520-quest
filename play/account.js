@@ -252,7 +252,7 @@ function adminPanelHTML() {
     <p class="small muted">Unlimited questions, bosses, full-lengths, minis, Mastery Sheets, mnemonics and Anki export are on. These buttons change this account's own level, to preview each tier.</p>
     <p class="small">Jump to level</p><div class="row">${[1, 2, 3, 4, 5].map(n => `<button class="btn small${n === lv ? " primary" : ""}" data-adlevel="${n}">${n}. ${esc(tierName(n))}</button>`).join("")}</div>
     <div class="row" style="margin-top:8px">${lv < 5 ? `<button class="btn small" data-adgate>Fight Gatekeeper ${lv + 1} now</button>` : ""}<button class="btn small" data-adbosses>Reset today's boss count</button></div>
-    <p class="small" style="margin-top:12px">Real percent correct per question, from students' first tries.</p><div class="row"><button class="btn small" data-adqstats>Question stats</button></div></div>`;
+    <p class="small" style="margin-top:12px">Real percent correct per question, from students' first tries.</p><div class="row"><button class="btn small" data-adqstats>Question stats</button><button class="btn small" data-adqreports>Reported questions</button></div></div>`;
 }
 document.addEventListener("click", e => {
   if (!isAdmin()) return;
@@ -337,6 +337,65 @@ function qstatsSheet() {
   });
 }
 document.addEventListener("click", e => { if (e.target.closest("[data-adqstats]") && isAdmin()) qstatsSheet(); });
+
+/* ---------- question reports: students flag a problem in the app (supabase/005_question_reports.sql) ---------- */
+const QREASONS = [["key", "Wrong answer key"], ["typo", "Typo or symbol"], ["unclear", "Unclear wording"], ["fact", "Outdated or wrong fact"], ["figure", "Figure problem"], ["other", "Something else"]];
+const qText = q => String((q && q.q) || "").replace(/<[^>]+>/g, "").slice(0, 160);
+function reportMail(id, why, note) {
+  const q = anyQ(id), body = `Question ID: ${id}\nQuestion: ${qText(q)}\nProblem: ${why}\n\n${note}\n`;
+  location.href = `mailto:${CONFIG.supportEmail}?subject=${encodeURIComponent("Problem with question " + id)}&body=${encodeURIComponent(body)}`;
+}
+function reportSheet(id) {
+  let reason = "";
+  sheet(`<div class="eyebrow">Report a problem · ${esc(id)}</div><h2>What's wrong with this question?</h2>
+    <div class="row" id="qrReasons">${QREASONS.map(([k, l]) => `<button class="chipbtn" data-qr="${k}" aria-pressed="false">${l}</button>`).join("")}</div>
+    <textarea id="qrNote" rows="4" maxlength="1000" style="width:100%" placeholder="Optional: what should it say? Which choice is right?"></textarea>
+    <p class="small muted" style="margin:0">We read every report and fix the question for everyone. Thank you.</p>
+    <div class="row"><button class="btn primary" data-qrsend style="flex:1" disabled>Send report</button><button class="btn" data-close style="flex:1">Cancel</button></div>`, s => {
+    $("#qrReasons", s).addEventListener("click", e => {
+      const b = e.target.closest("[data-qr]"); if (!b) return;
+      reason = b.dataset.qr; s.querySelectorAll("[data-qr]").forEach(x => x.setAttribute("aria-pressed", x === b)); $("[data-qrsend]", s).disabled = false;
+    });
+    $("[data-qrsend]", s).addEventListener("click", () => {
+      const note = $("#qrNote", s).value.trim(), why = (QREASONS.find(r => r[0] === reason) || ["", ""])[1];
+      const close = () => { $("#sheetHost").innerHTML = ""; };
+      if (!SB_URL || !navigator.onLine) { close(); return reportMail(id, why, note); }
+      $("[data-qrsend]", s).disabled = true;
+      fetch(SB_URL + "/rest/v1/rpc/report_question", { method: "POST", headers: { apikey: SB_KEY, "Content-Type": "application/json" }, body: JSON.stringify({ p_dev: deviceId(), p_qid: id, p_reason: reason, p_note: note }) })
+        .then(r => r.ok ? r.json() : Promise.reject(r.status))
+        .then(ok => { if (!ok) throw "refused"; close(); toast("Thanks. Your report was sent, and we'll fix it for everyone."); })
+        .catch(() => { close(); reportMail(id, why, note); });
+    });
+  });
+}
+document.addEventListener("click", e => { const b = e.target.closest("[data-qreport]"); if (b) reportSheet(b.dataset.qreport); });
+
+/* Admin: open reports grouped by question, most-reported first, with Fixed / Dismiss. */
+function reportsSheet() {
+  sheet(`<div class="eyebrow">Admin</div><h2>Reported questions</h2><p class="small muted" id="qrMsg">Loading…</p><div id="qrBody" class="stack"></div><div class="row"><button class="btn ghost" data-close>Close</button></div>`, async s => {
+    let rows;
+    try { rows = await rpc("question_reports_admin", { p_status: "open" }); } catch (e) { $("#qrMsg", s).textContent = /function|schema cache|404/i.test(errText(e)) ? "Reports aren't set up yet. Run supabase/005_question_reports.sql in Supabase first." : "Couldn't load reports: " + errText(e); return; }
+    rows = rows || [];
+    const by = {}; rows.forEach(r => (by[r[1]] = by[r[1]] || []).push(r));
+    const ids = Object.keys(by).sort((a, b) => by[b].length - by[a].length);
+    const label = r => (QREASONS.find(x => x[0] === r[2]) || ["", r[2]])[1];
+    $("#qrMsg", s).textContent = ids.length ? `${rows.length} open report${rows.length === 1 ? "" : "s"} on ${ids.length} question${ids.length === 1 ? "" : "s"}, most-reported first.` : "No open reports.";
+    $("#qrBody", s).innerHTML = ids.map(id => {
+      const q = anyQ(id), list = by[id];
+      return `<div class="panel" style="padding:10px" data-qrrow="${esc(id)}"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><b>${esc(id)}</b><span class="small">${list.length} report${list.length === 1 ? "" : "s"}</span></div>
+        ${q ? `<p class="small" style="margin:4px 0 0">${esc(qText(q))}</p><p class="small muted" style="margin:2px 0 0">Key: ${"ABCD"[q.a]}</p>` : ""}
+        ${list.slice(0, 6).map(r => `<p class="small" style="margin:6px 0 0"><b>${esc(label(r))}</b>${r[3] ? ": " + esc(r[3]) : ""}</p>`).join("")}
+        <div class="row" style="margin-top:8px"><button class="btn small" data-qrres="fixed" data-qid="${esc(id)}">Fixed</button><button class="btn small ghost" data-qrres="dismissed" data-qid="${esc(id)}">Dismiss</button></div></div>`;
+    }).join("");
+    $("#qrBody", s).addEventListener("click", async e => {
+      const b = e.target.closest("[data-qrres]"); if (!b) return;
+      b.disabled = true;
+      try { await rpc("resolve_question_reports", { p_qid: b.dataset.qid, p_status: b.dataset.qrres }); const row = b.closest("[data-qrrow]"); if (row) row.remove(); toast(b.dataset.qrres === "fixed" ? "Marked fixed." : "Dismissed."); }
+      catch (err) { b.disabled = false; toast("Couldn't update: " + esc(errText(err))); }
+    });
+  });
+}
+document.addEventListener("click", e => { if (e.target.closest("[data-adqreports]") && isAdmin()) reportsSheet(); });
 
 /* ---------- start ---------- */
 (function initAccount() {
