@@ -2914,7 +2914,7 @@ function planLine() {
    the Memorization Checklist cards and the Mnemonics Vault entries for that category. */
 // Memorization Checklist cards by AAMC category. Codes match play/checklist-data.js; checklist.html#CODE opens a card.
 const CHK_AAMC = {
-  "1A": [["BBFL-04", "pI and amino acid charge"], ["BBFL-06", "The 20 amino acids"], ["BBFL-01", "Michaelis-Menten and Km"], ["BBFL-03", "Enzyme inhibitors"], ["BBFL-07", "Hemoglobin O₂ curve"], ["Lab-02", "Gel electrophoresis, SDS-PAGE"]],
+  "1A": [["BBFL-04", "pI and amino acid charge"], ["BBFL-06", "The 20 amino acids"], ["BBFL-01", "Michaelis–Menten and Km"], ["BBFL-03", "Enzyme inhibitors"], ["BBFL-07", "Hemoglobin O₂ curve"], ["Lab-02", "Gel electrophoresis, SDS-PAGE"]],
   "1B": [["BBFL-08", "DNA replication, central dogma"], ["Lab-01", "Southern, Northern, Western blots"], ["Lab-04", "PCR"]],
   "1C": [["BBFL-05", "Hardy-Weinberg"], ["BBFL-09", "Mitosis vs meiosis"]],
   "1D": [["BBFL-11", "Rate-limiting enzymes"]],
@@ -2950,6 +2950,8 @@ function planSubs(code) {
   const rank = o => { const v = t[o.id]; if (!v) return 1; const m = v[0] / v[1]; return m < .75 ? m - 1 : 2 + m; };
   return subs.map(o => Object.assign({}, o, { got: t[o.id] })).sort((a, b) => rank(a) - rank(b)).slice(0, 3);
 }
+// Map labels like "GAV LIMP FW: nonpolar (9)" read as code inside the plan: show "Nonpolar amino acids (GAV LIMP FW)".
+const planSubLabel = l => { const m = /^([A-Z ]+): (.+?) \(\d+\)$/.exec(l); return m ? `${m[2][0].toUpperCase() + m[2].slice(1)} amino acids (${m[1]})` : l; };
 function stratHTML() {
   const weak = planWeak(); if (!weak.length) return "";
   const done = chkDone();
@@ -2971,7 +2973,7 @@ function stratHTML() {
     if (mns.length) mem.push(`use ${mns.map(m => `<button class="linkbtn" data-mnlink="${esc(m.id)}">${esc(m.concept)}${m.locked ? " 🔒" : ""}</button>`).join(" · ")} from the Mnemonics Vault`);
     if (mem.length) steps.push(`<b>Memorize:</b> ${mem.join("; ")}.`);
     // 3. Drill: the Map syllabus subsections, weakest first.
-    steps.push(`<b>Drill on the Map:</b> ${subs.length ? subs.map(o => `<button class="linkbtn" data-plandrill="${esc(code)}" data-plansub="${esc(o.id)}">${esc(o.label)}</button> <span class="muted">(${o.got ? `${planPct(o.got[0], o.got[1])}% of ${o.got[1]}` : "not tried"})</span>`).join(" · ") : `<button class="linkbtn" data-plandrill="${esc(code)}">all of ${esc(code)}</button>`}. Misses go to Revenge Questions.`);
+    steps.push(`<b>Drill on the Map:</b> ${subs.length ? subs.map(o => `<button class="linkbtn" data-plandrill="${esc(code)}" data-plansub="${esc(o.id)}">${esc(planSubLabel(o.label))}</button> <span class="muted">(${o.got ? `${planPct(o.got[0], o.got[1])}% of ${o.got[1]}` : "not tried"})</span>`).join(" · ") : `<button class="linkbtn" data-plandrill="${esc(code)}">all of ${esc(code)}</button>`}. Misses go to Revenge Questions.`);
     return `<li style="margin-bottom:8px"><b>${esc(code)}</b> ${esc(CAT[code].title)} <span class="muted">· ${c.a ? `${planPct(c.c, c.a)}% of ${c.a}` : "from your diagnostic"}</span>
       <ol style="margin:4px 0 0;padding-left:18px">${steps.map(x => `<li>${x}</li>`).join("")}</ol></li>`;
   });
