@@ -3806,6 +3806,7 @@ function termsGate() {
     S.terms = { v: TERMS_V, at: new Date().toISOString() }; save();
     window.acctTerms && acctTerms();
     g.remove(); document.removeEventListener("keydown", trap, true);
+    if (new URLSearchParams(location.search).get("then") === "checklist") location.replace("checklist.html");
   });
   // Keep keyboard shortcuts (1-4, j/k, Escape) from reaching the app behind the gate; Tab stays inside it.
   g.addEventListener("keydown", e => {
