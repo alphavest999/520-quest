@@ -2577,6 +2577,29 @@ function startReview(only) {
   S.review = { ids, done: [], queued: [], right: 0, wrong: 0 }; save();
   go("scroll"); resetFeed();
 }
+/* ---------- You vs other students: per topic, on the same questions (uses the live percent-correct data) ---------- */
+// A question counts as right for you if you never missed it (the closest match to the server's first-try data).
+const PEER_MIN = 5;
+function peerRows() {
+  const R = typeof QRATE !== "undefined" && QRATE ? QRATE : null; if (!R) return [];
+  const by = {};
+  Object.keys(S.stats).forEach(id => {
+    const r = R[id], q = anyQ(id), st = S.stats[id]; if (!r || r[0] < 30 || !q || !CAT[q.c] || !st.a) return;
+    const b = by[q.c] = by[q.c] || { n: 0, me: 0, them: 0 }; b.n++; b.me += st.c === st.a ? 1 : 0; b.them += r[1] / 100;
+  });
+  return Object.entries(by).filter(([, b]) => b.n >= PEER_MIN)
+    .map(([c, b]) => ({ c, n: b.n, me: Math.round(b.me / b.n * 100), them: Math.round(b.them / b.n * 100) }))
+    .sort((a, b) => (a.me - a.them) - (b.me - b.them));
+}
+function peerHTML() {
+  const rows = peerRows();
+  const body = rows.length
+    ? `<p class="small muted" style="margin:4px 0 8px">Your accuracy vs other 520 Quest students on the exact questions you answered. Furthest behind first.</p>` +
+      rows.slice(0, 12).map(r => { const d = r.me - r.them, col = d >= 5 ? "var(--good)" : d <= -5 ? "var(--bad)" : "var(--muted)";
+        return `<div class="row" style="justify-content:space-between;flex-wrap:nowrap;margin:4px 0"><span class="small"><b>${esc(r.c)}</b> ${esc(CAT[r.c].title)}</span><span class="small" style="white-space:nowrap">You ${r.me}% · Others ${r.them}% <b style="color:${col}">${d > 0 ? "+" : ""}${d}</b></span></div>`; }).join("")
+    : `<p class="small muted" style="margin:4px 0 0">Shows up once you've answered ${PEER_MIN}+ questions in a topic that other students have answered 30+ times each.</p>`;
+  return `<div class="panel"><h3>You vs other students</h3>${body}</div>`;
+}
 /* ---------- Notebook: save a takeaway from any explanation; noted questions come back for review ---------- */
 const plainX = q => {
   const t = document.createElement("div"), o = q.o && q.o[q.a];
@@ -3514,6 +3537,7 @@ function renderMe() {
     ${analyticsHTML()}
     <div class="panel"><div class="row" style="gap:14px;flex-wrap:nowrap"><div class="ring"><svg viewBox="0 0 74 74" width="74" height="74"><circle cx="37" cy="37" r="31" fill="none" stroke="var(--panel-2)" stroke-width="8"/><circle cx="37" cy="37" r="31" fill="none" stroke="var(--good)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C * pct} ${C}"/></svg><b>${Math.round(pct * 100)}%</b></div>
       <div style="min-width:0"><h3>Today</h3><p class="small muted">${S.today.answered} of ${S.goal} questions. ${streakAlive()}-day streak, ${S.freezes} freeze${S.freezes === 1 ? "" : "s"}, ${S.hints} hint${S.hints === 1 ? "" : "s"}.</p><p class="small">Revenge queue: <b>${revN}</b> waiting, <b>${dueN}</b> due now.</p></div></div></div>
+    ${peerHTML()}
     ${nbPanelHTML()}
     <div class="panel"><h3>Error DNA</h3>${donut(dnaCounts)}</div>
     ${carsTypesHTML()}
