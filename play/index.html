@@ -1769,6 +1769,7 @@ function record(q, correct, secs) {
   if (!correct && !S.today.missed.includes(q.id)) S.today.missed.push(q.id);
   if (S.review && S.review.ids.includes(q.id) && !S.review.done.includes(q.id)) {
     S.review.done.push(q.id); (S.today.reviewedIds = S.today.reviewedIds || []).push(q.id); if (correct) S.review.right++; else S.review.wrong++;
+    if (S.review.kind === "check") (S.review.secs = S.review.secs || {})[q.id] = Math.round(secs || 0);
     const rd = document.getElementById("revDone"); if (rd) rd.textContent = reviewDoneText();
     if (S.review.done.length >= S.review.ids.length) { S.today.reviewed = true; setTimeout(reviewPrompt, 900); }
   }
@@ -1841,7 +1842,7 @@ function renderFilters() {
   $("#filters").innerHTML = FILTERS.map(([k, n]) => `<button class="chipbtn" data-f="${k}" aria-pressed="${S.filter === k && !S.focus}">${n}</button>`).join("") +
     `<button class="chipbtn" data-k="passage" aria-pressed="${S.kind === "passage"}" title="Passage-based questions">Passages${kindCount("passage")}</button><button class="chipbtn" data-k="discrete" aria-pressed="${S.kind === "discrete"}" title="Stand-alone questions">Discrete${kindCount("discrete")}</button>` +
     (S.focus ? `<button class="chipbtn focus" data-f="clear" aria-pressed="false">Drilling ${esc(S.focus)}${S.sub ? " · " + esc(((SUBT[S.focus] || []).find(x => x.id === S.sub) || {}).label || S.sub) : ""} ✕</button>` : "") +
-    (S.review ? `<button class="chipbtn focus" data-f="endreview" aria-pressed="false" id="revChip">${S.review.kind === "quiz" ? quizChipText() : "Reviewing this session's mistakes"} ✕</button>` : "");
+    (S.review ? `<button class="chipbtn focus" data-f="endreview" aria-pressed="false" id="revChip">${S.review.kind === "quiz" || S.review.kind === "check" ? quizChipText() : "Reviewing this session's mistakes"} ✕</button>` : "");
 }
 $("#filters").addEventListener("click", e => {
   const k = e.target.closest("[data-k]");
@@ -1907,7 +1908,7 @@ function freeReview() {
   return id ? anyQ(id) : null;
 }
 let resumeOnce = true, reviewEnded = false, resumeLate = null;
-setTimeout(() => { if (S.review && S.review.kind === "quiz" && S.review.timed) quizTick(); }, 0);
+setTimeout(() => { if (S.review && (S.review.kind === "quiz" || S.review.kind === "check") && S.review.timed) quizTick(); }, 0);
 function resumeQ() {
   const q = S.resume && anyQ(S.resume), sec = S.focus ? CAT[S.focus].s : S.filter;
   return q && q.s !== "CARS" && !q.pid && (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus) && (!S.sub || stOf(q) === S.sub) ? q : null;
@@ -2781,18 +2782,20 @@ function startQuiz() {
 }
 const mmss = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 function quizChipText() {
-  const R = S.review, pos = Math.min(R.ids.length, R.done.length + 1);
-  if (!R.timed) return `Custom quiz · ${pos} of ${R.ids.length}`;
+  const R = S.review, pos = Math.min(R.ids.length, R.done.length + 1), name = R.kind === "check" ? "Diagnostic" : "Custom quiz";
+  if (!R.timed) return `${name} · ${pos} of ${R.ids.length}`;
   const left = R.limit - (Date.now() - R.t0) / 1000;
-  return `Custom quiz · ${pos} of ${R.ids.length} · ${left > 0 ? mmss(left) + " left" : "time's up"}`;
+  return `${name} · ${pos} of ${R.ids.length} · ${left > 0 ? mmss(left) + " left" : "time's up"}`;
 }
 let quizTimer = null;
 function quizTick() {
   clearInterval(quizTimer);
   quizTimer = setInterval(() => {
     const R = S.review;
-    if (!R || R.kind !== "quiz" || !R.timed || R.done.length >= R.ids.length) return clearInterval(quizTimer);
+    if (!R || (R.kind !== "quiz" && R.kind !== "check") || !R.timed || R.done.length >= R.ids.length) return clearInterval(quizTimer);
     const c = $("#revChip"); if (c) c.textContent = quizChipText() + " ✕";
+    // The diagnostic ends when the clock does, like the real exam. Unanswered questions count as not reached.
+    if (R.kind === "check") { if ((Date.now() - R.t0) / 1000 >= R.limit) { R.timeUp = true; clearInterval(quizTimer); checkDone(); } return; }
     if (!R.timeUp && (Date.now() - R.t0) / 1000 >= R.limit) { R.timeUp = true; save(); toast("Time's up. Finish the rest untimed, or tap the quiz chip to stop."); }
   }, 1000);
 }
@@ -2812,13 +2815,13 @@ document.addEventListener("click", e => {
 function reviewDoneText() {
   const R = S.review; if (!R) return "";
   if (R.kind === "quiz") { const l = R.ids.length - R.done.length; return l ? `${l} question${l === 1 ? "" : "s"} left in your custom quiz.` : "Custom quiz done."; }
-  if (R.kind === "check") { const l = R.ids.length - R.done.length; return l ? `${l} question${l === 1 ? "" : "s"} left in your starting check.` : "Starting check done. Your results are on the Me page."; }
+  if (R.kind === "check") { const l = R.ids.length - R.done.length; return l ? `${l} question${l === 1 ? "" : "s"} left in your diagnostic.` : "Diagnostic done. Your results are on the Me page."; }
   const left = R.ids.length - R.done.length;
   return left ? `${left} question${left === 1 ? "" : "s"} above still to answer.` : `${R.right} question${R.right === 1 ? "" : "s"} mastered, ${R.wrong} still in queue. See you tomorrow.`;
 }
 function reviewDoneCard() {
   const el = document.createElement("article"); el.className = "card gate";
-  const kind = (S.review || {}).kind, title = kind === "quiz" ? "Custom quiz complete" : kind === "check" ? "Starting check complete" : "Revenge Queue complete";
+  const kind = (S.review || {}).kind, title = kind === "quiz" ? "Custom quiz complete" : kind === "check" ? "Diagnostic complete" : "Revenge Queue complete";
   el.innerHTML = `<div class="eyebrow">${title}</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
     <p class="muted" style="margin:0">Anything you missed again comes back in your Revenge Queue on a 1, 3 and 7 day schedule.</p>
     <div class="row"><button class="btn primary" data-more10 style="flex:1">Do ${ROUND} more questions</button><button class="btn" data-doneday style="flex:1">Done for the day</button></div>`;
@@ -2904,8 +2907,7 @@ function planHTML() {
   }
   const d = planDays(), due = Object.values(S.revenge).filter(r => r.due <= Date.now()).length, g = planGoal(), sh = planSheet();
   const meta = SHEETS && SHEETS.find(x => x.id === sh);
-  const base = S.baseline ? `<p class="small muted" style="margin:8px 0 0">Starting check (${esc(niceDate(S.baseline.date))}): <b>${S.baseline.acc}%</b>${S.baseline.by ? " · " + Object.entries(S.baseline.by).map(([k, v]) => `${esc(SECTIONS[k].name)} ${v}%`).join(", ") : ""}. Your overall accuracy now: <b>${S.total ? Math.round(S.totalCorrect / S.total * 100) : 0}%</b>.</p>`
-    : `<div class="row" style="margin-top:8px"><button class="btn small" data-startcheck>Take the 30-question starting check</button></div><p class="small muted" style="margin:4px 0 0">Mixed questions from all three science sections. It shows where you're starting and picks your first weak areas.</p>`;
+  const base = diagHTML();
   return `<div class="panel" id="planPanel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Your plan</h3><button class="linkbtn small" data-planedit>Change</button></div>
     <p class="small" style="margin:0 0 6px">${d >= 0 ? `<b>${d} day${d === 1 ? "" : "s"}</b> to test day (${esc(niceDate(S.testDate))}).` : ""} ${planPhase(d)}</p>
     <ol class="small" style="margin:6px 0 0;padding-left:20px">
@@ -2914,7 +2916,8 @@ function planHTML() {
       <li>One concept from <button class="linkbtn" data-sheet="${esc(sh)}">Mastery Sheet ${esc(sh)}${meta ? ": " + esc(meta.title) : ""}</button>, then its Check yourself questions.</li>
     </ol>${base}</div>`;
 }
-// 30 questions, 10 per science section, spread across categories, medium difficulty, not seen before.
+// Timed diagnostic: 30 questions, 10 per science section, spread across categories, medium difficulty, not seen before.
+// Clock is the real exam's pace (QZ_PACE s a question). The results set the order of the plan.
 function startCheck() {
   const ids = [];
   ["CP", "BB", "PS"].forEach(sec => {
@@ -2924,22 +2927,60 @@ function startCheck() {
     while (out.length < 10 && guard++ < 400) { const c = cats[k++ % cats.length], l = by[c]; if (l && l.length) out.push(l.splice(Math.floor(Math.random() * l.length), 1)[0]); }
     ids.push(...out);
   });
-  if (!ids.length) return toast("No new questions left for a starting check.");
-  S.review = { kind: "check", ids: ids.sort(() => Math.random() - .5), done: [], queued: [], right: 0, wrong: 0, t0: Date.now() }; save();
-  go("scroll"); resetFeed(); toast("Starting check: 30 questions. No hints, just your best answer.");
+  if (!ids.length) return toast("No new questions left for a diagnostic.");
+  $("#sheetHost").innerHTML = "";
+  S.review = { kind: "check", ids: ids.sort(() => Math.random() - .5), done: [], queued: [], right: 0, wrong: 0, t0: Date.now(), timed: true, limit: ids.length * QZ_PACE, secs: {} };
+  S.focus = null; S.sub = null; save();
+  go("scroll"); resetFeed(); quizTick();
+  toast(`Timed diagnostic: ${ids.length} questions, ${Math.round(ids.length * QZ_PACE / 60)} minutes on the clock (real MCAT pace). No hints, just your best answer.`);
+}
+function checkStart() {
+  sheet(`<div class="eyebrow">Timed diagnostic</div><h2>30 questions, ${Math.round(30 * QZ_PACE / 60)} minutes.</h2>
+    <p class="muted">10 each from Chem/Phys, Bio/Biochem and Psych/Soc, at the real exam's pace of ${QZ_PACE} seconds a question. The clock runs even if you leave the app, and anything you haven't answered when it hits zero counts as not reached, like on test day. Your results set the order of your plan, and anything you miss, guess on or answer too slowly goes into your Revenge Questions.</p>
+    <div class="row"><button class="btn primary" data-close data-checkgo>Start the clock</button><button class="btn ghost" data-close>Not now</button></div>`);
 }
 function checkDone() {
-  const R = S.review; if (!R) return;
-  const by = {}, tally = {};
-  R.ids.forEach(id => { const q = anyQ(id), st = S.stats[id]; if (!q || !st) return; const t = tally[q.s] = tally[q.s] || [0, 0]; t[1]++; if (st.c) t[0]++;
-    const c = by[q.c] = by[q.c] || [0, 0]; c[1]++; if (st.c) c[0]++; });
+  const R = S.review; if (!R || R.kind !== "check") return;
+  clearInterval(quizTimer);
+  const secs = R.secs || {}, by = {}, tally = {};
+  let slow = 0;
+  R.ids.forEach(id => { const q = anyQ(id); if (!q) return; const st = S.stats[id], ok = !!(st && st.c && R.done.includes(id));
+    const t = tally[q.s] = tally[q.s] || [0, 0]; t[1]++; if (ok) t[0]++;
+    const c = by[q.c] = by[q.c] || [0, 0]; c[1]++; if (ok) c[0]++;
+    // Right but slower than exam pace: it comes back in 3 days, like an unsure answer.
+    if (ok && secs[id] > QZ_PACE && !S.revenge[id]) { S.revenge[id] = { box: 1, due: Date.now() + 3 * DAY }; slow++; } });
   const n = Object.values(tally).reduce((a, t) => a + t[1], 0), r = Object.values(tally).reduce((a, t) => a + t[0], 0);
-  const weak = Object.entries(by).sort((a, b) => a[1][0] / a[1][1] - b[1][0] / b[1][1])[0];
-  S.baseline = { date: todayKey(), acc: n ? Math.round(r / n * 100) : 0, by: Object.fromEntries(Object.entries(tally).map(([k, t]) => [k, Math.round(t[0] / t[1] * 100)])), weak: weak && weak[0] };
-  save(); beep("level");
-  sheet(`<div class="eyebrow">Starting check done</div><h2>${r} of ${n} right (${S.baseline.acc}%).</h2>
-    <p class="muted">This is your starting line, not a score. Your misses are already in your Revenge Queue, and your plan on the Me page now starts with ${esc(S.baseline.weak || "your weakest area")}.</p>
+  const unreached = R.ids.length - R.done.length, inRev = R.ids.filter(id => S.revenge[id] && R.done.includes(id)).length;
+  const weakList = Object.entries(by).filter(([, c]) => c[0] < c[1]).sort((a, b) => a[1][0] / a[1][1] - b[1][0] / b[1][1] || b[1][1] - a[1][1]).map(([k]) => k);
+  const ts = R.done.map(id => secs[id]).filter(x => x > 0), pace = ts.length ? Math.round(ts.reduce((a, b) => a + b, 0) / ts.length) : 0;
+  const used = Math.min(R.limit || Infinity, (Date.now() - R.t0) / 1000);
+  S.baseline = { date: todayKey(), timed: true, acc: n ? Math.round(r / n * 100) : 0,
+    by: Object.fromEntries(Object.entries(tally).map(([k, t]) => [k, Math.round(t[0] / t[1] * 100)])),
+    weak: weakList[0] || null, weakList: weakList.slice(0, 5), pace, used: Math.round(used), unreached };
+  S.review = null; save(); beep("level");
+  if (!$("#view-scroll").hidden) resetFeed();
+  const order = Object.entries(S.baseline.by).sort((a, b) => a[1] - b[1]);
+  sheet(`<div class="eyebrow">${R.timeUp ? "Time's up. " : ""}Diagnostic done</div><h2>${r} of ${n} right (${S.baseline.acc}%).</h2>
+    <p class="muted" style="margin-top:0">${order.map(([k, v]) => `${esc(SECTIONS[k].name)} <b>${v}%</b>`).join(" · ")}</p>
+    <p class="muted">Time used ${mmss(used)}${pace ? `, about ${pace} s per question (exam pace is ${QZ_PACE} s)` : ""}.${unreached ? ` ${unreached} question${unreached === 1 ? "" : "s"} not reached, counted as wrong like on test day.` : ""}</p>
+    <p class="muted">This is your starting line, not a score. ${inRev ? `<b>${inRev}</b> question${inRev === 1 ? "" : "s"} you ${slow ? "missed, guessed on or answered too slowly" : "missed or guessed on"} ${inRev === 1 ? "is" : "are"} in your Revenge Questions. ` : ""}Your plan on the Me page now starts with ${order.length ? esc(SECTIONS[order[0][0]].name) : "your weakest section"}${S.baseline.weak ? `, Mastery Sheet ${esc(S.baseline.weak)} first` : ""}.</p>
     <div class="row"><button class="btn primary" data-close data-gome>See my plan</button><button class="btn" data-close data-more10>Do ${ROUND} more questions</button></div>`);
+}
+// What the diagnostic says to do, shown inside Your plan.
+function diagHTML() {
+  const B = S.baseline;
+  if (!B) return `<div class="row" style="margin-top:8px"><button class="btn small" data-startcheck>Take the 30-question timed diagnostic</button></div><p class="small muted" style="margin:4px 0 0">${Math.round(30 * QZ_PACE / 60)} minutes at real MCAT pace, 10 questions from each science section. It shows where you're starting and puts your plan in the right order.</p>`;
+  const now = S.total ? Math.round(S.totalCorrect / S.total * 100) : 0;
+  const order = B.by ? Object.entries(B.by).sort((a, b) => a[1] - b[1]) : [];
+  const todo = (B.weakList || (B.weak ? [B.weak] : [])).filter(c => CAT[c] && mastery(c) < .75).slice(0, 3);
+  const tips = [];
+  if (order.length > 1 && order[0][1] < order[order.length - 1][1]) tips.push(`Put most of your new questions into <b>${esc(SECTIONS[order[0][0]].name)}</b>, your lowest section on the diagnostic. <button class="linkbtn" data-plansec="${esc(order[0][0])}">Practice ${esc(SECTIONS[order[0][0]].name)}</button>`);
+  if (todo.length) tips.push(`Drill your weakest areas from the diagnostic: ${todo.map(c => `<button class="linkbtn" data-plandrill="${esc(c)}" title="${esc(CAT[c].title)}">${esc(c)}</button>`).join(" · ")} <span class="muted">(${todo.map(c => esc(CAT[c].title)).join("; ")})</span>`);
+  if (B.pace > QZ_PACE) tips.push(`You averaged ${B.pace} s a question; exam pace is ${QZ_PACE} s. Take one timed custom quiz a week until you're under it. <button class="linkbtn" data-quizopen>Build a timed quiz</button>`);
+  else if (B.unreached) tips.push(`You ran out of time with ${B.unreached} left. Move on after about ${QZ_PACE} s and flag the question instead of fighting it.`);
+  return `<p class="small muted" style="margin:8px 0 0">${B.timed ? "Diagnostic" : "Starting check"} (${esc(niceDate(B.date))}): <b>${B.acc}%</b>${order.length ? " · " + order.map(([k, v]) => `${esc(SECTIONS[k].name)} ${v}%`).join(", ") : ""}${B.pace ? ` · ${B.pace} s a question` : ""}. Your overall accuracy now: <b>${now}%</b>.</p>`
+    + (tips.length ? `<h4 style="margin:10px 0 4px">From your diagnostic</h4><ul class="small" style="margin:0;padding-left:20px">${tips.map(t => `<li>${t}</li>`).join("")}</ul>` : "")
+    + (B.timed ? "" : `<p class="small muted" style="margin:6px 0 0"><button class="linkbtn" data-startcheck>Retake it as a timed diagnostic</button></p>`);
 }
 document.addEventListener("click", e => {
   if (e.target.closest("[data-plansave]")) {
@@ -2949,7 +2990,10 @@ document.addEventListener("click", e => {
   }
   if (e.target.closest("[data-planedit]")) { S.planEdit = true; return renderMe(); }
   const pg = e.target.closest("[data-plangoal]"); if (pg) { S.goal = +pg.dataset.plangoal; S.goalSet = true; save(); renderHUD(); toast(`Daily goal set to ${S.goal}.`); return renderMe(); }
-  if (e.target.closest("[data-startcheck]")) return startCheck();
+  if (e.target.closest("[data-startcheck]")) return checkStart();
+  if (e.target.closest("[data-checkgo]")) return startCheck();
+  const pd = e.target.closest("[data-plandrill]"); if (pd) return mapDrill(pd.dataset.plandrill);
+  const ps = e.target.closest("[data-plansec]"); if (ps) { S.filter = ps.dataset.plansec; S.kind = null; S.focus = null; S.sub = null; S.review = null; save(); go("scroll"); return resetFeed(); }
   if (e.target.closest("[data-gome]")) { S.review = null; save(); go("me"); return renderMe(); }
 });
 function todaySummaryHTML() {
