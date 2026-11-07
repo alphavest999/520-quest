@@ -59,7 +59,8 @@ function signIn(why) {
   sheet(`<div class="eyebrow">${esc(why || "Account")}</div><h2>Sign in with your email</h2>
     <p class="muted">We'll email you a code. Your progress saves to your account and follows you to your other devices. No password needed.</p>
     <label class="field" for="acEmail">Email<input type="email" id="acEmail" autocomplete="email" inputmode="email" placeholder="you@example.com"></label>
-    <div class="row"><button class="btn primary" data-acsend>Email me a code</button><button class="btn ghost" data-close>Not now</button></div><p class="small muted" id="acMsg"></p>`, s => {
+    <div class="row"><button class="btn primary" data-acsend>Email me a code</button><button class="btn ghost" data-close>Not now</button></div><p class="small muted" id="acMsg"></p>
+    <p class="small muted" style="margin:0">By signing in you agree to the <a href="../terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="../privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>`, s => {
     const msg = $("#acMsg", s), input = $("#acEmail", s);
     const send = async () => {
       const email = input.value.trim().toLowerCase();
@@ -110,6 +111,7 @@ async function signedIn(user) {
     S.admin = isAdminEmail(user.email); if (S.admin) { S.pro = true; try{ save(); }catch(e){} }
     if (!reg.ok) { ACCT.state = "blocked"; ACCT.limit = reg.limit; refreshViews(); return deviceLimitSheet(); }
     applyPlan();
+    acctTerms();
     await pullProgress();
     await loadKey();
   } catch (e) { console.warn("account", e); }
@@ -182,7 +184,7 @@ window.openSealed = id => fetch("sheets/" + encodeURIComponent(id) + ".enc.json"
 
 /* ---------- progress sync ---------- */
 let syncTimer = 0;
-const PREFS = ["sound", "music", "fanfare", "pro", "proBy"];
+const PREFS = ["sound", "music", "fanfare", "pro", "proBy", "terms"];
 async function pullProgress() {
   const r = await ACCT.sb.from("progress").select("state,total").eq("user_id", ACCT.user.id).maybeSingle();
   if (r.error) throw r.error;
@@ -204,6 +206,13 @@ async function pushProgress() {
   const lvl = S.lv.level, acc = S.total ? Math.round(S.totalCorrect / S.total * 100) : 0, p = ACCT.profile;
   if (p && (p.level !== lvl || p.acc !== acc)) { p.level = lvl; p.acc = acc; ACCT.sb.from("profiles").update({ level: lvl, acc }).eq("id", p.id).then(() => {}); }
 }
+// Record on the account which Terms version this person accepted, and when (supabase/007_terms.sql). Best effort: the app keeps working if it fails.
+function acctTerms() {
+  const t = S.terms, p = ACCT.profile;
+  if (ACCT.state !== "in" || !t || !t.v || (p && p.terms_version === t.v)) return;
+  rpc("accept_terms", { p_version: t.v, p_accepted_at: t.at || null }).then(() => { if (p) { p.terms_version = t.v; p.terms_accepted_at = t.at; } }).catch(() => {});
+}
+window.acctTerms = acctTerms;
 window.acctSync = () => { if (ACCT.state === "in" && !syncTimer) syncTimer = setTimeout(() => pushProgress().catch(() => {}), 3000); };
 document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && syncTimer) pushProgress().catch(() => {}); });
 

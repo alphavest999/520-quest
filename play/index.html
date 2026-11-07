@@ -377,6 +377,13 @@ a { color: var(--volt); }
 #qzBox { min-width: 0; } #qzBox .qzsel { width: 100%; max-width: 100%; text-overflow: ellipsis; }
 @keyframes up { from { transform: translateY(30px); opacity: 0; } }
 .sheet h2 { margin: 0; font: 700 24px/1.15 var(--display); text-wrap: balance; }
+#termsGate { position: fixed; inset: 0; z-index: 200; background: color-mix(in srgb, var(--ink) 88%, transparent); display: grid; place-items: center; padding: 16px; overflow-y: auto; }
+#termsGate .tg { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 22px 18px; max-width: 460px; width: 100%; display: grid; gap: 12px; }
+#termsGate h2 { margin: 0; font: 700 24px/1.15 var(--display); }
+#termsGate ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+#termsGate label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; line-height: 1.4; }
+#termsGate input[type=checkbox] { width: 22px; height: 22px; flex: none; margin: 1px 0 0; accent-color: var(--volt); }
+#termsGate button[disabled] { opacity: .45; cursor: not-allowed; }
 .toasts { position: absolute; left: 16px; right: 16px; bottom: calc(76px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 8px; z-index: 30; pointer-events: none; }
 .toast { background: var(--panel-2); border: 1px solid var(--line); border-left: 4px solid var(--volt); border-radius: 12px; padding: 10px 12px; font-size: 14px; animation: up .2s ease-out; box-shadow: 0 8px 24px rgb(0 0 0 / .35); }
 #fx { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
@@ -3131,7 +3138,7 @@ function showPro() {
   sheet(`<div class="eyebrow">520 Quest plans</div><h2>Unlock everything</h2>
     <p class="muted" style="margin:0">Every plan includes all 5,904 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
     <div class="stack" style="gap:8px">${CONFIG.plans.map(p => `<div class="panel row" style="justify-content:space-between;flex-wrap:nowrap;gap:10px${p.best ? ";border-color:var(--volt)" : ""}"><div><b>${esc(p.name)}</b>${p.best ? ' <span class="tag sec">Best value</span>' : ""}<div class="small muted">${esc(p.price)} ${esc(p.per)}</div></div>${planLink(p) ? `<a class="btn pro small lemonsqueezy-button" href="${esc(planUrl(planLink(p)))}" target="_blank" rel="noopener">Choose</a>` : `<button class="btn small" disabled>Opening soon</button>`}</div>`).join("")}</div>
-    <p class="small muted" style="margin:0">${open ? "Plans renew automatically and can be cancelled anytime. After you subscribe, sign in with the same email in the Me tab." + (PAY_TEST && CONFIG.plans.some(p => p.testUrl) ? " <b>Test mode:</b> pay with card 4242 4242 4242 4242, any future date and any CVC. Nothing is charged." : "") : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions, 5 Mastery Sheets and 1 mnemonic."}</p>
+    <p class="small muted" style="margin:0">${open ? "Plans renew automatically at the price shown until you cancel, and can be cancelled anytime. By subscribing you agree to the <a href=\"../terms.html\" target=\"_blank\" rel=\"noopener\">Terms of Use</a>. After you subscribe, sign in with the same email in the Me tab." + (PAY_TEST && CONFIG.plans.some(p => p.testUrl) ? " <b>Test mode:</b> pay with card 4242 4242 4242 4242, any future date and any CVC. Nothing is charged." : "") : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions, 5 Mastery Sheets and 1 mnemonic."}</p>
     <div class="row"><button class="btn ghost" data-close>Not now</button></div>`);
   window.createLemonSqueezy && window.createLemonSqueezy();
 }
@@ -3710,7 +3717,7 @@ $("#view-me").addEventListener("click", e => {
   }
   if (t.closest("[data-copybk]")) return copy($("#bk").value, () => toast("Backup code copied."), $("#bk"));
   if (t.closest("[data-restore]")) {
-    try { const o = JSON.parse(decodeURIComponent(escape(atob($("#bk").value.trim())))); if (o.v !== 1) throw 0; ["pro", "proBy", "admin"].forEach(k => delete o[k]); S = Object.assign(fresh(), o); save(); renderAll(); toast("Progress restored."); }
+    try { const o = JSON.parse(decodeURIComponent(escape(atob($("#bk").value.trim())))); if (o.v !== 1) throw 0; ["pro", "proBy", "admin", "terms"].forEach(k => delete o[k]); const tm = S.terms; S = Object.assign(fresh(), o); if (tm) S.terms = tm; save(); renderAll(); toast("Progress restored."); }
     catch (err) { toast("That code isn't a valid 520 Quest backup. Paste the whole code and try again."); }
   }
 });
@@ -3769,6 +3776,49 @@ const startTab = exitedToday ? "me" : sameDay && ["course", "map", "boss", "exam
 S.exitedOn = null; save();
 if (exitedToday) showPerf(); else if (startTab !== "scroll") go(startTab);
 bankReady.finally(() => welcomeBack());
+/* ---------- Terms of Use: everyone (free or paid) accepts before using the app ---------- */
+// Bump TERMS_V when terms.html or privacy.html change in a material way: everyone is asked to accept again.
+const TERMS_V = "2026-11-07";
+function termsGate() {
+  if (S.terms && S.terms.v === TERMS_V) return;
+  const again = !!(S.terms && S.terms.v);
+  const g = document.createElement("div"); g.id = "termsGate";
+  g.innerHTML = `<div class="tg" role="dialog" aria-modal="true" aria-labelledby="tgH">
+    <div class="eyebrow">${again ? "Our terms changed" : "Before you start"}</div>
+    <h2 id="tgH">${again ? "Please review the updated terms" : "Welcome to 520 Quest"}</h2>
+    <p class="small muted" style="margin:0">To use 520 Quest, free or paid, please read and accept our terms. In short:</p>
+    <ul class="small">
+      <li>520 Quest is a study aid. It is not affiliated with or endorsed by the AAMC.</li>
+      <li>Score estimates are practice estimates. No score or admission is guaranteed.</li>
+      <li>Content is for test prep only, not medical advice.</li>
+      <li>Your account is for you alone. Don't share it or copy our questions.</li>
+      <li>Paid plans renew automatically until you cancel.</li>
+    </ul>
+    <p class="small" style="margin:0">Read the full <a href="../terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="../privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+    <label class="small"><input type="checkbox" id="tgOk"> <span>I am at least 13 years old (with a parent or guardian's permission if I'm under 18), and I agree to the Terms of Use and Privacy Policy.</span></label>
+    <button class="btn primary" id="tgGo" disabled style="font-size:17px;padding:14px">Agree and continue</button>
+  </div>`;
+  document.body.appendChild(g);
+  const ok = $("#tgOk", g), go = $("#tgGo", g);
+  ok.addEventListener("change", () => { go.disabled = !ok.checked; });
+  go.addEventListener("click", () => {
+    if (!ok.checked) return;
+    S.terms = { v: TERMS_V, at: new Date().toISOString() }; save();
+    window.acctTerms && acctTerms();
+    g.remove(); document.removeEventListener("keydown", trap, true);
+  });
+  // Keep keyboard shortcuts (1-4, j/k, Escape) from reaching the app behind the gate; Tab stays inside it.
+  g.addEventListener("keydown", e => {
+    e.stopPropagation();
+    if (e.key !== "Tab") return;
+    const f = [...g.querySelectorAll("a,input,button:not([disabled])")], i = f.indexOf(document.activeElement);
+    if (e.shiftKey ? i <= 0 : i === f.length - 1) { e.preventDefault(); f[e.shiftKey ? f.length - 1 : 0].focus(); }
+  });
+  function trap(e) { if (!g.isConnected) return document.removeEventListener("keydown", trap, true); if (!g.contains(e.target)) { e.stopPropagation(); e.preventDefault(); ok.focus(); } }
+  document.addEventListener("keydown", trap, true);
+  setTimeout(() => ok.focus(), 50);
+}
+termsGate();
 /* Owner-only unlock: ?admin=<pass> is checked (as a SHA-256) against play/admin-private.json, which is git-ignored and never deployed. Without that file this does nothing. ?admin=off turns it off.
    Sealed sheets and mnemonics are AES-encrypted; a paid account fetches the key from the server. For the owner the same base64 key can go in admin-private.json as "content_key". */
 (async () => {
