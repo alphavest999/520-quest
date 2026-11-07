@@ -248,7 +248,8 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 .conf.locked button { pointer-events: none; opacity: .7; }
 .wins { border-left: 3px solid var(--good); }
 .mainidea { display: grid; gap: 6px; margin: 12px 0 4px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 12px; }
-.mainidea textarea { width: 100%; font: inherit; font-size: 14px; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel-2); color: var(--text); resize: vertical; }
+.scicoach summary { cursor: pointer; } mark.scikey { background: color-mix(in srgb, var(--volt) 30%, transparent); color: inherit; border-radius: 3px; padding: 0 2px; }
+.mainidea textarea, .scicoach textarea { width: 100%; font: inherit; font-size: 14px; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel-2); color: var(--text); resize: vertical; }
 .sv-recall { margin: 10px 0 18px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 12px; }
 .reportq { display: inline-block; margin-top: 6px; font-size: 12.5px; color: var(--muted); }
 .dna { display: grid; gap: 8px; padding: 12px; border-radius: 12px; background: var(--ink); border: 1px dashed var(--line); }
@@ -2420,13 +2421,64 @@ function passageCard(p) {
   const n = p.qs.length, sci = p.s !== "CARS";
   el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[p.s].name}</span>${sci ? `<span class="tag">${esc(p.c)}${CAT[p.c] && CAT[p.c].hy ? " ★" : ""}</span>` : ""}<span class="tag">Passage + ${n} questions</span><button class="btn small primary qjump" data-jump style="margin-left:auto">Jump to questions ↓</button></div>
     <h2 class="stem">${esc(p.title)}</h2><p class="muted small" style="margin:0">Read the passage, then answer the ${n} questions below it.</p><div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}
-    ${sci ? "" : `<div class="mainidea" data-mibox><label class="small"><b>Before the questions:</b> what's the author's main point, in one line?</label><textarea rows="2" data-mi placeholder="The author argues that…">${esc((S.mi || {})[p.id] || "")}</textarea><div class="row"><button class="btn small" data-misave>Lock it in</button></div></div>`}
+    ${sci ? sciCoachHTML(p) : ""}${sci ? "" : `<div class="mainidea" data-mibox><label class="small"><b>Before the questions:</b> what's the author's main point, in one line?</label><textarea rows="2" data-mi placeholder="The author argues that…">${esc((S.mi || {})[p.id] || "")}</textarea><div class="row"><button class="btn small" data-misave>Lock it in</button></div></div>`}
     <div class="qhead" data-qhead>Questions 1–${n}</div>` +
     p.qs.map((q, i) => `<div class="pq" data-q="${i}"><div class="card-top"><span class="tag sec">Q${i + 1} of ${n}</span><span class="tag">${QKIND[q.k || q.c] || ""}</span>${diffDots(q.d)}${q.t ? `<span class="muted small" style="margin-left:auto">Avg solve time: ${+q.t} sec</span>` : ""}</div>${passBtnHTML(p)}<h3>${q.q}</h3>${tableHTML(q.vt, "vt")}<div class="opts">${optsHTML(q)}</div><div class="reveal stack" hidden></div></div>`).join("") + SWIPE;
   p.qs.forEach((q, i) => wireQuestion($(`[data-q="${i}"]`, el), q, el));
   $("[data-jump]", el).addEventListener("click", () => scrollToEl($("[data-qhead]", el)));
-  if (!sci) wireMainIdea(el, p);
+  if (!sci) wireMainIdea(el, p); else wireSciCoach(el, p);
   return el;
+}
+/* ---------- Science passage coach: how a 520 scorer reads it (automatic, works on every passage) ---------- */
+// Finds the sentences that carry the purpose, the setup and the result, and asks for a one-line summary first.
+const SCI_KEYS = [
+  ["goal", "Purpose", /\b(hypothes[ie]s|hypothesi[sz]ed|aim(ed)? to|sought to|set out to|investigat(e|ed|ing)|tested whether|to (test|determine|examine|measure|find out|compare)|asked whether|whether|purpose|[Rr]esearchers (compared|tested|asked|examined|measured|studied|used|surveyed|tracked|followed))\b/],
+  ["setup", "Setup", /\b(control (group|condition|mice|cells|samples)|controls?|randomi[sz]ed|randomly|placebo|wild[- ]type|knock(ed)?[- ]?out|were (treated|given|exposed|assigned|measured|incubated|recorded|compared|surveyed|grown|cultured|divided|tested|followed)|was (measured|recorded|surveyed|varied|held constant)|(Table|Figure) \d|participants|two groups|independent variable|dependent variable)\b/i],
+  ["result", "Result", /\b(found that|showed that|results? (showed|indicated|suggest)|significant(ly)?|increased|decreased|reduced|rose|fell|doubled|halved|higher|lower|greater|smaller|faster|slower|more than|less than|twice|no (significant )?difference|suggest(s|ed)? that|conclude[ds]?|whereas)\b/i]
+];
+const sentencesOf = t => String(t).match(/(?:[^.!?]|[.!?](?!\s|$))+(?:[.!?]+(?=\s|$)|$)/g) || [String(t)];  // '7.5' and 'e.g.x' stay inside a sentence
+function sciKeyLines(p) {
+  const out = {};
+  p.text.forEach((para, pi) => sentencesOf(para).forEach(sn => {
+    SCI_KEYS.forEach(([k, , re]) => { if (!out[k] && re.test(sn)) out[k] = { pi, t: sn.trim() }; });
+  }));
+  return out;
+}
+function sciCoachHTML(p) {
+  const data = p.tbl || p.graph;
+  const steps = [
+    "<b>First paragraph:</b> find the question the researchers asked. Everything else hangs on it.",
+    "<b>Setup:</b> name what they changed, what they measured, and what the control was.",
+    data ? "<b>Figure or table:</b> read the title, axes and units before any number. Note the one trend that matters." : "<b>Skim the details:</b> mechanism names and numbers are lookups. Come back for them when a question asks.",
+    "<b>Result:</b> say in your own words what they found and whether it supports the question they asked."
+  ];
+  return `<details class="mainidea scicoach" data-sci><summary class="small"><b>How a 520 scorer reads this passage</b></summary>
+    <ol class="small" style="margin:6px 0 4px;padding-left:18px">${steps.map(x => `<li style="margin:3px 0">${x}</li>`).join("")}</ol>
+    <label class="small"><b>Before the questions:</b> what did they test, and what did they find?</label>
+    <textarea rows="2" data-sciline placeholder="They tested whether… and found…">${esc((S.mi || {})[p.id] || "")}</textarea>
+    <div class="row"><button class="btn small" data-scisave>Lock it in</button><button class="btn small ghost" data-scikeys>Show the key lines</button></div></details>`;
+}
+function wireSciCoach(el, p) {
+  const box = $("[data-sci]", el); if (!box) return;
+  const keys = sciKeyLines(p);
+  $("[data-scisave]", box).addEventListener("click", () => {
+    const t = $("[data-sciline]", box).value.trim(); if (!t) return toast("Write one line first. Rough is fine.");
+    (S.mi = S.mi || {})[p.id] = t; save(); toast("Locked in. Compare it with the key lines once you've answered.");
+  });
+  $("[data-scikeys]", box).addEventListener("click", e => {
+    const b = e.currentTarget, paras = $$(".passage p", el), on = b.dataset.on !== "1";
+    b.dataset.on = on ? "1" : ""; b.textContent = on ? "Hide the key lines" : "Show the key lines";
+    paras.forEach((node, pi) => {
+      const text = p.text[pi]; if (text == null) return;
+      if (!on) { node.textContent = text; return; }
+      node.innerHTML = sentencesOf(text).map(sn => {
+        const hit = SCI_KEYS.find(([k]) => keys[k] && keys[k].pi === pi && keys[k].t === sn.trim());
+        return hit ? `<mark class="scikey" title="${hit[1]}">${esc(sn)}</mark>` : esc(sn);
+      }).join("");
+    });
+    if (on && !Object.keys(keys).length) toast("This passage has no clear signal words. Find the purpose and result yourself.");
+    else if (on) scrollToEl($(".passage", el));
+  });
 }
 // The passage's own main-idea question (when it has one) gives the model line to compare against.
 const MI_RE = /main (idea|point|thesis|argument)|central (idea|thesis|argument|claim)|primary purpose|best (summarizes|expresses)/i;
