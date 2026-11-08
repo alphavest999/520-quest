@@ -3,123 +3,284 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>520 Quest | MCAT prep that plays like a game</title>
-<meta name="description" content="MCAT study game for students aiming at 520+. Swipe 5,904 original questions, climb five levels, beat timed boss battles, and see whether you lose points to content, traps or time.">
-<meta property="og:title" content="520 Quest: MCAT prep that plays like a game">
-<meta property="og:description" content="Swipe 5,904 original MCAT questions, climb five levels, fight timed boss battles, fix your traps. Free to start, no account needed.">
+<title>520 Quest | The MCAT study app built for 520+</title>
+<meta name="description" content="Take a 30-question timed diagnostic, get a plan built around your weak areas, and practice 5,904 original MCAT questions with every answer choice explained. 33 fact-checked Mastery Sheets, 150 mnemonics, full-length exams. Free to start.">
+<meta property="og:title" content="520 Quest: the MCAT study app built for 520+">
+<meta property="og:description" content="A timed diagnostic that builds your plan, 5,904 original questions with every choice explained, MCAT-length passages, 33 Mastery Sheets and full-length exams. Free to start.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0F1E3D">
+<meta property="og:image" content="https://520quest.com/images/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070f22">
 <link rel="icon" href="play/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Figtree:wght@400;500;600;800&display=swap">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="landing.css">
+<link rel="preload" as="image" href="images/hero-bg.webp">
 <script src="config.js"></script>
 </head>
 <body>
-<header class="nav"><div class="wrap">
+<header class="nav" id="nav"><div class="wrap">
   <a class="logo" href="./"><i>520</i>520 Quest</a>
-  <nav class="links"><a class="hide-sm" href="#how">How it works</a><a class="hide-sm" href="#course">Course</a><a class="hide-sm" href="#pricing">Plans</a><a class="btn pro small" href="pro/">See plans</a><a class="btn primary small" href="play/?from=landing">Play free</a></nav>
+  <nav class="links">
+    <a class="hide-sm" href="#demo">Demo</a><a class="hide-sm" href="#new">What's new</a><a class="hide-sm" href="#features">Features</a><a class="hide-sm" href="#compare">Compare</a><a class="hide-sm" href="#pricing">Plans</a>
+    <a class="btn primary small" href="play/?from=landing">Play free</a>
+  </nav>
 </div></header>
 
 <main>
-<div class="wrap hero">
-  <div class="hero-copy">
-    <span class="eyebrow">MCAT prep · built for <span class="score">520+</span></span>
-    <h1>The MCAT study app you'll actually want to open.</h1>
-    <p class="lede">Swipe through 5,904 original MCAT questions, study from 33 Mastery Sheets, laugh your way through 150 mnemonics, climb five mastery levels and beat timed boss battles. Free to start. No account needed. Works on your phone.</p>
-    <div class="row"><a class="btn primary" href="play/?from=landing">Play free now</a><a class="btn pro" href="#pricing">See plans</a></div>
-    <p class="fine">Start with 100 free questions, 5 Mastery Sheets and 1 mnemonic. Install it to your home screen and it works offline.</p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="images/hero-bg.webp" alt="" width="1344" height="752" fetchpriority="high"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <a class="badge" href="#new"><b>NEW</b> Timed diagnostic that builds your study plan</a>
+      <h1>Study like it's a game.<br><span class="grad">Score like it's a 520.</span></h1>
+      <p class="lede">520 Quest finds where your MCAT points are leaking, builds a plan around your weakest areas, and turns every day of practice into a short mission you'll actually finish.</p>
+      <div class="row">
+        <a class="btn primary" href="play/?from=landing">Start free, no account
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn" href="#demo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>Watch the demo</a>
+      </div>
+      <div class="checks"><span>100 free questions</span><span>Works on any phone</span><span>Installs, works offline</span></div>
+    </div>
+    <div class="stack" aria-hidden="true">
+      <div class="phone p2"><img src="images/app/map.webp" alt="" loading="eager"></div>
+      <div class="phone p3"><img src="images/app/course.webp" alt="" loading="eager"></div>
+      <div class="phone p1"><img src="images/app/answers.webp" alt="" loading="eager"></div>
+    </div>
   </div>
-  <div class="phone"><img class="screen" src="images/app-qbank.png" width="780" height="1688" alt="Screenshot of the 520 Quest app: a Bio/Biochem question about the rate-limiting step of glycolysis with four answer choices, and the Qbank, Boss, Course, Map, Exams and Me tabs along the bottom." fetchpriority="high"></div>
-</div>
+</section>
 
-<section class="band" id="how"><div class="wrap">
-  <div class="section-head"><span class="eyebrow">How a session works</span><h2>Adjust your daily goal to 15, 25, 40 or 60 questions, then you are done for the day.</h2><p class="lede">Long cramming days burn people out by week three. 520 Quest gives you a short daily mission and tells you when to stop.</p></div>
-  <div class="grid3">
-    <div class="card"><span class="step-n">1</span><h3>Scroll</h3><p>Swipe up through questions, CARS passages, high-yield facts and trap alerts. Combos, random crits and loot chests keep it moving.</p></div>
-    <div class="card"><span class="step-n">2</span><h3>Tag every miss</h3><p>Missed one? Tag it Content, Trap or Time. Your Error DNA chart shows which problem is costing you the most points.</p></div>
-    <div class="card"><span class="step-n">3</span><h3>Done for the Day</h3><p>Hit your goal, review your mistakes, and tap Done for the Day. You get a summary of accuracy, level progress and pace. Tomorrow you pick up exactly where you left off.</p></div>
+<!-- STATS -->
+<div class="stats"><div class="wrap">
+  <div class="stat rv"><b data-count="5904">5,904</b><span>original questions</span></div>
+  <div class="stat rv"><b data-count="830">830</b><span>science passages at real MCAT length</span></div>
+  <div class="stat rv"><b data-count="100">100</b><span>CARS passages</span></div>
+  <div class="stat rv"><b data-count="33">33</b><span>fact-checked Mastery Sheets</span></div>
+  <div class="stat rv"><b data-count="150">150</b><span>mnemonics in the Vault</span></div>
+  <div class="stat rv"><b data-count="20">20</b><span>full-length and mini exams</span></div>
+</div></div>
+
+<!-- DEMO VIDEO -->
+<section id="demo"><div class="wrap">
+  <div class="head center rv">
+    <span class="eyebrow">See it in action</span>
+    <h2>One minute inside <span class="grad">520 Quest</span>.</h2>
+    <p class="lede">A real screen recording of the app: questions, explanations, the Course and your plan.</p>
+  </div>
+  <div class="video-frame rv"><div class="inner">
+    <video id="demoVideo" src="images/demo/demo.mp4" poster="images/demo/poster.webp" controls playsinline preload="none" muted></video>
+  </div></div>
+  <div class="clips" id="clips"></div>
+</div></section>
+
+<!-- WHAT'S NEW -->
+<section id="new" style="padding-top:0"><div class="wrap">
+  <div class="head rv">
+    <span class="eyebrow">New in November 2026</span>
+    <h2>The biggest upgrade yet.</h2>
+    <p class="lede">Every change below is live in the app today.</p>
+  </div>
+  <div class="new-grid">
+    <div class="new wide rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg></div>
+      <h3>A timed diagnostic that builds your Action plan</h3>
+      <p>Set your test date and weekly hours, then take a 30-question timed diagnostic. 520 Quest turns the results into a customized Action plan that names your weak areas and tells you what to do each day.</p></div>
+    <div class="new rv"><div class="ic c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div>
+      <h3>A study loop for every weak area</h3>
+      <p>Your plan walks each weak area through Learn, Drill and Review, linking the right Mastery Sheet, checklist, mnemonics and practice set.</p></div>
+    <div class="new rv"><div class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>Fact-checked against the AAMC outline</h3>
+      <p>Every passage section and all 33 Mastery Sheets were checked topic by topic against the official AAMC content outline, and errors were fixed.</p></div>
+    <div class="new rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 4h14M5 9h14M5 14h14M5 19h9"/></svg></div>
+      <h3>Passages at real MCAT length</h3>
+      <p>All 830 science passages were rewritten to the length and density you'll see on test day, with answer choices balanced so the longest one is never a giveaway.</p></div>
+    <div class="new rv"><div class="ic c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.5V14M12 17.5v.01"/></svg></div>
+      <h3>"Did you guess?" explanations</h3>
+      <p>Got it right by luck? Open the full explanation: why every choice is right or wrong, the concept, the formulas and figures.</p></div>
+    <div class="new rv"><div class="ic g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+      <h3>You vs other students</h3>
+      <p>Real percent-correct data from 520 Quest students shows which topics you're ahead or behind on, using the exact questions you answered.</p></div>
+    <div class="new wide rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg></div>
+      <h3>Build your own quiz, keep a notebook</h3>
+      <p>Pick sections, topics, unused or missed questions, difficulty and timing. Save anything to your notebook and turn it into review cards.</p></div>
   </div>
 </div></section>
 
-<section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">What's inside</span><h2>Everything you need for daily practice.</h2></div>
-  <div class="grid3">
-    <div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="3" width="12" height="18" rx="3"/><path d="M12 8v6M9.5 11.5 12 14l2.5-2.5"/></svg></span><h3>5,904 questions</h3><p>Original questions across all four sections, including 100 CARS passages. Every question comes with an explanation and the trap to avoid, with diagrams as they roll out.</p></div>
-    <div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 15 9M14 4l6 6M9 9l6 6M5 15l4 4"/></svg></span><h3>Boss battles</h3><p>Ten timed questions at real exam pace, about 95 seconds each. Four bosses, one per section plus a mixed final boss.</p></div>
-    <div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 8 8h-8z" fill="currentColor"/></svg></span><h3>Error DNA</h3><p>See at a glance whether you need more content review, better trap spotting, or faster pacing.</p></div>
-    <div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg></span><h3>Skill map</h3><p>All 31 official AAMC content categories with your accuracy in each. Tap a weak one to drill it.</p></div>
-    <div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4v16h16"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><h3>CARS passages</h3><p>Short original passages with comprehension, reasoning-within and reasoning-beyond questions.</p></div>
-    <div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.9 2c.6 3.6-2 5.1-3.4 7.2C8.1 11 7.5 12.4 7.5 14.2 7.5 18.4 9.9 22 12 22c3.9 0 6-3.4 6-7.3 0-3-1.5-4.6-2.5-6-.3 1.5-1 2.5-2.1 3C14.7 8.9 14.5 4.5 12.9 2Z"/></svg></span><h3>Five mastery levels</h3><p>Every 200 questions your accuracy is checked. Hit the next band, beat the Gatekeeper boss, and climb from Rookie to Grand Master.</p></div>
-    <div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><h3>Adaptive practice</h3><p>The app finds your weakest content areas and serves more questions from them automatically.</p></div>
-    <div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg></span><h3>Real analytics</h3><p>Accuracy by section, time per question over the last two weeks, and a plain-English read on where to focus.</p></div>
-    <div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5 3 6V3h3l11.5 11.5M13 19l6-6M16 16l4 4M19 21l2-2M9.5 17.5 21 6V3h-3L6.5 14.5M5 13l6 6M8 16l-4 4M3 19l2 2"/></svg></span><h3>Calm, focused</h3><p>No leaderboards, no anxiety. Just you vs. the material - deep explanations that help you truly learn.</p></div>
+<!-- FEATURES -->
+<section id="features" style="padding-top:0"><div class="wrap">
+  <div class="head center rv">
+    <span class="eyebrow">Inside the app</span>
+    <h2>Everything a 520 scorer does,<br><span class="grad">in one app.</span></h2>
+  </div>
+
+  <div class="feature rv">
+    <div class="f-copy">
+      <span class="eyebrow">Qbank</span>
+      <h2>Every answer choice, explained.</h2>
+      <p class="lede">Tap how sure you are, answer, and see why each of the four choices is right or wrong. Then tag your miss so the app knows what to fix.</p>
+      <ul>
+        <li><span><b>Error DNA.</b> Tag each miss as content, misread passage, trap or time, and see which one costs you the most points.</span></li>
+        <li><span><b>Revenge Queue.</b> Missed questions come back on a 1, 3 and 7 day schedule until you beat them.</span></li>
+        <li><span><b>Linked to the source.</b> Every explanation points to the Mastery Sheet that teaches it.</span></li>
+      </ul>
+    </div>
+    <div class="f-media"><div class="phone"><img src="images/app/answers.webp" alt="A Bio/Biochem question with each answer choice explained underneath it" loading="lazy" width="585" height="1266"></div><div class="phone"><img src="images/app/explain.webp" alt="The explanation panel: correct answer, Error DNA tags and a link to the related Mastery Sheet" loading="lazy" width="585" height="1266"></div></div>
+  </div>
+
+  <div class="feature flip rv">
+    <div class="f-copy">
+      <span class="eyebrow">Your plan</span>
+      <h2>A plan that knows your weak spots.</h2>
+      <p class="lede">Tell 520 Quest when you test and how many hours you have. The timed diagnostic and every answer after it keep your plan pointed at the topics that will move your score.</p>
+      <ul>
+        <li><span><b>Skill map</b> of all 31 AAMC content categories plus CARS and research skills, with your accuracy in each.</span></li>
+        <li><span><b>Adaptive practice</b> serves more questions from your weakest areas automatically.</span></li>
+        <li><span><b>Analytics</b> by section, pace per question and reasoning skill, in plain English.</span></li>
+      </ul>
+    </div>
+    <div class="f-media cy"><div class="phone"><img src="images/app/welcome.webp" alt="The welcome screen with Start today's quest and Create customized Action plan buttons" loading="lazy" width="585" height="1266"></div><div class="phone"><img src="images/app/map.webp" alt="The Map tab with Build your own quiz and the Skill map" loading="lazy" width="585" height="1266"></div></div>
+  </div>
+
+  <div class="feature rv">
+    <div class="f-copy">
+      <span class="eyebrow">The Course</span>
+      <h2>Review that sticks, and makes you laugh.</h2>
+      <p class="lede">The Course tab holds the content review that usually costs extra.</p>
+      <ul>
+        <li><span><b>33 Mastery Sheets:</b> one for every content category plus CARS and research skills, with summaries, formulas, pathway diagrams, traps and practice questions.</span></li>
+        <li><span><b>Memorization checklist</b> of the facts you must know cold. Tick them off as you master them.</span></li>
+        <li><span><b>Mnemonics Vault:</b> 150 mnemonics, each with a clean version and a funny one you won't forget.</span></li>
+      </ul>
+    </div>
+    <div class="f-media go"><div class="phone"><img src="images/app/course.webp" alt="The Course tab: Mastery Sheets, Memorization Checklist, Mnemonics Vault, mini and full-length exams" loading="lazy" width="585" height="1266"></div></div>
+  </div>
+
+  <div class="feature flip rv">
+    <div class="f-copy">
+      <span class="eyebrow">Exams and bosses</span>
+      <h2>Practice under real exam pressure.</h2>
+      <p class="lede">When it's time to test yourself, the clock is real.</p>
+      <ul>
+        <li><span><b>10 full-length and 10 mini exams</b> with countdown, pause, flag, end-of-section review and a scaled score estimate.</span></li>
+        <li><span><b>Boss battles:</b> 10 timed questions at about 95 seconds each. Beat the Gatekeeper to climb from Rookie to Grand Master.</span></li>
+        <li><span><b>Daily goal you choose.</b> Hit it, review your mistakes and you're done for the day. No burnout by week three.</span></li>
+      </ul>
+    </div>
+    <div class="f-media"><div class="phone"><img src="images/app/exams.webp" alt="The Exams tab listing full-length exams with 230 questions and 6 hours 15 minutes of testing time" loading="lazy" width="585" height="1266"></div><div class="phone"><img src="images/app/boss.webp" alt="The Boss tab with five mastery levels and boss characters" loading="lazy" width="585" height="1266"></div></div>
   </div>
 </div></section>
 
-<section class="band" id="course"><div class="wrap">
-  <div class="section-head"><span class="eyebrow">The Course</span><h2>Mastery Sheets and the Mnemonics Vault, inside the app.</h2><p class="lede">Open the Course tab for one-page reviews of every content category and the funniest MCAT mnemonics you'll ever read.</p></div>
-  <div class="grid2">
-    <div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A1.5 1.5 0 0 0 5 19.5 1.5 1.5 0 0 0 6.5 21H20v1H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg></span><h3>31 Mastery Sheets + 2 bonus</h3><p>One sheet for each MCAT content category, plus CARS skills and research and statistics. Each has a high-yield summary, formulas and pathway diagrams, common traps and 3 practice questions. Every explanation in the app links to its sheet.</p><p class="fine">5 sheets free. All 33 with any plan.</p></div>
-    <div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 3a5 5 0 0 0-5 5c0 2 1 3 1 5v2h14v-2c0-2 1-3 1-5a5 5 0 0 0-5-5z"/><path d="M8 19h8M10 22h4"/></svg></span><h3>Mnemonics Vault: 150 funny mnemonics</h3><p>Psych/Soc, Bio/Biochem, Gen Chem/Orgo and Physics, each with a clean and a funny version, a link to its Mastery Sheet and practice questions. Upvote your favorites and share them as images.</p><p class="fine">1 mnemonic free. All 150 with any plan.</p></div>
+<!-- DAILY LOOP -->
+<section style="padding-top:0"><div class="wrap">
+  <div class="head rv"><span class="eyebrow">A day in 520 Quest</span><h2>Short, focused, finished.</h2><p class="lede">Long cramming days burn people out. 520 Quest gives you one clear mission a day and tells you when to stop.</p></div>
+  <div class="loop">
+    <div class="rv"><h3>Open your plan</h3><p>See today's weak area and how many questions you set as your goal: 15, 25, 40, 60 or your own number.</p></div>
+    <div class="rv"><h3>Learn</h3><p>Skim the Mastery Sheet and mnemonics for that area in a few minutes.</p></div>
+    <div class="rv"><h3>Drill</h3><p>Answer questions with every choice explained. Tag each miss so you know why it happened.</p></div>
+    <div class="rv"><h3>Review and stop</h3><p>Clear your Revenge Queue, check your summary and tap Done for the Day.</p></div>
   </div>
 </div></section>
 
-<section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">The math</span><h2>Top prep costs hundreds or thousands. Daily practice shouldn't.</h2><p class="lede">520 Quest doesn't replace official AAMC practice exams. It's the daily habit, review sheets and question bank that sit beside them.</p></div>
-  <div class="table-wrap"><table>
-    <thead><tr><th>Option</th><th>Typical price</th><th>Access</th></tr></thead>
+<!-- COMPARE -->
+<section id="compare" style="padding-top:0"><div class="wrap">
+  <div class="head rv">
+    <span class="eyebrow">How 520 Quest compares</span>
+    <h2>Top-tier prep without the top-tier price.</h2>
+    <p class="lede">520 Quest doesn't replace the official AAMC practice exams. It's the daily practice, content review and study plan that sit beside them.</p>
+  </div>
+  <div class="compare rv"><table>
+    <thead><tr><th></th><th>Premium question banks</th><th>Live and self-paced courses</th><th class="us">520 Quest</th></tr></thead>
     <tbody>
-      <tr><td>Live and self-paced prep courses</td><td>About $1,199 to $3,499</td><td>6 to 12 months</td></tr>
-      <tr><td>Premium question banks</td><td>About $339 to $439</td><td>90 to 365 days</td></tr>
-      <tr><td>Gamified MCAT apps</td><td>Often about $25 per 3 months</td><td>Subscription</td></tr>
-      <tr class="us"><td>520 Quest</td><td>Free to start. Plans from $14.99 a month</td><td>Monthly, 6 months or yearly</td></tr>
+      <tr><th>Typical price</th><td>About $339 to $439</td><td>About $1,199 to $3,499</td><td class="us">Free to start, then $59.99 a year</td></tr>
+      <tr><th>Access</th><td>90 to 365 days</td><td>6 to 12 months</td><td class="us">Monthly, 6 months or yearly. Cancel anytime</td></tr>
+      <tr><th>Try it without paying</th><td>Short trials on some</td><td>Free trials or samples on some</td><td class="us"><span class="yes">✓</span> 100 questions, 5 sheets, a mini exam. No card, no account</td></tr>
+      <tr><th>Content review included</th><td>Usually sold separately</td><td><span class="yes">✓</span> Included</td><td class="us"><span class="yes">✓</span> 33 Mastery Sheets, checklist and 150 mnemonics</td></tr>
+      <tr><th>Built for your phone</th><td>Varies</td><td>Varies</td><td class="us"><span class="yes">✓</span> Made for phones first, installs and works offline</td></tr>
+      <tr><th>Keeps you coming back</th><td>Practice sessions</td><td>Class schedule</td><td class="us"><span class="yes">✓</span> Daily goal, levels, boss battles and streaks</td></tr>
     </tbody>
   </table></div>
-  <p class="fine" style="margin-top:12px">Prices are published list prices checked in October 2026 and may change.</p>
-</div></section>
-
-<section class="band" id="pricing"><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Pricing</span><h2>Start free. Pick a plan when you're ready.</h2><p class="lede">Every plan unlocks all 5,904 questions, all 33 Mastery Sheets and all 150 mnemonics. Plans open soon; until then, play free.</p></div>
-  <div class="tiers three">
-    <div class="price-card"><span class="flag">Free</span><h3>Free</h3><div class="price">$0</div>
-      <ul class="ticks"><li>100 questions, every answer choice explained</li><li>5 Mastery Sheets</li><li>1 mnemonic from the Vault</li><li>1 boss battle a day</li><li>Daily goal: 15, 25, 40 or 60</li></ul>
-      <a class="btn" href="play/?from=landing">Play free</a></div>
-    <div class="price-card"><span class="flag soon">Opening soon</span><h3>Monthly</h3><div class="price">$14.99 <small>/ month</small></div>
-      <ul class="ticks"><li>All 5,904 questions</li><li>All 33 Mastery Sheets</li><li>All 150 mnemonics</li><li>Unlimited boss battles</li><li>Use on 3 devices</li></ul>
-      <a class="btn" data-plan="monthly" aria-disabled="true" tabindex="-1">Opening soon</a></div>
-    <div class="price-card"><span class="flag soon">Opening soon</span><h3>6 Months</h3><div class="price">$44.99 <small>/ 6 months</small></div>
-      <ul class="ticks"><li>All 5,904 questions</li><li>All 33 Mastery Sheets</li><li>All 150 mnemonics</li><li>Unlimited boss battles</li><li>Use on 3 devices</li></ul>
-      <a class="btn" data-plan="sixmonth" aria-disabled="true" tabindex="-1">Opening soon</a></div>
-    <div class="price-card best"><span class="flag">Best value · opening soon</span><h3>Yearly</h3><div class="price">$59.99 <small>/ year</small></div>
-      <ul class="ticks"><li>All 5,904 questions</li><li>All 33 Mastery Sheets</li><li>All 150 mnemonics</li><li>Unlimited boss battles</li><li>Use on 3 devices</li></ul>
-      <a class="btn" data-plan="yearly" aria-disabled="true" tabindex="-1">Opening soon</a></div>
+  <p class="fine" style="margin-top:14px">Prices are published list prices checked in October 2026 and may change.</p>
+  <div class="honest">
+    <div class="rv"><b>Original questions</b>Every question is written for 520 Quest to mirror the MCAT's style. None are copied from the AAMC or other companies.</div>
+    <div class="rv"><b>No fake reviews</b>We're new, so you won't see made-up testimonials or user counts here. Try it free and judge for yourself.</div>
+    <div class="rv"><b>No score promises</b>No app can guarantee a 520. 520 Quest shows you where your points go and keeps you practicing every day.</div>
   </div>
-  <p class="fine" style="margin-top:12px">Plans renew automatically and can be cancelled anytime.</p>
 </div></section>
 
-<section><div class="wrap">
-  <div class="section-head"><span class="eyebrow">Questions</span><h2>Before you start</h2></div>
-  <details><summary>Is this official AAMC material?</summary><p>No. Every question is original and designed to simulate MCAT questions as closely as possible. MCAT is a registered trademark of the AAMC, which does not officially endorse this product.</p></details>
-  <details><summary>Do I need an account?</summary><p>No. Open the app and play; your progress is saved on your device. Sign in with your email in the Me tab when you want your progress on your other devices.</p></details>
-  <details><summary>Will it guarantee a 520?</summary><p>No app can promise a score. 520 Quest is built to make daily practice consistent and to show you exactly where your points are going.</p></details>
-  <details><summary>Do you sell my data?</summary><p>No. We help you get into medical school without selling your data. 520 Quest has no ads and no trackers, and your progress stays on your device.</p></details>
-  <details><summary>How do I install it?</summary><p>On iPhone, open the app in Safari, tap Share, then Add to Home Screen. On Android, open it in Chrome and tap Install app. After that it works offline.</p></details>
-  <details><summary>How do plans work?</summary><p>Choose Monthly ($14.99), 6 Months ($44.99) or Yearly ($59.99). Every plan unlocks everything. Sign in with the same email in the app's Me tab and your plan works on up to 3 devices. Plans renew automatically and can be cancelled anytime. They open soon.</p></details>
+<!-- PRICING -->
+<section id="pricing" style="padding-top:0"><div class="wrap">
+  <div class="head center rv">
+    <span class="eyebrow">Plans</span>
+    <h2>Start free. Upgrade when you're hooked.</h2>
+    <p class="lede">Every paid plan unlocks everything: all 5,904 questions, all 33 Mastery Sheets, all 150 mnemonics and every exam. Paid plans open soon; until then, play free.</p>
+  </div>
+  <div class="tiers">
+    <div class="tier rv"><span class="flag">Free</span><h3>Free</h3><div class="price">$0</div><div class="per">No card, no account</div>
+      <ul><li>100 questions, every choice explained</li><li>5 Mastery Sheets</li><li>1 mnemonic from the Vault</li><li>Mini exam 1</li><li>1 boss battle a day</li></ul>
+      <a class="btn" href="play/?from=landing">Play free</a></div>
+    <div class="tier rv"><span class="flag">Opening soon</span><h3>Monthly</h3><div class="price">$14.99 <small>/ month</small></div><div class="per">Flexible</div>
+      <ul><li>Everything unlocked</li><li>All exams and boss battles</li><li>Score estimate</li><li>Use on 3 devices</li></ul>
+      <a class="btn" data-plan="monthly" aria-disabled="true" tabindex="-1">Opening soon</a></div>
+    <div class="tier rv"><span class="flag">Opening soon</span><h3>6 Months</h3><div class="price">$44.99 <small>/ 6 mo</small></div><div class="per">About $7.50 a month</div>
+      <ul><li>Everything unlocked</li><li>All exams and boss battles</li><li>Score estimate</li><li>Use on 3 devices</li></ul>
+      <a class="btn" data-plan="sixmonth" aria-disabled="true" tabindex="-1">Opening soon</a></div>
+    <div class="tier best rv"><span class="flag">Best value</span><h3>Yearly</h3><div class="price">$59.99 <small>/ year</small></div><div class="per">About $5 a month</div>
+      <ul><li>Everything unlocked</li><li>All exams and boss battles</li><li>Score estimate</li><li>Use on 3 devices</li></ul>
+      <a class="btn primary" data-plan="yearly" aria-disabled="true" tabindex="-1">Opening soon</a></div>
+  </div>
+  <p class="fine" style="margin-top:16px;text-align:center">Plans renew automatically and can be cancelled anytime.</p>
 </div></section>
 
-<section class="band"><div class="wrap cta-band">
-  <h2>Your first boss is waiting.</h2>
-  <p class="lede">Pick 15, 25, 40 or 60 questions a day. Free.</p>
-  <a class="btn primary" href="play/?from=landing">Play 520 Quest</a>
+<!-- FAQ -->
+<section style="padding-top:0"><div class="wrap">
+  <div class="head center rv"><span class="eyebrow">Questions</span><h2>Before you start</h2></div>
+  <div class="faq">
+    <details><summary>Is this official AAMC material?</summary><p>No. Every question is original and written to match the MCAT's style as closely as possible. Our content was checked against the AAMC's published content outline. MCAT is a registered trademark of the AAMC, which does not endorse this product.</p></details>
+    <details><summary>Do I need an account?</summary><p>No. Open the app and play; your progress saves on your device. Sign in with your email in the Me tab when you want your progress on your other devices.</p></details>
+    <details><summary>How does the diagnostic work?</summary><p>On the welcome screen, tap Create customized Action plan, set your test date, and take a 30-question timed diagnostic across the sections. Your results set the weak areas in Your plan, and your plan keeps updating as you answer more questions.</p></details>
+    <details><summary>Will it guarantee a 520?</summary><p>No app can promise a score. 520 Quest is built to make daily practice consistent and to show you exactly where your points are going.</p></details>
+    <details><summary>Do you sell my data?</summary><p>No. We help you get into medical school without selling your data. 520 Quest has no ads and no trackers.</p></details>
+    <details><summary>How do I install it?</summary><p>On iPhone, open the app in Safari, tap Share, then Add to Home Screen. On Android, open it in Chrome and tap Install app. After that it works offline.</p></details>
+    <details><summary>How do plans work?</summary><p>Choose Monthly ($14.99), 6 Months ($44.99) or Yearly ($59.99). Every plan unlocks everything. Sign in with the same email in the app's Me tab and your plan works on up to 3 devices. Plans renew automatically and can be cancelled anytime. They open soon.</p></details>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="cta rv">
+    <span class="eyebrow">Your first boss is waiting</span>
+    <h2>Find your weak spots <span class="grad">today.</span></h2>
+    <p class="lede">Take the timed diagnostic, get your plan, and answer your first questions in the next five minutes. Free.</p>
+    <a class="btn primary" href="play/?from=landing">Play 520 Quest free</a>
+  </div>
 </div></section>
 </main>
 
 <footer><div class="wrap">
   <p>© 2026 520 Quest · <a href="pro/">Plans</a> · <a href="guide/">How to use</a> · <a href="support/">Support</a> · <a href="terms.html">Terms of Use</a> · <a href="privacy.html">Privacy Policy</a></p>
-  <p>Support: email <a href="mailto:support@520-quest.com">support@520-quest.com</a>. We reply within 24 to 48 hours. <a href="support/">Support and FAQ</a></p>
+  <p>Support: email <a href="mailto:support@520-quest.com">support@520-quest.com</a>. We reply within 24 to 48 hours.</p>
   <p>MCAT is a registered trademark of the Association of American Medical Colleges (AAMC), which does not endorse this product. All questions are original practice items.</p>
 </div></footer>
-<div class="buybar"><p><b>520 Quest</b> <span class="long">Free to start.</span> Plans from $14.99 a month.</p><a class="btn pro small" href="pro/">See plans</a></div>
+<div class="buybar" id="buybar"><span><b>520 Quest</b> <span class="long">· Free to start. Plans from $14.99 a month.</span></span><a class="btn primary small" href="play/?from=landing">Play free</a></div>
+
+<script>
+(() => {
+  const nav = document.getElementById("nav"), bar = document.getElementById("buybar");
+  const onScroll = () => { const y = scrollY; nav.classList.toggle("solid", y > 20); bar.classList.toggle("show", y > innerHeight * .9 && y < document.body.scrollHeight - innerHeight * 1.6); };
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".rv").forEach((el, i) => { el.style.transitionDelay = (i % 3) * 80 + "ms"; io.observe(el); });
+  // count-up stats
+  const fmt = n => n.toLocaleString("en-US");
+  const cio = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; cio.unobserve(e.target);
+    const el = e.target, end = +el.dataset.count, t0 = performance.now(), d = 1400;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const step = t => { const k = Math.min(1, (t - t0) / d), v = Math.round(end * (1 - Math.pow(1 - k, 3))); el.textContent = fmt(v); if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step); }), { threshold: .6 });
+  document.querySelectorAll("[data-count]").forEach(el => cio.observe(el));
+  // demo video: autoplay muted when in view
+  const v = document.getElementById("demoVideo");
+  if (v) new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { v.preload = "auto"; v.play().catch(() => {}); } else v.pause(); }), { threshold: .5 }).observe(v);
+})();
+</script>
 </body>
 </html>
