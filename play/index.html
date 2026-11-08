@@ -3010,6 +3010,16 @@ function planSubs(code) {
 }
 // Map labels like "GAV LIMP FW: nonpolar (9)" read as code inside the plan: show "Nonpolar amino acids (GAV LIMP FW)".
 const planSubLabel = l => { const m = /^([A-Z ]+): (.+?) \(\d+\)$/.exec(l); return m ? `${m[2][0].toUpperCase() + m[2].slice(1)} amino acids (${m[1]})` : l; };
+// Strongest areas: categories with enough answers to judge, 75%+ (the Map's green), best first. Keep them warm, don't re-study them.
+function strongHTML() {
+  const top = CATS.filter(c => c[2] !== "CARS" && (S.cat[c[0]] || {}).a >= 4 && S.cat[c[0]].c / S.cat[c[0]].a >= .75)
+    .sort((a, b) => mastery(b[0]) - mastery(a[0])).slice(0, 3).map(c => c[0]);
+  const B = S.baseline, best = B && B.by ? Object.entries(B.by).sort((a, b) => b[1] - a[1])[0] : null;
+  if (!top.length && !best) return "";
+  return `<h4 style="margin:12px 0 4px">Your strongest areas</h4>
+    ${top.length ? `<ul class="small" style="margin:0;padding-left:20px">${top.map(c => `<li><b>${esc(c)}</b> ${esc(CAT[c].title)} <span class="muted">· ${planPct(S.cat[c].c, S.cat[c].a)}% of ${S.cat[c].a}</span></li>`).join("")}</ul>` : ""}
+    <p class="small muted" style="margin:4px 0 0">${best ? `Your best section on the diagnostic: ${esc(SECTIONS[best[0]].name)} (${best[1]}%). ` : ""}${top.length ? "Keep these warm with mixed questions and your Revenge Questions; spend your sheet time on your weakest areas." : "Answer at least 4 questions in a category at 75% or better and it shows up here."}</p>`;
+}
 function stratHTML() {
   const weak = planWeak(); if (!weak.length) return "";
   const done = chkDone();
@@ -3058,7 +3068,7 @@ function planHTML() {
       <li>Answer <b>${g}</b> new questions.${S.goal === g ? "" : ` <button class="linkbtn" data-plangoal="${g}">Make this my daily goal</button>`}</li>
       <li>${planSheetOpen(sh) ? `Study one concept at a time. Start with one concept from <button class="linkbtn" data-sheet="${esc(sh)}">Mastery Sheet ${esc(sh)}${meta ? ": " + esc(meta.title) : ""}</button>, then answer its Check yourself questions.`
         : `<button class="linkbtn" data-plandrill="${esc(sh)}"${CAT[sh] ? ` title="${esc(CAT[sh].title)}"` : ""}>Drill ${esc(sh)} on the Map</button> and, for each question you miss, read why each answer choice is right or wrong.${meta ? ` <span class="muted">(Mastery Sheet ${esc(sh)} 🔒 comes with any plan.)</span>` : ""}`}</li>
-    </ol>${stratHTML()}${base}</div>`;
+    </ol>${stratHTML()}${strongHTML()}${base}</div>`;
 }
 // Timed diagnostic: 30 questions, 10 per science section, spread across categories, medium difficulty, not seen before.
 // Clock is the real exam's pace (QZ_PACE s a question). The results set the order of the plan.
