@@ -120,6 +120,7 @@ async function signedIn(user) {
 function signedOut() {
   ACCT.user = null; ACCT.profile = null; ACCT.state = SB_URL ? "out" : "off"; ACCT.key = null; lsSet(CK_STORE, null);
   if (S.proBy === "account") { S.pro = false; delete S.proBy; save(); }
+  dropEmailAdmin();
   refreshViews();
 }
 function refreshViews() {
@@ -140,6 +141,11 @@ const fullAccess = () => isPaid() || !!S.admin; // every plan unlocks all sheets
 function applyPlan() {
   if (isPaid() && !S.pro) { S.pro = true; S.proBy = "account"; save(); document.querySelectorAll(".goldbtn[data-gocourse] small").forEach(x => { x.textContent = "Included in every plan"; }); toast(isAdmin() ? "<b>Admin access</b> is on: everything is unlocked." : `<b>${esc(PLAN_NAME[ACCT.profile.plan])}</b> is active on this device.`); }
   else if (!isPaid() && S.proBy === "account") { S.pro = false; delete S.proBy; save(); }
+}
+// The admin flag set from the sign-in email only counts while that account is signed in on this device.
+// (The local ?admin= path sets proBy "admin" and is left alone.)
+function dropEmailAdmin() {
+  if (S.admin && S.proBy !== "admin") { S.admin = false; if (S.proBy !== "account") S.pro = false; save(); }
 }
 /* ---------- paid content: sealed sheets and mnemonics ---------- */
 async function loadKey() {
@@ -164,6 +170,13 @@ function unsealMnemonics() {
   }).catch(() => {});
 }
 window.acctHasKey = () => !!ACCT.key;
+// Why a paid or admin user has no key on this device, and what to tap. Also retries the key once when signed in.
+window.acctKeyHelp = () => {
+  if (ACCT.state === "blocked") return { title: "This device is over the limit", line: "Your account is already on " + ACCT.limit + " devices. Remove an old one in Manage devices to open sheets here.", btn: '<button class="btn primary" data-close data-acdevices>Manage devices</button>' };
+  if (ACCT.state !== "in") return { title: "Sign in to open this", line: "Your plan lives on your account. Sign in with your email on this device to open every sheet and mnemonic.", btn: '<button class="btn primary" data-close data-acin>Sign in with email</button>' };
+  loadKey();
+  return { title: "Still unlocking", line: "Your plan is active but this device hasn't received its unlock yet. Wait a few seconds and try again. If it keeps happening, sign out and back in.", btn: "" };
+};
 window.acctUnseal = box => unseal(box);
 // After a checkout succeeds, the webhook sets the plan a moment later: check the profile every 3 s for up to 90 s.
 let planWatch = null;
@@ -477,5 +490,6 @@ document.addEventListener("click", e => { if (e.target.closest("[data-admcat]") 
 (function initAccount() {
   if (ACCT.state === "off") return;
   const k = lsGet(CK_STORE); if (k) useKey(k);
+  if (!lsGet(SB_STORE)) dropEmailAdmin(); // no saved sign-in here: a leftover admin flag would only show locked sheets
   if (lsGet(SB_STORE)) sbLoad().then(sb => sb.auth.getSession()).then(r => { const u = r.data && r.data.session && r.data.session.user; if (u && (!ACCT.user || ACCT.user.id !== u.id)) signedIn(u); }).catch(() => {});
 })();

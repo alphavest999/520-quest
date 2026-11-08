@@ -1547,7 +1547,6 @@ try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(fresh(),
 if (S.pro && S.proBy !== "account" && !S.admin) { S.pro = false; delete S.proBy; } // plans come only from a signed-in account
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} window.acctSync && acctSync(); }
 const hasKey = () => !!(S.admin || (window.acctHasKey && acctHasKey()));
-const adminNoKey = () => !!S.admin && !(window.acctHasKey && acctHasKey());
 if (S.admin) CONFIG.freeQuestions = 99999;
 const sheetOpen = x => x.free || hasKey();
 function rollDay() {
@@ -3434,6 +3433,7 @@ function addRecallChecks(doc, id) {
 function openSheet(id, ret) {
   dropBackPill();
   const meta = (SHEETS || []).find(x => x.id === id); if (!meta) return;
+  if (!meta.free && needsKeyHelp()) return noKeySheet();
   if (!sheetOpen(meta)) return lockedSheet(`${esc(meta.id)}: ${esc(meta.title)}`, `Unlock ${SHEETS.filter(x => !x.free).length} more sheets + all 5,904 questions with any plan, from ${esc(CONFIG.fromPrice)}.`);
   const v = $("#sheetView"), mark = `520quest.com · ${S.pro ? "Subscriber" : "Preview"} copy · ${new Date().toISOString().slice(0, 10)}`;
   v.innerHTML = `<div class="sv-top"><h2>${esc(meta.id)}: ${esc(meta.title)}</h2><button class="svclose" data-svclose aria-label="Close sheet"><span aria-hidden="true">✕</span> Close</button></div><div class="sv-body"><div class="sv-doc"><p class="muted">Loading…</p></div></div>`;
@@ -3456,7 +3456,7 @@ function openSheet(id, ret) {
       place(); requestAnimationFrame(place); setTimeout(place, 250);
       if (link) { link.classList.add("flash"); setTimeout(() => link.classList.remove("flash"), 2100); }
     }
-  }).catch(() => { $(".sv-doc", v).innerHTML = adminNoKey() ? `<p>Admin is on, but this sheet is encrypted and the content key is missing. Add <code>content_key</code> to play/admin-private.json.</p>` : `<p>This sheet couldn't load. Check your connection and try again.</p>`; });
+  }).catch(() => { $(".sv-doc", v).innerHTML = `<p>This sheet couldn't load. Check your connection and try again.</p>`; });
 }
 function closeSheet() { const v = $("#sheetView"); v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; }
 // Sheets still point at some questions that were retired from the bank; open a question from the same category instead of a dead link.
@@ -3528,10 +3528,16 @@ function mnLinkHTML(q) {
 }
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-mnlink]"), m = b && MN && MN.find(x => String(x.id) === b.dataset.mnlink); if (!m) return;
-  if (m.locked && adminNoKey()) return lockedSheet("Content key missing", "Admin is on, but mnemonics are encrypted. Add content_key to play/admin-private.json.");
+  if (m.locked && needsKeyHelp()) return noKeySheet();
   if (m.locked) return lockedSheet(`${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 5,904 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
   mnView = { s: "mn", id: m.id }; crs = "vault"; go("course");
 });
+// A subscriber or admin whose unlock key isn't on this device: say why (signed out, device limit, still loading) instead of the plans pitch.
+function noKeySheet() {
+  const h = window.acctKeyHelp ? acctKeyHelp() : { title: "Sign in to open this", line: "Sign in with your email on the Me tab.", btn: "" };
+  sheet(`<div class="eyebrow">Your plan</div><h3>${esc(h.title)}</h3><p>${esc(h.line)}</p><div class="row">${h.btn}<button class="btn ghost" data-close>Not now</button></div>`);
+}
+const needsKeyHelp = () => !!(S.admin || S.pro) && !(window.acctHasKey && acctHasKey());
 function lockedSheet(title, line) {
   sheet(`<div class="eyebrow">Locked</div><h3>${title}</h3><p><b>${line}</b></p><p class="muted small">Monthly ${esc(CONFIG.plans[0].price)}, 6 Months ${esc(CONFIG.plans[1].price)} or Yearly ${esc(CONFIG.plans[2].price)}. Every plan unlocks everything.${S.pro ? " Already subscribed? Sign in on the Me tab." : ""}</p>
     <div class="row"><button class="btn pro" data-close data-pro2>See plans</button><button class="btn ghost" data-close>Not now</button></div>`);
@@ -3652,7 +3658,7 @@ $("#view-course").addEventListener("click", e => {
   const c = t.closest("[data-mncat]"); if (c) { mnView = { s: "cat", cat: c.dataset.mncat }; renderCourse(); v0(); return; }
   const it = t.closest("[data-mn]"); if (it) {
     const m = MN.find(x => String(x.id) === it.dataset.mn); if (!m) return;
-    if (m.locked && adminNoKey()) return lockedSheet("Content key missing", "Admin is on, but mnemonics are encrypted. Add content_key to play/admin-private.json.");
+    if (m.locked && needsKeyHelp()) return noKeySheet();
     if (m.locked) return lockedSheet(`${esc(m.concept)}`, `Unlock ${MN.filter(x => x.locked).length} more mnemonics + 5,904 Qs + all Mastery Sheets with any plan, from ${esc(CONFIG.fromPrice)}.`);
     mnView = { s: "mn", id: m.id, from: mnView.s !== "home" ? mnView : null }; renderCourse(); v0(); return;
   }
