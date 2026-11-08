@@ -3863,11 +3863,11 @@ document.addEventListener("click", e => {
 function renderAll() { renderHUD(); resetFeed(); if (!$("#view-me").hidden) renderMe(); if (!$("#view-map").hidden) renderMap(); }
 renderAll();
 // Reopening: Course or Map reopen where you were; otherwise Me after Done for the Day, else Scroll at your last question.
-// Same day after Exit: Me at today's performance + goals. Same day without Exit: the tab you left. New day: Scroll + Welcome back.
+// Same day after Exit: the top of Me. Same day without Exit: the tab you left. New day: Scroll + Welcome back.
 const sameDay = S.lastTabDay === todayKey(), exitedToday = S.exitedOn === todayKey();
 const startTab = exitedToday ? "me" : sameDay && ["course", "map", "boss", "exam", "me"].includes(S.lastTab) ? S.lastTab : sameDay && S.today.doneDay ? "me" : "scroll";
 S.exitedOn = null; save();
-if (exitedToday) showPerf(); else if (startTab !== "scroll") go(startTab);
+if (exitedToday) { go("me"); $("#view-me").scrollTop = 0; } else if (startTab !== "scroll") go(startTab);
 bankReady.finally(() => welcomeBack());
 /* ---------- Terms of Use: everyone (free or paid) accepts before using the app ---------- */
 // Bump TERMS_V when terms.html or privacy.html change in a material way: everyone is asked to accept again.
