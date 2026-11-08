@@ -1875,7 +1875,7 @@ function weakAreas(sec = "ALL", k = 3) {
 }
 function pickQuestion() {
   const sec = S.focus ? CAT[S.focus].s : S.filter;
-  let pool = QUESTIONS.filter(q => (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus) && (!S.sub || stOf(q) === S.sub));
+  let pool = QUESTIONS.filter(q => (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus) && (!S.sub || stOf(q) === S.sub) && !(exLocked(q) && !S.stats[q.id]));
   if (!pool.length) return null;   // e.g. a sub-topic that only has passage questions
   const now = Date.now();
   const due = pool.filter(q => S.revenge[q.id] && S.revenge[q.id].due <= now && !sessionSeen.has(q.id));
@@ -1960,7 +1960,8 @@ function nextCard() {
     if (gateShown) return null; gateShown = true; return gateCard();
   }
   if (S.kind !== "discrete" && !S.focus && sec === "ALL" && cardN % 9 === 0 && pFits) return useP(nextP);
-  if (S.kind !== "discrete" && cardN % 3 === 0) { const sp = nextSciPassage(sec); if (sp && fits(sp)) return passageCard(sp); }
+  // Free players start on a passage and get one every other card (AAMC is mostly passages); plans: every third card.
+  if (S.kind !== "discrete" && (S.pro ? cardN % 3 === 0 : cardN % 2 === 1)) { const sp = nextSciPassage(sec); if (sp && fits(sp)) return passageCard(sp); }
   if (cardN === 4 && !installed()) return installCard();
   if (!S.pro && cardN % 12 === 0) return promoCard();
   if (!S.focus && cardN % 5 === 0) return (cardN / 5) % 2 ? factCard() : trapCard();
@@ -2167,7 +2168,12 @@ const EX = {};
 const exCat = q => q.s === "CARS" ? "CARS" : q.c;
 // bank/ex/index.json lists the free categories (plain files) and, for sealed ones, which question ids have a full explanation.
 let EXIX = null;
-const exIxReady = fetch("bank/ex/index.json").then(r => r.json()).then(d => { EXIX = d; }).catch(() => { EXIX = { free: [], sealed: {} }; });
+let EXLOCK = new Set(), FREEX = {};
+const exIxReady = fetch("bank/ex/index.json").then(r => r.json()).then(d => { EXIX = d; EXLOCK = new Set(Object.values(d.sealed || {}).flat()); }).catch(() => { EXIX = { free: [], sealed: {} }; });
+// bank/ex/free.json: full explanations free players get from paid categories (a few per category).
+const freeExReady = fetch("bank/ex/free.json").then(r => r.json()).then(d => { FREEX = d || {}; EXLOCK = new Set([...EXLOCK].filter(id => !FREEX[id])); }).catch(() => {});
+// True when a question's full explanation needs a plan. Free players are only served questions where this is false.
+const exLocked = q => !S.pro && !keyReady() && EXLOCK.has(q.id) && !FREEX[q.id];
 function loadEx(cat) {
   if (!cat || !/^[\w-]+$/.test(cat)) return Promise.resolve({});
   return EX[cat] || (EX[cat] = exIxReady.then(() => {
@@ -2179,7 +2185,7 @@ function loadEx(cat) {
 }
 // ox follows the bank's choice order; q.ord maps each shuffled position back to it.
 function exEntry(q) {
-  return (q.ex ? Promise.resolve({ [q.id]: q.ex }) : loadEx(exCat(q))).then(m => {
+  return (q.ex ? Promise.resolve({ [q.id]: q.ex }) : freeExReady.then(() => FREEX[q.id] && !keyReady() ? { [q.id]: FREEX[q.id] } : loadEx(exCat(q)))).then(m => {
     if (m && m.__locked) return m.__locked.includes(q.id) ? "locked" : null;
     const x = m && m[q.id]; if (!x || !Array.isArray(x.ox) || x.ox.length !== q.o.length) return null;
     return Object.assign({}, x, { ox: q.o.map((_, j) => relet(x.ox[q.ord ? q.ord[j] : j], q.ord)), trap: relet(x.trap, q.ord) });
@@ -2736,6 +2742,7 @@ function quizPool(o) {
   if (o.type !== "discrete") PASSAGES.forEach(p => list.push(...p.qs));
   return list.filter(q => {
     if (!q || !CAT[q.c] || isExamId(q.id)) return false;
+    if (exLocked(q) && !S.stats[q.id]) return false;   // free players: only questions with a full explanation they can read
     if (o.cat ? q.c !== o.cat : !secs.includes(q.s)) return false;
     if (o.diff !== "0" && String(q.d || 2) !== o.diff) return false;
     const st = S.stats[q.id];
@@ -3024,7 +3031,7 @@ function startCheck() {
   const ids = [], per = checkPer();
   ["CP", "BB", "PS"].forEach(sec => {
     const cats = CATS.filter(c => c[2] === sec).map(c => c[0]), by = {};
-    QUESTIONS.filter(q => q.s === sec && (q.d || 2) === 2 && !S.stats[q.id] && canOpen(q) && !isExamId(q.id)).forEach(q => (by[q.c] = by[q.c] || []).push(q.id));
+    QUESTIONS.filter(q => q.s === sec && (q.d || 2) === 2 && !S.stats[q.id] && canOpen(q) && !exLocked(q) && !isExamId(q.id)).forEach(q => (by[q.c] = by[q.c] || []).push(q.id));
     let k = 0, guard = 0; const out = [];
     while (out.length < per && guard++ < 400) { const c = cats[k++ % cats.length], l = by[c]; if (l && l.length) out.push(l.splice(Math.floor(Math.random() * l.length), 1)[0]); }
     ids.push(...out);
@@ -3237,7 +3244,7 @@ function showPro() {
   sheet(`<div class="eyebrow">520 Quest plans</div><h2>Unlock everything</h2>
     <p class="muted" style="margin:0">Every plan includes all 5,904 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
     <div class="stack" style="gap:8px">${CONFIG.plans.map(p => `<div class="panel row" style="justify-content:space-between;flex-wrap:nowrap;gap:10px${p.best ? ";border-color:var(--volt)" : ""}"><div><b>${esc(p.name)}</b>${p.best ? ' <span class="tag sec">Best value</span>' : ""}<div class="small muted">${esc(p.price)} ${esc(p.per)}</div></div>${planLink(p) ? `<a class="btn pro small lemonsqueezy-button" href="${esc(planUrl(planLink(p)))}" target="_blank" rel="noopener">Choose</a>` : `<button class="btn small" disabled>Opening soon</button>`}</div>`).join("")}</div>
-    <p class="small muted" style="margin:0">${open ? "🔒 Secure checkout by Lemon Squeezy, our payment partner. Cards are processed by Stripe and never touch 520 Quest. Plans renew automatically at the price shown until you cancel, and can be cancelled anytime. By subscribing you agree to the <a href=\"../terms.html\" target=\"_blank\" rel=\"noopener\">Terms of Use</a>. After you subscribe, sign in with the same email in the Me tab." + (PAY_TEST && CONFIG.plans.some(p => p.testUrl) ? " <b>Test mode:</b> pay with card 4242 4242 4242 4242, any future date and any CVC. Nothing is charged." : "") : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions, 5 Mastery Sheets and 1 mnemonic."}</p>
+    <p class="small muted" style="margin:0">${open ? "🔒 Secure checkout by Lemon Squeezy, our payment partner. Cards are processed by Stripe and never touch 520 Quest. Plans renew automatically at the price shown until you cancel, and can be cancelled anytime. By subscribing you agree to the <a href=\"../terms.html\" target=\"_blank\" rel=\"noopener\">Terms of Use</a>. After you subscribe, sign in with the same email in the Me tab." + (PAY_TEST && CONFIG.plans.some(p => p.testUrl) ? " <b>Test mode:</b> pay with card 4242 4242 4242 4242, any future date and any CVC. Nothing is charged." : "") : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions with full explanations, Full-length 1, 5 Mastery Sheets and 1 mnemonic."}</p>
     <div class="row"><button class="btn ghost" data-close>Not now</button></div>`);
   window.createLemonSqueezy && window.createLemonSqueezy();
 }
