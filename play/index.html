@@ -2957,7 +2957,7 @@ function planPhase(d) {
   if (d <= 7) return "Final week: light review, one last half-length early in the week, then rest the day before.";
   if (d <= 28) return "Final month: one full-length a week, and spend the next day reviewing every question you missed or guessed.";
   if (d <= 56) return "Two months out: a full-length every two weeks, with daily questions and your weakest sheets in between.";
-  return "Building phase: daily questions plus one Mastery Sheet concept a day. Start full-lengths about two months out.";
+  return "Building phase: daily questions plus one Mastery Sheet a day. Start full-lengths about two months out.";
 }
 // Free players get 5 sheets; a locked one is named with a lock and never sent as the day's main step.
 const planSheetMeta = id => SHEETS && SHEETS.find(x => x.id === id);
@@ -3052,6 +3052,7 @@ function planHTML() {
   const base = diagHTML();
   return `<div class="panel" id="planPanel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Your plan</h3><button class="linkbtn small" data-planedit>Change</button></div>
     <p class="small" style="margin:0 0 6px">${d >= 0 ? `<b>${d} day${d === 1 ? "" : "s"}</b> to test day (${esc(niceDate(S.testDate))}).` : ""} ${planPhase(d)}</p>
+    <p class="small" style="margin:6px 0;padding:8px 10px;border-radius:10px;background:var(--panel-2)"><b>Recommended:</b> do 1 Mastery Sheet a day and its Memorization Checklist cards, but start with your weakest areas first.${SHEETS && SHEETS.length ? ` At that pace you'll cover all ${SHEETS.length} sheets in about ${Math.ceil(SHEETS.length / 7)} weeks.` : ""}</p>
     <ol class="small" style="margin:6px 0 0;padding-left:20px">
       ${due ? `<li>Clear your <b>${due}</b> due Revenge question${due === 1 ? "" : "s"} first.</li>` : ""}
       <li>Answer <b>${g}</b> new questions.${S.goal === g ? "" : ` <button class="linkbtn" data-plangoal="${g}">Make this my daily goal</button>`}</li>
