@@ -66,12 +66,17 @@
   <div class="head center rv">
     <span class="eyebrow">See it in action</span>
     <h2>One minute inside <span class="grad">520 Quest</span>.</h2>
-    <p class="lede">A real screen recording of the app: questions, explanations, the Course and your plan.</p>
+    <p class="lede">A real screen recording of the app on a phone. No mockups, no actors.</p>
   </div>
-  <div class="video-frame rv"><div class="inner">
-    <video id="demoVideo" src="images/demo/demo.mp4" poster="images/demo/poster.webp" controls playsinline preload="none" muted></video>
-  </div></div>
-  <div class="clips" id="clips"></div>
+  <div class="demo-row">
+    <div class="phone demo-phone rv"><video id="demoVideo" src="images/demo/demo.mp4" poster="images/demo/poster.jpg" playsinline muted loop preload="none" aria-label="Screen recording of the 520 Quest app"></video></div>
+    <div class="demo-notes rv">
+      <div><b>01</b><h3>Answer and learn</h3><p>Every choice explained, right after you answer.</p></div>
+      <div><b>02</b><h3>Review in the Course</h3><p>Mastery Sheets, the checklist and the Mnemonics Vault.</p></div>
+      <div><b>03</b><h3>Follow your plan</h3><p>Your weak areas, drills and timed exams in one place.</p></div>
+      <button class="btn" id="soundBtn" type="button" hidden>Replay from the start</button>
+    </div>
+  </div>
 </div></section>
 
 <!-- WHAT'S NEW -->
@@ -279,6 +284,7 @@
   document.querySelectorAll("[data-count]").forEach(el => cio.observe(el));
   // demo video: autoplay muted when in view
   const v = document.getElementById("demoVideo");
+  const rb = document.getElementById("soundBtn"); if (v && rb) { rb.hidden = false; rb.onclick = () => { v.currentTime = 0; v.play().catch(() => {}); }; }
   if (v) new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { v.preload = "auto"; v.play().catch(() => {}); } else v.pause(); }), { threshold: .5 }).observe(v);
 })();
 </script>
