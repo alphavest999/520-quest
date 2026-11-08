@@ -1885,7 +1885,7 @@ function pickQuestion() {
   if (due.length) return [due[0], true];
   // Misses from full-length and mini exams come back here on the same Revenge schedule.
   const fitsX = q => q && CAT[q.c] && (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus) && !S.sub;
-  const xd = Object.keys(S.revenge).find(id => isExamId(id) && S.revenge[id].due <= now && !sessionSeen.has(id) && fitsX(anyQ(id)));
+  const xd = S.pro && Object.keys(S.revenge).find(id => isExamId(id) && S.revenge[id].due <= now && !sessionSeen.has(id) && fitsX(anyQ(id)));
   if (xd) return [anyQ(xd), true];
   // Generated questions: missed ones come back like any other, and fresh ones mix in at random.
   if (window.GEN && sec !== "CARS" && !S.sub) {
