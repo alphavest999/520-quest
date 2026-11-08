@@ -1535,6 +1535,8 @@ const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.js
     bankLoaded = true; renderFilters();
     pruneStats();
     passI = Math.floor(Math.random() * PASSAGES.length); if (!$("#view-map").hidden) renderMap();
+    // The first cards were dealt before the passages arrived: deal again so the feed opens on a passage.
+    if (!S.review && S.kind !== "discrete" && !$$("#feed .opts").some(b => b.dataset.done) && !$("#view-scroll").hidden) resetFeed();
     if (resumeLate) S.resume = resumeLate;
     const q = resumeLate && resumeQ();
     if (q && !S.review && !$$("#feed .opts").some(b => b.dataset.done)) { sessionSeen.add(q.id); const c = questionCard(q, !!S.revenge[q.id]); feed.prepend(c); io.observe(c); feed.scrollTop = 0; }
@@ -1844,6 +1846,7 @@ document.addEventListener("click", e => {
 
 /* ---------- feed engine ---------- */
 const feed = $("#feed");
+let feedMix = { p: 0, d: 0 };   // passage vs stand-alone questions dealt in this feed
 let cardN = 0, sessionSeen = new Set(), factI = 0, trapI = 0, passI = 0, gateShown = false;
 const FILTERS = [["ALL", "All"], ["CP", "C/P"], ["CARS", "CARS"], ["BB", "B/B"], ["PS", "P/S"]];
 // Qbank size by type, shown on the Passages / Discrete chips once the bank has loaded.
@@ -1950,7 +1953,7 @@ function nextCard() {
   if (S.focus && sec === "CARS") cars = cars.filter(p => p.qs.some(carsFit)).map(p => Object.assign({}, p, { qs: p.qs.filter(carsFit) }));
   cars = freshPassages(cars);
   const nextP = cars.length ? cars[Math.floor(Math.random() * cars.length)] : null, pFits = !!nextP && fits(nextP);
-  const useP = p => { sessionSeen.add(p.id); return passageCard(p); };
+  const useP = p => { sessionSeen.add(p.id); feedMix.p += p.qs.length; return passageCard(p); };
   if (sec === "CARS") { if (!nextP) return null; if (!pFits) { if (gateShown) return null; gateShown = true; return gateCard(); } return useP(nextP); }
   if (S.kind === "passage") {
     let sp = nextSciPassage(sec);
@@ -1960,8 +1963,8 @@ function nextCard() {
     if (gateShown) return null; gateShown = true; return gateCard();
   }
   if (S.kind !== "discrete" && !S.focus && sec === "ALL" && cardN % 9 === 0 && pFits) return useP(nextP);
-  // Free players start on a passage and get one every other card (AAMC is mostly passages); plans: every third card.
-  if (S.kind !== "discrete" && (S.pro ? cardN % 3 === 0 : cardN % 2 === 1)) { const sp = nextSciPassage(sec); if (sp && fits(sp)) return passageCard(sp); }
+  // About 80% passage questions and 20% stand-alone, like the real MCAT: deal a passage whenever stand-alones would pass 20%.
+  if (S.kind !== "discrete" && (feedMix.d + 1) * 4 > feedMix.p) { const sp = nextSciPassage(sec); if (sp && fits(sp)) { feedMix.p += sp.qs.length; return passageCard(sp); } }
   if (cardN === 4 && !installed()) return installCard();
   if (!S.pro && cardN % 12 === 0) return promoCard();
   if (!S.focus && cardN % 5 === 0) return (cardN / 5) % 2 ? factCard() : trapCard();
@@ -1972,7 +1975,7 @@ function nextCard() {
     if (S.focus && !drillEndShown) { drillEndShown = true; return drillEndCard(); }
     return null;
   }
-  const [q, rev, tgt] = pick; sessionSeen.add(q.id);
+  const [q, rev, tgt] = pick; sessionSeen.add(q.id); feedMix.d++;
   if (!canOpen(q)) { if (gateShown) return null; gateShown = true; return gateCard(); }
   return questionCard(q, rev, tgt);
 }
@@ -2013,7 +2016,7 @@ function drillEndCard() {
   });
   return el;
 }
-function resetFeed() { feed.innerHTML = ""; cardN = 0; gateShown = false; drillEndShown = false; reviewEnded = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
+function resetFeed() { feed.innerHTML = ""; cardN = 0; feedMix = { p: 0, d: 0 }; gateShown = false; drillEndShown = false; reviewEnded = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
 
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
