@@ -1945,8 +1945,8 @@ function nextCard() {
   }
   cardN++;
   const sec = S.focus ? CAT[S.focus].s : S.filter;
-  // A passage only appears when all its questions fit inside the free limit.
-  const fits = p => S.pro || seenCount() + p.qs.filter(q => !S.stats[q.id]).length <= CONFIG.freeQuestions;
+  // Free players: a passage appears while any free question is left; passageCard trims it to the questions that fit.
+  const fits = p => S.pro || seenCount() < CONFIG.freeQuestions || p.qs.some(q => S.stats[q.id]);
   // Drilling a CARS skill (CF/CW/CB): only passages that have that question type, showing just those questions.
   let cars = PASSAGES.filter(p => p.s === "CARS");
   const carsFit = q => q.c === S.focus && (!S.sub || stOf(q) === S.sub);
@@ -2444,6 +2444,11 @@ function showPassage(id) {
 }
 document.addEventListener("click", e => { const b = e.target.closest("[data-showp]"); if (b) showPassage(b.dataset.showp); });
 function passageCard(p) {
+  if (!S.pro && !S.review) {   // free players near the limit get only the questions that still fit (seen ones always stay)
+    let room = CONFIG.freeQuestions - seenCount();
+    const qs = p.qs.filter(q => S.stats[q.id] || room-- > 0);
+    if (qs.length && qs.length < p.qs.length) p = Object.assign({}, p, { qs });
+  }
   p = Object.assign({}, p, { qs: p.qs.map(shuf) });
   const el = document.createElement("article"); el.className = "card"; el._made = Date.now(); el.dataset.pid = p.id;
   const n = p.qs.length, sci = p.s !== "CARS";
