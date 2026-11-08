@@ -138,7 +138,13 @@ figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
     });
   }
   const li = p => typeof p === "string" ? `<li>${md(p)}</li>` : `<li>${md(p.t)}<ul class="ar">${p.sub.map(x => `<li>${md(x)}</li>`).join("")}</ul></li>`;
+  // Locked cards (paid plans) are stubs until the content key on this device unseals checklist.enc.json.
+  const LOCKED = () => D.cards.filter(c => c.locked).length;
+  function lockedBody(c) {
+    return `<div class="eli5"><h4>🔒 Included with every plan</h4><p>Free players get the ${D.cards.length - LOCKED()} cards that match the free Mastery Sheets. Any plan unlocks all ${D.cards.length} cards, every Mastery Sheet and all 5,904 questions.</p><p><a class="btn solid" href="../pro/">See plans</a></p></div>`;
+  }
   function body(c) {
+    if (c.locked) return lockedBody(c);
     let h = `<p class="hook">${md(c.hook)}</p>`;
     if (c.formulas.length) h += `<h4>Formulas to memorize</h4><ul class="ar fm">${c.formulas.map(f => `<li>${tex(f.tex, true)}${f.say ? `<span class="say">${md(f.say)}</span>` : ""}</li>`).join("")}</ul>`;
     if (c.vars.length) h += `<h4>What each symbol means</h4><div class="vars">${c.vars.map(v => `<div class="var"><span class="s">${tex(v.tex)}</span><span class="n"><b>${md(v.name)}</b>${v.unit ? `<span class="u">${esc(v.unit)}</span>` : ""}${v.eli5 ? ` · ${md(v.eli5)}` : ""}</span></div>`).join("")}</div>`;
@@ -150,8 +156,8 @@ figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
     h += `<div class="markrow"><button class="btn ${done.has(c.code) ? "" : "solid"}" data-mark="${esc(c.code)}">${done.has(c.code) ? "✓ Mastered (undo)" : "Mark as mastered"}</button></div>`;
     return h;
   }
-  const plain = c => [c.code, c.title, c.hook, c.eli5, ...c.formulas.map(f => f.tex + " " + f.say), ...c.vars.map(v => v.tex + " " + v.name), ...c.points.map(p => typeof p === "string" ? p : p.t + " " + p.sub.join(" ")), ...c.traps, ...c.mnemonics].join(" ").toLowerCase();
-  const IDX = D.cards.map(plain);
+  const plain = c => c.locked ? (c.code + " " + c.title).toLowerCase() : [c.code, c.title, c.hook, c.eli5, ...c.formulas.map(f => f.tex + " " + f.say), ...c.vars.map(v => v.tex + " " + v.name), ...c.points.map(p => typeof p === "string" ? p : p.t + " " + p.sub.join(" ")), ...c.traps, ...c.mnemonics].join(" ").toLowerCase();
+  let IDX = D.cards.map(plain);
   function render() {
     const n = D.cards.length, k = D.cards.filter(c => done.has(c.code)).length;
     $("#pbar").style.width = (100 * k / n) + "%"; $("#ptxt").textContent = `${k} / ${n} mastered`;
@@ -165,7 +171,7 @@ figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
       html += `<div class="sec">${esc(s.label)}</div>` + cs.map(c => {
         const isOpen = open.has(c.code) || (q && cs.length <= 3);
         return `<div class="card ${done.has(c.code) ? "done" : ""} ${isOpen ? "open" : ""}" data-code="${esc(c.code)}">
-          <div class="head" data-toggle="${esc(c.code)}"><input type="checkbox" data-chk="${esc(c.code)}" ${done.has(c.code) ? "checked" : ""} aria-label="Mastered"><span><span class="code">${esc(c.code)}</span><span class="ttl">${md(c.title)}</span></span><span class="chev">›</span></div>
+          <div class="head" data-toggle="${esc(c.code)}"><input type="checkbox" data-chk="${esc(c.code)}" ${done.has(c.code) ? "checked" : ""}${c.locked ? " disabled" : ""} aria-label="Mastered"><span><span class="code">${esc(c.code)}</span><span class="ttl">${md(c.title)}${c.locked ? " 🔒" : ""}</span></span><span class="chev">›</span></div>
           <div class="body">${isOpen ? body(c) : ""}</div></div>`;
       }).join("");
     }
@@ -187,7 +193,7 @@ figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
   $("#anki").addEventListener("click", () => {
     const strip = s => String(s).replace(/\*\*/g, "").replace(/\$/g, "");
     const q = s => '"' + String(s).replace(/"/g, '""') + '"';
-    const rows = D.cards.map(c => [c.code + ": " + c.title,
+    const rows = D.cards.filter(c => !c.locked).map(c => [c.code + ": " + c.title,
       [...c.formulas.map(f => f.tex + (f.say ? " (" + strip(f.say) + ")" : "")), "", strip(c.eli5), "", ...c.points.map(p => "→ " + strip(typeof p === "string" ? p : p.t + " " + p.sub.join(" "))),
        ...c.traps.map(t => "TRAP: " + strip(t)), ...c.mnemonics.map(m => "TRICK: " + strip(m))].join("<br>")].map(q).join(","));
     const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([rows.join("\n")], { type: "text/csv" })); a.download = "520_quest_checklist_anki.csv"; a.click();
@@ -197,6 +203,19 @@ figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
   const want = decodeURIComponent(location.hash.slice(1)).split(",").filter(c => D.cards.some(x => x.code === c));
   want.forEach(c => open.add(c));
   render();
+  // A plan's content key (saved by the app on this device after sign-in) unlocks the sealed cards.
+  (async () => {
+    let k = null; try { k = localStorage.getItem("quest520.ck"); } catch (e) {}
+    if (!k || !LOCKED() || !window.crypto || !crypto.subtle) return;
+    try {
+      const b = s => Uint8Array.from(atob(s), ch => ch.charCodeAt(0));
+      const key = await crypto.subtle.importKey("raw", b(String(k)), "AES-GCM", false, ["decrypt"]);
+      const box = await (await fetch("checklist.enc.json")).json();
+      const full = JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({ name: "AES-GCM", iv: b(box.iv) }, key, b(box.ct))));
+      const by = Object.fromEntries(full.map(c => [c.code, c]));
+      D.cards = D.cards.map(c => by[c.code] || c); IDX = D.cards.map(plain); render();
+    } catch (e) {}
+  })();
   if (want.length) { const el = document.querySelector(`.card[data-code="${CSS.escape(want[0])}"]`); if (el) setTimeout(() => el.scrollIntoView({ block: "start" }), 50); }
   window.addEventListener("load", () => typeset(document));
 })();

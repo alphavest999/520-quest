@@ -2554,7 +2554,7 @@ function promoCard() {
   const left = Math.max(0, CONFIG.freeQuestions - seenCount());
   const el = document.createElement("article"); el.className = "card promo";
   el.innerHTML = `<div class="eyebrow" style="color:#f472b6">520 Quest plans</div><p class="bigtext">${left} of ${CONFIG.freeQuestions} free questions left.</p>
-    <p class="muted" style="margin:0">Every plan unlocks all 5,904 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles, the score estimate and Anki export.</p>
+    <p class="muted" style="margin:0">Every plan unlocks all 5,904 questions, all 33 Mastery Sheets, the full Memorization Checklist, all 150 mnemonics, unlimited boss battles, the score estimate and Anki export.</p>
     <div class="row"><button class="btn pro" data-pro>See plans, from ${esc(CONFIG.fromPrice)}</button></div>${SWIPE}`;
   return el;
 }
@@ -3250,7 +3250,7 @@ function showPro() {
   if (S.pro) { toast("<b>Your plan is active.</b> Everything is unlocked."); return; }
   const open = anyPlanLink();
   sheet(`<div class="eyebrow">520 Quest plans</div><h2>Unlock everything</h2>
-    <p class="muted" style="margin:0">Every plan includes all 5,904 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
+    <p class="muted" style="margin:0">Every plan includes all 5,904 questions, all 33 Mastery Sheets, the full Memorization Checklist, all 150 mnemonics, unlimited boss battles, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
     <div class="stack" style="gap:8px">${CONFIG.plans.map(p => `<div class="panel row" style="justify-content:space-between;flex-wrap:nowrap;gap:10px${p.best ? ";border-color:var(--volt)" : ""}"><div><b>${esc(p.name)}</b>${p.best ? ' <span class="tag sec">Best value</span>' : ""}<div class="small muted">${esc(p.price)} ${esc(p.per)}</div></div>${planLink(p) ? `<a class="btn pro small lemonsqueezy-button" href="${esc(planUrl(planLink(p)))}" target="_blank" rel="noopener">Choose</a>` : `<button class="btn small" disabled>Opening soon</button>`}</div>`).join("")}</div>
     <p class="small muted" style="margin:0">${open ? "🔒 Secure checkout by Lemon Squeezy, our payment partner. Cards are processed by Stripe and never touch 520 Quest. Plans renew automatically at the price shown until you cancel, and can be cancelled anytime. By subscribing you agree to the <a href=\"../terms.html\" target=\"_blank\" rel=\"noopener\">Terms of Use</a>. After you subscribe, sign in with the same email in the Me tab." + (PAY_TEST && CONFIG.plans.some(p => p.testUrl) ? " <b>Test mode:</b> pay with card 4242 4242 4242 4242, any future date and any CVC. Nothing is charged." : "") : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions with full explanations, Full-length 1, 5 Mastery Sheets and 1 mnemonic."}</p>
     <div class="row"><button class="btn ghost" data-close>Not now</button></div>`);
