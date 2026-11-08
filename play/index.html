@@ -1838,7 +1838,9 @@ function renderHUD() {
   $("#hudRank").title = `Live accuracy ${acc === null ? "–" : acc + "%"} · ${n} of ${EVAL_N} questions to the next level evaluation`;
   $("#hudXp").style.width = n / EVAL_N * 100 + "%"; $("#hudXp").style.background = "var(--volt)";
   const tgt = S.today.doneDay && !extraRound ? S.goal : S.today.goalShown && S.today.next ? S.today.next : S.goal;
-  $("#hudGoalTxt").textContent = Math.min(S.today.answered, tgt) + "/" + tgt;
+  // During the timed diagnostic the green counter tracks the diagnostic itself, not the daily goal.
+  const DR = S.review && S.review.kind === "check" ? S.review : null;
+  $("#hudGoalTxt").textContent = DR ? Math.min(DR.ids.length, DR.done.length + 1) + "/" + DR.ids.length : Math.min(S.today.answered, tgt) + "/" + tgt;
   $("#hudStreakTxt").textContent = streakAlive();
   $("#hudPro").hidden = !!S.pro;
   $("#hudInstall").hidden = installed();
@@ -1900,6 +1902,12 @@ function pickQuestion() {
   let fresh = pool.filter(q => !sessionSeen.has(q.id));
   if (!fresh.length && S.sub) return null;   // a small concept: do not repeat the same question back to back
   if (!fresh.length) { pool.forEach(q => sessionSeen.delete(q.id)); fresh = pool; }
+  // Mixed questions lean toward the lowest section on the diagnostic: about a quarter of new picks come from it.
+  const ds = sec === "ALL" && !S.focus && !S.kind ? diagWeakSec() : null;
+  if (ds && Math.random() < .25) {
+    const dp = fresh.filter(q => q.s === ds);
+    if (dp.length) return [dp[Math.floor(Math.random() * dp.length)], false];
+  }
   const weak = S.focus ? [] : weakAreas(sec);
   if (weak.length && Math.random() < .5) {
     const tp = fresh.filter(q => weak.includes(q.c));
@@ -3068,7 +3076,7 @@ function startCheck() {
   $("#sheetHost").innerHTML = "";
   S.review = { kind: "check", ids: ids.sort(() => Math.random() - .5), done: [], queued: [], right: 0, wrong: 0, t0: Date.now(), timed: true, limit: ids.length * QZ_PACE, secs: {} };
   S.focus = null; S.sub = null; save();
-  go("scroll"); resetFeed(); quizTick();
+  go("scroll"); resetFeed(); quizTick(); renderHUD();
   toast(`Timed diagnostic: ${ids.length} questions, ${Math.round(ids.length * QZ_PACE / 60)} minutes on the clock (real MCAT pace). No hints, just your best answer.`);
 }
 function checkStart() {
@@ -3099,7 +3107,7 @@ function checkDone() {
   S.baseline = { date: todayKey(), timed: true, acc: n ? Math.round(r / n * 100) : 0,
     by: Object.fromEntries(Object.entries(tally).map(([k, t]) => [k, Math.round(t[0] / t[1] * 100)])),
     weak: weakList[0] || null, weakList: weakList.slice(0, 5), pace, used: Math.round(used), unreached };
-  S.review = null; save(); beep("level");
+  S.review = null; save(); beep("level"); renderHUD();
   if (!$("#view-scroll").hidden) resetFeed();
   const order = Object.entries(S.baseline.by).sort((a, b) => a[1] - b[1]);
   sheet(`<div class="eyebrow">${R.timeUp ? "Time's up. " : ""}Diagnostic done</div><h2>${r} of ${n} right (${S.baseline.acc}%).</h2>
@@ -3107,6 +3115,12 @@ function checkDone() {
     <p class="muted">Time used ${mmss(used)}${pace ? `, about ${pace} s per question (exam pace is ${QZ_PACE} s)` : ""}.${unreached ? ` ${unreached} question${unreached === 1 ? "" : "s"} not reached, counted as wrong like on test day.` : ""}</p>
     <p class="muted">This is your starting line, not a score. ${inRev ? `<b>${inRev}</b> question${inRev === 1 ? "" : "s"} you ${slow ? "missed, guessed on or answered too slowly" : "missed or guessed on"} ${inRev === 1 ? "is" : "are"} in your Revenge Questions. ` : ""}Your plan on the Me page now starts with ${order.length ? esc(SECTIONS[order[0][0]].name) : "your weakest section"}${S.baseline.weak ? (planSheetOpen(S.baseline.weak) ? `, Mastery Sheet ${esc(S.baseline.weak)} first` : `, drilling ${esc(S.baseline.weak)} first`) : ""}, with a study loop for each weak area.</p>
     <div class="row"><button class="btn primary" data-close data-gome>See my diagnostic analysis</button></div>`);
+}
+// The diagnostic's lowest science section, if one section clearly trails another. Used by the feed mix and the plan.
+function diagWeakSec() {
+  const by = S.baseline && S.baseline.by; if (!by) return null;
+  const o = Object.entries(by).sort((a, b) => a[1] - b[1]);
+  return o.length > 1 && o[0][1] < o[o.length - 1][1] ? o[0][0] : null;
 }
 // What the diagnostic says to do, shown inside Your plan.
 function diagHTML() {
@@ -3117,7 +3131,7 @@ function diagHTML() {
   const now = S.total ? Math.round(S.totalCorrect / S.total * 100) : 0;
   const order = B.by ? Object.entries(B.by).sort((a, b) => a[1] - b[1]) : [];
   const tips = [];
-  if (order.length > 1 && order[0][1] < order[order.length - 1][1]) tips.push(`Put most of your new questions into <b>${esc(SECTIONS[order[0][0]].name)}</b>, your lowest section on the diagnostic. <button class="linkbtn" data-plansec="${esc(order[0][0])}">Practice ${esc(SECTIONS[order[0][0]].name)}</button>`);
+  if (diagWeakSec()) tips.push(`More <b>${esc(SECTIONS[order[0][0]].name)}</b> questions will be added to your daily mixed questions, since it was your lowest section on the diagnostic (${order[0][1]}%).`);
   if (B.pace > QZ_PACE) tips.push(`You averaged ${B.pace} s a question; exam pace is ${QZ_PACE} s. Take one timed custom quiz a week until you're under it. <button class="linkbtn" data-quizopen>Build a timed quiz</button>`);
   else if (B.unreached) tips.push(`You ran out of time with ${B.unreached} left. Move on after about ${QZ_PACE} s and flag the question instead of fighting it.`);
   return `<p class="small muted" style="margin:8px 0 0">${B.timed ? "Diagnostic" : "Starting check"} (${esc(niceDate(B.date))}): <b>${B.acc}%</b>${order.length ? " · " + order.map(([k, v]) => `${esc(SECTIONS[k].name)} ${v}%`).join(", ") : ""}${B.pace ? ` · ${B.pace} s a question` : ""}. Your overall accuracy now: <b>${now}%</b>.</p>`
@@ -3138,7 +3152,6 @@ document.addEventListener("click", e => {
   if (e.target.closest("[data-checkpro]")) return setTimeout(showPro, 50);
   const pd = e.target.closest("[data-plandrill]"); if (pd) return mapDrill(pd.dataset.plandrill, pd.dataset.plansub);
   const pc = e.target.closest("[data-planchk]"); if (pc) { location.href = "checklist.html#" + encodeURIComponent(pc.dataset.planchk); return; }
-  const ps = e.target.closest("[data-plansec]"); if (ps) { S.filter = ps.dataset.plansec; S.kind = null; S.focus = null; S.sub = null; S.review = null; save(); go("scroll"); return resetFeed(); }
   if (e.target.closest("[data-gome]")) { S.review = null; save(); return showPlan(); }
 });
 function todaySummaryHTML() {
