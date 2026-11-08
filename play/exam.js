@@ -3,7 +3,7 @@
   const SEC = { CP: { name: "Chem/Phys", min: 95 }, CARS: { name: "CARS", min: 90 }, BB: { name: "Bio/Biochem", min: 95 }, PS: { name: "Psych/Soc", min: 95 } };
   const FL_ORDER = ["CP", "CARS", "BB", "PS"];
   const BREAKS = [{ min: 10, label: "10-minute break" }, { min: 30, label: "30-minute lunch break" }, { min: 10, label: "10-minute break" }];
-  const FREE = "Mini01";
+  const FREE = ["FL01", "Mini01"];   // free players get Full-length 1 and Mini 1
   const pad = n => String(n).padStart(2, "0");
   const fmt = s => { s = Math.max(0, Math.ceil(s)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60); return (h ? h + ":" + pad(m) : pad(m)) + ":" + pad(s % 60); };
   const num = id => +(id.match(/(\d+)$/) || [0, 0])[1];
@@ -57,7 +57,7 @@
   const secOf = () => X().secs[X().si];
   const meta = id => catalog().find(c => c.id === id);
   const left = sec => sec.t0 ? sec.rem - (Date.now() - sec.t0) / 1000 : sec.rem;
-  const canTake = id => S.pro || id === FREE;
+  const canTake = id => S.pro || FREE.includes(id);
   let tick = null;
   function stopTick() { clearInterval(tick); tick = null; }
   function persistTime() { const s = X() && X().phase === "run" && !X().paused ? secOf() : null; if (s) { s.rem = left(s); s.t0 = Date.now(); } save(); }
@@ -87,7 +87,7 @@
     if (!cat.length) { root().innerHTML = `<h2 class="title">Timed exams</h2><p class="sub">Exam content is still loading or could not be loaded. If the files are sealed, the content key is missing. Reload, or check that bank/FL.json and bank/MN.json are reachable.</p><button class="btn" onclick="CAT_RESET&&CAT_RESET();renderExam()">Retry</button>`; return; }
     const fl = cat.filter(c => c.full), mn = cat.filter(c => !c.full);
     root().innerHTML = `<h2 class="title">Timed exams</h2><p class="sub">Sit a section under real timing: countdown, pause, flag, end-of-section review and a scaled score estimate. Full-lengths run Chem/Phys, CARS, Bio/Biochem, Psych/Soc with breaks. Mini exams are one section.</p>
-      ${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> Mini 1 is free. Plans unlock all 10 full-lengths and the other 9 minis.</p><button class="btn small pro" data-pro>See plans</button></div>`}
+      ${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> Full-length 1 and Mini 1 are free. Plans unlock the other 9 full-lengths and 9 minis.</p><button class="btn small pro" data-pro>See plans</button></div>`}
       <h3 class="xh">Full-length exams</h3><div class="xgrid">${fl.map(card).join("")}</div>
       <h3 class="xh" id="mini-exams">Mini exams</h3><div class="xgrid">${mn.map(card).join("")}</div>
       <p class="small muted" style="margin-top:14px">Scaled scores are estimates: the AAMC does not publish conversion tables, so each section maps percent correct to 118-132 on a typical curve.</p>`;
