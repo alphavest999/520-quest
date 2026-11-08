@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="vendor/katex/katex.min.css">
 <script defer src="vendor/katex/katex.min.js"></script>
 <script src="checklist-data.js"></script>
+<script src="chk-sheets.js"></script>
 <style>
 :root {
   --navy:#1e3a8a; --pink:#f472b6; --pink-soft:#fdf2f8; --line:#e2e8f0; --text:#0f172a; --muted:#475569; --soft:#f8fafc;
@@ -87,6 +88,16 @@ figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
 .empty { text-align: center; color: var(--muted); padding: 30px 0; }
 .toast { position: fixed; left: 50%; bottom: 80px; transform: translateX(-50%); background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 12px; font-weight: 700; display: none; z-index: 70; }
 .katex { font-size: 1.05em; }
+.chips[hidden] { display: none; }
+.views { display: flex; margin: 4px 0 10px; border: 1.5px solid var(--navy); border-radius: 12px; overflow: hidden; width: fit-content; }
+.views button { border: 0; background: #fff; color: var(--navy); padding: 8px 14px; font: 700 13.5px/1.2 var(--body); cursor: pointer; }
+.views button.on { background: var(--navy); color: #fff; }
+.shead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 22px 2px 8px; }
+.shead .sid { font: 700 15px/1.2 var(--display); letter-spacing: .06em; color: var(--pink); }
+.shead .stt { font: 700 15px/1.3 var(--body); color: var(--navy); flex: 1 1 240px; }
+.shead a { font: 700 13px/1.2 var(--body); color: var(--navy); text-decoration: underline; white-space: nowrap; }
+.shead .cnt { font: 600 12.5px var(--body); color: var(--muted); }
+.nosheet { color: var(--muted); font-size: 14px; margin: 22px 2px 0; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 12px; }
 </style>
 </head>
 <body>
@@ -101,6 +112,7 @@ figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
     <button class="btn" id="anki">Export to Anki</button>
     <button class="btn" id="reset">Reset</button>
   </div>
+  <div class="views" id="views" aria-label="Organize the checklist"><button data-view="sheet">By Mastery Sheet</button><button data-view="subject">By subject</button></div>
   <div class="chips" id="chips"></div>
   <div id="list"></div>
   <a class="back" href="index.html#course">← BACK</a>
@@ -119,9 +131,15 @@ figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
     localStorage.setItem(KEY, JSON.stringify([...s])); return s;
   }
   let done = load(), sec = "ALL", query = "", allOpen = false;
+  // Two ways to organize the same cards: under each Mastery Sheet (AAMC category, in the sheets' own order) or by subject.
+  // CHK_AAMC (chk-sheets.js) maps sheet -> cards; a card can sit under more than one sheet. Sheet titles come from sheets/index.json.
+  const MAP = window.CHK_AAMC || {};
+  let SHEETS = Object.keys(MAP).map(id => ({ id, title: "" }));
+  let view = "sheet"; try { view = localStorage.getItem("520quest.checklist.view") || "sheet"; } catch (e) {}
+  fetch("sheets/index.json").then(r => r.json()).then(d => { if (d && d.sheets && d.sheets.length) { SHEETS = d.sheets.map(x => ({ id: x.id, title: x.title })); render(); } }).catch(() => {});
   const open = new Set();
   const save = () => localStorage.setItem(KEY, JSON.stringify([...done]));
-  const $ = s => document.querySelector(s);
+  const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   // Inline markup: $tex$ → KaTeX, **bold** → <b>.
   function md(s) {
@@ -161,19 +179,34 @@ figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
   function render() {
     const n = D.cards.length, k = D.cards.filter(c => done.has(c.code)).length;
     $("#pbar").style.width = (100 * k / n) + "%"; $("#ptxt").textContent = `${k} / ${n} mastered`;
+    $$("#views button").forEach(b => b.classList.toggle("on", b.dataset.view === view));
+    $("#chips").hidden = view === "sheet";
     $("#chips").innerHTML = [{ key: "ALL", label: "All" }, ...D.sections].map(s => `<button class="chip ${sec === s.key ? "on" : ""}" data-sec="${s.key}">${esc(s.label)} <small>${s.key === "ALL" ? n : D.cards.filter(c => c.cat === s.key).length}</small></button>`).join("");
-    const q = query.trim().toLowerCase();
-    let html = "";
-    for (const s of D.sections) {
-      if (sec !== "ALL" && sec !== s.key) continue;
-      const cs = D.cards.filter((c, i) => c.cat === s.key && (!q || IDX[i].includes(q)));
-      if (!cs.length) continue;
-      html += `<div class="sec">${esc(s.label)}</div>` + cs.map(c => {
-        const isOpen = open.has(c.code) || (q && cs.length <= 3);
-        return `<div class="card ${done.has(c.code) ? "done" : ""} ${isOpen ? "open" : ""}" data-code="${esc(c.code)}">
+    const q = query.trim().toLowerCase(), hit = c => !q || IDX[D.cards.indexOf(c)].includes(q);
+    const cardHTML = (c, few) => {
+      const isOpen = open.has(c.code) || (q && few);
+      return `<div class="card ${done.has(c.code) ? "done" : ""} ${isOpen ? "open" : ""}" data-code="${esc(c.code)}">
           <div class="head" data-toggle="${esc(c.code)}"><input type="checkbox" data-chk="${esc(c.code)}" ${done.has(c.code) ? "checked" : ""}${c.locked ? " disabled" : ""} aria-label="Mastered"><span><span class="code">${esc(c.code)}</span><span class="ttl">${md(c.title)}${c.locked ? " 🔒" : ""}</span></span><span class="chev">›</span></div>
           <div class="body">${isOpen ? body(c) : ""}</div></div>`;
-      }).join("");
+    };
+    let html = "";
+    if (view === "sheet") {
+      const none = [];
+      for (const sh of SHEETS) {
+        const all = (MAP[sh.id] || []).map(([code]) => D.cards.find(c => c.code === code)).filter(Boolean);
+        if (!all.length) { none.push(sh.id); continue; }
+        const cs = all.filter(hit); if (!cs.length) continue;
+        const got = all.filter(c => done.has(c.code)).length;
+        html += `<div class="shead"><span class="sid">${esc(sh.id)}</span><span class="stt">${esc(sh.title || "Mastery Sheet " + sh.id)}</span><span class="cnt">${got}/${all.length} mastered</span><a href="index.html#sheet=${encodeURIComponent(sh.id)}">Open sheet</a></div>` + cs.map(c => cardHTML(c, cs.length <= 3)).join("");
+      }
+      if (none.length && !q) html += `<p class="nosheet">No checklist cards for ${none.map(esc).join(", ")}. Those sheets are mostly concepts rather than formulas to memorize, so study them in the sheet itself.</p>`;
+    } else {
+      for (const s of D.sections) {
+        if (sec !== "ALL" && sec !== s.key) continue;
+        const cs = D.cards.filter(c => c.cat === s.key && hit(c));
+        if (!cs.length) continue;
+        html += `<div class="sec">${esc(s.label)}</div>` + cs.map(c => cardHTML(c, cs.length <= 3)).join("");
+      }
     }
     $("#list").innerHTML = html || `<p class="empty">Nothing matches "${esc(query)}".</p>`;
     typeset($("#list"));
@@ -185,6 +218,7 @@ figcaption { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
     const chk = t.closest("[data-chk]"); if (chk) { e.stopPropagation(); return setDone(chk.dataset.chk, chk.checked); }
     const mk = t.closest("[data-mark]"); if (mk) { const c = mk.dataset.mark; setDone(c, !done.has(c)); if (done.has(c)) toast("Nice! Marked as mastered"); return; }
     const sc = t.closest("[data-sec]"); if (sc) { sec = sc.dataset.sec; return render(); }
+    const vw = t.closest("[data-view]"); if (vw) { view = vw.dataset.view; try { localStorage.setItem("520quest.checklist.view", view); } catch (e) {} return render(); }
     const tg = t.closest("[data-toggle]"); if (tg) { const c = tg.dataset.toggle; open.has(c) ? open.delete(c) : open.add(c); return render(); }
   });
   $("#q").addEventListener("input", e => { query = e.target.value; render(); });
