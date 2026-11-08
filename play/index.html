@@ -1535,6 +1535,7 @@ const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.js
     bankLoaded = true; renderFilters();
     pruneStats();
     passI = Math.floor(Math.random() * PASSAGES.length); if (!$("#view-map").hidden) renderMap();
+    if (window.CAT_RESET && !S.exam && window.renderExam && !$("#view-exam").hidden) { CAT_RESET(); renderExam(); }   // free exams (FL01, Mini01) live in the plain bank
     // The first cards were dealt before the passages arrived: deal again so the feed opens on a passage.
     if (!S.review && S.kind !== "discrete" && !$$("#feed .opts").some(b => b.dataset.done) && !$("#view-scroll").hidden) resetFeed();
     if (resumeLate) S.resume = resumeLate;
@@ -1885,7 +1886,7 @@ function pickQuestion() {
   if (due.length) return [due[0], true];
   // Misses from full-length and mini exams come back here on the same Revenge schedule.
   const fitsX = q => q && CAT[q.c] && (sec === "ALL" || q.s === sec) && (!S.focus || q.c === S.focus) && !S.sub;
-  const xd = Object.keys(S.revenge).find(id => isExamId(id) && S.revenge[id].due <= now && !sessionSeen.has(id) && fitsX(anyQ(id)));
+  const xd = S.pro && Object.keys(S.revenge).find(id => isExamId(id) && S.revenge[id].due <= now && !sessionSeen.has(id) && fitsX(anyQ(id)));
   if (xd) return [anyQ(xd), true];
   // Generated questions: missed ones come back like any other, and fresh ones mix in at random.
   if (window.GEN && sec !== "CARS" && !S.sub) {
@@ -3895,9 +3896,11 @@ renderAll();
 // Reopening: Course or Map reopen where you were; otherwise Me after Done for the Day, else Scroll at your last question.
 // Same day after Exit: the top of Me. Same day without Exit: the tab you left. New day: Scroll + Welcome back.
 const sameDay = S.lastTabDay === todayKey(), exitedToday = S.exitedOn === todayKey();
-const startTab = exitedToday ? "me" : sameDay && ["course", "map", "boss", "exam", "me"].includes(S.lastTab) ? S.lastTab : sameDay && S.today.doneDay ? "me" : "scroll";
+// play/?tab=exam (landing page's free full-length button) opens the Exams tab.
+const urlTab = new URLSearchParams(location.search).get("tab");
+const startTab = urlTab === "exam" ? "exam" : exitedToday ? "me" : sameDay && ["course", "map", "boss", "exam", "me"].includes(S.lastTab) ? S.lastTab : sameDay && S.today.doneDay ? "me" : "scroll";
 S.exitedOn = null; save();
-if (exitedToday) { go("me"); $("#view-me").scrollTop = 0; } else if (startTab !== "scroll") go(startTab);
+if (exitedToday && startTab === "me") { go("me"); $("#view-me").scrollTop = 0; } else if (startTab !== "scroll") go(startTab);
 bankReady.finally(() => welcomeBack());
 /* ---------- Terms of Use: everyone (free or paid) accepts before using the app ---------- */
 // Bump TERMS_V when terms.html or privacy.html change in a material way: everyone is asked to accept again.
