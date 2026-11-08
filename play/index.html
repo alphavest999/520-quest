@@ -2963,7 +2963,7 @@ function stratHTML() {
     const chkBtn = l => `<button class="linkbtn" data-planchk="${esc(l.map(x => x[0]).join(","))}">${l.map(x => esc(x[1])).join(" · ")}</button>`;
     const steps = [];
     // 1. Learn it: the sheet if it's open; a free player starts from the checklist and sees the sheet with a lock.
-    if (open) steps.push(`<b>Learn:</b> <button class="linkbtn" data-sheet="${esc(code)}">Mastery Sheet ${esc(code)}</button>, one concept at a time, and answer its Check yourself questions.`);
+    if (open) steps.push(`<b>Learn:</b> study <button class="linkbtn" data-sheet="${esc(code)}">Mastery Sheet ${esc(code)}</button> one concept at a time, and answer each concept's Check yourself questions.`);
     else if (meta) steps.push(`<b>Learn:</b> ${cards.length ? `start with the free Memorization Checklist: ${chkBtn((todo.length ? todo : cards).slice(0, 3))}. ` : "on every question you miss in the drill below, read why each answer choice is right or wrong. "}<button class="linkbtn" data-sheet="${esc(code)}">Mastery Sheet ${esc(code)} 🔒</button> <span class="muted">comes with any plan.</span>`);
     // 2. Memorize: checklist cards not yet ticked (named here only if Learn didn't already list them), plus the vault's mnemonics.
     const mem = [];
@@ -2995,9 +2995,9 @@ function planHTML() {
     <p class="small" style="margin:0 0 6px">${d >= 0 ? `<b>${d} day${d === 1 ? "" : "s"}</b> to test day (${esc(niceDate(S.testDate))}).` : ""} ${planPhase(d)}</p>
     <ol class="small" style="margin:6px 0 0;padding-left:20px">
       ${due ? `<li>Clear your <b>${due}</b> due Revenge question${due === 1 ? "" : "s"} first.</li>` : ""}
-      <li><b>${g}</b> new questions${S.goal === g ? "" : ` <button class="linkbtn" data-plangoal="${g}">Make this my daily goal</button>`}</li>
-      <li>${planSheetOpen(sh) ? `One concept from <button class="linkbtn" data-sheet="${esc(sh)}">Mastery Sheet ${esc(sh)}${meta ? ": " + esc(meta.title) : ""}</button>, then its Check yourself questions.`
-        : `<button class="linkbtn" data-plandrill="${esc(sh)}"${CAT[sh] ? ` title="${esc(CAT[sh].title)}"` : ""}>Drill ${esc(sh)} on the Map</button> and, on each miss, read why each answer choice is right or wrong.${meta ? ` <span class="muted">(Mastery Sheet ${esc(sh)} 🔒 comes with any plan.)</span>` : ""}`}</li>
+      <li>Answer <b>${g}</b> new questions.${S.goal === g ? "" : ` <button class="linkbtn" data-plangoal="${g}">Make this my daily goal</button>`}</li>
+      <li>${planSheetOpen(sh) ? `Study one concept at a time. Start with one concept from <button class="linkbtn" data-sheet="${esc(sh)}">Mastery Sheet ${esc(sh)}${meta ? ": " + esc(meta.title) : ""}</button>, then answer its Check yourself questions.`
+        : `<button class="linkbtn" data-plandrill="${esc(sh)}"${CAT[sh] ? ` title="${esc(CAT[sh].title)}"` : ""}>Drill ${esc(sh)} on the Map</button> and, for each question you miss, read why each answer choice is right or wrong.${meta ? ` <span class="muted">(Mastery Sheet ${esc(sh)} 🔒 comes with any plan.)</span>` : ""}`}</li>
     </ol>${stratHTML()}${base}</div>`;
 }
 // Timed diagnostic: 30 questions, 10 per science section, spread across categories, medium difficulty, not seen before.
@@ -3339,7 +3339,7 @@ function bossEnd() {
    otherwise it is read from the question type (k) or, failing that, from the wording. Approximate by design. */
 const SK_NAMES = { 1: "Knowing concepts", 2: "Solving problems", 3: "Research design", 4: "Reading data and statistics" };
 const SK_TIPS = {
-  1: "Concept misses: open the Mastery Sheet linked under each miss and do its Check yourself questions.",
+  1: "Concept misses: open the Mastery Sheet linked under each miss and answer its Check yourself questions.",
   2: "Problem-solving misses: write the formula and units before you plug in, and estimate the answer before you look at the choices.",
   3: "Research-design misses: name the independent and dependent variables and the control before you read the choices.",
   4: "Data misses: read the axis labels, units and legend first, and find the exact point the question asks about."
