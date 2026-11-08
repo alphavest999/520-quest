@@ -10,8 +10,22 @@ window.SITE = {
 };
 /* ============================================================================================= */
 // Checkout opens as a pop-up: dark, pink Pay button, no extra product text.
-const popup = u => u + (u.includes("?") ? "&" : "?") + "embed=1&dark=1&media=0&desc=0&button_color=%23fb7185";
+// No embed=1 here: lemon.js adds it for the pop-up, so a click before lemon.js loads opens the normal full checkout page.
+const popup = u => u + (u.includes("?") ? "&" : "?") + "dark=1&media=0&desc=0&button_color=%23fb7185";
 if (Object.values(SITE.plans).some(Boolean)) {
+  // Warm up connections to the checkout hosts, and swap Lemon Squeezy's wordless loading screen
+  // (a pulsing dot on black) for a branded "Opening secure checkout" screen. Same CSS lives in play/index.html.
+  ["https://unprocrastinate.lemonsqueezy.com", "https://assets.lemonsqueezy.com", "https://js.stripe.com"].forEach(h => {
+    const l = document.createElement("link"); l.rel = "preconnect"; l.href = h; l.crossOrigin = ""; document.head.appendChild(l);
+  });
+  const st = document.createElement("style");
+  st.textContent = `.lemonsqueezy-loader{background:rgba(7,15,34,.97)!important;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.lemonsqueezy-loader main>div{display:none}
+.lemonsqueezy-loader main::before{content:"";width:46px;height:46px;border-radius:50%;border:4px solid rgba(255,255,255,.14);border-top-color:#ec4899;animation:lsq-spin .8s linear infinite}
+.lemonsqueezy-loader main::after{content:"🔒 Opening secure checkout…";color:#f5f7fb;font-size:18px;font-weight:700;margin-top:20px}
+.lemonsqueezy-loader::after{content:"Payments are handled by Lemon Squeezy, our payment partner. Cards are processed by Stripe and never touch 520 Quest.";position:absolute;left:50%;top:calc(50% + 52px);transform:translateX(-50%);width:min(340px,86vw);text-align:center;color:#a3b0cc;font-size:13.5px;line-height:1.5}
+@keyframes lsq-spin{to{transform:rotate(360deg)}}`;
+  document.head.appendChild(st);
   const s = document.createElement("script"); s.src = "https://assets.lemonsqueezy.com/lemon.js"; s.defer = true;
   s.onload = () => window.createLemonSqueezy && window.createLemonSqueezy();
   document.head.appendChild(s);

@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://unprocrastinate.lemonsqueezy.com" crossorigin><link rel="preconnect" href="https://assets.lemonsqueezy.com" crossorigin><link rel="preconnect" href="https://js.stripe.com" crossorigin>
+<!-- Branded Lemon Squeezy loading screen (replaces its wordless pulsing dot). Same CSS lives in config.js. -->
+<style>.lemonsqueezy-loader{background:rgba(7,15,34,.97)!important;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.lemonsqueezy-loader main>div{display:none}
+.lemonsqueezy-loader main::before{content:"";width:46px;height:46px;border-radius:50%;border:4px solid rgba(255,255,255,.14);border-top-color:#ec4899;animation:lsq-spin .8s linear infinite}
+.lemonsqueezy-loader main::after{content:"🔒 Opening secure checkout…";color:#f5f7fb;font-size:18px;font-weight:700;margin-top:20px}
+.lemonsqueezy-loader::after{content:"Payments are handled by Lemon Squeezy, our payment partner. Cards are processed by Stripe and never touch 520 Quest.";position:absolute;left:50%;top:calc(50% + 52px);transform:translateX(-50%);width:min(340px,86vw);text-align:center;color:#a3b0cc;font-size:13.5px;line-height:1.5}
+@keyframes lsq-spin{to{transform:rotate(360deg)}}</style>
 <script src="gen.js"></script>
 <script src="music.js"></script>
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -3220,7 +3228,8 @@ const PAY_TEST = ["localhost", "127.0.0.1"].includes(location.hostname) || (() =
 const planLink = p => (PAY_TEST && p.testUrl) || (PAY_TEST ? "" : p.url);
 const anyPlanLink = () => CONFIG.plans.some(p => planLink(p));
 // The signed-in user's id and email ride along so the webhook can attach the plan to the right account.
-const planUrl = u => u + (u.includes("?") ? "&" : "?") + "embed=1&dark=1&media=0&desc=0&button_color=%23fb7185" +
+// No embed=1: lemon.js adds it for the pop-up, and a fallback click opens the normal full checkout page.
+const planUrl = u => u + (u.includes("?") ? "&" : "?") + "dark=1&media=0&desc=0&button_color=%23fb7185" +
   (typeof ACCT !== "undefined" && ACCT.user ? "&checkout[email]=" + encodeURIComponent(ACCT.user.email || "") + "&checkout[custom][user_id]=" + encodeURIComponent(ACCT.user.id) : "");
 function showPro() {
   if (S.pro) { toast("<b>Your plan is active.</b> Everything is unlocked."); return; }
@@ -3228,7 +3237,7 @@ function showPro() {
   sheet(`<div class="eyebrow">520 Quest plans</div><h2>Unlock everything</h2>
     <p class="muted" style="margin:0">Every plan includes all 5,904 questions, all 33 Mastery Sheets, all 150 mnemonics, unlimited boss battles, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
     <div class="stack" style="gap:8px">${CONFIG.plans.map(p => `<div class="panel row" style="justify-content:space-between;flex-wrap:nowrap;gap:10px${p.best ? ";border-color:var(--volt)" : ""}"><div><b>${esc(p.name)}</b>${p.best ? ' <span class="tag sec">Best value</span>' : ""}<div class="small muted">${esc(p.price)} ${esc(p.per)}</div></div>${planLink(p) ? `<a class="btn pro small lemonsqueezy-button" href="${esc(planUrl(planLink(p)))}" target="_blank" rel="noopener">Choose</a>` : `<button class="btn small" disabled>Opening soon</button>`}</div>`).join("")}</div>
-    <p class="small muted" style="margin:0">${open ? "Plans renew automatically at the price shown until you cancel, and can be cancelled anytime. By subscribing you agree to the <a href=\"../terms.html\" target=\"_blank\" rel=\"noopener\">Terms of Use</a>. After you subscribe, sign in with the same email in the Me tab." + (PAY_TEST && CONFIG.plans.some(p => p.testUrl) ? " <b>Test mode:</b> pay with card 4242 4242 4242 4242, any future date and any CVC. Nothing is charged." : "") : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions, 5 Mastery Sheets and 1 mnemonic."}</p>
+    <p class="small muted" style="margin:0">${open ? "🔒 Secure checkout by Lemon Squeezy, our payment partner. Cards are processed by Stripe and never touch 520 Quest. Plans renew automatically at the price shown until you cancel, and can be cancelled anytime. By subscribing you agree to the <a href=\"../terms.html\" target=\"_blank\" rel=\"noopener\">Terms of Use</a>. After you subscribe, sign in with the same email in the Me tab." + (PAY_TEST && CONFIG.plans.some(p => p.testUrl) ? " <b>Test mode:</b> pay with card 4242 4242 4242 4242, any future date and any CVC. Nothing is charged." : "") : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions, 5 Mastery Sheets and 1 mnemonic."}</p>
     <div class="row"><button class="btn ghost" data-close>Not now</button></div>`);
   window.createLemonSqueezy && window.createLemonSqueezy();
 }
