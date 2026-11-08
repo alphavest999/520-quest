@@ -214,8 +214,8 @@ button { cursor: pointer; }
 /* Course tab, gold Mastery Sheets button, Mnemonics Vault */
 .tabs.five { grid-template-columns: repeat(5, 1fr); }
 .tab .tbadge { position: absolute; top: 0; left: 50%; margin-left: 6px; font: 700 9px/1 var(--display); background: #f472b6; color: #fff; border-radius: 99px; padding: 2px 4px; letter-spacing: 0; }
-.goldbtn { width: 100%; min-height: 56px; border: 0; border-radius: 16px; padding: 10px 14px; background: #f472b6; color: #fff; font: 800 16px/1.25 var(--body); display: grid; gap: 4px; justify-items: center; text-align: center; cursor: pointer; animation: goldglow 2s ease-in-out infinite; }
-.goldbtn small { font: 700 11px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; background: rgba(255,255,255,.25); border-radius: 99px; padding: 4px 8px; }
+.goldbtn { width: 100%; min-height: 56px; border: 0; border-radius: 16px; padding: 10px 14px; background: #be185d; color: #fff; font: 800 16px/1.25 var(--body); display: grid; gap: 4px; justify-items: center; text-align: center; cursor: pointer; animation: goldglow 2s ease-in-out infinite; }
+.goldbtn small { font: 700 11px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; background: rgba(0,0,0,.2); border-radius: 99px; padding: 4px 8px; }
 @keyframes goldglow { 0%, 100% { box-shadow: 0 0 0 0 rgba(244, 114, 182, .55); } 50% { box-shadow: 0 0 22px 4px rgba(244, 114, 182, .55); } }
 .backsheet { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(80px + env(safe-area-inset-bottom, 0px)); z-index: 40; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; max-width: calc(100% - 32px); padding: 10px 18px; border: 0; border-radius: 99px; cursor: pointer; font: 800 15px/1.1 var(--display); color: var(--volt-ink); background: var(--volt); box-shadow: 0 0 0 3px rgba(244,114,182,.3), 0 6px 20px rgb(0 0 0 / .45); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); }
@@ -2957,7 +2957,7 @@ function planPhase(d) {
   if (d <= 7) return "Final week: light review, one last half-length early in the week, then rest the day before.";
   if (d <= 28) return "Final month: one full-length a week, and spend the next day reviewing every question you missed or guessed.";
   if (d <= 56) return "Two months out: a full-length every two weeks, with daily questions and your weakest sheets in between.";
-  return "Building phase: daily questions plus one Mastery Sheet concept a day. Start full-lengths about two months out.";
+  return "Building phase: daily questions plus one Mastery Sheet a day. Start full-lengths about two months out.";
 }
 // Free players get 5 sheets; a locked one is named with a lock and never sent as the day's main step.
 const planSheetMeta = id => SHEETS && SHEETS.find(x => x.id === id);
@@ -3010,6 +3010,16 @@ function planSubs(code) {
 }
 // Map labels like "GAV LIMP FW: nonpolar (9)" read as code inside the plan: show "Nonpolar amino acids (GAV LIMP FW)".
 const planSubLabel = l => { const m = /^([A-Z ]+): (.+?) \(\d+\)$/.exec(l); return m ? `${m[2][0].toUpperCase() + m[2].slice(1)} amino acids (${m[1]})` : l; };
+// Strongest areas: categories with enough answers to judge, 75%+ (the Map's green), best first. Keep them warm, don't re-study them.
+function strongHTML() {
+  const top = CATS.filter(c => c[2] !== "CARS" && (S.cat[c[0]] || {}).a >= 4 && S.cat[c[0]].c / S.cat[c[0]].a >= .75)
+    .sort((a, b) => mastery(b[0]) - mastery(a[0])).slice(0, 3).map(c => c[0]);
+  const B = S.baseline, best = B && B.by ? Object.entries(B.by).sort((a, b) => b[1] - a[1])[0] : null;
+  if (!top.length && !best) return "";
+  return `<h4 style="margin:12px 0 4px">Your strongest areas</h4>
+    ${top.length ? `<ul class="small" style="margin:0;padding-left:20px">${top.map(c => `<li><b>${esc(c)}</b> ${esc(CAT[c].title)} <span class="muted">· ${planPct(S.cat[c].c, S.cat[c].a)}% of ${S.cat[c].a}</span></li>`).join("")}</ul>` : ""}
+    <p class="small muted" style="margin:4px 0 0">${best ? `Your best section on the diagnostic: ${esc(SECTIONS[best[0]].name)} (${best[1]}%). ` : ""}${top.length ? "Keep these warm with mixed questions and your Revenge Questions; spend your sheet time on your weakest areas." : "Answer at least 4 questions in a category at 75% or better and it shows up here."}</p>`;
+}
 function stratHTML() {
   const weak = planWeak(); if (!weak.length) return "";
   const done = chkDone();
@@ -3052,12 +3062,13 @@ function planHTML() {
   const base = diagHTML();
   return `<div class="panel" id="planPanel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Your plan</h3><button class="linkbtn small" data-planedit>Change</button></div>
     <p class="small" style="margin:0 0 6px">${d >= 0 ? `<b>${d} day${d === 1 ? "" : "s"}</b> to test day (${esc(niceDate(S.testDate))}).` : ""} ${planPhase(d)}</p>
+    <p class="small" style="margin:6px 0;padding:8px 10px;border-radius:10px;background:var(--panel-2)"><b>Recommended:</b> do 1 Mastery Sheet a day and its Memorization Checklist cards, but start with your weakest areas first.${SHEETS && SHEETS.length ? ` At that pace you'll cover all ${SHEETS.length} sheets in about ${Math.ceil(SHEETS.length / 7)} weeks.` : ""}</p>
     <ol class="small" style="margin:6px 0 0;padding-left:20px">
       ${due ? `<li>Clear your <b>${due}</b> due Revenge question${due === 1 ? "" : "s"} first.</li>` : ""}
       <li>Answer <b>${g}</b> new questions.${S.goal === g ? "" : ` <button class="linkbtn" data-plangoal="${g}">Make this my daily goal</button>`}</li>
       <li>${planSheetOpen(sh) ? `Study one concept at a time. Start with one concept from <button class="linkbtn" data-sheet="${esc(sh)}">Mastery Sheet ${esc(sh)}${meta ? ": " + esc(meta.title) : ""}</button>, then answer its Check yourself questions.`
         : `<button class="linkbtn" data-plandrill="${esc(sh)}"${CAT[sh] ? ` title="${esc(CAT[sh].title)}"` : ""}>Drill ${esc(sh)} on the Map</button> and, for each question you miss, read why each answer choice is right or wrong.${meta ? ` <span class="muted">(Mastery Sheet ${esc(sh)} 🔒 comes with any plan.)</span>` : ""}`}</li>
-    </ol>${stratHTML()}${base}</div>`;
+    </ol>${stratHTML()}${strongHTML()}${base}</div>`;
 }
 // Timed diagnostic: 30 questions, 10 per science section, spread across categories, medium difficulty, not seen before.
 // Clock is the real exam's pace (QZ_PACE s a question). The results set the order of the plan.
