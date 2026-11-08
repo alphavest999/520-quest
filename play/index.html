@@ -2218,7 +2218,9 @@ function loadEx(cat) {
 function exEntry(q) {
   return (q.ex ? Promise.resolve({ [q.id]: q.ex }) : freeExReady.then(() => FREEX[q.id] && !keyReady() ? { [q.id]: FREEX[q.id] } : loadEx(exCat(q)))).then(m => {
     if (m && m.__locked) return m.__locked.includes(q.id) ? "locked" : null;
-    const x = m && m[q.id]; if (!x || !Array.isArray(x.ox) || x.ox.length !== q.o.length) return null;
+    const x = m && m[q.id];
+    if (x && !x.ox && Array.isArray(x.fig)) return { basic: true, fig: x.fig };   // figure-only entry (passage questions)
+    if (!x || !Array.isArray(x.ox) || x.ox.length !== q.o.length) return null;
     return Object.assign({}, x, { ox: q.o.map((_, j) => relet(x.ox[q.ord ? q.ord[j] : j], q.ord)), trap: relet(x.trap, q.ord) });
   });
 }
@@ -2326,7 +2328,7 @@ function tipFor(q) {
 }
 // Fallback "full explanation" for questions without a rich write-up: why the answer is right, why each other
 // choice is wrong (when the bank has it), the concept tested, the trap and a tip for this kind of question.
-function basicFullHTML(q, i = -1) {
+function basicFullHTML(q, i = -1, figs = []) {
   const L = "ABCD", e = esc, X = splitX(q.x), picked = i >= 0 && i !== q.a;
   const real = t => { t = String(t || "").replace(/^(Correct|Incorrect|Wrong)[:.]?\s*/i, "").trim(); return /^(not the best answer)?$/i.test(t) ? "" : t.replace(/^./, c => c.toUpperCase()); };
   const reason = j => real(q.o[j][1]) || X.per[L[j]] || "";
@@ -2337,6 +2339,7 @@ function basicFullHTML(q, i = -1) {
     (others.length ? `<h5>Why the other choices are wrong</h5>${others.map(j => `<p><b>${L[j]}. ${e(q.o[j][0])}</b><br>${e(reason(j))}</p>`).join("")}`
       : X.why ? `<h5>Why the other choices are wrong</h5><p>${e(X.why)}</p>` : "") +
     ((c && c.t) || q.note ? `<h5>Key concept</h5>${c && c.t ? `<p>${e(c.t)} <span class="muted small">(Mastery Sheet ${e(c.sh)}, Concept ${c.n})</span></p>` : ""}${q.note ? `<p>${e(q.note)}</p>` : ""}` : "") +
+    (Array.isArray(figs) ? figs.map(figHTML).join("") : "") +
     (X.trap ? `<p class="trapline"><b>The trap:</b> ${e(X.trap)}</p>` : "") +
     `<h5>How to spot it next time</h5><p>${e(tipFor(q))}</p>`;
 }
@@ -2354,9 +2357,9 @@ function upgradeExplain(rv, q, i, ok, conf) {
       return put(d);
     }
     const box = $(".explain", rv);
-    if (!ok && box) { box.classList.add("rich"); box.innerHTML = x.basic ? basicFullHTML(q, i) : richExplainHTML(q, i, x); renderKx(box); return; }
+    if (!ok && box) { box.classList.add("rich"); box.innerHTML = x.basic ? basicFullHTML(q, i, x.fig) : richExplainHTML(q, i, x); renderKx(box); return; }
     if (!ok) return;
-    const full = document.createElement("div"); full.className = "explain rich"; full.hidden = true; full.innerHTML = x.basic ? basicFullHTML(q) : richExplainHTML(q, i, x);
+    const full = document.createElement("div"); full.className = "explain rich"; full.hidden = true; full.innerHTML = x.basic ? basicFullHTML(q, -1, x.fig) : richExplainHTML(q, i, x);
     const gb = document.createElement("button"); gb.className = "btn small ghost"; gb.dataset.guessbtn = "1"; gb.textContent = "Did you guess? Show the full explanation";
     gb.addEventListener("click", () => { full.hidden = !full.hidden; gb.textContent = full.hidden ? "Did you guess? Show the full explanation" : "Hide the full explanation"; if (!full.hidden) { renderKx(full); full.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" }); } });
     put(gb); put(full);
