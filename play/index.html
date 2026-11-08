@@ -212,7 +212,7 @@ button { cursor: pointer; }
 body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); }
 .sv-doc .qref.flash { animation: qflash 2s ease-out; border-radius: 4px; }
 @keyframes qflash { 0%, 50% { background: rgba(244,114,182,.35); box-shadow: 0 0 0 4px rgba(244,114,182,.35); } 100% { background: none; box-shadow: none; } }
-#goalPanel.flash, #planPanel.flash { animation: goalflash 1.6s ease-out; }
+#goalPanel.flash, #planPanel.flash, #perfPanel.flash { animation: goalflash 1.6s ease-out; }
 @keyframes goalflash { 0%, 40% { box-shadow: 0 0 0 3px var(--volt); } 100% { box-shadow: 0 0 0 0 transparent; } }
 .card.goldcard { display: grid; gap: 10px; align-content: center; }
 .sheetlink { display: flex; gap: 8px; align-items: center; width: 100%; text-align: left; margin-top: 6px; padding: 10px 12px; border-radius: 12px; border: 1px solid #f472b6; background: #fce7f3; color: var(--text); font: 600 14px/1.3 var(--body); cursor: pointer; }
@@ -2865,8 +2865,17 @@ function doneDay() {
       </div>`);
   }, 300);
 }
-// Me page, scrolled to today's performance with "Adjust goals for the day" right below it.
-function showPerf() {
+// Open Me scrolled so the panel with this id sits at the top, and flash it so the eye lands there.
+function meJump(id) {
+  $("#sheetHost").innerHTML = ""; go("me");
+  const v = $("#view-me"), g = document.getElementById(id); if (!g) { v.scrollTop = 0; return; }
+  v.scrollTop += g.getBoundingClientRect().top - v.getBoundingClientRect().top - 12;
+  g.classList.remove("flash"); void g.offsetWidth; g.classList.add("flash");
+}
+// "Review my performance": Me at the Performance panel.
+function showPerf() { meJump("perfPanel"); }
+// "Back to the app" after Done for the Day: Me from the top, today's summary first, goals flashing.
+function showMeTop() {
   $("#sheetHost").innerHTML = ""; go("me");
   $("#view-me").scrollTop = 0;
   const g = $("#goalPanel"); if (g) { g.classList.remove("flash"); void g.offsetWidth; g.classList.add("flash"); }
@@ -3087,7 +3096,7 @@ document.addEventListener("click", e => {
   const pd = e.target.closest("[data-plandrill]"); if (pd) return mapDrill(pd.dataset.plandrill, pd.dataset.plansub);
   const pc = e.target.closest("[data-planchk]"); if (pc) { location.href = "checklist.html#" + encodeURIComponent(pc.dataset.planchk); return; }
   const ps = e.target.closest("[data-plansec]"); if (ps) { S.filter = ps.dataset.plansec; S.kind = null; S.focus = null; S.sub = null; S.review = null; save(); go("scroll"); return resetFeed(); }
-  if (e.target.closest("[data-gome]")) { S.review = null; save(); go("me"); return renderMe(); }
+  if (e.target.closest("[data-gome]")) { S.review = null; save(); return showPlan(); }
 });
 function todaySummaryHTML() {
   const t = S.today; if (!t.doneDay) return "";
@@ -3132,7 +3141,8 @@ document.addEventListener("click", e => {
   if (t.closest("[data-review]")) return startReview();
   if (t.closest("[data-doneday]")) { $("#sheetHost").innerHTML = ""; return doneDay(); }
   if (t.closest("[data-exit]")) return exitApp();
-  if (t.closest("[data-goperf]") || t.closest("[data-byeme]")) return showPerf();
+  if (t.closest("[data-goperf]")) return showPerf();
+  if (t.closest("[data-byeme]")) return showMeTop();
   if (t.closest("[data-bossrev]")) { const ids = (lastBoss && lastBoss.miss) || []; return ids.length ? startReview(ids) : toast("No misses in that battle."); }
   if (t.closest("[data-bossmore]")) { $("#sheetHost").innerHTML = ""; return showGoals(); }
   if (t.closest("[data-more10]")) { $("#sheetHost").innerHTML = ""; return startExtra(); }
@@ -3173,17 +3183,9 @@ function planBtnHTML() {
     : `<button class="goldbtn" data-welplan>🧭 Create customized Action plan<small>${checkPer() < 3 ? (S.testDate ? "See your plan" : "Set your test date to see your plan") : `${S.testDate ? "Take" : "Set your test date, then take"} the ${checkPer() * 3}-question timed diagnostic`}</small></button>`;
 }
 // Me tab, scrolled to Your plan.
-function showPlan() {
-  go("me");
-  const g = $("#planPanel"); if (!g) return;
-  $("#view-me").scrollTop = g.offsetTop - 12; g.classList.remove("flash"); void g.offsetWidth; g.classList.add("flash");
-}
+function showPlan() { meJump("planPanel"); }
 // Me tab, scrolled to the daily goal picker.
-function showGoals() {
-  go("me");
-  const g = $("#goalPanel"); if (!g) return;
-  $("#view-me").scrollTop = g.offsetTop - 12; g.classList.remove("flash"); void g.offsetWidth; g.classList.add("flash");
-}
+function showGoals() { meJump("goalPanel"); }
 function clickSound(){ try{ beep('click'); }catch(e){} }
 function setGoal(n) { 
   clickSound(); 
@@ -3708,7 +3710,7 @@ function proPanel(title, pitch, real, teaser) {
 const SAMPLE_FL = [{ label: "FL 1", score: 506 }, { label: "FL 2", score: 510 }, { label: "FL 3", score: 513 }, { label: "FL 4", score: 517 }, { label: "FL 5", score: 521 }];
 /* ---------- analytics: performance assessment, accuracy and pace by section, trends ---------- */
 function analyticsHTML() {
-  if (S.total < 5) return `<div class="panel"><h3>Performance</h3><p class="small" style="color:var(--volt);font-weight:700;margin:0 0 6px">See MAP for full Breakdown of AAMC Syllabus</p><p class="small muted">Answer 5 questions and your performance report starts here: accuracy and pace by section, your weakest areas, and 14-day trends.</p></div>`;
+  if (S.total < 5) return `<div class="panel" id="perfPanel"><h3>Performance</h3><p class="small" style="color:var(--volt);font-weight:700;margin:0 0 6px">See MAP for full Breakdown of AAMC Syllabus</p><p class="small muted">Answer 5 questions and your performance report starts here: accuracy and pace by section, your weakest areas, and 14-day trends.</p></div>`;
   const secs = ["CP", "CARS", "BB", "PS"].map(sec => {
     const cs = CATS.filter(c => c[2] === sec).map(c => S.cat[c[0]] || {}), a = cs.reduce((x, c) => x + (c.a || 0), 0), cc = cs.reduce((x, c) => x + (c.c || 0), 0), t = cs.reduce((x, c) => x + (c.t || 0), 0);
     return { sec, a, acc: a ? Math.round(cc / a * 100) : null, avg: a && t ? Math.round(t / a) : null };
@@ -3727,7 +3729,7 @@ function analyticsHTML() {
   const days = 14, ks = Array.from({ length: days }, (_, i) => todayKey(Date.now() - (days - 1 - i) * DAY));
   const W = 320, H = 90, bw = (W - 20) / days;
   const accBars = ks.map((k, i) => { const t = S.tlog[k]; if (!t || !t.n) return ""; const v = t.c / t.n, h = Math.max(3, v * (H - 24)); return `<rect x="${10 + i * bw + 2}" y="${H - 16 - h}" width="${bw - 4}" height="${h}" rx="3" fill="${v >= .76 ? "var(--good)" : v >= .61 ? "var(--volt)" : "var(--bad)"}"><title>${k}: ${Math.round(v * 100)}% of ${t.n}</title></rect>`; }).join("");
-  return `<div class="panel"><h3>Performance</h3><p class="small" style="color:var(--volt);font-weight:700;margin:0 0 8px">See MAP for full Breakdown of AAMC Syllabus</p><div class="assess">${lines.map(l => `<p>${l}</p>`).join("")}</div>
+  return `<div class="panel" id="perfPanel"><h3>Performance</h3><p class="small" style="color:var(--volt);font-weight:700;margin:0 0 8px">See MAP for full Breakdown of AAMC Syllabus</p><div class="assess">${lines.map(l => `<p>${l}</p>`).join("")}</div>
     <div class="stack" style="gap:6px">${secs.map(r => `<div class="secrow"><span>${SECTIONS[r.sec].name}</span><span class="meter"><i style="width:${r.acc || 0}%;background:${r.acc === null ? "var(--line)" : r.acc >= 76 ? "var(--good)" : r.acc >= 61 ? "var(--volt)" : "var(--bad)"}"></i></span><b>${r.acc === null ? "–" : r.acc + "%"}</b><span class="muted">${r.avg ? r.avg + " s" : ""}</span></div>`).join("")}</div>
     <p class="small muted" style="margin-top:4px">Accuracy by day, last 14 days</p>
     <svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Daily accuracy, last 14 days">${accBars}<line x1="10" x2="${W - 10}" y1="${H - 16}" y2="${H - 16}" stroke="var(--line)"/><text x="10" y="${H - 3}" font-size="10" fill="var(--muted)">${new Date(ks[0] + "T12:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })}</text><text x="${W - 10}" y="${H - 3}" font-size="10" text-anchor="end" fill="var(--muted)">Today</text></svg>
