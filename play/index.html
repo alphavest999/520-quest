@@ -145,6 +145,7 @@ button { cursor: pointer; }
 .opt small { display: block; color: var(--muted); font-size: 13.5px; margin-top: 4px; line-height: 1.4; }
 .opt.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--panel-2)); }
 .opt.right b { background: var(--good); color: var(--ink); }
+.opt.picked { border-color: var(--volt, #a78bfa); background: color-mix(in srgb, var(--volt, #a78bfa) 14%, var(--panel-2)); }
 .opt.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 12%, var(--panel-2)); }
 .opt.wrong b { background: var(--bad); color: var(--ink); }
 .opt.gone { opacity: .3; pointer-events: none; }
@@ -2118,6 +2119,23 @@ function wireQuestion(scope, q, card) {
     if (!isExamId(q.id) && !canOpen(q)) return showPro();
     optsBox.dataset.done = 1;
     const i = +b.dataset.i, ok = i === q.a, secs = ((Date.now() - (card._shown || card._made || Date.now())) / 1000);
+    // Timed diagnostic: exam conditions, so no right/wrong, answer reasons or explanations until the analysis at the end.
+    if (S.review && S.review.kind === "check" && S.review.ids.includes(q.id)) {
+      $$(".opt", optsBox).forEach((o, j) => { o.disabled = true; if (j === i) o.classList.add("picked"); });
+      if (S.resume === q.id) S.resume = null;
+      const conf = optsBox.dataset.conf || ""; confBox.classList.add("locked");
+      record(q, ok, secs);
+      if (S.stats[q.id] && S.stats[q.id].a === 1 && typeof logAnswer === "function") logAnswer(q.id, q.ord ? q.ord[i] : i, ok);
+      if (ok && conf === "guess") { S.revenge[q.id] = { box: 0, due: Date.now() + 20 * 3600000 }; save(); }
+      else if (ok && conf === "think" && !S.revenge[q.id]) { S.revenge[q.id] = { box: 1, due: Date.now() + 3 * DAY }; save(); }
+      beep("click");
+      const rv = $(".reveal", scope); rv.hidden = false;
+      rv.innerHTML = `<div class="note">Answer ${"ABCD"[i]} saved. You'll see how you did in your diagnostic analysis at the end.</div><div class="row"><button class="btn small" data-next>Next question</button></div>`;
+      const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
+      $("[data-next]", rv).addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
+      const h = $("[data-hint]", scope); if (h) h.disabled = true;
+      return;
+    }
     $$(".opt", optsBox).forEach((o, j) => {
       o.disabled = true;
       if (j === q.a) o.classList.add("right"); else if (j === i) o.classList.add("wrong");
@@ -2855,7 +2873,7 @@ function reviewDoneCard() {
   const kind = (S.review || {}).kind, title = kind === "quiz" ? "Custom quiz complete" : kind === "check" ? "Diagnostic complete" : "Revenge Queue complete";
   el.innerHTML = `<div class="eyebrow">${title}</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
     <p class="muted" style="margin:0">Anything you missed again comes back in your Revenge Queue on a 1, 3 and 7 day schedule.</p>
-    <div class="row"><button class="btn primary" data-more10 style="flex:1">Do ${ROUND} more questions</button><button class="btn" data-doneday style="flex:1">Done for the day</button></div>`;
+    <div class="row">${kind === "check" ? `<button class="btn primary" data-gome style="flex:1">See my diagnostic analysis</button>` : `<button class="btn primary" data-more10 style="flex:1">Do ${ROUND} more questions</button><button class="btn" data-doneday style="flex:1">Done for the day</button>`}</div>`;
   return el;
 }
 function exitApp() {
@@ -3016,6 +3034,7 @@ function stratHTML() {
 function planHTML() {
   if (!S.testDate || S.planEdit) {
     return `<div class="panel" id="planPanel"><h3>Your plan</h3><p class="small" style="margin:0 0 8px">Tell us when your MCAT is and how much time you have. We'll turn it into a short list for each day.</p>
+      <p class="small" style="margin:0 0 8px;padding:8px 10px;border-radius:10px;background:var(--panel-2)"><b>A test date is required to generate your plan.</b> Not sure yet? Pick a date about 6 months away. You can change it any time. <button class="linkbtn" data-plan6m>Use 6 months from today</button></p>
       <div class="row"><label class="small">Test date <input type="date" id="planDate" value="${esc(S.testDate || "")}"></label>
       <label class="small">Hours a week <select id="planHours">${PLAN_HOURS.map(h => `<option value="${h}" ${(S.hoursWk || 10) === h ? "selected" : ""}>${h === 30 ? "30+" : h}</option>`).join("")}</select></label>
       <button class="btn small primary" data-plansave>Save</button></div></div>`;
@@ -3087,7 +3106,7 @@ function checkDone() {
     <p class="muted" style="margin-top:0">${order.map(([k, v]) => `${esc(SECTIONS[k].name)} <b>${v}%</b>`).join(" · ")}</p>
     <p class="muted">Time used ${mmss(used)}${pace ? `, about ${pace} s per question (exam pace is ${QZ_PACE} s)` : ""}.${unreached ? ` ${unreached} question${unreached === 1 ? "" : "s"} not reached, counted as wrong like on test day.` : ""}</p>
     <p class="muted">This is your starting line, not a score. ${inRev ? `<b>${inRev}</b> question${inRev === 1 ? "" : "s"} you ${slow ? "missed, guessed on or answered too slowly" : "missed or guessed on"} ${inRev === 1 ? "is" : "are"} in your Revenge Questions. ` : ""}Your plan on the Me page now starts with ${order.length ? esc(SECTIONS[order[0][0]].name) : "your weakest section"}${S.baseline.weak ? (planSheetOpen(S.baseline.weak) ? `, Mastery Sheet ${esc(S.baseline.weak)} first` : `, drilling ${esc(S.baseline.weak)} first`) : ""}, with a study loop for each weak area.</p>
-    <div class="row"><button class="btn primary" data-close data-gome>See my plan</button><button class="btn" data-close data-more10>Do ${ROUND} more questions</button></div>`);
+    <div class="row"><button class="btn primary" data-close data-gome>See my diagnostic analysis</button></div>`);
 }
 // What the diagnostic says to do, shown inside Your plan.
 function diagHTML() {
@@ -3111,6 +3130,7 @@ document.addEventListener("click", e => {
     if (!d) return toast("Pick your test date first.");
     S.testDate = d; S.hoursWk = h; S.planEdit = false; save(); return renderMe();
   }
+  if (e.target.closest("[data-plan6m]")) { const d = new Date(); d.setMonth(d.getMonth() + 6); const el = $("#planDate"); if (el) el.value = d.toISOString().slice(0, 10); return; }
   if (e.target.closest("[data-planedit]")) { S.planEdit = true; return renderMe(); }
   const pg = e.target.closest("[data-plangoal]"); if (pg) { S.goal = +pg.dataset.plangoal; S.goalSet = true; save(); renderHUD(); toast(`Daily goal set to ${S.goal}.`); return renderMe(); }
   if (e.target.closest("[data-startcheck]")) return checkStart();
