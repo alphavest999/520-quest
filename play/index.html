@@ -3060,7 +3060,8 @@ function planHTML() {
       <li>Answer <b>${g}</b> new questions.${S.goal === g ? "" : ` <button class="linkbtn" data-plangoal="${g}">Make this my daily goal</button>`}</li>
       <li>${planSheetOpen(sh) ? `Study one concept at a time. Start with one concept from <button class="linkbtn" data-sheet="${esc(sh)}">Mastery Sheet ${esc(sh)}${meta ? ": " + esc(meta.title) : ""}</button>, then answer its Check yourself questions.`
         : `<button class="linkbtn" data-plandrill="${esc(sh)}"${CAT[sh] ? ` title="${esc(CAT[sh].title)}"` : ""}>Drill ${esc(sh)} on the Map</button> and, for each question you miss, read why each answer choice is right or wrong.${meta ? ` <span class="muted">(Mastery Sheet ${esc(sh)} 🔒 comes with any plan.)</span>` : ""}`}</li>
-    </ol>${stratHTML()}${strongHTML()}${base}</div>`;
+    </ol>${stratHTML()}${strongHTML()}${base}
+    <button class="btn adjgoal" data-todayplan style="width:100%;margin-top:12px">Go to Today's plan</button></div>`;
 }
 // Timed diagnostic: 30 questions, 10 per science section, spread across categories, medium difficulty, not seen before.
 // Clock is the real exam's pace (QZ_PACE s a question). The results set the order of the plan.
@@ -3148,6 +3149,7 @@ document.addEventListener("click", e => {
     S.testDate = d; S.hoursWk = h; S.planEdit = false; save(); return renderMe();
   }
   if (e.target.closest("[data-plan6m]")) { const d = new Date(); d.setMonth(d.getMonth() + 6); const el = $("#planDate"); if (el) el.value = d.toISOString().slice(0, 10); return; }
+  if (e.target.closest("[data-todayplan]")) return showGoals();
   if (e.target.closest("[data-planedit]")) { S.planEdit = true; return renderMe(); }
   const pg = e.target.closest("[data-plangoal]"); if (pg) { S.goal = +pg.dataset.plangoal; S.goalSet = true; save(); renderHUD(); toast(`Daily goal set to ${S.goal}.`); return renderMe(); }
   if (e.target.closest("[data-startcheck]")) return checkStart();
