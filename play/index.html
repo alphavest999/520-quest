@@ -2616,7 +2616,7 @@ function showRound(r, first) {
   if (first) confetti(); beep("level");
   sheet(`<div class="eyebrow">${first ? "Daily goal complete" : "Round complete"}</div><h2>${r.c} of ${r.a} right${first ? " today" : " this round"}.</h2>
     <p class="muted">${S.today.answered} questions today at ${acc}% accuracy. Streak: <b style="color:var(--heat)">${streakAlive()} day${streakAlive() === 1 ? "" : "s"}</b>.</p>
-    <div class="row"><button class="btn primary" data-close data-more10>Do ${ROUND} more questions</button><button class="btn" data-close data-doneday>Done for the day</button></div>`);
+    <div class="row"><button class="btn primary" data-close data-more10>${drillLabel()}</button><button class="btn" data-close data-doneday>Done for the Day</button></div>`);
 }
 // After finishing a review: same two choices. Done for the day then skips "Review my answers".
 function reviewPrompt() {
@@ -2628,7 +2628,7 @@ function reviewPrompt() {
   beep("level");
   sheet(`<div class="eyebrow">Review complete</div><h2>${R.right} mastered, ${R.wrong} still in your Revenge Queue.</h2>
     <p class="muted">Anything you missed again comes back on a 1, 3 and 7 day schedule.</p>
-    <div class="row"><button class="btn primary" data-close data-more10>Do ${ROUND} more questions</button><button class="btn" data-close data-doneday>Done for the day</button></div>`);
+    <div class="row"><button class="btn primary" data-close data-more10>${drillLabel()}</button><button class="btn" data-close data-doneday>Done for the Day</button></div>`);
 }
 function showDone() {
   const acc = S.today.answered ? Math.round(S.today.correct / S.today.answered * 100) : 0;
@@ -2674,7 +2674,7 @@ function showResults() {
     <div class="panel"><h3>Time per question</h3><p class="small muted">Today: <b style="color:var(--text)">${nowAvg} s</b> average.${pace}</p>${timeTrendSVG()}</div>
     <div class="pair"><button class="btn review" data-review ${miss ? "" : "disabled"}>${miss ? `Review mistakes (${miss})` : "No mistakes today"}</button><button class="btn" data-doneday>Done for the Day</button></div>
     ${ankiRow()}
-    <div class="subacts"><button class="linkbtn" data-more10>Not tired? Play another ${ROUND}</button><button class="linkbtn" data-share>Share my streak</button></div>
+    <div class="subacts"><button class="linkbtn" data-more10>Not tired? ${drillLabel()}</button><button class="linkbtn" data-share>Share my streak</button></div>
   </div>`;
 }
 // Today's wins come before accuracy: fixed mistakes and mastered questions are progress even on a low-accuracy day.
@@ -2867,7 +2867,7 @@ function quizDone() {
   beep("level");
   sheet(`<div class="eyebrow">Custom quiz done</div><h2>${R.right} of ${n} right (${pct}%).</h2>
     <p class="muted">Time used ${mmss(used)}, about ${n ? Math.round(used / n) : 0} s per question (exam pace is ${QZ_PACE} s). Your misses are in your Revenge Queue.</p>
-    <div class="row"><button class="btn primary" data-close data-quizopen>Build another quiz</button>${misses.length ? `<button class="btn" data-close data-qzmiss="${esc(misses.join(","))}">Retry my ${misses.length} miss${misses.length === 1 ? "" : "es"}</button>` : ""}<button class="btn ghost" data-close data-doneday>Done for the day</button></div>`);
+    <div class="row"><button class="btn primary" data-close data-quizopen>Build another quiz</button>${misses.length ? `<button class="btn" data-close data-qzmiss="${esc(misses.join(","))}">Retry my ${misses.length} miss${misses.length === 1 ? "" : "es"}</button>` : ""}<button class="btn ghost" data-close data-doneday>Done for the Day</button></div>`);
 }
 document.addEventListener("click", e => {
   if (e.target.closest("[data-quizopen]")) { setTimeout(quizSheet, 0); return; }
@@ -2885,7 +2885,7 @@ function reviewDoneCard() {
   const kind = (S.review || {}).kind, title = kind === "quiz" ? "Custom quiz complete" : kind === "check" ? "Diagnostic complete" : "Revenge Queue complete";
   el.innerHTML = `<div class="eyebrow">${title}</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
     <p class="muted" style="margin:0">Anything you missed again comes back in your Revenge Queue on a 1, 3 and 7 day schedule.</p>
-    <div class="row">${kind === "check" ? `<button class="btn primary" data-gome style="flex:1">See my diagnostic analysis</button>` : `<button class="btn primary" data-more10 style="flex:1">Do ${ROUND} more questions</button><button class="btn" data-doneday style="flex:1">Done for the day</button>`}</div>`;
+    <div class="row">${kind === "check" ? `<button class="btn primary" data-gome style="flex:1">See my diagnostic analysis</button>` : `<button class="btn primary" data-more10 style="flex:1">${drillLabel()}</button><button class="btn" data-doneday style="flex:1">Done for the Day</button>`}</div>`;
   return el;
 }
 function exitApp() {
@@ -2900,7 +2900,9 @@ function exitApp() {
 }
 /* ---------- Done for the Day: land on Me with today's summary; same-day return opens Me ---------- */
 function doneDay() {
-  S.today.doneDay = true; S.today.bonusAt = 0; S.review = null; S.resume = null; extraRound = false; save();
+  S.today.doneDay = true; S.today.bonusAt = 0; S.review = null; S.resume = null; extraRound = false;
+  if (S.weakDrill) { S.focus = null; S.sub = null; S.weakDrill = false; } // the weakest-category drill ends with the day
+  save();
   go("me"); 
   setTimeout(()=>{
     const perf = document.querySelector("#view-me .panel h3") || $("#goalPanel");
@@ -3159,20 +3161,34 @@ function todaySummaryHTML() {
   return `<div class="panel" id="todaySum"><div class="eyebrow">Done for the Day 🎉</div><h3>Today's summary</h3>
     <div class="grid2"><div class="stat"><b>${acc}%</b><span>accuracy today (${t.correct} of ${t.answered})</span></div><div class="stat"><b>${revCount()}</b><span>in your Revenge Queue</span></div></div>
     <h4 style="margin:12px 0 4px">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h4>${levelBarHTML()}
-    <p class="small muted" style="margin:8px 0 0">See you tomorrow. Want more today? <button class="linkbtn" data-more10>Do ${ROUND} more for +50 XP</button></p></div>`;
+    <p class="small muted" style="margin:8px 0 0">See you tomorrow. Want more today? <button class="linkbtn" data-more10>${drillLabel()} for +50 XP</button></p></div>`;
 }
 var extraRound = false, morePromptOpen = false; // var: renderHUD can run before this line
 // From Me the second choice is "Stay in Me"; from anywhere else it is "Done for the day".
 function morePrompt(fromMe = true) {
   if (morePromptOpen || $("#sheetHost .scrim")) return;
   morePromptOpen = true;
-  sheet(`<div class="eyebrow">Done for the Day 🎉</div><h2>Want to do another ${ROUND} for +50 XP?</h2>
-    <div class="row"><button class="btn primary" data-more10 data-close>Do ${ROUND} more questions</button><button class="btn" data-close data-doneday>Done for the day</button></div>`);
+  sheet(`<div class="eyebrow">Done for the Day 🎉</div><h2>Want to drill ${ROUND} more for +50 XP?</h2>
+    <div class="row"><button class="btn primary" data-more10 data-close>${drillLabel()}</button><button class="btn" data-close data-doneday>Done for the Day</button></div>`);
   const host = $("#sheetHost"), obs = new MutationObserver(() => { if (!host.innerHTML) { morePromptOpen = false; obs.disconnect(); } }); obs.observe(host, { childList: true });
 }
+// Extra rounds after the daily goal drill the weakest MAP category: live weak areas, then the diagnostic,
+// then the lowest-accuracy category tried so far. Null (mixed feed) only before any science question is answered.
+function weakestCat() {
+  const w = planWeak()[0]; if (w) return w;
+  const tried = CATS.filter(c => c[2] !== "CARS" && (S.cat[c[0]] || {}).a > 0).sort((a, b) => mastery(a[0]) - mastery(b[0]));
+  return tried.length ? tried[0][0] : null;
+}
+function drillLabel() {
+  const w = weakestCat();
+  return `Drill ${ROUND} MAP Questions from your weakest category${w ? ` (${esc(w)})` : ""}`;
+}
 function startExtra() {
+  const w = weakestCat();
+  if (w) { S.focus = w; S.sub = null; S.kind = null; S.mapSub = null; S.weakDrill = true; }
   const t = S.today; extraRound = true; S.review = null; t.goalShown = true; t.next = t.answered + ROUND; t.bonusAt = t.next; t.rs = { a: t.answered, c: t.correct }; save();
   go("scroll"); resetFeed(); renderHUD();
+  if (w) toast(`Drilling your weakest MAP category: <b>${esc(w)}</b>${CAT[w] ? " · " + esc(CAT[w].title) : ""}.`);
 }
 // After Done for the Day, trying to keep scrolling (swipe up past the end of Me, or opening Scroll or Boss) asks first.
 (function () {
@@ -3381,7 +3397,7 @@ function bossEnd() {
   $("#view-boss").innerHTML = `<div class="stack"><div class="eyebrow">${won ? "Victory" : "Defeated"}</div><h2 class="title">${won ? esc(B.boss.name) + " falls." : esc(B.boss.name) + " survives this time."}</h2>
     <div class="grid2"><div class="panel stat"><b>${B.right}/${B.i}</b><span>correct</span></div><div class="panel stat"><b>+${B.xp + (won ? 100 : 0)}</b><span>XP earned${won ? " incl. 100 victory bonus" : ""}</span></div></div>
     <p class="muted">${gate ? (won ? `You are now Level ${S.lv.level}, ${esc(tierName(S.lv.level))}.${S.lv.pending ? " Your accuracy qualifies you for more: the next Gatekeeper is ready." : ""}` : "The Gatekeeper holds. Clear your Revenge Queue and try again; your qualification doesn't expire.") : won ? "Your misses were added to the Revenge queue." : "Every miss is now in your Revenge queue. Clear those, then rematch."}</p>
-    <div class="row"><button class="btn primary" data-lobby>Back to Bosses</button><button class="btn" data-doneday>Done for the day</button></div></div>`;
+    <div class="row"><button class="btn primary" data-lobby>Back to Bosses</button><button class="btn" data-doneday>Done for the Day</button></div></div>`;
   lastBoss = { miss: B.miss.slice() }; B = null; syncMusic();
   const nm = lastBoss.miss.length;
   setTimeout(() => { if ($("#view-boss").hidden || $("#sheetHost .scrim")) return; sheet(`<div class="eyebrow">Boss challenge complete</div><h2>What next?</h2>
