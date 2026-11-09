@@ -1838,7 +1838,8 @@ function renderHUD() {
   $("#hudRank").innerHTML = acc === null ? esc(tierName(L)) : `${acc}% acc<span class="rk-tier"> · ${esc(tierName(L))}</span>`;
   $("#hudRank").title = `Live accuracy ${acc === null ? "–" : acc + "%"} · ${n} of ${EVAL_N} questions to the next level evaluation`;
   $("#hudXp").style.width = n / EVAL_N * 100 + "%"; $("#hudXp").style.background = "var(--volt)";
-  const tgt = S.today.doneDay && !extraRound ? S.goal : S.today.goalShown && S.today.next ? S.today.next : S.goal;
+  // Green counter: the daily goal, plus 10 for each weakest-category drill the player chose (saved, so it survives a reload).
+  const tgt = Math.max(S.goal, S.today.drillTgt || 0);
   // During the timed diagnostic the green counter tracks the diagnostic itself, not the daily goal.
   const DR = S.review && S.review.kind === "check" ? S.review : null;
   $("#hudGoalTxt").textContent = DR ? Math.min(DR.ids.length, DR.done.length + 1) + "/" + DR.ids.length : Math.min(S.today.answered, tgt) + "/" + tgt;
@@ -3192,7 +3193,7 @@ function drillLabel() {
 function startExtra() {
   const w = weakestCat();
   if (w) { S.focus = w; S.sub = null; S.kind = null; S.mapSub = null; S.weakDrill = true; }
-  const t = S.today; extraRound = true; S.review = null; t.goalShown = true; t.next = t.answered + ROUND; t.bonusAt = t.next; t.rs = { a: t.answered, c: t.correct }; save();
+  const t = S.today; extraRound = true; S.review = null; t.drillTgt = Math.max(S.goal, t.answered, t.drillTgt || 0) + ROUND; t.goalShown = true; t.next = t.answered + ROUND; t.bonusAt = t.next; t.rs = { a: t.answered, c: t.correct }; save();
   go("scroll"); resetFeed(); renderHUD();
   if (w) toast(`Drilling your weakest MAP category: <b>${esc(w)}</b>${CAT[w] ? " · " + esc(CAT[w].title) : ""}.`);
 }
