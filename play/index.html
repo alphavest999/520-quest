@@ -217,6 +217,7 @@ button { cursor: pointer; }
 .tab .tbadge { position: absolute; top: 0; left: 50%; margin-left: 6px; font: 700 9px/1 var(--display); background: #f472b6; color: #fff; border-radius: 99px; padding: 2px 4px; letter-spacing: 0; }
 .goldbtn { width: 100%; min-height: 56px; border: 0; border-radius: 16px; padding: 10px 14px; background: #be185d; color: #fff; font: 800 16px/1.25 var(--body); display: grid; gap: 4px; justify-items: center; text-align: center; cursor: pointer; animation: goldglow 2s ease-in-out infinite; }
 .goldbtn small { font: 700 11px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; background: rgba(0,0,0,.2); border-radius: 99px; padding: 4px 8px; }
+.goldbtn.greenbtn { background: var(--good); animation: none; }
 @keyframes goldglow { 0%, 100% { box-shadow: 0 0 0 0 rgba(244, 114, 182, .55); } 50% { box-shadow: 0 0 22px 4px rgba(244, 114, 182, .55); } }
 .backsheet { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(80px + env(safe-area-inset-bottom, 0px)); z-index: 40; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; max-width: calc(100% - 32px); padding: 10px 18px; border: 0; border-radius: 99px; cursor: pointer; font: 800 15px/1.1 var(--display); color: var(--volt-ink); background: var(--volt); box-shadow: 0 0 0 3px rgba(244,114,182,.3), 0 6px 20px rgb(0 0 0 / .45); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); }
@@ -3247,10 +3248,12 @@ function welcomeBack() {
     ${S.testDate ? `<p class="small" style="margin:0;text-align:center">${planLine()}</p>` : ""}
     <button class="btn primary" data-welstart style="font-size:18px;padding:16px">Start today's quest</button>
     <button class="btn adjgoal" data-welgoal>Adjust goals for the day</button>
+    <button class="goldbtn greenbtn" data-welquiz>🛠️ Build your own Quiz<small>Pick sections, topics, difficulty, and timed or tutor mode</small></button>
     ${planBtnHTML()}`,
     s => s.addEventListener("click", e => {
       if (e.target.closest("[data-welstart]")) { $("#sheetHost").innerHTML = ""; if (S.goalSet) go("scroll"); else customGoal(); }
       else if (e.target.closest("[data-welgoal]")) { $("#sheetHost").innerHTML = ""; showGoals(); }
+      else if (e.target.closest("[data-welquiz]")) { $("#sheetHost").innerHTML = ""; showQuizBuilder(); }
       else if (e.target.closest("[data-welplan]")) { $("#sheetHost").innerHTML = ""; showPlan(); }
     }));
 }
@@ -3262,6 +3265,11 @@ function planBtnHTML() {
 }
 // Me tab, scrolled to Your plan.
 function showPlan() { meJump("planPanel"); }
+// Map tab, scrolled to the top where "Build your own quiz" sits.
+function showQuizBuilder() {
+  go("map"); $("#view-map").scrollTop = 0; window.scrollTo(0, 0);
+  const g = $("#view-map .quizpanel"); if (g) { g.classList.remove("flash"); void g.offsetWidth; g.classList.add("flash"); }
+}
 // Me tab, scrolled to the daily goal picker.
 function showGoals() { meJump("goalPanel"); }
 function clickSound(){ try{ beep('click'); }catch(e){} }
