@@ -15,6 +15,7 @@
 <script src="gen.js"></script>
 <script src="music.js"></script>
 <script src="chk-sheets.js"></script>
+<script src="supfix.js"></script>
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-180.png">
 <meta name="apple-mobile-web-app-title" content="520 Quest">
@@ -2193,8 +2194,16 @@ function wireQuestion(scope, q, card) {
 }
 function explainHTML(q, i) {
   const L = "ABCD", e = esc;
-  return `<div class="explain" data-exq="${e(q.id)}"><h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4><p>${e(q.o[q.a][1].replace(/^Correct[:.]?\s*/i, ""))}</p>${q.x ? `<p>${e(q.x)}</p>` : ""}
+  return `<div class="explain" data-exq="${e(q.id)}"><h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4><p>${e(q.o[q.a][1].replace(/^Correct[:.]?\s*/i, ""))}</p>${q.x ? `<p>${e(q.x)}</p>` : ""}${expTipHTML(q)}
     ${i >= 0 && i !== q.a ? `<h4 class="miss">Your answer: ${L[i]}. ${e(q.o[i][0])}</h4><p>${e(q.o[i][1])}</p>` : ""}${q.note ? `<p class="muted"><b>Takeaway:</b> ${e(q.note)}</p>` : ""}</div>`;
+}
+// Exponent questions (powers of ten in the choices, or in a calculation stem): a bold tip in the explanation.
+const EXP_POW = /10\s*[⁻⁺]?[⁰¹²³⁴-⁹]+|10\s*\^\s*\{?[-−]?\d/;
+function expTipHTML(q) {
+  const opts = (q.o || []).map(o => Array.isArray(o) ? o[0] : o).join(" ");
+  const numOpts = (q.o || []).filter(o => /\d/.test(Array.isArray(o) ? o[0] : o) && String(Array.isArray(o) ? o[0] : o).length < 40).length >= 3;
+  if (!EXP_POW.test(opts) && !(numOpts && EXP_POW.test(String(q.q || "")))) return "";
+  return `<p class="exptip"><b>Don't be afraid of questions with exponents, because they may be the easiest. All you do is follow the laws of exponents: add the exponents when you multiply, and subtract them when you divide.</b></p>`;
 }
 /* ---------- Rich explanations: bank/ex/<CAT>.json, fetched the first time a category's explanation opens ---------- */
 const EX = {};
@@ -2240,9 +2249,9 @@ function texify(s) {
   t = t.replace(/½/g, "\\frac{1}{2}").replace(/[−–]/g, "-").replace(/×/g, " \\times ").replace(/·/g, " \\cdot ").replace(/\u2260/g, " \\neq ").replace(/≈/g, " \\approx ").replace(/∝/g, " \\propto ").replace(/→/g, " \\to ").replace(/≤/g, " \\le ").replace(/≥/g, " \\ge ");
   t = t.replace(/Δ/g, "\\Delta ").replace(/[µμ]/g, "\\mu ").replace(/π/g, "\\pi ").replace(/η/g, "\\eta ").replace(/ρ/g, "\\rho ").replace(/λ/g, "\\lambda ").replace(/τ/g, "\\tau ").replace(/θ/g, "\\theta ").replace(/ω/g, "\\omega ").replace(/Σ/g, "\\Sigma ");
   t = t.replace(/√\s*\(([^)]*)\)/g, "\\sqrt{$1}").replace(/√(\w+)/g, "\\sqrt{$1}");
-  const sub = { "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4", "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9" }, sup = { "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁺": "+", "⁻": "-" };
+  const sub = { "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4", "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9" }, sup = { "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5", "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9", "⁺": "+", "⁻": "-" };
   t = t.replace(/([A-Za-z\)\]])([₀-₉]+)/g, (m, a, b) => a + "_{" + [...b].map(c => sub[c]).join("") + "}");
-  t = t.replace(/([A-Za-z0-9\)\]])([⁰¹²³⁴⁺⁻]+)/g, (m, a, b) => a + "^{" + [...b].map(c => sup[c]).join("") + "}");
+  t = t.replace(/([A-Za-z0-9\)\]])([⁰¹²³⁴-⁹⁺⁻]+)/g, (m, a, b) => a + "^{" + [...b].map(c => sup[c]).join("") + "}");
   t = t.replace(/\b([A-Za-z]+)(\d+)\b/g, "$1_{$2}");   // A1 -> A_{1}, O2 -> O_{2}
   t = t.replace(/\^(\d+|\w)/g, "^{$1}");
   t = t.replace(/([\w}\)\]])\s+x\s+(?=[\w(\\\[])/g, "$1 \\times ");          // "L x W" -> L \times W
@@ -2283,7 +2292,7 @@ function richExplainHTML(q, i, x) {
   const fx = arr(x.fx).filter(f => f && f.f), steps = arr(x.steps), refs = arr(x.ref).filter(r => r && /^https?:\/\//i.test(r.u || ""));
   const fm = arr(x.fm).filter(f => f && f.f), mem = arr(x.mem);
   const plain = x.plain ? `<p class="plainbox"><b>In plain words:</b> ${e(x.plain)}</p>` : "";
-  return (picked ? plain : "") + `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4><p>${e(x.ox[q.a])}</p>` +
+  return (picked ? plain : "") + `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4><p>${e(x.ox[q.a])}</p>${i >= 0 && i !== q.a ? expTipHTML(q) : ""}` +
     (picked ? "" : plain) +
     (mem.length ? `<h5>High-yield</h5><ul class="mem">${mem.map(m => `<li>${e(m)}</li>`).join("")}</ul>` : "") +
     (picked ? `<h4 class="miss">Your answer: ${L[i]}. ${e(q.o[i][0])}</h4><p>${e(x.ox[i])}</p>` : "") +
@@ -2336,7 +2345,7 @@ function basicFullHTML(q, i = -1, figs = []) {
   const reason = j => real(q.o[j][1]) || X.per[L[j]] || "";
   const top = real(q.o[q.a][1]), c = typeof conceptOf === "function" ? conceptOf(q) : null;
   const others = q.o.map((_, j) => j).filter(j => j !== q.a && j !== i && reason(j));
-  return `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4>${top && top !== X.main ? `<p>${e(top)}</p>` : ""}${X.main ? `<p>${e(X.main)}</p>` : ""}` +
+  return `<h4>Correct answer: ${L[q.a]}. ${e(q.o[q.a][0])}</h4>${top && top !== X.main ? `<p>${e(top)}</p>` : ""}${X.main ? `<p>${e(X.main)}</p>` : ""}${picked ? expTipHTML(q) : ""}` +
     (picked ? `<h4 class="miss">Your answer: ${L[i]}. ${e(q.o[i][0])}</h4>${reason(i) ? `<p>${e(reason(i))}</p>` : ""}` : "") +
     (others.length ? `<h5>Why the other choices are wrong</h5>${others.map(j => `<p><b>${L[j]}. ${e(q.o[j][0])}</b><br>${e(reason(j))}</p>`).join("")}`
       : X.why ? `<h5>Why the other choices are wrong</h5><p>${e(X.why)}</p>` : "") +
