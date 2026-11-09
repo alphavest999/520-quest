@@ -389,6 +389,46 @@ a { color: var(--volt); }
 #qzBox { min-width: 0; } #qzBox .qzsel { width: 100%; max-width: 100%; text-overflow: ellipsis; }
 @keyframes up { from { transform: translateY(30px); opacity: 0; } }
 .sheet h2 { margin: 0; font: 700 24px/1.15 var(--display); text-wrap: balance; }
+/* Plans page: calm navy + mint, high-contrast text, one clear Continue button */
+.sheet.plansheet { padding-top: 0; gap: 14px; max-height: 94%; background: #f8fafc; }
+.pl-hero { position: relative; margin: 0 -16px; min-height: 178px; border-radius: 22px 22px 0 0; overflow: hidden; background: #0b1636; color: #fff; display: flex; align-items: flex-end; }
+.pl-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 40%; }
+.pl-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,17,45,.88) 0%, rgba(8,17,45,.55) 55%, rgba(8,17,45,.05) 100%), linear-gradient(0deg, rgba(8,17,45,.55), transparent 55%); }
+.pl-hero-in { position: relative; z-index: 1; padding: 34px 20px 18px; max-width: 360px; }
+.pl-eye { font: 700 11px/1 var(--display); letter-spacing: .18em; text-transform: uppercase; color: #5eead4; }
+.sheet .pl-hero h2 { margin: 8px 0 6px; font: 700 28px/1.1 var(--display); color: #fff; }
+.pl-hero p { margin: 0; font-size: 15px; line-height: 1.45; color: #dbeafe; }
+.pl-feats { list-style: none; margin: 0; padding: 14px; display: grid; gap: 9px; background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; }
+.pl-feats li { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; line-height: 1.35; color: #0f172a; }
+.pl-feats svg { width: 20px; height: 20px; flex: none; margin-top: 0; }
+.pl-opts { display: grid; gap: 10px; }
+.pl-opt { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 14px; border-radius: 16px; border: 1.5px solid #cbd5e1; background: #fff; color: #0f172a; transition: border-color .15s, box-shadow .15s, background .15s; }
+.pl-opt:hover { border-color: #94a3b8; }
+.pl-opt[aria-checked="true"] { border: 2px solid #1e3a8a; padding: 13.5px; background: #eff6ff; box-shadow: 0 6px 18px rgba(30,58,138,.14); }
+.pl-dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #94a3b8; background: #fff; }
+.pl-opt[aria-checked="true"] .pl-dot { border: 6px solid #1e3a8a; }
+.pl-name { display: grid; gap: 2px; }
+.pl-name b { font: 700 17px/1.2 var(--display); }
+.pl-best { justify-self: start; margin-top: 3px; font: 700 10.5px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; padding: 5px 8px; border-radius: 99px; background: #0f766e; color: #fff; }
+.pl-sub { font-size: 13.5px; color: #475569; }
+.pl-pm { display: grid; justify-items: end; gap: 1px; text-align: right; }
+.pl-pm b { font: 700 20px/1.1 var(--display); color: #0f172a; font-variant-numeric: tabular-nums; }
+.pl-pm span { font-size: 12px; color: #475569; }
+.pl-pm em { font-style: normal; font: 700 12px/1.2 var(--body); color: #0f766e; margin-top: 2px; }
+.pl-cta { position: sticky; bottom: calc(-20px - env(safe-area-inset-bottom, 0px)); z-index: 2; margin: 0 -16px; padding: 10px 16px calc(12px + env(safe-area-inset-bottom, 0px)); background: linear-gradient(rgba(248,250,252,0), #f8fafc 22%); }
+.pl-go { display: flex; align-items: center; justify-content: center; min-height: 54px; padding: 14px 18px; border-radius: 14px; border: 0; background: linear-gradient(135deg, #1e3a8a, #1d4ed8); color: #fff; font: 700 17px/1.2 var(--body); text-decoration: none; text-align: center; box-shadow: 0 10px 24px rgba(29,78,216,.28); transition: transform .12s, box-shadow .12s; }
+.pl-go:hover { transform: translateY(-1px); box-shadow: 0 14px 28px rgba(29,78,216,.34); }
+.pl-go[hidden] { display: none; }
+.pl-go:disabled { background: #cbd5e1; color: #334155; box-shadow: none; }
+.pl-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; font-size: 13px; font-weight: 600; color: #334155; }
+.pl-trust span { display: inline-flex; align-items: center; gap: 6px; }
+.pl-trust svg { width: 17px; height: 17px; color: #0f766e; }
+.pl-trust a { color: #1e3a8a; }
+.pl-fine { margin: 0; font-size: 12.5px; line-height: 1.5; color: #475569; }
+.pl-fine a { color: #1e3a8a; }
+.pl-later { justify-self: center; background: none; border: 0; padding: 6px 10px; font-size: 14px; font-weight: 600; color: #475569; text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 480px) { .pl-hero { min-height: 210px; } .sheet .pl-hero h2 { font-size: 32px; } .pl-feats { grid-template-columns: 1fr 1fr; } }
+@media (prefers-reduced-motion: reduce) { .pl-go, .pl-opt { transition: none; } }
 #termsGate { position: fixed; inset: 0; z-index: 200; background: color-mix(in srgb, var(--ink) 88%, transparent); display: grid; place-items: center; padding: 16px; overflow-y: auto; }
 #termsGate .tg { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 22px 18px; max-width: 460px; width: 100%; display: grid; gap: 12px; }
 #termsGate h2 { margin: 0; font: 700 24px/1.15 var(--display); }
@@ -3341,16 +3381,48 @@ const planLink = p => (PAY_TEST && p.testUrl) || (PAY_TEST ? "" : p.url);
 const anyPlanLink = () => CONFIG.plans.some(p => planLink(p));
 // The signed-in user's id and email ride along so the webhook can attach the plan to the right account.
 // No embed=1: lemon.js adds it for the pop-up, and a fallback click opens the normal full checkout page.
-const planUrl = u => u + (u.includes("?") ? "&" : "?") + "dark=1&media=0&desc=0&button_color=%23fb7185" +
+const planUrl = u => u + (u.includes("?") ? "&" : "?") + "dark=1&media=0&desc=0&button_color=%231d4ed8" +
   (typeof ACCT !== "undefined" && ACCT.user ? "&checkout[email]=" + encodeURIComponent(ACCT.user.email || "") + "&checkout[custom][user_id]=" + encodeURIComponent(ACCT.user.id) : "");
+// Plans page: calm navy hero (Higgsfield art), what's included, three selectable plans with the per-month price,
+// one big Continue button (each plan keeps its own lemonsqueezy-button link; only the picked one shows), trust row.
+const PLAN_MONTHS = { monthly: 1, sixmonth: 6, yearly: 12 };
+const PLAN_ICO = {
+  check: '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#ccfbf1"/><path d="M6 10.4l2.6 2.6L14.2 7.4" fill="none" stroke="#0f766e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  lock: '<svg viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="9" width="12" height="9" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 9V6.6a3 3 0 016 0V9" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
+  undo: '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8h7.5a4 4 0 010 8H8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7.5 5L4.5 8l3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  mail: '<svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="5" width="14" height="10.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.6 6l6.4 5 6.4-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>'
+};
 function showPro() {
   if (S.pro) { toast("<b>Your plan is active.</b> Everything is unlocked."); return; }
-  const open = anyPlanLink();
-  sheet(`<div class="eyebrow">520 Quest plans</div><h2>Unlock everything</h2>
-    <p class="muted" style="margin:0">Every plan includes all 5,904 questions, all 33 Mastery Sheets, the full Memorization Checklist, all 150 mnemonics, unlimited boss battles, the score estimate, the full-length tracker and Anki export, on up to 3 devices.</p>
-    <div class="stack" style="gap:8px">${CONFIG.plans.map(p => `<div class="panel row" style="justify-content:space-between;flex-wrap:nowrap;gap:10px${p.best ? ";border-color:var(--volt)" : ""}"><div><b>${esc(p.name)}</b>${p.best ? ' <span class="tag sec">Best value</span>' : ""}<div class="small muted">${esc(p.price)} ${esc(p.per)}</div></div>${planLink(p) ? `<a class="btn pro small lemonsqueezy-button" href="${esc(planUrl(planLink(p)))}" target="_blank" rel="noopener">Choose</a>` : `<button class="btn small" disabled>Opening soon</button>`}</div>`).join("")}</div>
-    <p class="small muted" style="margin:0">${open ? "🔒 Secure checkout by Lemon Squeezy, our payment partner. Cards are processed by Stripe and never touch 520 Quest. Plans renew automatically at the price shown until you cancel, and can be cancelled anytime. By subscribing you agree to the <a href=\"../terms.html\" target=\"_blank\" rel=\"noopener\">Terms of Use</a>. After you subscribe, sign in with the same email in the Me tab." + (PAY_TEST && CONFIG.plans.some(p => p.testUrl) ? " <b>Test mode:</b> pay with card 4242 4242 4242 4242, any future date and any CVC. Nothing is charged." : "") : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions with full explanations, Full-length 1, 5 Mastery Sheets and 1 mnemonic."}</p>
-    <div class="row"><button class="btn ghost" data-close>Not now</button></div>`);
+  const open = anyPlanLink(), money = p => parseFloat(String(p.price).replace(/[^0-9.]/g, "")) || 0;
+  const base = money(CONFIG.plans.find(p => PLAN_MONTHS[p.id] === 1) || CONFIG.plans[0]);
+  const pick0 = (CONFIG.plans.find(p => p.best) || CONFIG.plans[CONFIG.plans.length - 1]).id;
+  const feats = ["All 5,904 questions, each with a full explanation", "All 10 full-length exams and 10 minis, with score estimates", "All 33 Mastery Sheets and the full Memorization Checklist", "All 150 mnemonics, plus Anki export", "Unlimited boss battles and the full-length tracker", "Use it on up to 3 devices"];
+  const card = p => {
+    const m = PLAN_MONTHS[p.id] || 1, pm = money(p) / m, save = base && m > 1 ? Math.round((1 - pm / base) * 100) : 0;
+    return `<button type="button" class="pl-opt" role="radio" aria-checked="${p.id === pick0}" data-plpick="${esc(p.id)}">
+      <span class="pl-dot" aria-hidden="true"></span>
+      <span class="pl-name"><b>${esc(p.name)}</b>${p.best ? '<span class="pl-best">Best value</span>' : ""}<span class="pl-sub">${esc(p.price)} ${esc(p.per)}</span></span>
+      <span class="pl-pm"><b>$${pm.toFixed(2)}</b><span>per month</span>${save > 0 ? `<em>Save ${save}%</em>` : ""}</span></button>`;
+  };
+  const cta = p => planLink(p)
+    ? `<a class="pl-go lemonsqueezy-button" data-plgo="${esc(p.id)}"${p.id === pick0 ? "" : " hidden"} href="${esc(planUrl(planLink(p)))}" target="_blank" rel="noopener">Continue with ${esc(p.name)} · ${esc(p.price)}</a>`
+    : "";
+  sheet(`<div class="pl-hero"><img src="plans-hero.webp" alt="" width="1120" height="627" decoding="async">
+      <div class="pl-hero-in"><div class="pl-eye">520 Quest plans</div><h2>Your 520 starts here</h2><p>One plan unlocks everything. Study with a clear head, every day.</p></div></div>
+    <ul class="pl-feats">${feats.map(f => `<li>${PLAN_ICO.check}<span>${esc(f)}</span></li>`).join("")}</ul>
+    <div class="pl-opts" role="radiogroup" aria-label="Choose a plan">${CONFIG.plans.map(card).join("")}</div>
+    <div class="pl-cta">${open ? CONFIG.plans.map(cta).join("") : `<button class="pl-go" disabled>Opening soon</button>`}</div>
+    <div class="pl-trust"><span>${PLAN_ICO.lock}Secure checkout</span><span>${PLAN_ICO.undo}Cancel anytime</span><span>${PLAN_ICO.mail}<a href="mailto:${esc(CONFIG.supportEmail)}">${esc(CONFIG.supportEmail)}</a></span></div>
+    <p class="pl-fine">${open ? "Checkout is run by Lemon Squeezy, our payment partner. Cards are processed by Stripe and never touch 520 Quest. Plans renew automatically at the price shown until you cancel, and can be cancelled anytime. By subscribing you agree to the <a href=\"../terms.html\" target=\"_blank\" rel=\"noopener\">Terms of Use</a>. After you subscribe, sign in with the same email in the Me tab." + (PAY_TEST && CONFIG.plans.some(p => p.testUrl) ? " <b>Test mode:</b> pay with card 4242 4242 4242 4242, any future date and any CVC. Nothing is charged." : "") : "Plans open soon. Until then you have " + CONFIG.freeQuestions + " free questions with full explanations, Full-length 1, 5 Mastery Sheets and 1 mnemonic."}</p>
+    <button class="pl-later" data-close>Not now, keep studying free</button>`, sh => {
+    sh.classList.add("plansheet");
+    sh.addEventListener("click", e => {
+      const o = e.target.closest("[data-plpick]"); if (!o) return;
+      sh.querySelectorAll("[data-plpick]").forEach(b => b.setAttribute("aria-checked", b === o ? "true" : "false"));
+      sh.querySelectorAll("[data-plgo]").forEach(a => { a.hidden = a.dataset.plgo !== o.dataset.plpick; });
+    });
+  });
   window.createLemonSqueezy && window.createLemonSqueezy();
 }
 
