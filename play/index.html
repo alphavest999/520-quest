@@ -3174,10 +3174,16 @@ function morePrompt(fromMe = true) {
 }
 // Extra rounds after the daily goal drill the weakest MAP category: live weak areas, then the diagnostic,
 // then the lowest-accuracy category tried so far. Null (mixed feed) only before any science question is answered.
+// Free players only get a category that still has new free questions, so the drill never just repeats the same few.
 function weakestCat() {
-  const w = planWeak()[0]; if (w) return w;
-  const tried = CATS.filter(c => c[2] !== "CARS" && (S.cat[c[0]] || {}).a > 0).sort((a, b) => mastery(a[0]) - mastery(b[0]));
-  return tried.length ? tried[0][0] : null;
+  const tried = CATS.filter(c => c[2] !== "CARS" && (S.cat[c[0]] || {}).a > 0).sort((a, b) => mastery(a[0]) - mastery(b[0])).map(c => c[0]);
+  const order = [...new Set(planWeak().concat(tried))];
+  if (S.pro) return order[0] || null;
+  const fresh = code => QUESTIONS.filter(q => q.c === code && !exLocked(q) && !S.stats[q.id]).length;
+  const n = order.map(c => [c, fresh(c)]);
+  const full = n.find(([, k]) => k >= ROUND); if (full) return full[0];
+  const most = n.filter(([, k]) => k > 0).sort((a, b) => b[1] - a[1])[0];
+  return most ? most[0] : null;
 }
 function drillLabel() {
   const w = weakestCat();
