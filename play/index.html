@@ -1840,7 +1840,7 @@ function renderHUD() {
   $("#hudRank").title = `Live accuracy ${acc === null ? "–" : acc + "%"} · ${n} of ${EVAL_N} questions to the next level evaluation`;
   $("#hudXp").style.width = n / EVAL_N * 100 + "%"; $("#hudXp").style.background = "var(--volt)";
   // Green counter: the daily goal, plus 10 for each weakest-category drill and the size of each custom quiz (saved, so it survives a reload).
-  const tgt = Math.max(S.goal, S.today.drillTgt || 0);
+  const tgt = S.today.drillTgt || S.goal;
   // During the timed diagnostic the green counter tracks the diagnostic itself, not the daily goal.
   const DR = S.review && S.review.kind === "check" ? S.review : null;
   $("#hudGoalTxt").textContent = DR ? Math.min(DR.ids.length, DR.done.length + 1) + "/" + DR.ids.length : Math.min(S.today.answered, tgt) + "/" + tgt;
@@ -3151,7 +3151,7 @@ document.addEventListener("click", e => {
   if (e.target.closest("[data-plan6m]")) { const d = new Date(); d.setMonth(d.getMonth() + 6); const el = $("#planDate"); if (el) el.value = d.toISOString().slice(0, 10); return; }
   if (e.target.closest("[data-todayplan]")) return showGoals();
   if (e.target.closest("[data-planedit]")) { S.planEdit = true; return renderMe(); }
-  const pg = e.target.closest("[data-plangoal]"); if (pg) { S.goal = +pg.dataset.plangoal; S.goalSet = true; save(); renderHUD(); toast(`Daily goal set to ${S.goal}.`); return renderMe(); }
+  const pg = e.target.closest("[data-plangoal]"); if (pg) { S.goalCustom = false; setGoal(+pg.dataset.plangoal); toast(`Daily goal set to ${S.goal}.`); return renderMe(); }
   if (e.target.closest("[data-startcheck]")) return checkStart();
   if (e.target.closest("[data-checkgo]")) return startCheck();
   if (e.target.closest("[data-checkpro]")) return setTimeout(showPro, 50);
@@ -3194,7 +3194,7 @@ function drillLabel() {
   return `Drill ${ROUND} MAP Questions from your weakest category${w ? ` (${esc(w)})` : ""}`;
 }
 // Adds n questions to today's green counter target (drills and custom quizzes).
-function growTarget(n) { const t = S.today; t.drillTgt = Math.max(S.goal, t.answered, t.drillTgt || 0) + n; }
+function growTarget(n) { const t = S.today; t.drillTgt = (t.drillTgt ? Math.max(t.answered, t.drillTgt) : Math.max(S.goal, t.answered)) + n; }
 function startExtra() {
   const w = weakestCat();
   if (w) { S.focus = w; S.sub = null; S.kind = null; S.mapSub = null; S.weakDrill = true; }
@@ -3277,10 +3277,30 @@ function showQuizBuilder() {
 // Me tab, scrolled to the daily goal picker.
 function showGoals() { meJump("goalPanel"); }
 function clickSound(){ try{ beep('click'); }catch(e){} }
-function setGoal(n) { 
-  clickSound(); 
-  S.goal = n; S.goalSet = true; S.today.goalShown = S.today.answered >= S.goal; S.today.next = S.today.goalShown ? S.today.answered + ROUND : 0; S.today.rs = { a: S.today.answered, c: S.today.correct }; save(); renderHUD(); 
-  setTimeout(()=>{ $("#sheetHost").innerHTML=""; go("scroll"); resetFeed(); }, 250);
+// Picking a goal (Me, the welcome pop-up's Adjust goals, Go to Today's plan) resets the green counter to that goal and opens the Qbank.
+// If today's questions are already done, a pop-up offers the drill, the new goal on top, or Done for the Day.
+function setGoal(n) {
+  clickSound();
+  const t = S.today, wasDone = t.answered >= (t.drillTgt || S.goal);
+  S.goal = n; S.goalSet = true; t.drillTgt = 0; t.doneDay = false;
+  t.goalShown = t.answered >= n; t.next = t.goalShown ? t.answered + ROUND : 0; t.rs = { a: t.answered, c: t.correct }; save(); renderHUD();
+  if (wasDone || t.answered >= n) return setTimeout(() => goalDonePrompt(n), 250);
+  setTimeout(() => { $("#sheetHost").innerHTML = ""; go("scroll"); resetFeed(); }, 250);
+}
+function goalDonePrompt(n) {
+  const t = S.today, more = n > t.answered ? n - t.answered : n;
+  $("#sheetHost").innerHTML = "";
+  sheet(`<div class="eyebrow">Today's questions are done 🎉</div><h2>You've already answered ${t.answered} question${t.answered === 1 ? "" : "s"} today.</h2>
+    <p class="muted" style="margin:0">Your new daily goal is ${n}. What next?</p>
+    <div class="stack"><button class="btn primary" data-goaldrill>${drillLabel()}</button><button class="btn" data-goalgo>Continue with the selected new goal (${more} more)</button><button class="btn" data-close data-doneday>Done for the Day</button></div>`,
+    sh => sh.addEventListener("click", e => {
+      // Drill or Done: the new goal starts counting tomorrow, today's counter builds on what is already answered.
+      if (e.target.closest("[data-goaldrill]")) { t.drillTgt = t.answered; $("#sheetHost").innerHTML = ""; return startExtra(); }
+      if (e.target.closest("[data-doneday]")) { t.drillTgt = t.answered; save(); renderHUD(); return; }
+      if (!e.target.closest("[data-goalgo]")) return;
+      t.goalShown = true; t.next = t.answered + more; t.drillTgt = t.next; t.rs = { a: t.answered, c: t.correct }; extraRound = true; save();
+      $("#sheetHost").innerHTML = ""; go("scroll"); resetFeed(); renderHUD();
+    }));
 }
 
 // Custom goal: pick a number, then which questions (mixed or one section).
