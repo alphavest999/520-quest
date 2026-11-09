@@ -101,8 +101,9 @@ button { cursor: pointer; }
 .pill svg { width: 15px; height: 15px; }
 .pill.streak { color: var(--heat); }
 .pill.goal { color: var(--good); }
-.hudpro { flex: none; display: inline-flex; align-items: center; gap: 5px; font: 700 13px/1 var(--display); letter-spacing: .06em; padding: 8px 11px; border-radius: 99px; border: 0; cursor: pointer; color: #fff; background: #f472b6; box-shadow: 0 0 0 0 rgba(244,114,182,.6); animation: proPulse 2.4s ease-in-out infinite; }
-.hudpro svg { width: 14px; height: 14px; }
+.hudpro { flex: none; display: inline-flex; align-items: center; gap: 5px; font: 700 13px/1 var(--display); letter-spacing: .06em; padding: 8px 11px; border-radius: 99px; border: 0; cursor: pointer; color: #fff; background: linear-gradient(135deg, #1e3a8a, #1d4ed8); box-shadow: 0 0 0 0 rgba(29,78,216,.35); animation: proPulse 4s ease-in-out infinite; }
+.hudpro svg { width: 14px; height: 14px; color: #5eead4; }
+@media (prefers-reduced-motion: reduce) { .hudpro { animation: none; } }
 .hudpro[hidden] { display: none; }
 .hudinst { flex: none; display: inline-flex; align-items: center; gap: 4px; font: 700 13px/1 var(--display); letter-spacing: .06em; padding: 7px 10px; border-radius: 99px; cursor: pointer; color: var(--volt); background: transparent; border: 2px solid var(--volt); }
 .hudinst svg { width: 14px; height: 14px; }
@@ -110,10 +111,10 @@ button { cursor: pointer; }
 @media (max-width: 400px) { .hud { gap: 6px; padding-left: 10px; padding-right: 10px; } .hud .pill { padding: 6px 7px; } .hudinst { padding: 7px 8px; } .hudpro { padding: 8px 9px; } }
 @media (max-width: 430px) { .hudinst { font-size: 0; gap: 0; padding: 7px 8px; } } /* icon only, so the level and accuracy line stays readable */
 @media (max-width: 340px) { .hud .xpwrap { display: none; } } /* iPhone SE: no room for the accuracy line; the top bar ran 6 px past the screen edge */
-@keyframes proPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(244,114,182,.55); } 50% { box-shadow: 0 0 0 7px rgba(244,114,182,0); } }
+@keyframes proPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(29,78,216,.32); } 50% { box-shadow: 0 0 0 6px rgba(29,78,216,0); } }
 .card.promo { background: radial-gradient(circle at 85% 10%, rgba(244,114,182,.28), transparent 45%), linear-gradient(160deg, rgba(244,114,182,.30), var(--panel) 70%); border-color: #f472b6; }
 .card.promo .bigtext { margin: 0; }
-.btn.pro { background: #f472b6; color: #fff; border: 0; font-weight: 800; text-decoration: none; justify-content: center; }
+.btn.pro { background: linear-gradient(135deg, #1e3a8a, #1d4ed8); color: #fff; border: 0; font-weight: 800; text-decoration: none; justify-content: center; }
 .probanner { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--r); background: linear-gradient(135deg, rgba(244,114,182,.25), rgba(244,114,182,.18)); border: 1px solid #fb7185; }
 .probanner p { margin: 0; flex: 1; font-size: 14px; }
 .probanner b { font-family: var(--display); letter-spacing: .03em; }
