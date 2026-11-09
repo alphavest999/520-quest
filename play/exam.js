@@ -257,7 +257,7 @@
     const opts = q.o.map((o, k) => `<div class="xrev ${k === q.a ? "right" : a === k ? "wrong" : ""}"><b>${"ABCD"[k]}</b><div><span>${o[0]}</span>${k === q.a ? '<div class="xtag good">Correct answer</div>' : a === k ? '<div class="xtag bad">Your answer</div>' : ""}<p class="small muted xwhy">${cap(o[1] || "")}</p></div></div>`).join("");
     return `<div class="row" style="justify-content:space-between"><button class="btn small ghost" data-xrback>← All questions</button><span class="small muted">Q ${i + 1} of ${n}${s.flag[q.id] ? " · ⚑ flagged" : ""}</span></div>
       ${pass}<div class="panel"><h3 class="xq">${q.q}</h3>${tableHTML(q.vt, "vt")}${a === undefined ? '<p class="small" style="color:var(--bad)">Unanswered</p>' : ""}<div class="xopts">${opts}</div>
-      <p class="small" style="margin-top:10px">${q.x || ""}</p>${typeof rateHTML === "function" ? rateHTML(q.id) : ""}${q.av ? '<p class="small muted">✓ Calculation recomputed during QA.</p>' : ""}</div>
+      <p class="small" style="margin-top:10px">${q.x || ""}</p>${typeof expTipHTML === "function" ? expTipHTML(q) : ""}${typeof rateHTML === "function" ? rateHTML(q.id) : ""}${q.av ? '<p class="small muted">✓ Calculation recomputed during QA.</p>' : ""}</div>
       <div class="row"><button class="btn" data-xrprev ${i === 0 ? "disabled" : ""}>← Previous</button><button class="btn primary" data-xrnext ${i === n - 1 ? "disabled" : ""}>Next →</button></div>`;
   }
 
