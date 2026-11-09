@@ -1839,7 +1839,7 @@ function renderHUD() {
   $("#hudRank").innerHTML = acc === null ? esc(tierName(L)) : `${acc}% acc<span class="rk-tier"> · ${esc(tierName(L))}</span>`;
   $("#hudRank").title = `Live accuracy ${acc === null ? "–" : acc + "%"} · ${n} of ${EVAL_N} questions to the next level evaluation`;
   $("#hudXp").style.width = n / EVAL_N * 100 + "%"; $("#hudXp").style.background = "var(--volt)";
-  // Green counter: the daily goal, plus 10 for each weakest-category drill the player chose (saved, so it survives a reload).
+  // Green counter: the daily goal, plus 10 for each weakest-category drill and the size of each custom quiz (saved, so it survives a reload).
   const tgt = Math.max(S.goal, S.today.drillTgt || 0);
   // During the timed diagnostic the green counter tracks the diagnostic itself, not the daily goal.
   const DR = S.review && S.review.kind === "check" ? S.review : null;
@@ -2840,7 +2840,7 @@ function startQuiz() {
   if (!ids.length) return toast(S.pro ? "No questions match. Try fewer filters." : "No questions left on the free plan for these filters. Try Missed before.");
   $("#sheetHost").innerHTML = "";
   S.review = { kind: "quiz", ids, done: [], queued: [], right: 0, wrong: 0, t0: Date.now(), timed: o.timed, limit: o.timed ? ids.length * QZ_PACE : 0 };
-  S.focus = null; S.sub = null; save(); go("scroll"); resetFeed(); quizTick();
+  S.focus = null; S.sub = null; save(); go("scroll"); resetFeed(); quizTick(); growTarget(ids.length); save(); renderHUD();
   toast(`Custom quiz: ${ids.length} question${ids.length === 1 ? "" : "s"}${o.timed ? `, ${Math.round(ids.length * QZ_PACE / 60)} minutes on the clock` : ""}.`);
 }
 const mmss = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
@@ -2873,7 +2873,7 @@ function quizDone() {
 }
 document.addEventListener("click", e => {
   if (e.target.closest("[data-quizopen]")) { setTimeout(quizSheet, 0); return; }
-  const m = e.target.closest("[data-qzmiss]"); if (m) startReview(m.dataset.qzmiss.split(","));
+  const m = e.target.closest("[data-qzmiss]"); if (m) { const ids = m.dataset.qzmiss.split(","); growTarget(ids.length); startReview(ids); }
 });
 function reviewDoneText() {
   const R = S.review; if (!R) return "";
@@ -3191,10 +3191,12 @@ function drillLabel() {
   const w = weakestCat();
   return `Drill ${ROUND} MAP Questions from your weakest category${w ? ` (${esc(w)})` : ""}`;
 }
+// Adds n questions to today's green counter target (drills and custom quizzes).
+function growTarget(n) { const t = S.today; t.drillTgt = Math.max(S.goal, t.answered, t.drillTgt || 0) + n; }
 function startExtra() {
   const w = weakestCat();
   if (w) { S.focus = w; S.sub = null; S.kind = null; S.mapSub = null; S.weakDrill = true; }
-  const t = S.today; extraRound = true; S.review = null; t.drillTgt = Math.max(S.goal, t.answered, t.drillTgt || 0) + ROUND; t.goalShown = true; t.next = t.answered + ROUND; t.bonusAt = t.next; t.rs = { a: t.answered, c: t.correct }; save();
+  const t = S.today; extraRound = true; S.review = null; growTarget(ROUND); t.goalShown = true; t.next = t.answered + ROUND; t.bonusAt = t.next; t.rs = { a: t.answered, c: t.correct }; save();
   go("scroll"); resetFeed(); renderHUD();
   if (w) toast(`Drilling your weakest MAP category: <b>${esc(w)}</b>${CAT[w] ? " · " + esc(CAT[w].title) : ""}.`);
 }
