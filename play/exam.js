@@ -126,7 +126,7 @@
     const firstOfP = p && (i === 0 || items(X().id, s.s)[i - 1].p !== p), wide = isWide(), hl = (s.hl || {})[p && p.id] || {};
     const pass = p ? `<details class="xpass" ${firstOfP || wide ? "open" : ""}><summary>Passage${wide ? "" : ` (tap to ${firstOfP ? "collapse" : "expand"})`}</summary>
       <p class="small muted xhlhelp">Select words in the passage, then tap Highlight.</p>
-      <div class="passage" data-xpid="${esc(p.id)}">${p.text.map((t, k) => `<p data-k="${k}">${hl[k] || esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}</details>` : "";
+      <div class="passage" data-xpid="${esc(p.id)}">${p.text.map((t, k) => `<p data-k="${k}">${hl[k] || escSub(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}</details>` : "";
     const opts = q.o.map((o, k) => `<div class="xopt ${a === k ? "sel" : ""} ${st.includes(k) ? "struck" : ""}"><button class="xpick" data-xpick="${k}"><b>${"ABCD"[k]}</b><span>${o[0]}</span></button><button class="xstrike" data-xstrike="${k}" aria-label="Strike out option ${"ABCD"[k]}" title="Strike out">✕</button></div>`).join("");
     return `<div class="xsplit ${pass ? "has" : ""}">${pass}<div class="panel"><h3 class="xq">${q.q}</h3>${tableHTML(q.vt, "vt")}<div class="xopts">${opts}</div></div></div>`;
   }
@@ -253,7 +253,7 @@
   }
   function reviewQ(x, i, s, n) {
     const q = x.q, a = s.ans[q.id], p = x.p;
-    const pass = p ? `<details class="xpass"><summary>Passage (tap to expand)</summary><div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}</details>` : "";
+    const pass = p ? `<details class="xpass"><summary>Passage (tap to expand)</summary><div class="passage">${p.text.map(t => `<p>${escSub(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}</details>` : "";
     const opts = q.o.map((o, k) => `<div class="xrev ${k === q.a ? "right" : a === k ? "wrong" : ""}"><b>${"ABCD"[k]}</b><div><span>${o[0]}</span>${k === q.a ? '<div class="xtag good">Correct answer</div>' : a === k ? '<div class="xtag bad">Your answer</div>' : ""}<p class="small muted xwhy">${cap(o[1] || "")}</p></div></div>`).join("");
     return `<div class="row" style="justify-content:space-between"><button class="btn small ghost" data-xrback>← All questions</button><span class="small muted">Q ${i + 1} of ${n}${s.flag[q.id] ? " · ⚑ flagged" : ""}</span></div>
       ${pass}<div class="panel"><h3 class="xq">${q.q}</h3>${tableHTML(q.vt, "vt")}${a === undefined ? '<p class="small" style="color:var(--bad)">Unanswered</p>' : ""}<div class="xopts">${opts}</div>
