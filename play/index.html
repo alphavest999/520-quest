@@ -1527,6 +1527,8 @@ const DAY = 86400000;
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+// Passage and table text: escaped, but <sub>...</sub> is allowed (no other HTML).
+const escSub = s => esc(s).replace(/&lt;(\/?)sub&gt;/g, "<$1sub>");
 const todayKey = (t = Date.now()) => new Date(t).toLocaleDateString("en-CA");
 const daysBetween = (a, b) => Math.round((new Date(b + "T12:00") - new Date(a + "T12:00")) / DAY);
 const CAT = Object.fromEntries(CATS.map(([code, title, s, hy]) => [code, { code, title, s, hy }]));
@@ -2519,7 +2521,7 @@ function wireDNA(rv, q, secs) {
 
 const QKIND = { CF: "Comprehension", CW: "Reasoning within", CB: "Reasoning beyond", data: "Data reading", design: "Experimental design", calc: "Calculation", trap: "Trap check", link: "High-yield link" };
 // t = { cap, h: header cells, r: rows of cells }
-const tableHTML = (t, cls = "") => t && Array.isArray(t.h) && Array.isArray(t.r) ? `<div class="ptbl ${cls}"><table>${t.cap ? `<caption>${esc(t.cap)}</caption>` : ""}<thead><tr>${t.h.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${t.r.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : "";
+const tableHTML = (t, cls = "") => t && Array.isArray(t.h) && Array.isArray(t.r) ? `<div class="ptbl ${cls}"><table>${t.cap ? `<caption>${escSub(t.cap)}</caption>` : ""}<thead><tr>${t.h.map(c => `<th>${escSub(c)}</th>`).join("")}</tr></thead><tbody>${t.r.map(r => `<tr>${r.map(c => `<td>${escSub(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : "";
 // g = { type: line|bar|scatter, title, x_label, y_label, series: [{ name, points: [[x, y], ...] }] }
 const graphHTML = g => {
   if (!g || !Array.isArray(g.series) || !g.series.length) return "";
@@ -2567,7 +2569,7 @@ function openSolo(card, ret) {
 const passBtnHTML = p => `<button class="pbtn" data-showp="${esc(p.id)}"><span aria-hidden="true">📄</span> Show passage</button>`;
 function showPassage(id) {
   const p = PASSAGES.find(x => x.id === id) || EXAM.passages.find(x => x.id === id); if (!p) return;
-  sheet(`<div class="pview-top"><h2>${esc(p.title)}</h2><button class="btn small" data-close>Close</button></div><div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}<div class="row"><button class="btn primary" data-close>Back to the question</button></div>`,
+  sheet(`<div class="pview-top"><h2>${esc(p.title)}</h2><button class="btn small" data-close>Close</button></div><div class="passage">${p.text.map(t => `<p>${escSub(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}<div class="row"><button class="btn primary" data-close>Back to the question</button></div>`,
     el => el.classList.add("pview"));
 }
 document.addEventListener("click", e => { const b = e.target.closest("[data-showp]"); if (b) showPassage(b.dataset.showp); });
@@ -2581,7 +2583,7 @@ function passageCard(p) {
   const el = document.createElement("article"); el.className = "card"; el._made = Date.now(); el.dataset.pid = p.id;
   const n = p.qs.length, sci = p.s !== "CARS";
   el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[p.s].name}</span>${sci ? `<span class="tag">${esc(p.c)}${CAT[p.c] && CAT[p.c].hy ? " ★" : ""}</span>` : ""}<span class="tag">Passage + ${n} questions</span><button class="btn small primary qjump" data-jump style="margin-left:auto">Jump to questions ↓</button></div>
-    <h2 class="stem">${esc(p.title)}</h2><p class="muted small" style="margin:0">Read the passage, then answer the ${n} questions below it.</p><div class="passage">${p.text.map(t => `<p>${esc(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}
+    <h2 class="stem">${esc(p.title)}</h2><p class="muted small" style="margin:0">Read the passage, then answer the ${n} questions below it.</p><div class="passage">${p.text.map(t => `<p>${escSub(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}
     ${sci ? sciCoachHTML(p) : ""}${sci ? "" : `<div class="mainidea" data-mibox><label class="small"><b>Before the questions:</b> what's the author's main point, in one line?</label><textarea rows="2" data-mi placeholder="The author argues that…">${esc((S.mi || {})[p.id] || "")}</textarea><div class="row"><button class="btn small" data-misave>Lock it in</button></div></div>`}
     <div class="qhead" data-qhead>Questions 1–${n}</div>` +
     p.qs.map((q, i) => `<div class="pq" data-q="${i}"><div class="card-top"><span class="tag sec">Q${i + 1} of ${n}</span><span class="tag">${QKIND[q.k || q.c] || ""}</span>${diffDots(q.d)}${q.t ? `<span class="muted small" style="margin-left:auto">Avg solve time: ${+q.t} sec</span>` : ""}</div>${passBtnHTML(p)}<h3>${q.q}</h3>${tableHTML(q.vt, "vt")}<div class="opts">${optsHTML(q)}</div><div class="reveal stack" hidden></div></div>`).join("") + SWIPE;
