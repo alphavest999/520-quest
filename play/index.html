@@ -3250,7 +3250,7 @@ function weakestCat() {
 }
 function drillLabel() {
   const w = weakestCat();
-  return `Drill ${ROUND} MAP Questions from your weakest category${w ? ` (${esc(w)})` : ""}`;
+  return `Drill ${ROUND} Map questions from your weakest category${w ? ` (${esc(w)})` : ""}`;
 }
 // Adds n questions to today's green counter target (drills and custom quizzes).
 function growTarget(n) { const t = S.today; t.drillTgt = (t.drillTgt ? Math.max(t.answered, t.drillTgt) : Math.max(S.goal, t.answered)) + n; }
@@ -3806,6 +3806,7 @@ function mnHomeHTML() {
   const top = MN.filter(m => !m.locked).sort((a, b) => mnScore(b) - mnScore(a)).slice(0, 5);
   return `<div class="panel"><h3>Mnemonics Vault <span class="muted small">${MN.length}</span></h3>
     <input class="mn-search" type="search" placeholder="Search mnemonics, e.g. Krebs" id="mnSearch" aria-label="Search mnemonics">
+    <div id="mnLive" class="mn-list" style="margin-top:10px;display:none"></div>
     <div class="mn-cats" style="margin-top:10px">${MN_CATS.filter(c => MN.some(m => mnKey(mnCat(m)) === mnKey(c))).map(c => `<button class="mn-cat" data-mncat="${esc(c)}">${esc(c)}<small>${MN.filter(m => mnKey(mnCat(m)) === mnKey(c)).length} mnemonics</small></button>`).join("")}</div>
     <h4 style="margin:14px 0 6px">Featured</h4><div class="mn-list">${top.map(mnItemHTML).join("")}</div></div>`;
 }
@@ -3876,6 +3877,17 @@ $("#view-course").addEventListener("click", e => {
 });
 function v0() { $("#view-course").scrollTop = 0; }
 $("#view-course").addEventListener("keydown", e => { if (e.target.id === "mnSearch" && e.key === "Enter" && e.target.value.trim()) { mnView = { s: "search", q: e.target.value.trim() }; renderCourse(); v0(); } });
+// Live search: show matches under the box as you type; Enter still opens the full results page.
+const mnMatch = q => MN.filter(m => (m.concept + " " + (m.mnemonic_text || "") + " " + (m.funny_version || "")).toLowerCase().includes(q.toLowerCase()));
+$("#view-course").addEventListener("input", e => {
+  if (e.target.id !== "mnSearch" || !MN) return;
+  const q = e.target.value.trim(), box = $("#mnLive"), home = e.target.parentElement; if (!box) return;
+  const rest = [...home.children].filter(x => x !== e.target && x !== box && x.tagName !== "H3");
+  if (q.length < 2) { box.style.display = "none"; box.innerHTML = ""; rest.forEach(x => { x.style.display = ""; }); return; }
+  const list = mnMatch(q);
+  box.innerHTML = list.slice(0, 8).map(mnItemHTML).join("") + (list.length > 8 ? `<p class="small muted">${list.length - 8} more: press Enter to see all.</p>` : "") || `<p class="muted small">No matches.</p>`;
+  box.style.display = ""; rest.forEach(x => { x.style.display = "none"; });
+});
 $("#view-course").addEventListener("search", e => { if (e.target.id === "mnSearch" && e.target.value.trim()) { mnView = { s: "search", q: e.target.value.trim() }; renderCourse(); v0(); } }, true);
 
 /* ---------- me ---------- */
