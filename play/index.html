@@ -1843,6 +1843,7 @@ function record(q, correct, secs) {
     S.review.done.push(q.id); (S.today.reviewedIds = S.today.reviewedIds || []).push(q.id); if (correct) S.review.right++; else S.review.wrong++;
     if (S.review.kind === "check") (S.review.secs = S.review.secs || {})[q.id] = Math.round(secs || 0);
     const rd = document.getElementById("revDone"); if (rd) rd.textContent = reviewDoneText();
+    const rc = $("#revChip"); if (rc && !S.review.kind) rc.textContent = reviewChipText() + " ✕";
     if (S.review.done.length >= S.review.ids.length) { S.today.reviewed = true; if (S.review.kind !== "check") setTimeout(reviewPrompt, 900); }
   }
   levelTick(q, correct);
@@ -1915,10 +1916,18 @@ function kindCount(k) {
   return " · " + n.toLocaleString("en-US");
 }
 function renderFilters() {
-  $("#filters").innerHTML = FILTERS.map(([k, n]) => `<button class="chipbtn" data-f="${k}" aria-pressed="${S.filter === k && !S.focus}">${n}</button>`).join("") +
+  const rc = S.review ? `<button class="chipbtn focus" data-f="endreview" aria-pressed="false" id="revChip">${reviewChipText()} ✕</button>` : "";
+  // While reviewing, the review chip comes first so its counter is always on screen (the row scrolls sideways).
+  $("#filters").innerHTML = rc + FILTERS.map(([k, n]) => `<button class="chipbtn" data-f="${k}" aria-pressed="${S.filter === k && !S.focus}">${n}</button>`).join("") +
     `<button class="chipbtn" data-k="passage" aria-pressed="${S.kind === "passage"}" title="Passage-based questions">Passages${kindCount("passage")}</button><button class="chipbtn" data-k="discrete" aria-pressed="${S.kind === "discrete"}" title="Stand-alone questions">Discrete${kindCount("discrete")}</button>` +
     (S.focus ? `<button class="chipbtn focus" data-f="clear" aria-pressed="false">Drilling ${esc(S.focus)}${S.sub ? " · " + esc(((SUBT[S.focus] || []).find(x => x.id === S.sub) || {}).label || S.sub) : ""} ✕</button>` : "") +
-    (S.review ? `<button class="chipbtn focus" data-f="endreview" aria-pressed="false" id="revChip">${S.review.kind === "quiz" || S.review.kind === "check" ? quizChipText() : "Reviewing this session's mistakes"} ✕</button>` : "");
+    "";
+}
+// Review chip text. Answer reviews show where you are and how many are left, e.g. "Question 3 of 12 · 9 left".
+function reviewChipText() {
+  const R = S.review; if (R.kind === "quiz" || R.kind === "check") return quizChipText();
+  const n = R.ids.length, left = Math.max(0, n - R.done.length);
+  return left ? `Reviewing answers · Question ${n - left + 1} of ${n} · ${left} left` : `Reviewing answers · all ${n} done`;
 }
 $("#filters").addEventListener("click", e => {
   const k = e.target.closest("[data-k]");
@@ -1998,7 +2007,11 @@ function resumeQ() {
 function nextCard() {
   if (S.review) {
     const R = S.review, id = R.ids.find(x => !R.done.includes(x) && !R.queued.includes(x));
-    if (id && anyQ(id)) { R.queued.push(id); return questionCard(anyQ(id), R.kind === "check" ? false : R.kind === "quiz" ? !!S.revenge[id] : true); }
+    if (id && anyQ(id)) {
+      R.queued.push(id); const c = questionCard(anyQ(id), R.kind === "check" ? false : R.kind === "quiz" ? !!S.revenge[id] : true);
+      if (!R.kind) $(".card-top", c).insertAdjacentHTML("beforeend", `<span class="tag">Review ${R.ids.indexOf(id) + 1} of ${R.ids.length}</span>`);
+      return c;
+    }
     if (reviewEnded) return null; reviewEnded = true; return reviewDoneCard();
   }
   if (overFree()) { const q = freeReview(); if (q) { sessionSeen.add(q.id); cardN++; return questionCard(q, true); } if (gateShown) return null; gateShown = true; return gateCard(); }
@@ -2712,7 +2725,7 @@ function reviewPrompt() {
   beep("level");
   sheet(`<div class="eyebrow">Review complete</div><h2>${R.right} mastered, ${R.wrong} still in your Revenge Queue.</h2>
     <p class="muted">Anything you missed again comes back on a 1, 3 and 7 day schedule.</p>
-    <div class="row"><button class="btn primary" data-close data-more10>${drillLabel()}</button><button class="btn" data-close data-doneday>Done for the Day</button></div>`);
+    <div class="row">${R.fromDone ? `<button class="btn primary" data-close data-doneday data-revdone>Done reviewing answers</button>` : `<button class="btn primary" data-close data-more10>${drillLabel()}</button><button class="btn" data-close data-doneday>Done for the Day</button>`}</div>`);
 }
 function showDone() {
   const acc = S.today.answered ? Math.round(S.today.correct / S.today.answered * 100) : 0;
@@ -2772,10 +2785,10 @@ function winsHTML() {
 }
 // Misses from this session only: wrong answers since the last review today (earlier days stay in the spaced Revenge Queue).
 function sessionMisses() { const done = S.today.reviewedIds || []; return S.today.missed.filter(id => anyQ(id) && !done.includes(id)); }
-function startReview(only) {
+function startReview(only, fromDone) {
   const ids = Array.isArray(only) ? only.filter(id => anyQ(id)) : sessionMisses();
   if (!ids.length) return toast("No mistakes to review today.");
-  S.review = { ids, done: [], queued: [], right: 0, wrong: 0 }; save();
+  S.review = { ids, done: [], queued: [], right: 0, wrong: 0, fromDone: !!fromDone }; save();
   go("scroll"); resetFeed();
 }
 /* ---------- You vs other students: per topic, on the same questions (uses the live percent-correct data) ---------- */
@@ -2972,7 +2985,7 @@ function reviewDoneCard() {
   const kind = (S.review || {}).kind, title = kind === "quiz" ? "Custom quiz complete" : kind === "check" ? "Diagnostic complete" : "Revenge Queue complete";
   el.innerHTML = `<div class="eyebrow">${title}</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
     <p class="muted" style="margin:0">Anything you missed again comes back in your Revenge Queue on a 1, 3 and 7 day schedule.</p>
-    <div class="row">${kind === "check" ? `<button class="btn primary" data-checksubmit style="flex:1">Submit diagnostic</button>` : `<button class="btn primary" data-more10 style="flex:1">${drillLabel()}</button><button class="btn" data-doneday style="flex:1">Done for the Day</button>`}</div>`;
+    <div class="row">${kind === "check" ? `<button class="btn primary" data-checksubmit style="flex:1">Submit diagnostic</button>` : (S.review || {}).fromDone ? `<button class="btn primary" data-doneday data-revdone style="flex:1">Done reviewing answers</button>` : `<button class="btn primary" data-more10 style="flex:1">${drillLabel()}</button><button class="btn" data-doneday style="flex:1">Done for the Day</button>`}</div>`;
   return el;
 }
 function exitApp() {
@@ -2986,7 +2999,8 @@ function exitApp() {
   }, 150);
 }
 /* ---------- Done for the Day: land on Me with today's summary; same-day return opens Me ---------- */
-function doneDay() {
+// afterReview: the user just tapped "Done reviewing answers", so the pop-up no longer offers "Review my answers".
+function doneDay(afterReview) {
   S.today.doneDay = true; S.today.bonusAt = 0; S.review = null; S.resume = null; extraRound = false;
   if (S.weakDrill) { S.focus = null; S.sub = null; S.weakDrill = false; } // the weakest-category drill ends with the day
   save();
@@ -3000,7 +3014,7 @@ function doneDay() {
     beep("level");
     sheet(`<div class="eyebrow">Done for the Day 🎉</div><h2>What would you like to do?</h2>
       <div class="stack">
-        ${S.today.reviewed && !miss ? "" : `<button class="btn primary" data-close data-review ${miss ? "" : "disabled"}>${miss ? `Review my answers (${miss} missed)` : "Review my answers (no misses this session)"}</button>`}
+        ${afterReview || (S.today.reviewed && !miss) ? "" : `<button class="btn primary" data-close data-review data-fromdone ${miss ? "" : "disabled"}>${miss ? `Review my answers (${miss} missed)` : "Review my answers (no misses this session)"}</button>`}
         <button class="btn" data-close data-goperf>Review my performance</button>
         <button class="btn" data-close>Stay in Me page / Browse</button>
         <button class="btn exitred" data-close data-exit>Exit</button>
@@ -3335,8 +3349,8 @@ function startExtra() {
 })();
 document.addEventListener("click", e => {
   const t = e.target;
-  if (t.closest("[data-review]")) return startReview();
-  if (t.closest("[data-doneday]")) { $("#sheetHost").innerHTML = ""; return doneDay(); }
+  if (t.closest("[data-review]")) return startReview(undefined, !!t.closest("[data-fromdone]"));
+  if (t.closest("[data-doneday]")) { $("#sheetHost").innerHTML = ""; return doneDay(!!t.closest("[data-revdone]")); }
   if (t.closest("[data-exit]")) return exitApp();
   if (t.closest("[data-goperf]")) return showPerf();
   if (t.closest("[data-byeme]")) return showMeTop();
