@@ -1506,6 +1506,7 @@ const CONFIG = {
     2027: { volt: "#38bdf8", "volt-ink": "#03131c", ink: "#0b0f14", panel: "#141b23", "panel-2": "#1e2833", line: "#2c3a47", cool: "#a78bfa" }
   },
   supportEmail: "support@520-quest.com",
+  portalUrl: "https://unprocrastinate.lemonsqueezy.com/billing",
   supportUrl: "https://520quest.com/support/",
   appUrl: "https://520quest.com/", // your public link, used in Share text
   flags: { MASTERY_SHEETS_CONSPICUOUS: true, MNEMONICS_ENABLED: true },
@@ -2185,6 +2186,7 @@ function wireQuestion(scope, q, card) {
     if (S.review && S.review.kind === "check" && S.review.ids.includes(q.id)) {
       $$(".opt", optsBox).forEach((o, j) => { o.disabled = true; if (j === i) o.classList.add("picked"); });
       if (S.resume === q.id) S.resume = null;
+      (S.review.picks = S.review.picks || {})[q.id] = q.ord ? q.ord[i] : i;   // bank order, for the answer review at the end
       const conf = optsBox.dataset.conf || ""; confBox.classList.add("locked");
       record(q, ok, secs);
       if (S.stats[q.id] && S.stats[q.id].a === 1 && typeof logAnswer === "function") logAnswer(q.id, q.ord ? q.ord[i] : i, ok);
@@ -3169,7 +3171,8 @@ function checkDone() {
   const used = Math.min(R.limit || Infinity, (Date.now() - R.t0) / 1000);
   S.baseline = { date: todayKey(), timed: true, acc: n ? Math.round(r / n * 100) : 0,
     by: Object.fromEntries(Object.entries(tally).map(([k, t]) => [k, Math.round(t[0] / t[1] * 100)])),
-    weak: weakList[0] || null, weakList: weakList.slice(0, 5), pace, used: Math.round(used), unreached };
+    weak: weakList[0] || null, weakList: weakList.slice(0, 5), pace, used: Math.round(used), unreached,
+    ids: R.ids.slice(), picks: Object.assign({}, R.picks) };
   S.review = null; save(); beep("level"); renderHUD();
   if (!$("#view-scroll").hidden) resetFeed();
   const order = Object.entries(S.baseline.by).sort((a, b) => a[1] - b[1]);
@@ -3177,8 +3180,23 @@ function checkDone() {
     <p class="muted" style="margin-top:0">${order.map(([k, v]) => `${esc(SECTIONS[k].name)} <b>${v}%</b>`).join(" · ")}</p>
     <p class="muted">Time used ${mmss(used)}${pace ? `, about ${pace} s per question (exam pace is ${QZ_PACE} s)` : ""}.${unreached ? ` ${unreached} question${unreached === 1 ? "" : "s"} not reached, counted as wrong like on test day.` : ""}</p>
     <p class="muted">This is your starting line, not a score. ${inRev ? `<b>${inRev}</b> question${inRev === 1 ? "" : "s"} you ${slow ? "missed, guessed on or answered too slowly" : "missed or guessed on"} ${inRev === 1 ? "is" : "are"} in your Revenge Questions. ` : ""}Your plan on the Me page now starts with ${order.length ? esc(SECTIONS[order[0][0]].name) : "your weakest section"}${S.baseline.weak ? (planSheetOpen(S.baseline.weak) ? `, Mastery Sheet ${esc(S.baseline.weak)} first` : `, drilling ${esc(S.baseline.weak)} first`) : ""}, with a study loop for each weak area.</p>
-    <div class="row"><button class="btn primary" data-close data-gome>See my diagnostic analysis</button></div>`);
+    <div class="row"><button class="btn primary" data-close data-gome>See my diagnostic analysis</button><button class="btn" data-diagrev>Review my answers</button></div>`);
 }
+// After the diagnostic: every question with your pick, the right answer and the explanation (hidden while the clock ran).
+function diagReview() {
+  const B = S.baseline; if (!B || !B.ids) return;
+  const L = "ABCD", picks = B.picks || {};
+  const qs = B.ids.map(anyQ).filter(Boolean);
+  const nWrong = qs.filter(q => picks[q.id] !== q.a).length;
+  sheet(`<div class="eyebrow">Diagnostic answers</div><h2>${qs.length - nWrong} right, ${nWrong} to learn from.</h2>
+    <p class="muted" style="margin-top:0">Misses are listed first. Unanswered questions show no pick.</p>
+    ${qs.sort((a, b) => (picks[a.id] === a.a) - (picks[b.id] === b.a)).map((q, n) => { const p = picks[q.id], ok = p === q.a;
+      return `<details class="card" style="margin:8px 0;padding:10px 12px"${ok ? "" : " open"}><summary style="cursor:pointer"><b>${ok ? "✓" : "✗"} ${n + 1}.</b> <span class="small muted">${esc(SECTIONS[q.s].name)} · ${esc(q.c)}</span> ${p == null ? '<span class="small muted">not reached</span>' : ""}</summary>
+        <p style="margin:8px 0">${q.q}</p><ul class="small" style="margin:0 0 6px;padding-left:20px">${q.o.map((o, j) => `<li${j === q.a ? ' style="font-weight:700"' : ""}>${L[j]}. ${o[0]}${j === q.a ? " ✓" : ""}${j === p && !ok ? " (your answer)" : ""}</li>`).join("")}</ul>
+        ${explainHTML(q, p == null ? -1 : p)}</details>`; }).join("")}
+    <div class="row"><button class="btn primary" data-close>Done</button></div>`);
+}
+document.addEventListener("click", e => { if (e.target.closest("[data-diagrev]")) diagReview(); });
 // The diagnostic's lowest science section, if one section clearly trails another. Used by the feed mix and the plan.
 function diagWeakSec() {
   const by = S.baseline && S.baseline.by; if (!by) return null;
@@ -3199,6 +3217,7 @@ function diagHTML() {
   else if (B.unreached) tips.push(`You ran out of time with ${B.unreached} left. Move on after about ${QZ_PACE} s and flag the question instead of fighting it.`);
   return `<p class="small muted" style="margin:8px 0 0">${B.timed ? "Diagnostic" : "Starting check"} (${esc(niceDate(B.date))}): <b>${B.acc}%</b>${order.length ? " · " + order.map(([k, v]) => `${esc(SECTIONS[k].name)} ${v}%`).join(", ") : ""}${B.pace ? ` · ${B.pace} s a question` : ""}. Your overall accuracy now: <b>${now}%</b>.</p>`
     + (tips.length ? `<h4 style="margin:10px 0 4px">From your diagnostic</h4><ul class="small" style="margin:0;padding-left:20px">${tips.map(t => `<li>${t}</li>`).join("")}</ul>` : "")
+    + (B.ids ? `<p class="small muted" style="margin:6px 0 0"><button class="linkbtn" data-diagrev>Review my diagnostic answers</button></p>` : "")
     + (B.timed ? "" : `<p class="small muted" style="margin:6px 0 0"><button class="linkbtn" data-startcheck>Retake it as a timed diagnostic</button></p>`);
 }
 document.addEventListener("click", e => {
@@ -3990,14 +4009,14 @@ function renderMe() {
     <div class="panel"><h3>Help</h3>
       <p class="small">Questions about 520 Quest or your purchase? We reply within 24 to 48 hours.</p>
       <div class="row"><a class="btn small primary" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20support">Contact Support</a><a class="btn small" href="${esc(CONFIG.supportUrl)}" target="_blank" rel="noopener">FAQ</a><a class="btn small" href="mailto:${esc(CONFIG.supportEmail)}?subject=520%20Quest%20feedback">Send feedback</a></div>
-      ${S.proBy === "account" ? `<p style="font-size:12px;color:#6b7280;margin:4px 0 0"><button class="linkbtn" data-cancelsub style="font-size:12px;color:#6b7280">Cancel subscription</button></p>` : ""}</div>
+      ${S.proBy === "account" ? `<p style="font-size:12px;color:#6b7280;margin:4px 0 0"><button class="linkbtn" data-cancelsub style="font-size:12px;color:#6b7280">Manage or cancel subscription</button> <span style="color:#9ca3af">· sign in with your checkout email · trouble? <a href="mailto:${CONFIG.supportEmail}" style="color:#6b7280">${CONFIG.supportEmail}</a></span></p>` : ""}</div>
     <div class="panel"><h3>Privacy</h3><p class="small"><b>We help you get into medical school without selling your data.</b> Your progress stays on this device unless you sign in; then it's saved to your 520 Quest account so it follows you to your other devices. No ads, no trackers.</p></div>
     <p class="small muted">520 Quest questions are original practice items, not official AAMC content. MCAT is a registered trademark of the AAMC, which does not endorse this app.</p>
   </div>`;
 }
 $("#view-me").addEventListener("click", e => {
   const t = e.target;
-  if (t.closest("[data-cancelsub]")) { location.href = "mailto:" + CONFIG.supportEmail + "?subject=" + encodeURIComponent("Cancel my 520 Quest subscription"); return; }
+  if (t.closest("[data-cancelsub]")) { window.open(CONFIG.portalUrl, "_blank", "noopener"); return; }
   if (t.closest("[data-meqbank]")) { go("scroll"); return; }
   if (t.closest("[data-customgoal]")) return customGoal();
   const sg = t.closest("[data-setgoal]"); if (sg) { S.goalCustom = false; setGoal(+sg.dataset.setgoal); const y = $("#view-me").scrollTop; renderMe(); $("#view-me").scrollTop = y; return toast(`Daily goal: <b>${S.goal} questions</b>.`); }

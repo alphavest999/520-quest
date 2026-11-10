@@ -478,8 +478,12 @@ function mcatAdminSheet() {
     try { rows = await rpc("mcat_results_admin"); } catch (e) { $("#mrMsg", s).textContent = /function|schema cache|404/i.test(errText(e)) ? "Not set up yet. Run supabase/006_mcat_results.sql in Supabase first." : "Couldn't load: " + errText(e); return; }
     rows = rows || [];
     const secs = ["CP", "CARS", "BB", "PS"], idx = { CP: 1, CARS: 2, BB: 3, PS: 4 };
-    const gap = k => { const g = rows.filter(r => r[idx[k]] && r[6] && r[6][k]).map(r => r[idx[k]] - r[6][k]); return g.length ? `${k}: ${g.length} · avg gap ${(g.reduce((a, b) => a + b, 0) / g.length).toFixed(1)}` : `${k}: none yet`; };
-    $("#mrMsg", s).textContent = `${rows.length} result${rows.length === 1 ? "" : "s"}. Real minus estimated, per section: ${secs.map(gap).join(" · ")}. The app adjusts a section once ${CAL_MIN}+ students with 300+ answers report it.`;
+    // Accuracy check: bias (average real minus estimate), typical miss (average absolute gap) and share within a band.
+    const acc = (g, band, k) => { if (!g.length) return `${k}: none yet`; const avg = f => (g.reduce((a, b) => a + f(b), 0) / g.length).toFixed(1);
+      return `${k}: ${g.length} · bias ${avg(x => x)} · typical miss ${avg(Math.abs)} · ${Math.round(g.filter(x => Math.abs(x) <= band).length / g.length * 100)}% within ±${band}`; };
+    const gap = k => acc(rows.filter(r => r[idx[k]] && r[6] && r[6][k]).map(r => r[idx[k]] - r[6][k]), 2, k);
+    const tot = acc(rows.filter(r => r[6] && secs.every(k => r[6][k])).map(r => r[0] - secs.reduce((a, k) => a + r[6][k], 0)), 6, "Total");
+    $("#mrMsg", s).textContent = `${rows.length} result${rows.length === 1 ? "" : "s"}. Real minus estimated: ${secs.map(gap).join(" · ")} · ${tot}. The app adjusts a section once ${CAL_MIN}+ students with 300+ answers report it.`;
     $("#mrBody", s).innerHTML = rows.slice(0, 100).map(r => `<div class="panel" style="padding:10px"><b>${r[0]}</b> <span class="small muted">${esc(r[5] || "")} · ${r[7]} answered · ${r[8]} exams</span>
       <p class="small" style="margin:4px 0 0">${secs.map(k => `${k} ${r[idx[k]] || "–"}${r[6] && r[6][k] ? " (est " + r[6][k] + ")" : ""}`).join(" · ")}</p></div>`).join("");
   });
