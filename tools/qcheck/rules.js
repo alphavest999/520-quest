@@ -45,10 +45,12 @@ function checkQuestion(q, ex, { strictFeedback }) {
   if (/\b(all|none) of the above\b/i.test(txt.join(" | "))) tells.push('uses "all/none of the above"');
   return { errors, tells, longest: nums.every(Boolean) ? null : txt.every((t, i) => i === q.a || t.length < txt[q.a].length) };
 }
-// A passage question that points at a table or figure the passage doesn't have.
+// A passage question (or its explanation) that points at a table, figure or paragraph the passage doesn't have.
 function checkRefs(q, p, ex) {
   if (!p) return [];
-  const out = [], stem = plain(q.q) + " " + q.o.map(o => plain(o[0])).join(" ");
+  // The stem, the choices and the explanation all have to point at things this passage really has.
+  const exTxt = ex ? JSON.stringify(ex, (k, v) => (k === "fig" || k === "graph" || k === "tb" ? undefined : v)) : "";
+  const out = [], stem = plain(q.q) + " " + q.o.map(o => plain(o[0])).join(" ") + " " + plain(exTxt);
   const ptxt = (p.text || []).map(plain).join(" ") + " " + JSON.stringify(p.tbl || "") + JSON.stringify(p.graph || "") + JSON.stringify(p.fig || "") + JSON.stringify(p.figs || "");
   for (const m of stem.matchAll(/\b(Table|Figure)\s+(\d+)/g)) if (!new RegExp(`\\b${m[1]}\\s+${m[2]}\\b`).test(ptxt)) out.push(`refers to ${m[1]} ${m[2]}, which the passage doesn't have`);
   for (const m of stem.matchAll(/\bparagraph\s+(\d+)\b/gi)) if (+m[1] > (p.text || []).length) out.push(`refers to paragraph ${m[1]}, but the passage has ${(p.text || []).length}`);

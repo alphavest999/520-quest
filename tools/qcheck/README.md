@@ -10,7 +10,13 @@ files) plus the older questions inside `play/index.html`, and runs on every pull
 - Two right answers or a wrong key: a wrong choice explained as "Correct", a key not explained as "Correct",
   or a full explanation (`ex/`) that disagrees with the key.
 - Duplicate choices, a missing or stub explanation, a choice with no reason.
-- A passage question that points at a Table, Figure or paragraph the passage doesn't have.
+- A passage question, or its explanation, that points at a Table, Figure or paragraph the passage doesn't have.
+- A figure (`fig` in `ex/`) whose file isn't in `play/fig`, so the image would be broken.
+- An explanation with no question, left behind when a question was archived or renamed (needs the key).
+- A figure used by two or more different passages (needs the key). A figure borrowed from another passage
+  usually shows that passage's labels and numbers. Give the passage its own figure; if the figure is a general
+  concept panel that fits both, check every label, then accept it with `--update-baseline`, which records it
+  under `figShared` in `baseline.json`.
 - A free copy (BP.json, CARS.json, FL.json, MN.json) whose key, stem or choices differ from its sealed twin.
 - Duplicate question ids.
 - A new giveaway: the key is the only choice with (or without) a unit, uses a unit no other choice uses, or is
