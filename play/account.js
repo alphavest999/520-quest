@@ -274,6 +274,7 @@ function adminPanelHTML() {
     <p class="small muted">Unlimited questions, bosses, full-lengths, minis, Mastery Sheets, mnemonics and Anki export are on. These buttons change this account's own level, to preview each tier.</p>
     <p class="small">Jump to level</p><div class="row">${[1, 2, 3, 4, 5].map(n => `<button class="btn small${n === lv ? " primary" : ""}" data-adlevel="${n}">${n}. ${esc(tierName(n))}</button>`).join("")}</div>
     <div class="row" style="margin-top:8px">${lv < 5 ? `<button class="btn small" data-adgate>Fight Gatekeeper ${lv + 1} now</button>` : ""}<button class="btn small" data-adbosses>Reset today's boss count</button></div>
+    <p class="small" style="margin-top:12px">Questions that look broken (student reports + real percent correct), most urgent first.</p><div class="row"><button class="btn small primary" data-adqqueue>Review queue</button></div>
     <p class="small" style="margin-top:12px">Real percent correct per question, from students' first tries.</p><div class="row"><button class="btn small" data-adqstats>Question stats</button><button class="btn small" data-adqreports>Reported questions</button><button class="btn small" data-admcat>Real MCAT results</button></div></div>`;
 }
 document.addEventListener("click", e => {
@@ -418,6 +419,52 @@ function reportsSheet() {
   });
 }
 document.addEventListener("click", e => { if (e.target.closest("[data-adqreports]") && isAdmin()) reportsSheet(); });
+
+/* Admin: one review queue. Student reports and suspicious stats on the same card, most urgent first:
+   a wrong choice picked more often than the key (likely wrong key), very low percent correct, and open reports.
+   Stats-only cards can be hidden on this device; they come back if twice as many students answer later. */
+const QQ_HIDE = "quest520.qqhide";
+function reviewQueueSheet() {
+  sheet(`<div class="eyebrow">Admin</div><h2>Review queue</h2><p class="small muted" id="qqMsg">Loading…</p><div id="qqBody" class="stack"></div><div class="row"><button class="btn ghost" data-close>Close</button></div>`, async s => {
+    flushAnswers();
+    const [st, rp] = await Promise.all([rpc("question_stats_admin", { p_min: 10 }).catch(e => e), rpc("question_reports_admin", { p_status: "open" }).catch(e => e)]);
+    const bad = x => x instanceof Error || (x && x.message && !Array.isArray(x));
+    if (bad(st) && bad(rp)) { $("#qqMsg", s).textContent = "Couldn't load: " + errText(st); return; }
+    let hide = {}; try { hide = JSON.parse(lsGet(QQ_HIDE) || "{}"); } catch (e) {}
+    const items = {}, get = id => (items[id] = items[id] || { id, why: [], score: 0, reports: [] });
+    (Array.isArray(st) ? st : []).forEach(([id, n, c, picks]) => {
+      const q = anyQ(id), pct = Math.round(c / n * 100), it = { n, pct };
+      if (q && Array.isArray(picks)) {
+        const key = picks[q.a] || 0, top = picks.map((v, k) => [v || 0, k]).filter(([, k]) => k !== q.a).sort((a, b) => b[0] - a[0])[0];
+        if (n >= 15 && top && top[0] > key) Object.assign(get(id), it, { score: 6 + Math.min(4, n / 30) }).why.push(`More students pick ${"ABCD"[top[1]]} (${Math.round(top[0] / n * 100)}%) than the key ${"ABCD"[q.a]} (${Math.round(key / n * 100)}%). Check the key.`);
+      }
+      if (n >= 20 && pct < 25) { const x = Object.assign(get(id), it); x.score += 3; x.why.push(`Only ${pct}% get it right. Look for a typo, two right answers or a misleading stem.`); }
+      if (items[id] && !items[id].reports.length && hide[id] && n < hide[id] * 2) delete items[id];
+    });
+    (Array.isArray(rp) ? rp : []).forEach(r => { const x = get(r[1]); x.reports.push(r); x.score += 4; });
+    (Array.isArray(st) ? st : []).forEach(([id, n, c]) => { if (items[id] && items[id].n == null) Object.assign(items[id], { n, pct: Math.round(c / n * 100) }); });
+    const list = Object.values(items).sort((a, b) => b.score - a.score);
+    const label = r => (QREASONS.find(x => x[0] === r[2]) || ["", r[2]])[1];
+    $("#qqMsg", s).textContent = (list.length ? `${list.length} question${list.length === 1 ? "" : "s"} to look at.` : "Nothing to review. 🎉") + (bad(st) ? " (Stats didn't load.)" : "") + (bad(rp) ? " (Reports didn't load.)" : "");
+    $("#qqBody", s).innerHTML = list.slice(0, 60).map(it => {
+      const q = anyQ(it.id);
+      return `<div class="panel" style="padding:10px" data-qqrow="${esc(it.id)}"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><b>${esc(it.id)}</b><span class="small">${it.n != null ? `<b>${it.pct}%</b> of ${it.n}` : ""}${it.reports.length ? ` · ${it.reports.length} report${it.reports.length === 1 ? "" : "s"}` : ""}</span></div>
+        ${q ? `<p class="small" style="margin:4px 0 0">${esc(qText(q))}</p><p class="small muted" style="margin:2px 0 0">${q.o.map((o, k) => `${"ABCD"[k]}${k === q.a ? " (key)" : ""}: ${esc(String(o[0]).replace(/<[^>]+>/g, "").slice(0, 60))}`).join(" · ")}</p>` : `<p class="small muted" style="margin:4px 0 0">Question text not loaded on this device.</p>`}
+        ${it.why.map(w => `<p class="small" style="margin:6px 0 0;color:var(--bad)">${esc(w)}</p>`).join("")}
+        ${it.reports.slice(0, 6).map(r => `<p class="small" style="margin:6px 0 0"><b>${esc(label(r))}</b>${r[3] ? ": " + esc(r[3]) : ""}</p>`).join("")}
+        <div class="row" style="margin-top:8px">${it.reports.length ? `<button class="btn small" data-qqres="fixed" data-qid="${esc(it.id)}">Fixed</button><button class="btn small ghost" data-qqres="dismissed" data-qid="${esc(it.id)}">Dismiss</button>` : `<button class="btn small ghost" data-qqhide="${esc(it.id)}" data-n="${it.n || 0}">Looks fine, hide</button>`}</div></div>`;
+    }).join("");
+    $("#qqBody", s).addEventListener("click", async e => {
+      const h = e.target.closest("[data-qqhide]");
+      if (h) { hide[h.dataset.qqhide] = +h.dataset.n; lsSet(QQ_HIDE, JSON.stringify(hide)); h.closest("[data-qqrow]").remove(); return toast("Hidden until twice as many students answer it."); }
+      const b = e.target.closest("[data-qqres]"); if (!b) return;
+      b.disabled = true;
+      try { await rpc("resolve_question_reports", { p_qid: b.dataset.qid, p_status: b.dataset.qqres }); hide[b.dataset.qid] = +(items[b.dataset.qid].n || 0); lsSet(QQ_HIDE, JSON.stringify(hide)); b.closest("[data-qqrow]").remove(); toast(b.dataset.qqres === "fixed" ? "Marked fixed." : "Dismissed."); }
+      catch (err) { b.disabled = false; toast("Couldn't update: " + esc(errText(err))); }
+    });
+  });
+}
+document.addEventListener("click", e => { if (e.target.closest("[data-adqqueue]") && isAdmin()) reviewQueueSheet(); });
 
 /* ---------- real MCAT results: students report their real score (supabase/006_mcat_results.sql) ---------- */
 // The app saves what it estimated at that moment, so real scores can correct the estimate for everyone later.

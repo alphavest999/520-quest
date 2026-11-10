@@ -1,0 +1,24 @@
+# Checks the question bank on every pull request before it can merge (see tools/qcheck/README.md).
+name: Question bank check
+on:
+  pull_request:
+    paths: ["play/bank/**", "play/index.html", "tools/qcheck/**", ".github/workflows/qcheck.yml"]
+  push:
+    branches: [main]
+    paths: ["play/bank/**", "play/index.html", "tools/qcheck/**"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qcheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check every question
+        env:
+          CONTENT_KEY: ${{ secrets.CONTENT_KEY }}
+        run: node tools/qcheck/check_bank.js
