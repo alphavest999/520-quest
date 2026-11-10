@@ -1843,7 +1843,7 @@ function record(q, correct, secs) {
     S.review.done.push(q.id); (S.today.reviewedIds = S.today.reviewedIds || []).push(q.id); if (correct) S.review.right++; else S.review.wrong++;
     if (S.review.kind === "check") (S.review.secs = S.review.secs || {})[q.id] = Math.round(secs || 0);
     const rd = document.getElementById("revDone"); if (rd) rd.textContent = reviewDoneText();
-    if (S.review.done.length >= S.review.ids.length) { S.today.reviewed = true; setTimeout(reviewPrompt, 900); }
+    if (S.review.done.length >= S.review.ids.length) { S.today.reviewed = true; if (S.review.kind !== "check") setTimeout(reviewPrompt, 900); }
   }
   levelTick(q, correct);
   const rec = S.recent[q.s]; rec.push([correct ? 1 : 0, q.d]); if (rec.length > 60) rec.shift();
@@ -1895,7 +1895,7 @@ function renderHUD() {
   const tgt = S.today.drillTgt || S.goal;
   // During the timed diagnostic the green counter tracks the diagnostic itself, not the daily goal.
   const DR = S.review && S.review.kind === "check" ? S.review : null;
-  $("#hudGoalTxt").textContent = DR ? Math.min(DR.ids.length, DR.done.length + 1) + "/" + DR.ids.length : Math.min(S.today.answered, tgt) + "/" + tgt;
+  $("#hudGoalTxt").textContent = DR ? ckN(DR) + "/" + DR.ids.length : Math.min(S.today.answered, tgt) + "/" + tgt;
   $("#hudStreakTxt").textContent = streakAlive();
   $("#hudPro").hidden = !!S.pro;
   $("#hudInstall").hidden = installed();
@@ -2081,7 +2081,7 @@ function drillEndCard() {
   });
   return el;
 }
-function resetFeed() { feed.innerHTML = ""; cardN = 0; feedMix = { p: 0, d: 0 }; gateShown = false; drillEndShown = false; reviewEnded = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
+function resetFeed() { if (S.review) S.review.queued = []; feed.innerHTML = ""; cardN = 0; feedMix = { p: 0, d: 0 }; gateShown = false; drillEndShown = false; reviewEnded = false; sessionSeen = new Set(); renderFilters(); fill(4); feed.scrollTop = 0; }
 
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
@@ -2165,8 +2165,33 @@ function questionCard(q, rev, tgt) {
     <div class="row tools"><button class="btn small ghost" data-hint ${S.hints && !(S.review && S.review.kind === "check") ? "" : "disabled"}>Hint (${S.hints})</button><span class="muted small">${esc(cat.title)}</span></div>
     <div class="reveal stack" hidden></div>${SWIPE}`;
   wireQuestion(el, q, el);
+  if (S.review && S.review.kind === "check" && S.review.ids.includes(q.id)) {
+    // Previous / Next / Submit sit at the top of the card, so they're on screen as soon as the question is.
+    $(".card-top", el).insertAdjacentHTML("afterend", `<div class="row cknav" style="gap:6px;margin:6px 0 2px;flex-wrap:nowrap"><button class="btn small ghost" data-ckprev>‹ Previous</button><button class="btn small primary" data-cknext style="flex:1">Next question ›</button><button class="btn small ghost" data-checksubmit>Submit</button></div>`);
+    const step = dir => { let n = el[dir]; while (n && !(n.classList.contains("q") && n.dataset.id)) n = n[dir]; if (!n && dir === "nextElementSibling") n = el.nextElementSibling; if (n) scrollToEl(n); };
+    $("[data-ckprev]", el).addEventListener("click", () => step("previousElementSibling"));
+    $("[data-cknext]", el).addEventListener("click", () => step("nextElementSibling"));
+    checkCardState(el, q);
+  }
   return el;
 }
+// A diagnostic card: shows the saved pick (if any). Picks stay changeable until Submit.
+function checkCardState(card, q) {
+  const R = S.review, p = R && R.picks && R.picks[q.id], i = p == null ? -1 : q.ord ? q.ord.indexOf(p) : p;
+  $$(".opt", card).forEach((o, j) => o.classList.toggle("picked", j === i));
+  const h = $("[data-hint]", card); if (h) h.disabled = true;
+  const rv = $(".reveal", card); rv.hidden = i < 0;
+  rv.innerHTML = i < 0 ? "" : `<div class="note">Answer ${"ABCD"[i]} saved. Tap another choice to change it. Results come at the end.</div>`;
+}
+document.addEventListener("click", e => {
+  if (!e.target.closest("[data-checksubmit]")) return;
+  const R = S.review; if (!R || R.kind !== "check") return;
+  const l = R.ids.length - ckN(R);
+  sheet(`<div class="eyebrow">Submit diagnostic?</div><h2>${l ? `${l} question${l === 1 ? " is" : "s are"} still unanswered.` : "All questions answered."}</h2>
+    <p class="muted">${l ? "Unanswered questions count as wrong, like on test day. " : ""}You still have ${mmss(Math.max(0, R.limit - (Date.now() - R.t0) / 1000))} on the clock to review or change answers. After you submit, answers are final.</p>
+    <div class="row"><button class="btn primary" data-close data-ckfinal>Submit now</button><button class="btn ghost" data-close>Keep reviewing</button></div>`);
+});
+document.addEventListener("click", e => { if (e.target.closest("[data-ckfinal]")) setTimeout(checkDone, 0); });
 // "How sure?" is tapped before answering. A right answer marked Guessing comes back tomorrow; Think so comes back in 3 days.
 const CONF = [["sure", "Sure"], ["think", "Think so"], ["guess", "Guessing"]];
 function wireQuestion(scope, q, card) {
@@ -2180,26 +2205,22 @@ function wireQuestion(scope, q, card) {
     const b = e.target.closest(".opt"); if (!b || optsBox.dataset.done) return;
     // Cards are built a few ahead, so one can still be on screen after the free limit is reached.
     if (!isExamId(q.id) && !canOpen(q)) return showPro();
-    optsBox.dataset.done = 1;
     const i = +b.dataset.i, ok = i === q.a, secs = ((Date.now() - (card._shown || card._made || Date.now())) / 1000);
-    // Timed diagnostic: exam conditions, so no right/wrong, answer reasons or explanations until the analysis at the end.
+    // Timed diagnostic: exam conditions. The pick is saved but can be changed until Submit or time's up; nothing is
+    // scored, and no right/wrong or explanation shows, until then (checkDone records every pick).
     if (S.review && S.review.kind === "check" && S.review.ids.includes(q.id)) {
-      $$(".opt", optsBox).forEach((o, j) => { o.disabled = true; if (j === i) o.classList.add("picked"); });
+      const R = S.review, first = !(R.picks && q.id in R.picks);
+      (R.picks = R.picks || {})[q.id] = q.ord ? q.ord[i] : i;   // bank order
+      (R.conf = R.conf || {})[q.id] = optsBox.dataset.conf || "";
+      (R.secs = R.secs || {})[q.id] = Math.round(secs);
       if (S.resume === q.id) S.resume = null;
-      (S.review.picks = S.review.picks || {})[q.id] = q.ord ? q.ord[i] : i;   // bank order, for the answer review at the end
-      const conf = optsBox.dataset.conf || ""; confBox.classList.add("locked");
-      record(q, ok, secs);
-      if (S.stats[q.id] && S.stats[q.id].a === 1 && typeof logAnswer === "function") logAnswer(q.id, q.ord ? q.ord[i] : i, ok);
-      if (ok && conf === "guess") { S.revenge[q.id] = { box: 0, due: Date.now() + 20 * 3600000 }; save(); }
-      else if (ok && conf === "think" && !S.revenge[q.id]) { S.revenge[q.id] = { box: 1, due: Date.now() + 3 * DAY }; save(); }
-      beep("click");
-      const rv = $(".reveal", scope); rv.hidden = false;
-      rv.innerHTML = `<div class="note">Answer ${"ABCD"[i]} saved. You'll see how you did in your diagnostic analysis at the end.</div><div class="row"><button class="btn small" data-next>Next question</button></div>`;
-      const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
-      $("[data-next]", rv).addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
-      const h = $("[data-hint]", scope); if (h) h.disabled = true;
+      save(); beep("click"); checkCardState(card, q); renderHUD();
+      const c = $("#revChip"); if (c) c.textContent = quizChipText() + " ✕";
+      const rd = document.getElementById("revDone"); if (rd) rd.textContent = reviewDoneText();
+      if (first && ckN(R) === R.ids.length) toast("All questions answered. You can still change any answer, then tap Submit.");
       return;
     }
+    optsBox.dataset.done = 1;
     $$(".opt", optsBox).forEach((o, j) => {
       o.disabled = true;
       if (j === q.a) o.classList.add("right"); else if (j === i) o.classList.add("wrong");
@@ -2904,12 +2925,15 @@ function startQuiz() {
   S.focus = null; S.sub = null; save(); go("scroll"); resetFeed(); quizTick(); growTarget(ids.length); save(); renderHUD();
   toast(`Custom quiz: ${ids.length} question${ids.length === 1 ? "" : "s"}${o.timed ? `, ${Math.round(ids.length * QZ_PACE / 60)} minutes on the clock` : ""}.`);
 }
+// Diagnostic answers stay changeable until Submit, so its progress is the number of questions with a pick.
+const ckN = R => Object.keys(R.picks || {}).filter(id => R.ids.includes(id)).length;
 const mmss = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 function quizChipText() {
   const R = S.review, pos = Math.min(R.ids.length, R.done.length + 1), name = R.kind === "check" ? "Diagnostic" : "Custom quiz";
-  if (!R.timed) return `${name} · ${pos} of ${R.ids.length}`;
+  const where = R.kind === "check" ? `${ckN(R)} of ${R.ids.length} answered` : `${pos} of ${R.ids.length}`;
+  if (!R.timed) return `${name} · ${where}`;
   const left = R.limit - (Date.now() - R.t0) / 1000;
-  return `${name} · ${pos} of ${R.ids.length} · ${left > 0 ? mmss(left) + " left" : "time's up"}`;
+  return `${name} · ${where} · ${left > 0 ? mmss(left) + " left" : "time's up"}`;
 }
 let quizTimer = null;
 function quizTick() {
@@ -2939,7 +2963,7 @@ document.addEventListener("click", e => {
 function reviewDoneText() {
   const R = S.review; if (!R) return "";
   if (R.kind === "quiz") { const l = R.ids.length - R.done.length; return l ? `${l} question${l === 1 ? "" : "s"} left in your custom quiz.` : "Custom quiz done."; }
-  if (R.kind === "check") { const l = R.ids.length - R.done.length; return l ? `${l} question${l === 1 ? "" : "s"} left in your diagnostic.` : "Diagnostic done. Your results are on the Me page."; }
+  if (R.kind === "check") { const l = R.ids.length - ckN(R); return (l ? `${l} question${l === 1 ? "" : "s"} still unanswered. ` : "All questions answered. ") + "You can go back and change any answer until you submit or the clock runs out."; }
   const left = R.ids.length - R.done.length;
   return left ? `${left} question${left === 1 ? "" : "s"} above still to answer.` : `${R.right} question${R.right === 1 ? "" : "s"} mastered, ${R.wrong} still in queue. See you tomorrow.`;
 }
@@ -2948,7 +2972,7 @@ function reviewDoneCard() {
   const kind = (S.review || {}).kind, title = kind === "quiz" ? "Custom quiz complete" : kind === "check" ? "Diagnostic complete" : "Revenge Queue complete";
   el.innerHTML = `<div class="eyebrow">${title}</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
     <p class="muted" style="margin:0">Anything you missed again comes back in your Revenge Queue on a 1, 3 and 7 day schedule.</p>
-    <div class="row">${kind === "check" ? `<button class="btn primary" data-gome style="flex:1">See my diagnostic analysis</button>` : `<button class="btn primary" data-more10 style="flex:1">${drillLabel()}</button><button class="btn" data-doneday style="flex:1">Done for the Day</button>`}</div>`;
+    <div class="row">${kind === "check" ? `<button class="btn primary" data-checksubmit style="flex:1">Submit diagnostic</button>` : `<button class="btn primary" data-more10 style="flex:1">${drillLabel()}</button><button class="btn" data-doneday style="flex:1">Done for the Day</button>`}</div>`;
   return el;
 }
 function exitApp() {
@@ -3157,6 +3181,15 @@ function checkStart() {
 function checkDone() {
   const R = S.review; if (!R || R.kind !== "check") return;
   clearInterval(quizTimer);
+  // Answers were changeable until now, so this is where each final pick is scored. No chests from a diagnostic.
+  const picks = R.picks || {}, conf = R.conf || {}, chest = S.chest, lv0 = S.lv.pending;
+  R.ids.forEach(id => { const q = anyQ(id); if (!q || picks[id] == null || R.done.includes(id)) return;
+    const ok = picks[id] === q.a, first = !S.stats[id];
+    record(q, ok, (R.secs || {})[id]);
+    if (first && typeof logAnswer === "function") logAnswer(id, picks[id], ok);
+    if (ok && conf[id] === "guess") S.revenge[id] = { box: 0, due: Date.now() + 20 * 3600000 };
+    else if (ok && conf[id] === "think" && !S.revenge[id]) S.revenge[id] = { box: 1, due: Date.now() + 3 * DAY }; });
+  S.chest = chest;
   const secs = R.secs || {}, by = {}, tally = {};
   let slow = 0;
   R.ids.forEach(id => { const q = anyQ(id); if (!q) return; const st = S.stats[id], ok = !!(st && st.c && R.done.includes(id));
@@ -3176,11 +3209,14 @@ function checkDone() {
   S.review = null; save(); beep("level"); renderHUD();
   if (!$("#view-scroll").hidden) resetFeed();
   const order = Object.entries(S.baseline.by).sort((a, b) => a[1] - b[1]);
-  sheet(`<div class="eyebrow">${R.timeUp ? "Time's up. " : ""}Diagnostic done</div><h2>${r} of ${n} right (${S.baseline.acc}%).</h2>
+  const html = `<div class="eyebrow">${R.timeUp ? "Time's up. " : ""}Diagnostic done</div><h2>${r} of ${n} right (${S.baseline.acc}%).</h2>
     <p class="muted" style="margin-top:0">${order.map(([k, v]) => `${esc(SECTIONS[k].name)} <b>${v}%</b>`).join(" · ")}</p>
     <p class="muted">Time used ${mmss(used)}${pace ? `, about ${pace} s per question (exam pace is ${QZ_PACE} s)` : ""}.${unreached ? ` ${unreached} question${unreached === 1 ? "" : "s"} not reached, counted as wrong like on test day.` : ""}</p>
     <p class="muted">This is your starting line, not a score. ${inRev ? `<b>${inRev}</b> question${inRev === 1 ? "" : "s"} you ${slow ? "missed, guessed on or answered too slowly" : "missed or guessed on"} ${inRev === 1 ? "is" : "are"} in your Revenge Questions. ` : ""}Your plan on the Me page now starts with ${order.length ? esc(SECTIONS[order[0][0]].name) : "your weakest section"}${S.baseline.weak ? (planSheetOpen(S.baseline.weak) ? `, Mastery Sheet ${esc(S.baseline.weak)} first` : `, drilling ${esc(S.baseline.weak)} first`) : ""}, with a study loop for each weak area.</p>
-    <div class="row"><button class="btn primary" data-close data-gome>See my diagnostic analysis</button><button class="btn" data-diagrev>Review my answers</button></div>`);
+    <div class="row"><button class="btn primary" data-close data-gome>See my diagnostic analysis</button><button class="btn" data-diagrev>Review my answers</button></div>`;
+  // A level-evaluation popup from scoring the picks opens after 1.2 s; show the results once it is closed.
+  const show = () => $("#sheetHost .scrim") ? setTimeout(show, 800) : sheet(html);
+  if (S.lv.pending !== lv0) setTimeout(show, 1400); else sheet(html);
 }
 // After the diagnostic: every question with your pick, the right answer and the explanation (hidden while the clock ran).
 function diagReview() {
