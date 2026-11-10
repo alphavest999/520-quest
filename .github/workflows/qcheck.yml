@@ -2,10 +2,10 @@
 name: Question bank check
 on:
   pull_request:
-    paths: ["play/bank/**", "play/index.html", "tools/qcheck/**", ".github/workflows/qcheck.yml"]
+    paths: ["play/bank/**", "play/fig/**", "play/index.html", "tools/qcheck/**", ".github/workflows/qcheck.yml"]
   push:
     branches: [main]
-    paths: ["play/bank/**", "play/index.html", "tools/qcheck/**"]
+    paths: ["play/bank/**", "play/fig/**", "play/index.html", "tools/qcheck/**"]
   workflow_dispatch:
 permissions:
   contents: read
