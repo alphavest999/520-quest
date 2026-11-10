@@ -163,6 +163,8 @@ button { cursor: pointer; }
 .opt.gone { opacity: .3; pointer-events: none; }
 .opt:disabled { cursor: default; }
 .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+/* Notebook sits under "I still don't get it", pushed right so it never lands under Next question. */
+.stuckcol { display: flex; flex-direction: column; align-items: stretch; gap: 6px; margin-left: auto; }
 .btn { border: 1px solid #1e3a8a; background: #1e3a8a; color: #fff; border-radius: 12px; padding: 10px 14px; font: 600 14px/1.2 var(--body); }
 .btn.primary { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); font-weight: 800; }
 .btn.ghost { background: #fff; color: #1e3a8a; border-color: #1e3a8a; }
@@ -2257,7 +2259,7 @@ function wireQuestion(scope, q, card) {
     const rv = $(".reveal", scope); rv.hidden = false;
     rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` + (confNote ? `<div class="note">${confNote}</div>` : "") +
       (ok ? (q.x ? `<div class="note">${esc(splitX(q.x).main || q.x)}</div>` : "") + (q.note ? `<div class="note">${esc(q.note)}</div>` : "") : explainHTML(q, i)) +
-      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next question</button>${ok ? "" : ankiBtn(q) + '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}${nbBtn(q)}</div>`;
+      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next question</button>${ok ? "" : ankiBtn(q)}<span class="stuckcol">${ok ? "" : '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}${nbBtn(q)}</span></div>`;
     const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
     const nb = $("[data-next]", rv); if (sib) nb.textContent = "Next question";
     nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
