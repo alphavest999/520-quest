@@ -4,13 +4,15 @@
 //   CONTENT_KEY_FILE=path/to/content.key node tools/qcheck/check_bank.js   also the sealed (paid) files
 //   ... --update-baseline                                 accept today's giveaway list as the new baseline
 // Errors (wrong key, two right answers, duplicate choices, missing explanation, broken table/figure refs, missing
-// figure files, explanations left behind by archived questions, figures borrowed from another passage,
+// figure files, explanations left behind by archived questions, figures borrowed from another passage, passages
+// sharing a title or (near-)identical text,
 // free copy that disagrees with the sealed copy) always fail. Giveaways (length/unit tells) fail only when
 // they are new, i.e. not in tools/qcheck/baseline.json, which holds the ones the QA council already accepted.
 const fs = require("fs"), path = require("path");
 const { load, loadInline, keyFrom } = require("./load.js");
 const { checkQuestion, checkRefs, norm } = require("./rules.js");
 const { checkFigures } = require("./figs.js");
+const { checkPassages } = require("./dupes.js");
 const ROOT = path.resolve(__dirname, "../.."), BANK = path.join(ROOT, "play/bank"), BASE = path.join(__dirname, "baseline.json");
 const key = keyFrom(process.env);
 const L = load(BANK, key);
@@ -44,6 +46,8 @@ for (const r of all) {
 let base = { rates: {}, tells: [] }; try { base = JSON.parse(fs.readFileSync(BASE, "utf8")); } catch (e) {}
 const figs = checkFigures(all, L.ex, path.join(ROOT, "play/fig"), base.figShared || {}, !!key);
 errors.push(...figs.errors);
+// Passages: each needs its own title and its own text.
+errors.push(...checkPassages(all).errors);
 // Section-wide longest-answer rate (how often the key is the longest choice; ~25% is neutral). Only judged when the
 // sealed bank is readable, because the free sample alone is too small. A PR fails if it pushes a section more than
 // 1.5 points further from 25% than the baseline.

@@ -19,6 +19,10 @@ files) plus the older questions inside `play/index.html`, and runs on every pull
   under `figShared` in `baseline.json`.
 - A free copy (BP.json, CARS.json, FL.json, MN.json) whose key, stem or choices differ from its sealed twin.
 - Duplicate question ids.
+- Two passages with the same title, a placeholder title such as `<category> · passage`, or a passage with no
+  title. Each passage needs a title that names its own content.
+- Two passages with identical text, or near copies (half or more of the shorter passage's 8-word runs also
+  appear in the other). Rewrite one so every passage is unique.
 - A new giveaway: the key is the only choice with (or without) a unit, uses a unit no other choice uses, or is
   much longer or shorter than every other choice. Giveaways that already existed are listed in
   `baseline.json` and don't fail.
