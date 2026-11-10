@@ -1575,7 +1575,7 @@ function subCounts(code) {
   PASSAGES.forEach(p => { if (p.s === "CARS") p.qs.forEach(q => { if (q.c === code) add(q); }); else if (p.c === code) { const o = out.find(y => y.id === stOf(p)); if (o) o.n += p.qs.length; } });
   return out.filter(o => o.n);
 }
-let BANKIX = null, sealedLoad = null, sealedDone = false;
+let BANKIX = null, sealedLoad = null, sealedDone = false, examSealedLeft = -1;   // -1: sealed exam files not counted yet
 const sealedPending = () => !sealedDone;
 const keyReady = () => !!(window.acctHasKey && acctHasKey()) && typeof window.acctUnseal === "function";
 // Paid passages (bank/*.enc.json) are sealed with the same content key as the Mastery Sheets; they load once a plan's key arrives.
@@ -1583,19 +1583,26 @@ function loadSealedBank() {
   if (sealedDone) return Promise.resolve();
   if (sealedLoad) return sealedLoad;
   if (!keyReady()) return Promise.resolve();
-  return sealedLoad = bankReady.then(() => Promise.all(((BANKIX && BANKIX.sealed) || []).map(f => fetch("bank/" + f).then(r => r.json()).then(acctUnseal).then(addBank))))
-    .then(() => { sealedDone = true; renderFilters(); if (!$("#view-map").hidden) renderMap(); if (window.CAT_RESET) { CAT_RESET(); if (!S.exam && window.renderExam && !$("#view-exam").hidden) renderExam(); } })
+  // Fetches start right away (not after the plain bank) and each file is added the moment it is unsealed,
+  // so the Exams tab gets FL/MN without waiting for the much larger BP passage file.
+  const isEx = f => /^(FL|MN)\./.test(f);
+  bankIxReady.then(() => { examSealedLeft = ((BANKIX && BANKIX.sealed) || []).filter(isEx).length; });
+  return sealedLoad = bankIxReady.then(() => Promise.all(((BANKIX && BANKIX.sealed) || []).slice().sort((a, b) => isEx(b) - isEx(a)).map(f => fetch("bank/" + f).then(r => r.json()).then(acctUnseal)
+      .then(b => bankReady.then(() => { addBank(b); if (isEx(f)) { examSealedLeft--; if (window.examRefresh) examRefresh(); } })))))
+    .then(() => { sealedDone = true; renderFilters(); if (!$("#view-map").hidden) renderMap(); if (window.examRefresh) examRefresh(); })
     .catch(() => { sealedLoad = null; });
 }
 window.onContentKey = () => { Object.keys(EX).forEach(k => delete EX[k]); loadSealedBank(); };
-const bankReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.json())
-  .then(ix => (BANKIX = ix, Promise.all(ix.files.map(f => fetch("bank/" + f).then(r => r.json()).then(addBank).catch(() => {})))))
+const bankIxReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.json()).then(ix => (BANKIX = ix));
+// Free exams (FL01, Mini01) are in FL.json / MN.json: the Exams tab refreshes as soon as those two land.
+const bankReady = bankIxReady
+  .then(ix => Promise.all(ix.files.map(f => fetch("bank/" + f).then(r => r.json()).then(b => { addBank(b); if (/^(FL|MN)\./.test(f) && window.examRefresh) examRefresh(); }).catch(() => {}))))
   .then(() => {
     if (!(BANKIX && BANKIX.sealed && BANKIX.sealed.length)) sealedDone = true;
     bankLoaded = true; renderFilters();
     pruneStats();
     passI = Math.floor(Math.random() * PASSAGES.length); if (!$("#view-map").hidden) renderMap();
-    if (window.CAT_RESET && !S.exam && window.renderExam && !$("#view-exam").hidden) { CAT_RESET(); renderExam(); }   // free exams (FL01, Mini01) live in the plain bank
+    if (window.examRefresh) examRefresh();   // drops the "Loading exams" note once the plain bank is in
     // The first cards were dealt before the passages arrived: deal again so the feed opens on a passage.
     if (!S.review && S.kind !== "discrete" && !$$("#feed .opts").some(b => b.dataset.done) && !$("#view-scroll").hidden) resetFeed();
     if (resumeLate) S.resume = resumeLate;

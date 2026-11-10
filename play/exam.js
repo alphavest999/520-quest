@@ -14,12 +14,17 @@
   /* ---------- catalog from the loaded bank ---------- */
   let CAT_X = null;
   window.CAT_RESET = () => { CAT_X = null; Object.keys(ITEMS).forEach(k => delete ITEMS[k]); };
+  // New exam content arrived: rebuild the catalog and redraw the hub if it is the screen showing.
+  const onHub = () => { const r = root(); return !!(r && !r.hidden && r.querySelector("#xhub")); };
+  window.examRefresh = () => { CAT_RESET(); if (onHub()) hub(); };
+  // Exam files still downloading (first open fetches them once; later opens come from cache).
+  const loading = () => (typeof bankLoaded !== "undefined" && !bankLoaded) || (typeof keyReady === "function" && keyReady() && !sealedDone && examSealedLeft !== 0) || !CUT;
   // Paid exams are sealed; bank/exams.json lists their sections so they show (locked) before the content key unlocks them.
-  let STUB = {}; fetch("bank/exams.json").then(r => r.json()).then(d => { STUB = d || {}; CAT_X = null; const r = root(); if (r && !r.hidden && !S.exam) hub(); }).catch(() => {});
+  let STUB = {}; fetch("bank/exams.json").then(r => r.json()).then(d => { STUB = d || {}; examRefresh(); }).catch(() => {});
   // Mini exams are fixed 32-question cuts of the Mini bank (about 24 passage + 8 discrete; CARS minis are all passage): json/mini_exams.json lists the question ids.
   let CUT = null;
   const SECQ = { CP: 59, CARS: 53, BB: 59, PS: 59 };
-  const CUTP = fetch("json/mini_exams.json", { cache: "no-cache" }).then(r => r.json()).then(j => { CUT = j; CAT_X = null; Object.keys(ITEMS).forEach(k => delete ITEMS[k]); const r = root(); if (r && !r.hidden && !S.exam) hub(); }).catch(() => { CUT = {}; });
+  const CUTP = fetch("json/mini_exams.json", { cache: "no-cache" }).then(r => r.json()).then(j => { CUT = j; examRefresh(); }).catch(() => { CUT = {}; examRefresh(); });
   function catalog() {
     if (CAT_X) return CAT_X;
     if (!CUT) return [];
@@ -84,9 +89,11 @@
         <p class="small muted" style="margin:4px 0 8px">${c.n} questions · ${c.sections.length === 1 ? t : "4 sections · " + t + " testing time"}${b ? " · best " + b : ""}</p>
         <div class="row"><button class="btn primary small" data-xstart="${c.id}">${run ? "Resume" : open ? "Start" : "Unlock"}</button>${run ? `<button class="btn ghost small" data-xdrop="${c.id}">Restart</button>` : ""}</div></div>`;
     };
-    if (!cat.length) { root().innerHTML = `<h2 class="title">Timed exams</h2><p class="sub">Exam content is still loading or could not be loaded. If the files are sealed, the content key is missing. Reload, or check that bank/FL.json and bank/MN.json are reachable.</p><button class="btn" onclick="CAT_RESET&&CAT_RESET();renderExam()">Retry</button>`; return; }
+    const wait = loading() ? `<p class="small muted" style="margin:0 0 12px"><span class="xspin"></span> Loading exams… the first open downloads them once, after that they open instantly.</p>` : "";
+    if (!cat.length && wait) { root().innerHTML = `<h2 class="title" id="xhub">Timed exams</h2>${wait}`; return; }
+    if (!cat.length) { root().innerHTML = `<h2 class="title" id="xhub">Timed exams</h2><p class="sub">Exam content is still loading or could not be loaded. If the files are sealed, the content key is missing. Reload, or check that bank/FL.json and bank/MN.json are reachable.</p><button class="btn" onclick="CAT_RESET&&CAT_RESET();renderExam()">Retry</button>`; return; }
     const fl = cat.filter(c => c.full), mn = cat.filter(c => !c.full);
-    root().innerHTML = `<h2 class="title">Timed exams</h2><p class="sub">Sit a section under real timing: countdown, pause, flag, end-of-section review and a scaled score estimate. Full-lengths run Chem/Phys, CARS, Bio/Biochem, Psych/Soc with breaks. Mini exams are one section.</p>
+    root().innerHTML = `<h2 class="title" id="xhub">Timed exams</h2>${wait}<p class="sub">Sit a section under real timing: countdown, pause, flag, end-of-section review and a scaled score estimate. Full-lengths run Chem/Phys, CARS, Bio/Biochem, Psych/Soc with breaks. Mini exams are one section.</p>
       ${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> Full-length 1 and Mini 1 are free. Plans unlock the other 9 full-lengths and 9 minis.</p><button class="btn small pro" data-pro>See plans</button></div>`}
       <h3 class="xh">Full-length exams</h3><div class="xgrid">${fl.map(card).join("")}</div>
       <h3 class="xh" id="mini-exams">Mini exams</h3><div class="xgrid">${mn.map(card).join("")}</div>
@@ -270,12 +277,8 @@
     if (e.phase === "run") { const s = secOf(); if (!e.paused) { s.rem = left(s); s.t0 = null; e.paused = true; save(); } return pauseView(); }
   }
   function ready(fn) { (typeof bankReady !== "undefined" ? bankReady : Promise.resolve()).then(() => typeof loadSealedBank === "function" ? loadSealedBank() : 0).then(fn, fn); }
-  function open() {
-    ready(() => {
-      if (X() && X().phase !== "done") { /* active attempt: show hub so the user can resume or discard */ }
-      hub();
-    });
-  }
+  // Draw the hub at once (an active attempt shows Resume there); it refreshes itself as exam files arrive.
+  function open() { hub(); ready(() => { if (onHub()) { CAT_X = null; hub(); } }); }
   function onClick(ev) {
     const t = ev.target, g = sel => t.closest(sel);
     let b;
@@ -286,7 +289,7 @@
       if (X() && X().phase !== "done" && !confirm("Start " + id + "? Your unfinished " + X().id + " attempt will be discarded.")) return;
       newExam(id); return introView();
     }
-    if ((b = g("[data-xdrop]"))) { if (confirm("Restart " + b.dataset.xdrop + "? Your unfinished attempt will be discarded.")) { newExam(b.dataset.xdrop); introView(); } return; }
+    if ((b = g("[data-xdrop]"))) { if (!EXAM.passages.some(p => p.id.startsWith(b.dataset.xdrop + "_"))) return toast("This exam is still unlocking. Give it a few seconds and try again."); if (confirm("Restart " + b.dataset.xdrop + "? Your unfinished attempt will be discarded.")) { newExam(b.dataset.xdrop); introView(); } return; }
     if (g("[data-xbegin]")) return begin();
     if (g("[data-xexit]")) { const e = X(); if (e && e.phase === "run" && !e.paused) { const s = secOf(); s.rem = left(s); s.t0 = null; e.paused = true; } save(); stopTick(); return hub(); }
     if (g("[data-xhub]")) { return hub(); }
@@ -357,6 +360,7 @@
 .xcell { position: relative; height: 44px; border-radius: 10px; border: 1px solid var(--line); background: transparent; font: 700 14px/1 var(--display); color: var(--text); }
 .xcell.ans { background: var(--panel-2); border-color: var(--cool); } .xcell.cur { outline: 2px solid var(--volt); }
 .xcell.ok { background: rgba(74,222,128,.18); border-color: var(--good); } .xcell.bad { background: rgba(251,113,133,.18); border-color: var(--bad); } .xcell.un { color: var(--muted); }
+.xspin { display: inline-block; width: 11px; height: 11px; margin-right: 6px; vertical-align: -1px; border: 2px solid var(--line); border-top-color: var(--volt); border-radius: 50%; animation: xspin .8s linear infinite; } @keyframes xspin { to { transform: rotate(360deg); } }
 .xcell i { position: absolute; top: 1px; right: 4px; font-style: normal; font-size: 10px; color: var(--volt); }
 .xres { width: 100%; border-collapse: collapse; font-size: 14px; } .xres th, .xres td { text-align: left; padding: 6px 4px; border-bottom: 1px solid var(--line); }
 .xrev { display: flex; gap: 10px; padding: 10px; border-radius: 12px; border: 1px solid var(--line); }
