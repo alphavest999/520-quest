@@ -135,6 +135,10 @@ button { cursor: pointer; }
 #view-scroll { padding: 0; display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
 .filters { display: flex; gap: 6px; padding: 10px 16px; overflow-x: auto; scrollbar-width: none; }
 .filters::-webkit-scrollbar { display: none; }
+/* Fade the edge where more chips are hidden, so phones show the row scrolls sideways. */
+.filters.more-r { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent); }
+.filters.more-l { -webkit-mask-image: linear-gradient(to right, transparent, #000 40px); mask-image: linear-gradient(to right, transparent, #000 40px); }
+.filters.more-l.more-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 40px, #000 calc(100% - 40px), transparent); mask-image: linear-gradient(to right, transparent, #000 40px, #000 calc(100% - 40px), transparent); }
 .chipbtn { flex: none; border: 1px solid var(--line); background: var(--panel); color: var(--muted); border-radius: 99px; padding: 6px 12px; font: 600 13px/1 var(--display); letter-spacing: .05em; }
 .chipbtn[aria-pressed="true"] { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); }
 .chipbtn.focus { color: var(--cool); border-color: var(--cool); }
@@ -1587,10 +1591,18 @@ function loadSealedBank() {
   // so the Exams tab gets FL/MN without waiting for the much larger BP passage file.
   const isEx = f => /^(FL|MN)\./.test(f);
   bankIxReady.then(() => { examSealedLeft = ((BANKIX && BANKIX.sealed) || []).filter(isEx).length; });
-  return sealedLoad = bankIxReady.then(() => Promise.all(((BANKIX && BANKIX.sealed) || []).slice().sort((a, b) => isEx(b) - isEx(a)).map(f => fetch("bank/" + f).then(r => r.json()).then(acctUnseal)
+  return sealedLoad = bankIxReady.then(() => Promise.all(((BANKIX && BANKIX.sealed) || []).slice().sort((a, b) => isEx(b) - isEx(a)).map(f => fetchSealed(f)
       .then(b => bankReady.then(() => { addBank(b); if (isEx(f)) { examSealedLeft--; if (window.examRefresh) examRefresh(); } })))))
     .then(() => { sealedDone = true; renderFilters(); if (!$("#view-map").hidden) renderMap(); if (window.examRefresh) examRefresh(); })
     .catch(() => { sealedLoad = null; });
+}
+// Paid bank file: the compressed .encz copy (about a quarter of the size) when the browser can unzip it,
+// otherwise, or if that fails for any reason, the original .enc.json.
+function fetchSealed(f) {
+  const full = () => fetch("bank/" + f).then(r => r.json()).then(acctUnseal);
+  const z = BANKIX && BANKIX.z && BANKIX.z[f];
+  if (!z || !window.DecompressionStream || !window.acctUnsealZ) return full();
+  return fetch("bank/" + z.f).then(r => { if (!r.ok) throw 0; return r.arrayBuffer(); }).then(acctUnsealZ).catch(full);
 }
 window.onContentKey = () => { Object.keys(EX).forEach(k => delete EX[k]); loadSealedBank(); };
 const bankIxReady = fetch("bank/index.json", { cache: "no-cache" }).then(r => r.json()).then(ix => (BANKIX = ix));
@@ -1935,7 +1947,16 @@ function renderFilters() {
     `<button class="chipbtn" data-k="passage" aria-pressed="${S.kind === "passage"}" title="Passage-based questions">Passages${kindCount("passage")}</button><button class="chipbtn" data-k="discrete" aria-pressed="${S.kind === "discrete"}" title="Stand-alone questions">Discrete${kindCount("discrete")}</button>` +
     (S.focus ? `<button class="chipbtn focus" data-f="clear" aria-pressed="false">Drilling ${esc(S.focus)}${S.sub ? " · " + esc(((SUBT[S.focus] || []).find(x => x.id === S.sub) || {}).label || S.sub) : ""} ✕</button>` : "") +
     "";
+  filterFade();
 }
+// Edge fades on the chip row: on whenever chips are hidden past that edge.
+function filterFade() {
+  const f = $("#filters"); if (!f) return;
+  f.classList.toggle("more-l", f.scrollLeft > 4);
+  f.classList.toggle("more-r", f.scrollLeft + f.clientWidth < f.scrollWidth - 4);
+}
+$("#filters").addEventListener("scroll", filterFade, { passive: true });
+if (window.ResizeObserver) new ResizeObserver(filterFade).observe($("#filters")); else addEventListener("resize", filterFade);
 // Review chip text. Answer reviews show where you are and how many are left, e.g. "Question 3 of 12 · 9 left".
 function reviewChipText() {
   const R = S.review; if (R.kind === "quiz" || R.kind === "check") return quizChipText();

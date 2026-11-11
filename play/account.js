@@ -178,6 +178,11 @@ window.acctKeyHelp = () => {
   return { title: "Still unlocking", line: "Your plan is active but this device hasn't received its unlock yet. Wait a few seconds and try again. If it keeps happening, sign out and back in.", btn: "" };
 };
 window.acctUnseal = box => unseal(box);
+// Compressed sealed file (.encz, from tools/encz/build.js): 12-byte IV, then AES-GCM of gzip(JSON).
+window.acctUnsealZ = async buf => {
+  const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: new Uint8Array(buf, 0, 12) }, ACCT.key, new Uint8Array(buf, 12));
+  return new Response(new Blob([pt]).stream().pipeThrough(new DecompressionStream("gzip"))).json();
+};
 // After a checkout succeeds, the webhook sets the plan a moment later: check the profile every 3 s for up to 90 s.
 let planWatch = null;
 window.acctWatchPlan = () => {
@@ -366,7 +371,9 @@ const QREASONS = [["key", "Wrong answer key"], ["typo", "Typo or symbol"], ["unc
 const qText = q => String((q && q.q) || "").replace(/<[^>]+>/g, "").slice(0, 160);
 function reportMail(id, why, note) {
   const q = anyQ(id), body = `Question ID: ${id}\nQuestion: ${qText(q)}\nProblem: ${why}\n\n${note}\n`;
-  location.href = `mailto:${CONFIG.supportEmail}?subject=${encodeURIComponent("Problem with question " + id)}&body=${encodeURIComponent(body)}`;
+  // Say why the email app is opening (the in-app report couldn't be sent), then open it a moment later.
+  toast("Couldn't send the report from here, so we're <b>opening your email app</b> with it filled in. Just tap Send.");
+  setTimeout(() => { location.href = `mailto:${CONFIG.supportEmail}?subject=${encodeURIComponent("Problem with question " + id)}&body=${encodeURIComponent(body)}`; }, 1200);
 }
 function reportSheet(id) {
   let reason = "";

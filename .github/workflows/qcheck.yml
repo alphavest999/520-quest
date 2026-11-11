@@ -2,7 +2,7 @@
 name: Question bank check
 on:
   pull_request:
-    paths: ["play/bank/**", "play/fig/**", "play/index.html", "tools/qcheck/**", ".github/workflows/qcheck.yml"]
+    paths: ["play/bank/**", "play/fig/**", "play/index.html", "tools/qcheck/**", "tools/encz/**", ".github/workflows/qcheck.yml"]
   push:
     branches: [main]
     paths: ["play/bank/**", "play/fig/**", "play/index.html", "tools/qcheck/**"]
@@ -22,3 +22,5 @@ jobs:
         env:
           CONTENT_KEY: ${{ secrets.CONTENT_KEY }}
         run: node tools/qcheck/check_bank.js
+      - name: Compressed sealed files are up to date
+        run: node tools/encz/check.js
