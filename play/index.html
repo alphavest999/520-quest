@@ -1922,8 +1922,9 @@ let feedMix = { p: 0, d: 0 };   // passage vs stand-alone questions dealt in thi
 let cardN = 0, sessionSeen = new Set(), factI = 0, trapI = 0, passI = 0, gateShown = false;
 const FILTERS = [["ALL", "All"], ["CP", "C/P"], ["CARS", "CARS"], ["BB", "B/B"], ["PS", "P/S"]];
 // Qbank size by type, shown on the Passages / Discrete chips once the bank has loaded.
+// Free players see no full-bank counts (they can't open them); the free limit shows on the Me tab and the gate card.
 function kindCount(k) {
-  if (!bankLoaded) return "";
+  if (!bankLoaded || !S.pro) return "";
   const n = k === "passage" ? PASSAGES.reduce((a, p) => a + p.qs.length, 0) : QUESTIONS.length;
   return " · " + n.toLocaleString("en-US");
 }
@@ -2490,8 +2491,8 @@ function ankiCard(q) {
   const tag = `MCAT520::${q.s}${q.c ? "::" + q.c : ""}`;
   return [front, back, tag].map(h).join("\t");
 }
+// Anki export is free for everyone (free and paid), like the checklist's export.
 function exportAnki() {
-  if (!S.pro) return showPro();
   const qs = S.anki.map(anyQ).filter(Boolean);
   if (!qs.length) return toast("Your Anki queue is empty. Tap <b>+ Add to Anki</b> after a miss to add one.");
   const txt = "#separator:tab\n#html:true\n#tags column:3\n" + qs.map(ankiCard).join("\n") + "\n";
@@ -2757,7 +2758,7 @@ function promoCard() {
   const left = Math.max(0, CONFIG.freeQuestions - seenCount());
   const el = document.createElement("article"); el.className = "card promo";
   el.innerHTML = `<div class="eyebrow" style="color:#f472b6">520 Quest plans</div><p class="bigtext">${left} of ${CONFIG.freeQuestions} free questions left.</p>
-    <p class="muted" style="margin:0">Every plan unlocks all 5,904 questions, all 33 Mastery Sheets, the full Memorization Checklist, all 150 mnemonics, unlimited boss battles, the score estimate and Anki export.</p>
+    <p class="muted" style="margin:0">Every plan unlocks all 5,904 questions, all 33 Mastery Sheets, the full Memorization Checklist, all 150 mnemonics, unlimited boss battles and the score estimate. Anki export stays free.</p>
     <div class="row"><button class="btn pro" data-pro>See plans, from ${esc(CONFIG.fromPrice)}</button></div>${SWIPE}`;
   return el;
 }
@@ -2765,8 +2766,13 @@ function gateCard() {
   const el = document.createElement("article"); el.className = "card gate";
   const best = CATS.filter(c => (S.cat[c[0]] || {}).a >= 5).map(c => [c[0], S.cat[c[0]].c / S.cat[c[0]].a]).sort((a, b) => b[1] - a[1])[0];
   const gained = `You got ${S.totalCorrect} right${S.retired ? ` and cleared ${S.retired} old mistake${S.retired === 1 ? "" : "s"} for good` : ""}.${best ? ` Your best category so far is ${esc(best[0])} at ${Math.round(best[1] * 100)}%.` : ""}`;
+  // What the 100 questions showed: accuracy per section, the weakest area, and the Revenge Queue waiting.
+  const sec = ["CP", "CARS", "BB", "PS"].map(k => { let a = 0, c = 0; CATS.forEach(x => { if (x[2] === k && S.cat[x[0]]) { a += S.cat[x[0]].a; c += S.cat[x[0]].c; } }); return [k, a, c]; }).filter(x => x[1]);
+  const weak = weakAreas("ALL", 1)[0], rv = revCount();
   el.innerHTML = `<div class="eyebrow">Free questions used</div><p class="bigtext">You've opened all ${CONFIG.freeQuestions} free questions. Nice work.</p>
     <p style="margin:0">${gained}</p>
+    ${sec.length ? `<div class="grid2">${sec.map(([k, a, c]) => `<div class="stat"><b>${Math.round(c / a * 100)}%</b><span>${esc(SECTIONS[k].name)} · ${a} answered</span></div>`).join("")}</div>` : ""}
+    ${weak || rv ? `<p style="margin:0">${weak ? `Your weakest area is <b>${esc(weak)}</b> ${esc(CAT[weak].title)} at ${Math.round(S.cat[weak].c / S.cat[weak].a * 100)}%. ` : ""}${rv ? `<b>${rv}</b> missed question${rv === 1 ? " is" : "s are"} waiting in your Revenge Queue.` : ""}</p>` : ""}
     <p class="muted" style="margin:0">Your misses still come back here for review. Pick a plan to unlock all 5,904 questions, all 33 Mastery Sheets and all 150 mnemonics.</p>
     <div class="row"><button class="btn pro" data-pro>See plans, from ${esc(CONFIG.fromPrice)}</button></div>`;
   $("[data-pro]", el).addEventListener("click", showPro);
@@ -3144,10 +3150,23 @@ function planPhase(d) {
 // Free players get 5 sheets; a locked one is named with a lock and never sent as the day's main step.
 const planSheetMeta = id => SHEETS && SHEETS.find(x => x.id === id);
 const planSheetOpen = id => { const m = planSheetMeta(id); return !!(m && sheetOpen(m)); };
+// Free players: today's sheet comes from the free sheets, a weak-area one first, otherwise a new one each day.
+function planFreeSheet() {
+  const free = (SHEETS || []).filter(x => sheetOpen(x)); if (!free.length) return null;
+  const w = planWeak().find(c => planSheetOpen(c)); if (w) return planSheetMeta(w);
+  return free[Math.floor(Date.now() / DAY) % free.length];
+}
+// One line for everything a plan would add to the free plan (no locks scattered through the steps).
+function planWithPlanLine() {
+  if (S.pro || !SHEETS) return "";
+  const locked = [...new Set([planSheet(), ...planWeak()])].filter(c => planSheetMeta(c) && !planSheetOpen(c));
+  return `<p class="small muted" style="margin:10px 0 0">With any plan: ${locked.length ? `Mastery Sheet${locked.length === 1 ? "" : "s"} ${locked.map(esc).join(", ")} for your weakest area${locked.length === 1 ? "" : "s"}, their checklist cards, ` : ""}all ${SHEETS.length} sheets and 150 mnemonics. <button class="linkbtn" data-checkpro>See plans</button></p>`;
+}
 function planLine() {
   if (!S.testDate) return "";
   const due = Object.values(S.revenge).filter(r => r.due <= Date.now()).length, sh = planSheet();
-  return `Today's plan: ${due ? due + " Revenge due, " : ""}${planGoal()} new questions, ${planSheetOpen(sh) ? "Mastery Sheet " + esc(sh) : "drill " + esc(sh) + " on the Map"}`;
+  const fs = planSheetOpen(sh) ? null : planFreeSheet();
+  return `Today's plan: ${due ? due + " Revenge due, " : ""}${planGoal()} new questions, ${planSheetOpen(sh) ? "Mastery Sheet " + esc(sh) : "drill " + esc(sh) + " on the Map" + (fs ? ", free sheet " + esc(fs.id) : "")}`;
 }
 /* ---------- Your strategy: one study loop per weak category, built from the Map syllabus ----------
    For each weak AAMC category: the Map's subsections to drill (weakest first), the Mastery Sheet,
@@ -3192,22 +3211,22 @@ function stratHTML() {
   const blocks = weak.map(code => {
     const c = S.cat[code] || { a: 0, c: 0 }, meta = planSheetMeta(code), open = planSheetOpen(code);
     const cards = CHK_AAMC[code] || [], todo = cards.filter(([k]) => !done.has(k));
-    const mns = (MN || []).filter(m => m.linked_sheet_id === code).sort((a, b) => (a.locked ? 1 : 0) - (b.locked ? 1 : 0) || mnScore(b) - mnScore(a)).slice(0, 2);
+    const mns = (MN || []).filter(m => m.linked_sheet_id === code && (S.pro || !m.locked)).sort((a, b) => (a.locked ? 1 : 0) - (b.locked ? 1 : 0) || mnScore(b) - mnScore(a)).slice(0, 2);
     const subs = planSubs(code);
     const chkBtn = l => `<button class="linkbtn" data-planchk="${esc(l.map(x => x[0]).join(","))}">${l.map(x => esc(x[1])).join(" · ")}</button>`;
     const steps = [];
-    // 1. Learn it: the sheet if it's open; a free player starts from the checklist and sees the sheet with a lock.
+    // 1. Learn it: the sheet if it's open. Free players with a locked sheet learn from the full explanations in the drill (no locked steps).
     if (open) steps.push(`<b>Learn:</b> study <button class="linkbtn" data-sheet="${esc(code)}">Mastery Sheet ${esc(code)}</button> one concept at a time, and answer each concept's Check yourself questions.`);
-    else if (meta) steps.push(`<b>Learn:</b> ${cards.length ? `start with the free Memorization Checklist: ${chkBtn((todo.length ? todo : cards).slice(0, 3))}. ` : "on every question you miss in the drill below, read why each answer choice is right or wrong. "}<button class="linkbtn" data-sheet="${esc(code)}">Mastery Sheet ${esc(code)} 🔒</button> <span class="muted">comes with any plan.</span>`);
+
     // 2. Memorize: checklist cards not yet ticked (named here only if Learn didn't already list them), plus the vault's mnemonics.
     const mem = [];
-    if (cards.length && !todo.length) mem.push(`all ${cards.length} checklist card${cards.length === 1 ? " is" : "s are"} ticked; <button class="linkbtn" data-planchk="${esc(cards.map(x => x[0]).join(","))}">review ${cards.length === 1 ? "it" : "them"}</button> the night before a full-length`);
+    if (cards.length && !todo.length && open) mem.push(`all ${cards.length} checklist card${cards.length === 1 ? " is" : "s are"} ticked; <button class="linkbtn" data-planchk="${esc(cards.map(x => x[0]).join(","))}">review ${cards.length === 1 ? "it" : "them"}</button> the night before a full-length`);
     else if (cards.length && open) mem.push(`tick off ${chkBtn(todo.slice(0, 3))} on the Memorization Checklist once you can say ${todo.length === 1 ? "it" : "each one"} from memory`);
-    else if (cards.length) mem.push(`tick each checklist card off once you can say it from memory`);
+    else if (cards.length && open) mem.push(`tick each checklist card off once you can say it from memory`);
     if (mns.length) mem.push(`use ${mns.map(m => `<button class="linkbtn" data-mnlink="${esc(m.id)}">${esc(m.concept)}${m.locked ? " 🔒" : ""}</button>`).join(" · ")} from the Mnemonics Vault`);
     if (mem.length) steps.push(`<b>Memorize:</b> ${mem.join("; ")}.`);
     // 3. Drill: the Map syllabus subsections, weakest first.
-    steps.push(`<b>Drill on the Map:</b> ${subs.length ? subs.map(o => `<button class="linkbtn" data-plandrill="${esc(code)}" data-plansub="${esc(o.id)}">${esc(planSubLabel(o.label))}</button> <span class="muted">(${o.got ? `${planPct(o.got[0], o.got[1])}% of ${o.got[1]}` : "not tried"})</span>`).join(" · ") : `<button class="linkbtn" data-plandrill="${esc(code)}">all of ${esc(code)}</button>`}. Misses go to Revenge Questions.`);
+    steps.push(`<b>Drill on the Map:</b> ${subs.length ? subs.map(o => `<button class="linkbtn" data-plandrill="${esc(code)}" data-plansub="${esc(o.id)}">${esc(planSubLabel(o.label))}</button> <span class="muted">(${o.got ? `${planPct(o.got[0], o.got[1])}% of ${o.got[1]}` : "not tried"})</span>`).join(" · ") : `<button class="linkbtn" data-plandrill="${esc(code)}">all of ${esc(code)}</button>`}. ${open ? "" : "Read the full explanation for each miss. "}Misses go to Revenge Questions.`);
     return `<li style="margin-bottom:8px"><b>${esc(code)}</b> ${esc(CAT[code].title)} <span class="muted">· ${c.a ? `${planPct(c.c, c.a)}% of ${c.a}` : "from your diagnostic"}</span>
       <ol style="margin:4px 0 0;padding-left:18px">${steps.map(x => `<li>${x}</li>`).join("")}</ol></li>`;
   });
@@ -3228,13 +3247,14 @@ function planHTML() {
   const base = diagHTML();
   return `<div class="panel" id="planPanel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Your plan</h3><button class="linkbtn small" data-planedit>Change</button></div>
     <p class="small" style="margin:0 0 6px">${d >= 0 ? `<b>${d} day${d === 1 ? "" : "s"}</b> to test day (${esc(niceDate(S.testDate))}).` : ""} ${planPhase(d)}</p>
-    <p class="small" style="margin:6px 0;padding:8px 10px;border-radius:10px;background:var(--panel-2)"><b>Recommended:</b> do 1 Mastery Sheet a day and its Memorization Checklist cards, but start with your weakest areas first.${SHEETS && SHEETS.length ? (S.pro ? ` At that pace you'll cover all ${SHEETS.length} sheets in about ${Math.ceil(SHEETS.length / 7)} weeks.` : ` On the free plan that's your 5 free sheets; the other ${SHEETS.length - 5} come with any plan.`) : ""}</p>
+    <p class="small" style="margin:6px 0;padding:8px 10px;border-radius:10px;background:var(--panel-2)"><b>Recommended:</b> do 1 Mastery Sheet a day and its Memorization Checklist cards, but start with your weakest areas first.${SHEETS && SHEETS.length ? (S.pro ? ` At that pace you'll cover all ${SHEETS.length} sheets in about ${Math.ceil(SHEETS.length / 7)} weeks.` : ` On the free plan, rotate through your ${SHEETS.filter(x => sheetOpen(x)).length} free sheets.`) : ""}</p>
     <ol class="small" style="margin:6px 0 0;padding-left:20px">
       ${due ? `<li>Clear your <b>${due}</b> due Revenge question${due === 1 ? "" : "s"} first.</li>` : ""}
       <li>Answer <b>${g}</b> new questions.${S.goal === g ? "" : ` <button class="linkbtn" data-plangoal="${g}">Make this my daily goal</button>`}</li>
       <li>${planSheetOpen(sh) ? `Study one concept at a time. Start with one concept from <button class="linkbtn" data-sheet="${esc(sh)}">Mastery Sheet ${esc(sh)}${meta ? ": " + esc(meta.title) : ""}</button>, then answer its Check yourself questions.`
-        : `<button class="linkbtn" data-plandrill="${esc(sh)}"${CAT[sh] ? ` title="${esc(CAT[sh].title)}"` : ""}>Drill ${esc(sh)} on the Map</button> and, for each question you miss, read why each answer choice is right or wrong.${meta ? ` <span class="muted">(Mastery Sheet ${esc(sh)} 🔒 comes with any plan.)</span>` : ""}`}</li>
-    </ol>${stratHTML()}${strongHTML()}${base}
+        : `<button class="linkbtn" data-plandrill="${esc(sh)}"${CAT[sh] ? ` title="${esc(CAT[sh].title)}"` : ""}>Drill ${esc(sh)} on the Map</button> and, for each question you miss, read why each answer choice is right or wrong.${(fs => fs ? `</li>
+      <li>Study one concept from free <button class="linkbtn" data-sheet="${esc(fs.id)}">Mastery Sheet ${esc(fs.id)}: ${esc(fs.title)}</button>${(CHK_AAMC[fs.id] || []).length ? `, then tick its <button class="linkbtn" data-planchk="${esc(CHK_AAMC[fs.id].map(x => x[0]).join(","))}">Memorization Checklist card${CHK_AAMC[fs.id].length === 1 ? "" : "s"}</button>` : ""}.` : "")(planFreeSheet())}`}</li>
+    </ol>${stratHTML()}${strongHTML()}${planWithPlanLine()}${base}
     <button class="btn adjgoal" data-todayplan style="width:100%;margin-top:12px">Go to Today's plan</button></div>`;
 }
 // Timed diagnostic: 30 questions, 10 per science section, spread across categories, medium difficulty, not seen before.
@@ -3453,11 +3473,16 @@ function welcomeBack() {
     ${levelBarHTML()}
     <p class="small muted" style="margin:0;text-align:center">Today's goal: <b style="color:var(--text)">${S.goal} questions</b> · ${streakAlive()}-day streak · ${revCount()} in Revenge Queue${S.lv.pending ? ` · <b style="color:var(--volt)">Gatekeeper of Level ${S.lv.pending} is ready</b>` : ""}</p>
     ${S.testDate ? `<p class="small" style="margin:0;text-align:center">${planLine()}</p>` : ""}
-    <button class="btn primary" data-welstart style="font-size:18px;padding:16px">Start today's quest</button>
-    <button class="btn adjgoal" data-welgoal>Adjust goals for the day</button>
+    ${S.goalSet ? `<button class="btn primary" data-welstart style="font-size:18px;padding:16px">Start today's quest</button>
+    <button class="btn adjgoal" data-welgoal>Adjust goals for the day</button>` : `<p class="small muted" style="margin:0">How many questions today? <input id="cgN" type="number" inputmode="numeric" min="1" max="300" value="${S.goal}" aria-label="Questions today" style="width:72px;margin-left:6px;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--panel2,#0000);color:var(--text);font:inherit"></p>
+    <p class="small muted" style="margin:0">Then tap what to start with:</p>
+    <button class="btn primary" data-cgsec="ALL" style="font-size:18px;padding:16px">Start today's quest: mixed</button>
+    <div class="grid2">${GOAL_SECS.slice(1).map(([k, n]) => `<button class="btn" data-cgsec="${k}">${n.replace(" questions", "")}</button>`).join("")}</div>`}
     <button class="goldbtn greenbtn" data-welquiz>🛠️ Build your own Quiz<small>Pick sections, topics, difficulty, and timed or tutor mode</small></button>
     ${planBtnHTML()}`,
     s => s.addEventListener("click", e => {
+      const cg = e.target.closest("[data-cgsec]");
+      if (cg) return pickGoalSec(cg, s);
       if (e.target.closest("[data-welstart]")) { $("#sheetHost").innerHTML = ""; if (S.goalSet) go("scroll"); else customGoal(); }
       else if (e.target.closest("[data-welgoal]")) { $("#sheetHost").innerHTML = ""; showGoals(); }
       else if (e.target.closest("[data-welquiz]")) { $("#sheetHost").innerHTML = ""; showQuizBuilder(); }
@@ -3507,17 +3532,21 @@ function goalDonePrompt(n) {
 }
 
 // Custom goal: pick a number, then which questions (mixed or one section).
+const GOAL_SECS = [["ALL", "All / mixed questions"], ["BB", "Bio/Biochem questions"], ["CP", "Chem/Phys questions"], ["PS", "Psych/Soc questions"], ["CARS", "CARS questions"]];
+// Shared by the custom-goal sheet and the first-visit welcome sheet: read #cgN, set the section, start.
+function pickGoalSec(b, s) {
+  const n = Math.round(+$("#cgN", s).value);
+  if (!(n >= 1 && n <= 300)) return toast("Pick a number from 1 to 300.");
+  S.goalCustom = true; S.filter = b.dataset.cgsec; S.focus = null; S.sub = null; S.review = null;
+  setGoal(n); toast(`Today: <b>${n} ${b.dataset.cgsec === "ALL" ? "mixed" : esc(SECTIONS[b.dataset.cgsec].name)} questions</b>.`);
+}
 function customGoal() {
   sheet(`<div class="eyebrow">Custom goal</div><h2>How many questions today?</h2>
     <input id="cgN" type="number" inputmode="numeric" min="1" max="300" value="${S.goal}" aria-label="Number of questions" style="font-size:20px;padding:12px;border-radius:12px;border:2px solid var(--line);width:100%;box-sizing:border-box">
     <p class="small muted" style="margin:6px 0 0">Then pick which questions:</p>
-    <div class="stack">${[["ALL", "All / mixed questions"], ["BB", "Bio/Biochem questions"], ["CP", "Chem/Phys questions"], ["PS", "Psych/Soc questions"], ["CARS", "CARS questions"]].map(([k, n]) => `<button class="btn ${k === "ALL" ? "primary" : ""}" data-cgsec="${k}">${n}</button>`).join("")}</div>`,
+    <div class="stack">${GOAL_SECS.map(([k, n]) => `<button class="btn ${k === "ALL" ? "primary" : ""}" data-cgsec="${k}">${n}</button>`).join("")}</div>`,
     s => s.addEventListener("click", e => {
-      const b = e.target.closest("[data-cgsec]"); if (!b) return;
-      const n = Math.round(+$("#cgN", s).value);
-      if (!(n >= 1 && n <= 300)) return toast("Pick a number from 1 to 300.");
-      S.goalCustom = true; S.filter = b.dataset.cgsec; S.focus = null; S.sub = null; S.review = null;
-      setGoal(n); toast(`Today: <b>${n} ${b.dataset.cgsec === "ALL" ? "mixed" : esc(SECTIONS[b.dataset.cgsec].name)} questions</b>.`);
+      const b = e.target.closest("[data-cgsec]"); if (b) pickGoalSec(b, s);
     }));
 }
 function share() {
@@ -3551,7 +3580,7 @@ function showPro() {
   const open = anyPlanLink(), money = p => parseFloat(String(p.price).replace(/[^0-9.]/g, "")) || 0;
   const base = money(CONFIG.plans.find(p => PLAN_MONTHS[p.id] === 1) || CONFIG.plans[0]);
   const pick0 = (CONFIG.plans.find(p => p.best) || CONFIG.plans[CONFIG.plans.length - 1]).id;
-  const feats = ["All 5,904 questions, each with a full explanation", "All 10 full-length exams and 10 minis, with score estimates", "All 33 Mastery Sheets and the full Memorization Checklist", "All 150 mnemonics, plus Anki export", "Unlimited boss battles and the full-length tracker", "Use it on up to 3 devices"];
+  const feats = ["All 5,904 questions, each with a full explanation", "All 10 full-length exams and 10 minis, with score estimates", "All 33 Mastery Sheets and the full Memorization Checklist", "All 150 mnemonics", "Unlimited boss battles and the full-length tracker", "Use it on up to 3 devices"];
   const card = p => {
     const m = PLAN_MONTHS[p.id] || 1, pm = money(p) / m, save = base && m > 1 ? Math.round((1 - pm / base) * 100) : 0;
     return `<button type="button" class="pl-opt" role="radio" aria-checked="${p.id === pick0}" data-plpick="${esc(p.id)}">
@@ -4128,7 +4157,7 @@ function renderMe() {
     ${proPanel("Full-length tracker", "Log every practice exam and watch your line climb toward the 520 mark.",
       `${flChart()}<div class="row"><input type="text" id="flLabel" placeholder="FL ${S.fl.length + 1}" style="width:90px"><input type="number" id="flScore" min="472" max="528" placeholder="Score" style="width:100px"><button class="btn" data-addfl>Add</button>${S.fl.length ? '<button class="btn ghost small" data-popfl>Remove last</button>' : ""}</div>`,
       flChart(SAMPLE_FL))}
-    <div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Anki queue</h3>${S.pro ? "" : '<span class="tag sec">Plans</span>'}</div>
+    <div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Anki queue</h3></div>
       <p class="small">Tap <b>+ Add to Anki</b> after any miss to save it here, then export the batch as a deck after your session. Each card has the question, the answer and the full explanation.</p>
       <p><b style="font:700 22px var(--display);color:var(--volt)">${S.anki.length}</b> <span class="muted small">card${S.anki.length === 1 ? "" : "s"} waiting</span></p>
       <div class="row"><button class="btn primary" data-exportanki ${S.anki.length ? "" : "disabled"}>Export to Anki</button><button class="btn small" data-ankiall>Add all my misses</button>${S.anki.length ? '<button class="btn small ghost" data-ankiclear>Clear queue</button>' : ""}</div></div>
