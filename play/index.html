@@ -2335,7 +2335,7 @@ function exEntry(q) {
 }
 function figHTML(g) {
   if (!g || typeof g.f !== "string" || !/^[\w-]+(\/[\w.-]+)*\.(svg|png|jpe?g|webp)$/i.test(g.f) || g.f.includes("..")) return "";
-  return `<figure class="exfig"><img src="fig/${esc(g.f)}" alt="${esc(g.alt || "")}" loading="lazy">${g.cap || g.credit ? `<figcaption>${g.cap ? esc(g.cap) : ""}${g.credit ? ` <span class="credit">${esc(g.credit)}</span>` : ""}</figcaption>` : ""}</figure>`;
+  return `<figure class="exfig"><img src="fig/${esc(g.f)}" alt="${esc(g.alt || "")}" loading="lazy">${g.cap || g.credit ? `<figcaption>${g.cap ? escSub(g.cap) : ""}${g.credit ? ` <span class="credit">${esc(g.credit)}</span>` : ""}</figcaption>` : ""}</figure>`;
 }
 // Turn the math part of an explanation formula ("A1 x v1 = A2 x v2, where ...") into LaTeX for KaTeX.
 function splitFormula(f) {
@@ -2385,7 +2385,7 @@ function renderKx(root) {
 const GRAPHS = { bernoulli: "gen/bernoulli.svg", mm: "gen/mm-inhibition.svg", lb: "gen/lb-inhibition.svg", hb: "gen/hb-curves.svg" };
 const GRAPH_ALT = { bernoulli: "Continuity and Bernoulli: narrow section, faster flow, lower pressure", mm: "Michaelis–Menten curves with each type of inhibitor", lb: "Lineweaver–Burk lines with each type of inhibitor", hb: "Hemoglobin and myoglobin oxygen-binding curves" };
 function richExplainHTML(q, i, x) {
-  const L = "ABCD", e = esc, picked = i >= 0 && i !== q.a, arr = a => Array.isArray(a) ? a : [];
+  const L = "ABCD", e = escSub, picked = i >= 0 && i !== q.a, arr = a => Array.isArray(a) ? a : [];
   const others = q.o.map((_, j) => j).filter(j => j !== q.a && j !== i);
   const fx = arr(x.fx).filter(f => f && f.f), steps = arr(x.steps), refs = arr(x.ref).filter(r => r && /^https?:\/\//i.test(r.u || ""));
   const fm = arr(x.fm).filter(f => f && f.f), mem = arr(x.mem);
@@ -2397,14 +2397,14 @@ function richExplainHTML(q, i, x) {
     arr(x.fig).concat(GRAPHS[x.graph] ? [{ f: GRAPHS[x.graph], alt: GRAPH_ALT[x.graph], cap: GRAPH_ALT[x.graph] }] : []).map(figHTML).join("") +
     (others.length ? `<details class="exmore"><summary>Why the other choices are wrong</summary>${others.map(j => `<p><b>${L[j]}. ${e(q.o[j][0])}</b><br>${e(x.ox[j])}</p>`).join("")}</details>` : "") +
     (x.concept ? `<h5>The concept${x.concept.t ? `: ${e(x.concept.t)}` : ""}</h5>${arr(x.concept.p).map(p => `<p>${e(p)}</p>`).join("")}` : "") +
-    (fm.length ? `<h5>Formula, variables, substitution</h5>${fm.map(f => `<div class="fm">${(sp => `<p><b>Formula:</b></p><div class="kx" data-tex="${e(texFormula(sp.math))}">${e(sp.math)}</div>${sp.defs ? `<p><b>Where:</b> ${e(sp.defs)}</p>` : ""}`)(splitFormula(f.f))}${f.v ? `<p><b>Variables:</b> ${e(f.v)}</p>` : ""}${f.s ? `<p><b>Substitution:</b> ${e(f.s)}</p>` : ""}${f.why ? `<p class="muted small"><b>Why this formula:</b> ${e(f.why)}</p>` : ""}${f.nc ? `<p class="muted small"><b>No calculator needed:</b> ${e(f.nc)}</p>` : ""}</div>`).join("")}` : "") +
+    (fm.length ? `<h5>Formula, variables, substitution</h5>${fm.map(f => `<div class="fm">${(sp => `<p><b>Formula:</b></p><div class="kx" data-tex="${esc(texFormula(sp.math))}">${esc(sp.math)}</div>${sp.defs ? `<p><b>Where:</b> ${e(sp.defs)}</p>` : ""}`)(splitFormula(f.f))}${f.v ? `<p><b>Variables:</b> ${e(f.v)}</p>` : ""}${f.s ? `<p><b>Substitution:</b> ${e(f.s)}</p>` : ""}${f.why ? `<p class="muted small"><b>Why this formula:</b> ${e(f.why)}</p>` : ""}${f.nc ? `<p class="muted small"><b>No calculator needed:</b> ${e(f.nc)}</p>` : ""}</div>`).join("")}` : "") +
     (fx.length ? `<h5>Formula</h5>${fx.map(f => `<div class="fx"><code>${e(f.f)}</code>${f.w ? `<span>${e(f.w)}</span>` : ""}</div>`).join("")}` : "") +
     (steps.length ? `<h5>Worked solution</h5><ol class="steps">${steps.map(t => `<li>${e(t)}</li>`).join("")}</ol>` : "") +
     (x.tb ? `<h5>Table</h5>${tableHTML(x.tb)}` : "") +
     (x.sc ? `<h5>Shortcut</h5><p>${e(x.sc)}</p>` : "") +
     (x.mn ? `<h5>Mnemonic</h5><p>${e(x.mn)}</p>` : "") +
     (x.trap ? `<p class="trapline"><b>The trap:</b> ${e(x.trap)}</p>` : "") +
-    (refs.length ? `<h5>Learn more</h5><ul class="refs">${refs.map(r => `<li><a href="${e(r.u)}" target="_blank" rel="noopener">${e(r.t || r.u)}</a></li>`).join("")}</ul>` : "");
+    (refs.length ? `<h5>Learn more</h5><ul class="refs">${refs.map(r => `<li><a href="${esc(r.u)}" target="_blank" rel="noopener">${e(r.t || r.u)}</a></li>`).join("")}</ul>` : "");
 }
 // Passage explanations are one block of text: "Correct: B) ... Why the others are wrong: A) ... C) ... Trap: ...".
 // splitX() pulls out the main reason, each other choice's reason (by its current letter) and the trap.
