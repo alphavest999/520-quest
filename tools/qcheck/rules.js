@@ -52,7 +52,7 @@ function checkRefs(q, p, ex) {
   const exTxt = ex ? JSON.stringify(ex, (k, v) => (k === "fig" || k === "graph" || k === "tb" ? undefined : v)) : "";
   const out = [], stem = plain(q.q) + " " + q.o.map(o => plain(o[0])).join(" ") + " " + plain(exTxt);
   const ptxt = (p.text || []).map(plain).join(" ") + " " + JSON.stringify(p.tbl || "") + JSON.stringify(p.graph || "") + JSON.stringify(p.fig || "") + JSON.stringify(p.figs || "");
-  for (const m of stem.matchAll(/\b(Table|Figure)\s+(\d+)/g)) if (!new RegExp(`\\b${m[1]}\\s+${m[2]}\\b`).test(ptxt)) out.push(`refers to ${m[1]} ${m[2]}, which the passage doesn't have`);
+  for (const m of stem.matchAll(/\b(Table|Figure)\s+(\d+)/g)) if (!new RegExp(`\\b${m[1]}\\s+${m[2]}(?![0-9])`).test(ptxt)) out.push(`refers to ${m[1]} ${m[2]}, which the passage doesn't have`);
   for (const m of stem.matchAll(/\bparagraph\s+(\d+)\b/gi)) if (+m[1] > (p.text || []).length) out.push(`refers to paragraph ${m[1]}, but the passage has ${(p.text || []).length}`);
   return out;
 }

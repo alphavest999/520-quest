@@ -305,7 +305,7 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 .qhead { font: 700 13px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--volt); padding: 12px 0 0; border-top: 2px solid var(--volt); }
 .card { position: relative; }
 .pq h3 { margin: 0; font: 600 16.5px/1.4 var(--body); }
-.pgraph { margin: 2px 0; } .pgraph svg { width: 100%; height: auto; display: block; background: #fff; border-radius: 10px; } .pgraph .gcap { font-weight: 700; font-size: 14px; padding-bottom: 6px; }
+.pgraph { margin: 2px 0; } .pgraph svg { width: 100%; height: auto; display: block; background: #fff; border-radius: 10px; } .pgraph .gcap { font-weight: 700; font-size: 14px; padding-bottom: 6px; } .pgraph + .pgraph { margin-top: 10px; } .glegend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; padding: 6px 4px 0; } .glegend i { display: inline-block; width: 10px; height: 10px; margin-right: 5px; border-radius: 2px; vertical-align: -1px; }
 .ptbl { overflow-x: auto; margin: 2px 0; }
 .ptbl table { border-collapse: collapse; width: 100%; font-size: 14px; }
 .ptbl caption { text-align: left; font-weight: 700; padding-bottom: 6px; }
@@ -2532,38 +2532,101 @@ function wireDNA(rv, q, secs) {
 const QKIND = { CF: "Comprehension", CW: "Reasoning within", CB: "Reasoning beyond", data: "Data reading", design: "Experimental design", calc: "Calculation", trap: "Trap check", link: "High-yield link" };
 // t = { cap, h: header cells, r: rows of cells }
 const tableHTML = (t, cls = "") => t && Array.isArray(t.h) && Array.isArray(t.r) ? `<div class="ptbl ${cls}"><table>${t.cap ? `<caption>${escSub(t.cap)}</caption>` : ""}<thead><tr>${t.h.map(c => `<th>${escSub(c)}</th>`).join("")}</tr></thead><tbody>${t.r.map(r => `<tr>${r.map(c => `<td>${escSub(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : "";
-// g = { type: line|bar|scatter, title, x_label, y_label, series: [{ name, points: [[x, y], ...] }] }
+// g = { type: line|bar|scatter|flow, title, x_label, y_label, lab, x_log, y_log (log-10 axes), y_min, y_max, x_min, x_max, x_ticks, series: [{ name, curve, dash, points: [[x, y, label?, error?], ...] }] }; error draws a ± bar; curve draws a smooth line only.; an array of g draws each panel.
+// lab: print each value (or the point's own label) beside its mark, so a question that needs an exact reading has one answer.
+const niceStep = (span, n) => { const r = span / n, p = Math.pow(10, Math.floor(Math.log10(r))), m = r / p; return (m <= 1 ? 1 : m <= 2 ? 2 : m <= 2.5 ? 2.5 : m <= 5 ? 5 : 10) * p; };
+const wrapWords = (s, n, max = 3) => { const out = [""]; String(s).split(/\s+/).forEach(w => { const i = out.length - 1; if (out[i] && (out[i] + " " + w).length > n) out.push(w); else out[i] = out[i] ? out[i] + " " + w : w; }); if (out.length > max) { out.length = max; out[max - 1] = out[max - 1].slice(0, n - 1) + "…"; } return out; };
+// Flow diagram: { type: "flow", title, nodes: [{ id, label, c, r, tone }], edges: [[from, to, label?, "inhibit"|"dash"?]] }; c and r place each box on a grid.
+const flowHTML = g => {
+  const N = g.nodes || [], W = 560, M = 12, tones = { blue: ["#dbeafe", "#2563eb"], red: ["#fee2e2", "#dc2626"], green: ["#d1fae5", "#059669"], amber: ["#fef3c7", "#d97706"], gray: ["#f3f4f6", "#6b7280"] };
+  if (!N.length) return "";
+  const nc = Math.max(...N.map(n => +n.c || 0)) + 1, nr = Math.max(...N.map(n => +n.r || 0)) + 1, cw = (W - 2 * M) / nc, bw = Math.min(cw - 26, 190), bh = 50, rh = 92, H = 2 * M + nr * rh - (rh - bh);
+  const pos = {}; N.forEach(n => pos[n.id] = { x: M + (+n.c || 0) * cw + cw / 2, y: M + (+n.r || 0) * rh + bh / 2 });
+  const clip = (a, b) => { const dx = b.x - a.x, dy = b.y - a.y, t = Math.min(Math.abs(dx) > 1e-6 ? (bw / 2 + 3) / Math.abs(dx) : 1e9, Math.abs(dy) > 1e-6 ? (bh / 2 + 3) / Math.abs(dy) : 1e9); return { x: a.x + dx * t, y: a.y + dy * t }; };
+  let o = `<defs><marker id="fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#374151"/></marker></defs>`;
+  (g.edges || []).forEach(([f, t, lab, st]) => {
+    const a = pos[f], b = pos[t]; if (!a || !b) return;
+    const s = clip(a, b), e = clip(b, a), inh = st === "inhibit";
+    o += `<line x1="${s.x}" y1="${s.y}" x2="${e.x}" y2="${e.y}" stroke="${inh ? "#dc2626" : "#374151"}" stroke-width="2" ${st === "dash" ? 'stroke-dasharray="6 4"' : ""} ${inh ? "" : 'marker-end="url(#fa)"'}/>`;
+    if (inh) { const L = Math.hypot(e.x - s.x, e.y - s.y) || 1, ux = (e.y - s.y) / L * 9, uy = -(e.x - s.x) / L * 9; o += `<line x1="${e.x - ux}" y1="${e.y - uy}" x2="${e.x + ux}" y2="${e.y + uy}" stroke="#dc2626" stroke-width="3"/>`; }
+    if (lab) { const mx = (s.x + e.x) / 2, my = (s.y + e.y) / 2, vert = Math.abs(e.x - s.x) < 4; o += `<text x="${vert ? mx + 7 : mx}" y="${vert ? my + 4 : my - 6}" font-size="11" text-anchor="${vert ? "start" : "middle"}" fill="#111" paint-order="stroke" stroke="#fff" stroke-width="4">${esc(lab)}</text>`; }
+  });
+  N.forEach(n => {
+    const p = pos[n.id], [bg, bd] = tones[n.tone] || tones.blue, ls = wrapWords(n.label, Math.floor(bw / 6.6), 3);
+    o += `<rect x="${p.x - bw / 2}" y="${p.y - bh / 2}" width="${bw}" height="${bh}" rx="9" fill="${bg}" stroke="${bd}" stroke-width="1.5"/>`;
+    ls.forEach((t, j) => o += `<text x="${p.x}" y="${p.y + 4 + (j - (ls.length - 1) / 2) * 13}" font-size="11.5" text-anchor="middle" fill="#111">${esc(t)}</text>`);
+  });
+  return `<figure class="pgraph" style="margin:0">${g.title ? `<div class="gcap">${escSub(g.title)}</div>` : ""}<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(g.title || "Diagram")}">${o}</svg></figure>`;
+};
 const graphHTML = g => {
+  if (Array.isArray(g)) return g.map(graphHTML).join("");
+  if (g && g.type === "flow") return flowHTML(g);
   if (!g || !Array.isArray(g.series) || !g.series.length) return "";
-  const W = 560, H = 300, L = 58, R = 16, T = 14, B = 52, col = ["#2563eb", "#dc2626", "#059669", "#d97706"];
-  const pts = g.series.flatMap(s => (s.points || []).filter(p => Array.isArray(p) && isFinite(+p[1])));
+  const col = ["#2563eb", "#dc2626", "#059669", "#d97706"], W = 560, L = 60, R = 18, T = 16;
+  const LX = !!g.x_log, LY = !!g.y_log, tx = v => LX ? Math.log10(v) : +v, ty = v => LY ? Math.log10(v) : +v;
+  const ok = p => Array.isArray(p) && isFinite(+p[1]) && (!LY || +p[1] > 0) && (!LX || +p[0] > 0);
+  const pts = g.series.flatMap(s => (s.points || []).filter(ok));
   if (!pts.length) return "";
   const cat = g.type === "bar" || pts.some(p => !isFinite(+p[0]));
+  const XT = !cat && Array.isArray(g.x_ticks) && g.x_ticks.length ? g.x_ticks : null;   // [[x, "name"], ...]: named groups on a numeric axis (a strip plot of individuals)
   const cats = cat ? [...new Set(g.series.flatMap(s => (s.points || []).map(p => String(p[0]))))] : [];
-  const ys = pts.map(p => +p[1]), xs = cat ? [] : pts.map(p => +p[0]);
-  let y0 = Math.min(0, ...ys), y1 = Math.max(...ys); if (y1 === y0) y1 = y0 + 1;
-  const ex = cat ? [0, 1] : [Math.min(...xs), Math.max(...xs)]; if (ex[1] === ex[0]) ex[1] = ex[0] + 1;
-  const px = cat ? (i => L + (i + .5) * (W - L - R) / cats.length) : (x => L + (x - ex[0]) / (ex[1] - ex[0]) * (W - L - R));
-  const py = y => T + (1 - (y - y0) / (y1 - y0)) * (H - T - B);
-  const nt = v => +v.toPrecision(3);
-  let o = `<line x1="${L}" y1="${T}" x2="${L}" y2="${H - B}" stroke="#444"/><line x1="${L}" y1="${H - B}" x2="${W - R}" y2="${H - B}" stroke="#444"/>`;
-  for (let i = 0; i <= 4; i++) { const v = y0 + (y1 - y0) * i / 4, y = py(v); o += `<line x1="${L}" y1="${y}" x2="${W - R}" y2="${y}" stroke="#e5e7eb"/><text x="${L - 6}" y="${y + 4}" font-size="11" text-anchor="end" fill="#333">${nt(v)}</text>`; }
-  if (cat) cats.forEach((c, i) => o += `<text x="${px(i)}" y="${H - B + 16}" font-size="11" text-anchor="middle" fill="#333">${esc(c.length > 14 ? c.slice(0, 13) + "…" : c)}</text>`);
-  else for (let i = 0; i <= 4; i++) { const v = ex[0] + (ex[1] - ex[0]) * i / 4; o += `<text x="${px(v)}" y="${H - B + 16}" font-size="11" text-anchor="middle" fill="#333">${nt(v)}</text>`; }
-  const ns = g.series.length, bw = cat ? (W - L - R) / cats.length / (ns + 1) : 0;
+  const per = cat ? Math.max(6, Math.floor((W - L - R) / cats.length / 6.2)) : 0;
+  const clines = cat ? cats.map(c => wrapWords(c, per)) : [];
+  const xtl = XT ? XT.map(t => wrapWords(t[1], Math.max(6, Math.floor((W - L - R) / XT.length / 6.2)))) : null;
+  const nl = cat ? Math.max(1, ...clines.map(x => x.length)) : XT ? Math.max(1, ...xtl.map(x => x.length)) : 1;
+  const B = 26 + 13 * nl + (g.x_label ? 18 : 0), H = 250 + B;
+  const ys = pts.flatMap(p => isFinite(+p[3]) && !LY ? [+p[1] - +p[3], +p[1] + +p[3]] : [ty(p[1])]);
+  const fz = g.type !== "bar" && isFinite(g.y_min);   // y_min lets a line or scatter start above (or below) 0
+  let y0 = LY ? Math.min(...ys) : fz ? Math.min(+g.y_min, ...ys) : Math.min(0, ...ys), y1 = LY ? Math.max(...ys) : fz ? Math.max(...ys) : Math.max(0, ...ys); if (isFinite(g.y_max)) y1 = Math.max(+g.y_max, y1); if (y1 === y0) y1 = y0 + 1;
+  const pad = g.lab && !LY ? (y1 - y0) * .1 : 0; if (y1 > 0) y1 += pad; if (y0 < 0) y0 -= pad;
+  const ys_ = LY ? 1 : niceStep(y1 - y0, 5); y0 = Math.floor(y0 / ys_ + 1e-9) * ys_; y1 = Math.ceil(y1 / ys_ - 1e-9) * ys_; if (LY && y1 === y0) y1 = y0 + 1;
+  let x0 = 0, x1 = 1, xs_ = 1;
+  if (!cat) { const xs = pts.map(p => tx(p[0])); x0 = Math.min(...xs); x1 = Math.max(...xs); if (isFinite(g.x_min)) x0 = Math.min(+g.x_min, x0); if (isFinite(g.x_max)) x1 = Math.max(+g.x_max, x1); if (x1 === x0) x1 = x0 + 1; if (!LX && (g.type === "scatter" || g.lab)) { const m = (x1 - x0) * .06; x1 += m; if (x0 < 0 || x0 - m >= 0) x0 -= m; } xs_ = LX ? 1 : niceStep(x1 - x0, 5); x0 = Math.floor(x0 / xs_ + 1e-9) * xs_; x1 = Math.ceil(x1 / xs_ - 1e-9) * xs_; if (XT) { x0 = Math.min(...XT.map(t => +t[0])) - .5; x1 = Math.max(...XT.map(t => +t[0])) + .5; } }
+  const px_ = x => L + (x - x0) / (x1 - x0) * (W - L - R), px = cat ? (i => L + (i + .5) * (W - L - R) / cats.length) : (x => px_(tx(x)));
+  const py_ = y => T + (1 - (y - y0) / (y1 - y0)) * (H - T - B), py = y => py_(ty(y));
+  const sup = n => String(n).replace(/[-0-9]/g, c => "⁻⁰¹²³⁴⁵⁶⁷⁸⁹"["-0123456789".indexOf(c)]), tick = (v, lg) => lg ? (v === 0 ? "1" : v === 1 ? "10" : "10" + sup(v)) : nt(v);
+  const nt = v => +(+v.toPrecision(6)).toFixed(6);
+  let o = "";
+  for (let v = y0; v <= y1 + ys_ / 1e6; v += ys_) { const y = py_(v); o += `<line x1="${L}" y1="${y}" x2="${W - R}" y2="${y}" stroke="#e5e7eb"/><text x="${L - 6}" y="${y + 4}" font-size="11" text-anchor="end" fill="#333">${tick(nt(v), LY)}</text>`; }
+  o += `<line x1="${L}" y1="${T}" x2="${L}" y2="${H - B}" stroke="#444"/><line x1="${L}" y1="${py_(LY ? y0 : Math.max(y0, Math.min(0, y1)))}" x2="${W - R}" y2="${py_(LY ? y0 : Math.max(y0, Math.min(0, y1)))}" stroke="#444"/>`;
+  if (cat) clines.forEach((ls, i) => ls.forEach((t, j) => o += `<text x="${px(i)}" y="${H - B + 16 + 13 * j}" font-size="11" text-anchor="middle" fill="#333">${esc(t)}</text>`));
+  else if (XT) XT.forEach((t, i) => { const x = px_(+t[0]); o += `<line x1="${x}" y1="${H - B}" x2="${x}" y2="${H - B + 4}" stroke="#444"/>`; xtl[i].forEach((w, j) => o += `<text x="${x}" y="${H - B + 16 + 13 * j}" font-size="11" text-anchor="middle" fill="#333">${esc(w)}</text>`); });
+  else for (let v = x0; v <= x1 + xs_ / 1e6; v += xs_) o += `<line x1="${px_(v)}" y1="${H - B}" x2="${px_(v)}" y2="${H - B + 4}" stroke="#444"/><text x="${px_(v)}" y="${H - B + 16}" font-size="11" text-anchor="middle" fill="#333">${tick(nt(v), LX)}</text>`;
+  const ns = g.series.length, bw = cat ? (W - L - R) / cats.length / (ns + .6) : 0, fs = bw && bw < 22 ? 9 : 10;
+  const mark = (k, x, y, c) => [`<circle cx="${x}" cy="${y}" r="4" fill="${c}"/>`, `<rect x="${x - 4}" y="${y - 4}" width="8" height="8" fill="${c}"/>`, `<path d="M${x} ${y - 5}L${x + 5} ${y + 4}H${x - 5}Z" fill="${c}"/>`, `<path d="M${x} ${y - 5}L${x + 5} ${y}L${x} ${y + 5}L${x - 5} ${y}Z" fill="${c}"/>`][k % 4];
+  const errBar = (x, p) => isFinite(+p[3]) && +p[3] > 0 ? `<path d="M${x} ${py(+p[1] - +p[3])}V${py(+p[1] + +p[3])}M${x - 5} ${py(+p[1] - +p[3])}H${x + 5}M${x - 5} ${py(+p[1] + +p[3])}H${x + 5}" stroke="#111" stroke-width="1.3" fill="none"/>` : "";
+  const placed = [], spot = (x, y, w) => {   // first free spot (above-right, below-right, above-left, below-left) so point labels don't sit on each other
+    for (const [dx, dy, a] of [[8, -6, "start"], [8, 14, "start"], [-8, -6, "end"], [-8, 14, "end"]]) {
+      const bx = a === "start" ? x + dx : x + dx - w, by = y + dy - 10;
+      if (bx < L - 4 || bx + w > W - 2) continue;
+      if (!placed.some(b => bx < b[0] + b[2] && b[0] < bx + w && by < b[1] + 12 && b[1] < by + 12)) { placed.push([bx, by, w]); return [x + dx, y + dy, a]; }
+    }
+    placed.push([x + 8, y - 16, w]); return [x + 8, y - 6, "start"];
+  };
+  const labOf = p => esc(p[2] != null ? p[2] : nt(+p[1]));
   g.series.forEach((s, k) => {
-    const c = col[k % col.length], P = (s.points || []).filter(p => Array.isArray(p) && isFinite(+p[1]));
-    if (g.type === "bar") P.forEach(p => { const i = cats.indexOf(String(p[0])), x = px(i) - bw * ns / 2 + k * bw, y = py(+p[1]), z = py(0); o += `<rect x="${x}" y="${Math.min(y, z)}" width="${bw * .9}" height="${Math.abs(z - y)}" fill="${c}"/>`; });
+    const c = col[k % col.length], P = (s.points || []).filter(ok);
+    if (g.type === "bar") P.forEach(p => {
+      const i = cats.indexOf(String(p[0])), x = px(i) - bw * ns / 2 + k * bw, y = py(+p[1]), z = py(0);
+      o += `<rect x="${x}" y="${Math.min(y, z)}" width="${bw * .9}" height="${Math.max(1, Math.abs(z - y))}" fill="${c}"/>` + errBar(x + bw * .45, p);
+      if (g.lab) o += `<text x="${x + bw * .45}" y="${+p[1] < 0 ? py(+p[1] - (+p[3] || 0)) + 12 : py(+p[1] + (+p[3] || 0)) - 4}" font-size="${fs}" text-anchor="middle" fill="#111">${labOf(p)}</text>`;
+    });
     else {
       const xy = p => [cat ? px(cats.indexOf(String(p[0]))) : px(+p[0]), py(+p[1])];
-      if (g.type !== "scatter" && P.length > 1) o += `<polyline fill="none" stroke="${c}" stroke-width="2" points="${P.map(p => xy(p).join(",")).join(" ")}"/>`;
-      P.forEach(p => { const [x, y] = xy(p); o += `<circle cx="${x}" cy="${y}" r="3.5" fill="${c}"/>`; });
+      if ((g.type !== "scatter" || s.curve) && P.length > 1) o += `<polyline fill="none" stroke="${c}" stroke-width="2" ${s.dash ? 'stroke-dasharray="6 4"' : ""} points="${P.map(p => xy(p).join(",")).join(" ")}"/>`;
+      if (s.curve) return;   // a curve is a drawn relationship (y = 1/x, an exponential decay...): no markers, no labels
+      P.forEach(p => {
+        const [x, y] = xy(p); o += errBar(x, p) + mark(k, x, y, c);
+        if (g.lab && g.type === "scatter") { const t = labOf(p), [lx, ly, a] = spot(x, y, String(p[2] != null ? p[2] : t).length * 5.6); o += `<text x="${lx}" y="${ly}" font-size="10" text-anchor="${a}" fill="#111">${t}</text>`; }
+        else if (g.lab) o += g.type === "scatter" ? ""
+          : `<text x="${x}" y="${k % 2 ? y + 16 : y - 8}" font-size="10" text-anchor="middle" fill="${c}">${labOf(p)}</text>`;
+      });
     }
   });
-  if (ns > 1) g.series.forEach((s, k) => o += `<rect x="${L + 8 + k * 120}" y="${H - 14}" width="10" height="10" fill="${col[k % col.length]}"/><text x="${L + 22 + k * 120}" y="${H - 5}" font-size="11" fill="#333">${esc(s.name || "")}</text>`);
-  if (g.x_label) o += `<text x="${(L + W - R) / 2}" y="${H - 20}" font-size="12" text-anchor="middle" fill="#111">${esc(g.x_label)}</text>`;
-  if (g.y_label) o += `<text transform="translate(14 ${(T + H - B) / 2}) rotate(-90)" font-size="12" text-anchor="middle" fill="#111">${esc(g.y_label)}</text>`;
-  return `<figure class="pgraph" style="margin:0">${g.title ? `<div class="gcap">${esc(g.title)}</div>` : ""}<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(g.title || "Graph")}">${o}</svg></figure>`;
+  if (g.x_label) o += `<text x="${(L + W - R) / 2}" y="${H - 6}" font-size="12" text-anchor="middle" fill="#111">${esc(g.x_label)}</text>`;
+  if (g.y_label) { const yl = wrapWords(g.y_label, Math.floor((H - T - B) / 6.5), 2); yl.forEach((t, j) => o += `<text transform="translate(${14 + 13 * j - 6.5 * (yl.length - 1)} ${(T + H - B) / 2}) rotate(-90)" font-size="12" text-anchor="middle" fill="#111">${esc(t)}</text>`); }
+  const leg = ns > 1 ? `<div class="glegend">${g.series.map((s, k) => `<span><i style="background:${col[k % col.length]}"></i>${esc(s.name || "")}</span>`).join("")}</div>` : "";
+  return `<figure class="pgraph" style="margin:0">${g.title ? `<div class="gcap">${escSub(g.title)}</div>` : ""}<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(g.title || "Graph")}">${o}</svg>${leg}</figure>`;
 };
 
 /* A question opened from a Mastery Sheet link shows on its own: no feed above or below it, and one way out. */
