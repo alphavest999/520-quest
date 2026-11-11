@@ -260,7 +260,7 @@ function deviceLimitSheet() {
 /* ---------- Me tab panel ---------- */
 window.acctPanelHTML = () => {
   if (ACCT.state === "off") return "";
-  if (ACCT.state === "out") return `<div class="panel"><h3>Account</h3><p class="small">Sign in to save your progress, use 520 Quest on up to 3 devices and keep your progress in sync.</p><div class="row"><button class="btn primary small" data-acin>Sign in with email</button><button class="btn small exitred" data-exit>Exit</button></div></div>`;
+  if (ACCT.state === "out") return `<div class="panel"><h3>Account</h3><p class="small">Sign in to save your progress and keep it in sync: 1 device on the free plan, up to 3 with any plan.</p><div class="row"><button class="btn primary small" data-acin>Sign in with email</button><button class="btn small exitred" data-exit>Exit</button></div></div>`;
   const p = ACCT.profile || {}, email = (ACCT.user && ACCT.user.email) || "";
   return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Account</h3><span class="tag sec">${esc(planName(p))}</span></div>
     <p class="small" style="overflow-wrap:anywhere">${esc(email)}</p>
