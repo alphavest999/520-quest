@@ -1957,11 +1957,12 @@ function filterFade() {
 }
 $("#filters").addEventListener("scroll", filterFade, { passive: true });
 if (window.ResizeObserver) new ResizeObserver(filterFade).observe($("#filters")); else addEventListener("resize", filterFade);
-// Review chip text. Answer reviews show where you are and how many are left, e.g. "Question 3 of 12 · 9 left".
+// Review chip text. Answer reviews show how many are finished, e.g. "0/3 done", then "1/3 done" after the first answer.
 function reviewChipText() {
   const R = S.review; if (R.kind === "quiz" || R.kind === "check") return quizChipText();
-  const n = R.ids.length, left = Math.max(0, n - R.done.length);
-  return left ? `Reviewing answers · Question ${n - left + 1} of ${n} · ${left} left` : `Reviewing answers · all ${n} done`;
+  // Counts finished reviews: starts at 0/N and reaches N/N only after the last question is answered.
+  const n = R.ids.length, done = Math.min(n, R.done.length);
+  return `Reviewing answers · ${done}/${n} done`;
 }
 $("#filters").addEventListener("click", e => {
   const k = e.target.closest("[data-k]");
