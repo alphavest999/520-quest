@@ -3489,7 +3489,8 @@ function welcomeBack() {
   if (fromLanding) history.replaceState(null, "", location.pathname + location.hash);
   else if (S.welcome === t || S.today.doneDay) return;
   const first = fromLanding || !S.total;
-  S.welcome = t; save();
+  // Counted as seen only once the user taps an option or closes it, so a reload (e.g. a new release) shows it again.
+  const seen = () => { if (S.welcome !== t) { S.welcome = t; save(); } };
   const L = S.lv.level;
   sheet(`<div class="lvbig"><div class="eyebrow">${first ? "Welcome" : "Welcome back"}</div><div class="badge-lv ${L === 5 ? "t5" : ""}">${L === 5 ? "GM" : "L" + L}</div><strong>Level ${L}: ${esc(tierName(L))}</strong></div>
     ${levelBarHTML()}
@@ -3502,7 +3503,9 @@ function welcomeBack() {
     <div class="grid2">${GOAL_SECS.slice(1).map(([k, n]) => `<button class="btn" data-cgsec="${k}">${n.replace(" questions", "")}</button>`).join("")}</div>`}
     <button class="goldbtn greenbtn" data-welquiz>🛠️ Build your own Quiz<small>Pick sections, topics, difficulty, and timed or tutor mode</small></button>
     ${planBtnHTML()}`,
-    s => s.addEventListener("click", e => {
+    s => s.parentElement.addEventListener("click", e => {
+      if (e.target === s.parentElement || e.target.closest("button")) seen();
+      if (!s.contains(e.target)) return;
       const cg = e.target.closest("[data-cgsec]");
       if (cg) return pickGoalSec(cg, s);
       if (e.target.closest("[data-welstart]")) { $("#sheetHost").innerHTML = ""; if (S.goalSet) go("scroll"); else customGoal(); }
@@ -4358,8 +4361,9 @@ termsGate();
 if ("serviceWorker" in navigator && location.protocol === "https:" && !/claude\.ai|claudeusercontent/.test(location.hostname)) { 
   navigator.serviceWorker.register("sw.js").then(reg => document.addEventListener("visibilitychange", () => { if (!document.hidden) reg.update().catch(() => {}); })).catch(() => {});
   // A new release took over while this page was open: reload into it now if just opened, else the next time the app comes back to the front.
+  // Never reload under an open pop-up (the Welcome screen, the terms): that used to whisk the user off to the Qbank before they picked.
   let swReload = false; const hadSW = !!navigator.serviceWorker.controller, t0 = Date.now();
-  navigator.serviceWorker.addEventListener("controllerchange", () => { if (!hadSW || swReload) return; swReload = true; if (Date.now() - t0 < 8000) location.reload(); });
+  navigator.serviceWorker.addEventListener("controllerchange", () => { if (!hadSW || swReload) return; swReload = true; if (Date.now() - t0 < 8000 && !$("#sheetHost .scrim") && !$("#termsGate")) location.reload(); });
   document.addEventListener("visibilitychange", () => { if (swReload && !document.hidden && !B) location.reload(); });
 }
 
