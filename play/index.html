@@ -6,7 +6,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://unprocrastinate.lemonsqueezy.com" crossorigin><link rel="preconnect" href="https://assets.lemonsqueezy.com" crossorigin><link rel="preconnect" href="https://js.stripe.com" crossorigin>
 <!-- Branded Lemon Squeezy loading screen (replaces its wordless pulsing dot). Same CSS lives in config.js. -->
-<style>.lemonsqueezy-loader{background:rgba(7,15,34,.97)!important;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+<style>.lemonsqueezy-loader{background:rgba(7,15,34,.97)!important;font-family:"QSym",system-ui,-apple-system,"Segoe UI",sans-serif}
 .lemonsqueezy-loader main>div{display:none}
 .lemonsqueezy-loader main::before{content:"";width:46px;height:46px;border-radius:50%;border:4px solid rgba(255,255,255,.14);border-top-color:#ec4899;animation:lsq-spin .8s linear infinite}
 .lemonsqueezy-loader main::after{content:"🔒 Opening secure checkout…";color:#f5f7fb;font-size:18px;font-weight:700;margin-top:20px}
@@ -41,7 +41,7 @@
 .btn.pinkback { background: #f472b6; color: #fff; border-color: #f472b6; font-weight: 800; }
 .xcard .btn.primary { background: #1e3a8a; color: #fff; border: 2px solid #f472b6; }
 .xcard { background: #f5f3ff; border: 2px solid #f472b6; border-left: 4px solid #1e3a8a; color: #0f172a; }
-.formula, .sv-doc pre, .sv-doc code.f, .sv-doc .formula { background: #f8fafc; border: 1px solid #e2e8f0; color: #0f172a; font-family: "STIX Two Math", Inter, serif; overflow: visible; }
+.formula, .sv-doc pre, .sv-doc code.f, .sv-doc .formula { background: #f8fafc; border: 1px solid #e2e8f0; color: #0f172a; font-family: "QSymSerif", "STIX Two Math", Inter, serif; overflow: visible; }
 </style>
 </head>
 <body>
@@ -51,6 +51,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Figtree:wght@400;500;600;800&display=swap">
+<link rel="stylesheet" href="fonts/qsym.css">
 <style>
 /* Layout: a phone-first game shell. HUD on top, one swipe feed in the middle, tab bar at the bottom. Dark arcade cabinet in the 520+ brand yellow. */
 :root {
@@ -76,8 +77,8 @@
   --bad: #e11d48;
   --cool: #2dd4bf;       /* xp + info */
   --heat: #f472b6;       /* streak */
-  --display: "Chakra Petch", "Arial Narrow", system-ui, sans-serif;
-  --body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --display: "QSym", "Chakra Petch", "Arial Narrow", system-ui, sans-serif;
+  --body: "QSym", "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
   --r: 14px;
   color-scheme: light;
 }
@@ -176,7 +177,7 @@ button { cursor: pointer; }
 .btn.small { padding: 7px 10px; font-size: 13px; }
 .btn:disabled { opacity: .45; cursor: default; }
 /* FIX Bug11: formula spacing */
-.explain .fm { word-spacing: 0.1em; font-family: "STIX Two Math", "Cambria Math", "Times New Roman", var(--body), serif; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #f8fafc; color: #0f172a; } .explain .fm p { margin: 4px 0; } .explain .fm .kx { color: #0f172a; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; margin: 4px 0; overflow-x: auto; font-size: 1.05em; } .explain .fm .kx.done .katex-display { margin: 0; } .explain .fm .kx:not(.done) { font-family: "STIX Two Math", "Cambria Math", serif; } .explain .mem { margin: 4px 0 8px; padding-left: 20px; } .explain .plainbox { background: #fdf2f8; border-radius: 10px; padding: 8px 12px; }
+.explain .fm { word-spacing: 0.1em; font-family: "QSymSerif", "STIX Two Math", "Cambria Math", "Times New Roman", var(--body), serif; border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 6px 0; background: #f8fafc; color: #0f172a; } .explain .fm p { margin: 4px 0; } .explain .fm .kx { color: #0f172a; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; margin: 4px 0; overflow-x: auto; font-size: 1.05em; } .explain .fm .kx.done .katex-display { margin: 0; } .explain .fm .kx:not(.done) { font-family: "QSymSerif", "STIX Two Math", "Cambria Math", serif; } .explain .mem { margin: 4px 0 8px; padding-left: 20px; } .explain .plainbox { background: #fdf2f8; border-radius: 10px; padding: 8px 12px; }
 .backq { background: #f472b6; color: #fff; border: 0; padding: 8px 16px; border-radius: 8px; font: 700 14px/1.2 var(--body); cursor: pointer; margin-right: 10px; } .backq.bottom { position: fixed; left: 12px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 60; box-shadow: 0 4px 14px rgba(244,114,182,.5); }
 .verdict { font: 700 18px/1.2 var(--display); letter-spacing: .03em; }
 .verdict.ok { color: var(--good); }
@@ -209,7 +210,7 @@ button { cursor: pointer; }
 .sv-doc li { margin: 4px 0; }
 .sv-doc blockquote { margin: 0 0 10px; padding: 10px 12px; border-left: 3px solid var(--line); color: var(--muted); font-size: 13px; }
 .sv-doc blockquote p { margin: 0; }
-.sv-doc code { font: 600 13px ui-monospace, monospace; }
+.sv-doc code { font: 600 13px "QSym", ui-monospace, monospace; }
 .sv-doc .formula { margin: 14px 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); text-align: center; font: 700 17px/1.4 var(--display); }
 .sv-doc .formula span { display: inline-block; margin: 0 10px; }
 .sv-doc sub, .sv-doc sup { font-size: .72em; line-height: 0; }
@@ -220,7 +221,7 @@ button { cursor: pointer; }
 .sv-doc .flow { overflow-x: auto; margin: 12px 0; padding: 6px; border-radius: 12px; background: var(--panel); }
 .sv-doc .flow svg { display: block; max-width: 100%; height: auto; }
 .sv-doc .flow.light { background: #fff; }
-.sv-doc, .flow { font-family: 'STIX Two Math','Cambria Math','Times New Roman',serif; } .sv-doc .math { font-family: 'STIX Two Math','Cambria Math',serif; }
+.sv-doc, .flow { font-family: "QSymSerif", 'STIX Two Math','Cambria Math','Times New Roman',serif; } .sv-doc .math { font-family: "QSymSerif", 'STIX Two Math','Cambria Math',serif; }
 .sv-doc .flow .nb { fill: var(--ink); stroke: var(--line); stroke-width: 1.5; }
 .sv-doc .flow .nt { fill: var(--text); font: 600 14px var(--body); text-anchor: middle; }
 .sv-doc .flow .el { fill: var(--muted); font: 12px var(--body); text-anchor: middle; paint-order: stroke; stroke: var(--panel); stroke-width: 4px; }
@@ -267,7 +268,7 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 .exmore summary { cursor: pointer; font-weight: 700; padding: 4px 0; }
 .exmore p { margin-top: 6px; }
 .explain .fx { display: grid; gap: 2px; padding: 8px 10px; border-radius: 8px; background: var(--panel); }
-.explain .fx code { font: 600 15px/1.4 ui-monospace, monospace; }
+.explain .fx code { font: 600 15px/1.4 "QSym", ui-monospace, monospace; }
 .explain .fx span { font-size: 13px; color: var(--muted); }
 .explain .steps, .explain .refs { margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.5; }
 .explain .trapline { border-left: 3px solid var(--bad); padding-left: 8px; }
@@ -392,7 +393,7 @@ h2.title { font: 700 26px/1.1 var(--display); letter-spacing: .02em; margin: 4px
 .locked { position: relative; }
 .locked > .lockveil { position: absolute; inset: 0; background: color-mix(in srgb, var(--panel) 80%, transparent); backdrop-filter: blur(3px); border-radius: inherit; display: grid; place-items: center; text-align: center; padding: 14px; gap: 8px; align-content: center; }
 input[type=text], input[type=number], select, textarea { background: var(--ink); border: 1px solid var(--line); border-radius: 10px; padding: 9px 10px; min-width: 0; }
-textarea { width: 100%; min-height: 110px; font: 12.5px/1.45 ui-monospace, Menlo, monospace; resize: vertical; }
+textarea { width: 100%; min-height: 110px; font: 12.5px/1.45 "QSym", ui-monospace, Menlo, monospace; resize: vertical; }
 label.field { display: grid; gap: 5px; font-size: 13.5px; color: var(--muted); }
 .ring { position: relative; width: 74px; height: 74px; flex: none; }
 .ring svg { transform: rotate(-90deg); }
