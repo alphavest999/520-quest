@@ -134,12 +134,14 @@ button { cursor: pointer; }
 .views { position: relative; min-height: 0; }
 .view { position: absolute; inset: 0; overflow-y: auto; padding: 14px 16px 24px; }
 .view[hidden] { display: none !important; }
-#view-scroll { padding: 0; display: grid; grid-template-rows: auto 1fr auto; overflow: hidden; }
+#view-scroll { padding: 0; display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
 /* Qbank: one card (and one passage question) at a time. Next question moves forward. */
 #feed { scroll-snap-type: none; }
 #feed > .card:not(.cur), #feed .pq:not(.cur) { display: none; }
 #feed .swipe { display: none; }
-.qnav { display: flex; gap: 10px; padding: 8px 16px 10px; border-top: 1px solid var(--line); }
+/* Back / Next sit at the very bottom of the explanation (not fixed), so they never cover the answer choices. */
+.qnav { display: flex; gap: 10px; margin-top: 6px; padding-top: 12px; border-top: 1px solid var(--line); }
+#feed .reveal [data-next] { display: none; }
 .qnav[hidden], .qnav [hidden] { display: none; }
 .qnav .btn { min-height: 48px; font-size: 16px; }
 .qnav [data-qback] { flex: 0 0 auto; }
@@ -544,7 +546,6 @@ a { color: var(--volt); }
     <section class="view" id="view-scroll" aria-label="Qbank">
       <div class="filters" id="filters"></div>
       <div class="feed" id="feed" aria-live="polite"></div>
-      <div class="qnav" id="qnav" hidden><button class="btn ghost" data-qback>‹ Back</button><button class="btn primary" data-qnext>Next question ›</button></div>
     </section>
     <section class="view" id="view-boss" hidden aria-label="Boss battles"></section>
     <section class="view" id="view-map" hidden aria-label="Skill map"></section>
@@ -2190,8 +2191,11 @@ function prevUnit() {
   const pq = c.querySelector(".pq.cur"), pp = pq && pq.previousElementSibling && pq.previousElementSibling.classList.contains("pq") ? pq.previousElementSibling : null;
   return pp || c.previousElementSibling;
 }
+var QNAV_;   // var, not const: feedNav can run before this line during start-up
+function qnavEl() { return QNAV_ || (QNAV_ = Object.assign(document.createElement("div"), { className: "qnav", id: "qnav", hidden: true,
+  innerHTML: `<button class="btn ghost" data-qback>‹ Back</button><button class="btn primary" data-qnext>Next question ›</button>` })); }
 function feedNav() {
-  const nav = $("#qnav"), c = curCard(); if (!nav) return;
+  const nav = qnavEl(), c = curCard();
   // The diagnostic and timed quizzes have their own Previous / Next / Submit row on each card.
   const u = curUnit(), box = u && u.querySelector(".opts"), open = !!box && !box.dataset.done, nx = nextUnit();
   // Back / Next show up only once the question is answered and its explanation is on screen.
@@ -2201,6 +2205,9 @@ function feedNav() {
   const nb = $("[data-qnext]", nav), bb = $("[data-qback]", nav);
   nb.hidden = !!last;
   bb.hidden = !prevUnit();
+  // After the explanation (and its rating / report links) for a question; at the end of any other card.
+  const host = box ? u.querySelector(".reveal") || u : c;
+  if (nav.parentNode !== host || host.lastElementChild !== nav) host.appendChild(nav);
 }
 function stepCard(dir) {
   const t = dir > 0 ? nextUnit() : prevUnit(); if (!t) return;
@@ -2292,6 +2299,8 @@ function questionCard(q, rev, tgt) {
     $("[data-cknext]", el).addEventListener("click", () => step("nextElementSibling"));
     const ix = S.review.ids.indexOf(q.id);
     if (ix === 0) $("[data-ckprev]", el).style.visibility = "hidden";
+    // Exam Mode quizzes: Submit appears only on the last question.
+    if (S.review.kind === "quiz" && ix < S.review.ids.length - 1) { const sb = $("[data-checksubmit].ghost", el); if (sb) sb.remove(); }
     if (ix === S.review.ids.length - 1) { const nx = $("[data-cknext]", el); nx.textContent = S.review.kind === "check" ? "Submit diagnostic" : "Submit quiz"; nx.removeAttribute("data-cknext"); nx.setAttribute("data-checksubmit", ""); nx.replaceWith(nx.cloneNode(true)); $("[data-checksubmit].ghost", el).remove(); }
     checkCardState(el, q);
   }
@@ -2369,7 +2378,6 @@ function wireQuestion(scope, q, card) {
     const nb = $("[data-next]", rv), nxt = sib || card.nextElementSibling;
     if (!nxt || (S.review && nxt.dataset.end)) nb.hidden = true;   // last question of a quiz or review: the results come up instead
     else nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
-    feedNav();
     if (!ok) wireDNA(rv, q, secs);
     upgradeExplain(rv, q, i, ok, conf);
     const sl = sheetLinkHTML(q) + mnLinkHTML(q); if (sl) $(".row", rv).insertAdjacentHTML("beforebegin", sl);
@@ -2379,6 +2387,7 @@ function wireQuestion(scope, q, card) {
     const sb = $("[data-stuck]", rv); if (sb) sb.addEventListener("click", () => stuck(q, card, sb));
     const nbb = $("[data-nbadd]", rv); if (nbb) nbb.addEventListener("click", () => nbAdd(q, nbb));
     const h = $("[data-hint]", scope); if (h) h.disabled = true;
+    feedNav();   // Back / Next go last, under the explanation and its links
   });
   const hint = $("[data-hint]", scope);
   if (hint) hint.addEventListener("click", () => {
@@ -4395,8 +4404,8 @@ document.addEventListener("keydown", e => {
     const box = card && [...card.querySelectorAll(".opts")].find(b => !b.dataset.done && b.offsetParent);
     if (box) box.querySelectorAll(".opt")[+e.key - 1].click();
   }
-  if ((e.key === "ArrowRight" || e.key === "n") && !$("#qnav").hidden && !$("[data-qnext]").hidden) stepCard(1);
-  if (e.key === "ArrowLeft" && !$("#qnav").hidden && !$("[data-qback]").hidden) stepCard(-1);
+  if ((e.key === "ArrowRight" || e.key === "n") && qnavEl().isConnected && !qnavEl().hidden && !$("[data-qnext]", qnavEl()).hidden) stepCard(1);
+  if (e.key === "ArrowLeft" && qnavEl().isConnected && !qnavEl().hidden && !$("[data-qback]", qnavEl()).hidden) stepCard(-1);
   if (e.key === "j" || e.key === "ArrowDown") { feed.scrollBy({ top: feed.clientHeight * .9, behavior: reduce ? "auto" : "smooth" }); e.preventDefault(); }
   if (e.key === "k" || e.key === "ArrowUp") { feed.scrollBy({ top: -feed.clientHeight * .9, behavior: reduce ? "auto" : "smooth" }); e.preventDefault(); }
 });
