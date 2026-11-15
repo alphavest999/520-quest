@@ -3553,8 +3553,8 @@ var extraRound = false, morePromptOpen = false; // var: renderHUD can run before
 function morePrompt(fromMe = true) {
   if (morePromptOpen || $("#sheetHost .scrim")) return;
   morePromptOpen = true;
-  sheet(`<div class="eyebrow">Done for the Day 🎉</div><h2>Want to drill ${ROUND} more for +50 XP?</h2>
-    <div class="row"><button class="btn primary" data-more10 data-close>${drillLabel()}</button><button class="btn" data-close data-doneday>Done for the Day</button></div>`);
+  sheet(`<div class="eyebrow">Today's goal is done 🎉</div><h2>What would you like to do next?</h2>
+    <div class="stack" style="display:grid;gap:8px"><button class="btn primary" data-more10 data-close>${drillLabel()}</button><button class="btn" data-close data-quizopen>Generate custom questions</button><button class="btn ghost" data-close data-doneday>Done for the Day</button></div>`);
   const host = $("#sheetHost"), obs = new MutationObserver(() => { if (!host.innerHTML) { morePromptOpen = false; obs.disconnect(); } }); obs.observe(host, { childList: true });
 }
 // Extra rounds after the daily goal drill the weakest MAP category: live weak areas, then the diagnostic,
