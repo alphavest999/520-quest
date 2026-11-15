@@ -304,6 +304,8 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 #qSolo .solo-top { padding: calc(10px + env(safe-area-inset-top, 0px)) 14px 10px; border-bottom: 1px solid var(--line); background: var(--panel); }
 #qSolo .solo-body { flex: 1; overflow-y: auto; padding: 14px; }
 #qSolo .solo-body > .card { max-width: 760px; margin: 0 auto; min-height: 0; height: auto; }
+#qSolo .solo-body > .card + .card { margin-top: 14px; }
+#qSolo .solo-end { max-width: 760px; margin: 16px auto 8px; text-align: center; }
 #qSolo .card.q [data-next], #qSolo .sheetlink, #qSolo .qjump { display: none; }
 .exlock { border: 1px dashed var(--line); border-radius: 12px; padding: 10px 12px; background: var(--bg-soft); font-size: 14px; }
 .pq { display: grid; gap: 10px; padding-top: 14px; border-top: 1px solid var(--line); }
@@ -2654,13 +2656,18 @@ const graphHTML = g => {
 };
 
 /* A question opened from a Mastery Sheet link shows on its own: no feed above or below it, and one way out. */
-function openSolo(card, ret) {
+// One question, or a concept's "Check yourself" set, opened on its own over the app: no feed to scroll into, just a way back to the sheet.
+function openSolo(cards, ret) {
   closeSheet(); sheetReturn = null; dropBackPill();
+  cards = [].concat(cards);
   let v = $("#qSolo"); if (!v) { v = document.createElement("div"); v.id = "qSolo"; document.body.appendChild(v); }
-  v.innerHTML = `<div class="solo-top"><button class="btn primary" data-solo-back><span aria-hidden="true">←</span> Return to Mastery Sheets</button></div><div class="solo-body"></div>`;
-  $$(".swipe", card).forEach(x => x.remove()); card._shown = card._made = Date.now();
-  $(".solo-body", v).appendChild(card); v.hidden = false; document.body.style.overflow = "hidden";
-  $("[data-solo-back]", v).addEventListener("click", () => { v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; openSheet(ret.id, ret); });
+  const back = `<button class="btn primary" data-solo-back><span aria-hidden="true">←</span> Back to Mastery Sheet</button>`;
+  v.innerHTML = `<div class="solo-top">${back}</div><div class="solo-body"></div>`;
+  const body = $(".solo-body", v);
+  cards.forEach(card => { $$(".swipe", card).forEach(x => x.remove()); card._shown = card._made = Date.now(); body.appendChild(card); });
+  if (cards.length > 1) body.insertAdjacentHTML("beforeend", `<div class="solo-end">${back}</div>`);
+  v.hidden = false; document.body.style.overflow = "hidden"; body.scrollTop = 0;
+  $$("[data-solo-back]", v).forEach(b => b.addEventListener("click", () => { v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; openSheet(ret.id, ret); }));
 }
 // "Show passage" opens the passage in a pop-up over the question, so nobody has to scroll back up to it.
 const passBtnHTML = p => `<button class="pbtn" data-showp="${esc(p.id)}"><span aria-hidden="true">📄</span> Show passage</button>`;
@@ -3830,7 +3837,7 @@ function addRecallChecks(doc, id) {
     if (!ids.length) return;
     let end = h.nextElementSibling; while (end && !/^H[1-4]$/.test(end.tagName)) end = end.nextElementSibling;
     const box = document.createElement("div"); box.className = "sv-recall";
-    box.innerHTML = `<button class="btn small primary" data-svquiz="${esc(ids.join(","))}">Check yourself: ${ids.length} question${ids.length === 1 ? "" : "s"} on Concept ${m[1]}</button>`;
+    box.innerHTML = `<button class="btn small primary" data-svquiz="${esc(ids.join(","))}" data-concept="${m[1]}">Check yourself: ${ids.length} question${ids.length === 1 ? "" : "s"} on Concept ${m[1]}</button>`;
     h.parentNode.insertBefore(box, end);
   });
 }
@@ -3873,8 +3880,13 @@ function fallbackQ(id) {
 $("#sheetView").addEventListener("click", async e => {
   if (e.target.closest("[data-svclose]")) return closeSheet();
   const sq = e.target.closest("[data-svquiz]"); if (sq) {
-    closeSheet();
-    go("scroll"); sq.dataset.svquiz.split(",").reverse().forEach(id => { const q = anyQ(id); if (!q) return; sessionSeen.add(q.id); const card = questionCard(q, false); feed.prepend(card); io.observe(card); }); feed.scrollTop = 0; return;
+    // Only this concept's questions, on their own, with a way back to the same concept on the sheet.
+    const qs = sq.dataset.svquiz.split(",").map(anyQ).filter(Boolean); if (!qs.length) return;
+    const sb = $(".sv-body"), top = sb ? sb.scrollTop : 0, n = sq.dataset.concept;
+    const h = n && $$(".sv-doc h4").find(x => x.textContent.startsWith(`Concept ${n}:`));
+    const ret = { id: $("#sheetView").dataset.id, top, concept: n, dy: h ? h.offsetTop - top : 0 };
+    qs.forEach(q => sessionSeen.add(q.id));
+    return openSolo(qs.map(q => questionCard(q, false)), ret);
   }
   const bq = e.target.closest("[data-backq]");
   if (bq) { // back to the question card the sheet was opened from; the feed is untouched so the answer and explanation are still showing
