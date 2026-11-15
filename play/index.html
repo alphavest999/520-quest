@@ -115,6 +115,7 @@ button { cursor: pointer; }
 .hudpro svg { width: 14px; height: 14px; color: #5eead4; }
 @media (prefers-reduced-motion: reduce) { .hudpro { animation: none; } }
 .hudpro[hidden] { display: none; }
+#hudGoal[hidden] { display: none; }
 .hudinst { flex: none; display: inline-flex; align-items: center; gap: 4px; font: 700 13px/1 var(--display); letter-spacing: .06em; padding: 7px 10px; border-radius: 99px; cursor: pointer; color: var(--volt); background: transparent; border: 2px solid var(--volt); }
 .hudinst svg { width: 14px; height: 14px; }
 .hudinst[hidden] { display: none; }
@@ -143,7 +144,6 @@ button { cursor: pointer; }
 .qnav .btn { min-height: 48px; font-size: 16px; }
 .qnav [data-qback] { flex: 0 0 auto; }
 .qnav [data-qnext] { flex: 1; font-weight: 800; }
-.qnav [data-qnext].skip { background: var(--panel-2); color: var(--muted); border-color: var(--line); box-shadow: none; }
 .btn.nextq[hidden] { display: none; }
 .btn.nextq { min-height: 48px; font-size: 16px; font-weight: 800; flex: 1 1 100%; }
 .filters { display: flex; gap: 6px; padding: 10px 16px; overflow-x: auto; scrollbar-width: none; }
@@ -2193,13 +2193,13 @@ function prevUnit() {
 function feedNav() {
   const nav = $("#qnav"), c = curCard(); if (!nav) return;
   // The diagnostic and timed quizzes have their own Previous / Next / Submit row on each card.
-  nav.hidden = !c || examLike(S.review);
-  if (nav.hidden) return;
   const u = curUnit(), box = u && u.querySelector(".opts"), open = !!box && !box.dataset.done, nx = nextUnit();
+  // Back / Next show up only once the question is answered and its explanation is on screen.
+  nav.hidden = !c || examLike(S.review) || open;
+  if (nav.hidden) return;
   const last = !nx || (S.review && nx.dataset.end);   // no Next on the last question of a quiz or review
   const nb = $("[data-qnext]", nav), bb = $("[data-qback]", nav);
-  nb.hidden = !!last; nb.classList.toggle("skip", open);
-  nb.textContent = open ? "Skip for now ›" : "Next question ›";
+  nb.hidden = !!last;
   bb.hidden = !prevUnit();
 }
 function stepCard(dir) {
@@ -3093,7 +3093,7 @@ function quizSheetHTML() {
     <p class="small muted" style="margin:10px 0 4px">Type</p><div class="row">${QZ_TYPES.map(([k, l]) => chip("data-qztype", k, l, o.type === k)).join("")}</div>
     <p class="small muted" style="margin:10px 0 4px">Difficulty</p><div class="row">${QZ_DIFF.map(([k, l]) => chip("data-qzdiff", k, l, o.diff === k)).join("")}</div>
     <p class="small muted" style="margin:10px 0 4px">How many</p><div class="row">${QZ_SIZES.map(k => chip("data-qzn", k, k, o.n === k)).join("")}</div>
-    <p class="small muted" style="margin:10px 0 4px">Mode</p><div class="row">${chip("data-qzmode", "tutor", "Tutor: explanation after each", !o.timed)}${chip("data-qzmode", "timed", "Timed: answers at the end", o.timed)}</div>
+    <p class="small muted" style="margin:10px 0 4px">Mode</p><div class="row">${chip("data-qzmode", "tutor", "Tutor: explanation after each", !o.timed)}${chip("data-qzmode", "timed", "Exam mode: Timed questions (Answer shown after exam is completed)", o.timed)}</div>
     <p class="small muted" style="margin:6px 0 0">${o.timed ? `Like the real exam: ${QZ_PACE} s per question, no hints, and you can change answers until you submit. Right answers and explanations show after the quiz.` : "You see right or wrong and the full explanation right after each question."}</p>
     <p class="small" style="margin:12px 0 6px" id="qzCount">${bankLoaded ? `${n.toLocaleString("en-US")} question${n === 1 ? "" : "s"} match.` : "Loading the full Qbank…"}${!S.pro && o.pool !== "missed" && o.pool !== "revenge" ? ` Free plan: up to ${Math.max(0, CONFIG.freeQuestions - seenCount())} new questions left.` : ""}</p>
     <div class="row"><button class="btn primary" data-qzstart ${n ? "" : "disabled"} style="flex:1">Start quiz</button><button class="btn" data-close style="flex:1">Cancel</button></div>`;
@@ -3467,13 +3467,18 @@ function answerReview(ids, picks, eyebrow) {
   const L = "ABCD";
   const qs = ids.map(anyQ).filter(Boolean);
   const nWrong = qs.filter(q => picks[q.id] !== q.a).length;
+  // Misses first, each with the full explanation; right answers offer "Did you guess? Show the full explanation".
+  qs.sort((a, b) => (picks[a.id] === a.a) - (picks[b.id] === b.a));
   sheet(`<div class="eyebrow">${esc(eyebrow)}</div><h2>${qs.length - nWrong} right, ${nWrong} to learn from.</h2>
-    <p class="muted" style="margin-top:0">Misses are listed first. Unanswered questions show no pick.</p>
-    ${qs.sort((a, b) => (picks[a.id] === a.a) - (picks[b.id] === b.a)).map((q, n) => { const p = picks[q.id], ok = p === q.a;
-      return `<details class="card" style="margin:8px 0;padding:10px 12px"${ok ? "" : " open"}><summary style="cursor:pointer"><b>${ok ? "✓" : "✗"} ${n + 1}.</b> <span class="small muted">${esc(SECTIONS[q.s].name)} · ${esc(q.c)}</span> ${p == null ? '<span class="small muted">not reached</span>' : ""}</summary>
-        <p style="margin:8px 0">${q.q}</p><ul class="small" style="margin:0 0 6px;padding-left:20px">${q.o.map((o, j) => `<li${j === q.a ? ' style="font-weight:700"' : ""}>${L[j]}. ${o[0]}${j === q.a ? " ✓" : ""}${j === p && !ok ? " (your answer)" : ""}</li>`).join("")}</ul>
-        ${explainHTML(q, p == null ? -1 : p)}</details>`; }).join("")}
-    <div class="row"><button class="btn primary" data-close>Done</button></div>`);
+    <p class="muted" style="margin-top:0">Misses come first, with the full explanation. For a right answer, tap "Did you guess?" to see the full explanation.</p>
+    ${qs.map((q, n) => { const p = picks[q.id], ok = p === q.a;
+      return `<div class="card arcard" style="margin:8px 0;padding:12px;min-height:0;gap:8px"><div class="small"><b style="color:var(${ok ? "--good" : "--bad"})">${ok ? "✓ Right" : p == null ? "✗ Not reached" : "✗ Missed"}</b> · ${n + 1} · <span class="muted">${esc(SECTIONS[q.s].name)} · ${esc(q.c)}</span></div>
+        <p style="margin:0;font-weight:600">${q.q}</p><ul class="small" style="margin:0;padding-left:20px">${q.o.map((o, j) => `<li${j === q.a ? ' style="font-weight:700"' : ""}>${L[j]}. ${o[0]}${j === q.a ? " ✓" : ""}${j === p && !ok ? " (your answer)" : ""}</li>`).join("")}</ul>
+        <div class="stack" data-arq="${esc(q.id)}">${ok ? "" : explainHTML(q, p == null ? -1 : p)}</div></div>`; }).join("")}
+    <div class="row"><button class="btn primary" data-close>Done</button></div>`, box => {
+    qs.forEach(q => { const rv = box.querySelector(`[data-arq="${CSS.escape(q.id)}"]`), p = picks[q.id];
+      if (rv) upgradeExplain(rv, q, p == null ? -1 : p, p === q.a, ""); });
+  });
 }
 document.addEventListener("click", e => { if (e.target.closest("[data-diagrev]")) diagReview(); });
 // The diagnostic's lowest science section, if one section clearly trails another. Used by the feed mix and the plan.
@@ -3882,7 +3887,7 @@ function renderMap() {
   const groups = ["CP", "CARS", "BB", "PS"];
   const open = S.mapSub && CAT[S.mapSub] ? S.mapSub : null, osub = open ? subCounts(open) : [];
   const subPanel = open ? `<div class="panel" style="margin-bottom:14px;border-color:#f472b6"><div class="row" style="justify-content:space-between"><h3 style="margin:0">${esc(open)} · ${esc(CAT[open].title)}</h3><button class="btn small ghost" data-subclose>Close</button></div><p class="small muted">Pick a concept to drill, or practice the whole category.</p><div class="row"><button class="chipbtn" data-drill="${esc(open)}">All ${esc(open)}</button>${osub.map(o => `<button class="chipbtn" data-drill="${esc(open)}" data-sub="${esc(o.id)}">${esc(o.label)} · ${o.n}</button>`).join("")}</div></div>` : "";
-  $("#view-map").innerHTML = subPanel + `<div class="panel quizpanel" style="margin-bottom:14px"><div class="row" style="justify-content:space-between;align-items:center"><div><h3 style="margin:0">🛠️ Build your own quiz</h3><p class="small muted" style="margin:4px 0 0">Pick sections, topics, unused or missed questions, and difficulty.</p><div class="qzmodes"><span>Tutor: explanation after each question</span><span>Timed: answers at the end</span></div></div><button class="btn primary" data-quizopen>Build a quiz</button></div></div><h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll (CARS skills open passages filtered to that question type).</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
+  $("#view-map").innerHTML = subPanel + `<div class="panel quizpanel" style="margin-bottom:14px"><div class="row" style="justify-content:space-between;align-items:center"><div><h3 style="margin:0">🛠️ Build your own quiz</h3><p class="small muted" style="margin:4px 0 0">Pick sections, topics, unused or missed questions, and difficulty.</p><div class="qzmodes"><span>Tutor: explanation after each question</span><span>Exam mode: Timed questions (Answer shown after exam is completed)</span></div></div><button class="btn primary" data-quizopen>Build a quiz</button></div></div><h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll (CARS skills open passages filtered to that question type).</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
   <div class="stack">${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
     const c = S.cat[code] || { a: 0, c: 0 }, m = c.a ? c.c / c.a : 0, col = !c.a ? "var(--line)" : m >= .8 ? "var(--good)" : m >= .6 ? "var(--volt)" : "var(--bad)";
     const drill = s === "CARS" ? PASSAGES.some(p => p.s === "CARS" && p.qs.some(q => q.c === code)) : QUESTIONS.some(q => q.c === code);
@@ -4363,6 +4368,8 @@ function go(tab) {
   if (tab !== "scroll") { sheetReturn = null; dropBackPill(); }
   $$(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.tab === tab));
   ["scroll", "boss", "course", "map", "exam", "me", "results"].forEach(v => $("#view-" + v).hidden = v !== tab);
+  // The green goal counter only shows where it counts: on the Qbank, while questions are being answered.
+  $("#hudGoal").hidden = tab !== "scroll";
   if (tab !== "results") { S.lastTab = tab; S.lastTabDay = todayKey(); save(); }
   if (tab === "boss" && !B) renderBossLobby();
   if (tab === "map") renderMap();
