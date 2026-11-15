@@ -4,20 +4,34 @@
    exponents sit on the same line. Text inside KaTeX, SVG, inputs and code is left alone. */
 (function () {
   const MAP = { "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5", "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9", "⁺": "+", "⁻": "−", "⁼": "=", "⁽": "(", "⁾": ")", "ⁿ": "n" };
-  const RUN = /[⁰¹²³⁴-⁹⁺⁻⁼⁽⁾ⁿ]+/g, ANY = /[⁰¹²³⁴-⁹⁺⁻⁼⁽⁾ⁿ]/;
+  // Also: plain-text subscripts the bank writes with an underscore (E_K, k_f, ρ_water, ΔS_universe, t_1/2) become
+  // <sub class=usub>, and e^0.65 / 10^-3 / 2^(1/2) become <sup>. Ids like x5E_001 or bp12_0 are left alone (a letter or
+  // digit right before the base), as are category codes (d_4B), e-mail addresses and URLs. No lookbehind: older Safari.
+  const RUN = /[⁰¹²³⁴-⁹⁺⁻⁼⁽⁾ⁿ]+/g, ANY = /[⁰¹²³⁴-⁹⁺⁻⁼⁽⁾ⁿ_^]/;
+  const ALL = /([⁰¹²³⁴-⁹⁺⁻⁼⁽⁾ⁿ]+)|(^|[^\w#@.\\$])((?:Δ|δ)?[A-Za-zα-ωΑ-Ω]{1,4}\u0307?°?)_(\{[^}]*\}|1\/2|[A-Za-z0-9₀-₉]+)|(^|[^\w^\\])(e|10|2)\^(-?\d+(?:\.\d+)?|\([^)]{1,12}\))/g;
+  const SUBD = { "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4", "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9" };
   const SKIP = "SCRIPT,STYLE,TEXTAREA,INPUT,SELECT,OPTION,TITLE,CODE,PRE,svg,math,.katex,[data-nosup]";
   const st = document.createElement("style");
-  st.textContent = "sup.usup{font-size:.72em;line-height:0;vertical-align:.45em;font-variant-numeric:lining-nums}";
+  st.textContent = "sup.usup{font-size:.72em;line-height:0;vertical-align:.45em;font-variant-numeric:lining-nums}sub.usub{font-size:.72em;line-height:0}";
   document.head.appendChild(st);
+  function el(tag, cls, txt) { const e = document.createElement(tag); e.className = cls; e.textContent = txt; return e; }
   function fixText(n) {
     const t = n.nodeValue; if (!t || !ANY.test(t)) return;
     const p = n.parentElement; if (!p || p.closest(SKIP)) return;
-    const f = document.createDocumentFragment(); let last = 0;
-    t.replace(RUN, (m, at) => {
+    const f = document.createDocumentFragment(); let last = 0, hit = false;
+    t.replace(ALL, (m, sups, pre, base, sub, pre2, cbase, pow, at) => {
+      let parts;
+      if (sups) parts = [el("sup", "usup", [...sups].map(c => MAP[c]).join(""))];
+      else if (base) {
+        if (/^\d+[A-E]$/.test(sub)) return m;   // category code like d_4B
+        if (/^[\w.+-]*@/.test(t.slice(at + m.length)) || /:\/\/\S*$/.test(t.slice(0, at + pre.length))) return m;   // e-mail, URL
+        const s = sub.replace(/^\{|\}$/g, "").replace(/[₀-₉]/g, c => SUBD[c]);
+        parts = [document.createTextNode(pre + base), el("sub", "usub", s)];
+      } else parts = [document.createTextNode(pre2 + cbase), el("sup", "usup", pow.replace(/^\((-?[\d.]+)\)$/, "$1").replace(/^-/, "−"))];
       if (at > last) f.appendChild(document.createTextNode(t.slice(last, at)));
-      const s = document.createElement("sup"); s.className = "usup"; s.textContent = [...m].map(c => MAP[c]).join("");
-      f.appendChild(s); last = at + m.length; return m;
+      parts.forEach(x => f.appendChild(x)); last = at + m.length; hit = true; return m;
     });
+    if (!hit) return;
     if (last < t.length) f.appendChild(document.createTextNode(t.slice(last)));
     n.replaceWith(f);
   }
