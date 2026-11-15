@@ -147,6 +147,10 @@ button { cursor: pointer; }
 .qnav [data-qback] { flex: 0 0 auto; }
 .qnav [data-qnext] { flex: 1; font-weight: 800; }
 .btn.nextq[hidden] { display: none; }
+.pinline > summary { list-style: none; cursor: pointer; width: fit-content; }
+.pinline > summary::-webkit-details-marker { display: none; }
+.pinline[open] > summary { margin-bottom: 8px; }
+.pinline .passage { max-height: 50vh; overflow-y: auto; }
 .btn.nextq { min-height: 48px; font-size: 16px; font-weight: 800; flex: 1 1 100%; }
 .filters { display: flex; gap: 6px; padding: 10px 16px; overflow-x: auto; scrollbar-width: none; }
 .filters::-webkit-scrollbar { display: none; }
@@ -2760,6 +2764,11 @@ function showPassage(id) {
     el => el.classList.add("pview"));
 }
 document.addEventListener("click", e => { const b = e.target.closest("[data-showp]"); if (b) showPassage(b.dataset.showp); });
+// Inside a pop-up (the answer review) the passage opens in place, so the review stays where it was.
+function passInlineHTML(q) {
+  const p = q && q.pid && (PASSAGES.find(x => x.id === q.pid) || EXAM.passages.find(x => x.id === q.pid)); if (!p) return "";
+  return `<details class="pinline"><summary class="pbtn"><span aria-hidden="true">📄</span> Show passage: ${esc(p.title)}</summary><div class="passage">${p.text.map(t => `<p>${escSub(t)}</p>`).join("")}</div>${(p.tbl ? [].concat(p.tbl) : []).map(t => tableHTML(t)).join("")}${graphHTML(p.graph)}</details>`;
+}
 function passageCard(p) {
   if (!S.pro && !S.review) {   // free players near the limit get only the questions that still fit (seen ones always stay)
     let room = CONFIG.freeQuestions - seenCount();
@@ -3483,7 +3492,7 @@ function answerReview(ids, picks, eyebrow, quizEnd) {
     <p class="muted" style="margin-top:0">Misses come first, with the full explanation. For a right answer, tap "Did you guess?" to see the full explanation.</p>
     ${qs.map((q, n) => { const p = picks[q.id], ok = p === q.a;
       return `<div class="card arcard" style="margin:8px 0;padding:12px;min-height:0;gap:8px"><div class="small"><b style="color:var(${ok ? "--good" : "--bad"})">${ok ? "✓ Right" : p == null ? "✗ Not reached" : "✗ Missed"}</b> · ${n + 1} · <span class="muted">${esc(SECTIONS[q.s].name)} · ${esc(q.c)}</span></div>
-        <p style="margin:0;font-weight:600">${q.q}</p><ul class="small" style="margin:0;padding-left:20px">${q.o.map((o, j) => `<li${j === q.a ? ' style="font-weight:700"' : ""}>${L[j]}. ${o[0]}${j === q.a ? " ✓" : ""}${j === p && !ok ? " (your answer)" : ""}</li>`).join("")}</ul>
+        ${passInlineHTML(q)}<p style="margin:0;font-weight:600">${q.q}</p><ul class="small" style="margin:0;padding-left:20px">${q.o.map((o, j) => `<li${j === q.a ? ' style="font-weight:700"' : ""}>${L[j]}. ${o[0]}${j === q.a ? " ✓" : ""}${j === p && !ok ? " (your answer)" : ""}</li>`).join("")}</ul>
         <div class="stack" data-arq="${esc(q.id)}">${ok ? "" : explainHTML(q, p == null ? -1 : p)}</div></div>`; }).join("")}
     <div class="row">${quizEnd ? `<button class="btn primary" data-qzgoal style="flex:1">Adjust goals for the day</button><button class="btn" data-doneday data-revdone style="flex:1">Done</button>` : `<button class="btn primary" data-close>Done</button>`}</div>`, box => {
     qs.forEach(q => { const rv = box.querySelector(`[data-arq="${CSS.escape(q.id)}"]`), p = picks[q.id];
