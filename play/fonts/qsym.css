@@ -1,0 +1,11 @@
+/* Symbol fonts bundled with the app (Noto Sans / Noto Serif / Noto Sans Math, SIL Open Font License, see OFL.txt).
+   Each face only covers science symbols (Greek letters like Δ δ μ, sub/superscripts, arrows like → ⇌, math signs like ≈ ≥ √),
+   so ordinary letters still use Figtree / Chakra Petch / the serif sheet font.
+   Why: some browsers (Firefox on macOS) drew Δ and other symbols as empty boxes because a listed system font
+   (e.g. STIX Two Math) claimed the character but had no usable glyph. Listing these first makes every browser draw the same glyphs. */
+@font-face { font-family: "QSym"; src: url("qsym-sans.woff2") format("woff2"); font-weight: 100 549; font-display: block; unicode-range: U+0370-03FF, U+02B0-02FF, U+1D00-1DBF, U+2070-209F, U+2150-218F, U+2032-2034; }
+@font-face { font-family: "QSym"; src: url("qsym-sans-bold.woff2") format("woff2"); font-weight: 550 900; font-display: block; unicode-range: U+0370-03FF, U+02B0-02FF, U+1D00-1DBF, U+2070-209F, U+2150-218F, U+2032-2034; }
+@font-face { font-family: "QSym"; src: url("qsym-math.woff2") format("woff2"); font-weight: 100 900; font-display: block; unicode-range: U+2190-22FF, U+27E8-27E9, U+2300-230B; }
+@font-face { font-family: "QSymSerif"; src: url("qsym-serif.woff2") format("woff2"); font-weight: 100 549; font-display: block; unicode-range: U+0370-03FF, U+02B0-02FF, U+1D00-1DBF, U+2070-209F, U+2150-218F, U+2032-2034; }
+@font-face { font-family: "QSymSerif"; src: url("qsym-serif-bold.woff2") format("woff2"); font-weight: 550 900; font-display: block; unicode-range: U+0370-03FF, U+02B0-02FF, U+1D00-1DBF, U+2070-209F, U+2150-218F, U+2032-2034; }
+@font-face { font-family: "QSymSerif"; src: url("qsym-math.woff2") format("woff2"); font-weight: 100 900; font-display: block; unicode-range: U+2190-22FF, U+27E8-27E9, U+2300-230B; }
