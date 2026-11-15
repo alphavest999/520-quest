@@ -11,7 +11,7 @@
 <style>.legal h2{font-size:22px;margin-top:10px}.legal h3{font-size:17px;margin:0}.legal ul{margin:0;padding-left:22px;display:grid;gap:6px}.legal .caps{text-transform:none;font-weight:600}</style>
 </head>
 <body>
-<header class="nav"><div class="wrap"><a class="logo" href="./"><i>520</i>520 Quest</a><nav class="links"><a href="privacy.html">Privacy</a><a class="btn primary small" href="play/">Play free</a></nav></div></header>
+<header class="nav"><div class="wrap"><a class="logo" href="./"><i>520</i>520 Quest</a><nav class="links"><a href="privacy.html">Privacy</a><a class="btn primary small" href="play/">Play free</a><button class="btn small" type="button" data-closepage aria-label="Close this page">✕ Close</button></nav></div></header>
 <main class="wrap legal" style="max-width:760px;padding-block:56px;display:grid;gap:16px">
   <h1 style="font-size:40px">Terms of Use</h1>
   <p class="fine">Version 2026-11-08 · Updated November 7, 2026</p>
@@ -117,6 +117,20 @@
   <h2>20. Contact</h2>
   <p>Questions about these Terms: <a href="mailto:support@520-quest.com">support@520-quest.com</a>. We reply within 24 to 48 hours.</p>
   <p class="fine"><a href="privacy.html">Privacy Policy</a> · <a href="support/">Support</a> · <a href="./">520 Quest home</a></p>
+  <p><button class="btn" type="button" data-closepage>✕ Close</button></p>
 </main>
+<script>
+/* Close: back to the page (or the app's pop-up) that opened Terms / Privacy. */
+(function () {
+  try { var r = document.referrer && new URL(document.referrer);
+    if (r && r.origin === location.origin && !/\/(terms|privacy)\.html$/.test(r.pathname)) sessionStorage.setItem("legalFrom", r.href); } catch (e) {}
+  function closePage() {
+    var from = null; try { from = sessionStorage.getItem("legalFrom"); } catch (e) {}
+    try { window.close(); } catch (e) {}          // opened in a new tab from the app: closing shows the pop-up again
+    setTimeout(function () { location.href = from || "./"; }, 250);   // the tab could not close itself
+  }
+  document.querySelectorAll("[data-closepage]").forEach(function (b) { b.addEventListener("click", closePage); });
+})();
+</script>
 </body>
 </html>

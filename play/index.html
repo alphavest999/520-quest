@@ -260,7 +260,7 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 .panel.quizpanel .muted { color: #ede9fe; }
 .panel.quizpanel .qzmodes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .panel.quizpanel .qzmodes span { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.35); border-radius: 99px; padding: 4px 10px; font: 700 12px/1.2 var(--body); color: #fff; }
-.panel.quizpanel .btn.primary { background: #f59e0b; border-color: #f59e0b; color: #1f1147; min-height: 46px; padding: 10px 18px; font-size: 16px; }
+.panel.quizpanel .btn.primary { background: #dc2626; border-color: #fff; color: #fff; min-height: 46px; padding: 10px 18px; font-size: 16px; }
 .panel.quizpanel.flash { animation: goalflash 1.6s ease-out; }
 #goalPanel.flash, #planPanel.flash, #perfPanel.flash { animation: goalflash 1.6s ease-out; }
 @keyframes goalflash { 0%, 40% { box-shadow: 0 0 0 3px var(--volt); } 100% { box-shadow: 0 0 0 0 transparent; } }
@@ -3093,7 +3093,7 @@ function quizSheetHTML() {
     <p class="small muted" style="margin:10px 0 4px">Type</p><div class="row">${QZ_TYPES.map(([k, l]) => chip("data-qztype", k, l, o.type === k)).join("")}</div>
     <p class="small muted" style="margin:10px 0 4px">Difficulty</p><div class="row">${QZ_DIFF.map(([k, l]) => chip("data-qzdiff", k, l, o.diff === k)).join("")}</div>
     <p class="small muted" style="margin:10px 0 4px">How many</p><div class="row">${QZ_SIZES.map(k => chip("data-qzn", k, k, o.n === k)).join("")}</div>
-    <p class="small muted" style="margin:10px 0 4px">Mode</p><div class="row">${chip("data-qzmode", "tutor", "Tutor: explanation after each", !o.timed)}${chip("data-qzmode", "timed", "Exam mode: Timed questions (Answer shown after exam is completed)", o.timed)}</div>
+    <p class="small muted" style="margin:10px 0 4px">Mode</p><div class="row">${chip("data-qzmode", "tutor", "Tutor: explanation after each", !o.timed)}${chip("data-qzmode", "timed", "Exam Mode: Timed Questions", o.timed)}</div>
     <p class="small muted" style="margin:6px 0 0">${o.timed ? `Like the real exam: ${QZ_PACE} s per question, no hints, and you can change answers until you submit. Right answers and explanations show after the quiz.` : "You see right or wrong and the full explanation right after each question."}</p>
     <p class="small" style="margin:12px 0 6px" id="qzCount">${bankLoaded ? `${n.toLocaleString("en-US")} question${n === 1 ? "" : "s"} match.` : "Loading the full Qbank…"}${!S.pro && o.pool !== "missed" && o.pool !== "revenge" ? ` Free plan: up to ${Math.max(0, CONFIG.freeQuestions - seenCount())} new questions left.` : ""}</p>
     <div class="row"><button class="btn primary" data-qzstart ${n ? "" : "disabled"} style="flex:1">Start quiz</button><button class="btn" data-close style="flex:1">Cancel</button></div>`;
@@ -3175,12 +3175,13 @@ function timedQuizDone(R) {
   if (!$("#view-scroll").hidden) resetFeed();
   const html = `<div class="eyebrow">${R.timeUp ? "Time's up. " : ""}Timed quiz done</div><h2>${right} of ${answered} right (${answered ? Math.round(right / answered * 100) : 0}%).</h2>
     <p class="muted">Time used ${mmss(used)}, about ${answered ? Math.round(used / answered) : 0} s per question (exam pace is ${QZ_PACE} s).${n > answered ? ` ${n - answered} question${n - answered === 1 ? "" : "s"} not answered, so ${n - answered === 1 ? "it stays" : "they stay"} unused.` : ""}${misses.length ? " Your misses are in your Revenge Queue." : ""}</p>
-    <div class="row">${answered ? `<button class="btn primary" data-qzrev>See answers and explanations</button>` : ""}<button class="btn" data-close data-quizopen>Build another quiz</button>${misses.length ? `<button class="btn" data-close data-qzmiss="${esc(misses.join(","))}">Retry my ${misses.length} miss${misses.length === 1 ? "" : "es"}</button>` : ""}<button class="btn ghost" data-close data-doneday>Done for the Day</button></div>`;
+    <div class="row">${answered ? `<button class="btn primary" data-qzrev style="flex:1">Review my answers</button>` : `<button class="btn primary" data-qzgoal style="flex:1">Adjust goals for the day</button><button class="btn" data-doneday data-revdone style="flex:1">Done</button>`}</div>`;
   const show = () => $("#sheetHost .scrim") ? setTimeout(show, 800) : sheet(html);
   setTimeout(show, 0);
 }
 document.addEventListener("click", e => {
-  if (e.target.closest("[data-qzrev]")) { const L = S.lastQuiz; if (L) answerReview(L.ids, L.picks, "Timed quiz answers"); return; }
+  if (e.target.closest("[data-qzrev]")) { const L = S.lastQuiz; if (L) answerReview(L.ids, L.picks, "Timed quiz answers", true); return; }
+  if (e.target.closest("[data-qzgoal]")) { $("#sheetHost").innerHTML = ""; showGoals(); return; }
   if (e.target.closest("[data-quizopen]")) { setTimeout(quizSheet, 0); return; }
   const m = e.target.closest("[data-qzmiss]"); if (m) { const ids = m.dataset.qzmiss.split(","); growTarget(ids.length); startReview(ids); }
 });
@@ -3463,7 +3464,7 @@ function diagReview() {
   const B = S.baseline; if (!B || !B.ids) return;
   answerReview(B.ids, B.picks || {}, "Diagnostic answers");
 }
-function answerReview(ids, picks, eyebrow) {
+function answerReview(ids, picks, eyebrow, quizEnd) {
   const L = "ABCD";
   const qs = ids.map(anyQ).filter(Boolean);
   const nWrong = qs.filter(q => picks[q.id] !== q.a).length;
@@ -3475,7 +3476,7 @@ function answerReview(ids, picks, eyebrow) {
       return `<div class="card arcard" style="margin:8px 0;padding:12px;min-height:0;gap:8px"><div class="small"><b style="color:var(${ok ? "--good" : "--bad"})">${ok ? "✓ Right" : p == null ? "✗ Not reached" : "✗ Missed"}</b> · ${n + 1} · <span class="muted">${esc(SECTIONS[q.s].name)} · ${esc(q.c)}</span></div>
         <p style="margin:0;font-weight:600">${q.q}</p><ul class="small" style="margin:0;padding-left:20px">${q.o.map((o, j) => `<li${j === q.a ? ' style="font-weight:700"' : ""}>${L[j]}. ${o[0]}${j === q.a ? " ✓" : ""}${j === p && !ok ? " (your answer)" : ""}</li>`).join("")}</ul>
         <div class="stack" data-arq="${esc(q.id)}">${ok ? "" : explainHTML(q, p == null ? -1 : p)}</div></div>`; }).join("")}
-    <div class="row"><button class="btn primary" data-close>Done</button></div>`, box => {
+    <div class="row">${quizEnd ? `<button class="btn primary" data-qzgoal style="flex:1">Adjust goals for the day</button><button class="btn" data-doneday data-revdone style="flex:1">Done</button>` : `<button class="btn primary" data-close>Done</button>`}</div>`, box => {
     qs.forEach(q => { const rv = box.querySelector(`[data-arq="${CSS.escape(q.id)}"]`), p = picks[q.id];
       if (rv) upgradeExplain(rv, q, p == null ? -1 : p, p === q.a, ""); });
   });
@@ -3887,7 +3888,7 @@ function renderMap() {
   const groups = ["CP", "CARS", "BB", "PS"];
   const open = S.mapSub && CAT[S.mapSub] ? S.mapSub : null, osub = open ? subCounts(open) : [];
   const subPanel = open ? `<div class="panel" style="margin-bottom:14px;border-color:#f472b6"><div class="row" style="justify-content:space-between"><h3 style="margin:0">${esc(open)} · ${esc(CAT[open].title)}</h3><button class="btn small ghost" data-subclose>Close</button></div><p class="small muted">Pick a concept to drill, or practice the whole category.</p><div class="row"><button class="chipbtn" data-drill="${esc(open)}">All ${esc(open)}</button>${osub.map(o => `<button class="chipbtn" data-drill="${esc(open)}" data-sub="${esc(o.id)}">${esc(o.label)} · ${o.n}</button>`).join("")}</div></div>` : "";
-  $("#view-map").innerHTML = subPanel + `<div class="panel quizpanel" style="margin-bottom:14px"><div class="row" style="justify-content:space-between;align-items:center"><div><h3 style="margin:0">🛠️ Build your own quiz</h3><p class="small muted" style="margin:4px 0 0">Pick sections, topics, unused or missed questions, and difficulty.</p><div class="qzmodes"><span>Tutor: explanation after each question</span><span>Exam mode: Timed questions (Answer shown after exam is completed)</span></div></div><button class="btn primary" data-quizopen>Build a quiz</button></div></div><h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll (CARS skills open passages filtered to that question type).</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
+  $("#view-map").innerHTML = subPanel + `<div class="panel quizpanel" style="margin-bottom:14px"><div class="row" style="justify-content:space-between;align-items:center"><div><h3 style="margin:0">🛠️ Build your own quiz</h3><p class="small muted" style="margin:4px 0 0">Pick sections, topics, unused or missed questions, and difficulty.</p><div class="qzmodes"><span>Tutor: explanation after each question</span><span>Exam Mode: Timed Questions</span></div></div><button class="btn primary" data-quizopen>Build a quiz</button></div></div><h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll (CARS skills open passages filtered to that question type).</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
   <div class="stack">${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
     const c = S.cat[code] || { a: 0, c: 0 }, m = c.a ? c.c / c.a : 0, col = !c.a ? "var(--line)" : m >= .8 ? "var(--good)" : m >= .6 ? "var(--volt)" : "var(--bad)";
     const drill = s === "CARS" ? PASSAGES.some(p => p.s === "CARS" && p.qs.some(q => q.c === code)) : QUESTIONS.some(q => q.c === code);
