@@ -20,7 +20,8 @@ img, svg { max-width: 100%; }
 .logo i { width: 34px; height: 34px; border-radius: 50%; background: var(--volt); color: var(--volt-ink); display: grid; place-items: center; font: 700 12px/1 var(--display); font-style: normal; }
 .nav .links { margin-left: auto; display: flex; gap: 18px; align-items: center; }
 .nav .links a:not(.btn) { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; }
-@media (max-width: 640px) { .nav .links a.hide-sm { display: none; } }
+@media (max-width: 640px) { .nav .links a.hide-sm { display: none; } .nav .links { gap: 10px; } }
+.nav .links .btn { white-space: nowrap; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 22px; border-radius: 14px; font: 800 16px/1.1 var(--body); text-decoration: none; border: 1px solid var(--line); background: var(--panel-2); color: var(--text); cursor: pointer; }
 .btn.primary { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); }
 .btn.small { padding: 9px 14px; font-size: 14px; }
