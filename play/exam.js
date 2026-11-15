@@ -375,4 +375,7 @@
   window.ExamUI = { open, scaled, items, catalog };
   // A reload while running leaves the exam paused with the time it had.
   if (S.exam && S.exam.phase === "run" && !S.exam.paused) { const s = S.exam.secs[S.exam.si]; s.rem = Math.max(0, s.rem); s.t0 = null; S.exam.paused = true; save(); }
+  // The app can open straight onto Exams (?tab=exam, or the tab you left today) before this file has loaded:
+  // that first go("exam") found no renderExam and left the tab blank until you switched away and back. Draw it now.
+  { const r = root(); if (r && !r.hidden && !r.childElementCount) open(); }
 })();
