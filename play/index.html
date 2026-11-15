@@ -306,7 +306,7 @@ body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); 
 #qSolo .solo-body > .card { max-width: 760px; margin: 0 auto; min-height: 0; height: auto; }
 #qSolo .solo-body > .card + .card { margin-top: 14px; }
 #qSolo .solo-end { max-width: 760px; margin: 16px auto 8px; text-align: center; }
-#qSolo .card.q [data-next], #qSolo .sheetlink, #qSolo .qjump { display: none; }
+#qSolo .card.q:not(.has-next) [data-next], #qSolo .sheetlink, #qSolo .qjump { display: none; }
 .exlock { border: 1px dashed var(--line); border-radius: 12px; padding: 10px 12px; background: var(--bg-soft); font-size: 14px; }
 .pq { display: grid; gap: 10px; padding-top: 14px; border-top: 1px solid var(--line); }
 .qhead { font: 700 13px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--volt); padding: 12px 0 0; border-top: 2px solid var(--volt); }
@@ -2146,7 +2146,7 @@ function watchEnd() { endObs.disconnect(); const k = feed.children; if (k.length
 
 const SWIPE = `<div class="swipe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 14l6-6 6 6"/></svg>Swipe up</div>`;
 const diffDots = d => `<span class="diff" title="Difficulty ${d} of 3">${[1, 2, 3].map(i => `<i class="${i <= d ? "on" : ""}"></i>`).join("")}</span>`;
-function scrollToEl(t) { feed.scrollTo({ top: feed.scrollTop + t.getBoundingClientRect().top - feed.getBoundingClientRect().top - 8, behavior: reduce ? "auto" : "smooth" }); }
+function scrollToEl(t) { const box = t.closest(".solo-body") || feed; box.scrollTo({ top: box.scrollTop + t.getBoundingClientRect().top - box.getBoundingClientRect().top - 8, behavior: reduce ? "auto" : "smooth" }); }
 // Explanations name choices by their bank letter ("Correct: B)", "(options A or C)").
 // After shuffling, relet() rewrites those letters to where each choice now sits,
 // leaving names like "Drug A" or "(Group B)" alone.
@@ -2664,7 +2664,8 @@ function openSolo(cards, ret) {
   const back = `<button class="btn primary" data-solo-back><span aria-hidden="true">←</span> Back to Mastery Sheet</button>`;
   v.innerHTML = `<div class="solo-top">${back}</div><div class="solo-body"></div>`;
   const body = $(".solo-body", v);
-  cards.forEach(card => { $$(".swipe", card).forEach(x => x.remove()); card._shown = card._made = Date.now(); body.appendChild(card); });
+  // "Next question" shows on every card but the last.
+  cards.forEach((card, i) => { $$(".swipe", card).forEach(x => x.remove()); card._shown = card._made = Date.now(); card.classList.toggle("has-next", i < cards.length - 1); body.appendChild(card); });
   if (cards.length > 1) body.insertAdjacentHTML("beforeend", `<div class="solo-end">${back}</div>`);
   v.hidden = false; document.body.style.overflow = "hidden"; body.scrollTop = 0;
   $$("[data-solo-back]", v).forEach(b => b.addEventListener("click", () => { v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; openSheet(ret.id, ret); }));
