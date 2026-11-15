@@ -133,7 +133,19 @@ button { cursor: pointer; }
 .views { position: relative; min-height: 0; }
 .view { position: absolute; inset: 0; overflow-y: auto; padding: 14px 16px 24px; }
 .view[hidden] { display: none !important; }
-#view-scroll { padding: 0; display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
+#view-scroll { padding: 0; display: grid; grid-template-rows: auto 1fr auto; overflow: hidden; }
+/* Qbank: one card (and one passage question) at a time. Next question moves forward. */
+#feed { scroll-snap-type: none; }
+#feed > .card:not(.cur), #feed .pq:not(.cur) { display: none; }
+#feed .swipe { display: none; }
+.qnav { display: flex; gap: 10px; padding: 8px 16px 10px; border-top: 1px solid var(--line); }
+.qnav[hidden], .qnav [hidden] { display: none; }
+.qnav .btn { min-height: 48px; font-size: 16px; }
+.qnav [data-qback] { flex: 0 0 auto; }
+.qnav [data-qnext] { flex: 1; font-weight: 800; }
+.qnav [data-qnext].skip { background: var(--panel-2); color: var(--muted); border-color: var(--line); box-shadow: none; }
+.btn.nextq[hidden] { display: none; }
+.btn.nextq { min-height: 48px; font-size: 16px; font-weight: 800; flex: 1 1 100%; }
 .filters { display: flex; gap: 6px; padding: 10px 16px; overflow-x: auto; scrollbar-width: none; }
 .filters::-webkit-scrollbar { display: none; }
 /* Fade the edge where more chips are hidden, so phones show the row scrolls sideways. */
@@ -242,6 +254,14 @@ button { cursor: pointer; }
 body.has-back .toasts { bottom: calc(136px + env(safe-area-inset-bottom, 0px)); }
 .sv-doc .qref.flash { animation: qflash 2s ease-out; border-radius: 4px; }
 @keyframes qflash { 0%, 50% { background: rgba(244,114,182,.35); box-shadow: 0 0 0 4px rgba(244,114,182,.35); } 100% { background: none; box-shadow: none; } }
+/* Map: Build your own quiz has its own violet scheme so it stands apart from the skill list. */
+.panel.quizpanel { background: linear-gradient(135deg, #6d28d9 0%, #4338ca 100%); border: 2px solid #f59e0b; color: #fff; box-shadow: 0 8px 24px rgba(109, 40, 217, .28); }
+.panel.quizpanel h3 { color: #fff; font-size: 19px; }
+.panel.quizpanel .muted { color: #ede9fe; }
+.panel.quizpanel .qzmodes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.panel.quizpanel .qzmodes span { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.35); border-radius: 99px; padding: 4px 10px; font: 700 12px/1.2 var(--body); color: #fff; }
+.panel.quizpanel .btn.primary { background: #f59e0b; border-color: #f59e0b; color: #1f1147; min-height: 46px; padding: 10px 18px; font-size: 16px; }
+.panel.quizpanel.flash { animation: goalflash 1.6s ease-out; }
 #goalPanel.flash, #planPanel.flash, #perfPanel.flash { animation: goalflash 1.6s ease-out; }
 @keyframes goalflash { 0%, 40% { box-shadow: 0 0 0 3px var(--volt); } 100% { box-shadow: 0 0 0 0 transparent; } }
 .card.goldcard { display: grid; gap: 10px; align-content: center; }
@@ -524,6 +544,7 @@ a { color: var(--volt); }
     <section class="view" id="view-scroll" aria-label="Qbank">
       <div class="filters" id="filters"></div>
       <div class="feed" id="feed" aria-live="polite"></div>
+      <div class="qnav" id="qnav" hidden><button class="btn ghost" data-qback>‹ Back</button><button class="btn primary" data-qnext>Next question ›</button></div>
     </section>
     <section class="view" id="view-boss" hidden aria-label="Boss battles"></section>
     <section class="view" id="view-map" hidden aria-label="Skill map"></section>
@@ -1622,7 +1643,7 @@ const bankReady = bankIxReady
     if (!S.review && S.kind !== "discrete" && !$$("#feed .opts").some(b => b.dataset.done) && !$("#view-scroll").hidden) resetFeed();
     if (resumeLate) S.resume = resumeLate;
     const q = resumeLate && resumeQ();
-    if (q && !S.review && !$$("#feed .opts").some(b => b.dataset.done)) { sessionSeen.add(q.id); const c = questionCard(q, !!S.revenge[q.id]); feed.prepend(c); io.observe(c); feed.scrollTop = 0; }
+    if (q && !S.review && !$$("#feed .opts").some(b => b.dataset.done)) { sessionSeen.add(q.id); const c = questionCard(q, !!S.revenge[q.id]); feed.prepend(c); io.observe(c); showCard(c); feed.scrollTop = 0; }
     resumeLate = null;
   })
   .catch(() => { resumeLate = null; });
@@ -1868,10 +1889,10 @@ function record(q, correct, secs) {
   if (!correct && !S.today.missed.includes(q.id)) S.today.missed.push(q.id);
   if (S.review && S.review.ids.includes(q.id) && !S.review.done.includes(q.id)) {
     S.review.done.push(q.id); (S.today.reviewedIds = S.today.reviewedIds || []).push(q.id); if (correct) S.review.right++; else S.review.wrong++;
-    if (S.review.kind === "check") (S.review.secs = S.review.secs || {})[q.id] = Math.round(secs || 0);
+    if (examLike(S.review)) (S.review.secs = S.review.secs || {})[q.id] = Math.round(secs || 0);
     const rd = document.getElementById("revDone"); if (rd) rd.textContent = reviewDoneText();
     const rc = $("#revChip"); if (rc && !S.review.kind) rc.textContent = reviewChipText() + " ✕";
-    if (S.review.done.length >= S.review.ids.length) { S.today.reviewed = true; if (S.review.kind !== "check") setTimeout(reviewPrompt, 900); }
+    if (S.review.done.length >= S.review.ids.length) { S.today.reviewed = true; if (!examLike(S.review)) setTimeout(reviewPrompt, 900); }
   }
   levelTick(q, correct);
   const rec = S.recent[q.s]; rec.push([correct ? 1 : 0, q.d]); if (rec.length > 60) rec.shift();
@@ -1971,7 +1992,8 @@ $("#filters").addEventListener("click", e => {
   const k = e.target.closest("[data-k]");
   if (k) { S.kind = S.kind === k.dataset.k ? null : k.dataset.k; S.review = null; save(); resetFeed(); return; }
   const b = e.target.closest("[data-f]"); if (!b) return;
-  if (b.dataset.f === "endreview") S.review = null;
+  // Stopping a timed quiz early still scores what was answered and shows the answers.
+  if (b.dataset.f === "endreview") { if (S.review && S.review.kind === "quiz" && S.review.timed && ckN(S.review)) return quizDone(); S.review = null; }
   else if (b.dataset.f === "clear") { S.focus = null; S.sub = null; } else { S.filter = b.dataset.f; S.focus = null; S.sub = null; S.review = null; }
   save(); resetFeed();
 });
@@ -2046,7 +2068,7 @@ function nextCard() {
   if (S.review) {
     const R = S.review, id = R.ids.find(x => !R.done.includes(x) && !R.queued.includes(x));
     if (id && anyQ(id)) {
-      R.queued.push(id); const c = questionCard(anyQ(id), R.kind === "check" ? false : R.kind === "quiz" ? !!S.revenge[id] : true);
+      R.queued.push(id); const c = questionCard(anyQ(id), examLike(R) ? false : R.kind === "quiz" ? !!S.revenge[id] : true);
       if (!R.kind) $(".card-top", c).insertAdjacentHTML("beforeend", `<span class="tag">Review ${R.ids.indexOf(id) + 1} of ${R.ids.length}</span>`);
       return c;
     }
@@ -2117,7 +2139,7 @@ function nextSciPassage(sec) {
   if (chosen) sessionSeen.add(chosen.id);
   return chosen;
 }
-function fill(n = 3) { for (let i = 0; i < n; i++) { const c = nextCard(); if (!c) break; feed.appendChild(c); io.observe(c); } watchEnd(); }
+function fill(n = 3) { for (let i = 0; i < n; i++) { const c = nextCard(); if (!c) break; feed.appendChild(c); io.observe(c); } watchEnd(); if (!curCard() && feed.firstElementChild) showCard(feed.firstElementChild); else feedNav(); }
 // A Map drill that has run out of questions says so, instead of leaving an empty feed.
 let drillEndShown = false;
 function drillEndCard() {
@@ -2146,7 +2168,53 @@ function watchEnd() { endObs.disconnect(); const k = feed.children; if (k.length
 
 const SWIPE = `<div class="swipe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 14l6-6 6 6"/></svg>Swipe up</div>`;
 const diffDots = d => `<span class="diff" title="Difficulty ${d} of 3">${[1, 2, 3].map(i => `<i class="${i <= d ? "on" : ""}"></i>`).join("")}</span>`;
-function scrollToEl(t) { const box = t.closest(".solo-body") || feed; box.scrollTo({ top: box.scrollTop + t.getBoundingClientRect().top - box.getBoundingClientRect().top - 8, behavior: reduce ? "auto" : "smooth" }); }
+// Qbank shows one card at a time. showCard makes c the visible one (and pq the visible question of a passage).
+const curCard = () => feed.querySelector(":scope > .card.cur");
+function showCard(c, pq) {
+  if (!c || c.parentElement !== feed) return;
+  [...feed.children].forEach(x => x.classList.toggle("cur", x === c));
+  const pqs = $$(".pq", c);
+  if (pqs.length) { const t = pq || c.querySelector(".pq.cur") || pqs[0]; pqs.forEach(x => x.classList.toggle("cur", x === t)); }
+  if (!c.nextElementSibling || !c.nextElementSibling.nextElementSibling) fill(3);
+  feedNav();
+}
+// The unit on screen: the current passage question, or the card itself.
+const curUnit = () => { const c = curCard(); return c && (c.querySelector(".pq.cur") || c); };
+function nextUnit() {
+  const c = curCard(); if (!c) return null;
+  const pq = c.querySelector(".pq.cur"), np = pq && pq.nextElementSibling && pq.nextElementSibling.classList.contains("pq") ? pq.nextElementSibling : null;
+  return np || c.nextElementSibling;
+}
+function prevUnit() {
+  const c = curCard(); if (!c) return null;
+  const pq = c.querySelector(".pq.cur"), pp = pq && pq.previousElementSibling && pq.previousElementSibling.classList.contains("pq") ? pq.previousElementSibling : null;
+  return pp || c.previousElementSibling;
+}
+function feedNav() {
+  const nav = $("#qnav"), c = curCard(); if (!nav) return;
+  // The diagnostic and timed quizzes have their own Previous / Next / Submit row on each card.
+  nav.hidden = !c || examLike(S.review);
+  if (nav.hidden) return;
+  const u = curUnit(), box = u && u.querySelector(".opts"), open = !!box && !box.dataset.done, nx = nextUnit();
+  const last = !nx || (S.review && nx.dataset.end);   // no Next on the last question of a quiz or review
+  const nb = $("[data-qnext]", nav), bb = $("[data-qback]", nav);
+  nb.hidden = !!last; nb.classList.toggle("skip", open);
+  nb.textContent = open ? "Skip for now ›" : "Next question ›";
+  bb.hidden = !prevUnit();
+}
+function stepCard(dir) {
+  const t = dir > 0 ? nextUnit() : prevUnit(); if (!t) return;
+  if (t.classList.contains("pq")) return scrollToEl(t);
+  showCard(t); feed.scrollTop = 0;
+}
+document.addEventListener("click", e => {
+  if (e.target.closest("[data-qnext]")) stepCard(1);
+  else if (e.target.closest("[data-qback]")) stepCard(-1);
+});
+function scrollToEl(t) {
+  const c = t.closest("#feed > .card");
+  if (c) { showCard(c, t.closest(".pq")); if (t === c) { feed.scrollTop = 0; return; } }
+  const box = t.closest(".solo-body") || feed; box.scrollTo({ top: box.scrollTop + t.getBoundingClientRect().top - box.getBoundingClientRect().top - 8, behavior: reduce ? "auto" : "smooth" }); }
 // Explanations name choices by their bank letter ("Correct: B)", "(options A or C)").
 // After shuffling, relet() rewrites those letters to where each choice now sits,
 // leaving names like "Drug A" or "(Group B)" alone.
@@ -2213,15 +2281,18 @@ function questionCard(q, rev, tgt) {
   const passageExpand = pass ? passBtnHTML(pass) : "";
   el.innerHTML = `<div class="card-top"><span class="tag sec">${SECTIONS[q.s].name}</span><span class="tag">${q.c}${cat.hy ? " ★" : ""}</span>${rev ? '<span class="tag rev">Revenge</span>' : ""}${tgt ? '<span class="tag target" title="The adaptive engine picked this from one of your weakest areas">Weak area</span>' : ""}${diffDots(q.d)}</div>${passageExpand}
     <h2 class="stem">${q.q}</h2><div class="opts">${optsHTML(q)}</div>
-    <div class="row tools"><button class="btn small ghost" data-hint ${S.hints && !(S.review && S.review.kind === "check") ? "" : "disabled"}>Hint (${S.hints})</button><span class="muted small">${esc(cat.title)}</span></div>
+    <div class="row tools"><button class="btn small ghost" data-hint ${S.hints && !examLike(S.review) ? "" : "disabled"}>Hint (${S.hints})</button><span class="muted small">${esc(cat.title)}</span></div>
     <div class="reveal stack" hidden></div>${SWIPE}`;
   wireQuestion(el, q, el);
-  if (S.review && S.review.kind === "check" && S.review.ids.includes(q.id)) {
+  if (examLike(S.review) && S.review.ids.includes(q.id)) {
     // Previous / Next / Submit sit at the top of the card, so they're on screen as soon as the question is.
     $(".card-top", el).insertAdjacentHTML("afterend", `<div class="row cknav" style="gap:6px;margin:6px 0 2px;flex-wrap:nowrap"><button class="btn small ghost" data-ckprev>‹ Previous</button><button class="btn small primary" data-cknext style="flex:1">Next question ›</button><button class="btn small ghost" data-checksubmit>Submit</button></div>`);
     const step = dir => { let n = el[dir]; while (n && !(n.classList.contains("q") && n.dataset.id)) n = n[dir]; if (!n && dir === "nextElementSibling") n = el.nextElementSibling; if (n) scrollToEl(n); };
     $("[data-ckprev]", el).addEventListener("click", () => step("previousElementSibling"));
     $("[data-cknext]", el).addEventListener("click", () => step("nextElementSibling"));
+    const ix = S.review.ids.indexOf(q.id);
+    if (ix === 0) $("[data-ckprev]", el).style.visibility = "hidden";
+    if (ix === S.review.ids.length - 1) { const nx = $("[data-cknext]", el); nx.textContent = S.review.kind === "check" ? "Submit diagnostic" : "Submit quiz"; nx.removeAttribute("data-cknext"); nx.setAttribute("data-checksubmit", ""); nx.replaceWith(nx.cloneNode(true)); $("[data-checksubmit].ghost", el).remove(); }
     checkCardState(el, q);
   }
   return el;
@@ -2236,13 +2307,13 @@ function checkCardState(card, q) {
 }
 document.addEventListener("click", e => {
   if (!e.target.closest("[data-checksubmit]")) return;
-  const R = S.review; if (!R || R.kind !== "check") return;
+  const R = S.review; if (!examLike(R)) return;
   const l = R.ids.length - ckN(R);
-  sheet(`<div class="eyebrow">Submit diagnostic?</div><h2>${l ? `${l} question${l === 1 ? " is" : "s are"} still unanswered.` : "All questions answered."}</h2>
-    <p class="muted">${l ? "Unanswered questions count as wrong, like on test day. " : ""}You still have ${mmss(Math.max(0, R.limit - (Date.now() - R.t0) / 1000))} on the clock to review or change answers. After you submit, answers are final.</p>
+  sheet(`<div class="eyebrow">Submit ${R.kind === "check" ? "diagnostic" : "quiz"}?</div><h2>${l ? `${l} question${l === 1 ? " is" : "s are"} still unanswered.` : "All questions answered."}</h2>
+    <p class="muted">${l ? (R.kind === "check" ? "Unanswered questions count as wrong, like on test day. " : "Unanswered questions stay unused, so they can show up again later. ") : ""}You still have ${mmss(Math.max(0, R.limit - (Date.now() - R.t0) / 1000))} on the clock to review or change answers. After you submit, answers are final.</p>
     <div class="row"><button class="btn primary" data-close data-ckfinal>Submit now</button><button class="btn ghost" data-close>Keep reviewing</button></div>`);
 });
-document.addEventListener("click", e => { if (e.target.closest("[data-ckfinal]")) setTimeout(checkDone, 0); });
+document.addEventListener("click", e => { if (e.target.closest("[data-ckfinal]")) setTimeout(() => S.review && S.review.kind === "quiz" ? quizDone() : checkDone(), 0); });
 // "How sure?" is tapped before answering. A right answer marked Guessing comes back tomorrow; Think so comes back in 3 days.
 const CONF = [["sure", "Sure"], ["think", "Think so"], ["guess", "Guessing"]];
 function wireQuestion(scope, q, card) {
@@ -2259,7 +2330,7 @@ function wireQuestion(scope, q, card) {
     const i = +b.dataset.i, ok = i === q.a, secs = ((Date.now() - (card._shown || card._made || Date.now())) / 1000);
     // Timed diagnostic: exam conditions. The pick is saved but can be changed until Submit or time's up; nothing is
     // scored, and no right/wrong or explanation shows, until then (checkDone records every pick).
-    if (S.review && S.review.kind === "check" && S.review.ids.includes(q.id)) {
+    if (examLike(S.review) && S.review.ids.includes(q.id)) {
       const R = S.review, first = !(R.picks && q.id in R.picks);
       (R.picks = R.picks || {})[q.id] = q.ord ? q.ord[i] : i;   // bank order
       (R.conf = R.conf || {})[q.id] = optsBox.dataset.conf || "";
@@ -2293,10 +2364,12 @@ function wireQuestion(scope, q, card) {
     const rv = $(".reveal", scope); rv.hidden = false;
     rv.innerHTML = `<div class="verdict ${ok ? "ok" : "no"}">${ok ? "Correct" : "Not quite. Answer: " + "ABCD"[q.a]}</div>` + (confNote ? `<div class="note">${confNote}</div>` : "") +
       (ok ? (q.x ? `<div class="note">${esc(splitX(q.x).main || q.x)}</div>` : "") + (q.note ? `<div class="note">${esc(q.note)}</div>` : "") : explainHTML(q, i)) +
-      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn small" data-next>Next question</button>${ok ? "" : ankiBtn(q)}<span class="stuckcol">${ok ? "" : '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}${nbBtn(q)}</span></div>`;
+      (ok ? "" : dnaHTML(secs)) + `<div class="row"><button class="btn primary nextq" data-next>Next question ›</button>${ok ? "" : ankiBtn(q)}<span class="stuckcol">${ok ? "" : '<button class="btn small ghost" data-stuck>I still don\'t get it</button>'}${nbBtn(q)}</span></div>`;
     const sib = scope !== card && scope.nextElementSibling && scope.nextElementSibling.classList.contains("pq") ? scope.nextElementSibling : null;
-    const nb = $("[data-next]", rv); if (sib) nb.textContent = "Next question";
-    nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
+    const nb = $("[data-next]", rv), nxt = sib || card.nextElementSibling;
+    if (!nxt || (S.review && nxt.dataset.end)) nb.hidden = true;   // last question of a quiz or review: the results come up instead
+    else nb.addEventListener("click", () => { const n = sib || card.nextElementSibling; if (n) scrollToEl(n); });
+    feedNav();
     if (!ok) wireDNA(rv, q, secs);
     upgradeExplain(rv, q, i, ok, conf);
     const sl = sheetLinkHTML(q) + mnLinkHTML(q); if (sl) $(".row", rv).insertAdjacentHTML("beforebegin", sl);
@@ -3020,7 +3093,8 @@ function quizSheetHTML() {
     <p class="small muted" style="margin:10px 0 4px">Type</p><div class="row">${QZ_TYPES.map(([k, l]) => chip("data-qztype", k, l, o.type === k)).join("")}</div>
     <p class="small muted" style="margin:10px 0 4px">Difficulty</p><div class="row">${QZ_DIFF.map(([k, l]) => chip("data-qzdiff", k, l, o.diff === k)).join("")}</div>
     <p class="small muted" style="margin:10px 0 4px">How many</p><div class="row">${QZ_SIZES.map(k => chip("data-qzn", k, k, o.n === k)).join("")}</div>
-    <p class="small muted" style="margin:10px 0 4px">Mode</p><div class="row">${chip("data-qzmode", "tutor", "Tutor: explanation after each", !o.timed)}${chip("data-qzmode", "timed", "Timed: 95 s per question", o.timed)}</div>
+    <p class="small muted" style="margin:10px 0 4px">Mode</p><div class="row">${chip("data-qzmode", "tutor", "Tutor: explanation after each", !o.timed)}${chip("data-qzmode", "timed", "Timed: answers at the end", o.timed)}</div>
+    <p class="small muted" style="margin:6px 0 0">${o.timed ? `Like the real exam: ${QZ_PACE} s per question, no hints, and you can change answers until you submit. Right answers and explanations show after the quiz.` : "You see right or wrong and the full explanation right after each question."}</p>
     <p class="small" style="margin:12px 0 6px" id="qzCount">${bankLoaded ? `${n.toLocaleString("en-US")} question${n === 1 ? "" : "s"} match.` : "Loading the full Qbank…"}${!S.pro && o.pool !== "missed" && o.pool !== "revenge" ? ` Free plan: up to ${Math.max(0, CONFIG.freeQuestions - seenCount())} new questions left.` : ""}</p>
     <div class="row"><button class="btn primary" data-qzstart ${n ? "" : "disabled"} style="flex:1">Start quiz</button><button class="btn" data-close style="flex:1">Cancel</button></div>`;
 }
@@ -3051,11 +3125,13 @@ function startQuiz() {
   toast(`Custom quiz: ${ids.length} question${ids.length === 1 ? "" : "s"}${o.timed ? `, ${Math.round(ids.length * QZ_PACE / 60)} minutes on the clock` : ""}.`);
 }
 // Diagnostic answers stay changeable until Submit, so its progress is the number of questions with a pick.
+// Exam conditions: the diagnostic and a timed custom quiz save picks only; answers and explanations come after Submit.
+const examLike = R => !!R && (R.kind === "check" || (R.kind === "quiz" && !!R.timed));
 const ckN = R => Object.keys(R.picks || {}).filter(id => R.ids.includes(id)).length;
 const mmss = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 function quizChipText() {
   const R = S.review, pos = Math.min(R.ids.length, R.done.length + 1), name = R.kind === "check" ? "Diagnostic" : "Custom quiz";
-  const where = R.kind === "check" ? `${ckN(R)} of ${R.ids.length} answered` : `${pos} of ${R.ids.length}`;
+  const where = examLike(R) ? `${ckN(R)} of ${R.ids.length} answered` : `${pos} of ${R.ids.length}`;
   if (!R.timed) return `${name} · ${where}`;
   const left = R.limit - (Date.now() - R.t0) / 1000;
   return `${name} · ${where} · ${left > 0 ? mmss(left) + " left" : "time's up"}`;
@@ -3068,12 +3144,13 @@ function quizTick() {
     if (!R || (R.kind !== "quiz" && R.kind !== "check") || !R.timed || R.done.length >= R.ids.length) return clearInterval(quizTimer);
     const c = $("#revChip"); if (c) c.textContent = quizChipText() + " ✕";
     // The diagnostic ends when the clock does, like the real exam. Unanswered questions count as not reached.
-    if (R.kind === "check") { if ((Date.now() - R.t0) / 1000 >= R.limit) { R.timeUp = true; clearInterval(quizTimer); checkDone(); } return; }
-    if (!R.timeUp && (Date.now() - R.t0) / 1000 >= R.limit) { R.timeUp = true; save(); toast("Time's up. Finish the rest untimed, or tap the quiz chip to stop."); }
+    // A timed custom quiz ends the same way, then shows the answers.
+    if ((Date.now() - R.t0) / 1000 >= R.limit) { R.timeUp = true; clearInterval(quizTimer); if (R.kind === "check") checkDone(); else quizDone(); }
   }, 1000);
 }
 function quizDone() {
   const R = S.review; clearInterval(quizTimer);
+  if (R && R.timed) return timedQuizDone(R);
   const n = R.done.length, pct = n ? Math.round(R.right / n * 100) : 0, used = (Date.now() - R.t0) / 1000;
   const misses = R.ids.filter(id => S.stats[id] && S.today.missed.includes(id));
   beep("level");
@@ -3081,23 +3158,46 @@ function quizDone() {
     <p class="muted">Time used ${mmss(used)}, about ${n ? Math.round(used / n) : 0} s per question (exam pace is ${QZ_PACE} s). Your misses are in your Revenge Queue.</p>
     <div class="row"><button class="btn primary" data-close data-quizopen>Build another quiz</button>${misses.length ? `<button class="btn" data-close data-qzmiss="${esc(misses.join(","))}">Retry my ${misses.length} miss${misses.length === 1 ? "" : "es"}</button>` : ""}<button class="btn ghost" data-close data-doneday>Done for the Day</button></div>`);
 }
+// Timed quiz: picks were changeable until now, so each one is scored here, then the answers and explanations open up.
+function timedQuizDone(R) {
+  const picks = R.picks || {}, conf = R.conf || {}, chest = S.chest;
+  R.ids.forEach(id => { const q = anyQ(id); if (!q || picks[id] == null || R.done.includes(id)) return;
+    const ok = picks[id] === q.a, first = !S.stats[id];
+    record(q, ok, (R.secs || {})[id]);
+    if (first && typeof logAnswer === "function") logAnswer(id, picks[id], ok);
+    if (ok && conf[id] === "guess") S.revenge[id] = { box: 0, due: Date.now() + 20 * 3600000 };
+    else if (ok && conf[id] === "think" && !S.revenge[id]) S.revenge[id] = { box: 1, due: Date.now() + 3 * DAY }; });
+  S.chest = chest;
+  const n = R.ids.length, answered = R.done.length, right = R.ids.filter(id => picks[id] != null && anyQ(id) && picks[id] === anyQ(id).a).length;
+  const used = Math.min(R.limit || Infinity, (Date.now() - R.t0) / 1000), misses = R.ids.filter(id => picks[id] != null && anyQ(id) && picks[id] !== anyQ(id).a);
+  S.lastQuiz = { ids: R.ids.filter(id => picks[id] != null), picks: Object.assign({}, picks) };
+  S.review = null; save(); beep("level"); renderHUD();
+  if (!$("#view-scroll").hidden) resetFeed();
+  const html = `<div class="eyebrow">${R.timeUp ? "Time's up. " : ""}Timed quiz done</div><h2>${right} of ${answered} right (${answered ? Math.round(right / answered * 100) : 0}%).</h2>
+    <p class="muted">Time used ${mmss(used)}, about ${answered ? Math.round(used / answered) : 0} s per question (exam pace is ${QZ_PACE} s).${n > answered ? ` ${n - answered} question${n - answered === 1 ? "" : "s"} not answered, so ${n - answered === 1 ? "it stays" : "they stay"} unused.` : ""}${misses.length ? " Your misses are in your Revenge Queue." : ""}</p>
+    <div class="row">${answered ? `<button class="btn primary" data-qzrev>See answers and explanations</button>` : ""}<button class="btn" data-close data-quizopen>Build another quiz</button>${misses.length ? `<button class="btn" data-close data-qzmiss="${esc(misses.join(","))}">Retry my ${misses.length} miss${misses.length === 1 ? "" : "es"}</button>` : ""}<button class="btn ghost" data-close data-doneday>Done for the Day</button></div>`;
+  const show = () => $("#sheetHost .scrim") ? setTimeout(show, 800) : sheet(html);
+  setTimeout(show, 0);
+}
 document.addEventListener("click", e => {
+  if (e.target.closest("[data-qzrev]")) { const L = S.lastQuiz; if (L) answerReview(L.ids, L.picks, "Timed quiz answers"); return; }
   if (e.target.closest("[data-quizopen]")) { setTimeout(quizSheet, 0); return; }
   const m = e.target.closest("[data-qzmiss]"); if (m) { const ids = m.dataset.qzmiss.split(","); growTarget(ids.length); startReview(ids); }
 });
 function reviewDoneText() {
   const R = S.review; if (!R) return "";
   if (R.kind === "quiz") { const l = R.ids.length - R.done.length; return l ? `${l} question${l === 1 ? "" : "s"} left in your custom quiz.` : "Custom quiz done."; }
-  if (R.kind === "check") { const l = R.ids.length - ckN(R); return (l ? `${l} question${l === 1 ? "" : "s"} still unanswered. ` : "All questions answered. ") + "You can go back and change any answer until you submit or the clock runs out."; }
+  if (examLike(R)) { const l = R.ids.length - ckN(R); return (l ? `${l} question${l === 1 ? "" : "s"} still unanswered. ` : "All questions answered. ") + "You can go back and change any answer until you submit or the clock runs out."; }
   const left = R.ids.length - R.done.length;
   return left ? `${left} question${left === 1 ? "" : "s"} above still to answer.` : `${R.right} question${R.right === 1 ? "" : "s"} mastered, ${R.wrong} still in queue. See you tomorrow.`;
 }
 function reviewDoneCard() {
   const el = document.createElement("article"); el.className = "card gate";
-  const kind = (S.review || {}).kind, title = kind === "quiz" ? "Custom quiz complete" : kind === "check" ? "Diagnostic complete" : "Revenge Queue complete";
+  const kind = (S.review || {}).kind, exam = examLike(S.review), title = kind === "quiz" ? (exam ? "Timed quiz: last question" : "Custom quiz complete") : kind === "check" ? "Diagnostic complete" : "Revenge Queue complete";
+  el.dataset.end = 1;
   el.innerHTML = `<div class="eyebrow">${title}</div><p class="bigtext" id="revDone">${reviewDoneText()}</p>
     <p class="muted" style="margin:0">Anything you missed again comes back in your Revenge Queue on a 1, 3 and 7 day schedule.</p>
-    <div class="row">${kind === "check" ? `<button class="btn primary" data-checksubmit style="flex:1">Submit diagnostic</button>` : (S.review || {}).fromDone ? `<button class="btn primary" data-doneday data-revdone style="flex:1">Done reviewing answers</button>` : `<button class="btn primary" data-more10 style="flex:1">${drillLabel()}</button><button class="btn" data-doneday style="flex:1">Done for the Day</button>`}</div>`;
+    <div class="row">${exam ? `<button class="btn primary" data-checksubmit style="flex:1">Submit ${kind === "check" ? "diagnostic" : "quiz and see answers"}</button>` : (S.review || {}).fromDone ? `<button class="btn primary" data-doneday data-revdone style="flex:1">Done reviewing answers</button>` : `<button class="btn primary" data-more10 style="flex:1">${drillLabel()}</button><button class="btn" data-doneday style="flex:1">Done for the Day</button>`}</div>`;
   return el;
 }
 function exitApp() {
@@ -3361,10 +3461,13 @@ function checkDone() {
 // After the diagnostic: every question with your pick, the right answer and the explanation (hidden while the clock ran).
 function diagReview() {
   const B = S.baseline; if (!B || !B.ids) return;
-  const L = "ABCD", picks = B.picks || {};
-  const qs = B.ids.map(anyQ).filter(Boolean);
+  answerReview(B.ids, B.picks || {}, "Diagnostic answers");
+}
+function answerReview(ids, picks, eyebrow) {
+  const L = "ABCD";
+  const qs = ids.map(anyQ).filter(Boolean);
   const nWrong = qs.filter(q => picks[q.id] !== q.a).length;
-  sheet(`<div class="eyebrow">Diagnostic answers</div><h2>${qs.length - nWrong} right, ${nWrong} to learn from.</h2>
+  sheet(`<div class="eyebrow">${esc(eyebrow)}</div><h2>${qs.length - nWrong} right, ${nWrong} to learn from.</h2>
     <p class="muted" style="margin-top:0">Misses are listed first. Unanswered questions show no pick.</p>
     ${qs.sort((a, b) => (picks[a.id] === a.a) - (picks[b.id] === b.a)).map((q, n) => { const p = picks[q.id], ok = p === q.a;
       return `<details class="card" style="margin:8px 0;padding:10px 12px"${ok ? "" : " open"}><summary style="cursor:pointer"><b>${ok ? "✓" : "✗"} ${n + 1}.</b> <span class="small muted">${esc(SECTIONS[q.s].name)} · ${esc(q.c)}</span> ${p == null ? '<span class="small muted">not reached</span>' : ""}</summary>
@@ -3779,7 +3882,7 @@ function renderMap() {
   const groups = ["CP", "CARS", "BB", "PS"];
   const open = S.mapSub && CAT[S.mapSub] ? S.mapSub : null, osub = open ? subCounts(open) : [];
   const subPanel = open ? `<div class="panel" style="margin-bottom:14px;border-color:#f472b6"><div class="row" style="justify-content:space-between"><h3 style="margin:0">${esc(open)} · ${esc(CAT[open].title)}</h3><button class="btn small ghost" data-subclose>Close</button></div><p class="small muted">Pick a concept to drill, or practice the whole category.</p><div class="row"><button class="chipbtn" data-drill="${esc(open)}">All ${esc(open)}</button>${osub.map(o => `<button class="chipbtn" data-drill="${esc(open)}" data-sub="${esc(o.id)}">${esc(o.label)} · ${o.n}</button>`).join("")}</div></div>` : "";
-  $("#view-map").innerHTML = subPanel + `<div class="panel quizpanel" style="margin-bottom:14px"><div class="row" style="justify-content:space-between;align-items:center"><div><h3 style="margin:0">Build your own quiz</h3><p class="small muted" style="margin:4px 0 0">Pick sections, topics, unused or missed questions, difficulty, and timed or tutor mode.</p></div><button class="btn primary" data-quizopen>Build a quiz</button></div></div><h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll (CARS skills open passages filtered to that question type).</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
+  $("#view-map").innerHTML = subPanel + `<div class="panel quizpanel" style="margin-bottom:14px"><div class="row" style="justify-content:space-between;align-items:center"><div><h3 style="margin:0">🛠️ Build your own quiz</h3><p class="small muted" style="margin:4px 0 0">Pick sections, topics, unused or missed questions, and difficulty.</p><div class="qzmodes"><span>Tutor: explanation after each question</span><span>Timed: answers at the end</span></div></div><button class="btn primary" data-quizopen>Build a quiz</button></div></div><h2 class="title">Skill map</h2><p class="sub">The 31 official AAMC content categories plus CARS and research skills. ★ marks our high-yield picks. Tap one to drill it in Scroll (CARS skills open passages filtered to that question type).</p>${S.pro ? "" : `<div class="probanner" style="margin-bottom:14px"><p><b>PLANS</b> See your section score estimate and track every full-length.</p><button class="btn small pro" data-pro>See plans</button></div>`}
   <div class="stack">${groups.map(g => `<div class="panel"><h3>${SECTIONS[g].long}</h3><div class="catgroup">${CATS.filter(c => c[2] === g).map(([code, title, s, hy]) => {
     const c = S.cat[code] || { a: 0, c: 0 }, m = c.a ? c.c / c.a : 0, col = !c.a ? "var(--line)" : m >= .8 ? "var(--good)" : m >= .6 ? "var(--volt)" : "var(--bad)";
     const drill = s === "CARS" ? PASSAGES.some(p => p.s === "CARS" && p.qs.some(q => q.c === code)) : QUESTIONS.some(q => q.c === code);
@@ -4084,7 +4187,7 @@ $("#view-course").addEventListener("click", e => {
   const up = t.closest("[data-mnup]"); if (up) { S.mnUp = S.mnUp || {}; const id = up.dataset.mnup; if (S.mnUp[id]) delete S.mnUp[id]; else S.mnUp[id] = 1; save(); renderCourse(); return; }
   const sh = t.closest("[data-mnshare]"); if (sh) { const m = MN.find(x => String(x.id) === sh.dataset.mnshare); if (m) mnShare(m); return; }
   const pq = t.closest("[data-mnq]"); if (pq) {
-    const ids = pq.dataset.mnq.split(",").filter(id => anyQ(id) && canOpen(anyQ(id))); if (!ids.length) return showPro(); go("scroll"); ids.slice().reverse().forEach(id => { const q = anyQ(id); if (!q) return; sessionSeen.add(q.id); const card = questionCard(q, false); feed.prepend(card); io.observe(card); }); feed.scrollTop = 0; return;
+    const ids = pq.dataset.mnq.split(",").filter(id => anyQ(id) && canOpen(anyQ(id))); if (!ids.length) return showPro(); go("scroll"); ids.slice().reverse().forEach(id => { const q = anyQ(id); if (!q) return; sessionSeen.add(q.id); const card = questionCard(q, false); feed.prepend(card); io.observe(card); }); showCard(feed.firstElementChild); feed.scrollTop = 0; return;
   }
 });
 function v0() { $("#view-course").scrollTop = 0; }
@@ -4280,10 +4383,12 @@ $(".tabs").addEventListener("click", e => {
 document.addEventListener("keydown", e => {
   if ($("#view-scroll").hidden || /input|textarea|select/i.test(e.target.tagName)) return;
   if (["1", "2", "3", "4"].includes(e.key)) {
-    const card = [...feed.children].find(c => { const r = c.getBoundingClientRect(); return r.top >= -40 && r.top < innerHeight / 2; });
-    const box = card && [...card.querySelectorAll(".opts")].find(b => !b.dataset.done);
+    const card = curUnit();
+    const box = card && [...card.querySelectorAll(".opts")].find(b => !b.dataset.done && b.offsetParent);
     if (box) box.querySelectorAll(".opt")[+e.key - 1].click();
   }
+  if ((e.key === "ArrowRight" || e.key === "n") && !$("#qnav").hidden && !$("[data-qnext]").hidden) stepCard(1);
+  if (e.key === "ArrowLeft" && !$("#qnav").hidden && !$("[data-qback]").hidden) stepCard(-1);
   if (e.key === "j" || e.key === "ArrowDown") { feed.scrollBy({ top: feed.clientHeight * .9, behavior: reduce ? "auto" : "smooth" }); e.preventDefault(); }
   if (e.key === "k" || e.key === "ArrowUp") { feed.scrollBy({ top: -feed.clientHeight * .9, behavior: reduce ? "auto" : "smooth" }); e.preventDefault(); }
 });
