@@ -3548,7 +3548,7 @@ function todaySummaryHTML() {
   return `<div class="panel" id="todaySum"><div class="eyebrow">Done for the Day 🎉</div><h3>Today's summary</h3>
     <div class="grid2"><div class="stat"><b>${acc}%</b><span>accuracy today (${t.correct} of ${t.answered})</span></div><div class="stat"><b>${revCount()}</b><span>in your Revenge Queue</span></div></div>
     <h4 style="margin:12px 0 4px">Level ${S.lv.level}: ${esc(tierName(S.lv.level))}</h4>${levelBarHTML()}
-    <p class="small muted" style="margin:8px 0 0">See you tomorrow. Want more today? <button class="linkbtn" data-more10>${drillLabel()} for +50 XP</button></p></div>`;
+    <p class="small muted" style="margin:8px 0 0">See you tomorrow. Want more today? <button class="linkbtn" data-more10>${drillLabel()}${planMade() ? " for +50 XP" : ""}</button></p></div>`;
 }
 var extraRound = false, morePromptOpen = false; // var: renderHUD can run before this line
 // From Me the second choice is "Stay in Me"; from anywhere else it is "Done for the day".
@@ -3572,7 +3572,10 @@ function weakestCat() {
   const most = n.filter(([, k]) => k > 0).sort((a, b) => b[1] - a[1])[0];
   return most ? most[0] : null;
 }
+// Until the diagnostic is taken there is no real "weakest category", so every Drill button offers the diagnostic instead.
+const diagLabel = () => `Take the ${checkPer() >= 3 ? checkPer() * 3 : 30} Question diagnostic exam`;
 function drillLabel() {
+  if (!planMade()) return diagLabel();
   const w = weakestCat();
   return `Drill ${ROUND} Map questions from your weakest category${w ? ` (${esc(w)})` : ""}`;
 }
@@ -3611,7 +3614,7 @@ document.addEventListener("click", e => {
   if (t.closest("[data-byeme]")) return showMeTop();
   if (t.closest("[data-bossrev]")) { const ids = (lastBoss && lastBoss.miss) || []; return ids.length ? startReview(ids) : toast("No misses in that battle."); }
   if (t.closest("[data-bossmore]")) { $("#sheetHost").innerHTML = ""; return showGoals(); }
-  if (t.closest("[data-more10]")) { $("#sheetHost").innerHTML = ""; return startExtra(); }
+  if (t.closest("[data-more10]")) { $("#sheetHost").innerHTML = ""; return planMade() ? startExtra() : checkStart(); }
   if (t.closest("[data-back]")) { go("scroll"); resetFeed(); return; }
   if (t.closest("#view-results [data-share]")) return share();
 });
