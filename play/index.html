@@ -2747,14 +2747,15 @@ function openSolo(cards, ret) {
   closeSheet(); sheetReturn = null; dropBackPill();
   cards = [].concat(cards);
   let v = $("#qSolo"); if (!v) { v = document.createElement("div"); v.id = "qSolo"; document.body.appendChild(v); }
-  const back = `<button class="btn primary" data-solo-back><span aria-hidden="true">←</span> Back to Mastery Sheet</button>`;
+  // ret.label / ret.back let other places (the Mnemonics Vault) reuse this view with their own way back.
+  const back = `<button class="btn primary" data-solo-back><span aria-hidden="true">←</span> ${esc(ret.label || "Back to Mastery Sheet")}</button>`;
   v.innerHTML = `<div class="solo-top">${back}</div><div class="solo-body"></div>`;
   const body = $(".solo-body", v);
   // "Next question" shows on every card but the last.
   cards.forEach((card, i) => { $$(".swipe", card).forEach(x => x.remove()); card._shown = card._made = Date.now(); card.classList.toggle("has-next", i < cards.length - 1); body.appendChild(card); });
-  if (cards.length > 1) body.insertAdjacentHTML("beforeend", `<div class="solo-end">${back}</div>`);
+  if (cards.length > 1 || ret.back) body.insertAdjacentHTML("beforeend", `<div class="solo-end">${back}</div>`);
   v.hidden = false; document.body.style.overflow = "hidden"; body.scrollTop = 0;
-  $$("[data-solo-back]", v).forEach(b => b.addEventListener("click", () => { v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; openSheet(ret.id, ret); }));
+  $$("[data-solo-back]", v).forEach(b => b.addEventListener("click", () => { v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; ret.back ? ret.back() : openSheet(ret.id, ret); }));
 }
 // "Show passage" opens the passage in a pop-up over the question, so nobody has to scroll back up to it.
 const passBtnHTML = p => `<button class="pbtn" data-showp="${esc(p.id)}"><span aria-hidden="true">📄</span> Show passage</button>`;
@@ -4202,7 +4203,15 @@ $("#view-course").addEventListener("click", e => {
   const up = t.closest("[data-mnup]"); if (up) { S.mnUp = S.mnUp || {}; const id = up.dataset.mnup; if (S.mnUp[id]) delete S.mnUp[id]; else S.mnUp[id] = 1; save(); renderCourse(); return; }
   const sh = t.closest("[data-mnshare]"); if (sh) { const m = MN.find(x => String(x.id) === sh.dataset.mnshare); if (m) mnShare(m); return; }
   const pq = t.closest("[data-mnq]"); if (pq) {
-    const ids = pq.dataset.mnq.split(",").filter(id => anyQ(id) && canOpen(anyQ(id))); if (!ids.length) return showPro(); go("scroll"); ids.slice().reverse().forEach(id => { const q = anyQ(id); if (!q) return; sessionSeen.add(q.id); const card = questionCard(q, false); feed.prepend(card); io.observe(card); }); showCard(feed.firstElementChild); feed.scrollTop = 0; return;
+    // Only the linked question(s), on their own over the mnemonic: no feed to keep going into, one way back to this mnemonic.
+    const ids = pq.dataset.mnq.split(",").filter(id => anyQ(id) && canOpen(anyQ(id))); if (!ids.length) return showPro();
+    const view = mnView, cv = $("#view-course"), top = cv.scrollTop;
+    ids.forEach(id => sessionSeen.add(anyQ(id).id));
+    return openSolo(ids.map(id => questionCard(anyQ(id), false)), { label: "Back to Mnemonic", back: () => {
+      if (cv.hidden) go("course");
+      if (crs !== "vault" || mnView !== view) { crs = "vault"; mnView = view; renderCourse(); }
+      cv.scrollTop = top;
+    } });
   }
 });
 function v0() { $("#view-course").scrollTop = 0; }
