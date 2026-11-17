@@ -2,6 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+// Reopen without a Qbank flash: guess the start tab from saved progress before anything paints.
+// The app's own start-up routing (search "startTab") stays the authority and clears this hint.
+(function () { try {
+  var S = JSON.parse(localStorage.getItem("quest520.v1") || "{}"), d = new Date().toLocaleDateString("en-CA");
+  var t = new URLSearchParams(location.search).get("tab") === "exam" ? "exam" : S.exitedOn === d ? "me"
+    : S.lastTabDay === d && ["course", "map", "boss", "exam", "me"].indexOf(S.lastTab) > -1 ? S.lastTab
+    : S.lastTabDay === d && S.today && S.today.doneDay ? "me" : "";
+  if (t) document.documentElement.setAttribute("data-start", t);
+} catch (e) {} })();
+</script>
+<style>html[data-start] #view-scroll, html[data-start] #hudGoal { display: none !important; }</style>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://unprocrastinate.lemonsqueezy.com" crossorigin><link rel="preconnect" href="https://assets.lemonsqueezy.com" crossorigin><link rel="preconnect" href="https://js.stripe.com" crossorigin>
@@ -568,6 +580,8 @@ a { color: var(--volt); }
     <button class="tab" role="tab" data-tab="exam" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>Exams</button>
     <button class="tab" role="tab" data-tab="me" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Me</button>
   </nav>
+  <script>(function () { var t = document.documentElement.getAttribute("data-start"); if (!t) return;
+    document.querySelectorAll(".tab").forEach(function (b) { b.setAttribute("aria-selected", b.dataset.tab === t); }); })();</script>
 
   <div class="toasts" id="toasts" aria-live="polite"></div>
   <div id="sheetHost"></div>
@@ -4384,6 +4398,7 @@ $("#view-me").addEventListener("change", e => {
 
 /* ---------- tabs ---------- */
 function go(tab) {
+  document.documentElement.removeAttribute("data-start"); // start-up hint no longer needed (see <head>)
   if (tab !== "scroll") { sheetReturn = null; dropBackPill(); }
   $$(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.tab === tab));
   ["scroll", "boss", "course", "map", "exam", "me", "results"].forEach(v => $("#view-" + v).hidden = v !== tab);
@@ -4436,6 +4451,7 @@ const urlTab = new URLSearchParams(location.search).get("tab");
 const startTab = urlTab === "exam" ? "exam" : exitedToday ? "me" : sameDay && ["course", "map", "boss", "exam", "me"].includes(S.lastTab) ? S.lastTab : sameDay && S.today.doneDay ? "me" : "scroll";
 S.exitedOn = null; save();
 if (exitedToday && startTab === "me") { go("me"); $("#view-me").scrollTop = 0; } else if (startTab !== "scroll") go(startTab);
+document.documentElement.removeAttribute("data-start");
 bankReady.finally(() => welcomeBack());
 /* ---------- Terms of Use: everyone (free or paid) accepts before using the app ---------- */
 // Bump TERMS_V when terms.html or privacy.html change in a material way: everyone is asked to accept again.
