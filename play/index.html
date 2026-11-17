@@ -157,7 +157,7 @@ button { cursor: pointer; }
 .qnav[hidden], .qnav [hidden] { display: none; }
 .qnav .btn { min-height: 48px; font-size: 16px; }
 .qnav [data-qback] { flex: 0 0 auto; }
-.qnav [data-qnext] { flex: 1; font-weight: 800; }
+.qnav [data-qnext], .qnav [data-qdone] { flex: 1; font-weight: 800; }
 .btn.nextq[hidden] { display: none; }
 .pinline > summary { list-style: none; cursor: pointer; width: fit-content; }
 .pinline > summary::-webkit-details-marker { display: none; }
@@ -1911,7 +1911,8 @@ function record(q, correct, secs) {
     if (examLike(S.review)) (S.review.secs = S.review.secs || {})[q.id] = Math.round(secs || 0);
     const rd = document.getElementById("revDone"); if (rd) rd.textContent = reviewDoneText();
     const rc = $("#revChip"); if (rc && !S.review.kind) rc.textContent = reviewChipText() + " ✕";
-    if (S.review.done.length >= S.review.ids.length) { S.today.reviewed = true; if (!examLike(S.review)) setTimeout(reviewPrompt, 900); }
+    // The wrap-up waits for the Done button under the last explanation (feedNav), so the explanation can be read first.
+    if (S.review.done.length >= S.review.ids.length) S.today.reviewed = true;
   }
   levelTick(q, correct);
   const rec = S.recent[q.s]; rec.push([correct ? 1 : 0, q.d]); if (rec.length > 60) rec.shift();
@@ -1945,7 +1946,7 @@ function record(q, correct, secs) {
     t.goalShown = true; t.next = t.answered + ROUND; t.rs = { a: t.answered, c: t.correct }; extraRound = false;
     if (first) goalHit();
     else if (t.bonusAt && t.answered >= t.bonusAt) { t.bonusAt = 0; addXP(50); }
-    setTimeout(() => showRound(round, first), 900);
+    roundPend = { round, first };   // celebrated when Done under this question's explanation is tapped (feedNav)
   }
   checkBadges(); save(); renderHUD();
   return { gain: Math.round(gain), crit };
@@ -2209,9 +2210,11 @@ function prevUnit() {
   const pq = c.querySelector(".pq.cur"), pp = pq && pq.previousElementSibling && pq.previousElementSibling.classList.contains("pq") ? pq.previousElementSibling : null;
   return pp || c.previousElementSibling;
 }
+// The daily goal (or an extra round) was reached on this question: its celebration waits for the Done button.
+var roundPend = null;
 var QNAV_;   // var, not const: feedNav can run before this line during start-up
 function qnavEl() { return QNAV_ || (QNAV_ = Object.assign(document.createElement("div"), { className: "qnav", id: "qnav", hidden: true,
-  innerHTML: `<button class="btn ghost" data-qback>‹ Back</button><button class="btn primary" data-qnext>Next question ›</button>` })); }
+  innerHTML: `<button class="btn ghost" data-qback>‹ Back</button><button class="btn primary" data-qnext>Next question ›</button><button class="btn primary" data-qdone hidden>Done</button>` })); }
 function feedNav() {
   const nav = qnavEl(), c = curCard();
   // The diagnostic and timed quizzes have their own Previous / Next / Submit row on each card.
@@ -2220,8 +2223,12 @@ function feedNav() {
   nav.hidden = !c || examLike(S.review) || open;
   if (nav.hidden) return;
   const last = !nx || (S.review && nx.dataset.end);   // no Next on the last question of a quiz or review
-  const nb = $("[data-qnext]", nav), bb = $("[data-qback]", nav);
-  nb.hidden = !!last;
+  const nb = $("[data-qnext]", nav), bb = $("[data-qback]", nav), db = $("[data-qdone]", nav), R = S.review;
+  // Last question of a review or tutor quiz, or the question that reached the daily goal: Done brings up the wrap-up.
+  const revEnd = !!(R && last && R.done.length >= R.ids.length), goalEnd = !!(roundPend && roundPend.el === u);
+  db.hidden = !revEnd && !goalEnd;
+  db.textContent = revEnd ? (R.kind === "quiz" ? "Done with this quiz" : "Done reviewing my answers") : "Done";
+  nb.hidden = !!last || goalEnd;
   bb.hidden = !prevUnit();
   // After the explanation (and its rating / report links) for a question; at the end of any other card.
   const host = box ? u.querySelector(".reveal") || u : c;
@@ -2233,7 +2240,11 @@ function stepCard(dir) {
   showCard(t); feed.scrollTop = 0;
 }
 document.addEventListener("click", e => {
-  if (e.target.closest("[data-qnext]")) stepCard(1);
+  if (e.target.closest("[data-qdone]")) {
+    const p = roundPend; roundPend = null; feedNav();
+    if (p) showRound(p.round, p.first); else if (S.review) reviewPrompt();
+  }
+  else if (e.target.closest("[data-qnext]")) stepCard(1);
   else if (e.target.closest("[data-qback]")) stepCard(-1);
 });
 function scrollToEl(t) {
@@ -2378,6 +2389,7 @@ function wireQuestion(scope, q, card) {
     if (S.resume === q.id) S.resume = null;
     const conf = optsBox.dataset.conf || ""; confBox.classList.add("locked");
     const { gain, crit } = record(q, ok, secs);
+    if (roundPend && !roundPend.el) roundPend.el = scope;   // the Done button goes under this question's explanation
     if (S.stats[q.id] && S.stats[q.id].a === 1 && typeof logAnswer === "function") logAnswer(q.id, q.ord ? q.ord[i] : i, ok);
     let confNote = "";
     if (ok && conf === "guess") { S.revenge[q.id] = { box: 0, due: Date.now() + 20 * 3600000 }; confNote = "You got it right but were guessing, so it'll come back tomorrow."; }
