@@ -137,6 +137,13 @@ button { cursor: pointer; }
 .hudinst { flex: none; display: inline-flex; align-items: center; gap: 4px; font: 700 13px/1 var(--display); letter-spacing: .06em; padding: 7px 10px; border-radius: 99px; cursor: pointer; color: var(--volt); background: transparent; border: 2px solid var(--volt); }
 .hudinst svg { width: 14px; height: 14px; }
 .hudinst[hidden] { display: none; }
+/* Gear: one tap to Settings + Account on the Me page */
+.hudgear { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; padding: 0; border-radius: 99px; border: 1px solid var(--line); background: var(--panel); color: var(--muted); cursor: pointer; }
+.hudgear svg { width: 18px; height: 18px; }
+.hudgear:hover, .hudgear:focus-visible { color: var(--cool); border-color: var(--cool); }
+@media (max-width: 400px) { .hud .hudgear { width: 28px; height: 28px; } .hudgear svg { width: 16px; height: 16px; } .hud .lvl { min-width: 0; padding: 7px 6px; } }
+@media (max-width: 400px) { .hud.hud { gap: 5px; } }
+@media (max-width: 340px) { .hud .pill.goal svg { display: none; } .hud .pill { padding: 6px 6px; } } /* iPhone SE: room for the gear */
 @media (max-width: 400px) { .hud { gap: 6px; padding-left: 10px; padding-right: 10px; } .hud .pill { padding: 6px 7px; } .hudinst { padding: 7px 8px; } .hudpro { padding: 8px 9px; } }
 @media (max-width: 430px) { .hudinst { font-size: 0; gap: 0; padding: 7px 8px; } } /* icon only, so the level and accuracy line stays readable */
 @media (max-width: 340px) { .hud .xpwrap { display: none; } } /* iPhone SE: no room for the accuracy line; the top bar ran 6 px past the screen edge */
@@ -577,6 +584,7 @@ a { color: var(--volt); }
     <span class="pill streak" id="hudStreak" title="Day streak"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8.6 1c.4 2.4-1.3 3.4-2.3 4.8C5.4 7 5 8 5 9.2 5 11.9 6.6 15 8 15c2.6 0 4-2.3 4-4.9 0-2-1-3.1-1.7-4-.2 1-.7 1.7-1.4 2C9.8 5.9 9.7 3 8.6 1Z"/></svg><span id="hudStreakTxt">0</span></span>
     <button class="hudinst" id="hudInstall" data-install hidden aria-label="Install app"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.5 8 10l3.5-3.5M3 13.5h10"/></svg>APP</button>
     <button class="hudpro" id="hudPro" data-pro hidden><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2.1 4.3 4.7.7-3.4 3.3.8 4.7L8 11.8 3.8 14l.8-4.7L1.2 6l4.7-.7z"/></svg>PLANS</button>
+    <button class="hudgear" id="hudSettings" aria-label="Settings and account" title="Settings and account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
   </header>
 
   <div class="views">
@@ -4442,7 +4450,7 @@ function renderMe() {
     <div class="panel" id="goalPanel"><h3>Adjust goals for the day</h3><p class="small muted" style="margin:0 0 8px">How many questions do you want to do each day?</p><div class="row">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n && !S.goalCustom ? "primary" : ""}" data-setgoal="${n}">${n} questions</button>`).join("")}<button class="btn small ${S.goalCustom ? "primary" : ""}" data-customgoal>Custom</button></div></div>
     <div class="panel"><h3>Daily reminder</h3><p class="small muted" style="margin:0 0 8px">Pick a time, then add a reminder that repeats every day in your calendar. It works even when the app is closed, and you can delete it from your calendar any time.</p>
       <div id="remBox">${remPickerHTML()}</div></div>
-    <div class="panel"><h3>Settings</h3>
+    <div class="panel" id="settingsPanel"><h3>Settings</h3>
       <label class="row small" for="soundChk"><input type="checkbox" id="soundChk" ${S.sound ? "checked" : ""}> Sound and vibration</label>
       <label class="row small" for="fanChk"><input type="checkbox" id="fanChk" ${S.fanfare ? "checked" : ""}> Level-up fanfare</label>
       <label class="row small musicrow" for="musicSel">🎵 Music <select id="musicSel">${[["boss", "Boss battles only"], ["on", "Always on"], ["off", "Off"]].map(([v, n]) => `<option value="${v}" ${S.music === v ? "selected" : ""}>${n}</option>`).join("")}</select></label>
@@ -4511,6 +4519,12 @@ function go(tab) {
   if (tab !== "boss" && B) { clearInterval(B.tick); B = null; syncMusic(); }
   const h = { scroll: "", boss: "boss", course: "course", map: "map", exam: "exam", me: "me", results: "" }[tab]; try { history.replaceState(null, "", h ? "#" + h : location.pathname); } catch (e) {}
 }
+// Header gear: open Me and land on Settings (Account sits right below it). Instant jump, no animation.
+$("#hudSettings").addEventListener("click", () => {
+  if ($("#view-me").hidden) go("me");
+  const v = $("#view-me"), p = $("#settingsPanel");
+  if (p) v.scrollTop += p.getBoundingClientRect().top - v.getBoundingClientRect().top - 8;
+});
 $(".tabs").addEventListener("click", e => {
   const t = e.target.closest(".tab"); if (!t) return;
   // Opening Scroll after the day's goal asks first; every other tab opens directly.
