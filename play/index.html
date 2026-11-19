@@ -11,9 +11,15 @@
     : S.lastTabDay === d && ["course", "map", "boss", "exam", "me"].indexOf(S.lastTab) > -1 ? S.lastTab
     : S.lastTabDay === d && S.today && S.today.doneDay ? "me" : "";
   if (t) document.documentElement.setAttribute("data-start", t);
+  // Will the Welcome / Welcome back pop-up open? Mirrors welcomeBack(): from the landing page, or the first open of the day
+  // (not after Done for the Day). If so, keep the Qbank hidden and lay down the pop-up's dimmed backdrop right away,
+  // so the pop-up slides in over a calm screen instead of the Qbank flashing first. welcomeBack() clears this hint.
+  var land = new URLSearchParams(location.search).get("from") === "landing" || /^https?:\/\/(www\.)?520quest\.com\/?(index\.html)?([?#].*)?$/.test(document.referrer || "");
+  if (land || (S.welcome !== d && !(S.today && S.today.date === d && S.today.doneDay))) document.documentElement.setAttribute("data-welcome", "");
 } catch (e) {} })();
 </script>
-<style>html[data-start] #view-scroll, html[data-start] #hudGoal { display: none !important; }</style>
+<style>html[data-start] #view-scroll, html[data-start] #hudGoal, html[data-welcome] #view-scroll, html[data-welcome] #hudGoal { display: none !important; }
+html[data-welcome] #sheetHost:empty::before { content: ""; position: absolute; inset: 0; z-index: 20; background: color-mix(in srgb, var(--ink) 70%, transparent); }</style>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://unprocrastinate.lemonsqueezy.com" crossorigin><link rel="preconnect" href="https://assets.lemonsqueezy.com" crossorigin><link rel="preconnect" href="https://js.stripe.com" crossorigin>
@@ -180,6 +186,21 @@ button { cursor: pointer; }
 .chipbtn { flex: none; border: 1px solid var(--line); background: var(--panel); color: var(--muted); border-radius: 99px; padding: 6px 12px; font: 600 13px/1 var(--display); letter-spacing: .05em; }
 .chipbtn[aria-pressed="true"] { background: var(--volt); color: var(--volt-ink); border-color: var(--volt); }
 .chipbtn.focus { color: var(--cool); border-color: var(--cool); }
+.rempick .remshow { font: 800 30px/1 var(--display); color: #1e3a8a; margin: 2px 0 10px; letter-spacing: .02em; }
+.rempick .remrow { display: flex; flex-wrap: wrap; gap: 6px; }
+.rempick .chipbtn { min-height: 40px; min-width: 44px; padding: 8px 12px; font-size: 15px; cursor: pointer; }
+.rempick .remquick { margin-bottom: 12px; }
+.rempick .remquick .chipbtn { display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 84px; }
+.rempick .remquick small { font: 500 11px/1 var(--body); opacity: .8; letter-spacing: 0; }
+.rempick .remhours { display: grid; grid-template-columns: repeat(6, minmax(40px, 1fr)); max-width: 360px; }
+.rempick .remgrid { display: grid; grid-template-columns: 56px 1fr; gap: 8px 10px; align-items: center; }
+.rempick .remlbl { font: 700 12px/1 var(--display); color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.rempick .remadd { margin: 14px 0 6px; }
+.rempick .remampm { display: inline-flex; border: 2px solid #1e3a8a; border-radius: 12px; overflow: hidden; width: max-content; }
+.rempick .remampm button { border: 0; background: #fff; color: #1e3a8a; font: 800 17px/1 var(--display); padding: 11px 26px; cursor: pointer; min-height: 44px; }
+.rempick .remampm button[aria-pressed="true"] { background: #1e3a8a; color: #fff; }
+.rempick .remnote { margin: 8px 0 0; }
+@media (max-width: 420px) { .rempick .remgrid { grid-template-columns: 1fr; gap: 6px; } .rempick .remquick .chipbtn { min-width: 0; flex: 1 1 28%; } }
 #revChip, #revChip:hover { background: #ffcba4; color: #5a2a0a; border-color: #f4a46b; font-weight: 700; } /* review counter: peach so it stands out */
 .feed { overflow-y: auto; scroll-snap-type: y proximity; padding: 0 16px 40px; display: flex; flex-direction: column; gap: 14px; overscroll-behavior: contain; }
 .card { flex: none; scroll-snap-align: start; scroll-margin-top: 8px; min-height: calc(100% - 14px); background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 18px 16px 16px; display: flex; flex-direction: column; gap: 14px; position: relative; }
@@ -1912,6 +1933,7 @@ function record(q, correct, secs) {
   const cs = S.cat[q.c] || (S.cat[q.c] = { a: 0, c: 0 }); cs.a++; if (correct) cs.c++;
   const sec = Math.min(600, Math.max(1, secs || 0)); cs.t = (cs.t || 0) + sec;
   const tl = S.tlog[todayKey()] || (S.tlog[todayKey()] = { n: 0, s: 0, c: 0 }); tl.n++; tl.s += sec; if (correct) tl.c++;
+  if (q.c) { const tc = (tl.cat = tl.cat || {})[q.c] || (tl.cat[q.c] = [0, 0]); tc[0]++; if (correct) tc[1]++; } // per-day topic counts for the owner dashboard
   S.today.secs.push(Math.round(sec)); if (S.today.secs.length > 300) S.today.secs.shift();
   if (!correct && !S.today.missed.includes(q.id)) S.today.missed.push(q.id);
   if (S.review && S.review.ids.includes(q.id) && !S.review.done.includes(q.id)) {
@@ -2280,8 +2302,7 @@ function shuf(q) {
 }
 // Daily reminder as a calendar file: a repeating event with an alert, so it works with the app closed and needs no server.
 function reminderICS(time) {
-  const [h, m] = (time || "19:00").split(":").map(n => +n || 0), d = new Date(); d.setHours(h, m, 0, 0);
-  const p = n => String(n).padStart(2, "0"), loc = x => `${x.getFullYear()}${p(x.getMonth() + 1)}${p(x.getDate())}T${p(x.getHours())}${p(x.getMinutes())}00`;
+  const d = remStart(time), p = n => String(n).padStart(2, "0"), loc = icsLocal;
   const end = new Date(d.getTime() + 20 * 60000), now = new Date();
   const stamp = `${now.getUTCFullYear()}${p(now.getUTCMonth() + 1)}${p(now.getUTCDate())}T${p(now.getUTCHours())}${p(now.getUTCMinutes())}00Z`;
   return ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//520 Quest//Daily reminder//EN", "BEGIN:VEVENT",
@@ -2290,13 +2311,63 @@ function reminderICS(time) {
     "BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:520 Quest: today's questions", "TRIGGER:PT0M", "END:VALARM",
     "END:VEVENT", "END:VCALENDAR"].join("\r\n");
 }
+// Reminder time picker: big tap targets instead of the fiddly native time box. S.remTime stays "HH:MM" (24 hour).
+const REM_PRESETS = [["Morning", "07:00"], ["Lunch", "12:00"], ["After class", "17:00"], ["Evening", "19:00"], ["Night", "21:00"]];
+function remParts(t) { const [h, m] = (t || "19:00").split(":").map(n => +n || 0); return { h12: h % 12 || 12, m, pm: h >= 12 }; }
+function remLabel(t) { const r = remParts(t); return `${r.h12}:${String(r.m).padStart(2, "0")} ${r.pm ? "PM" : "AM"}`; }
+function remPickerHTML() {
+  const t = S.remTime || "19:00", r = remParts(t), pr = (on) => `aria-pressed="${on}"`;
+  return `<div class="rempick">
+    <div class="remshow" aria-live="polite">${remLabel(t)}</div>
+    <div class="remrow remquick">${REM_PRESETS.map(([n, v]) => `<button class="chipbtn" data-remset="${v}" ${pr(v === t)}>${n}<small>${remLabel(v)}</small></button>`).join("")}</div>
+    <div class="remgrid">
+      <div class="remlbl">Hour</div>
+      <div class="remrow remhours">${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(h => `<button class="chipbtn" data-remh="${h}" ${pr(h === r.h12)}>${h}</button>`).join("")}</div>
+      <div class="remlbl">Minute</div>
+      <div class="remrow">${[0, 15, 30, 45].map(m => `<button class="chipbtn" data-remm="${m}" ${pr(m === r.m)}>:${String(m).padStart(2, "0")}</button>`).join("")}</div>
+      <div class="remlbl"></div>
+      <div class="remampm" role="group" aria-label="AM or PM"><button data-remap="am" ${pr(!r.pm)}>AM</button><button data-remap="pm" ${pr(r.pm)}>PM</button></div>
+    </div>
+    <div class="remlbl remadd">Add to</div>
+    <div class="row"><button class="btn small primary" data-reminder="google">Google Calendar</button><button class="btn small primary" data-reminder="ics">Apple, Outlook or other</button></div>
+    <p class="small muted remnote">Google opens with the reminder filled in, so you just tap Save. The other button downloads a calendar file: open it and tap Add.</p>
+  </div>`;
+}
+function remSetTime(t) { S.remTime = t; save(); const b = $("#remBox"); if (b) b.innerHTML = remPickerHTML(); }
 document.addEventListener("click", e => {
-  if (!e.target.closest("[data-reminder]")) return;
-  const t = ($("#remTime") || {}).value || "19:00"; S.remTime = t; save();
+  const b = e.target.closest("[data-remset],[data-remh],[data-remm],[data-remap]");
+  if (!b) return;
+  const r = remParts(S.remTime);
+  if (b.dataset.remset) return remSetTime(b.dataset.remset);
+  if (b.dataset.remh) r.h12 = +b.dataset.remh;
+  if (b.dataset.remm) r.m = +b.dataset.remm;
+  if (b.dataset.remap) r.pm = b.dataset.remap === "pm";
+  remSetTime(`${String(r.h12 % 12 + (r.pm ? 12 : 0)).padStart(2, "0")}:${String(r.m).padStart(2, "0")}`);
+});
+// Next time the reminder time comes around (today if still ahead, else tomorrow), as a floating local "YYYYMMDDTHHMMSS".
+function remStart(t) {
+  const [h, m] = (t || "19:00").split(":").map(n => +n || 0), d = new Date(); d.setHours(h, m, 0, 0);
+  if (d < new Date()) d.setDate(d.getDate() + 1);
+  return d;
+}
+const icsLocal = x => { const p = n => String(n).padStart(2, "0"); return `${x.getFullYear()}${p(x.getMonth() + 1)}${p(x.getDate())}T${p(x.getHours())}${p(x.getMinutes())}00`; };
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-reminder]");
+  if (!b) return;
+  const t = S.remTime || "19:00"; S.remTime = t; save();
+  if (b.dataset.reminder === "google") {
+    const d = remStart(t), end = new Date(d.getTime() + 20 * 60000);
+    let tz = ""; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (err) {}
+    const q = new URLSearchParams({ action: "TEMPLATE", text: "520 Quest: today's questions", dates: `${icsLocal(d)}/${icsLocal(end)}`,
+      details: "Your questions for today are ready. https://520quest.com/play/", recur: "RRULE:FREQ=DAILY" });
+    if (tz) q.set("ctz", tz);
+    window.open("https://calendar.google.com/calendar/render?" + q.toString(), "_blank", "noopener");
+    return toast(`Tap Save in Google Calendar. Your reminder repeats every day at ${remLabel(t)}.`, 3600);
+  }
   const url = URL.createObjectURL(new Blob([reminderICS(t)], { type: "text/calendar" }));
   const a = Object.assign(document.createElement("a"), { href: url, download: "520-quest-reminder.ics" });
   document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 4000);
-  toast("Open the downloaded file to add the reminder to your calendar.");
+  toast(`Open the downloaded file and tap Add. It repeats every day at ${remLabel(t)}.`, 3600);
 });
 // "I still don't get it": two easier questions on the same idea go in right after this card.
 function stuck(q, card, btn) {
@@ -3663,7 +3734,7 @@ function welcomeBack() {
   const ref = document.referrer || "";
   const fromLanding = new URLSearchParams(location.search).get("from") === "landing" || (/^https?:\/\/(www\.)?520quest\.com\/?(index\.html)?([?#].*)?$/.test(ref));
   if (fromLanding) history.replaceState(null, "", location.pathname + location.hash);
-  else if (S.welcome === t || S.today.doneDay) return;
+  else if (S.welcome === t || S.today.doneDay) return showQbank();
   const first = fromLanding || !S.total;
   // Counted as seen only once the user taps an option or closes it, so a reload (e.g. a new release) shows it again.
   const seen = () => { if (S.welcome !== t) { S.welcome = t; save(); } };
@@ -3674,12 +3745,18 @@ function welcomeBack() {
     ${S.testDate ? `<p class="small" style="margin:0;text-align:center">${planLine()}</p>` : ""}
     <button class="goldbtn greenbtn" data-welgoal>🎯 Generate Questions<small>Set today's goal, then start your quest</small></button>
     ${planBtnHTML()}`,
-    s => s.parentElement.addEventListener("click", e => {
+    s => { onSheetClosed(showQbank); s.parentElement.addEventListener("click", e => {
       if (e.target === s.parentElement || e.target.closest("button")) seen();
       if (!s.contains(e.target)) return;
       if (e.target.closest("[data-welgoal]")) { $("#sheetHost").innerHTML = ""; showGoals(); }
       else if (e.target.closest("[data-welplan]")) { $("#sheetHost").innerHTML = ""; showPlan(); }
-    }));
+    }); });
+}
+// The <head> hid the Qbank while the Welcome pop-up was on its way; show it again once the pop-up is gone (or isn't coming).
+function showQbank() { document.documentElement.removeAttribute("data-welcome"); }
+function onSheetClosed(fn) {
+  const host = $("#sheetHost"), mo = new MutationObserver(() => { if (!host.querySelector(".scrim")) { mo.disconnect(); fn(); } });
+  mo.observe(host, { childList: true });
 }
 // The plan counts as made once the timed diagnostic is done; until then the pop-up offers to create it.
 const planMade = () => !!(S.baseline && S.baseline.timed);
@@ -4012,6 +4089,9 @@ function openSheet(id, ret) {
     const doc = $(".sv-doc", v); doc.innerHTML = d.html + `<div class="sv-wm" style="background-image:${wmImage(mark)}"></div>`;
     $$("[data-wm]", doc).forEach(x => x.textContent = mark);
     addRecallChecks(doc, id);
+    const sbody = $(".sv-body", v), track = () => { const max = sbody.scrollHeight - sbody.clientHeight; sheetProg(id, max > 0 ? 100 * sbody.scrollTop / max : 100); };
+    sheetProg(id, 0); let tt = 0; const t0 = Date.now();
+    sbody.addEventListener("scroll", () => { if (Date.now() - t0 < 800) return; clearTimeout(tt); tt = setTimeout(track, 500); }, { passive: true }); // skip the jump back to a linked spot
     if (ret) {
       // Put the tapped link back where it was on screen (re-applied once layout settles).
       const body = $(".sv-body", v), links = $$(`.qref[data-q="${CSS.escape(ret.q)}"]`, doc);
@@ -4022,6 +4102,11 @@ function openSheet(id, ret) {
       if (link) { link.classList.add("flash"); setTimeout(() => link.classList.remove("flash"), 2100); }
     }
   }).catch(() => { $(".sv-doc", v).innerHTML = `<p>This sheet couldn't load. Check your connection and try again.</p>`; });
+}
+// How far each sheet has been read (furthest scroll point, in steps of 5%) and the last day it moved. Synced with progress for the owner dashboard.
+function sheetProg(id, p) {
+  const all = S.shp = S.shp || {}, r = all[id] || (all[id] = { p: 0 }), np = Math.max(r.p, Math.min(100, Math.floor(p / 5) * 5)), t = todayKey();
+  if (np === r.p && r.d === t) return; r.p = np; r.d = t; save();
 }
 function closeSheet() { const v = $("#sheetView"); v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; }
 // Sheets still point at some questions that were retired from the bank; open a question from the same category instead of a dead link.
@@ -4363,8 +4448,8 @@ function renderMe() {
       <div class="row"><button class="btn primary" data-exportanki ${S.anki.length ? "" : "disabled"}>Export to Anki</button><button class="btn small" data-ankiall>Add all my misses</button>${S.anki.length ? '<button class="btn small ghost" data-ankiclear>Clear queue</button>' : ""}</div></div>
     <div class="panel"><h3>Badges</h3><div class="badges">${BADGES.map(([id, ic, name]) => `<div class="badge ${S.badges[id] ? "got" : ""}"><i>${ic}</i>${esc(name)}</div>`).join("")}</div></div>
     <div class="panel" id="goalPanel"><h3>Adjust goals for the day</h3><p class="small muted" style="margin:0 0 8px">How many questions do you want to do each day?</p><div class="row">${[15, 25, 40, 60].map(n => `<button class="btn small ${S.goal === n && !S.goalCustom ? "primary" : ""}" data-setgoal="${n}">${n} questions</button>`).join("")}<button class="btn small ${S.goalCustom ? "primary" : ""}" data-customgoal>Custom</button></div></div>
-    <div class="panel"><h3>Daily reminder</h3><p class="small muted" style="margin:0 0 8px">Pick a time and add a repeating reminder to your phone's calendar. It works even when the app is closed, and you can delete it from your calendar any time.</p>
-      <div class="row"><input type="time" id="remTime" value="${esc(S.remTime || "19:00")}" style="width:120px"><button class="btn small primary" data-reminder>Add to my calendar</button></div></div>
+    <div class="panel"><h3>Daily reminder</h3><p class="small muted" style="margin:0 0 8px">Pick a time, then add a reminder that repeats every day in your calendar. It works even when the app is closed, and you can delete it from your calendar any time.</p>
+      <div id="remBox">${remPickerHTML()}</div></div>
     <div class="panel" id="settingsPanel"><h3>Settings</h3>
       <label class="row small" for="soundChk"><input type="checkbox" id="soundChk" ${S.sound ? "checked" : ""}> Sound and vibration</label>
       <label class="row small" for="fanChk"><input type="checkbox" id="fanChk" ${S.fanfare ? "checked" : ""}> Level-up fanfare</label>
@@ -4478,7 +4563,7 @@ const startTab = urlTab === "exam" ? "exam" : exitedToday ? "me" : sameDay && ["
 S.exitedOn = null; save();
 if (exitedToday && startTab === "me") { go("me"); $("#view-me").scrollTop = 0; } else if (startTab !== "scroll") go(startTab);
 document.documentElement.removeAttribute("data-start");
-bankReady.finally(() => welcomeBack());
+bankReady.finally(() => { try { welcomeBack(); } catch (e) { showQbank(); throw e; } });
 /* ---------- Terms of Use: everyone (free or paid) accepts before using the app ---------- */
 // Bump TERMS_V when terms.html or privacy.html change in a material way: everyone is asked to accept again.
 const TERMS_V = "2026-11-08";
