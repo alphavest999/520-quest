@@ -1925,6 +1925,7 @@ function record(q, correct, secs) {
   const cs = S.cat[q.c] || (S.cat[q.c] = { a: 0, c: 0 }); cs.a++; if (correct) cs.c++;
   const sec = Math.min(600, Math.max(1, secs || 0)); cs.t = (cs.t || 0) + sec;
   const tl = S.tlog[todayKey()] || (S.tlog[todayKey()] = { n: 0, s: 0, c: 0 }); tl.n++; tl.s += sec; if (correct) tl.c++;
+  if (q.c) { const tc = (tl.cat = tl.cat || {})[q.c] || (tl.cat[q.c] = [0, 0]); tc[0]++; if (correct) tc[1]++; } // per-day topic counts for the owner dashboard
   S.today.secs.push(Math.round(sec)); if (S.today.secs.length > 300) S.today.secs.shift();
   if (!correct && !S.today.missed.includes(q.id)) S.today.missed.push(q.id);
   if (S.review && S.review.ids.includes(q.id) && !S.review.done.includes(q.id)) {
@@ -4080,6 +4081,9 @@ function openSheet(id, ret) {
     const doc = $(".sv-doc", v); doc.innerHTML = d.html + `<div class="sv-wm" style="background-image:${wmImage(mark)}"></div>`;
     $$("[data-wm]", doc).forEach(x => x.textContent = mark);
     addRecallChecks(doc, id);
+    const sbody = $(".sv-body", v), track = () => { const max = sbody.scrollHeight - sbody.clientHeight; sheetProg(id, max > 0 ? 100 * sbody.scrollTop / max : 100); };
+    sheetProg(id, 0); let tt = 0; const t0 = Date.now();
+    sbody.addEventListener("scroll", () => { if (Date.now() - t0 < 800) return; clearTimeout(tt); tt = setTimeout(track, 500); }, { passive: true }); // skip the jump back to a linked spot
     if (ret) {
       // Put the tapped link back where it was on screen (re-applied once layout settles).
       const body = $(".sv-body", v), links = $$(`.qref[data-q="${CSS.escape(ret.q)}"]`, doc);
@@ -4090,6 +4094,11 @@ function openSheet(id, ret) {
       if (link) { link.classList.add("flash"); setTimeout(() => link.classList.remove("flash"), 2100); }
     }
   }).catch(() => { $(".sv-doc", v).innerHTML = `<p>This sheet couldn't load. Check your connection and try again.</p>`; });
+}
+// How far each sheet has been read (furthest scroll point, in steps of 5%) and the last day it moved. Synced with progress for the owner dashboard.
+function sheetProg(id, p) {
+  const all = S.shp = S.shp || {}, r = all[id] || (all[id] = { p: 0 }), np = Math.max(r.p, Math.min(100, Math.floor(p / 5) * 5)), t = todayKey();
+  if (np === r.p && r.d === t) return; r.p = np; r.d = t; save();
 }
 function closeSheet() { const v = $("#sheetView"); v.hidden = true; v.innerHTML = ""; document.body.style.overflow = ""; }
 // Sheets still point at some questions that were retired from the bank; open a question from the same category instead of a dead link.
