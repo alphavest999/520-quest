@@ -108,7 +108,6 @@ async function signedIn(user) {
     const p = await sb.from("profiles").select("*").eq("id", user.id).single();
     if (p.error) throw p.error;
     ACCT.profile = p.data;
-    S.admin = isAdminEmail(user.email); if (S.admin) { S.pro = true; try{ save(); }catch(e){} }
     if (!reg.ok) { ACCT.state = "blocked"; ACCT.limit = reg.limit; refreshViews(); return deviceLimitSheet(); }
     applyPlan();
     acctTerms();
@@ -120,7 +119,6 @@ async function signedIn(user) {
 function signedOut() {
   ACCT.user = null; ACCT.profile = null; ACCT.state = SB_URL ? "out" : "off"; ACCT.key = null; lsSet(CK_STORE, null);
   if (S.proBy === "account") { S.pro = false; delete S.proBy; save(); }
-  dropEmailAdmin();
   refreshViews();
 }
 function refreshViews() {
@@ -135,17 +133,10 @@ function refreshViews() {
 const isAdmin = () => !!(ACCT.profile && ACCT.profile.is_admin);
 const isPaid = () => !!(ACCT.profile && (ACCT.profile.plan !== "free" || ACCT.profile.is_admin));
 const planName = p => (p && p.is_admin ? "Admin" : PLAN_NAME[(p || {}).plan] || "Free");
-const ADMIN_EMAILS = ["alphavest99@gmail.com"];
-const isAdminEmail = (email) => ADMIN_EMAILS.includes((email||"").toLowerCase());
 const fullAccess = () => isPaid() || !!S.admin; // every plan unlocks all sheets and mnemonics; so does the owner admin flag
 function applyPlan() {
   if (isPaid() && !S.pro) { S.pro = true; S.proBy = "account"; save(); document.querySelectorAll(".goldbtn[data-gocourse] small").forEach(x => { x.textContent = "Included in every plan"; }); toast(isAdmin() ? "<b>Admin access</b> is on: everything is unlocked." : `<b>${esc(PLAN_NAME[ACCT.profile.plan])}</b> is active on this device.`); }
   else if (!isPaid() && S.proBy === "account") { S.pro = false; delete S.proBy; save(); }
-}
-// The admin flag set from the sign-in email only counts while that account is signed in on this device.
-// (The local ?admin= path sets proBy "admin" and is left alone.)
-function dropEmailAdmin() {
-  if (S.admin && S.proBy !== "admin") { S.admin = false; if (S.proBy !== "account") S.pro = false; save(); }
 }
 /* ---------- paid content: sealed sheets and mnemonics ---------- */
 async function loadKey() {
@@ -193,7 +184,7 @@ window.acctWatchPlan = () => {
     try {
       const sb = await sbLoad(), p = await sb.from("profiles").select("*").eq("id", ACCT.user.id).single();
       if (!p.error && p.data && p.data.plan !== "free") { clearInterval(planWatch); ACCT.profile = p.data;
-    S.admin = isAdminEmail(ACCT.user.email); if (S.admin) { S.pro = true; try{ save(); }catch(e){} } applyPlan(); await loadKey(); refreshViews(); return; }
+    applyPlan(); await loadKey(); refreshViews(); return; }
     } catch (e) {}
     if (++n >= 30) { clearInterval(planWatch); toast("Your plan is taking longer than usual. Reopen the app in a minute, or contact support."); }
   }, 3000);
@@ -548,6 +539,5 @@ document.addEventListener("click", e => { if (e.target.closest("[data-admcat]") 
 (function initAccount() {
   if (ACCT.state === "off") return;
   const k = lsGet(CK_STORE); if (k) useKey(k);
-  if (!lsGet(SB_STORE)) dropEmailAdmin(); // no saved sign-in here: a leftover admin flag would only show locked sheets
   if (lsGet(SB_STORE)) sbLoad().then(sb => sb.auth.getSession()).then(r => { const u = r.data && r.data.session && r.data.session.user; if (u && (!ACCT.user || ACCT.user.id !== u.id)) signedIn(u); }).catch(() => {});
 })();
