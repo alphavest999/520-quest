@@ -473,6 +473,7 @@ a { color: var(--volt); }
 .scrim { position: absolute; inset: 0; background: color-mix(in srgb, var(--ink) 70%, transparent); display: grid; align-items: end; z-index: 20; }
 .sheet { background: var(--panel); border: 1px solid var(--line); border-radius: 22px 22px 0 0; padding: 20px 16px calc(20px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 12px; max-height: 88%; overflow-y: auto; animation: up .25s ease-out; }
 #qzBox { min-width: 0; } #qzBox .qzsel { width: 100%; max-width: 100%; text-overflow: ellipsis; }
+.cgsec [data-cgsubhost]:empty { display: none; } .cgsec { display: flex; flex-direction: column; gap: 6px; padding: 8px; border: 1px solid var(--line); border-radius: 12px; min-width: 0; } .cgsec .qzsel { width: 100%; max-width: 100%; text-overflow: ellipsis; }
 @keyframes up { from { transform: translateY(30px); opacity: 0; } }
 .sheet h2 { margin: 0; font: 700 24px/1.15 var(--display); text-wrap: balance; }
 /* Plans page: calm navy + mint, high-contrast text, one clear Continue button */
@@ -3795,23 +3796,47 @@ function goalDonePrompt(n) {
     }));
 }
 
-// Custom goal: pick a number, then which questions (mixed or one section).
+// Custom goal: pick a number, then which questions: mixed, a whole section, or one AAMC category (and concept) in it.
 const GOAL_SECS = [["ALL", "All / mixed questions"], ["BB", "Bio/Biochem questions"], ["CP", "Chem/Phys questions"], ["PS", "Psych/Soc questions"], ["CARS", "CARS questions"]];
-// Shared by the custom-goal sheet and the first-visit welcome sheet: read #cgN, set the section, start.
+// Free players see how many new free questions each category still has; empty ones are greyed out, so a pick never just repeats old questions.
+const cgFresh = code => QUESTIONS.filter(q => q.c === code && !exLocked(q) && !S.stats[q.id]).length;
+function cgCatOpts(sec) {
+  return `<option value="">All ${esc(SECTIONS[sec].name)} categories</option>` + CATS.filter(c => c[2] === sec).map(([code, title]) => {
+    const n = S.pro || sec === "CARS" ? -1 : Math.min(cgFresh(code), Math.max(0, CONFIG.freeQuestions - seenCount()));
+    return `<option value="${esc(code)}"${n === 0 ? " disabled" : ""}>${esc(code)} · ${esc(title)}${n >= 0 ? ` (${n} new free)` : ""}</option>`;
+  }).join("");
+}
+// Shared by the custom-goal sheet and the first-visit welcome sheet: read #cgN, set the section (and category/concept), start.
 function pickGoalSec(b, s) {
   const n = Math.round(+$("#cgN", s).value);
   if (!(n >= 1 && n <= 300)) return toast("Pick a number from 1 to 300.");
-  S.goalCustom = true; S.filter = b.dataset.cgsec; S.focus = null; S.sub = null; S.review = null;
-  setGoal(n); toast(`Today: <b>${n} ${b.dataset.cgsec === "ALL" ? "mixed" : esc(SECTIONS[b.dataset.cgsec].name)} questions</b>.`);
+  const sec = b.dataset.cgsec, box = b.closest(".cgsec"), cat = box && $("[data-cgcat]", box) ? $("[data-cgcat]", box).value : "";
+  const sub = cat && box && $("[data-cgsub]", box) ? $("[data-cgsub]", box).value : "";
+  S.goalCustom = true; S.filter = sec; S.focus = cat && CAT[cat] ? cat : null; S.sub = S.focus && sub ? sub : null; S.kind = null; S.mapSub = null; S.review = null; S.weakDrill = false;
+  const subLbl = S.sub ? ((SUBT[cat] || []).find(x => x.id === S.sub) || {}).label || "" : "";
+  setGoal(n); toast(`Today: <b>${n} ${sec === "ALL" ? "mixed" : S.focus ? esc(cat) + (subLbl ? " · " + esc(subLbl) : "") : esc(SECTIONS[sec].name)} questions</b>.${S.focus ? " Clear the Drilling chip to go back to the mix." : ""}`);
 }
 function customGoal() {
   sheet(`<div class="eyebrow">Custom goal</div><h2>How many questions today?</h2>
     <input id="cgN" type="number" inputmode="numeric" min="1" max="300" value="${S.goal}" aria-label="Number of questions" style="font-size:20px;padding:12px;border-radius:12px;border:2px solid var(--line);width:100%;box-sizing:border-box">
-    <p class="small muted" style="margin:6px 0 0">Then pick which questions:</p>
-    <div class="stack">${GOAL_SECS.map(([k, n]) => `<button class="btn ${k === "ALL" ? "primary" : ""}" data-cgsec="${k}">${n}</button>`).join("")}</div>`,
-    s => s.addEventListener("click", e => {
-      const b = e.target.closest("[data-cgsec]"); if (b) pickGoalSec(b, s);
-    }));
+    <p class="small muted" style="margin:6px 0 0">Then pick which questions. To target one concept, choose an AAMC category under a section first.</p>
+    <div class="stack">${GOAL_SECS.map(([k, n]) => k === "ALL" ? `<button class="btn primary" data-cgsec="ALL">${n}</button>`
+      : `<div class="cgsec"><select class="qzsel" data-cgcat aria-label="${esc(SECTIONS[k].name)} AAMC category">${cgCatOpts(k)}</select><div data-cgsubhost></div><button class="btn" data-cgsec="${k}" data-cglbl="${esc(n)}">${n}</button></div>`).join("")}</div>`,
+    s => {
+      s.addEventListener("click", e => { const b = e.target.closest("[data-cgsec]"); if (b) pickGoalSec(b, s); });
+      // Picking a category relabels that section's button and, when the category has concepts, offers them in a second list.
+      s.addEventListener("change", e => {
+        const box = e.target.closest(".cgsec"); if (!box) return;
+        const cat = $("[data-cgcat]", box).value, btn = $("[data-cgsec]", box), host = $("[data-cgsubhost]", box);
+        if (e.target.matches("[data-cgcat]")) {
+          const subs = cat && SUBT[cat] ? subCounts(cat) : [];
+          host.innerHTML = subs.length > 1 ? `<select class="qzsel" data-cgsub aria-label="${esc(cat)} concept"><option value="">All of ${esc(cat)}</option>${subs.map(o => `<option value="${esc(o.id)}">${esc(o.label)}${S.pro ? " · " + o.n : ""}</option>`).join("")}</select>` : "";
+        }
+        const sub = $("[data-cgsub]", box), sl = sub && sub.value ? sub.options[sub.selectedIndex].text.replace(/ · \d+$/, "") : "";
+        btn.textContent = cat ? `Start ${cat}${sl ? " · " + sl : ""} questions` : btn.dataset.cglbl;
+        btn.classList.toggle("primary", !!cat);
+      });
+    });
 }
 function share() {
   const txt = `Level ${S.lv.level} (${tierName(S.lv.level)}) and a ${streakAlive()}-day streak in 520 Quest. MCAT game${CONFIG.appUrl ? ": " + CONFIG.appUrl : ""}`;
