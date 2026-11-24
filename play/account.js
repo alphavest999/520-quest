@@ -58,10 +58,10 @@ function signIn(why) {
   sbLoad().catch(() => toast("Couldn't reach the sign-in server. Check your connection and try again."));
   sheet(`<div class="eyebrow">${esc(why || "Account")}</div><h2>Sign in with your email</h2>
     <p class="muted">We'll email you a code. Your progress saves to your account and follows you to your other devices. No password needed.</p>
-    <label class="field" for="acEmail">Email<input type="email" id="acEmail" autocomplete="email" inputmode="email" placeholder="you@example.com"></label>
-    <div class="row"><button class="btn primary" data-acsend>Email me a code</button><button class="btn ghost" data-close>Not now</button></div><p class="small muted" id="acMsg"></p>
+    <label class="field" for="fld-a">Email<input type="email" id="fld-a" autocomplete="email" inputmode="email" placeholder="you@example.com"></label>
+    <div class="row"><button class="btn primary" data-acsend>Email me a code</button><button class="btn ghost" data-close>Not now</button></div><p class="small muted" id="fld-m"></p>
     <p class="small muted" style="margin:0">By signing in you agree to the <a href="../terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="../privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>`, s => {
-    const msg = $("#acMsg", s), input = $("#acEmail", s);
+    const msg = $("#fld-m", s), input = $("#fld-a", s);
     const send = async () => {
       const email = input.value.trim().toLowerCase();
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = "Enter your email address."; return; }
@@ -81,9 +81,9 @@ function signIn(why) {
 }
 function codeStep(s, email) {
   s.innerHTML = `<div class="eyebrow">Check your email</div><h2>Enter the code</h2><p class="muted">We sent a code to <b>${esc(email)}</b>. It can take a minute; check spam too.</p>
-    <label class="field" for="acCode">Code<input type="text" id="acCode" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="123456"></label>
-    <div class="row"><button class="btn primary" data-acverify>Sign in</button><button class="btn ghost" data-close>Cancel</button></div><p class="small muted" id="acMsg"></p>`;
-  const msg = $("#acMsg", s), input = $("#acCode", s);
+    <label class="field" for="fld-b">Code<input type="text" id="fld-b" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="123456"></label>
+    <div class="row"><button class="btn primary" data-acverify>Sign in</button><button class="btn ghost" data-close>Cancel</button></div><p class="small muted" id="fld-m"></p>`;
+  const msg = $("#fld-m", s), input = $("#fld-b", s);
   const verify = async () => {
     const token = input.value.replace(/\D/g, "");
     if (token.length < 6) { msg.textContent = "Enter the code from the email."; return; }
@@ -164,7 +164,7 @@ window.acctHasKey = () => !!ACCT.key;
 // Why a paid or admin user has no key on this device, and what to tap. Also retries the key once when signed in.
 window.acctKeyHelp = () => {
   if (ACCT.state === "blocked") return { title: "This device is over the limit", line: "Your account is already on " + ACCT.limit + " devices. Remove an old one in Manage devices to open sheets here.", btn: '<button class="btn primary" data-close data-acdevices>Manage devices</button>' };
-  if (ACCT.state !== "in") return { title: "Sign in to open this", line: "Your plan lives on your account. Sign in with your email on this device to open every sheet and mnemonic.", btn: '<button class="btn primary js-auth" data-close>Sign in with email</button>' };
+  if (ACCT.state !== "in") return { title: "Sign in to open this", line: "Your plan lives on your account. Sign in with your email on this device to open every sheet and mnemonic.", btn: '<button class="btn primary js-auth" data-close>Continue</button>' };
   loadKey();
   return { title: "Still unlocking", line: "Your plan is active but this device hasn't received its unlock yet. Wait a few seconds and try again. If it keeps happening, sign out and back in.", btn: "" };
 };
@@ -256,7 +256,7 @@ function deviceLimitSheet() {
 /* ---------- Me tab panel ---------- */
 window.acctPanelHTML = () => {
   if (ACCT.state === "off") return "";
-  if (ACCT.state === "out") return `<div class="panel"><h3>Account</h3><p class="small">Sign in to save your progress and keep it in sync: 1 device on the free plan, up to 3 with any plan.</p><div class="row"><button class="btn primary small js-auth">Sign in with email</button><button class="btn small exitred" data-exit>Exit</button></div></div>`;
+  if (ACCT.state === "out") return `<div class="panel"><h3>Account</h3><p class="small">Sign in to save your progress and keep it in sync: 1 device on the free plan, up to 3 with any plan.</p><div class="row"><button class="btn primary small js-auth">Continue</button><button class="btn small exitred" data-exit>Exit</button></div></div>`;
   const p = ACCT.profile || {}, email = (ACCT.user && ACCT.user.email) || "";
   return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Account</h3><span class="tag sec">${esc(planName(p))}</span></div>
     <p class="small" style="overflow-wrap:anywhere">${esc(email)}</p>
