@@ -5,3 +5,10 @@ node_modules
 dist
 play/admin-private.json
 admin-private.json
+
+# Graphify - keep graph.json + report, ignore cache/backups
+graphify-out/cache/
+graphify-out/2026-*/
+graphify-out/*.bak
+*.bak
+graphify-out/
