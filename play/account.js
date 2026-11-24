@@ -56,10 +56,10 @@ function signIn(why) {
   if (ACCT.state === "off") return toast("Accounts aren't available yet.");
   if (!navigator.onLine) return toast("Connect to the internet to sign in.");
   sbLoad().catch(() => toast("Couldn't reach the sign-in server. Check your connection and try again."));
-  sheet(`<div class="eyebrow">${esc(why || "Account")}</div><h2>Sign in with your email</h2>
+  sheet(`<div class="eyebrow">${esc(why || "Account")}</div><h2>Continue with your email</h2>
     <p class="muted">We'll email you a code. Your progress saves to your account and follows you to your other devices. No password needed.</p>
     <label class="field" for="fld-a">Email<input type="email" id="fld-a" autocomplete="email" inputmode="email" placeholder="you@example.com"></label>
-    <div class="row"><button class="btn primary" data-acsend>Email me a code</button><button class="btn ghost" data-close>Not now</button></div><p class="small muted" id="fld-m"></p>
+    <div class="row"><button class="btn primary js-send">Email me a code</button><button class="btn ghost" data-close>Not now</button></div><p class="small muted" id="fld-m"></p>
     <p class="small muted" style="margin:0">By signing in you agree to the <a href="../terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="../privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>`, s => {
     const msg = $("#fld-m", s), input = $("#fld-a", s);
     const send = async () => {
@@ -74,7 +74,7 @@ function signIn(why) {
         msg.textContent = /rate|limit|security purposes/i.test(errText(e)) ? "Too many codes were sent just now. Wait a minute, then try again." : "Couldn't send the code. Check the address and your connection, then try again.";
       }
     };
-    $("[data-acsend]", s).addEventListener("click", send);
+    $(".js-send", s).addEventListener("click", send);
     input.addEventListener("keydown", e => { if (e.key === "Enter") send(); });
     input.focus();
   });
@@ -82,7 +82,7 @@ function signIn(why) {
 function codeStep(s, email) {
   s.innerHTML = `<div class="eyebrow">Check your email</div><h2>Enter the code</h2><p class="muted">We sent a code to <b>${esc(email)}</b>. It can take a minute; check spam too.</p>
     <label class="field" for="fld-b">Code<input type="text" id="fld-b" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="123456"></label>
-    <div class="row"><button class="btn primary" data-acverify>Sign in</button><button class="btn ghost" data-close>Cancel</button></div><p class="small muted" id="fld-m"></p>`;
+    <div class="row"><button class="btn primary js-verify">Continue</button><button class="btn ghost" data-close>Cancel</button></div><p class="small muted" id="fld-m"></p>`;
   const msg = $("#fld-m", s), input = $("#fld-b", s);
   const verify = async () => {
     const token = input.value.replace(/\D/g, "");
@@ -96,7 +96,7 @@ function codeStep(s, email) {
       if (r.data && r.data.user) signedIn(r.data.user);
     } catch (e) { msg.textContent = /expired/i.test(errText(e)) ? "That code expired. Close this and send a new one." : "That code didn't work. Check it and try again."; }
   };
-  $("[data-acverify]", s).addEventListener("click", verify);
+  $(".js-verify", s).addEventListener("click", verify);
   input.addEventListener("keydown", e => { if (e.key === "Enter") verify(); });
   input.focus();
 }
@@ -163,8 +163,8 @@ function unsealMnemonics() {
 window.acctHasKey = () => !!ACCT.key;
 // Why a paid or admin user has no key on this device, and what to tap. Also retries the key once when signed in.
 window.acctKeyHelp = () => {
-  if (ACCT.state === "blocked") return { title: "This device is over the limit", line: "Your account is already on " + ACCT.limit + " devices. Remove an old one in Manage devices to open sheets here.", btn: '<button class="btn primary" data-close data-acdevices>Manage devices</button>' };
-  if (ACCT.state !== "in") return { title: "Sign in to open this", line: "Your plan lives on your account. Sign in with your email on this device to open every sheet and mnemonic.", btn: '<button class="btn primary js-auth" data-close>Continue</button>' };
+  if (ACCT.state === "blocked") return { title: "This device is over the limit", line: "Your account is already on " + ACCT.limit + " devices. Remove an old one in Manage devices to open sheets here.", btn: '<button class="btn primary js-devices" data-close>Manage devices</button>' };
+  if (ACCT.state !== "in") return { title: "Continue to open this", line: "Your plan lives on your account. Continue with your email on this device to open every sheet and mnemonic.", btn: '<button class="btn primary js-auth" data-close>Continue</button>' };
   loadKey();
   return { title: "Still unlocking", line: "Your plan is active but this device hasn't received its unlock yet. Wait a few seconds and try again. If it keeps happening, sign out and back in.", btn: "" };
 };
@@ -177,7 +177,7 @@ window.acctUnsealZ = async buf => {
 // After a checkout succeeds, the webhook sets the plan a moment later: check the profile every 3 s for up to 90 s.
 let planWatch = null;
 window.acctWatchPlan = () => {
-  if (ACCT.state !== "in") { toast("<b>Payment received.</b> Sign in with the same email in the Me tab to unlock your plan."); return; }
+  if (ACCT.state !== "in") { toast("<b>Payment received.</b> Continue with the same email in the Me tab to unlock your plan."); return; }
   clearInterval(planWatch); let n = 0;
   toast("<b>Payment received.</b> Activating your plan…", 6000);
   planWatch = setInterval(async () => {
@@ -250,18 +250,18 @@ async function devicesSheet() {
 function deviceLimitSheet() {
   sheet(`<div class="eyebrow">Device limit</div><h2>Your account is on ${ACCT.limit} device${ACCT.limit === 1 ? "" : "s"} already</h2>
     <p class="muted">${ACCT.limit === 1 ? "Free accounts sync to 1 device; any paid plan works on 3." : "Your plan works on 3 devices at a time."} Remove an old device to use this one, or keep playing here without syncing.</p>
-    <div class="row"><button class="btn primary" data-acdevices>Manage devices</button><button class="btn ghost" data-acout>Sign out here</button></div>`);
+    <div class="row"><button class="btn primary js-devices">Manage devices</button><button class="btn ghost js-out">Exit here</button></div>`);
 }
 
 /* ---------- Me tab panel ---------- */
 window.acctPanelHTML = () => {
   if (ACCT.state === "off") return "";
-  if (ACCT.state === "out") return `<div class="panel"><h3>Account</h3><p class="small">Sign in to save your progress and keep it in sync: 1 device on the free plan, up to 3 with any plan.</p><div class="row"><button class="btn primary small js-auth">Continue</button><button class="btn small exitred" data-exit>Exit</button></div></div>`;
+  if (ACCT.state === "out") return `<div class="panel"><h3>Account</h3><p class="small">Continue to save your progress and keep it in sync: 1 device on the free plan, up to 3 with any plan.</p><div class="row"><button class="btn primary small js-auth">Continue</button><button class="btn small exitred" data-exit>Exit</button></div></div>`;
   const p = ACCT.profile || {}, email = (ACCT.user && ACCT.user.email) || "";
   return `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><h3>Account</h3><span class="tag sec">${esc(planName(p))}</span></div>
     <p class="small" style="overflow-wrap:anywhere">${esc(email)}</p>
     ${ACCT.state === "blocked" ? `<p class="small" style="color:var(--bad)">This device isn't syncing: your account is already on ${ACCT.limit} device${ACCT.limit === 1 ? "" : "s"}.</p>` : `<p class="small muted">${ACCT.synced ? "Progress saved to your account " + new Date(ACCT.synced).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) + "." : "Progress saves to your account after each question."}${fullAccess() ? " All Mastery Sheets and mnemonics are unlocked." : ""}</p>`}
-    <div class="row"><button class="btn small" data-acdevices>Manage devices</button><button class="btn small ghost" data-acout>Sign out</button><button class="btn small exitred" data-exit>Exit without signing out</button></div></div>${isAdmin() ? adminPanelHTML() : ""}`;
+    <div class="row"><button class="btn small js-devices">Manage devices</button><button class="btn small ghost js-out">Exit</button><button class="btn small exitred" data-exit>Exit without continuing</button></div></div>${isAdmin() ? adminPanelHTML() : ""}`;
 };
 /* ---------- owner admin tools (only for an account with is_admin) ---------- */
 function adminPanelHTML() {
@@ -289,8 +289,8 @@ async function signOut() {
 document.addEventListener("click", async e => {
   const t = e.target;
   if (t.closest(".js-auth")) return signIn();
-  if (t.closest("[data-acout]")) return signOut();
-  if (t.closest("[data-acdevices]")) return devicesSheet();
+  if (t.closest(".js-out")) return signOut();
+  if (t.closest(".js-devices")) return devicesSheet();
 });
 
 /* ---------- question stats: the real percent of students who get each question right ---------- */
